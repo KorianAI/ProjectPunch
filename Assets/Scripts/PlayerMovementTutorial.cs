@@ -2,19 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class PlayerMovementTutorial : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
-
     public float groundDrag;
-
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
-
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
 
@@ -27,13 +25,28 @@ public class PlayerMovementTutorial : MonoBehaviour
     bool grounded;
 
     public Transform orientation;
-
     float horizontalInput;
     float verticalInput;
-
     Vector3 moveDirection;
 
     Rigidbody rb;
+    public AnimationHandler animHandler;
+    public string idleAnim;
+    public string walkAnim;
+
+    [Header("Inputs")]
+    public InputActionReference move;
+    public InputActionReference jump;
+
+    private void OnEnable()
+    {
+        jump.action.performed += JumpInput;
+    }
+
+    private void OnDisable()
+    {
+        jump.action.performed -= JumpInput;
+    }
 
     private void Start()
     {
@@ -48,7 +61,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
 
-        MyInput();
+        MovementInput();
         SpeedControl();
 
         // handle drag
@@ -63,13 +76,29 @@ public class PlayerMovementTutorial : MonoBehaviour
         MovePlayer();
     }
 
-    private void MyInput()
+    private void MovementInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        Vector2 movementInput = move.action.ReadValue<Vector2>();
+
+        horizontalInput = movementInput.x;
+        verticalInput = movementInput.y;
+
+        if (movementInput == Vector2.zero)
+        {
+            animHandler.ChangeAnimationState(idleAnim);
+        }
+
+        else
+        {
+            animHandler.ChangeAnimationState(walkAnim);
+        }
+    }
+
+    public void JumpInput(InputAction.CallbackContext obj)
+    {
 
         // when to jump
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        if (readyToJump && grounded)
         {
             readyToJump = false;
 
