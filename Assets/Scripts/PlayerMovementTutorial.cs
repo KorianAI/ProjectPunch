@@ -33,19 +33,28 @@ public class PlayerMovementTutorial : MonoBehaviour
     public AnimationHandler animHandler;
     public string idleAnim;
     public string walkAnim;
+    public string attackAnim;
 
     [Header("Inputs")]
     public InputActionReference move;
     public InputActionReference jump;
+    public InputActionReference attack;
 
     private void OnEnable()
     {
         jump.action.performed += JumpInput;
+        attack.action.performed += Attack;
     }
 
     private void OnDisable()
     {
         jump.action.performed -= JumpInput;
+        attack.action.performed -= Attack;
+    }
+
+    void Attack(InputAction.CallbackContext obj)
+    {
+        animHandler.ChangeAnimationState(attackAnim);
     }
 
     private void Start()
