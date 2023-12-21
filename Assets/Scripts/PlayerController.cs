@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 
-public class PlayerMovementTutorial : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
@@ -15,9 +15,6 @@ public class PlayerMovementTutorial : MonoBehaviour
     bool readyToJump;
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
-
-    [Header("Keybinds")]
-    public KeyCode jumpKey = KeyCode.Space;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -38,24 +35,17 @@ public class PlayerMovementTutorial : MonoBehaviour
     [Header("Inputs")]
     public InputActionReference move;
     public InputActionReference jump;
-    public InputActionReference attack;
 
     private void OnEnable()
     {
         jump.action.performed += JumpInput;
-        attack.action.performed += Attack;
     }
 
     private void OnDisable()
     {
         jump.action.performed -= JumpInput;
-        attack.action.performed -= Attack;
     }
 
-    void Attack(InputAction.CallbackContext obj)
-    {
-        animHandler.ChangeAnimationState(attackAnim);
-    }
 
     private void Start()
     {
@@ -94,7 +84,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
         if (movementInput == Vector2.zero)
         {
-            animHandler.ChangeAnimationState(idleAnim);
+           animHandler.ChangeAnimationState(idleAnim);
         }
 
         else
