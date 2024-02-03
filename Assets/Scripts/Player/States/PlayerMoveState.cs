@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMoveState : PlayerState
 {
     public override void EnterState(PlayerStateManager player)
     {
-
+        player.animHandler.ChangeAnimationState("PlayerWalk");
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -22,11 +23,18 @@ public class PlayerMoveState : PlayerState
         MovementInput(player);
         SpeedControl(player);
 
+        if (player.move.action.ReadValue<Vector2>() == Vector2.zero)
+        {
+            player.SwitchState(player.idleState);
+        }
+
         // handle drag
         if (player.grounded)
             player.rb.drag = player.groundDrag;
         else
             player.rb.drag = 0;
+
+
     }
 
     public override void PhysicsUpdate(PlayerStateManager player)

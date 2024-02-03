@@ -5664,7 +5664,6 @@ GameObject:
   - component: {fileID: 433270398}
   - component: {fileID: 433270399}
   - component: {fileID: 433270400}
-  - component: {fileID: 433270401}
   - component: {fileID: 433270403}
   m_Layer: 0
   m_Name: Player
@@ -5788,7 +5787,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: b20f5b2f3551af547bcbf0616867b259, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -5809,23 +5808,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 433270399}
   currentState: 
---- !u!114 &433270401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433270390}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9b2fd63b8765894396388278942c34c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightAttack: {fileID: -2437952188547668174, guid: bb71729d126c7504da922e6c1e99a3f3, type: 3}
-  heavyAttack: {fileID: -1407651614734905357, guid: bb71729d126c7504da922e6c1e99a3f3, type: 3}
-  lightAttackAnimation: PlayerLightAttack
-  heavyAttackAnimation: PlayerHeavyAttack
-  animator: {fileID: 433270399}
 --- !u!114 &433270403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5840,10 +5822,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 433270396}
   movement: {fileID: 0}
+  anim: {fileID: 433270399}
   move: {fileID: -4545462013602576153, guid: bb71729d126c7504da922e6c1e99a3f3, type: 3}
   jump: {fileID: 3777841272290663292, guid: bb71729d126c7504da922e6c1e99a3f3, type: 3}
   lightAttack: {fileID: -2437952188547668174, guid: bb71729d126c7504da922e6c1e99a3f3, type: 3}
   heavyAttack: {fileID: -1407651614734905357, guid: bb71729d126c7504da922e6c1e99a3f3, type: 3}
+  canAttack: 1
   moveSpeed: 7
   groundDrag: 4
   jumpForce: 12
@@ -6011,7 +5995,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629691977}
-  m_LocalRotation: {x: 0.16018224, y: -0.000000004252742, z: 6.9012535e-10, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018222, y: -0.000000025470568, z: 0.0000000041333035, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7568,7 +7552,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653536716}
-  m_LocalRotation: {x: 0.114129744, y: -0.000000004273488, z: 4.909399e-10, w: 0.9934659}
+  m_LocalRotation: {x: 0.114129744, y: 0.0000000042734882, z: -4.9093996e-10, w: 0.9934659}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
