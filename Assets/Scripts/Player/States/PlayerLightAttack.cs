@@ -12,7 +12,7 @@ public class PlayerLightAttack : PlayerState
 
     public override void ExitState(PlayerStateManager player)
     {
-        Debug.Log("Bruh");
+        
     }
 
     public override void FrameUpdate(PlayerStateManager player)

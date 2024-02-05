@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -18,6 +19,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerLightAttack lightAttackState = new PlayerLightAttack();
     public PlayerHeavyAttack heavyAttackState = new PlayerHeavyAttack();
     public PlayerAirState inAirState = new PlayerAirState();
+    public PlayerPullState pullState = new PlayerPullState();
 
     [Header("MovementInputs")]
     public InputActionReference move;
@@ -26,6 +28,8 @@ public class PlayerStateManager : MonoBehaviour
     [Header("CombatInputs")]
     public InputActionReference lightAttack;
     public InputActionReference heavyAttack;
+    public InputActionReference pull;
+    public InputActionReference push;
     public bool canAttack;
 
     [Header("Movement")]
@@ -53,6 +57,8 @@ public class PlayerStateManager : MonoBehaviour
     public string attackAnim;
 
     public DebugState debugState;
+    public TargetLock lockOn;
+    public Transform pullPosition;
 
     public enum DebugState
     {
@@ -68,6 +74,7 @@ public class PlayerStateManager : MonoBehaviour
         lightAttack.action.performed += LightAttack;
         heavyAttack.action.performed += HeavyAttack;
         jump.action.performed += Jump;
+        pull.action.performed += Pull;
     }
 
     private void OnDisable()
@@ -75,6 +82,7 @@ public class PlayerStateManager : MonoBehaviour
         lightAttack.action.performed -= LightAttack;
         heavyAttack.action.performed -= HeavyAttack;
         jump.action.performed -= Jump;
+        pull.action.performed -= Pull;
     }
     private void Start()
     {
@@ -90,6 +98,7 @@ public class PlayerStateManager : MonoBehaviour
     private void Update()
     {
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+        Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.3f));
 
         currentState.FrameUpdate(this);
 
@@ -131,11 +140,11 @@ public class PlayerStateManager : MonoBehaviour
 
     public void SwitchState(PlayerState state)
     {
-        Debug.Log("Came from: " + state);
+       // Debug.Log("Came from: " + state);
         currentState.ExitState(this);
         currentState = state;
         state.EnterState(this);
-        Debug.Log("Entered: " + state);
+        //Debug.Log("Entered: " + state);
     }
 
     public void LightAttack(InputAction.CallbackContext obj)
@@ -144,6 +153,7 @@ public class PlayerStateManager : MonoBehaviour
         {
             if (canAttack)
             {
+                RotateToTarget();
                 SwitchState(lightAttackState);
             }
         }
@@ -154,20 +164,39 @@ public class PlayerStateManager : MonoBehaviour
         {
             if (canAttack)
             {
+                RotateToTarget();
                 SwitchState(heavyAttackState);
             }
         }
+    }
+
+    public void Pull(InputAction.CallbackContext obj)
+    {
+        if (canAttack && lockOn.currentTarget != null)
+        {
+            RotateToTarget();
+            SwitchState(pullState);
+        }
+        
     }
 
     public void Jump(InputAction.CallbackContext obj)
     {
         if (readyToJump && grounded)
         {
-            
 
+            animHandler.ChangeAnimationState("PlayerJumpStart");
             SwitchState(inAirState);
 
             Invoke(nameof(ResetJump), jumpCooldown);
+        }
+    }
+
+    public void RotateToTarget()
+    {
+        if (lockOn.currentTarget != null)
+        {
+            transform.DOLookAt(orientation.forward, .1f);
         }
     }
 
@@ -181,6 +210,17 @@ public class PlayerStateManager : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    public void LandAnim()
+    {
+        animHandler.ChangeAnimationState("PlayerLand");
+        Invoke("Land", anim.GetCurrentAnimatorStateInfo(0).length);
+    }
+
+    public void Land()
+    {
+        SwitchState(idleState);
     }
 
 }
