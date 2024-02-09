@@ -1005,6 +1005,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.35263157
+        functionName: CheckForEnemies
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 881fdbf98fc0ee84ea6a2925fc4a8e9d, type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
       - time: 0.70341206
         functionName: ResetAttack
         data: 

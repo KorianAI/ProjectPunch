@@ -31,6 +31,10 @@ public class PlayerStateManager : MonoBehaviour
     public InputActionReference pull;
     public InputActionReference push;
     public bool canAttack;
+    public Transform attackPoint;
+    public LayerMask enemyLayer;
+    public float attackRange;
+    public float attackDamage;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -59,6 +63,13 @@ public class PlayerStateManager : MonoBehaviour
     public DebugState debugState;
     public TargetLock lockOn;
     public Transform pullPosition;
+
+    public static PlayerStateManager instance;
+    public PlayerResources resources;
+
+    private void Awake()
+    {
+    }
 
     public enum DebugState
     {
@@ -221,6 +232,22 @@ public class PlayerStateManager : MonoBehaviour
     public void Land()
     {
         SwitchState(idleState);
+    }
+
+    public void CheckForEnemies()
+    {
+        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
+        foreach (Collider c in enemies)
+        {
+            c.GetComponent<IDamageable>().TakeDamage(attackDamage);
+            return;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
 }
