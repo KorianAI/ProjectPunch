@@ -45,6 +45,7 @@ public class PlayerStateManager : MonoBehaviour
     public bool readyToJump;
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
+    public Vector3 velocity;
 
     public Transform orientation;
     public float horizontalInput;
@@ -55,7 +56,7 @@ public class PlayerStateManager : MonoBehaviour
     [Header("Grav")]
     [SerializeField] private float gravMultiplier = 3.0f;
     private float gravity = -0.91f;   
-    private float yVelocity;
+    public float yVelocity;
     public bool grounded;
 
     public DebugState debugState;
@@ -101,16 +102,22 @@ public class PlayerStateManager : MonoBehaviour
 
     private void Update()
     {
-       grounded = IsGrounded();
+        grounded = IsGrounded();
+        ApplyGravity();
 
         currentState.FrameUpdate(this);
 
         ShowDebugState();
     }
 
-    public void MovementDirection()
+    public void MovementInput()
     {
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        Vector2 movementInput = move.action.ReadValue<Vector2>();
+
+        horizontalInput = movementInput.x;
+        verticalInput = movementInput.y;
+
+        velocity = moveDirection * moveSpeed + Vector3.up * yVelocity;
     }
 
     public void ApplyGravity()
@@ -125,7 +132,7 @@ public class PlayerStateManager : MonoBehaviour
             yVelocity += gravity * gravMultiplier * Time.deltaTime;
         }
         
-        moveDirection.y = yVelocity;
+        
             
     }
 

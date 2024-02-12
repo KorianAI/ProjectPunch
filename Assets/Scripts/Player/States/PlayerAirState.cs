@@ -11,19 +11,12 @@ public class PlayerAirState : PlayerState
     public override void EnterState(PlayerStateManager player)
     {
         _player = player;
-
-        player.readyToJump = false;
-
-        player.animHandler.ChangeAnimationState("PlayerInAir");
-
-        //player.playerHeight /= 2;
-      
-
+        player.readyToJump = false;     
     }
 
     public override void ExitState(PlayerStateManager player)
     {
-        //player.playerHeight *= 2;
+        
       
     }
 
@@ -33,13 +26,15 @@ public class PlayerAirState : PlayerState
         {
             player.SwitchState(player.moveState);
         }
+
+        
     }
 
 
 
     public override void PhysicsUpdate(PlayerStateManager player)
     {
-        
+        player.controller.SimpleMove(player.velocity);
     }
 
 }
