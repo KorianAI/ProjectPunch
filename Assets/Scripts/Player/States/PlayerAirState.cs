@@ -29,10 +29,10 @@ public class PlayerAirState : PlayerState
 
     public override void FrameUpdate(PlayerStateManager player)
     {
-        player.ApplyGravity();
-        player.MovementDirection();
-        
-        player.controller.Move(player.moveDirection * player.moveSpeed * Time.deltaTime);
+        if (player.IsGrounded())
+        {
+            player.SwitchState(player.moveState);
+        }
     }
 
 

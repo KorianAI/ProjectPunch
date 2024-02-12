@@ -169,12 +169,15 @@ public class PlayerStateManager : MonoBehaviour
 
     public void SwitchState(PlayerState state)
     {
-       // Debug.Log("Came from: " + state);
+        Debug.Log("Came from: " + state);
         currentState.ExitState(this);
         currentState = state;
         state.EnterState(this);
-        //Debug.Log("Entered: " + state);
+        Debug.Log("Entered: " + state);
     }
+
+    #region Combat
+
 
     public void LightAttack(InputAction.CallbackContext obj)
     {
@@ -209,18 +212,6 @@ public class PlayerStateManager : MonoBehaviour
         
     }
 
-    public void Jump(InputAction.CallbackContext obj)
-    {
-        if (readyToJump && IsGrounded())
-        {
-
-            animHandler.ChangeAnimationState("PlayerJumpStart");
-            SwitchState(inAirState);
-
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
-    }
-
     public void RotateToTarget()
     {
         if (lockOn.currentTarget != null)
@@ -234,6 +225,30 @@ public class PlayerStateManager : MonoBehaviour
         canAttack = true;
         Debug.Log(attackNumber);
         SwitchState(moveState);
+    }
+
+    public void CheckForEnemies()
+    {
+        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
+        foreach (Collider c in enemies)
+        {
+            c.GetComponent<IDamageable>().TakeDamage(attackDamage);
+            return;
+        }
+    }
+    #endregion
+
+    #region Jumping
+    public void Jump(InputAction.CallbackContext obj)
+    {
+        if (readyToJump && IsGrounded())
+        {
+
+            animHandler.ChangeAnimationState("PlayerJumpStart");
+            SwitchState(inAirState);
+
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
     }
 
     private void ResetJump()
@@ -251,16 +266,8 @@ public class PlayerStateManager : MonoBehaviour
     {
         SwitchState(idleState);
     }
+    #endregion
 
-    public void CheckForEnemies()
-    {
-        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
-        foreach (Collider c in enemies)
-        {
-            c.GetComponent<IDamageable>().TakeDamage(attackDamage);
-            return;
-        }
-    }
 
     private void OnDrawGizmos()
     {
