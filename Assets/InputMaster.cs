@@ -141,7 +141,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Left Stick"",
                     ""id"": ""d4f5bf9a-5787-44a8-8095-bf558064cfbf"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
