@@ -18,21 +18,15 @@ public class PlayerMoveState : PlayerState
     public override void FrameUpdate(PlayerStateManager player)
     {
         // ground check
-        player.grounded = Physics.Raycast(player.transform.position, Vector3.down, player.playerHeight * 0.5f + 0.3f, player.whatIsGround);
+        // player.grounded = Physics.Raycast(player.transform.position, Vector3.down, player.playerHeight * 0.5f + 0.3f, player.whatIsGround);
 
         MovementInput(player);
-        SpeedControl(player);
+        //SpeedControl(player);
 
         if (player.move.action.ReadValue<Vector2>() == Vector2.zero)
         {
             player.SwitchState(player.idleState);
         }
-
-        // handle drag
-        if (player.grounded)
-            player.rb.drag = player.groundDrag;
-        else
-            player.rb.drag = 0;
 
 
     }
@@ -48,16 +42,6 @@ public class PlayerMoveState : PlayerState
 
         player.horizontalInput = movementInput.x;
         player.verticalInput = movementInput.y;
-
-        //if (movementInput == Vector2.zero)
-        //{
-        //    animHandler.ChangeAnimationState(idleAnim);
-        //}
-
-        //else
-        //{
-        //    animHandler.ChangeAnimationState(walkAnim);
-        //}
     }
 
     private void MovePlayer(PlayerStateManager player)
@@ -66,23 +50,13 @@ public class PlayerMoveState : PlayerState
         player.moveDirection = player.orientation.forward * player.verticalInput + player.orientation.right * player.horizontalInput;
 
         // on ground
-        if (player.grounded)
-            player.rb.AddForce(player.moveDirection.normalized * player.moveSpeed * 10f, ForceMode.Force);
+        if (player.IsGrounded())
+            //player.rb.AddForce(player.moveDirection.normalized * player.moveSpeed * 10f, ForceMode.Force);
+            player.controller.SimpleMove(player.moveDirection * player.moveSpeed);
 
         // in air
-        else if (!player.grounded)
-            player.rb.AddForce(player.moveDirection.normalized * player.moveSpeed * 10f * player.airMultiplier, ForceMode.Force);
-    }
-
-    private void SpeedControl(PlayerStateManager player)
-    {
-        Vector3 flatVel = new Vector3(player.rb.velocity.x, 0f, player.rb.velocity.z);
-
-        // limit velocity if needed
-        if (flatVel.magnitude > player.moveSpeed)
-        {
-            Vector3 limitedVel = flatVel.normalized * player.moveSpeed;
-            player.rb.velocity = new Vector3(limitedVel.x, player.rb.velocity.y, limitedVel.z);
-        }
+        else if (!player.IsGrounded())
+            //player.rb.AddForce(player.moveDirection.normalized * player.moveSpeed * 10f * player.airMultiplier, ForceMode.Force);
+            player.controller.SimpleMove(player.moveDirection * player.moveSpeed);
     }
 }

@@ -17,6 +17,12 @@ public class PlayerIdleState : PlayerState
 
     public override void FrameUpdate(PlayerStateManager player)
     {
+
+        if (!player.IsGrounded())
+        {
+            player.SwitchState(player.inAirState);
+        }
+
         if (player.move.action.ReadValue<Vector2>() != Vector2.zero)
         {
             player.SwitchState(player.moveState);

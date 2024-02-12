@@ -9,7 +9,7 @@ public class PlayerStateManager : MonoBehaviour
 {
     public PlayerState currentState {  get; set; }
 
-    [SerializeField] public Rigidbody rb;
+    [SerializeField] public CharacterController controller;
     [SerializeField] public PlayerController movement;
     [SerializeField] public Animator anim;
 
@@ -46,19 +46,17 @@ public class PlayerStateManager : MonoBehaviour
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
 
-    [Header("Ground Check")]
-    public float playerHeight;
-    public LayerMask whatIsGround;
-    public bool grounded;
-
     public Transform orientation;
     public float horizontalInput;
     public float verticalInput;
     public Vector3 moveDirection;
     public AnimationHandler animHandler;
-    public string idleAnim;
-    public string walkAnim;
-    public string attackAnim;
+
+    [Header("Grav")]
+    [SerializeField] private float gravMultiplier = 3.0f;
+    private float gravity = -0.91f;   
+    private float yVelocity;
+    public bool grounded;
 
     public DebugState debugState;
     public TargetLock lockOn;
@@ -67,17 +65,15 @@ public class PlayerStateManager : MonoBehaviour
     public static PlayerStateManager instance;
     public PlayerResources resources;
 
-    private void Awake()
-    {
-    }
-
     public enum DebugState
     {
         idle,
         walk,
         lightAttack,
         heavyAttack,
-        inAir
+        inAir,
+        pull,
+        push
     }
 
     private void OnEnable()
@@ -100,20 +96,42 @@ public class PlayerStateManager : MonoBehaviour
         currentState = moveState;
         currentState.EnterState(this);
 
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
-
         readyToJump = true;
     }
 
     private void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
-        Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.3f));
+       grounded = IsGrounded();
 
         currentState.FrameUpdate(this);
 
         ShowDebugState();
+    }
+
+    public void MovementDirection()
+    {
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+    }
+
+    public void ApplyGravity()
+    {
+        if (IsGrounded())
+        {
+            yVelocity = -1f;
+        }
+
+        else
+        {
+            yVelocity += gravity * gravMultiplier * Time.deltaTime;
+        }
+        
+        moveDirection.y = yVelocity;
+            
+    }
+
+    public bool IsGrounded()
+    {
+        return controller.isGrounded;
     }
 
     void ShowDebugState()
@@ -193,7 +211,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext obj)
     {
-        if (readyToJump && grounded)
+        if (readyToJump && IsGrounded())
         {
 
             animHandler.ChangeAnimationState("PlayerJumpStart");
