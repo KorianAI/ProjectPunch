@@ -9,7 +9,7 @@ public class PlayerStateManager : MonoBehaviour
 {
     public PlayerState currentState {  get; set; }
 
-    [SerializeField] public Rigidbody rb;
+    [SerializeField] public CharacterController controller;
     [SerializeField] public PlayerController movement;
     [SerializeField] public Animator anim;
 
@@ -45,20 +45,19 @@ public class PlayerStateManager : MonoBehaviour
     public bool readyToJump;
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
-
-    [Header("Ground Check")]
-    public float playerHeight;
-    public LayerMask whatIsGround;
-    public bool grounded;
+    public Vector3 velocity;
 
     public Transform orientation;
     public float horizontalInput;
     public float verticalInput;
     public Vector3 moveDirection;
     public AnimationHandler animHandler;
-    public string idleAnim;
-    public string walkAnim;
-    public string attackAnim;
+
+    [Header("Grav")]
+    [SerializeField] private float gravMultiplier = 3.0f;
+    private float gravity = -0.91f;   
+    public float yVelocity;
+    public bool grounded;
 
     public DebugState debugState;
     public TargetLock lockOn;
@@ -67,17 +66,15 @@ public class PlayerStateManager : MonoBehaviour
     public static PlayerStateManager instance;
     public PlayerResources resources;
 
-    private void Awake()
-    {
-    }
-
     public enum DebugState
     {
         idle,
         walk,
         lightAttack,
         heavyAttack,
-        inAir
+        inAir,
+        pull,
+        push
     }
 
     private void OnEnable()
@@ -100,20 +97,48 @@ public class PlayerStateManager : MonoBehaviour
         currentState = moveState;
         currentState.EnterState(this);
 
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
-
         readyToJump = true;
     }
 
     private void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
-        Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.3f));
+        grounded = IsGrounded();
+        ApplyGravity();
 
         currentState.FrameUpdate(this);
 
         ShowDebugState();
+    }
+
+    public void MovementInput()
+    {
+        Vector2 movementInput = move.action.ReadValue<Vector2>();
+
+        horizontalInput = movementInput.x;
+        verticalInput = movementInput.y;
+
+        velocity = moveDirection * moveSpeed + Vector3.up * yVelocity;
+    }
+
+    public void ApplyGravity()
+    {
+        if (IsGrounded())
+        {
+            yVelocity = -1f;
+        }
+
+        else
+        {
+            yVelocity += gravity * gravMultiplier * Time.deltaTime;
+        }
+        
+        
+            
+    }
+
+    public bool IsGrounded()
+    {
+        return controller.isGrounded;
     }
 
     void ShowDebugState()
@@ -151,12 +176,15 @@ public class PlayerStateManager : MonoBehaviour
 
     public void SwitchState(PlayerState state)
     {
-       // Debug.Log("Came from: " + state);
+        Debug.Log("Came from: " + state);
         currentState.ExitState(this);
         currentState = state;
         state.EnterState(this);
-        //Debug.Log("Entered: " + state);
+        Debug.Log("Entered: " + state);
     }
+
+    #region Combat
+
 
     public void LightAttack(InputAction.CallbackContext obj)
     {
@@ -191,18 +219,6 @@ public class PlayerStateManager : MonoBehaviour
         
     }
 
-    public void Jump(InputAction.CallbackContext obj)
-    {
-        if (readyToJump && grounded)
-        {
-
-            animHandler.ChangeAnimationState("PlayerJumpStart");
-            SwitchState(inAirState);
-
-            Invoke(nameof(ResetJump), jumpCooldown);
-        }
-    }
-
     public void RotateToTarget()
     {
         if (lockOn.currentTarget != null)
@@ -216,6 +232,30 @@ public class PlayerStateManager : MonoBehaviour
         canAttack = true;
         Debug.Log(attackNumber);
         SwitchState(moveState);
+    }
+
+    public void CheckForEnemies()
+    {
+        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
+        foreach (Collider c in enemies)
+        {
+            c.GetComponent<IDamageable>().TakeDamage(attackDamage);
+            return;
+        }
+    }
+    #endregion
+
+    #region Jumping
+    public void Jump(InputAction.CallbackContext obj)
+    {
+        if (readyToJump && IsGrounded())
+        {
+
+            animHandler.ChangeAnimationState("PlayerJumpStart");
+            SwitchState(inAirState);
+
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
     }
 
     private void ResetJump()
@@ -233,16 +273,8 @@ public class PlayerStateManager : MonoBehaviour
     {
         SwitchState(idleState);
     }
+    #endregion
 
-    public void CheckForEnemies()
-    {
-        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
-        foreach (Collider c in enemies)
-        {
-            c.GetComponent<IDamageable>().TakeDamage(attackDamage);
-            return;
-        }
-    }
 
     private void OnDrawGizmos()
     {
