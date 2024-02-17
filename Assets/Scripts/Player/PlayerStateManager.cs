@@ -122,7 +122,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void ApplyGravity()
     {
-        if (IsGrounded())
+        if (IsGrounded() && currentState != inAirState)
         {
             yVelocity = -1f;
         }
@@ -250,7 +250,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (readyToJump && IsGrounded())
         {
-
+            yVelocity = jumpForce;
             animHandler.ChangeAnimationState("PlayerJumpStart");
             SwitchState(inAirState);
 
