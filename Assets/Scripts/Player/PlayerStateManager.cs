@@ -103,6 +103,7 @@ public class PlayerStateManager : MonoBehaviour
     private void Update()
     {
         grounded = IsGrounded();
+        anim.SetBool("isGrounded", grounded);
         ApplyGravity();
 
         currentState.FrameUpdate(this);
@@ -251,7 +252,7 @@ public class PlayerStateManager : MonoBehaviour
         if (readyToJump && IsGrounded())
         {
             yVelocity = jumpForce;
-            animHandler.ChangeAnimationState("PlayerJumpStart");
+            //animHandler.ChangeAnimationState("PlayerJumpStart");
             SwitchState(inAirState);
 
             Invoke(nameof(ResetJump), jumpCooldown);
@@ -265,7 +266,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void LandAnim()
     {
-        animHandler.ChangeAnimationState("PlayerLand");
+        //animHandler.ChangeAnimationState("PlayerLand");
         Invoke("Land", anim.GetCurrentAnimatorStateInfo(0).length);
     }
 

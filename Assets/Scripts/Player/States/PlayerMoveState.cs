@@ -8,12 +8,12 @@ public class PlayerMoveState : PlayerState
 
     public override void EnterState(PlayerStateManager player)
     {
-        player.animHandler.ChangeAnimationState("PlayerWalk");
+        player.anim.SetBool("isWalking", true);
     }
 
     public override void ExitState(PlayerStateManager player)
     {
-
+        player.anim.SetBool("isWalking", false);
     }
 
     public override void FrameUpdate(PlayerStateManager player)
