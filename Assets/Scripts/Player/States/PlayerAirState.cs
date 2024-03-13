@@ -12,6 +12,8 @@ public class PlayerAirState : PlayerState
     {
         _player = player;
         player.readyToJump = false;     
+        player.velocity.x = 0;
+        player.velocity.z = 0;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -22,7 +24,7 @@ public class PlayerAirState : PlayerState
 
     public override void FrameUpdate(PlayerStateManager player)
     {
-        if (player.IsGrounded())
+        if (player.IsGrounded() && player.yVelocity < 0)
         {
             player.SwitchState(player.moveState);
         }
@@ -34,7 +36,8 @@ public class PlayerAirState : PlayerState
 
     public override void PhysicsUpdate(PlayerStateManager player)
     {
-        player.controller.SimpleMove(player.velocity);
+        player.velocity.y = player.yVelocity;
+        player.controller.Move(player.velocity * Time.deltaTime);
     }
 
 }
