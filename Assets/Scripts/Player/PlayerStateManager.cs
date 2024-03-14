@@ -252,7 +252,7 @@ public class PlayerStateManager : MonoBehaviour
         if (readyToJump && IsGrounded())
         {
             yVelocity = jumpForce;
-            //animHandler.ChangeAnimationState("PlayerJumpStart");
+            anim.Play("PlayerJumpStart");
             SwitchState(inAirState);
 
             Invoke(nameof(ResetJump), jumpCooldown);
