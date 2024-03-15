@@ -7,12 +7,12 @@ public class PlayerHeavyAttack : PlayerState
     public override void EnterState(PlayerStateManager player)
     {
         player.canAttack = false;
-        player.animHandler.ChangeAnimationState("PlayerHeavyAttack");
+        player.anim.Play("PlayerHeavyAttack");
     }
 
     public override void ExitState(PlayerStateManager player)
     {
-        
+        player.anim.Play("PlayerIdle");
     }
 
     public override void FrameUpdate(PlayerStateManager player)

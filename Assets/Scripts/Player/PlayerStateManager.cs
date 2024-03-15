@@ -66,6 +66,10 @@ public class PlayerStateManager : MonoBehaviour
     public static PlayerStateManager instance;
     public PlayerResources resources;
 
+    [Header("GroundCheck")]
+    public LayerMask ground;
+    public float playerHeight;
+
     public enum DebugState
     {
         idle,
@@ -102,12 +106,12 @@ public class PlayerStateManager : MonoBehaviour
 
     private void Update()
     {
-        grounded = IsGrounded();
+        IsGrounded();
         anim.SetBool("isGrounded", grounded);
         ApplyGravity();
 
         currentState.FrameUpdate(this);
-
+        Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
         ShowDebugState();
     }
 
@@ -115,15 +119,25 @@ public class PlayerStateManager : MonoBehaviour
     {
         Vector2 movementInput = move.action.ReadValue<Vector2>();
 
-        horizontalInput = movementInput.x;
-        verticalInput = movementInput.y;
+        if (grounded)
+        {
+            horizontalInput = movementInput.x;
+            verticalInput = movementInput.y;
+        }
+
+        else
+        {
+            horizontalInput = movementInput.x;
+            verticalInput = movementInput.y;
+        }
+
 
         velocity = moveDirection * moveSpeed + Vector3.up * yVelocity;
     }
 
     public void ApplyGravity()
     {
-        if (IsGrounded() && currentState != inAirState)
+        if (grounded && currentState != inAirState)
         {
             yVelocity = -1f;
         }
@@ -137,10 +151,22 @@ public class PlayerStateManager : MonoBehaviour
             
     }
 
-    public bool IsGrounded()
+    public void IsGrounded()
     {
-        return controller.isGrounded;
+        bool groundRaycast = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
+
+        if (groundRaycast && controller.isGrounded)
+        {
+            grounded = true;
+        }
+
+        if (!groundRaycast)
+        {
+            grounded = false;
+        }
     }
+
+        
 
     void ShowDebugState()
     {
@@ -249,7 +275,7 @@ public class PlayerStateManager : MonoBehaviour
     #region Jumping
     public void Jump(InputAction.CallbackContext obj)
     {
-        if (readyToJump && IsGrounded())
+        if (readyToJump && grounded)
         {
             yVelocity = jumpForce;
             anim.Play("PlayerJumpStart");
@@ -262,12 +288,6 @@ public class PlayerStateManager : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
-    }
-
-    public void LandAnim()
-    {
-        //animHandler.ChangeAnimationState("PlayerLand");
-        Invoke("Land", anim.GetCurrentAnimatorStateInfo(0).length);
     }
 
     public void Land()

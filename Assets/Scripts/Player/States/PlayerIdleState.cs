@@ -8,6 +8,7 @@ public class PlayerIdleState : PlayerState
     public override void EnterState(PlayerStateManager player)
     {
         player.animHandler.ChangeAnimationState("PlayerIdle");
+        player.velocity = Vector3.zero;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -18,7 +19,7 @@ public class PlayerIdleState : PlayerState
     public override void FrameUpdate(PlayerStateManager player)
     {
 
-        if (!player.IsGrounded())
+        if (!player.grounded)
         {
             player.SwitchState(player.inAirState);
         }

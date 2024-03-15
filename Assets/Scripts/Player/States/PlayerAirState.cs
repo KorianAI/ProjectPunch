@@ -10,10 +10,9 @@ public class PlayerAirState : PlayerState
 
     public override void EnterState(PlayerStateManager player)
     {
+        
         _player = player;
         player.readyToJump = false;     
-        player.velocity.x = 0;
-        player.velocity.z = 0;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -24,18 +23,20 @@ public class PlayerAirState : PlayerState
 
     public override void FrameUpdate(PlayerStateManager player)
     {
-        if (player.IsGrounded() && player.yVelocity < 0)
+        if (player.grounded && player.yVelocity < 0)
         {
             player.SwitchState(player.moveState);
         }
 
-        
+        player.MovementInput();
     }
 
 
 
     public override void PhysicsUpdate(PlayerStateManager player)
     {
+        player.moveDirection = player.orientation.forward * player.verticalInput + player.orientation.right * player.horizontalInput;
+
         player.velocity.y = player.yVelocity;
         player.controller.Move(player.velocity * Time.deltaTime);
     }
