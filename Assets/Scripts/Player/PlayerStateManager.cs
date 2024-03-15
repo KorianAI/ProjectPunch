@@ -216,7 +216,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void LightAttack(InputAction.CallbackContext obj)
     {
-        if (currentState == idleState || currentState == moveState)
+        if (currentState != inAirState)
         {
             if (canAttack)
             {
@@ -227,7 +227,7 @@ public class PlayerStateManager : MonoBehaviour
     }
     public void HeavyAttack(InputAction.CallbackContext obj)
     {
-        if (currentState == idleState || currentState == moveState)
+        if (currentState != inAirState)
         {
             if (canAttack)
             {
