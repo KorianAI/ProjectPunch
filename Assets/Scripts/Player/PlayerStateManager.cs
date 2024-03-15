@@ -19,7 +19,6 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerLightAttack lightAttackState = new PlayerLightAttack();
     public PlayerHeavyAttack heavyAttackState = new PlayerHeavyAttack();
     public PlayerAirState inAirState = new PlayerAirState();
-    public PlayerPullState pullState = new PlayerPullState();
 
     [Header("MovementInputs")]
     public InputActionReference move;
@@ -87,6 +86,7 @@ public class PlayerStateManager : MonoBehaviour
         heavyAttack.action.performed += HeavyAttack;
         jump.action.performed += Jump;
         pull.action.performed += Pull;
+        push.action.performed += Push;
     }
 
     private void OnDisable()
@@ -95,6 +95,7 @@ public class PlayerStateManager : MonoBehaviour
         heavyAttack.action.performed -= HeavyAttack;
         jump.action.performed -= Jump;
         pull.action.performed -= Pull;
+        push.action.performed -= Push;
     }
     private void Start()
     {
@@ -240,10 +241,28 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (canAttack && lockOn.currentTarget != null)
         {
-            RotateToTarget();
-            SwitchState(pullState);
+            if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
+            {
+                lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Pull(this);
+            }
+        }
+
+        else if (canAttack && lockOn.currentTarget == null)
+        {
+            // dodge
         }
         
+    }
+
+    public void Push(InputAction.CallbackContext obj)
+    {
+        if (canAttack && lockOn.currentTarget != null)
+        {
+            if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
+            {
+                lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Push(this);
+            }
+        }
     }
 
     public void RotateToTarget()
@@ -275,6 +294,8 @@ public class PlayerStateManager : MonoBehaviour
     #region Jumping
     public void Jump(InputAction.CallbackContext obj)
     {
+        if (currentState != moveState && currentState != idleState) return;
+
         if (readyToJump && grounded)
         {
             yVelocity = jumpForce;

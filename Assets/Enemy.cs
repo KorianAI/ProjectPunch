@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-public class Enemy : MonoBehaviour, IDamageable
+public class Enemy : MonoBehaviour, IDamageable, IMagnetisable
 {
     public ParticleSystem particle;
     public bool canSpawn;
@@ -17,9 +18,8 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         Debug.Log("Owwww u hit: " + this.gameObject);
         SpawnParticle();
+        transform.DOShakeScale(1, .1f, 10, 90);
     }
-
-
 
     private void SpawnParticle()
     {
@@ -47,6 +47,17 @@ public class Enemy : MonoBehaviour, IDamageable
         var em = particle.emission;
         em.enabled = false;
         canSpawn = true;
+        
+    }
+
+    public void Pull(PlayerStateManager player)
+    {
+        transform.DOMove(player.pullPosition.position, 1f);
+    }
+
+    public void Push(PlayerStateManager player)
+    {
+        Debug.Log("I've Been Pushed!!!!");
         
     }
 }
