@@ -68,6 +68,8 @@ public class PlayerStateManager : MonoBehaviour
 
     public Transform playerObj;
 
+    public float kbForce;
+
     [Header("GroundCheck")]
     public LayerMask ground;
     public float playerHeight;
@@ -242,16 +244,18 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (canAttack && lockOn.currentTarget != null)
         {
+            canAttack = false;
+            RotateToTarget();
+
             if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
             {
+                anim.Play("PullAnim");
                 lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Pull(this);
+                
             }
         }
 
-        else if (canAttack && lockOn.currentTarget == null)
-        {
-            // dodge
-        }
+
         
     }
 
@@ -259,10 +263,18 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (canAttack && lockOn.currentTarget != null)
         {
+            RotateToTarget();
+
             if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
             {
+                
                 lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Push(this);
             }
+        }
+
+        else if (canAttack && lockOn.currentTarget == null)
+        {
+            // dodge
         }
     }
 

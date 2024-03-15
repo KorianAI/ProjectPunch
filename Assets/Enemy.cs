@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour, IDamageable, IMagnetisable
     public bool canSpawn;
     public GameObject player;
 
+    public PlayerStateManager ps;
+
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -52,12 +54,18 @@ public class Enemy : MonoBehaviour, IDamageable, IMagnetisable
 
     public void Pull(PlayerStateManager player)
     {
-        transform.DOMove(player.pullPosition.position, 1f);
+        ps = player;
+        transform.DOMove(player.pullPosition.position, 1f).onComplete = PlayerReset;   
+    }
+
+    public void PlayerReset()
+    {
+        ps.canAttack = true;
+        ps.SwitchState(ps.moveState);   
     }
 
     public void Push(PlayerStateManager player)
     {
-        Debug.Log("I've Been Pushed!!!!");
-        
+        transform.DOMove(transform.position + player.playerObj.forward * player.kbForce, 1f);
     }
 }
