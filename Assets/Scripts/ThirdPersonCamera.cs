@@ -11,6 +11,8 @@ public class ThirdPersonCamera : MonoBehaviour
     public Rigidbody rb;
 
     public float rotationSpeed;
+    public bool canRotate;
+    public PlayerStateManager controller;
 
     private void Start()
     {

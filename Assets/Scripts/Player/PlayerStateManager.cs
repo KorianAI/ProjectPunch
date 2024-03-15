@@ -64,6 +64,9 @@ public class PlayerStateManager : MonoBehaviour
 
     public static PlayerStateManager instance;
     public PlayerResources resources;
+    public ThirdPersonCamera cam;
+
+    public Transform playerObj;
 
     [Header("GroundCheck")]
     public LayerMask ground;
@@ -165,9 +168,7 @@ public class PlayerStateManager : MonoBehaviour
         {
             grounded = false;
         }
-    }
-
-        
+    }  
 
     void ShowDebugState()
     {
@@ -204,11 +205,11 @@ public class PlayerStateManager : MonoBehaviour
 
     public void SwitchState(PlayerState state)
     {
-        Debug.Log("Came from: " + state);
+        //Debug.Log("Came from: " + state);
         currentState.ExitState(this);
         currentState = state;
         state.EnterState(this);
-        Debug.Log("Entered: " + state);
+        //Debug.Log("Entered: " + state);
     }
 
     #region Combat
@@ -269,7 +270,10 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (lockOn.currentTarget != null)
         {
-            transform.DOLookAt(orientation.forward, .1f);
+            cam.canRotate = false;
+            Vector3 t = new Vector3(lockOn.currentTarget.transform.position.x, playerObj.transform.position.y, lockOn.currentTarget.transform.position.z);
+            playerObj.transform.DOLookAt(t, 0f);
+            
         }
     }
 

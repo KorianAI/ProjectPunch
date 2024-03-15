@@ -12,7 +12,7 @@ public class PlayerLightAttack : PlayerState
 
     public override void ExitState(PlayerStateManager player)
     {
-        //player.anim.Play("PlayerIdle");
+        player.anim.Play("PlayerIdle");
     }
 
     public override void FrameUpdate(PlayerStateManager player)
