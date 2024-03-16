@@ -56,11 +56,13 @@ public class Enemy : MonoBehaviour, IDamageable, IMagnetisable
     {
         ps = player;
         transform.DOMove(player.pullPosition.position, 1f);
+        transform.DOShakeRotation(1, 15f, 10, 90);
     }
 
 
     public void Push(PlayerStateManager player)
     {
         transform.DOMove(transform.position + player.playerObj.forward * player.kbForce, 1f);
+        transform.DOShakeRotation(1, 15f, 10, 90);
     }
 }
