@@ -249,14 +249,23 @@ public class PlayerStateManager : MonoBehaviour
 
             if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
             {
-                anim.Play("PullAnim");
-                lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Pull(this);
-                
+                anim.Play("Pull");
+                StopCoroutine("PullEffect");
+                StartCoroutine("PullEffect");
+
             }
-        }
+        } 
+    }
 
+    public IEnumerator PullEffect()
+    {
+        //float cd = anim.GetCurrentAnimatorStateInfo(0).length / 2.5f;
+        //Debug.Log(cd);
+        yield return new WaitForSeconds(0.25f);
 
-        
+        lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Pull(this);
+        canAttack = true;
+        SwitchState(moveState);
     }
 
     public void Push(InputAction.CallbackContext obj)
@@ -267,8 +276,9 @@ public class PlayerStateManager : MonoBehaviour
 
             if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
             {
-                
-                lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Push(this);
+                anim.Play("Push");
+                StopCoroutine("PuEffect");
+                StartCoroutine("PushEffect");
             }
         }
 
@@ -276,6 +286,17 @@ public class PlayerStateManager : MonoBehaviour
         {
             // dodge
         }
+    }
+
+    public IEnumerator PushEffect()
+    {
+        //float cd = anim.GetCurrentAnimatorStateInfo(0).length / 2.5f;
+        //Debug.Log(cd);
+        yield return new WaitForSeconds(0.25f);
+
+        lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Push(this);
+        canAttack = true;
+        SwitchState(moveState);
     }
 
     public void RotateToTarget()

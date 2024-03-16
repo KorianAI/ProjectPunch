@@ -55,14 +55,9 @@ public class Enemy : MonoBehaviour, IDamageable, IMagnetisable
     public void Pull(PlayerStateManager player)
     {
         ps = player;
-        transform.DOMove(player.pullPosition.position, 1f).onComplete = PlayerReset;   
+        transform.DOMove(player.pullPosition.position, 1f);
     }
 
-    public void PlayerReset()
-    {
-        ps.canAttack = true;
-        ps.SwitchState(ps.moveState);   
-    }
 
     public void Push(PlayerStateManager player)
     {
