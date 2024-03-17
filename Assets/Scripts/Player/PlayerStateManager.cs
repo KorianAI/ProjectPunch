@@ -254,6 +254,7 @@ public class PlayerStateManager : MonoBehaviour
             {
                 anim.runtimeAnimatorController = ors[comboCounter];
                 anim.Play("Attack", 0, 0);
+                anim.CrossFadeInFixedTime("Attack", 0.1f);
                 comboCounter++;
                 lastClickedTime = Time.time;
 
