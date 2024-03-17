@@ -16,8 +16,7 @@ public class PlayerStateManager : MonoBehaviour
     // states
     public PlayerIdleState idleState = new PlayerIdleState();
     public PlayerMoveState moveState = new PlayerMoveState();
-    public PlayerLightAttack lightAttackState = new PlayerLightAttack();
-    public PlayerHeavyAttack heavyAttackState = new PlayerHeavyAttack();
+    public PlayerAttack lightAttackState = new PlayerAttack();
     public PlayerAirState inAirState = new PlayerAirState();
 
     [Header("MovementInputs")]
@@ -34,6 +33,13 @@ public class PlayerStateManager : MonoBehaviour
     public LayerMask enemyLayer;
     public float attackRange;
     public float attackDamage;
+
+    [Header("Combos")]
+    float lastClickedTime;
+    float lastComboEnd;
+    int comboCounter;
+    int comboCount = 3;
+    public List<AnimatorOverrideController> ors;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -115,6 +121,7 @@ public class PlayerStateManager : MonoBehaviour
         IsGrounded();
         anim.SetBool("isGrounded", grounded);
         ApplyGravity();
+        ExitAttack();
 
         currentState.FrameUpdate(this);
         Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
@@ -189,11 +196,6 @@ public class PlayerStateManager : MonoBehaviour
             debugState = DebugState.lightAttack;
         }
 
-        else if (currentState == heavyAttackState)
-        {
-            debugState = DebugState.heavyAttack;
-        }
-
         else if (currentState == inAirState)
         {
             debugState = DebugState.inAir;
@@ -223,8 +225,9 @@ public class PlayerStateManager : MonoBehaviour
         {
             if (canAttack)
             {
+                //canAttack = false;
                 RotateToTarget();
-                SwitchState(lightAttackState);
+                Attack();
             }
         }
     }
@@ -234,10 +237,48 @@ public class PlayerStateManager : MonoBehaviour
         {
             if (canAttack)
             {
+                //canAttack = false;
                 RotateToTarget();
-                SwitchState(heavyAttackState);
+                Attack();
             }
         }
+    }
+
+    void Attack()
+    {
+        if (Time.time - lastComboEnd > 0.5f && comboCounter < ors.Count)
+        {
+            CancelInvoke("EndCombo");
+
+            if (Time.time - lastClickedTime >= 0.7f)
+            {
+                anim.runtimeAnimatorController = ors[comboCounter];
+                anim.Play("Attack", 0, 0);
+                comboCounter++;
+                lastClickedTime = Time.time;
+
+                if (comboCounter >= ors.Count)
+                {
+                    comboCounter = 0;
+                }
+            }
+        }
+    }
+
+    void ExitAttack()
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)
+        {
+            canAttack = true;
+            Invoke("EndCombo", 1);
+        }
+    }
+
+    void EndCombo()
+    {
+        comboCounter = 0;
+        lastComboEnd = Time.time;
+        canAttack = true;
     }
 
     public void Pull(InputAction.CallbackContext obj)
@@ -252,7 +293,6 @@ public class PlayerStateManager : MonoBehaviour
                 anim.Play("Pull");
                 StopCoroutine("PullEffect");
                 StartCoroutine("PullEffect");
-
             }
         } 
     }
@@ -310,12 +350,6 @@ public class PlayerStateManager : MonoBehaviour
         }
     }
 
-    void ResetAttack(int attackNumber)
-    {
-        canAttack = true;
-        Debug.Log(attackNumber);
-        SwitchState(moveState);
-    }
 
     public void CheckForEnemies()
     {
