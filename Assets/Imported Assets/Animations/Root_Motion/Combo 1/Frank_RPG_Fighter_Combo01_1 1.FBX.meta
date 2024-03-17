@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ec0b88b8b1f29f54c95ae31eb962e78f
+guid: c9d83cbcfa9f693448a808aa34376525
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable:
@@ -860,7 +860,7 @@ ModelImporter:
     second: FX_Punch_R_Mesh
   - first:
       74: 7400000
-    second: Take 001
+    second: Combo11
   - first:
       95: 9500000
     second: //RootNode
@@ -943,17 +943,16 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
       copied configuration does not match position in animation file:\n\t'thigh_l'
-      : position error = 5.822070 mm\n\t'calf_l' : position error = 2.433139 mm\n\t'thigh_r'
-      : position error = 3.719530 mm\n\t'lowerarm_l' : position error = 2.250213
-      mm\n\t'hand_l' : position error = 2.409714 mm\n\t'middle_02_l' : position error
-      = 1.562820 mm\n\t'middle_03_l' : position error = 1.134424 mm\n\t'ring_02_l'
-      : position error = 1.745748 mm\n\t'ring_03_l' : position error = 1.155064 mm\n\t'pinky_02_l'
-      : position error = 1.066775 mm\n\t'upperarm_r' : position error = 1.200735
-      mm\n\t'lowerarm_r' : position error = 1.857385 mm\n\t'hand_r' : position error
-      = 2.201483 mm\n\t'middle_02_r' : position error = 1.561036 mm\n\t'middle_03_r'
-      : position error = 1.131968 mm\n\t'ring_02_r' : position error = 1.744365 mm\n\t'ring_03_r'
-      : position error = 1.156500 mm\n\t'pinky_02_r' : position error = 1.064649
-      mm\n"
+      : position error = 2.786785 mm\n\t'calf_l' : position error = 1.101822 mm\n\t'thigh_r'
+      : position error = 1.192713 mm\n\t'calf_r' : position error = 1.229004 mm\n\t'hand_l'
+      : position error = 3.405661 mm\n\t'middle_02_l' : position error = 1.562817
+      mm\n\t'middle_03_l' : position error = 1.134448 mm\n\t'ring_02_l' : position
+      error = 1.745738 mm\n\t'ring_03_l' : position error = 1.155017 mm\n\t'pinky_02_l'
+      : position error = 1.066900 mm\n\t'lowerarm_r' : position error = 1.929066
+      mm\n\t'hand_r' : position error = 2.201407 mm\n\t'middle_02_r' : position error
+      = 1.561005 mm\n\t'middle_03_r' : position error = 1.132075 mm\n\t'ring_02_r'
+      : position error = 1.744268 mm\n\t'ring_03_r' : position error = 1.156570 mm\n\t'pinky_02_r'
+      : position error = 1.064674 mm\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar
@@ -963,13 +962,12 @@ ModelImporter:
       animation that will be discarded.\n\t'thigh_r' has translation animation that
       will be discarded.\n\t'calf_r' has translation animation that will be discarded.\n\t'foot_r'
       has translation animation that will be discarded.\n\t'ball_r' has translation
-      animation that will be discarded.\n\t'spine_02' has translation animation that
-      will be discarded.\n\t'upperarm_l' has translation animation that will be discarded.\n\t'lowerarm_l'
-      has translation animation that will be discarded.\n\t'hand_l' has translation
-      animation that will be discarded.\n\t'upperarm_r' has translation animation
-      that will be discarded.\n\t'lowerarm_r' has translation animation that will
-      be discarded.\n\t'hand_r' has translation animation that will be discarded.\n\t'head'
-      has translation animation that will be discarded.\n"
+      animation that will be discarded.\n\t'upperarm_l' has translation animation
+      that will be discarded.\n\t'lowerarm_l' has translation animation that will
+      be discarded.\n\t'hand_l' has translation animation that will be discarded.\n\t'upperarm_r'
+      has translation animation that will be discarded.\n\t'lowerarm_r' has translation
+      animation that will be discarded.\n\t'head' has translation animation that
+      will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -981,7 +979,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Combo11
+      takeName: Take 001
+      internalID: 7400000
+      firstFrame: 0
+      lastFrame: 54
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 1
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -990,7 +1017,7 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importPhysicalCameras: 0
+    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -2021,8 +2048,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9148d9f593983b548bd87157ea40845f,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9148d9f593983b548bd87157ea40845f, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
