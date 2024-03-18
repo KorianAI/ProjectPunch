@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class StaticObject : MonoBehaviour, IMagnetisable
+public class Spotlight : MonoBehaviour, IMagnetisable
 {
     public GameObject playerObj;
     public Transform pullPos;
