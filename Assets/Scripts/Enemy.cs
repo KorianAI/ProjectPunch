@@ -49,7 +49,6 @@ public class Enemy : MonoBehaviour, IDamageable, IMagnetisable
         var em = particle.emission;
         em.enabled = false;
         canSpawn = true;
-        
     }
 
     public void Pull(PlayerStateManager player)
