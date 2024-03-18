@@ -250,7 +250,7 @@ public class PlayerStateManager : MonoBehaviour
         {
             CancelInvoke("EndCombo");
 
-            if (Time.time - lastClickedTime >= 0.7f)
+            if (Time.time - lastClickedTime >= .8f)
             {
                 anim.runtimeAnimatorController = ors[comboCounter];
                 anim.Play("Attack", 0, 0);
