@@ -18,6 +18,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerMoveState moveState = new PlayerMoveState();
     public PlayerAttack lightAttackState = new PlayerAttack();
     public PlayerAirState inAirState = new PlayerAirState();
+    public PlayerRailState railState = new PlayerRailState();
 
     [Header("MovementInputs")]
     public InputActionReference move;
@@ -90,7 +91,8 @@ public class PlayerStateManager : MonoBehaviour
         heavyAttack,
         inAir,
         pull,
-        push
+        push,
+        rail
     }
 
     private void OnEnable()
@@ -152,19 +154,20 @@ public class PlayerStateManager : MonoBehaviour
 
     public void ApplyGravity()
     {
-        if (grounded && currentState != inAirState)
+        if (grounded && currentState != inAirState || currentState != railState)
         {
             yVelocity = -1f;
+        }
+
+        else if (currentState == railState)
+        {
+            yVelocity = 0f;
         }
 
         else
         {
             yVelocity += gravity * gravMultiplier * Time.deltaTime;
-<<<<<<< Updated upstream
-        }     
-=======
         }                  
->>>>>>> Stashed changes
     }
 
     public void IsGrounded()
@@ -203,6 +206,12 @@ public class PlayerStateManager : MonoBehaviour
         {
             debugState = DebugState.inAir;
         }
+
+        else if (currentState == railState)
+        {
+            debugState = DebugState.rail;
+        }
+
     }
 
     private void FixedUpdate()
@@ -212,11 +221,11 @@ public class PlayerStateManager : MonoBehaviour
 
     public void SwitchState(PlayerState state)
     {
-        //Debug.Log("Came from: " + state);
+        Debug.Log("Came from: " + state);
         currentState.ExitState(this);
         currentState = state;
         state.EnterState(this);
-        //Debug.Log("Entered: " + state);
+        Debug.Log("Entered: " + state);
     }
 
  #region Combat
@@ -320,7 +329,7 @@ public class PlayerStateManager : MonoBehaviour
 
         lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Pull(this);
         canAttack = true;
-        SwitchState(moveState);
+        //SwitchState(moveState);
     }
 
     public void Push(InputAction.CallbackContext obj)

@@ -19,7 +19,7 @@ public class PlayerIdleState : PlayerState
     public override void FrameUpdate(PlayerStateManager player)
     {
 
-        if (!player.grounded)
+        if (!player.grounded && player.currentState != player.railState)
         {
             player.SwitchState(player.inAirState);
         }

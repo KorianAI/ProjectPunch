@@ -20,6 +20,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
     public void Pull(PlayerStateManager player)
     {
         transform.DOPause();
+        player.SwitchState(player.railState);
         playerObj.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(SetParent); //pull to
         //player.applyGrav = false;
     }
@@ -28,6 +29,8 @@ public class EMRail : MonoBehaviour, IMagnetisable
     {
         playerObj.transform.SetParent(pullPos.transform); //set parent to EM
         transform.DOPlay();
+        playerObj.GetComponent<TargetLock>().currentTarget = null;
+        playerObj.GetComponent<TargetLock>().isTargeting = false;
     }
 
     public void Push(PlayerStateManager player)
