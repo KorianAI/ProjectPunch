@@ -60,6 +60,7 @@ public class PlayerStateManager : MonoBehaviour
     public AnimationHandler animHandler;
 
     [Header("Grav")]
+    public bool applyGrav = true;
     [SerializeField] private float gravMultiplier = 3.0f;
     private float gravity = -0.91f;   
     public float yVelocity;
@@ -159,10 +160,7 @@ public class PlayerStateManager : MonoBehaviour
         else
         {
             yVelocity += gravity * gravMultiplier * Time.deltaTime;
-        }
-        
-        
-            
+        }     
     }
 
     public void IsGrounded()
