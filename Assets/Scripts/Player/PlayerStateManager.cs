@@ -251,7 +251,7 @@ public class PlayerStateManager : MonoBehaviour
         {
             CancelInvoke("EndCombo");
 
-            if (Time.time - lastClickedTime >= .8f)
+            if (Time.time - lastClickedTime >= .6f)
             {
                 if (light)
                 {
