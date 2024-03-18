@@ -160,7 +160,11 @@ public class PlayerStateManager : MonoBehaviour
         else
         {
             yVelocity += gravity * gravMultiplier * Time.deltaTime;
+<<<<<<< Updated upstream
         }     
+=======
+        }                  
+>>>>>>> Stashed changes
     }
 
     public void IsGrounded()
@@ -215,7 +219,7 @@ public class PlayerStateManager : MonoBehaviour
         //Debug.Log("Entered: " + state);
     }
 
-    #region Combat
+ #region Combat
 
 
     public void LightAttack(InputAction.CallbackContext obj)
