@@ -16,6 +16,8 @@ public class StaticObject : MonoBehaviour, IMagnetisable
     public void Pull(PlayerStateManager player)
     {
         playerObj.transform.DOMove(pullPos.transform.position, 1.5f);
+        playerObj.GetComponent<TargetLock>().currentTarget = null;
+        playerObj.GetComponent<TargetLock>().isTargeting = false;
     }
 
     public void Push(PlayerStateManager player)

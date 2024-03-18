@@ -73,7 +73,7 @@ public class TargetLock : MonoBehaviour
         
     }
 
-    private void AssignTarget(InputAction.CallbackContext obj)
+    public void AssignTarget(InputAction.CallbackContext obj)
     {
         if (isTargeting)
         {
