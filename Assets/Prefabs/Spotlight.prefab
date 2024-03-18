@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 6405255006765787985}
   m_Layer: 6
   m_Name: Platform
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 6179
+  m_VersionIndex: 6182
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1398,7 +1398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObj: {fileID: 0}
-  playerCam: {fileID: 0}
   pullPos: {fileID: 1701208347303489589}
 --- !u!1 &4290929006048208072
 GameObject:
@@ -1448,7 +1447,7 @@ GameObject:
   - component: {fileID: 3463479069153988279}
   m_Layer: 6
   m_Name: Pole
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2496,7 +2495,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5783
+  m_VersionIndex: 5786
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2617,7 +2616,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObj: {fileID: 0}
-  playerCam: {fileID: 0}
   pullPos: {fileID: 1701208347303489589}
 --- !u!1 &6626596771485868455
 GameObject:
@@ -2787,7 +2785,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObj: {fileID: 0}
-  playerCam: {fileID: 0}
   pullPos: {fileID: 1701208347303489589}
 --- !u!1 &7891246360687491221
 GameObject:
