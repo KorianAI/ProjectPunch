@@ -780,7 +780,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8865912280188248745}
-  - {fileID: 7051008246877213753}
   m_Father: {fileID: 3132554082234093857}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1252661922006976121
@@ -840,12 +839,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293736011491982296}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.0000002003224, y: -4.4337867e-12, z: 1.1363823e-11, w: 1}
+  m_LocalPosition: {x: 0, y: 0.0780896, z: -0.00016262688}
+  m_LocalScale: {x: 0.9584456, y: 0.95844567, z: 0.95844567}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 388763767589031665}
+  m_Father: {fileID: 3680057514188815193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1306089293475147665
 GameObject:
@@ -2828,10 +2827,8 @@ MonoBehaviour:
     m_Bits: 128
   attackRange: 1.3
   attackDamage: 0
-  ors:
-  - {fileID: 22100000, guid: d3761772a86695e4e9c33dacdd9636ce, type: 2}
-  - {fileID: 22100000, guid: 971702f11a92a1d4d960d37fc9b589c1, type: 2}
-  - {fileID: 22100000, guid: 21a3fdd81b3ef1245b9892c736093f51, type: 2}
+  lightCombo: []
+  heavyCombo: []
   moveSpeed: 8.5
   groundDrag: 4
   jumpForce: 15
@@ -3244,7 +3241,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 3f204f58322dc014982024c6156beefa, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f204f58322dc014982024c6156beefa, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 7051008246877213753}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f204f58322dc014982024c6156beefa, type: 3}
 --- !u!4 &3680057514188815193 stripped

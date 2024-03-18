@@ -11,8 +11,8 @@ public class StaticObject : MonoBehaviour, IMagnetisable
 
     private void Start()
     {
-        playerObj = GameObject.Find("Player");
-        playerCam = GameObject.Find("ThirdPersonCamera");
+        //playerObj = GameObject.Find("Player");
+        //playerCam = GameObject.Find("ThirdPersonCamera");
     }
 
     public void Pull(PlayerStateManager player)
