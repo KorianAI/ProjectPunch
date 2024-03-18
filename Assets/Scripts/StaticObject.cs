@@ -23,6 +23,6 @@ public class StaticObject : MonoBehaviour, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("nuh huh");
     }
 }

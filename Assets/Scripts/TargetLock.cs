@@ -99,7 +99,6 @@ public class TargetLock : MonoBehaviour
                 {
                     currentTarget = hit.transform;
                     isTargeting = true;
-                    Debug.Log("bruh");
                 }
             }
             else
