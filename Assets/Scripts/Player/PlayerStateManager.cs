@@ -380,7 +380,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState != moveState && currentState != idleState) return;
 
-        if (readyToJump && grounded)
+        if (grounded) //readyToJump check removed due to bug (issue #3)
         {
             yVelocity = jumpForce;
             anim.Play("PlayerJumpStart");
