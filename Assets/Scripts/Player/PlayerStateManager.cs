@@ -39,7 +39,8 @@ public class PlayerStateManager : MonoBehaviour
     float lastComboEnd;
     int comboCounter;
     int comboCount = 3;
-    public List<AnimatorOverrideController> ors;
+    public List<AnimatorOverrideController> lightCombo;
+    public List<AnimatorOverrideController> heavyCombo;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -227,7 +228,7 @@ public class PlayerStateManager : MonoBehaviour
             {
                 //canAttack = false;
                 RotateToTarget();
-                Attack();
+                Attack(true);
             }
         }
     }
@@ -239,26 +240,37 @@ public class PlayerStateManager : MonoBehaviour
             {
                 //canAttack = false;
                 RotateToTarget();
-                Attack();
+                Attack(false);
             }
         }
     }
 
-    void Attack()
+    void Attack(bool light)
     {
-        if (Time.time - lastComboEnd > 0.5f && comboCounter < ors.Count)
+        if (Time.time - lastComboEnd > 0.5f && comboCounter < lightCombo.Count)
         {
             CancelInvoke("EndCombo");
 
             if (Time.time - lastClickedTime >= .8f)
             {
-                anim.runtimeAnimatorController = ors[comboCounter];
+                if (light)
+                {
+                    anim.runtimeAnimatorController = lightCombo[comboCounter];
+                    Debug.Log("LIGHT ATTACK: " + comboCounter);
+                }
+
+                else if (!light)
+                {
+                    anim.runtimeAnimatorController = heavyCombo[comboCounter];
+                    Debug.Log("HEAVY ATTACK: " + comboCounter);
+                }
+
                 anim.Play("Attack", 0, 0);
                 anim.CrossFadeInFixedTime("Attack", 0.1f);
                 comboCounter++;
                 lastClickedTime = Time.time;
 
-                if (comboCounter >= ors.Count)
+                if (comboCounter >= lightCombo.Count)
                 {
                     comboCounter = 0;
                 }
