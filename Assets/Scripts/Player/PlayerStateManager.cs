@@ -161,7 +161,16 @@ public class PlayerStateManager : MonoBehaviour
 
         else
         {
-            yVelocity += gravity * gravMultiplier * Time.deltaTime;
+            if (currentState == inAirState)
+            {
+                yVelocity += gravity * gravMultiplier * Time.deltaTime;
+            }
+
+            else
+            {
+                yVelocity = 0f;
+            }
+            
         }                  
     }
 

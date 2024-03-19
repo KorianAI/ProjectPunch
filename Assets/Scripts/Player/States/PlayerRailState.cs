@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerRailState : PlayerState
 {
+    public PlayerStateManager ps;
+
     public override void EnterState(PlayerStateManager player)
     {
-        
+        ps = player;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -18,6 +21,7 @@ public class PlayerRailState : PlayerState
     {
         
     }
+
 
     public override void PhysicsUpdate(PlayerStateManager player)
     {
