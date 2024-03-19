@@ -9,9 +9,17 @@ public class EMRail : MonoBehaviour, IMagnetisable
     public PlayerStateManager ps;
     public Transform pullPos;
 
+    [Header("Points")]
     public Vector3[] points;
     public int arrayPosition;
     public float transitionspeed;
+
+    [Header("Rotations")]
+    public Vector3[] rotations;
+    public float rotationSpeed;
+
+    [Header("Rotations")]
+    public EMRail[] rails;
 
     private void Start()
     {
@@ -21,16 +29,26 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
     public void Pull(PlayerStateManager player)
     {
-        transform.DOPause();
+        foreach (EMRail script in rails)
+        {
+            script.transform.DOPause();
+        }
+
+        //transform.DOPause();
         player.SwitchState(player.railState);
         playerObj.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(SetParent); //pull to
-        //player.applyGrav = false;
     }
 
     void SetParent()
     {
         playerObj.transform.SetParent(pullPos.transform); //set parent to EM
-        transform.DOPlay();
+
+        foreach (EMRail script in rails)
+        {
+            script.transform.DOPlay();
+        }
+
+        //transform.DOPlay();
         playerObj.GetComponent<TargetLock>().currentTarget = null;
         playerObj.GetComponent<TargetLock>().isTargeting = false;
         ps.anim.Play("Hang");
@@ -47,9 +65,6 @@ public class EMRail : MonoBehaviour, IMagnetisable
             //unset parent
             playerObj.transform.SetParent(null);
             ps.SwitchState(ps.inAirState);
-
-            //player.applyGrav = true; //add gravity multipler
-            //change anim
         }
         else
         {
@@ -58,10 +73,10 @@ public class EMRail : MonoBehaviour, IMagnetisable
         }
     }
 
-
     private void MoveToNextPoint()
     {
-        transform.DOMove(points[arrayPosition], transitionspeed).OnComplete(MoveToNextPoint);
+        transform.DOMove(points[arrayPosition], transitionspeed).OnComplete(RotateAtNextPoint)
+            .SetEase(Ease.Linear);
         
         if (arrayPosition < (points.Length -1))
         {
@@ -71,5 +86,11 @@ public class EMRail : MonoBehaviour, IMagnetisable
         {
             arrayPosition = 0;
         }
+    }
+
+    private void RotateAtNextPoint()
+    {
+        transform.DORotate(rotations[arrayPosition], rotationSpeed).OnComplete(MoveToNextPoint)
+            .SetEase(Ease.Linear);
     }
 }
