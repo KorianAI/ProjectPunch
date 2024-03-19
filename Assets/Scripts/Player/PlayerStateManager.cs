@@ -154,14 +154,9 @@ public class PlayerStateManager : MonoBehaviour
 
     public void ApplyGravity()
     {
-        if (grounded && currentState != inAirState || currentState != railState)
+        if (grounded && currentState != inAirState)
         {
             yVelocity = -1f;
-        }
-
-        else if (currentState == railState)
-        {
-            yVelocity = 0f;
         }
 
         else
@@ -221,11 +216,11 @@ public class PlayerStateManager : MonoBehaviour
 
     public void SwitchState(PlayerState state)
     {
-        Debug.Log("Came from: " + state);
+        Debug.Log("Came from: " + state + " " + Time.time);
         currentState.ExitState(this);
         currentState = state;
         state.EnterState(this);
-        Debug.Log("Entered: " + state);
+        Debug.Log("Entered: " + state + " " + Time.time);
     }
 
  #region Combat
@@ -396,20 +391,9 @@ public class PlayerStateManager : MonoBehaviour
             yVelocity = jumpForce;
             anim.Play("PlayerJumpStart");
             SwitchState(inAirState);
-
-            Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
 
-    private void ResetJump()
-    {
-        readyToJump = true;
-    }
-
-    public void Land()
-    {
-        SwitchState(idleState);
-    }
     #endregion
 
 

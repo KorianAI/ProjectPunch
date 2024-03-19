@@ -6,6 +6,7 @@ using DG.Tweening;
 public class EMRail : MonoBehaviour, IMagnetisable
 {
     public GameObject playerObj;
+    public PlayerStateManager ps;
     public Transform pullPos;
 
     public Vector3[] points;
@@ -14,6 +15,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
     private void Start()
     {
+        ps = playerObj.GetComponent<PlayerStateManager>();
         MoveToNextPoint();
     }
 
@@ -31,6 +33,8 @@ public class EMRail : MonoBehaviour, IMagnetisable
         transform.DOPlay();
         playerObj.GetComponent<TargetLock>().currentTarget = null;
         playerObj.GetComponent<TargetLock>().isTargeting = false;
+        ps.anim.Play("Hang");
+        ps.anim.SetBool("onRail", true);
     }
 
     public void Push(PlayerStateManager player)
@@ -42,6 +46,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
             //unset parent
             playerObj.transform.SetParent(null);
+            ps.SwitchState(ps.inAirState);
 
             //player.applyGrav = true; //add gravity multipler
             //change anim
