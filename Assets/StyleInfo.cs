@@ -8,7 +8,7 @@ public abstract class StyleInfo : MonoBehaviour
 {
     public GameObject weaponObject;
     public Sprite icon;
-    public string name;
+    public string styleName;
     public float currentDurability;
 
     public float atkSpeed;

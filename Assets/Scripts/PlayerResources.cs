@@ -18,6 +18,10 @@ public class PlayerResources : MonoBehaviour, IDamageable
     float scrapDecreaseTimer;
     public bool scrapDecrease;
 
+    public bool scrapStyle;
+    public StyleInfo lightStyle;
+    public StyleInfo heavyStyle;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -26,7 +30,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (currentScrap > 0 && scrapDecrease)
+        if (currentScrap > 0 && scrapDecrease && scrapStyle)
         {
             scrapDecreaseTimer += Time.deltaTime;
             if (scrapDecreaseTimer >= .01)
@@ -36,7 +40,10 @@ public class PlayerResources : MonoBehaviour, IDamageable
             }
         }
 
-
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            scrapStyle = !scrapStyle;
+        }
     }
 
     public void TakeDamage(float damage)

@@ -38,8 +38,7 @@ public class PlayerStateManager : MonoBehaviour
     [Header("Combos")]
     float lastClickedTime;
     float lastComboEnd;
-    int comboCounter;
-    int comboCount = 3;
+    public int comboCounter;
     public List<AnimatorOverrideController> lightCombo;
     public List<AnimatorOverrideController> heavyCombo;
 
@@ -225,11 +224,11 @@ public class PlayerStateManager : MonoBehaviour
 
     public void SwitchState(PlayerState state)
     {
-        Debug.Log("Came from: " + state + " " + Time.time);
+        //Debug.Log("Came from: " + state + " " + Time.time);
         currentState.ExitState(this);
         currentState = state;
         state.EnterState(this);
-        Debug.Log("Entered: " + state + " " + Time.time);
+        //Debug.Log("Entered: " + state + " " + Time.time);
     }
 
  #region Combat
@@ -270,14 +269,57 @@ public class PlayerStateManager : MonoBehaviour
             {
                 if (light)
                 {
-                    anim.runtimeAnimatorController = lightCombo[comboCounter];
-                    Debug.Log("LIGHT ATTACK: " + comboCounter);
+                    if (resources.scrapStyle)
+                    {
+                        if (comboCounter == 0)
+                        {
+                            resources.lightStyle.Attack1(1, 1);
+                        }
+
+                        else if (comboCounter == 1)
+                        {
+                            resources.lightStyle.Attack2(1, 1);
+                        }
+
+                        else
+                        {
+                            resources.lightStyle.Attack3(1, 1);
+                        }
+                    }
+
+                    else
+                    {
+                        anim.runtimeAnimatorController = lightCombo[comboCounter];
+                        Debug.Log("LIGHT ATTACK: " + comboCounter);
+                    }               
                 }
 
                 else if (!light)
                 {
-                    anim.runtimeAnimatorController = heavyCombo[comboCounter];
-                    Debug.Log("HEAVY ATTACK: " + comboCounter);
+                    if (resources.scrapStyle)
+                    {
+                        if (comboCounter == 0)
+                        {
+                            resources.heavyStyle.Attack1(1, 1);
+                        }
+
+                        else if (comboCounter == 1)
+                        {
+                            resources.heavyStyle.Attack2(1, 1);
+                        }
+
+                        else
+                        {
+                            resources.heavyStyle.Attack3(1, 1);
+                        }
+                    }
+
+                    else
+                    {
+                        anim.runtimeAnimatorController = heavyCombo[comboCounter];
+                        Debug.Log("HEAVY ATTACK: " + comboCounter);
+                    }
+                    
                 }
 
                 anim.Play("Attack", 0, 0);
