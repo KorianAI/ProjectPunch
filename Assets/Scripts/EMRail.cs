@@ -45,7 +45,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
         foreach (EMRail script in rails)
         {
-            transform.DOPlay();
+            script.transform.DOPlay();
         }
 
         //transform.DOPlay();
