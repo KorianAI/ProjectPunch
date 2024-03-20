@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public abstract class StyleInfo : MonoBehaviour
 {
+    public PlayerStateManager player;
     public GameObject weaponObject;
     public Sprite icon;
     public string styleName;
