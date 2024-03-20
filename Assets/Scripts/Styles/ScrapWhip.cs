@@ -11,7 +11,7 @@ public class ScrapWhip : LightStyleInfo
         Debug.Log(styleName + ": Attack 1");
         player.anim.runtimeAnimatorController = attack1;
         
-        whipAnim.Play("WhipAnim");
+        
     }
 
     public override void Attack2(float damage, float range)
@@ -24,5 +24,11 @@ public class ScrapWhip : LightStyleInfo
     {
         Debug.Log(styleName + ": Attack 3");
         player.anim.runtimeAnimatorController = attack1;
+    }
+
+    public void TurnOnWhip()
+    {
+        whipAnim.gameObject.SetActive(true);
+        whipAnim.Play("WhipAnim");
     }
 }

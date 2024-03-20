@@ -78,6 +78,8 @@ public class PlayerStateManager : MonoBehaviour
 
     public float kbForce;
 
+    public Animator whipAnim;
+
     [Header("GroundCheck")]
     public LayerMask ground;
     public float playerHeight;
@@ -418,6 +420,13 @@ public class PlayerStateManager : MonoBehaviour
             playerObj.transform.DOLookAt(t, 0f);
             
         }
+    }
+
+    public void FuckOff()
+    {
+        
+        whipAnim.gameObject.SetActive(true);
+        whipAnim.Play("WhipEffect");
     }
 
 
