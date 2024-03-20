@@ -10,7 +10,6 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerState currentState {  get; set; }
 
     [SerializeField] public CharacterController controller;
-    [SerializeField] public PlayerController movement;
     [SerializeField] public Animator anim;
 
     // states
@@ -422,11 +421,25 @@ public class PlayerStateManager : MonoBehaviour
         }
     }
 
-    public void FuckOff()
+    public void FuckOff(float attackNo)
     {
+        //whipAnim.gameObject.SetActive(true);
+
+        if (attackNo == 1)
+        {
+            whipAnim.Play("WhipEffect");
+        }
+
+        else if (attackNo == 2)
+        {
+            whipAnim.Play("Whip2Effect");
+        }
+
+        else if (attackNo == 3)
+        {
+            whipAnim.Play("Whip3Effect");
+        }
         
-        whipAnim.gameObject.SetActive(true);
-        whipAnim.Play("WhipEffect");
     }
 
 
