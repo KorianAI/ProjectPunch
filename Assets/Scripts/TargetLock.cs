@@ -46,7 +46,7 @@ public class TargetLock : MonoBehaviour
     private float mouseX;
     private float mouseY;
 
-    public RaycastHit[] yikes;
+    //public RaycastHit[] yikes;
 
     private void OnEnable()
     {
@@ -60,7 +60,7 @@ public class TargetLock : MonoBehaviour
 
     void Start()
     {
-        maxAngle = 90f; // always 90 to target enemies in front of camera.
+        maxAngle = 20f; // always 90 to target enemies in front of camera.
         cinemachineFreeLook.m_XAxis.m_InputAxisName = "";
         cinemachineFreeLook.m_YAxis.m_InputAxisName = "";
     }
@@ -102,61 +102,31 @@ public class TargetLock : MonoBehaviour
         else //if not targeting, perform raycast to find a target
         {
             Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-            //RaycastHit hit;
+            RaycastHit hit;
 
-            //if (UnityEngine.Physics.SphereCast(mainCamera.transform.position, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, targetableLayers))
-            //{
-            //    if (hit.transform.CompareTag(enemyTag))
-            //    {
-            //        currentTarget = hit.transform;
-            //        isTargeting = true;
-            //        lastTargetTag = enemyTag;
-            //    }
+            if (UnityEngine.Physics.SphereCast(mainCamera.transform.position, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, targetableLayers))
+            {
+                if (hit.transform.CompareTag(enemyTag))
+                {
+                    currentTarget = hit.transform;
+                    isTargeting = true;
+                    lastTargetTag = enemyTag;
+                }
 
-            //    if (hit.transform.CompareTag(railTag))
-            //    {
-            //        currentTarget = hit.transform;
-            //        isTargeting = true;
-            //        lastTargetTag = railTag;
-            //    }
+                if (hit.transform.CompareTag(railTag))
+                {
+                    currentTarget = hit.transform;
+                    isTargeting = true;
+                    lastTargetTag = railTag;
+                }
 
-            //    if (hit.transform.CompareTag(lightTag))
-            //    {
-            //        currentTarget = hit.transform;
-            //        isTargeting = true;
-            //        lastTargetTag = lightTag;
-            //    }
-            //}
-
-
-            //yikes = UnityEngine.Physics.SphereCastAll(mainCamera.transform.position, sphereCastRadius *2, mainCamera.transform.forward, maxDistance, targetableLayers);
-            //int i = 0;
-
-            //foreach (var yike in yikes)
-            //{
-            //    Debug.Log(name);
-            //}
-
-            //if (yikes[i].transform.CompareTag(enemyTag))
-            //{
-            //    currentTarget = yikes[i].transform;
-            //    isTargeting = true;
-            //    lastTargetTag = enemyTag;
-            //}
-
-            //if (yikes[i].transform.CompareTag(railTag))
-            //{
-            //    currentTarget = yikes[i].transform;
-            //    isTargeting = true;
-            //    lastTargetTag = railTag;
-            //}
-
-            //if (yikes[i].transform.CompareTag(lightTag))
-            //{
-            //    currentTarget = yikes[i].transform;
-            //    isTargeting = true;
-            //    lastTargetTag = lightTag;
-            //}
+                if (hit.transform.CompareTag(lightTag))
+                {
+                    currentTarget = hit.transform;
+                    isTargeting = true;
+                    lastTargetTag = lightTag;
+                }
+            }
 
             //else
             //{
@@ -167,13 +137,6 @@ public class TargetLock : MonoBehaviour
             //        isTargeting = true;
             //    }
             //}
-
-            if (ClosestTarget()) //if restoring the bits above, remove this
-            {
-                currentTarget = ClosestTarget().transform;
-                lastTargetTag = ClosestTarget().tag;
-                isTargeting = true;
-            }
 
             DebugExtensions.DebugSphereCast(mainCamera.transform.position, mainCamera.transform.forward, maxDistance, Color.red, sphereCastRadius, .2f, CastDrawType.Complete, PreviewCondition.Both, true);
         }
