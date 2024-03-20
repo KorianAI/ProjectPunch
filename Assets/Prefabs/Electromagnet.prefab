@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5042793550226833005}
   - component: {fileID: 1364366130874545388}
   - component: {fileID: 2573603968198724638}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1173,7 +1173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 814865253266372803}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PullPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1205,9 +1205,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2585077448575142134}
   - component: {fileID: 4779170783790906404}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Electromagnet
-  m_TagString: Enemy
+  m_TagString: Rail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1251,3 +1251,6 @@ MonoBehaviour:
   - {x: -55.32, y: 44.105, z: 498.038}
   arrayPosition: 0
   transitionspeed: 5
+  rotations: []
+  rotationSpeed: 0
+  rails: []

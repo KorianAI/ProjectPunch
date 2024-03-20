@@ -393,6 +393,19 @@ public class PlayerStateManager : MonoBehaviour
             }
         }
 
+        if (lockOn.currentTarget == null && currentState == railState)
+        {
+            lockOn.currentTarget = null;
+            lockOn.isTargeting = false;
+            lockOn.lastTargetTag = null;
+
+            transform.SetParent(null);
+            currentState = inAirState;
+
+            anim.Play("PlayerInAir");
+            anim.SetBool("onRail", false);
+        }
+
         else if (canAttack && lockOn.currentTarget == null)
         {
             // dodge
@@ -457,6 +470,19 @@ public class PlayerStateManager : MonoBehaviour
     #region Jumping
     public void Jump(InputAction.CallbackContext obj)
     {
+        if (currentState == railState)
+        {
+            lockOn.currentTarget = null;
+            lockOn.isTargeting = false;
+            lockOn.lastTargetTag = null;
+
+            transform.SetParent(null);
+            currentState = inAirState;
+
+            anim.Play("PlayerInAir");
+            anim.SetBool("onRail", false);
+        }
+        
         if (currentState != moveState && currentState != idleState) return;
 
         if (grounded) //readyToJump check removed due to bug (issue #3)
@@ -464,7 +490,7 @@ public class PlayerStateManager : MonoBehaviour
             yVelocity = jumpForce;
             anim.Play("PlayerJumpStart");
             SwitchState(inAirState);
-        }
+        }       
     }
 
     #endregion
