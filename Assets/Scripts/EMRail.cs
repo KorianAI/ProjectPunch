@@ -29,12 +29,11 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
     public void Pull(PlayerStateManager player)
     {
-        foreach (EMRail script in rails)
+        foreach (EMRail script in rails) //pauses all EM rails, ensuring they remain in sync
         {
             script.transform.DOPause();
         }
 
-        //transform.DOPause();
         player.SwitchState(player.railState);
         playerObj.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(SetParent); //pull to
     }
@@ -43,12 +42,11 @@ public class EMRail : MonoBehaviour, IMagnetisable
     {
         playerObj.transform.SetParent(pullPos.transform); //set parent to EM
 
-        foreach (EMRail script in rails)
+        foreach (EMRail script in rails) //plays all EM rails
         {
             script.transform.DOPlay();
         }
 
-        //transform.DOPlay();
         playerObj.GetComponent<TargetLock>().currentTarget = null;
         playerObj.GetComponent<TargetLock>().isTargeting = false;
         ps.anim.Play("Hang");
@@ -57,14 +55,18 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
-        if (playerObj.GetComponent<TargetLock>().currentTarget != null)
+        if (playerObj.GetComponent<TargetLock>().currentTarget != null || playerObj.GetComponent<TargetLock>().lastTargetTag == "Rail")
         {
             playerObj.GetComponent<TargetLock>().currentTarget = null;
             playerObj.GetComponent<TargetLock>().isTargeting = false;
+            playerObj.GetComponent<TargetLock>().lastTargetTag = null;
 
-            //unset parent
-            playerObj.transform.SetParent(null);
+            playerObj.transform.SetParent(null); //unset parent
+
             ps.SwitchState(ps.inAirState);
+
+            ps.anim.Play("PlayerInAir");
+            ps.anim.SetBool("onRail", false);
         }
         else
         {

@@ -5,35 +5,48 @@ using Cinemachine;
 using UnityEngine.UI;
 using RotaryHeart.Lib.PhysicsExtension;
 using UnityEngine.InputSystem;
+using System.Linq;
+
 
 public class TargetLock : MonoBehaviour
 { 
     [Header("Objects")]
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private CinemachineFreeLook cinemachineFreeLook; //cinemachine free lock camera object
     [Space]
-    [SerializeField] private Camera mainCamera;            // your main camera object.
-    [SerializeField] private CinemachineFreeLook cinemachineFreeLook; //cinemachine free lock camera object.
-    [Space]
+
     [Header("UI")]
-    [SerializeField] private Image aimIcon;  // ui image of aim icon u can leave it null.
+    [SerializeField] private Image aimIcon;  // ui image of aim icon
     [Space]
+
     [Header("Settings")]
+    [SerializeField] private string enemyTag;
+    [SerializeField] private string railTag;
+    [SerializeField] private string lightTag;
     [Space]
-    [SerializeField] private string enemyTag; // the enemies tag.
+
     [SerializeField] private InputActionReference input;
     [SerializeField] private Vector2 targetLockOffset;
-    [SerializeField] private float minDistance; // minimum distance to stop rotation if you get close to target
+    [SerializeField] private float minDistance; // minimum distance to stop rotation if player gets close to target
     [SerializeField] private float maxDistance;
+    [Space]
 
-    public LayerMask enemyLayer;
+    public LayerMask targetableLayers;
     
     public bool isTargeting;
 
     public float sphereCastRadius;
     
     private float maxAngle;
+
+    [Space]
     public Transform currentTarget;
+    public string lastTargetTag;
+
     private float mouseX;
     private float mouseY;
+
+    public RaycastHit[] yikes;
 
     private void OnEnable()
     {
@@ -68,14 +81,12 @@ public class TargetLock : MonoBehaviour
             aimIcon.gameObject.SetActive(isTargeting);
 
         cinemachineFreeLook.m_XAxis.m_InputAxisValue = mouseX;
-        cinemachineFreeLook.m_YAxis.m_InputAxisValue = mouseY;
-
-        
+        cinemachineFreeLook.m_YAxis.m_InputAxisValue = mouseY;        
     }
 
     public void AssignTarget(InputAction.CallbackContext obj)
     {
-        if (isTargeting)
+        if (isTargeting) //deactivate targeting
         {
             isTargeting = false;
             currentTarget = null;
@@ -88,26 +99,80 @@ public class TargetLock : MonoBehaviour
         //    isTargeting = true;
         //}
 
-        else
+        else //if not targeting, perform raycast to find a target
         {
             Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-            RaycastHit hit;
+            //RaycastHit hit;
 
-            if (UnityEngine.Physics.SphereCast(mainCamera.transform.position, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, enemyLayer))
+            //if (UnityEngine.Physics.SphereCast(mainCamera.transform.position, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, targetableLayers))
+            //{
+            //    if (hit.transform.CompareTag(enemyTag))
+            //    {
+            //        currentTarget = hit.transform;
+            //        isTargeting = true;
+            //        lastTargetTag = enemyTag;
+            //    }
+
+            //    if (hit.transform.CompareTag(railTag))
+            //    {
+            //        currentTarget = hit.transform;
+            //        isTargeting = true;
+            //        lastTargetTag = railTag;
+            //    }
+
+            //    if (hit.transform.CompareTag(lightTag))
+            //    {
+            //        currentTarget = hit.transform;
+            //        isTargeting = true;
+            //        lastTargetTag = lightTag;
+            //    }
+            //}
+
+
+            //yikes = UnityEngine.Physics.SphereCastAll(mainCamera.transform.position, sphereCastRadius *2, mainCamera.transform.forward, maxDistance, targetableLayers);
+            //int i = 0;
+
+            //foreach (var yike in yikes)
+            //{
+            //    Debug.Log(name);
+            //}
+
+            //if (yikes[i].transform.CompareTag(enemyTag))
+            //{
+            //    currentTarget = yikes[i].transform;
+            //    isTargeting = true;
+            //    lastTargetTag = enemyTag;
+            //}
+
+            //if (yikes[i].transform.CompareTag(railTag))
+            //{
+            //    currentTarget = yikes[i].transform;
+            //    isTargeting = true;
+            //    lastTargetTag = railTag;
+            //}
+
+            //if (yikes[i].transform.CompareTag(lightTag))
+            //{
+            //    currentTarget = yikes[i].transform;
+            //    isTargeting = true;
+            //    lastTargetTag = lightTag;
+            //}
+
+            //else
+            //{
+            //    if (ClosestTarget())
+            //    {
+            //        currentTarget = ClosestTarget().transform;
+            //        lastTargetTag = ClosestTarget().tag;
+            //        isTargeting = true;
+            //    }
+            //}
+
+            if (ClosestTarget()) //if restoring the bits above, remove this
             {
-                if (hit.transform.CompareTag(enemyTag))
-                {
-                    currentTarget = hit.transform;
-                    isTargeting = true;
-                }
-            }
-            else
-            {
-                if (ClosestTarget())
-                {
-                    currentTarget = ClosestTarget().transform;
-                    isTargeting = true;
-                }
+                currentTarget = ClosestTarget().transform;
+                lastTargetTag = ClosestTarget().tag;
+                isTargeting = true;
             }
 
             DebugExtensions.DebugSphereCast(mainCamera.transform.position, mainCamera.transform.forward, maxDistance, Color.red, sphereCastRadius, .2f, CastDrawType.Complete, PreviewCondition.Both, true);
@@ -128,11 +193,42 @@ public class TargetLock : MonoBehaviour
         mouseY = (viewPos.y - 0.5f + targetLockOffset.y) * 3f;              // don't use delta time here.
     }
 
+    //public GameObject ClosestTarget() // this is modified func from unity Docs (Gets Closest Object with Tag)
+    //{
+    //    GameObject[] gos;
+    //    gos = GameObject.FindGameObjectsWithTag(enemyTag);
+    //    GameObject closest = null;
+    //    float distance = maxDistance;
+    //    float currAngle = maxAngle;
+    //    Vector3 position = transform.position;
+    //    foreach (GameObject go in gos)
+    //    {
+    //        Vector3 diff = go.transform.position - position;
+    //        float curDistance = diff.magnitude;
+    //        if (curDistance < distance)
+    //        {
+    //            Vector3 viewPos = mainCamera.WorldToViewportPoint(go.transform.position);
+    //            Vector2 newPos = new Vector3(viewPos.x - 0.5f, viewPos.y - 0.5f);
+    //            if (Vector3.Angle(diff.normalized, mainCamera.transform.forward) < maxAngle)
+    //            {
+    //                closest = go;
+    //                currAngle = Vector3.Angle(diff.normalized, mainCamera.transform.forward.normalized);
+    //                distance = curDistance;
+    //            }
+    //        }
+    //    }
+    //    return closest;
+    //}
 
-    private GameObject ClosestTarget() // this is modified func from unity Docs ( Gets Closest Object with Tag ). 
+    public GameObject ClosestTarget() // this is modified func from unity Docs (Gets Closest Object with Tag)
     {
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag(enemyTag);
+        List<GameObject> enemies = GameObject.FindGameObjectsWithTag(enemyTag).ToList();
+        List<GameObject> lights = GameObject.FindGameObjectsWithTag(lightTag).ToList();
+        List<GameObject> rails = GameObject.FindGameObjectsWithTag(railTag).ToList();
+
+        List<GameObject> gos = enemies.Union(lights).ToList();
+        gos = gos.Union(rails).ToList();
+
         GameObject closest = null;
         float distance = maxDistance;
         float currAngle = maxAngle;
@@ -155,7 +251,6 @@ public class TargetLock : MonoBehaviour
         }
         return closest;
     }
-
 
     private void OnDrawGizmos()
     {

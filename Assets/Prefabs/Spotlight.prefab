@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3228219738691731198}
   - component: {fileID: 8491162718091993434}
   - component: {fileID: 6410146880005610155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lamp (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 5797444779265956468}
   - component: {fileID: 7235797550423228141}
   - component: {fileID: 2529354389352215375}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1408,7 +1408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1701208347303489589}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PullPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1445,7 +1445,7 @@ GameObject:
   - component: {fileID: 6624199194608448249}
   - component: {fileID: 8901867717335490853}
   - component: {fileID: 3463479069153988279}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Pole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2628,7 +2628,7 @@ GameObject:
   - component: {fileID: 3129714441755656286}
   - component: {fileID: 6681103043774460288}
   - component: {fileID: 8688679851981975652}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2745,9 +2745,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1260812953957377987}
   - component: {fileID: 1323992883426764763}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spotlight
-  m_TagString: Enemy
+  m_TagString: Spotlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2797,7 +2797,7 @@ GameObject:
   - component: {fileID: 7387043697779903864}
   - component: {fileID: 4253010334205375072}
   - component: {fileID: 8331168647239595846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
