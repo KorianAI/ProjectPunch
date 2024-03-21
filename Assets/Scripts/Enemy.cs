@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using EZCameraShake;
 
 public class Enemy : MonoBehaviour, IDamageable, IMagnetisable
 {
     public ParticleSystem particle;
     public bool canSpawn;
     public GameObject player;
+
+    bool takenDamage;
 
     public PlayerStateManager ps;
 
@@ -18,10 +21,24 @@ public class Enemy : MonoBehaviour, IDamageable, IMagnetisable
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("Owwww u hit: " + this.gameObject);
-        SpawnParticle();
-        transform.DOShakeScale(1, .1f, 10, 90);
+        if (!takenDamage)
+        {
+            CameraShaker.Instance.ShakeOnce(111f, 4f, .1f, 1f);
+            takenDamage = true;
+            Debug.Log("Owwww u hit: " + this.gameObject);
+            SpawnParticle();
+            transform.DOShakeScale(1, .1f, 10, 90);
+            StartCoroutine(ResetTakenDamage());
+        }
+
+
+        IEnumerator ResetTakenDamage()
+        {
+            yield return new WaitForSeconds(.2f);
+            takenDamage = false;
+        }
     }
+
 
     private void SpawnParticle()
     {
