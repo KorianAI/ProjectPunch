@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 494
+  m_VersionIndex: 497
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1205,6 +1205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2585077448575142134}
   - component: {fileID: 4779170783790906404}
+  - component: {fileID: 5362519107938976526}
   m_Layer: 8
   m_Name: Electromagnet
   m_TagString: Rail
@@ -1245,12 +1246,31 @@ MonoBehaviour:
   ps: {fileID: 0}
   pullPos: {fileID: 814865253266372803}
   points:
-  - {x: -92.89, y: 44.105, z: 498.038}
-  - {x: -92.89, y: 44.105, z: 558.8}
-  - {x: -92.89, y: 44.105, z: 498.038}
-  - {x: -55.32, y: 44.105, z: 498.038}
+  - {x: -113.36882, y: 42.18, z: 499.37}
   arrayPosition: 0
   transitionspeed: 5
-  rotations: []
+  rotations:
+  - {x: 0, y: 0, z: 0}
   rotationSpeed: 0
   rails: []
+--- !u!65 &5362519107938976526
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472155803749691998}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
