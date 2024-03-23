@@ -10,11 +10,13 @@ public class PlayerRailState : PlayerState
     public override void EnterState(PlayerStateManager player)
     {
         ps = player;
+        player.canMove = false;
     }
 
     public override void ExitState(PlayerStateManager player)
     {
         player.anim.SetBool("onRail", false);
+        player.canMove = true;
     }
 
     public override void FrameUpdate(PlayerStateManager player)

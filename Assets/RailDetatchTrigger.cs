@@ -26,7 +26,9 @@ public class RailDetatchTrigger : MonoBehaviour
 
                 ps.anim.Play("PlayerInAir");
                 ps.anim.SetBool("onRail", false);
-            }           
+
+                ps.cam.ChangeRailCam(false);
+            }
         }
     }
 }

@@ -35,22 +35,25 @@ public class EMRail : MonoBehaviour, IMagnetisable
         }
 
         player.SwitchState(player.railState);
-        playerObj.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(SetParent); //pull to
+        playerObj.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(SetParent); //pull to EM
     }
 
     void SetParent()
     {
         playerObj.transform.SetParent(pullPos.transform); //set parent to EM
 
+        ps.cam.ChangeRailCam(true);
+
         foreach (EMRail script in rails) //plays all EM rails
         {
             script.transform.DOPlay();
         }
 
-        playerObj.GetComponent<TargetLock>().currentTarget = null;
+        playerObj.GetComponent<TargetLock>().currentTarget = null; //cancels target locking
         playerObj.GetComponent<TargetLock>().isTargeting = false;
         ps.anim.Play("Hang");
         ps.anim.SetBool("onRail", true);
+        
     }
 
     public void Push(PlayerStateManager player)
@@ -67,6 +70,8 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
             ps.anim.Play("PlayerInAir");
             ps.anim.SetBool("onRail", false);
+
+            ps.cam.ChangeRailCam(false); //turn off railcam
         }
         else
         {
