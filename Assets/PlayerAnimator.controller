@@ -196,7 +196,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WhipAttack3
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -208,7 +208,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 1b652e727ad862644a3834ae27ac963e, type: 3}
+  m_Motion: {fileID: 7400000, guid: 26108a6659d5f2740b48b0af2ce8a0fd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -525,7 +525,7 @@ AnimatorStateMachine:
     m_Position: {x: -630, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9130682864271801437}
-    m_Position: {x: -620, y: -100, z: 0}
+    m_Position: {x: -420, y: -230, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -6483512155635442010}
@@ -650,7 +650,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WhipAttack2
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -662,7 +662,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 1bd12fd1c23d34b418553624604a908b, type: 3}
+  m_Motion: {fileID: 7400000, guid: 6a4622cd6aa59a8468cbe8aef858fc2a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -713,7 +713,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: b2c09b3c96a4d044b81047071796db9a, type: 3}
+  m_Motion: {fileID: 7400000, guid: 63e1dadf4b7dbaf4b9055109c4d33396, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
