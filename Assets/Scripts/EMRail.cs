@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using static UnityEngine.Rendering.DebugUI;
 
 public class EMRail : MonoBehaviour, IMagnetisable
 {
@@ -42,6 +43,8 @@ public class EMRail : MonoBehaviour, IMagnetisable
     {
         playerObj.transform.SetParent(pullPos.transform); //set parent to EM
 
+        ps.cam.ChangeCam(true);
+
         foreach (EMRail script in rails) //plays all EM rails
         {
             script.transform.DOPlay();
@@ -62,6 +65,8 @@ public class EMRail : MonoBehaviour, IMagnetisable
             playerObj.GetComponent<TargetLock>().lastTargetTag = null;
 
             playerObj.transform.SetParent(null); //unset parent
+
+            ps.cam.ChangeCam(false);
 
             ps.SwitchState(ps.inAirState);
 
