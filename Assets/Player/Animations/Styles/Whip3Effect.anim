@@ -15,6 +15,7 @@ AnimationClip:
   m_CompressedRotationCurves: []
   m_EulerCurves: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -1357,17 +1358,23 @@ AnimationClip:
   m_PPtrCurves: []
   m_SampleRate: 25
 =======
+=======
+>>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
   m_SampleRate: 60
+<<<<<<< HEAD
+>>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
+=======
 >>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
+<<<<<<< HEAD
 <<<<<<< HEAD
     genericBindings:
     - serializedVersion: 2
@@ -1436,6 +1443,9 @@ AnimationClip:
 =======
     genericBindings: []
 >>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
+=======
+    genericBindings: []
+>>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
     pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -1443,7 +1453,11 @@ AnimationClip:
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_StopTime: 2.68
+=======
+    m_StopTime: 1
+>>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
 =======
     m_StopTime: 1
 >>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
@@ -1461,6 +1475,7 @@ AnimationClip:
     m_KeepOriginalPositionXZ: 0
     m_HeightFromFeet: 0
     m_Mirror: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_EditorCurves:
   - serializedVersion: 2
@@ -5576,6 +5591,9 @@ AnimationClip:
     classID: 4
     script: {fileID: 0}
     flags: 0
+=======
+  m_EditorCurves: []
+>>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
 =======
   m_EditorCurves: []
 >>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS

@@ -215,6 +215,7 @@ AnimatorState:
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1102 &-4709185932606123647
 AnimatorState:
   serializedVersion: 6
@@ -241,6 +242,8 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+=======
+>>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
 =======
 >>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
 --- !u!1102 &-4421156423624683047
@@ -581,14 +584,20 @@ AnimatorStateMachine:
     m_Position: {x: -630, y: -90, z: 0}
   - serializedVersion: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_State: {fileID: 9130682864271801437}
     m_Position: {x: -420, y: -230, z: 0}
 =======
+=======
+>>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
     m_State: {fileID: 4243153202957119786}
     m_Position: {x: -630, y: -40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5439843923163215581}
     m_Position: {x: -813.5126, y: 204.9303, z: 0}
+<<<<<<< HEAD
+>>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
+=======
 >>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
   m_ChildStateMachines: []
   m_AnyStateTransitions:
@@ -733,6 +742,7 @@ AnimatorStateTransition:
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1102 &7624364379011582975
 AnimatorState:
   serializedVersion: 6
@@ -759,6 +769,8 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+=======
+>>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
 =======
 >>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
 --- !u!1101 &8060516123615432280
@@ -793,6 +805,7 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: WhipAttack
   m_Speed: 2
   m_CycleOffset: 0
@@ -813,6 +826,8 @@ AnimatorStateTransition:
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 =======
+=======
+>>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
@@ -832,4 +847,7 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+<<<<<<< HEAD
+>>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
+=======
 >>>>>>> parent of 43916f4... FUCK UFCK UFCKFUFK OMG YESSSS
