@@ -1,31 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-7290031662267540290
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Whip1241424
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 444316de4483a9842b53604cf671268f, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1102 &-7212479939082849286
 AnimatorState:
   serializedVersion: 6
@@ -140,16 +114,13 @@ AnimatorStateMachine:
     m_Position: {x: 50, y: -180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5017865085712163477}
-    m_Position: {x: 280, y: -20, z: 0}
+    m_Position: {x: 240, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7227804874982054448}
     m_Position: {x: 50, y: -230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7212479939082849286}
     m_Position: {x: 50, y: -280, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -7290031662267540290}
-    m_Position: {x: -88.91174, y: -63.71054, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
