@@ -40,17 +40,4 @@ public class ThirdPersonCamera : MonoBehaviour
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
         }
     }
-
-    public void ChangeCam(bool value)
-    {
-        if (value == true)
-        {
-            railCam.SetActive(true);
-        }
-
-        else if (value == false)
-        {
-            railCam.SetActive(false);
-        }
-    }
 }

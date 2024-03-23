@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using static UnityEngine.Rendering.DebugUI;
+using Cinemachine;
 
 public class EMRail : MonoBehaviour, IMagnetisable
 {
@@ -21,6 +22,10 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
     [Header("Connected Rails")]
     public EMRail[] rails;
+
+    [Header("Cameras")]
+    public CinemachineFreeLook playerCam;
+    public CinemachineVirtualCamera railCam;
 
     private void Start()
     {
@@ -43,7 +48,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
     {
         playerObj.transform.SetParent(pullPos.transform); //set parent to EM
 
-        ps.cam.ChangeCam(true);
+        //CameraManager.instance.SwitchNonPlayerCam(railCam);
 
         foreach (EMRail script in rails) //plays all EM rails
         {
@@ -58,22 +63,22 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
-        if (playerObj.GetComponent<TargetLock>().currentTarget != null || playerObj.GetComponent<TargetLock>().lastTargetTag == "Rail")
-        {
-            playerObj.GetComponent<TargetLock>().currentTarget = null;
-            playerObj.GetComponent<TargetLock>().isTargeting = false;
-            playerObj.GetComponent<TargetLock>().lastTargetTag = null;
+        //if (playerObj.GetComponent<TargetLock>().currentTarget != null || playerObj.GetComponent<TargetLock>().lastTargetTag == "Rail")
+        //{
+        //    playerObj.GetComponent<TargetLock>().currentTarget = null;
+        //    playerObj.GetComponent<TargetLock>().isTargeting = false;
+        //    playerObj.GetComponent<TargetLock>().lastTargetTag = null;
 
-            playerObj.transform.SetParent(null); //unset parent
+        //    playerObj.transform.SetParent(null); //unset parent
 
-            ps.cam.ChangeCam(false);
+        //    ps.SwitchState(ps.inAirState);
 
-            ps.SwitchState(ps.inAirState);
+        //    ps.anim.Play("PlayerInAir");
+        //    ps.anim.SetBool("onRail", false);
 
-            ps.anim.Play("PlayerInAir");
-            ps.anim.SetBool("onRail", false);
-        }
-        else
+        //    CameraManager.instance.SwitchPlayerCam(player.playerCam);
+        //}
+        //else
         {
             //Should play an audio effect to indicate that this does not work on static objects
             Debug.Log("nuh huh");

@@ -1,3 +1,4 @@
+using Cinemachine;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -78,6 +79,10 @@ public class PlayerStateManager : MonoBehaviour
     public float kbForce;
 
     public Animator whipAnim;
+
+    [Header("Cameras")]
+    public CinemachineFreeLook playerCam;
+    public CinemachineVirtualCamera railCam;
 
     [Header("GroundCheck")]
     public LayerMask ground;
@@ -410,6 +415,21 @@ public class PlayerStateManager : MonoBehaviour
         {
             // dodge
         }
+
+        if (currentState == railState)
+        {
+            //CameraManager.instance.SwitchPlayerCam(playerCam);
+
+            lockOn.currentTarget = null;
+            lockOn.isTargeting = false;
+            lockOn.lastTargetTag = null;
+
+            transform.SetParent(null);
+            currentState = inAirState;
+
+            anim.Play("PlayerInAir");
+            anim.SetBool("onRail", false);
+        }
     }
 
     public IEnumerator PushEffect()
@@ -472,7 +492,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState == railState)
         {
-            cam.ChangeCam(false);
+            //CameraManager.instance.SwitchPlayerCam(playerCam);
 
             lockOn.currentTarget = null;
             lockOn.isTargeting = false;

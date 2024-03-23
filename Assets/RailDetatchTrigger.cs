@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class RailDetatchTrigger : MonoBehaviour
 {
     public GameObject playerObj;
     public PlayerStateManager ps;
+
+    [Header("Cameras")]
+    public CinemachineFreeLook playerCam;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,7 +26,7 @@ public class RailDetatchTrigger : MonoBehaviour
 
                 playerObj.transform.SetParent(null);
 
-                ps.cam.ChangeCam(false);
+                //CameraManager.instance.SwitchPlayerCam(playerCam);
 
                 ps.SwitchState(ps.inAirState);
 

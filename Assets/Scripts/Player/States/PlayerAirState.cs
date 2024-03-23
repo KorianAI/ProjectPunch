@@ -12,7 +12,8 @@ public class PlayerAirState : PlayerState
     {
         
         _player = player;
-        player.readyToJump = false;     
+        player.readyToJump = false;
+        CameraManager.instance.SwitchPlayerCam(player.playerCam);
     }
 
     public override void ExitState(PlayerStateManager player)
