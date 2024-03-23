@@ -41,7 +41,7 @@ public class TargetLock : MonoBehaviour
 
     [Space]
     public Transform currentTarget;
-    public string lastTargetTag;
+    public string lastTargetTag; //required to allow players to push away from object when not locked on
 
     private float mouseX;
     private float mouseY;
@@ -128,15 +128,15 @@ public class TargetLock : MonoBehaviour
                 }
             }
 
-            //else
-            //{
-            //    if (ClosestTarget())
-            //    {
-            //        currentTarget = ClosestTarget().transform;
-            //        lastTargetTag = ClosestTarget().tag;
-            //        isTargeting = true;
-            //    }
-            //}
+            else
+            {
+                if (ClosestTarget())
+                {
+                    currentTarget = ClosestTarget().transform;
+                    lastTargetTag = ClosestTarget().tag;
+                    isTargeting = true;
+                }
+            }
 
             DebugExtensions.DebugSphereCast(mainCamera.transform.position, mainCamera.transform.forward, maxDistance, Color.red, sphereCastRadius, .2f, CastDrawType.Complete, PreviewCondition.Both, true);
         }

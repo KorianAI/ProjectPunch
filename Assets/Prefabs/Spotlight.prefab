@@ -226,10 +226,9 @@ GameObject:
   - component: {fileID: 1985319099254511401}
   - component: {fileID: 432683044660930732}
   - component: {fileID: 7723833557267160806}
-  - component: {fileID: 6405255006765787985}
   m_Layer: 6
   m_Name: Platform
-  m_TagString: Spotlight
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1385,20 +1384,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &6405255006765787985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3173897548254849875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a293d611eaf223347a7962db715eabc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObj: {fileID: 0}
-  pullPos: {fileID: 1701208347303489589}
 --- !u!1 &4290929006048208072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,10 +1429,9 @@ GameObject:
   - component: {fileID: 6013946756712994310}
   - component: {fileID: 6624199194608448249}
   - component: {fileID: 8901867717335490853}
-  - component: {fileID: 3463479069153988279}
   m_Layer: 8
   m_Name: Pole
-  m_TagString: Untagged
+  m_TagString: Spotlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2603,20 +2587,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &3463479069153988279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5706313030431714466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a293d611eaf223347a7962db715eabc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObj: {fileID: 0}
-  pullPos: {fileID: 1701208347303489589}
 --- !u!1 &6626596771485868455
 GameObject:
   m_ObjectHideFlags: 0
@@ -2745,6 +2715,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1260812953957377987}
   - component: {fileID: 1323992883426764763}
+  - component: {fileID: 4601475155559086067}
+  - component: {fileID: 7637359535988413712}
   m_Layer: 8
   m_Name: Spotlight
   m_TagString: Spotlight
@@ -2786,6 +2758,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObj: {fileID: 0}
   pullPos: {fileID: 1701208347303489589}
+--- !u!65 &4601475155559086067
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686509866134369565}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 3, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &7637359535988413712
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686509866134369565}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 14, z: 4}
+  m_Center: {x: 0, y: -9.01, z: 0}
 --- !u!1 &7891246360687491221
 GameObject:
   m_ObjectHideFlags: 0
