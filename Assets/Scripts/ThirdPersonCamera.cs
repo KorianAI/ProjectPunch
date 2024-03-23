@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class ThirdPersonCamera : MonoBehaviour
 
     public float rotationSpeed;
     public bool canRotate;
-    public PlayerStateManager controller;
+    public PlayerStateManager ps;
+
+    public GameObject railCam;
+    public CinemachineVirtualCamera virtualCamera;
 
     private void Start()
     {
@@ -34,6 +38,19 @@ public class ThirdPersonCamera : MonoBehaviour
         if (inputDir != Vector3.zero)
         {
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
+        }
+    }
+
+    public void ChangeCam(bool value)
+    {
+        if (value == true)
+        {
+            railCam.SetActive(true);
+        }
+
+        else if (value == false)
+        {
+            railCam.SetActive(false);
         }
     }
 }

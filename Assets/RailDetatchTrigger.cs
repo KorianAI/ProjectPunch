@@ -22,6 +22,8 @@ public class RailDetatchTrigger : MonoBehaviour
 
                 playerObj.transform.SetParent(null);
 
+                ps.cam.ChangeCam(false);
+
                 ps.SwitchState(ps.inAirState);
 
                 ps.anim.Play("PlayerInAir");

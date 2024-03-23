@@ -472,6 +472,8 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState == railState)
         {
+            cam.ChangeCam(false);
+
             lockOn.currentTarget = null;
             lockOn.isTargeting = false;
             lockOn.lastTargetTag = null;
