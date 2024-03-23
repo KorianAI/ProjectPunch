@@ -42,7 +42,6 @@ public class PlayerStateManager : MonoBehaviour
     public List<AnimatorOverrideController> heavyCombo;
 
     [Header("Movement")]
-    public bool canMove = true;
     public float moveSpeed;
     public float groundDrag;
     public float jumpForce;
@@ -482,9 +481,8 @@ public class PlayerStateManager : MonoBehaviour
 
             anim.Play("PlayerInAir");
             anim.SetBool("onRail", false);
-            cam.ChangeRailCam(false);
         }
-
+        
         if (currentState != moveState && currentState != idleState) return;
 
         if (grounded) //readyToJump check removed due to bug (issue #3)
