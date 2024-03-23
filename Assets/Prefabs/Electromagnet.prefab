@@ -1251,7 +1251,7 @@ MonoBehaviour:
   transitionspeed: 5
   rotations:
   - {x: 0, y: 0, z: 0}
-  rotationSpeed: 0
+  rotationSpeed: 0.8
   rails: []
 --- !u!65 &5362519107938976526
 BoxCollider:

@@ -18,7 +18,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
     public Vector3[] rotations;
     public float rotationSpeed;
 
-    [Header("Rotations")]
+    [Header("Connected Rails")]
     public EMRail[] rails;
 
     private void Start()
@@ -34,7 +34,6 @@ public class EMRail : MonoBehaviour, IMagnetisable
             script.transform.DOPause();
         }
 
-        Debug.Log("At least this is called");
         player.SwitchState(player.railState);
         playerObj.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(SetParent); //pull to
     }
