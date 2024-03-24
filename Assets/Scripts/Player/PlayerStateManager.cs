@@ -52,6 +52,7 @@ public class PlayerStateManager : MonoBehaviour
     [HideInInspector] public float walkSpeed;
     [HideInInspector] public float sprintSpeed;
     public Vector3 velocity;
+    public EMRail rail;
 
     public Transform orientation;
     public float horizontalInput;
@@ -411,6 +412,7 @@ public class PlayerStateManager : MonoBehaviour
             lockOn.currentTarget = null;
             lockOn.isTargeting = false;
             lockOn.lastTargetTag = null;
+            rail = null;
 
             transform.SetParent(null);
             currentState = inAirState;

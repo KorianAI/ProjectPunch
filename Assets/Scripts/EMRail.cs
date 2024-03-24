@@ -40,6 +40,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
         }
 
         ps = player;
+        ps.rail = this;
         player.SwitchState(player.railState);
         playerObj.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(SetParent); //pull to
     }

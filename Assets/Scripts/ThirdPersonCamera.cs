@@ -15,9 +15,6 @@ public class ThirdPersonCamera : MonoBehaviour
     public bool canRotate;
     public PlayerStateManager ps;
 
-    public GameObject railCam;
-    public CinemachineVirtualCamera virtualCamera;
-
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -35,7 +32,7 @@ public class ThirdPersonCamera : MonoBehaviour
         float verticalInput = Input.GetAxisRaw("Vertical");
         Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        if (inputDir != Vector3.zero)
+        if (inputDir != Vector3.zero && canRotate)
         {
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
         }

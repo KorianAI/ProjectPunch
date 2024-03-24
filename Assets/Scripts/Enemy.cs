@@ -23,7 +23,6 @@ public class Enemy : MonoBehaviour, IDamageable, IMagnetisable
     {
         if (!takenDamage)
         {
-            CameraShaker.Instance.ShakeOnce(111f, 4f, .1f, 1f);
             takenDamage = true;
             Debug.Log("Owwww u hit: " + this.gameObject);
             SpawnParticle();
