@@ -41,15 +41,20 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
         ps = player;
         ps.rail = this;
+        
         player.SwitchState(player.railState);
         playerObj.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(SetParent); //pull to
+        DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 70, .1f);
     }
 
     void SetParent()
     {
         playerObj.transform.SetParent(pullPos.transform); //set parent to EM
 
+        DOTween.To(() => ps.playerCam.m_Lens.FieldOfView, x => ps.playerCam.m_Lens.FieldOfView = x, 50, .25f);
+
         CameraManager.SwitchNonPlayerCam(ps.railCam);
+        ps.playerObj.forward = ps.rail.gameObject.transform.forward;
 
         foreach (EMRail script in rails) //plays all EM rails
         {
