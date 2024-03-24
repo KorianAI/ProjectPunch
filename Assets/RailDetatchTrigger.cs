@@ -26,7 +26,7 @@ public class RailDetatchTrigger : MonoBehaviour
 
                 playerObj.transform.SetParent(null);
 
-                //CameraManager.instance.SwitchPlayerCam(playerCam);
+                CameraManager.SwitchPlayerCam(ps.playerCam);
 
                 ps.SwitchState(ps.inAirState);
 

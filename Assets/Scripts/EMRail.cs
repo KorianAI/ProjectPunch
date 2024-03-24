@@ -29,7 +29,6 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
     private void Start()
     {
-        ps = playerObj.GetComponent<PlayerStateManager>();
         MoveToNextPoint();
     }
 
@@ -40,6 +39,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
             script.transform.DOPause();
         }
 
+        ps = player;
         player.SwitchState(player.railState);
         playerObj.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(SetParent); //pull to
     }
@@ -48,7 +48,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
     {
         playerObj.transform.SetParent(pullPos.transform); //set parent to EM
 
-        //CameraManager.instance.SwitchNonPlayerCam(railCam);
+        CameraManager.SwitchNonPlayerCam(ps.railCam);
 
         foreach (EMRail script in rails) //plays all EM rails
         {
@@ -63,26 +63,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
-        //if (playerObj.GetComponent<TargetLock>().currentTarget != null || playerObj.GetComponent<TargetLock>().lastTargetTag == "Rail")
-        //{
-        //    playerObj.GetComponent<TargetLock>().currentTarget = null;
-        //    playerObj.GetComponent<TargetLock>().isTargeting = false;
-        //    playerObj.GetComponent<TargetLock>().lastTargetTag = null;
-
-        //    playerObj.transform.SetParent(null); //unset parent
-
-        //    ps.SwitchState(ps.inAirState);
-
-        //    ps.anim.Play("PlayerInAir");
-        //    ps.anim.SetBool("onRail", false);
-
-        //    CameraManager.instance.SwitchPlayerCam(player.playerCam);
-        //}
-        //else
-        {
-            //Should play an audio effect to indicate that this does not work on static objects
-            Debug.Log("nuh huh");
-        }
+        Debug.Log("nuh huh");
     }
 
     private void MoveToNextPoint()

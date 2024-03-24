@@ -107,6 +107,9 @@ public class PlayerStateManager : MonoBehaviour
         jump.action.performed += Jump;
         pull.action.performed += Pull;
         push.action.performed += Push;
+
+        CameraManager.RegisterPC(playerCam);
+        CameraManager.RegisterVC(railCam);
     }
 
     private void OnDisable()
@@ -116,6 +119,9 @@ public class PlayerStateManager : MonoBehaviour
         jump.action.performed -= Jump;
         pull.action.performed -= Pull;
         push.action.performed -= Push;
+
+        CameraManager.UnRegisterPC(playerCam);
+        CameraManager.UnRegisterVC(railCam);
     }
     private void Start()
     {
@@ -393,13 +399,15 @@ public class PlayerStateManager : MonoBehaviour
             if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
             {
                 anim.Play("Push");
-                StopCoroutine("PuEffect");
+                StopCoroutine("PushEffect");
                 StartCoroutine("PushEffect");
             }
         }
 
-        if (lockOn.currentTarget == null && currentState == railState)
+        if (currentState == railState)
         {
+            CameraManager.SwitchPlayerCam(playerCam);
+
             lockOn.currentTarget = null;
             lockOn.isTargeting = false;
             lockOn.lastTargetTag = null;
@@ -409,26 +417,13 @@ public class PlayerStateManager : MonoBehaviour
 
             anim.Play("PlayerInAir");
             anim.SetBool("onRail", false);
+
+            
         }
 
         else if (canAttack && lockOn.currentTarget == null)
         {
             // dodge
-        }
-
-        if (currentState == railState)
-        {
-            //CameraManager.instance.SwitchPlayerCam(playerCam);
-
-            lockOn.currentTarget = null;
-            lockOn.isTargeting = false;
-            lockOn.lastTargetTag = null;
-
-            transform.SetParent(null);
-            currentState = inAirState;
-
-            anim.Play("PlayerInAir");
-            anim.SetBool("onRail", false);
         }
     }
 
@@ -492,7 +487,7 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (currentState == railState)
         {
-            //CameraManager.instance.SwitchPlayerCam(playerCam);
+            CameraManager.SwitchPlayerCam(playerCam);
 
             lockOn.currentTarget = null;
             lockOn.isTargeting = false;

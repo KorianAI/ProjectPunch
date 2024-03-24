@@ -10,7 +10,6 @@ public class PlayerRailState : PlayerState
     public override void EnterState(PlayerStateManager player)
     {
         ps = player;
-        CameraManager.instance.SwitchNonPlayerCam(player.railCam);
 
     }
 

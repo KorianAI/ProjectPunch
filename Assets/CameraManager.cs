@@ -3,78 +3,75 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CameraManager : MonoBehaviour
+public static class CameraManager
 {
     [Header("Non-Player Cameras")]
-    public List<CinemachineVirtualCamera> cameras;
-    public CinemachineVirtualCamera activeCamera;
-    public static CameraManager instance;
+    static List<CinemachineVirtualCamera> nonPlayerCameras = new List<CinemachineVirtualCamera>();
+    public static CinemachineVirtualCamera activeCamera = null;
 
     [Header("Player Cameras")]
-    public List<CinemachineFreeLook> playerCameras;
-    public CinemachineFreeLook activePlayerCamera;
+    static List<CinemachineFreeLook> playerCameras = new List<CinemachineFreeLook>();
+    public static CinemachineFreeLook activePlayerCamera = null;
 
-    private void Awake()
+
+    #region Register
+    public static void RegisterVC(CinemachineVirtualCamera vCam)
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        nonPlayerCameras.Add(vCam);
     }
 
-    public void SwitchNonPlayerCam (CinemachineVirtualCamera cam)
+    public static void UnRegisterVC(CinemachineVirtualCamera vCam)
     {
-        //if (activeCamera = cam) return;
+        nonPlayerCameras.Remove(vCam);
+    }
+
+    public static void RegisterPC(CinemachineFreeLook pCam)
+    {
+        playerCameras.Add(pCam);
+    }
+
+    public static void UnRegisterPC(CinemachineFreeLook pCam)
+    {
+        playerCameras.Remove(pCam);
+    }
+    #endregion
+
+    public static void SwitchNonPlayerCam (CinemachineVirtualCamera cam)
+    {
+        cam.Priority = 10;
+        activeCamera = cam;
 
         foreach (CinemachineFreeLook c in playerCameras)
         {
             c.Priority = 0;
         }
 
-        foreach (CinemachineVirtualCamera c in cameras)
+        foreach (CinemachineVirtualCamera c in nonPlayerCameras)
         {
-            if (c == cam)
-            {
-                c.Priority = 1;
-                activeCamera = cam;
-            }
-
-            else
+            if (c == !cam && c.Priority != 0)
             {
                 c.Priority = 0;
+                
             }
         }
     }
 
-    public void SwitchPlayerCam(CinemachineFreeLook cam)
+    public static void SwitchPlayerCam(CinemachineFreeLook cam)
     {
-        //if (activePlayerCamera = cam) return
-        Debug.Log("called switch");
+        Debug.Log("Called");
+        cam.Priority = 10;
+        activePlayerCamera = cam;
 
-        foreach (CinemachineVirtualCamera c in cameras)
+        foreach (CinemachineVirtualCamera c in nonPlayerCameras)
         {
             c.Priority = 0;
-            Debug.Log(c);
         }
 
         foreach (CinemachineFreeLook c in playerCameras)
         {
-            if (c == cam)
-            {
-                c.Priority = 1;
-                activePlayerCamera = cam;
-                Debug.Log(c);
-            }
-
-            else
+            if (c == !cam && c.Priority != 0)
             {
                 c.Priority = 0;
-                Debug.Log(c);
             }
         }
     }
