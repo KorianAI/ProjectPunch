@@ -72,6 +72,7 @@ public class Enemy : MonoBehaviour, IDamageable, IMagnetisable
         ps = player;
         transform.DOMove(player.pullPosition.position, 1f);
         transform.DOShakeRotation(1, 15f, 10, 90);
+        DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);
     }
 
 
