@@ -11,7 +11,7 @@ public class PlayerRailState : PlayerState
     {
         ps = player;
         ps.cam.canRotate = false;
-        
+        ps.playerObj.forward = ps.rail.gameObject.transform.forward;
     }
 
     public override void ExitState(PlayerStateManager player)

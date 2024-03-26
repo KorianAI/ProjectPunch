@@ -368,11 +368,10 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (canAttack && lockOn.currentTarget != null)
         {
-            var target = lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>();
             canAttack = false;
             RotateToTarget();
 
-            if (target != null)
+            if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
             {
                 anim.Play("Pull");
                 StopCoroutine("PullEffect");
@@ -383,34 +382,12 @@ public class PlayerStateManager : MonoBehaviour
 
     public IEnumerator PullEffect()
     {
-        var target = lockOn.currentTarget.gameObject;
-        float duration = 0;
+        //float cd = anim.GetCurrentAnimatorStateInfo(0).length / 2.5f;
+        //Debug.Log(cd);
+        yield return new WaitForSeconds(0.25f);
 
-        if (target.CompareTag("Enemy"))
-        {
-            DOTween.To(() => playerCam.m_Lens.FieldOfView, x => playerCam.m_Lens.FieldOfView = x, 48, .25f);
-            duration = 0.25f;
-        }
-
-        else if (target.CompareTag("Rail"))
-        {
-            DOTween.To(() => playerCam.m_Lens.FieldOfView, x => playerCam.m_Lens.FieldOfView = x, 85, .4f);
-            duration = .4f;
-        }
-
-        else // spotlight
-        {
-            DOTween.To(() => playerCam.m_Lens.FieldOfView, x => playerCam.m_Lens.FieldOfView = x, 85, .4f);
-            duration = .4f;
-        }
-
-        
-        yield return new WaitForSeconds(duration);
-
-        
-        target.GetComponent<IMagnetisable>().Pull(this);
+        lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Pull(this);
         canAttack = true;
-       
         //SwitchState(moveState);
     }
 
@@ -436,7 +413,6 @@ public class PlayerStateManager : MonoBehaviour
             lockOn.isTargeting = false;
             lockOn.lastTargetTag = null;
             rail = null;
-            cam.canRotate = true;
 
             transform.SetParent(null);
             currentState = inAirState;
@@ -470,14 +446,9 @@ public class PlayerStateManager : MonoBehaviour
         {
             cam.canRotate = false;
             Vector3 t = new Vector3(lockOn.currentTarget.transform.position.x, playerObj.transform.position.y, lockOn.currentTarget.transform.position.z);
-            playerObj.transform.DOLookAt(t, 0f).onComplete = CanRotate;
+            playerObj.transform.DOLookAt(t, 0f);
             
         }
-    }
-
-    void CanRotate()
-    {
-        cam.canRotate = true;
     }
 
     public void FuckOff(float attackNo)
@@ -523,7 +494,6 @@ public class PlayerStateManager : MonoBehaviour
             lockOn.currentTarget = null;
             lockOn.isTargeting = false;
             lockOn.lastTargetTag = null;
-            cam.canRotate = true;
 
             transform.SetParent(null);
             currentState = inAirState;
