@@ -6,13 +6,12 @@ public class PlayerAttack : PlayerState
 {
     public override void EnterState(PlayerStateManager player)
     {
-        player.canAttack = false;
-        player.anim.Play("PlayerLightAttack");
+        
     }
 
     public override void ExitState(PlayerStateManager player)
     {
-        player.anim.Play("PlayerIdle");
+        
     }
 
     public override void FrameUpdate(PlayerStateManager player)

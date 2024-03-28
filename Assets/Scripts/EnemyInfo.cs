@@ -19,11 +19,11 @@ public abstract class EnemyInfo : MonoBehaviour
 
     public abstract void Idle();
 
-    public abstract void Chase(Transform destination);
+    public abstract void Chase(Transform player);
 
-    public abstract void Attack(Transform target);
+    public abstract void Attack(Transform player);
 
-    public abstract void Stunned();
+    public abstract void Stunned(Transform player);
 
     public abstract void Dead();
 }

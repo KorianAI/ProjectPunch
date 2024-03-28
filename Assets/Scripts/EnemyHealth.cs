@@ -83,7 +83,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
-        transform.DOMove(transform.position + player.playerObj.forward * player.kbForce, 1f);
+        transform.DOMove(transform.position + player.orientation.forward * player.kbForce, 1f);
         GetStunned(1);
         transform.DOShakeRotation(1, 15f, 10, 90);
     }
@@ -98,12 +98,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable
 
     IEnumerator ResetStun(float stunLength)
     {
-        float stun = Random.Range(stunLength, stunLength + 1f);
-        yield return new WaitForSeconds(stun);
+        yield return new WaitForSeconds(stunLength);
         ai.enemy.anim.SetBool("Stunned", false);
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.5f);
         ai.enemy.agent.isStopped = false;
-        ai.state = EnemyAI.State.Chase;
-        //stunnedEffect.SetActive(false);
+        ai.state = EnemyAI.State.Idle;
     }
 }
