@@ -502,6 +502,13 @@ public class PlayerStateManager : MonoBehaviour
             playerObj.transform.DOLookAt(t, 0f).onComplete = CanRotate;
             
         }
+
+        else
+        {
+            cam.canRotate = false;
+            playerObj.forward = orientation.forward;
+            CanRotate();
+        }
     }
 
     void CanRotate()
