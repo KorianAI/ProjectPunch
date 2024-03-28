@@ -14,9 +14,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable
 
     public PlayerStateManager ps;
 
+    [SerializeField] EnemyAI ai;
+
     private void Start()
     {
         player = GameObject.Find("Player");
+        ai = GetComponent<EnemyAI>();
     }
 
     public void TakeDamage(float damage)
@@ -70,7 +73,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable
     public void Pull(PlayerStateManager player)
     {
         ps = player;
+        
         transform.DOMove(player.pullPosition.position, 1f);
+        GetStunned(1);
         transform.DOShakeRotation(1, 15f, 10, 90);
         DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);
     }
@@ -79,6 +84,26 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable
     public void Push(PlayerStateManager player)
     {
         transform.DOMove(transform.position + player.playerObj.forward * player.kbForce, 1f);
+        GetStunned(1);
         transform.DOShakeRotation(1, 15f, 10, 90);
+    }
+
+    public void GetStunned(float stunLength)
+    {
+        ai.state = EnemyAI.State.Stunned;
+        ai.enemy.anim.SetBool("Stunned", true);
+        ai.enemy.agent.isStopped = true;
+        StartCoroutine(ResetStun(stunLength));
+    }
+
+    IEnumerator ResetStun(float stunLength)
+    {
+        float stun = Random.Range(stunLength, stunLength + 1f);
+        yield return new WaitForSeconds(stun);
+        ai.enemy.anim.SetBool("Stunned", false);
+        yield return new WaitForSeconds(.2f);
+        ai.enemy.agent.isStopped = false;
+        ai.state = EnemyAI.State.Chase;
+        //stunnedEffect.SetActive(false);
     }
 }
