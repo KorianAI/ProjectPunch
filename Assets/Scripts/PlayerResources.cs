@@ -1,6 +1,8 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class PlayerResources : MonoBehaviour, IDamageable
@@ -22,6 +24,21 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public StyleInfo lightStyle;
     public StyleInfo heavyStyle;
 
+    [SerializeField] CinemachineFreeLook scrapCam;
+    [SerializeField] CinemachineFreeLook regularCam;
+
+    private void OnEnable()
+    {
+        CameraManager.RegisterPC(scrapCam);
+        CameraManager.RegisterPC(regularCam);
+    }
+
+    private void OnDisable()
+    {
+        CameraManager.UnRegisterPC(scrapCam);
+        CameraManager.UnRegisterPC(regularCam);
+    }
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -42,8 +59,24 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            scrapStyle = !scrapStyle;
+            ActivateScrapStyle();
         }
+    }
+
+    private void ActivateScrapStyle()
+    {
+        scrapStyle = !scrapStyle;
+
+        if (scrapStyle)
+        {
+            CameraManager.SwitchPlayerCam(scrapCam);
+        }
+
+        else
+        {
+            CameraManager.SwitchPlayerCam(regularCam);
+        }
+
     }
 
     public void TakeDamage(float damage)

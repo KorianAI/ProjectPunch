@@ -84,10 +84,12 @@ public class PlayerStateManager : MonoBehaviour
     [Header("Cameras")]
     public CinemachineFreeLook playerCam;
     public CinemachineVirtualCamera railCam;
+    public CinemachineVirtualCamera finisherCam;
 
     [Header("GroundCheck")]
     public LayerMask ground;
     public float playerHeight;
+
 
     public enum DebugState
     {
@@ -101,6 +103,19 @@ public class PlayerStateManager : MonoBehaviour
         rail
     }
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     private void OnEnable()
     {
         lightAttack.action.performed += LightAttack;
@@ -111,6 +126,7 @@ public class PlayerStateManager : MonoBehaviour
 
         CameraManager.RegisterPC(playerCam);
         CameraManager.RegisterVC(railCam);
+        CameraManager.RegisterVC(finisherCam);
     }
 
     private void OnDisable()
@@ -123,6 +139,7 @@ public class PlayerStateManager : MonoBehaviour
 
         CameraManager.UnRegisterPC(playerCam);
         CameraManager.UnRegisterVC(railCam);
+        CameraManager.UnRegisterVC(finisherCam);
     }
     private void Start()
     {
@@ -142,6 +159,11 @@ public class PlayerStateManager : MonoBehaviour
         currentState.FrameUpdate(this);
         Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
         ShowDebugState();
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            StartCoroutine(Finisher());
+        }
     }
 
     public void MovementInput()
@@ -501,6 +523,14 @@ public class PlayerStateManager : MonoBehaviour
         
     }
 
+    public IEnumerator Finisher()
+    {
+        Time.timeScale = .5f;
+        CameraManager.SwitchNonPlayerCam(finisherCam);
+        yield return new WaitForSecondsRealtime(3);
+        CameraManager.SwitchPlayerCam(playerCam);
+        Time.timeScale = 1f;
+    }
 
     public void CheckForEnemies()
     {

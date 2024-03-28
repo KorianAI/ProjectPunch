@@ -23,7 +23,7 @@ public class MagnetTesting : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, raycastRange))
         {
             GameObject enemy = hit.collider.gameObject;
-            if (enemy.CompareTag("Enemy"))
+            if (enemy.CompareTag("EnemyHealth"))
             {
                 enemy.transform.DOMove(pullPoint.position, .5f);
             }
