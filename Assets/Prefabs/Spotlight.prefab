@@ -1429,9 +1429,9 @@ GameObject:
   - component: {fileID: 6013946756712994310}
   - component: {fileID: 6624199194608448249}
   - component: {fileID: 8901867717335490853}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Pole
-  m_TagString: Spotlight
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
