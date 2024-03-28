@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerAirState : PlayerState
 {
     public PlayerStateManager _player;
-    bool fallAnim;
+    bool fallAnim; 
 
     public override void EnterState(PlayerStateManager player)
     {

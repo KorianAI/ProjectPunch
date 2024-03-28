@@ -16,7 +16,7 @@ public class PlayerStateManager : MonoBehaviour
     // states
     public PlayerIdleState idleState = new PlayerIdleState();
     public PlayerMoveState moveState = new PlayerMoveState();
-    public PlayerAttack lightAttackState = new PlayerAttack();
+    public PlayerAttack attackState = new PlayerAttack();
     public PlayerAirState inAirState = new PlayerAirState();
     public PlayerRailState railState = new PlayerRailState();
 
@@ -41,6 +41,7 @@ public class PlayerStateManager : MonoBehaviour
     public int comboCounter;
     public List<AnimatorOverrideController> lightCombo;
     public List<AnimatorOverrideController> heavyCombo;
+    Coroutine lastRoutine;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -154,7 +155,6 @@ public class PlayerStateManager : MonoBehaviour
         IsGrounded();
         anim.SetBool("isGrounded", grounded);
         ApplyGravity();
-        ExitAttack();
 
         currentState.FrameUpdate(this);
         Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
@@ -235,7 +235,7 @@ public class PlayerStateManager : MonoBehaviour
             debugState = DebugState.walk;
         }
 
-        else if (currentState == lightAttackState)
+        else if (currentState == attackState)
         {
             debugState = DebugState.lightAttack;
         }
@@ -298,10 +298,14 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (Time.time - lastComboEnd > 0.5f && comboCounter < lightCombo.Count)
         {
-            CancelInvoke("EndCombo");
-
-            if (Time.time - lastClickedTime >= .6f)
+            if (Time.time - lastClickedTime >= .4f)
             {
+                canAttack = false;
+                SwitchState(attackState);
+                if (lastRoutine != null) { StopCoroutine(lastRoutine); }
+                
+                Debug.Log("Attacked");
+
                 if (light)
                 {
                     if (resources.scrapStyle)
@@ -370,17 +374,22 @@ public class PlayerStateManager : MonoBehaviour
         }
     }
 
-    void ExitAttack()
+    public void ExitAttack()
     {
-        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)
-        {
-            canAttack = true;
-            Invoke("EndCombo", 1);
-        }
+        canAttack = true;
+        EndCombo();
     }
 
     void EndCombo()
     {
+        SwitchState(idleState);
+       lastRoutine =  StartCoroutine(ResetCombo());     
+    }
+
+    IEnumerator ResetCombo()
+    {
+        yield return new WaitForSeconds(1);
+        Debug.Log("dude");
         comboCounter = 0;
         lastComboEnd = Time.time;
         canAttack = true;
@@ -477,8 +486,6 @@ public class PlayerStateManager : MonoBehaviour
 
     public IEnumerator PushEffect()
     {
-        //float cd = anim.GetCurrentAnimatorStateInfo(0).length / 2.5f;
-        //Debug.Log(cd);
         yield return new WaitForSeconds(0.25f);
 
         lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Push(this);

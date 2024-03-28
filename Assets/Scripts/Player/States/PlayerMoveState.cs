@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMoveState : PlayerState
 {
-
+    
     public override void EnterState(PlayerStateManager player)
     {
         player.anim.SetBool("isWalking", true);
