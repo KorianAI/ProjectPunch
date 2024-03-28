@@ -21,9 +21,11 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent agent;
 
     public bool inAttackRange;
+    public GameObject playerPos;
 
     private void Start()
     {
+        playerPos = PlayerStateManager.instance.gameObject;
         agent = GetComponent<NavMeshAgent>();
         agent.speed = enemy.stats.moveSpeed;
     }
@@ -32,21 +34,24 @@ public class EnemyAI : MonoBehaviour
     {
         enemy.anim.SetBool("Walking", state == State.Chase);
         inAttackRange = Physics.CheckSphere(transform.position, enemy.stats.range, enemy.whatIsPlayer);
-        HandleStates();
+        StateUpdate();
     }
 
-    private void HandleStates()
+    private void FixedUpdate()
+    {
+        StateFixedUpdate();
+    }
+
+    private void StateUpdate()
     {
         switch (state)
         {
             case State.Idle:
                 if (aggro) { state = State.Chase; }
-
-
                 break;
 
             case State.Chase:
-                enemy.Chase(PlayerStateManager.instance.transform);
+                
                 if (!aggro) { state = State.Idle; }
                 if (inAttackRange) { state = State.Attack; }
 
@@ -54,7 +59,6 @@ public class EnemyAI : MonoBehaviour
                 break;
 
             case State.Attack:
-                enemy.Attack(PlayerStateManager.instance.transform);
 
                 if (!inAttackRange) { state = State.Chase; }
 
@@ -62,12 +66,31 @@ public class EnemyAI : MonoBehaviour
 
             case State.Stunned:
 
-
+                enemy.Stunned();
                 break;
 
             case State.Dead:
 
 
+                break;
+        }
+    }
+
+    private void StateFixedUpdate()
+    {
+        switch (state)
+        {
+            case State.Idle:
+                break;
+            case State.Chase:
+                enemy.Chase(playerPos.transform);
+                break;
+            case State.Attack:
+                enemy.Attack(playerPos.transform);
+                break;
+            case State.Stunned:
+                break;
+            case State.Dead:
                 break;
         }
     }
