@@ -47,7 +47,8 @@ public class EnemyAI : MonoBehaviour
         switch (state)
         {
             case State.Idle:
-                if (aggro) { state = State.Chase; }
+                if (aggro && !inAttackRange) { state = State.Chase; }
+                if (inAttackRange) { state = State.Attack; }
                 break;
 
             case State.Chase:
@@ -66,7 +67,7 @@ public class EnemyAI : MonoBehaviour
 
             case State.Stunned:
 
-                enemy.Stunned();
+                enemy.Stunned(playerPos.transform);
                 break;
 
             case State.Dead:

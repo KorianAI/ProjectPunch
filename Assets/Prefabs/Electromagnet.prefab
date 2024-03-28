@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 497
+  m_VersionIndex: 500
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1195,6 +1195,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2585077448575142134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3074367185181816888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 227135398457211057}
+  m_Layer: 8
+  m_Name: TargetPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &227135398457211057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3074367185181816888}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2585077448575142134}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8472155803749691998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,6 +1237,7 @@ GameObject:
   - component: {fileID: 2585077448575142134}
   - component: {fileID: 4779170783790906404}
   - component: {fileID: 5362519107938976526}
+  - component: {fileID: 6564746766667976442}
   m_Layer: 8
   m_Name: Electromagnet
   m_TagString: Rail
@@ -1228,6 +1260,7 @@ Transform:
   m_Children:
   - {fileID: 6357227401286651220}
   - {fileID: 814865253266372803}
+  - {fileID: 227135398457211057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4779170783790906404
@@ -1246,13 +1279,15 @@ MonoBehaviour:
   ps: {fileID: 0}
   pullPos: {fileID: 814865253266372803}
   points:
-  - {x: -113.36882, y: 42.18, z: 499.37}
+  - {x: -105.8, y: 42.18, z: 499.37}
   arrayPosition: 0
   transitionspeed: 5
   rotations:
   - {x: 0, y: 0, z: 0}
   rotationSpeed: 0.8
   rails: []
+  playerCam: {fileID: 0}
+  railCam: {fileID: 0}
 --- !u!65 &5362519107938976526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1274,3 +1309,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 3, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6564746766667976442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472155803749691998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 582f178c002934e42a605106fe8b4312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPoint: {fileID: 227135398457211057}

@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class ScrapWhip : LightStyleInfo
 {
-    public Animator whipAnim;
 
     public override void Attack1(float damage, float range)
     {
         Debug.Log(styleName + ": Attack 1");
-        player.anim.runtimeAnimatorController = attack1;
-        
-        
+        player.anim.runtimeAnimatorController = attack1;      
     }
 
     public override void Attack2(float damage, float range)
@@ -24,11 +21,5 @@ public class ScrapWhip : LightStyleInfo
     {
         Debug.Log(styleName + ": Attack 3");
         player.anim.runtimeAnimatorController = attack3;
-    }
-
-    public void TurnOnWhip()
-    {
-        whipAnim.gameObject.SetActive(true);
-        whipAnim.Play("WhipAnim");
     }
 }

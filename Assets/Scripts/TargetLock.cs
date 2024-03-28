@@ -74,7 +74,7 @@ public class TargetLock : MonoBehaviour
         }
         else
         {
-            NewInputTarget(currentTarget);
+            NewInputTarget(currentTarget.GetComponentInChildren<Targetable>().targetPoint);
         }
 
         if (aimIcon) 
@@ -106,26 +106,25 @@ public class TargetLock : MonoBehaviour
 
             if (UnityEngine.Physics.SphereCast(mainCamera.transform.position, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, targetableLayers))
             {
+
                 if (hit.transform.CompareTag(enemyTag))
                 {
-                    currentTarget = hit.transform;
-                    isTargeting = true;
                     lastTargetTag = enemyTag;
                 }
 
                 if (hit.transform.CompareTag(railTag))
                 {
-                    currentTarget = hit.transform;
-                    isTargeting = true;
                     lastTargetTag = railTag;
                 }
 
                 if (hit.transform.CompareTag(lightTag))
                 {
-                    currentTarget = hit.transform;
-                    isTargeting = true;
                     lastTargetTag = lightTag;
                 }
+
+              
+                currentTarget = hit.transform;
+                isTargeting = true;
             }
 
             else

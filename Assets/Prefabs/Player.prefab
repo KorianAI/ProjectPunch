@@ -15856,7 +15856,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8661974967407386046}
   m_Father: {fileID: 4454138310234866204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2658384697345664581
@@ -61113,12 +61114,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8342753755771608651}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0.96}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.11000079, z: 0.95999146}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4454138310234866204}
+  m_Father: {fileID: 2074335176709839613}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8611476921339748201
 GameObject:
@@ -61225,7 +61226,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3654407819213500771}
-  - {fileID: 8661974967407386046}
   - {fileID: 4905224940342984969}
   - {fileID: 1226994384471816380}
   - {fileID: 2074335176709839613}
@@ -61331,6 +61331,8 @@ MonoBehaviour:
     m_Bits: 128
   attackRange: 1.3
   attackDamage: 0
+  lastClickedTime: 0
+  lastComboEnd: 0
   comboCounter: 0
   lightCombo:
   - {fileID: 22100000, guid: d3761772a86695e4e9c33dacdd9636ce, type: 2}
@@ -61369,6 +61371,7 @@ MonoBehaviour:
   whipAnim: {fileID: 8299682563006885306}
   playerCam: {fileID: 0}
   railCam: {fileID: 109753418394670023}
+  finisherCam: {fileID: 0}
   ground:
     serializedVersion: 2
     m_Bits: 64
@@ -61425,6 +61428,8 @@ MonoBehaviour:
   scrapStyle: 0
   lightStyle: {fileID: 3465147376197880187}
   heavyStyle: {fileID: 8147008180925542149}
+  scrapCam: {fileID: 0}
+  regularCam: {fileID: 0}
 --- !u!143 &4685031014608878443
 CharacterController:
   m_ObjectHideFlags: 0

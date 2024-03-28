@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Muzzler : EnemyInfo
 {
+
     public override void Attack(Transform target)
     {
         agent.SetDestination(transform.position);
@@ -42,9 +43,9 @@ public class Muzzler : EnemyInfo
 
     }
 
-    public override void Stunned()
+    public override void Stunned(Transform player)
     {
-        
+        transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
 
     }
 }
