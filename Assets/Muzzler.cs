@@ -9,7 +9,7 @@ public class Muzzler : EnemyInfo
     {
         agent.SetDestination(transform.position);
         
-        if (canAttack)
+        if (canAttack && ai.permissionToAttack)
         {
             transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
             anim.SetTrigger("Attack");

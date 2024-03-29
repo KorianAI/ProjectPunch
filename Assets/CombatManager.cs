@@ -29,7 +29,7 @@ public class CombatManager : MonoBehaviour
     {
         if (AliveEnemyCount() > 0)
         {
-            RandomEnemy();
+            StartCoroutine(RandomEnemy());
         }
     }
 
@@ -42,22 +42,32 @@ public class CombatManager : MonoBehaviour
     }
 
 
-    public void RandomEnemy()
+    public IEnumerator RandomEnemy()
     {
+        //List<EnemyAI> availableEnemies = new List<EnemyAI> ();
+        //foreach (EnemyAI enemyAI in enemies)
+        //{
+        //    if (enemyAI.currentState == enemyAI.circleState)
+        //    {
+        //        availableEnemies.Add(enemyAI);
+        //    }
+        //}
+
         int randomIndex = Random.Range(0, enemies.Count);
         chosenEnemy = enemies[randomIndex];
-
         chosenEnemy.permissionToAttack = true;
-        MakeAgentsCircleTarget();
-        Debug.Log(chosenEnemy.name);
+
+
         foreach (EnemyAI e in enemies)
         {
             if (e != chosenEnemy)
             {
+                //if (e.InAttackRange()) { MakeAgentsCircleTarget(e); }
                 e.permissionToAttack = false;
-                e.state = EnemyAI.State.Circle;
             }
         }
+
+        yield return new WaitForSeconds(Random.Range(0, .5f));
     }
 
     public int AliveEnemyCount()
@@ -73,18 +83,20 @@ public class CombatManager : MonoBehaviour
         return count;
     }
 
-    public void MakeAgentsCircleTarget()
+    public void MakeAgentsCircleTarget(EnemyAI ai)
     {
-        Debug.Log("bruh2");
         for (int i = 0; i < enemies.Count; i++)
         {
             if (enemies[i] == chosenEnemy) { continue; }
-            Vector3 target = new Vector3(player.position.x + radiusAroundTarget * Mathf.Cos(2 * Mathf.PI * i / enemies.Count),
-               player.position.y,
-               player.position.z + radiusAroundTarget * Mathf.Sin(2 * Mathf.PI * i / enemies.Count));
-            
-            Debug.Log(target);
-            enemies[i].agent.SetDestination(target);
+            if (enemies[i] == ai)
+            {
+                Vector3 target = new Vector3(player.position.x + radiusAroundTarget * Mathf.Cos(2 * Mathf.PI * i / enemies.Count),
+                player.position.y,
+                player.position.z + radiusAroundTarget * Mathf.Sin(2 * Mathf.PI * i / enemies.Count));
+
+                Debug.Log(target);
+                enemies[i].agent.SetDestination(target);
+            }
         }
     }
 }
