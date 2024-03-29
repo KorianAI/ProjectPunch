@@ -7,7 +7,7 @@ public class PlayerAttack : PlayerState
 {
     public override void EnterState(PlayerStateManager player)
     {
-        player.transform.DOMove(player.transform.position + (player.orientation.transform.forward / 1), .5f);
+        player.transform.DOMove(player.transform.position + (player.orientation.transform.forward / 2), .5f);
     }
 
     public override void ExitState(PlayerStateManager player)

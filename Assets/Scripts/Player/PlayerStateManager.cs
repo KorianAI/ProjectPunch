@@ -552,6 +552,7 @@ public class PlayerStateManager : MonoBehaviour
         foreach (Collider c in enemies)
         {
             c.GetComponent<IDamageable>().TakeDamage(attackDamage);
+            c.GetComponent<IKnockback>().Knockback(1.5f, orientation);
             return;
         }
     }

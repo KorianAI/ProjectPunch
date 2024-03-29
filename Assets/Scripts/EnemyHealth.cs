@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using EZCameraShake;
 
-public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable
+public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 {
     public ParticleSystem particle;
     public bool canSpawn;
@@ -104,5 +104,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable
         yield return new WaitForSeconds(.5f);
         ai.enemy.agent.isStopped = false;
         ai.state = EnemyAI.State.Idle;
+    }
+
+    public void Knockback(float distance, Transform attacker)
+    {
+        transform.DOMove(transform.position += attacker.forward * distance, 3f);
     }
 }
