@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
         Idle,
         Chase,
         Attack,
+        Circle,
         Stunned,
         Dead
     }
@@ -18,16 +19,23 @@ public class EnemyAI : MonoBehaviour
 
     public EnemyInfo enemy;
     public bool aggro;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     public bool inAttackRange;
     public GameObject playerPos;
+
+    public bool permissionToAttack;
+
+    public CombatManager manager;
+
+
 
     private void Start()
     {
         playerPos = PlayerStateManager.instance.gameObject;
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = enemy.stats.moveSpeed;
+        agent.speed = Random.Range(enemy.stats.moveSpeed - 1, enemy.stats.moveSpeed);
+        enemy.ai = this;
     }
 
     private void Update()
@@ -48,13 +56,13 @@ public class EnemyAI : MonoBehaviour
         {
             case State.Idle:
                 if (aggro && !inAttackRange) { state = State.Chase; }
-                if (inAttackRange) { state = State.Attack; }
+                if (inAttackRange && permissionToAttack) { state = State.Attack; }
                 break;
 
             case State.Chase:
-                
+
                 if (!aggro) { state = State.Idle; }
-                if (inAttackRange) { state = State.Attack; }
+                if (inAttackRange && permissionToAttack) { state = State.Attack; }
 
 
                 break;
@@ -73,6 +81,9 @@ public class EnemyAI : MonoBehaviour
             case State.Dead:
 
 
+                break;
+            case State.Circle:
+                if (inAttackRange && permissionToAttack) { state = State.Attack; }
                 break;
         }
     }

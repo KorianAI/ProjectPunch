@@ -8,7 +8,7 @@ public class Muzzler : EnemyInfo
     public override void Attack(Transform target)
     {
         agent.SetDestination(transform.position);
-
+        
         if (canAttack)
         {
             transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
@@ -21,6 +21,13 @@ public class Muzzler : EnemyInfo
         {
             yield return new WaitForSeconds(stats.attackSpeed);
             canAttack = true;
+            ai.permissionToAttack = false;
+            ai.manager.chosenEnemy= null;
+
+            if (ai.manager != null)
+            {
+                ai.manager.StartAI();
+            }
         }
        
     }
