@@ -91,7 +91,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     public void GetStunned(float stunLength)
     {
-        ai.state = EnemyAI.State.Stunned;
         ai.enemy.anim.SetBool("Stunned", true);
         ai.enemy.agent.isStopped = true;
         StartCoroutine(ResetStun(stunLength));
@@ -103,7 +102,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         ai.enemy.anim.SetBool("Stunned", false);
         yield return new WaitForSeconds(.5f);
         ai.enemy.agent.isStopped = false;
-        ai.state = EnemyAI.State.Idle;
     }
 
     public void Knockback(float distance, Transform attacker)

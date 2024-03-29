@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    public enum State
+    public enum DebugState
     {
         Idle,
         Chase,
@@ -15,18 +16,29 @@ public class EnemyAI : MonoBehaviour
         Dead
     }
 
-    public State state;
+    public EnemyState currentState { get; set; }
+    public DebugState debugState;
 
+    // states
+    public EnemyIdle idleState = new EnemyIdle();
+    public EnemyChase chaseState = new EnemyChase();
+    public EnemyAttack attackState = new EnemyAttack();
+    public EnemyCircle circleState = new EnemyCircle();
+    public EnemyDead dead = new EnemyDead();
+
+    [Header("References")]
+    public CombatManager manager;
     public EnemyInfo enemy;
-    public bool aggro;
     public NavMeshAgent agent;
-
-    public bool inAttackRange;
     public GameObject playerPos;
 
+    [Header("Conditions")]
+    public bool aggro;
+    public bool inAttackRange;
     public bool permissionToAttack;
 
-    public CombatManager manager;
+    public float circleRadius;
+    public float circleSpeed;
 
 
 
@@ -36,74 +48,65 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.speed = Random.Range(enemy.stats.moveSpeed - 1, enemy.stats.moveSpeed);
         enemy.ai = this;
+
+        currentState = idleState;
+        currentState.EnterState(this);
+    }
+
+    public void SwitchState(EnemyState _state)
+    {
+        Debug.Log("Came from: " + currentState + " " + Time.time);
+        _state.ExitState(this);
+        currentState = _state;
+        _state.EnterState(this);
+        Debug.Log("Entered: " + currentState + " " + Time.time);
     }
 
     private void Update()
     {
-        enemy.anim.SetBool("Walking", state == State.Chase);
-        inAttackRange = Physics.CheckSphere(transform.position, enemy.stats.range, enemy.whatIsPlayer);
-        StateUpdate();
+        //enemy.anim.SetBool("Walking", state == DebugState.Chase);
+
+       currentState.FrameUpdate(this);
+       ShowDebugState();
     }
 
     private void FixedUpdate()
     {
-        StateFixedUpdate();
+        currentState.PhysicsUpdate(this);
     }
 
-    private void StateUpdate()
+    void ShowDebugState()
     {
-        switch (state)
+        if (currentState == idleState)
         {
-            case State.Idle:
-                if (aggro && !inAttackRange) { state = State.Chase; }
-                if (inAttackRange && permissionToAttack) { state = State.Attack; }
-                break;
-
-            case State.Chase:
-
-                if (!aggro) { state = State.Idle; }
-                if (inAttackRange && permissionToAttack) { state = State.Attack; }
-
-
-                break;
-
-            case State.Attack:
-
-                if (!inAttackRange) { state = State.Chase; }
-
-                break;
-
-            case State.Stunned:
-
-                enemy.Stunned(playerPos.transform);
-                break;
-
-            case State.Dead:
-
-
-                break;
-            case State.Circle:
-                if (inAttackRange && permissionToAttack) { state = State.Attack; }
-                break;
+            debugState = DebugState.Idle;
         }
+
+        else if (currentState == chaseState)
+        {
+            debugState = DebugState.Chase;
+        }
+
+        else if (currentState == attackState)
+        {
+            debugState = DebugState.Attack;
+        }
+
+        else if (currentState == circleState)
+        {
+            debugState = DebugState.Circle;
+        }
+
+        else if (currentState == dead)
+        {
+            debugState = DebugState.Dead;
+        }
+
     }
 
-    private void StateFixedUpdate()
+    public bool InAttackRange()
     {
-        switch (state)
-        {
-            case State.Idle:
-                break;
-            case State.Chase:
-                enemy.Chase(playerPos.transform);
-                break;
-            case State.Attack:
-                enemy.Attack(playerPos.transform);
-                break;
-            case State.Stunned:
-                break;
-            case State.Dead:
-                break;
-        }
+        inAttackRange = Physics.CheckSphere(transform.position, enemy.stats.range, enemy.whatIsPlayer);
+        return inAttackRange;
     }
 }
