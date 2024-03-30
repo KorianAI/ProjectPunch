@@ -57,8 +57,13 @@ public class CombatManager : MonoBehaviour
 
         int randomIndex = Random.Range(0, availableEnemies.Count);
         chosenEnemy = availableEnemies[randomIndex];
-        chosenEnemy.permissionToAttack = true;
 
+        if (chosenEnemy == null) { yield return new WaitForSeconds(2);  StartCoroutine(RandomEnemy()); }
+
+        else
+        {
+            chosenEnemy.permissionToAttack = true;
+        }
         yield return new WaitForSeconds(Random.Range(0, .5f));
     }
 

@@ -144,7 +144,7 @@ public class EnemyAI : MonoBehaviour
 
     public bool InAttackRange()
     {
-        inAttackRange = Physics.CheckSphere(transform.position, enemy.stats.range, enemy.whatIsPlayer);
+        inAttackRange = Physics.CheckSphere(transform.position, enemy.stats.patrolRange, enemy.whatIsPlayer);
         return inAttackRange;
     }
 

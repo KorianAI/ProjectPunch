@@ -49,16 +49,7 @@ public class EnemyAttack : EnemyState
 
         if (!enemyAI.InAttackRange())
         {
-            if (!enemyAI.preparingToChase)
-            {
-                enemyAI.preparingToChase = true;
-                enemyAI.chase = enemyAI.StartCoroutine(enemyAI.ChasePlayer());
-            }
-        }
-
-        else if (enemyAI.InAttackRange() && enemyAI.preparingToChase)
-        {
-            enemyAI.StopCoroutine(enemyAI.chase);
+            enemyAI.SwitchState(enemyAI.chaseState);
         }
 
     }
