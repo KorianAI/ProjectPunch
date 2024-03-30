@@ -19,6 +19,7 @@ public class EnemyAttack : EnemyState
         enemyAI.enemy.anim.SetBool("Patrolling", false);
     }
 
+
     public override void FrameUpdate(EnemyAI enemyAI)
     {
 
