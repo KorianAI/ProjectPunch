@@ -38,13 +38,13 @@ public class EnemyAI : MonoBehaviour
     public bool permissionToAttack;
     public bool patrolling;
 
-    public float circleRadius;
-    public float circleSpeed;
-
     public Coroutine patrol;
 
     public float remainingDistance;
+    public float circleRadius;
 
+
+    public Vector3 debugDestination;
 
 
     private void Start()
@@ -71,9 +71,7 @@ public class EnemyAI : MonoBehaviour
     {
        
        currentState.FrameUpdate(this);
-       
-        
-
+       debugDestination = agent.destination;
        ShowDebugState();
     }
 
@@ -85,14 +83,26 @@ public class EnemyAI : MonoBehaviour
     public IEnumerator Patrol()
     {
         patrolling = true;
-        manager.MakeAgentsCircleTarget(this);
-        remainingDistance = agent.remainingDistance;
         enemy.anim.SetBool("Walking", true);
-        yield return new WaitUntil(() => remainingDistance < agent.stoppingDistance);
-        enemy.anim.SetBool("Walking", false);
-        Debug.Log("dude");
-        yield return new WaitForSeconds(Random.Range(6, 9));
-        patrolling = false;
+
+        while (patrolling)
+        {
+            Vector3 randomDestination = GetRandomPointAroundPlayer(playerPos.transform.position, circleRadius);
+            agent.SetDestination(randomDestination);
+
+            while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
+            {
+               
+                // Wait until the agent reaches its destination
+                yield return null;
+            }
+
+            enemy.anim.SetBool("Walking", false);
+            Debug.Log("Reached destination");
+
+            // Wait for a random duration before patrolling again
+            yield return new WaitForSeconds(Random.Range(6, 9));
+        }
     }
 
     void ShowDebugState()
@@ -128,6 +138,15 @@ public class EnemyAI : MonoBehaviour
     {
         inAttackRange = Physics.CheckSphere(transform.position, enemy.stats.range, enemy.whatIsPlayer);
         return inAttackRange;
+    }
+
+    Vector3 GetRandomPointAroundPlayer(Vector3 center, float radius)
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * radius;
+        randomDirection += center;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, radius, 1);
+        return hit.position;
     }
 
     private void OnDrawGizmos()

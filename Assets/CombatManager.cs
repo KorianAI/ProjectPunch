@@ -13,6 +13,8 @@ public class CombatManager : MonoBehaviour
 
     public EnemyAI chosenEnemy;
 
+
+
     public void StartCombat()
     {
         combatActive = true;
@@ -44,17 +46,17 @@ public class CombatManager : MonoBehaviour
 
     public IEnumerator RandomEnemy()
     {
-        //List<EnemyAI> availableEnemies = new List<EnemyAI> ();
-        //foreach (EnemyAI enemyAI in enemies)
-        //{
-        //    if (enemyAI.currentState == enemyAI.circleState)
-        //    {
-        //        availableEnemies.Add(enemyAI);
-        //    }
-        //}
+        List<EnemyAI> availableEnemies = new List<EnemyAI>();
+        foreach (EnemyAI enemyAI in enemies)
+        {
+            if (!enemyAI.patrolling)
+            {
+                availableEnemies.Add(enemyAI);
+            }
+        }
 
-        int randomIndex = Random.Range(0, enemies.Count);
-        chosenEnemy = enemies[randomIndex];
+        int randomIndex = Random.Range(0, availableEnemies.Count);
+        chosenEnemy = availableEnemies[randomIndex];
         chosenEnemy.permissionToAttack = true;
 
 
