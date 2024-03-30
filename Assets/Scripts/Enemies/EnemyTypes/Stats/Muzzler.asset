@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Muzzler
   m_EditorClassIdentifier: 
   health: 100
-  range: 1.7
+  range: 2.5
   attackSpeed: 2
   damage: 10
   moveSpeed: 5

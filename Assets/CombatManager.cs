@@ -58,14 +58,14 @@ public class CombatManager : MonoBehaviour
         chosenEnemy.permissionToAttack = true;
 
 
-        foreach (EnemyAI e in enemies)
-        {
-            if (e != chosenEnemy)
-            {
-                //if (e.InAttackRange()) { MakeAgentsCircleTarget(e); }
-                e.permissionToAttack = false;
-            }
-        }
+        //foreach (EnemyAI e in enemies)
+        //{
+        //    if (e != chosenEnemy)
+        //    {
+        //        MakeAgentsCircleTarget(e); 
+        //        e.permissionToAttack = false;
+        //    }
+        //}
 
         yield return new WaitForSeconds(Random.Range(0, .5f));
     }
@@ -87,12 +87,13 @@ public class CombatManager : MonoBehaviour
     {
         for (int i = 0; i < enemies.Count; i++)
         {
-            if (enemies[i] == chosenEnemy) { continue; }
             if (enemies[i] == ai)
             {
-                Vector3 target = new Vector3(player.position.x + radiusAroundTarget * Mathf.Cos(2 * Mathf.PI * i / enemies.Count),
+                float randomI = i * Random.Range(i, i * 2);
+                //radiusAroundTarget = Random.Range(3, 5);
+                Vector3 target = new Vector3(player.position.x + radiusAroundTarget * Mathf.Cos(2 * Mathf.PI * randomI / enemies.Count),
                 player.position.y,
-                player.position.z + radiusAroundTarget * Mathf.Sin(2 * Mathf.PI * i / enemies.Count));
+                player.position.z + radiusAroundTarget * Mathf.Sin(2 * Mathf.PI * randomI / enemies.Count));
 
                 Debug.Log(target);
                 enemies[i].agent.SetDestination(target);

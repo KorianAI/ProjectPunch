@@ -7,9 +7,9 @@ public class Muzzler : EnemyInfo
 
     public override void Attack(Transform target)
     {
-        agent.SetDestination(transform.position);
+        //agent.SetDestination(transform.position);
         
-        if (canAttack && ai.permissionToAttack)
+        if (canAttack)
         {
             transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
             anim.SetTrigger("Attack");

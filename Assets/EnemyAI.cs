@@ -36,9 +36,14 @@ public class EnemyAI : MonoBehaviour
     public bool aggro;
     public bool inAttackRange;
     public bool permissionToAttack;
+    public bool patrolling;
 
     public float circleRadius;
     public float circleSpeed;
+
+    public Coroutine patrol;
+
+    public float remainingDistance;
 
 
 
@@ -46,7 +51,7 @@ public class EnemyAI : MonoBehaviour
     {
         playerPos = PlayerStateManager.instance.gameObject;
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = Random.Range(enemy.stats.moveSpeed - 1, enemy.stats.moveSpeed);
+        agent.speed = Random.Range(enemy.stats.moveSpeed - 2, enemy.stats.moveSpeed);
         enemy.ai = this;
 
         currentState = idleState;
@@ -64,15 +69,30 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        //enemy.anim.SetBool("Walking", state == DebugState.Chase);
-
+       
        currentState.FrameUpdate(this);
+       
+        
+
        ShowDebugState();
     }
 
     private void FixedUpdate()
     {
         currentState.PhysicsUpdate(this);
+    }
+
+    public IEnumerator Patrol()
+    {
+        patrolling = true;
+        manager.MakeAgentsCircleTarget(this);
+        remainingDistance = agent.remainingDistance;
+        enemy.anim.SetBool("Walking", true);
+        yield return new WaitUntil(() => remainingDistance < agent.stoppingDistance);
+        enemy.anim.SetBool("Walking", false);
+        Debug.Log("dude");
+        yield return new WaitForSeconds(Random.Range(6, 9));
+        patrolling = false;
     }
 
     void ShowDebugState()
@@ -108,5 +128,10 @@ public class EnemyAI : MonoBehaviour
     {
         inAttackRange = Physics.CheckSphere(transform.position, enemy.stats.range, enemy.whatIsPlayer);
         return inAttackRange;
+    }
+
+    private void OnDrawGizmos()
+    {
+        //Gizmos.DrawWireSphere(transform.position, enemy.stats.range);
     }
 }
