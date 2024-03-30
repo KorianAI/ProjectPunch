@@ -36,15 +36,20 @@ public class EnemyAI : MonoBehaviour
     public bool aggro;
     public bool inAttackRange;
     public bool permissionToAttack;
-    public bool patrolling;
+    public bool rePositioning;
+    public bool available;
 
     public Coroutine patrol;
+    public Coroutine chase;
+    public bool preparingToChase;
 
     public float remainingDistance;
     public float circleRadius;
+    public float minRadius;
 
 
     public Vector3 debugDestination;
+    NavMeshHit hit;
 
 
     private void Start()
@@ -60,11 +65,11 @@ public class EnemyAI : MonoBehaviour
 
     public void SwitchState(EnemyState _state)
     {
-        Debug.Log("Came from: " + currentState + " " + Time.time);
+        //Debug.Log("Came from: " + currentState + " " + Time.time);
         _state.ExitState(this);
         currentState = _state;
         _state.EnterState(this);
-        Debug.Log("Entered: " + currentState + " " + Time.time);
+        //Debug.Log("Entered: " + currentState + " " + Time.time);
     }
 
     private void Update()
@@ -82,26 +87,29 @@ public class EnemyAI : MonoBehaviour
 
     public IEnumerator Patrol()
     {
-        patrolling = true;
-        enemy.anim.SetBool("Walking", true);
+        Debug.Log("patrol started");
+        available = false;
+        rePositioning = true;
 
-        while (patrolling)
+        while (rePositioning)
         {
             Vector3 randomDestination = GetRandomPointAroundPlayer(playerPos.transform.position, circleRadius);
             agent.SetDestination(randomDestination);
 
             while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
             {
-               
+                transform.LookAt(new Vector3(playerPos.transform.position.x, transform.position.y, playerPos.transform.position.z));
                 // Wait until the agent reaches its destination
                 yield return null;
             }
 
-            enemy.anim.SetBool("Walking", false);
+            available = true;
             Debug.Log("Reached destination");
 
             // Wait for a random duration before patrolling again
-            yield return new WaitForSeconds(Random.Range(6, 9));
+            yield return new WaitForSeconds(Random.Range(6, 11));
+
+            rePositioning = false;
         }
     }
 
@@ -141,12 +149,33 @@ public class EnemyAI : MonoBehaviour
     }
 
     Vector3 GetRandomPointAroundPlayer(Vector3 center, float radius)
-    {
-        Vector3 randomDirection = Random.insideUnitSphere * radius;
-        randomDirection += center;
-        NavMeshHit hit;
-        NavMesh.SamplePosition(randomDirection, out hit, radius, 1);
+    {       
+        Vector3 randomDirection = Vector3.zero;
+        bool foundValidPoint = false;
+
+        while (!foundValidPoint)
+        {
+            randomDirection = Random.insideUnitSphere * radius;
+            randomDirection += center;
+
+            // Check the distance between the random point and the player
+            if (Vector3.Distance(randomDirection, center) >= minRadius)
+            {
+                // Check if the random point is on the NavMesh
+                if (NavMesh.SamplePosition(randomDirection, out hit, radius, NavMesh.AllAreas))
+                {
+                    foundValidPoint = true;
+                }
+            }
+        }
+
         return hit.position;
+    }
+
+    public IEnumerator ChasePlayer()
+    {
+        yield return new WaitForSeconds(2);
+        SwitchState(chaseState);
     }
 
     private void OnDrawGizmos()

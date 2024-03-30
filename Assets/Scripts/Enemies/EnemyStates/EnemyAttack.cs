@@ -6,40 +6,60 @@ public class EnemyAttack : EnemyState
 {
     public bool strafing;
 
+    bool playerLeft;
+
     public override void EnterState(EnemyAI enemyAI)
     {
-
+        enemyAI.available = true;
+        enemyAI.enemy.anim.SetBool("Patrolling", true);
     }
 
     public override void ExitState(EnemyAI enemyAI)
     {
-
+        enemyAI.enemy.anim.SetBool("Patrolling", false);
     }
 
     public override void FrameUpdate(EnemyAI enemyAI)
     {
-      
+
+        enemyAI.transform.LookAt(new Vector3(enemyAI.playerPos.transform.position.x, enemyAI.transform.position.y, enemyAI.playerPos.transform.position.z));
+
         if (enemyAI.permissionToAttack)
         {
+            
             enemyAI.agent.SetDestination(enemyAI.transform.position);
-            enemyAI.transform.LookAt(new Vector3(enemyAI.playerPos.transform.position.x, enemyAI.transform.position.y, enemyAI.playerPos.transform.position.z));
 
             if (enemyAI.patrol != null)
-            {
-                
+            {             
                 enemyAI.StopCoroutine(enemyAI.patrol);
             }        
             enemyAI.enemy.Attack(enemyAI.playerPos.transform);
+            enemyAI.rePositioning = false;
         }
 
         else
         {
-            if (!enemyAI.patrolling)
+            if (!enemyAI.rePositioning && enemyAI.manager.chosenEnemy != null)
             {
-               enemyAI.patrol =  enemyAI.StartCoroutine(enemyAI.Patrol());
+                if (enemyAI.patrol != null) { enemyAI.StopCoroutine(enemyAI.patrol); }        
+                enemyAI.patrol =  enemyAI.StartCoroutine(enemyAI.Patrol());
             }       
         }
-        
+
+        if (!enemyAI.InAttackRange())
+        {
+            if (!enemyAI.preparingToChase)
+            {
+                enemyAI.preparingToChase = true;
+                enemyAI.chase = enemyAI.StartCoroutine(enemyAI.ChasePlayer());
+            }
+        }
+
+        else if (enemyAI.InAttackRange() && enemyAI.preparingToChase)
+        {
+            enemyAI.StopCoroutine(enemyAI.chase);
+        }
+
     }
 
     public override void PhysicsUpdate(EnemyAI enemyAI)

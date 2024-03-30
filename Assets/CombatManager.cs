@@ -49,7 +49,7 @@ public class CombatManager : MonoBehaviour
         List<EnemyAI> availableEnemies = new List<EnemyAI>();
         foreach (EnemyAI enemyAI in enemies)
         {
-            if (!enemyAI.patrolling)
+            if (enemyAI.available)
             {
                 availableEnemies.Add(enemyAI);
             }
@@ -58,16 +58,6 @@ public class CombatManager : MonoBehaviour
         int randomIndex = Random.Range(0, availableEnemies.Count);
         chosenEnemy = availableEnemies[randomIndex];
         chosenEnemy.permissionToAttack = true;
-
-
-        //foreach (EnemyAI e in enemies)
-        //{
-        //    if (e != chosenEnemy)
-        //    {
-        //        MakeAgentsCircleTarget(e); 
-        //        e.permissionToAttack = false;
-        //    }
-        //}
 
         yield return new WaitForSeconds(Random.Range(0, .5f));
     }

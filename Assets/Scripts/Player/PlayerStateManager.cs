@@ -553,7 +553,7 @@ public class PlayerStateManager : MonoBehaviour
         {
             c.GetComponent<IDamageable>().TakeDamage(attackDamage);
             c.GetComponent<IKnockback>().Knockback(1.5f, orientation);
-            return;
+            
         }
     }
     #endregion

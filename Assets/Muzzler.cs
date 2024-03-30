@@ -11,7 +11,7 @@ public class Muzzler : EnemyInfo
         
         if (canAttack)
         {
-            transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
+            //transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
             anim.SetTrigger("Attack");
             canAttack = false;
             StartCoroutine(ResetAttack());
