@@ -5,19 +5,9 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
     public GameObject slotPrefab;
-    public PlayerResources health;
+    public float maxHealth;
+    public float currentHealth;
     List<HealthSlot> slots = new List<HealthSlot>();
-
-    private void OnEnable()
-    {
-        PlayerResources.OnPlayerDamaged += DrawSlots;
-    }
-
-    private void OnDisable()
-    {
-        PlayerResources.OnPlayerDamaged -= DrawSlots;
-    }
-
 
 
     private void Start()
@@ -29,8 +19,8 @@ public class HealthBar : MonoBehaviour
     {
         ClearSlots();
 
-        float maxHealthRemainder = health.maxHealth % 10;
-        int slotsToMake = (int)((health.maxHealth / 10f) + maxHealthRemainder);
+        float maxHealthRemainder = maxHealth % 10;
+        int slotsToMake = (int)((maxHealth / 10f) + maxHealthRemainder);
 
         for (int i = 0; i < slotsToMake; i++)
         {
@@ -39,7 +29,7 @@ public class HealthBar : MonoBehaviour
 
         for (int i = 0; i < slots.Count; i++)
         {
-            int slotStatusRemainder = (int)Mathf.Clamp(health.currentHealth - (i * 10), 0, 10);
+            int slotStatusRemainder = (int)Mathf.Clamp(currentHealth - (i * 10), 0, 10);
             Debug.Log(slotStatusRemainder);
             slots[i].SetSlotImage((SlotStatus)slotStatusRemainder);
         }
@@ -47,7 +37,7 @@ public class HealthBar : MonoBehaviour
 
     public void CreateEmptySlot()
     {
-        GameObject newSlot = Instantiate(slotPrefab, transform, true);
+        GameObject newSlot = Instantiate(slotPrefab, transform, false);
         newSlot.transform.localScale = new Vector3(1, 1, 1);
         newSlot.transform.SetParent(transform);
 

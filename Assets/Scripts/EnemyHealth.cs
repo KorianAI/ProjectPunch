@@ -15,11 +15,20 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     public PlayerStateManager ps;
 
     [SerializeField] EnemyAI ai;
+    [SerializeField] EnemySO stats;
+    [SerializeField] float currentHealth;
+
+    public HealthBar healthBar;
 
     private void Start()
     {
         player = GameObject.Find("Player");
         ai = GetComponent<EnemyAI>();
+
+        currentHealth = stats.health;
+
+        healthBar.maxHealth = stats.health;
+        healthBar.currentHealth = currentHealth;
     }
 
     public void TakeDamage(float damage)
@@ -27,7 +36,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         if (!takenDamage)
         {
             takenDamage = true;
-            Debug.Log("Owwww u hit: " + this.gameObject);
+            currentHealth -= damage;
+            healthBar.currentHealth = currentHealth;
+            healthBar.DrawSlots();
             SpawnParticle();
             transform.DOShakeScale(1, .1f, 10, 90);
             StartCoroutine(ResetTakenDamage());

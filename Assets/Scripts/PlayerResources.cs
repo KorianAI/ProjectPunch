@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
+[DefaultExecutionOrder(0)]
 public class PlayerResources : MonoBehaviour, IDamageable
 {
     [Header("Health")]
@@ -32,6 +33,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public float testDMG;
 
+    public HealthBar healthBar;
+
     private void OnEnable()
     {
         CameraManager.RegisterPC(scrapCam);
@@ -48,6 +51,9 @@ public class PlayerResources : MonoBehaviour, IDamageable
     {
         currentHealth = maxHealth;
         currentScrap = maxScrap;
+
+        healthBar.maxHealth = maxHealth;
+        healthBar.currentHealth = currentHealth;
     }
 
     private void Update()
@@ -93,7 +99,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
     {
        
         currentHealth -= damage;
-        OnPlayerDamaged?.Invoke();
+        healthBar.currentHealth = currentHealth;
+        healthBar.DrawSlots();
         //UpdateHealthUI();
     }
 
