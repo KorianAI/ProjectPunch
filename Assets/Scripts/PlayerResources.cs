@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,10 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     [SerializeField] CinemachineFreeLook scrapCam;
     [SerializeField] CinemachineFreeLook regularCam;
+
+    public static event Action OnPlayerDamaged;
+
+    public float testDMG;
 
     private void OnEnable()
     {
@@ -61,6 +66,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
         {
             ActivateScrapStyle();
         }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            TakeDamage(testDMG);
+        }
     }
 
     private void ActivateScrapStyle()
@@ -81,14 +91,16 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
+       
         currentHealth -= damage;
-        UpdateHealthUI();
+        OnPlayerDamaged?.Invoke();
+        //UpdateHealthUI();
     }
 
-    void UpdateHealthUI()
-    {
-        healthFillImage.fillAmount = currentHealth / maxHealth;
-    }
+    //void UpdateHealthUI()
+    //{
+    //    healthFillImage.fillAmount = currentHealth / maxHealth;
+    //}
 
     public void UpdateScrap(float amount)
     {
