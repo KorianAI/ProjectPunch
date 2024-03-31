@@ -14,6 +14,7 @@ public class DamageObject : MonoBehaviour
         if (target != null && !other.gameObject.CompareTag("Player"))
         {
             target.TakeDamage(damage);
+            other.gameObject.GetComponent<EnemyHealth>().GetStunned(.1f);
         }
     }
 }

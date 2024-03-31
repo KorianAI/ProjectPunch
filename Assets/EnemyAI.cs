@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,7 +25,8 @@ public class EnemyAI : MonoBehaviour
     public EnemyChase chaseState = new EnemyChase();
     public EnemyAttack attackState = new EnemyAttack();
     public EnemyCircle circleState = new EnemyCircle();
-    public EnemyDead dead = new EnemyDead();
+    public EnemyStunned stunnedState = new EnemyStunned();
+    public EnemyDead deadState = new EnemyDead();
 
     [Header("References")]
     public CombatManager manager;
@@ -47,6 +49,7 @@ public class EnemyAI : MonoBehaviour
     public float circleRadius;
     public float minRadius;
 
+    public float damageRadius;
 
     public Vector3 debugDestination;
     NavMeshHit hit;
@@ -135,7 +138,12 @@ public class EnemyAI : MonoBehaviour
             debugState = DebugState.Circle;
         }
 
-        else if (currentState == dead)
+        else if (currentState == stunnedState)
+        {
+            debugState = DebugState.Stunned;
+        }
+
+        else if (currentState == deadState)
         {
             debugState = DebugState.Dead;
         }
@@ -185,6 +193,7 @@ public class EnemyAI : MonoBehaviour
         foreach (Collider c in enemies)
         {
             c.GetComponent<IDamageable>().TakeDamage(enemy.stats.damage);
+            GameObject hitVFX = Instantiate(enemy.hitVFX, enemy.attackPoint);
             //c.GetComponent<IKnockback>().Knockback(1.5f, orientation);
             //RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
 
@@ -193,6 +202,7 @@ public class EnemyAI : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //Gizmos.DrawWireSphere(transform.position, enemy.stats.range);
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(enemy.attackPoint.position, damageRadius);
     }
 }

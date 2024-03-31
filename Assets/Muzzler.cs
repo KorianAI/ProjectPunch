@@ -16,7 +16,7 @@ public class Muzzler : EnemyInfo
             Debug.Log("dude");
             canAttack = false;
             Vector3 storedPos = CalculateAttackPosition(target.position);
-            ai.transform.DOMove(storedPos, 1f).onComplete = AttackAnim;
+            ai.transform.DOMove(storedPos, 1).onComplete = AttackAnim;
         }
        
 
@@ -37,7 +37,10 @@ public class Muzzler : EnemyInfo
 
     void AttackAnim()
     {
-        anim.SetTrigger("Attack");
+        if (ai.currentState == ai.attackState)
+        {
+            anim.SetTrigger("Attack");
+        }     
         StartCoroutine(ResetAttack());
     }
 

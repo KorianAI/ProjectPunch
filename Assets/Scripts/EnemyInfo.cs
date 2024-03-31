@@ -8,6 +8,7 @@ public abstract class EnemyInfo : MonoBehaviour
     public EnemySO stats;
     public EnemyAI ai;
     public NavMeshAgent agent;
+    public GameObject hitVFX;
 
     [Header("Attacking")]
     public bool canAttack = true;

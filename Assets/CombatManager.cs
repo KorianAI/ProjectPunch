@@ -55,8 +55,11 @@ public class CombatManager : MonoBehaviour
             }
         }
 
-        int randomIndex = Random.Range(0, availableEnemies.Count);
-        chosenEnemy = availableEnemies[randomIndex];
+        if (availableEnemies.Count > 0)
+        {
+            int randomIndex = Random.Range(0, availableEnemies.Count);
+            chosenEnemy = availableEnemies[randomIndex];
+        }
 
         if (chosenEnemy == null) { yield return new WaitForSeconds(2);  StartCoroutine(RandomEnemy()); }
 

@@ -39,9 +39,21 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
             currentHealth -= damage;
             healthBar.currentHealth = currentHealth;
             healthBar.DrawSlots();
+
             SpawnParticle();
-            transform.DOShakeScale(1, .1f, 10, 90);
-            StartCoroutine(ResetTakenDamage());
+            transform.DOShakeScale(.2f, .1f, 10, 90);
+
+            if (currentHealth <= 0 )
+            {
+                ai.SwitchState(ai.deadState);
+            }
+
+            else
+            {
+
+                StartCoroutine(ResetTakenDamage());
+            }
+
         }
 
 
@@ -104,6 +116,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     {
         ai.enemy.anim.SetBool("Stunned", true);
         ai.enemy.agent.isStopped = true;
+        ai.SwitchState(ai.stunnedState);
         StartCoroutine(ResetStun(stunLength));
     }
 
@@ -112,7 +125,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         yield return new WaitForSeconds(stunLength);
         ai.enemy.anim.SetBool("Stunned", false);
         yield return new WaitForSeconds(.5f);
+
+        if (ai.currentState == ai.deadState) yield return null;
         ai.enemy.agent.isStopped = false;
+        ai.SwitchState(ai.attackState);
     }
 
     public void Knockback(float distance, Transform attacker)
