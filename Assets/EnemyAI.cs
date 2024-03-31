@@ -178,6 +178,19 @@ public class EnemyAI : MonoBehaviour
         SwitchState(chaseState);
     }
 
+    public void CheckForPlayer()
+    {
+        Collider[] enemies = Physics.OverlapSphere(enemy.attackPoint.position, enemy.stats.range, enemy.whatIsPlayer);
+        if (enemies.Length <= 0) { return; }
+        foreach (Collider c in enemies)
+        {
+            c.GetComponent<IDamageable>().TakeDamage(enemy.stats.damage);
+            //c.GetComponent<IKnockback>().Knockback(1.5f, orientation);
+            //RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
+
+        }
+    }
+
     private void OnDrawGizmos()
     {
         //Gizmos.DrawWireSphere(transform.position, enemy.stats.range);

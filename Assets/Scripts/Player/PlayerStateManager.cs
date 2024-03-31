@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerStateManager : MonoBehaviour
+public class PlayerStateManager : MonoBehaviour, IKnockback
 {
     public PlayerState currentState {  get; set; }
 
@@ -597,4 +597,8 @@ public class PlayerStateManager : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
+    public void Knockback(float distance, Transform attacker)
+    {
+        throw new System.NotImplementedException();
+    }
 }

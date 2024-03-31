@@ -29,7 +29,6 @@ public class PlayerResources : MonoBehaviour, IDamageable
     [SerializeField] CinemachineFreeLook scrapCam;
     [SerializeField] CinemachineFreeLook regularCam;
 
-    public static event Action OnPlayerDamaged;
 
     public float testDMG;
 
