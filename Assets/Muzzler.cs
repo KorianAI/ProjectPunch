@@ -80,6 +80,7 @@ public class Muzzler : EnemyInfo
 
     private void OnDrawGizmosSelected()
     {
+        if (!Application.isPlaying) return;
         // Calculate the attack position
         Vector3 playerPosition = ai.playerPos.transform.position;// Get player position
         Vector3 directionToPlayer = (playerPosition - transform.position).normalized;
