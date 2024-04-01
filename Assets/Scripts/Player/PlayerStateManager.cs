@@ -160,11 +160,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         currentState.FrameUpdate(this);
         Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
         ShowDebugState();
-
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            StartCoroutine(Finisher());
-        }
     }
 
     public void MovementInput()
@@ -538,14 +533,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         
     }
 
-    public IEnumerator Finisher()
-    {
-        Time.timeScale = .5f;
-        CameraManager.SwitchNonPlayerCam(finisherCam);
-        yield return new WaitForSecondsRealtime(3);
-        CameraManager.SwitchPlayerCam(playerCam);
-        Time.timeScale = 1f;
-    }
+
 
     public void CheckForEnemies()
     {

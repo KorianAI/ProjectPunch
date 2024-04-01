@@ -72,7 +72,25 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     private void Die()
     {
-        ai.SwitchState(ai.deadState);
+        ai.manager.enemies.Remove(ai);
+
+        if (ai.manager.AliveEnemyCount() <= 0)
+        {
+            StartCoroutine(Finisher());
+            StartCoroutine(DelayedFinisher());
+
+            IEnumerator DelayedFinisher()
+            {
+                yield return new WaitForSeconds(.1f);
+                ai.SwitchState(ai.deadState);
+            }
+        }
+            
+        else
+        {
+            ai.SwitchState(ai.deadState);
+        }
+
         healthBar.gameObject.SetActive(false);
         if (ai.chase != null) { ai.StopCoroutine(ai.chase); }
         if (ai.patrol != null) { ai.StopCoroutine(ai.patrol); }
@@ -85,12 +103,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
             ai.agent.enabled = false;
             transform.DOMove(deadPos, 2f).onComplete = DestroyEnemy;
         }
-      
     }
 
     void DestroyEnemy()
     {
-        ai.manager.enemies.Remove(ai);
+        
         transform.DOKill();
         ai.transform.DOKill();
         Destroy(gameObject);
@@ -165,6 +182,17 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     public void Knockback(float distance, Transform attacker)
     {
         transform.DOMove(transform.position += attacker.forward * distance, 3f);
+    }
+
+    public IEnumerator Finisher()
+    {
+        Time.timeScale = .5f;
+        CameraManager.SwitchNonPlayerCam(ai.manager.finisherCam);
+        PlayerStateManager.instance.anim.speed = .5f;
+        yield return new WaitForSecondsRealtime(3);
+        CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
+        Time.timeScale = 1f;
+        PlayerStateManager.instance.anim.speed = 1f;
     }
 
 }

@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class CombatManager : MonoBehaviour
     public float radiusAroundTarget;
 
     public EnemyAI chosenEnemy;
+
+
+    public CinemachineVirtualCamera finisherCam;
 
 
 
@@ -42,7 +46,6 @@ public class CombatManager : MonoBehaviour
             StartCombat();
         }
     }
-
 
     public IEnumerator RandomEnemy()
     {
@@ -100,4 +103,5 @@ public class CombatManager : MonoBehaviour
             }
         }
     }
+
 }
