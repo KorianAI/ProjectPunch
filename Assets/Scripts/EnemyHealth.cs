@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using EZCameraShake;
+using TreeEditor;
 
 public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 {
@@ -20,6 +21,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     public HealthBar healthBar;
 
+    public Material[] mats;
+    bool isFading;
+
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -29,6 +33,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
         healthBar.maxHealth = stats.health;
         healthBar.currentHealth = currentHealth;
+
+        mats = GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterials;
     }
 
     public void TakeDamage(float damage)
@@ -45,7 +51,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
             if (currentHealth <= 0 )
             {
-                ai.SwitchState(ai.deadState);
+                Die();
             }
 
             else
@@ -64,7 +70,32 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         }
     }
 
-    
+    private void Die()
+    {
+        ai.SwitchState(ai.deadState);
+        healthBar.gameObject.SetActive(false);
+        if (ai.chase != null) { ai.StopCoroutine(ai.chase); }
+        if (ai.patrol != null) { ai.StopCoroutine(ai.patrol); }
+        StartCoroutine(DeathEffect());
+
+        IEnumerator DeathEffect()
+        {
+            yield return new WaitForSeconds(5);
+            Vector3 deadPos = new Vector3(transform.position.x, transform.position.y - .7f, transform.position.z);
+            ai.agent.enabled = false;
+            transform.DOMove(deadPos, 2f).onComplete = DestroyEnemy;
+        }
+      
+    }
+
+    void DestroyEnemy()
+    {
+        ai.manager.enemies.Remove(ai);
+        transform.DOKill();
+        ai.transform.DOKill();
+        Destroy(gameObject);
+    }
+
 
     private void SpawnParticle()
     {
@@ -135,4 +166,5 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     {
         transform.DOMove(transform.position += attacker.forward * distance, 3f);
     }
+
 }

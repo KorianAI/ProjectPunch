@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class EnemyDead : EnemyState
 {
-    public override void EnterState(EnemyAI enemyAI)
+
+
+
+public override void EnterState(EnemyAI enemyAI)
     {
         enemyAI.agent.isStopped = true;
         enemyAI.GetComponent<Collider>().enabled = false;
