@@ -1168,7 +1168,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 766996352357563823}
-  - component: {fileID: 9154826045188100169}
   - component: {fileID: 4773097039483674748}
   - component: {fileID: 1764567633179160360}
   - component: {fileID: 7466497172451888301}
@@ -1203,14 +1202,6 @@ Transform:
   - {fileID: 7896661706083238961}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9154826045188100169
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4105524914971712823}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &4773097039483674748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1274,7 +1265,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4105524914971712823}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.25
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1335,6 +1326,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 86ed280f251a9aa45a4806ff4dfa31e9, type: 2}
   currentHealth: 0
   healthBar: {fileID: 1967225055345244394}
+  mats: []
 --- !u!114 &4360131028242730843
 MonoBehaviour:
   m_ObjectHideFlags: 0
