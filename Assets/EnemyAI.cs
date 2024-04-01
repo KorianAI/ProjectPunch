@@ -104,6 +104,11 @@ public class EnemyAI : MonoBehaviour
                 transform.LookAt(new Vector3(playerPos.transform.position.x, transform.position.y, playerPos.transform.position.z));
                 // Wait until the agent reaches its destination
                 yield return null;
+
+                if (currentState == deadState)
+                {
+                    break;
+                }
             }
 
             available = true;
