@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Rail
   - Spotlight
+  - FxTemporaire
+  - Shredder
+  - Crusher
   layers:
   - Default
   - TransparentFX

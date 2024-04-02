@@ -23,6 +23,8 @@ public class TargetLock : MonoBehaviour
     [SerializeField] private string enemyTag;
     [SerializeField] private string railTag;
     [SerializeField] private string lightTag;
+    [SerializeField] private string shredderTag;
+    [SerializeField] private string crusherTag;
     [Space]
 
     [SerializeField] private InputActionReference input;
@@ -122,7 +124,17 @@ public class TargetLock : MonoBehaviour
                     lastTargetTag = lightTag;
                 }
 
-              
+                if (hit.transform.CompareTag(shredderTag))
+                {
+                    lastTargetTag = shredderTag;
+                }
+
+                if (hit.transform.CompareTag(crusherTag))
+                {
+                    lastTargetTag = crusherTag;
+                }
+
+
                 currentTarget = hit.transform;
                 isTargeting = true;
             }
@@ -187,9 +199,13 @@ public class TargetLock : MonoBehaviour
         List<GameObject> enemies = GameObject.FindGameObjectsWithTag(enemyTag).ToList();
         List<GameObject> lights = GameObject.FindGameObjectsWithTag(lightTag).ToList();
         List<GameObject> rails = GameObject.FindGameObjectsWithTag(railTag).ToList();
+        List<GameObject> shredders = GameObject.FindGameObjectsWithTag(shredderTag).ToList();
+        List<GameObject> crushers = GameObject.FindGameObjectsWithTag(crusherTag).ToList();
 
         List<GameObject> gos = enemies.Union(lights).ToList();
         gos = gos.Union(rails).ToList();
+        gos = gos.Union(shredders).ToList();
+        gos = gos.Union(crushers).ToList();
 
         GameObject closest = null;
         float distance = maxDistance;

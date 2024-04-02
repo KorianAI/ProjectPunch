@@ -69,7 +69,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
-        Debug.Log("nuh huh");
+        Debug.Log("nuh huh *noise pls*");
     }
 
     private void MoveToNextPoint()

@@ -61611,6 +61611,8 @@ MonoBehaviour:
   enemyTag: Enemy
   railTag: Rail
   lightTag: Spotlight
+  shredderTag: Shredder
+  crusherTag: Crusher
   input: {fileID: 2104407593110777147, guid: bb71729d126c7504da922e6c1e99a3f3, type: 3}
   targetLockOffset: {x: 0, y: 0}
   minDistance: 0
