@@ -43,7 +43,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
         ps.rail = this;
         
         player.SwitchState(player.railState);
-        playerObj.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(SetParent); //pull to
+        playerObj.transform.DOMove(pullPos.transform.position, 0.5f).OnComplete(SetParent); //pull to the EM
         DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 70, .1f);
     }
 
