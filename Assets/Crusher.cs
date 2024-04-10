@@ -20,17 +20,17 @@ public class Crusher : MonoBehaviour, IMagnetisable
 
     public bool invert;
 
-    [Header("Piston Arm")]
-    public GameObject arm;
+    //[Header("Piston Arm")]
+    //public GameObject arm;
     
-    [Space]
-    public float armStartDisplace;
-    public float armExpandDisplace;
+    //[Space]
+    //public float armStartDisplace;
+    //public float armExpandDisplace;
 
-    [Space]
-    public float armStartScale;
-    public float armExpandScale;
-    public float scaleReturnSpeed;
+    //[Space]
+    //public float armStartScale;
+    //public float armExpandScale;
+    //public float scaleReturnSpeed;
 
     void Start()
     {
@@ -47,15 +47,15 @@ public class Crusher : MonoBehaviour, IMagnetisable
         {
             transform.DOLocalMoveY(retractedPos, pulledSpeed).OnComplete(Retract);
 
-            arm.transform.DOLocalMoveY(armExpandDisplace, pulledSpeed);
-            arm.transform.DOScaleY(armExpandScale, pulledSpeed);
+            //arm.transform.DOLocalMoveY(armExpandDisplace, pulledSpeed);
+            //arm.transform.DOScaleY(armExpandScale, pulledSpeed);
         }
         else
         {
-            transform.DOMoveY(extendedPos, pulledSpeed).OnComplete(Retract);
+            transform.DOLocalMoveY(extendedPos, pulledSpeed).OnComplete(Retract);
 
-            arm.transform.DOLocalMoveY(armExpandDisplace, pulledSpeed);
-            arm.transform.DOScaleY(armExpandScale, pulledSpeed);
+            //arm.transform.DOLocalMoveY(armExpandDisplace, pulledSpeed);
+            //arm.transform.DOScaleY(armExpandScale, pulledSpeed);
         }
     }
 
@@ -71,8 +71,8 @@ public class Crusher : MonoBehaviour, IMagnetisable
         transform.DOLocalMoveY(extendedPos, downSpeed).OnComplete(Retract)
             .SetEase(Ease.Linear);
 
-        arm.transform.DOLocalMoveY(armExpandDisplace, downSpeed);
-        arm.transform.DOScaleY(armExpandScale, downSpeed);
+        //arm.transform.DOLocalMoveY(armExpandDisplace, downSpeed);
+        //arm.transform.DOScaleY(armExpandScale, downSpeed);
     }
 
     void Retract()
@@ -82,7 +82,10 @@ public class Crusher : MonoBehaviour, IMagnetisable
         transform.DOLocalMoveY(retractedPos, upSpeed).OnComplete(Extend)
             .SetEase(Ease.Linear);
 
-        arm.transform.DOLocalMoveY(armStartDisplace, upSpeed);
-        arm.transform.DOScaleY(armStartScale, upSpeed);
+        //arm.transform.DOLocalMoveY(armStartDisplace, upSpeed);
+        //arm.transform.DOScaleY(armStartScale, upSpeed);
     }
+
+    //make arms & blocks taller
+    //make everything move together
 }

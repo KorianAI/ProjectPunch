@@ -32,11 +32,11 @@ public class Shredder : MonoBehaviour, IMagnetisable
 
         if (invert)
         {
-            transform.DOMoveY(retractedPos, pulledSpeed).OnComplete(Retract);
+            transform.DOLocalMoveY(retractedPos, pulledSpeed).OnComplete(Retract);
         }
         else
         {
-            transform.DOMoveY(extendedPos, pulledSpeed).OnComplete(Retract);
+            transform.DOLocalMoveY(extendedPos, pulledSpeed).OnComplete(Retract);
         }
     }
 
@@ -49,7 +49,7 @@ public class Shredder : MonoBehaviour, IMagnetisable
     {
         transform.DOKill(false);
 
-        transform.DOMoveY(extendedPos, transitionSpeed).OnComplete(Retract)
+        transform.DOLocalMoveY(extendedPos, transitionSpeed).OnComplete(Retract)
             .SetEase(Ease.Linear);
     }
 
@@ -57,7 +57,7 @@ public class Shredder : MonoBehaviour, IMagnetisable
     {
         transform.DOKill(false);
 
-        transform.DOMoveY(retractedPos, transitionSpeed).OnComplete(Extend)
+        transform.DOLocalMoveY(retractedPos, transitionSpeed).OnComplete(Extend)
             .SetEase(Ease.Linear);
     }
 }
