@@ -17,14 +17,13 @@ public class Generator : MonoBehaviour, IDamageable
     [SerializeField] float maxHealth;
     public HealthBar healthBar;
 
-    public Material[] mats;
-    bool isFading;
-
     public Animation blastDoorOpen;
     public CinemachineVirtualCamera blastDoorCam;
 
     public ParticleSystem scrapParticle;
     public ParticleSystem smokeParticle;
+
+    public EMRail[] rails;
 
     private void Update()
     {
@@ -55,7 +54,7 @@ public class Generator : MonoBehaviour, IDamageable
 
             if (currentHealth <= 0)
             {
-                Die();
+                Break();
             }
 
             else
@@ -71,13 +70,17 @@ public class Generator : MonoBehaviour, IDamageable
         }
     }
 
-    private void Die()
+    private void Break()
     {
+        foreach (EMRail rail in rails) //pauses all EM rails, ensuring they remain in sync
+        {
+            rail.MoveToNextPoint();
+        }
+
         StartCoroutine(OpenDoor());
 
         healthBar.gameObject.SetActive(false);
 
-        //smoke particles start
         smokeParticle.Play();
     }
 

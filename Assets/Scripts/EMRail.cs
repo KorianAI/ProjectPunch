@@ -11,6 +11,8 @@ public class EMRail : MonoBehaviour, IMagnetisable
     public PlayerStateManager ps;
     public Transform pullPos;
 
+    public bool playOnStart;
+
     [Header("Points")]
     public Vector3[] points;
     public int arrayPosition;
@@ -29,7 +31,10 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
     private void Start()
     {
-        MoveToNextPoint();
+        if (playOnStart)
+        {
+            MoveToNextPoint();
+        }
     }
 
     public void Pull(PlayerStateManager player)
@@ -72,7 +77,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
         Debug.Log("nuh huh *noise pls*");
     }
 
-    private void MoveToNextPoint()
+    public void MoveToNextPoint()
     {
         transform.DOMove(points[arrayPosition], transitionspeed).OnComplete(RotateAtNextPoint)
             .SetEase(Ease.Linear);
