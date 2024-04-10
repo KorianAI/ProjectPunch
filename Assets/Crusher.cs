@@ -85,7 +85,4 @@ public class Crusher : MonoBehaviour, IMagnetisable
         //arm.transform.DOLocalMoveY(armStartDisplace, upSpeed);
         //arm.transform.DOScaleY(armStartScale, upSpeed);
     }
-
-    //make arms & blocks taller
-    //make everything move together
 }

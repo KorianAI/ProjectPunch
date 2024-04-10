@@ -186,10 +186,19 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     public IEnumerator Finisher()
     {
+        //finisher cam
         Time.timeScale = .5f;
         CameraManager.SwitchNonPlayerCam(ai.manager.finisherCam);
         PlayerStateManager.instance.anim.speed = .5f;
         yield return new WaitForSecondsRealtime(3);
+
+        //door cam
+        Time.timeScale = 1f;
+        CameraManager.SwitchNonPlayerCam(ai.manager.exitDoorCam);
+        ai.manager.exitDoorOpen.Play();
+        yield return new WaitForSecondsRealtime(3);
+
+        //return to player cam
         CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
         Time.timeScale = 1f;
         PlayerStateManager.instance.anim.speed = 1f;

@@ -143,6 +143,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         CameraManager.UnRegisterVC(railCam);
         CameraManager.UnRegisterVC(finisherCam);
     }
+
     private void Start()
     {
         currentState = moveState;
@@ -262,7 +263,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         //Debug.Log("Entered: " + state + " " + Time.time);
     }
 
- #region Combat
+    #region Combat
 
 
     public void LightAttack(InputAction.CallbackContext obj)

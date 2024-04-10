@@ -17,6 +17,8 @@ public class CombatManager : MonoBehaviour
 
     public CinemachineVirtualCamera finisherCam;
 
+    public Animation exitDoorOpen;
+    public CinemachineVirtualCamera exitDoorCam;
 
 
     public void StartCombat()
