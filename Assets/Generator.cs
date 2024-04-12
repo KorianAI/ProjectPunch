@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using EZCameraShake;
-using TreeEditor;
 using Cinemachine;
 
 public class Generator : MonoBehaviour, IDamageable
 {
     public GameObject player;
-    public PlayerStateManager ps;
     
     bool takenDamage;  
 

@@ -14,6 +14,8 @@ public class DamageObject : MonoBehaviour
         if (target != null && !other.gameObject.CompareTag("Player"))
         {
             target.TakeDamage(damage);
+
+            if (other.gameObject.tag == "Enemy") // check in place to avoid errors when hitting scrap piles -J
             other.gameObject.GetComponent<EnemyHealth>().GetStunned(.1f);
         }
     }

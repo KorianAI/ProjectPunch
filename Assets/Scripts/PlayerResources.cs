@@ -49,7 +49,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
     private void Start()
     {
         currentHealth = maxHealth;
-        currentScrap = maxScrap;
+        //currentScrap = maxScrap;
 
         healthBar.maxHealth = maxHealth;
         healthBar.currentHealth = currentHealth;
