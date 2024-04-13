@@ -12,7 +12,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
     [Header("Health")]
     public float currentHealth;
     public float maxHealth;
-    public Image healthFillImage;
+
+    [Header("Armour")]
+    public bool hasArmour;
+    public float currentArmour;
+    public float maxArmour;
 
     [Header("Scrap")]
     public float currentScrap;

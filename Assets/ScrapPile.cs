@@ -32,7 +32,7 @@ public class ScrapPile : MonoBehaviour, IDamageable
             currentHealth -= damage;
 
             SpawnParticle();
-            transform.DOShakeScale(.2f, .1f, 10, 90);
+            transform.DOShakeScale(.4f, .5f, 10, 90);
 
             if (currentHealth <= 0)
             {
