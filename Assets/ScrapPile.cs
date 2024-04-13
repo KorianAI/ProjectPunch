@@ -79,7 +79,6 @@ public class ScrapPile : MonoBehaviour, IDamageable
 
     private void UpdatePlayerScrap()
     {
-        Debug.Log("update scrap called");
         player.GetComponent<PlayerResources>().UpdateScrap(10);
     }
 
