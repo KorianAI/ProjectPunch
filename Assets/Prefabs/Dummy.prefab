@@ -1771,7 +1771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6593918638376927707}
-  - component: {fileID: 7436626421058923251}
+  - component: {fileID: 2233056975551138229}
   m_Layer: 0
   m_Name: training_dummy
   m_TagString: Untagged
@@ -1796,27 +1796,23 @@ Transform:
   - {fileID: 2177759344226137733}
   m_Father: {fileID: 3503880501705332991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7436626421058923251
-Animator:
-  serializedVersion: 5
+--- !u!111 &2233056975551138229
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6508560105852292820}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 868018d82fb6a3d49be1b63b6bb94f4f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: e6c093a7297d9354c8f187fff0317d82, type: 2}
+  m_Animations:
+  - {fileID: 2397998239284075079, guid: 63a9ac7cbff5d8f4ab9ff7f2905ed2ca, type: 3}
+  - {fileID: 7400000, guid: e6c093a7297d9354c8f187fff0317d82, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6619977780289829477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2153,6 +2149,7 @@ MonoBehaviour:
   canSpawn: 1
   player: {fileID: 0}
   ps: {fileID: 0}
+  anim: {fileID: 2233056975551138229}
 --- !u!114 &5342694837946206485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2191,7 +2188,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &7288632725820709371
 GameObject:
