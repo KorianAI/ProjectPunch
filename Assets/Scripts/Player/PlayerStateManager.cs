@@ -326,7 +326,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                     else
                     {
                         anim.runtimeAnimatorController = lightCombo[comboCounter];
-                        Debug.Log("LIGHT ATTACK: " + comboCounter);
+                        //Debug.Log("LIGHT ATTACK: " + comboCounter);
                     }               
                 }
 

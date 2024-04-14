@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d3a379aee4a8f4ca5c9c8c938b54c0, type: 3}
   m_Name: Muzzler
   m_EditorClassIdentifier: 
-  health: 100
+  health: 70
+  armour: 30
   range: 2
   patrolRange: 5
   attackSpeed: 2

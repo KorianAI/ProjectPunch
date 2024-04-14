@@ -18,8 +18,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     [SerializeField] EnemyAI ai;
     [SerializeField] EnemySO stats;
     [SerializeField] float currentHealth;
+    [SerializeField] float currentArmour;
 
     public HealthBar healthBar;
+    public HealthBar armourBar;
+
+    public bool hasArmour;
 
     public Material[] mats;
     bool isFading;
@@ -30,9 +34,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         ai = GetComponent<EnemyAI>();
 
         currentHealth = stats.health;
+        currentArmour = stats.armour;
 
         healthBar.maxHealth = stats.health;
         healthBar.currentHealth = currentHealth;
+        armourBar.currentHealth = currentArmour;
+        armourBar.maxHealth = stats.armour;
 
         mats = GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterials;
     }
@@ -42,9 +49,35 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         if (!takenDamage)
         {
             takenDamage = true;
-            currentHealth -= damage;
-            healthBar.currentHealth = currentHealth;
-            healthBar.DrawSlots();
+
+            if (hasArmour)
+            {
+                float remainingDamage = damage - currentArmour;
+                Debug.Log(remainingDamage);
+                currentArmour -= damage;
+                armourBar.currentHealth = currentArmour;
+                armourBar.DrawSlots();
+                if (currentArmour <= 0)
+                {
+                    hasArmour = false;
+                    if (remainingDamage > 0)
+                    {
+                        currentHealth -= remainingDamage;
+                        healthBar.currentHealth = currentHealth;
+                        healthBar.DrawSlots();
+                    }
+                }
+
+
+            }
+
+            else
+            {
+                currentHealth -= damage;
+                healthBar.currentHealth = currentHealth;
+                healthBar.DrawSlots();
+            }
+
 
             SpawnParticle();
             transform.DOShakeScale(.2f, .1f, 10, 90);

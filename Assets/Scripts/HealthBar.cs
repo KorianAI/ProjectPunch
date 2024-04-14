@@ -30,7 +30,6 @@ public class HealthBar : MonoBehaviour
         for (int i = 0; i < slots.Count; i++)
         {
             int slotStatusRemainder = (int)Mathf.Clamp(currentHealth - (i * 10), 0, 10);
-            Debug.Log(slotStatusRemainder);
             slots[i].SetSlotImage((SlotStatus)slotStatusRemainder);
         }
     }

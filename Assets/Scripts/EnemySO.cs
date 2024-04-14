@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class EnemySO : ScriptableObject
 {
     public float health;
+    public float armour;
     public float range;
     public float patrolRange;
     public float attackSpeed;
