@@ -67,8 +67,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
                         healthBar.DrawSlots();
                     }
                 }
-
-
             }
 
             else
@@ -124,9 +122,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
             ai.SwitchState(ai.deadState);
         }
 
+        if (ai.manager.chosenEnemy == ai) { ai.manager.RandomEnemy(); }
+        ai.enabled = false;
         healthBar.gameObject.SetActive(false);
-        if (ai.chase != null) { ai.StopCoroutine(ai.chase); }
-        if (ai.patrol != null) { ai.StopCoroutine(ai.patrol); }
+        armourBar.gameObject.SetActive(false);
+        //if (ai.chase != null) { ai.StopCoroutine(ai.chase); }
+        //if (ai.patrol != null) { ai.StopCoroutine(ai.patrol); }
         StartCoroutine(DeathEffect());
 
         IEnumerator DeathEffect()
@@ -177,6 +178,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     public void Pull(PlayerStateManager player)
     {
+        if (hasArmour) { return; }
         ps = player;
         
         transform.DOMove(player.pullPosition.position, 1f);
@@ -188,6 +190,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     public void Push(PlayerStateManager player)
     {
+        if (hasArmour) { return; }
         transform.DOMove(transform.position + player.orientation.forward * player.kbForce, 1f);
         GetStunned(1);
         transform.DOShakeRotation(1, 15f, 10, 90);
@@ -195,6 +198,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     public void GetStunned(float stunLength)
     {
+        if (hasArmour) { return; }
         ai.enemy.anim.SetBool("Stunned", true);
         ai.enemy.agent.isStopped = true;
         ai.SwitchState(ai.stunnedState);

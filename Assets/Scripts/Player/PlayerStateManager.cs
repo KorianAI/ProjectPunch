@@ -543,7 +543,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         {
             c.GetComponent<IDamageable>().TakeDamage(attackDamage);
             //c.GetComponent<IKnockback>().Knockback(1.5f, orientation);
-            //c.GetComponent<EnemyHealth>().GetStunned(.2f);
+            c.GetComponent<EnemyHealth>().GetStunned(.2f);
             GameObject hitParticle = Instantiate(hitVFX, c.transform);
             RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
             
