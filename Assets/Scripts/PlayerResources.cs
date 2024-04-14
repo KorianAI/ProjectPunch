@@ -106,6 +106,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
     {
         if (hasArmour)
         {
+            float remainingDamage = damage - currentArmour;
             currentArmour -= damage;
             armourBar.currentHealth = currentArmour;
             armourBar.DrawSlots();
@@ -113,6 +114,12 @@ public class PlayerResources : MonoBehaviour, IDamageable
             if (currentArmour <= 0)
             {
                 hasArmour = false;
+                if (remainingDamage > 0)
+                {
+                    currentHealth -= remainingDamage;
+                    healthBar.currentHealth = currentHealth;
+                    healthBar.DrawSlots();
+                }
             }
         }
 
