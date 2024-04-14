@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Dummy : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
+public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
 {
     public ParticleSystem particle;
     public bool canSpawn;
@@ -82,10 +82,5 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     {
         transform.DOMove(transform.position + player.orientation.forward * player.kbForce, 1f);
         transform.DOShakeRotation(1, 15f, 10, 90);
-    }
-
-    public void Knockback(float distance, Transform attacker)
-    {
-        transform.DOMove(transform.position += attacker.forward * distance, 3f);
     }
 }

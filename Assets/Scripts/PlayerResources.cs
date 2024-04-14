@@ -37,6 +37,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public float testDMG;
 
     public HealthBar healthBar;
+    public HealthBar armourBar;
 
     private void OnEnable()
     {
@@ -53,10 +54,13 @@ public class PlayerResources : MonoBehaviour, IDamageable
     private void Start()
     {
         currentHealth = maxHealth;
+        currentArmour = maxArmour;
         //currentScrap = maxScrap;
 
         healthBar.maxHealth = maxHealth;
         healthBar.currentHealth = currentHealth;
+        armourBar.maxHealth = maxArmour;
+        armourBar.currentHealth = currentArmour;
     }
 
     private void Update()
@@ -100,11 +104,25 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-       
-        currentHealth -= damage;
-        healthBar.currentHealth = currentHealth;
-        healthBar.DrawSlots();
-        //UpdateHealthUI();
+        if (hasArmour)
+        {
+            currentArmour -= damage;
+            armourBar.currentHealth = currentArmour;
+            armourBar.DrawSlots();
+
+            if (currentArmour <= 0)
+            {
+                hasArmour = false;
+            }
+        }
+
+        else
+        {
+
+            currentHealth -= damage;
+            healthBar.currentHealth = currentHealth;
+            healthBar.DrawSlots();
+        }
     }
 
     //void UpdateHealthUI()
@@ -121,7 +139,6 @@ public class PlayerResources : MonoBehaviour, IDamageable
             StartCoroutine("ResetScrapDecrease");
         }
         currentScrap += amount;
-
         if (currentScrap + amount > maxScrap)
         {
             currentScrap = maxScrap;
