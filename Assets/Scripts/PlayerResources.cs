@@ -162,4 +162,21 @@ public class PlayerResources : MonoBehaviour, IDamageable
         scrapDecrease = true;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        ICollectible collectible = other.GetComponent<ICollectible>();
+        if (collectible != null)
+        {
+            collectible.Collect(this);
+        }
+    }
+
+    public void ReplenishArmour()
+    {
+        hasArmour = true;
+        currentArmour = maxArmour;
+        armourBar.currentHealth = currentArmour;
+        armourBar.DrawSlots();
+    }
+
 }
