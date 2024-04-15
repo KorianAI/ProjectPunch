@@ -297,6 +297,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         {
             if (Time.time - lastClickedTime >= .4f)
             {
+                cam.canRotate = false;
                 canAttack = false;
                 SwitchState(attackState);
                 if (lastRoutine != null) { StopCoroutine(lastRoutine); }
@@ -374,13 +375,15 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public void ExitAttack()
     {
         canAttack = true;
+        CanRotate();
         EndCombo();
     }
 
     void EndCombo()
     {
         SwitchState(idleState);
-       lastRoutine =  StartCoroutine(ResetCombo());     
+       lastRoutine =  StartCoroutine(ResetCombo());
+        CanRotate();
     }
 
     IEnumerator ResetCombo()
