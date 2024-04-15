@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     [SerializeField] EnemySO stats;
     [SerializeField] float currentHealth;
     [SerializeField] float currentArmour;
+    [SerializeField] GameObject shatterVFX;
 
     public HealthBar healthBar;
     public HealthBar armourBar;
@@ -59,6 +60,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
                 armourBar.DrawSlots();
                 if (currentArmour <= 0)
                 {
+                    Instantiate(shatterVFX, transform.position, Quaternion.identity);
                     hasArmour = false;
                     if (remainingDamage > 0)
                     {
@@ -87,7 +89,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
             else
             {
-
                 StartCoroutine(ResetTakenDamage());
             }
 
@@ -237,7 +238,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
         //return to player cam
         CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
-        Time.timeScale = 1f;
         PlayerStateManager.instance.anim.speed = 1f;
     }
 

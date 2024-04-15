@@ -17,6 +17,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public bool hasArmour;
     public float currentArmour;
     public float maxArmour;
+    public GameObject armourShatter;
 
     [Header("Scrap")]
     public float currentScrap;
@@ -114,8 +115,10 @@ public class PlayerResources : MonoBehaviour, IDamageable
             if (currentArmour <= 0)
             {
                 hasArmour = false;
+                Instantiate(armourShatter, transform.position, Quaternion.identity);
+
                 if (remainingDamage > 0)
-                {
+                {               
                     currentHealth -= remainingDamage;
                     healthBar.currentHealth = currentHealth;
                     healthBar.DrawSlots();
@@ -125,7 +128,6 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
         else
         {
-
             currentHealth -= damage;
             healthBar.currentHealth = currentHealth;
             healthBar.DrawSlots();

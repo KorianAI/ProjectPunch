@@ -1515,6 +1515,7 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: 86ed280f251a9aa45a4806ff4dfa31e9, type: 2}
   currentHealth: 0
   currentArmour: 0
+  shatterVFX: {fileID: 6564727138689752182, guid: f0ffe807c0839d74b94ba314ff180bc6, type: 3}
   healthBar: {fileID: 4271089192516862507}
   armourBar: {fileID: 5442114630812018416}
   hasArmour: 1
