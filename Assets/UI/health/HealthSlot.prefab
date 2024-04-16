@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1392613657620840516}
   - component: {fileID: 4116306266776041433}
   - component: {fileID: 5536439832619158270}
-  - component: {fileID: 6493231209299012278}
+  - component: {fileID: 5405713700573172906}
   m_Layer: 5
   m_Name: HealthSlot
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6493231209299012278
+--- !u!114 &5405713700573172906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,10 +85,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2567044942348779803}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f1e91e805c49404db4781c4636361be, type: 3}
+  m_Script: {fileID: 11500000, guid: 98e3cbccc7007b04db8d9c4365a7efbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fullSlot: {fileID: 21300000, guid: ed5017be096a55945bdf527b6da66f3e, type: 3}
   halfSlot: {fileID: 21300000, guid: 632d7878ea8c2154b9f4abb9c2f9c312, type: 3}
   emptySlot: {fileID: 21300000, guid: f5f1c4042c14ade4892895a93e769d79, type: 3}
-  slotImage: {fileID: 0}
+  slotImage: {fileID: 5536439832619158270}

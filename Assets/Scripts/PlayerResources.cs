@@ -37,8 +37,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public float testDMG;
 
-    public HealthBar healthBar;
-    public HealthBar armourBar;
+    public SlotManager healthBar;
+    public SlotManager armourBar;
 
     private void OnEnable()
     {
@@ -58,10 +58,10 @@ public class PlayerResources : MonoBehaviour, IDamageable
         currentArmour = maxArmour;
         //currentScrap = maxScrap;
 
-        healthBar.maxHealth = maxHealth;
-        healthBar.currentHealth = currentHealth;
-        armourBar.maxHealth = maxArmour;
-        armourBar.currentHealth = currentArmour;
+        healthBar.maxValue = maxHealth;
+        healthBar.currentValue = currentHealth;
+        armourBar.maxValue = maxArmour;
+        armourBar.currentValue = currentArmour;
     }
 
     private void Update()
@@ -109,7 +109,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
         {
             float remainingDamage = damage - currentArmour;
             currentArmour -= damage;
-            armourBar.currentHealth = currentArmour;
+            armourBar.currentValue = currentArmour;
             armourBar.DrawSlots();
 
             if (currentArmour <= 0)
@@ -120,7 +120,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
                 if (remainingDamage > 0)
                 {               
                     currentHealth -= remainingDamage;
-                    healthBar.currentHealth = currentHealth;
+                    healthBar.currentValue = currentHealth;
                     healthBar.DrawSlots();
                 }
             }
@@ -129,14 +129,14 @@ public class PlayerResources : MonoBehaviour, IDamageable
         else
         {
             currentHealth -= damage;
-            healthBar.currentHealth = currentHealth;
+            healthBar.currentValue = currentHealth;
             healthBar.DrawSlots();
         }
     }
 
     //void UpdateHealthUI()
     //{
-    //    healthFillImage.fillAmount = currentHealth / maxHealth;
+    //    healthFillImage.fillAmount = currentValue / maxValue;
     //}
 
     public void UpdateScrap(float amount)
@@ -184,7 +184,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
     {
         hasArmour = true;
         currentArmour = maxArmour;
-        armourBar.currentHealth = currentArmour;
+        armourBar.currentValue = currentArmour;
         armourBar.DrawSlots();
     }
 

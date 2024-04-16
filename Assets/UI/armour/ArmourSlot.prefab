@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 451190240361184431}
   - component: {fileID: 8085628605163558992}
   - component: {fileID: 891701910225455519}
-  - component: {fileID: 4483921253213211863}
+  - component: {fileID: 8292118250143384672}
   m_Layer: 5
   m_Name: ArmourSlot
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4483921253213211863
+--- !u!114 &8292118250143384672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,10 +85,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5912193429919196198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f1e91e805c49404db4781c4636361be, type: 3}
+  m_Script: {fileID: 11500000, guid: 98e3cbccc7007b04db8d9c4365a7efbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fullSlot: {fileID: 21300000, guid: 74f083ffd08cdc94fb84a9a7b6cdbb02, type: 3}
   halfSlot: {fileID: 21300000, guid: 4cd6d2848cade0246bddc7e1789627fe, type: 3}
   emptySlot: {fileID: 21300000, guid: 99052cd6c11bf824fb3660d6446f09aa, type: 3}
-  slotImage: {fileID: 0}
+  slotImage: {fileID: 891701910225455519}

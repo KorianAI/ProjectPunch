@@ -12,7 +12,7 @@ public class Generator : MonoBehaviour, IDamageable
 
     [SerializeField] float currentHealth;
     [SerializeField] float maxHealth;
-    public HealthBar healthBar;
+    public SlotManager healthBar;
 
     public Animation blastDoorOpen;
     public CinemachineVirtualCamera blastDoorCam;
@@ -34,8 +34,8 @@ public class Generator : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        healthBar.maxHealth = maxHealth;
-        healthBar.currentHealth = currentHealth;
+        healthBar.maxValue = maxHealth;
+        healthBar.currentValue = currentHealth;
     }
 
     public void TakeDamage(float damage)
@@ -44,7 +44,7 @@ public class Generator : MonoBehaviour, IDamageable
         {
             takenDamage = true;
             currentHealth -= damage;
-            healthBar.currentHealth = currentHealth;
+            healthBar.currentValue = currentHealth;
             healthBar.DrawSlots();
 
             transform.DOShakeScale(.2f, .1f, 10, 90);

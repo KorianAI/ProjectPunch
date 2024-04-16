@@ -1093,7 +1093,7 @@ GameObject:
   - component: {fileID: 7977241321494947408}
   - component: {fileID: 6099495521562659213}
   - component: {fileID: 8610053055012913595}
-  - component: {fileID: 5442114630812018416}
+  - component: {fileID: 3566795777429706136}
   m_Layer: 7
   m_Name: ArmourBar
   m_TagString: Untagged
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &5442114630812018416
+--- !u!114 &3566795777429706136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1161,12 +1161,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3535987950544366366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de23535bf2b33f94a83bf83c0c4a82b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c6a7b80876ad3d428849d9bdb8c003f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slotPrefab: {fileID: 5912193429919196198, guid: 437f5dbb0588fa54298da1748c4b1d45, type: 3}
-  maxHealth: 30
-  currentHealth: 30
+  maxValue: 0
+  currentValue: 0
 --- !u!1 &3811072982657864501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1211,7 @@ GameObject:
   - component: {fileID: 3159001327890615378}
   - component: {fileID: 3167411817236266560}
   - component: {fileID: 886887559035063438}
-  - component: {fileID: 4271089192516862507}
+  - component: {fileID: 8711803371996902285}
   m_Layer: 7
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &4271089192516862507
+--- !u!114 &8711803371996902285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1309,12 +1309,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3930763368574394978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de23535bf2b33f94a83bf83c0c4a82b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c6a7b80876ad3d428849d9bdb8c003f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slotPrefab: {fileID: 2567044942348779803, guid: b80438125daea2b44b14d111ecf0d224, type: 3}
-  maxHealth: 70
-  currentHealth: 70
+  maxValue: 0
+  currentValue: 0
 --- !u!1 &4087457920619361147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,8 +1516,8 @@ MonoBehaviour:
   currentHealth: 0
   currentArmour: 0
   shatterVFX: {fileID: 6564727138689752182, guid: f0ffe807c0839d74b94ba314ff180bc6, type: 3}
-  healthBar: {fileID: 4271089192516862507}
-  armourBar: {fileID: 5442114630812018416}
+  healthBar: {fileID: 8711803371996902285}
+  armourBar: {fileID: 3566795777429706136}
   hasArmour: 1
   mats: []
 --- !u!114 &4360131028242730843

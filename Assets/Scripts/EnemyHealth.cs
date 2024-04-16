@@ -21,8 +21,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     [SerializeField] float currentArmour;
     [SerializeField] GameObject shatterVFX;
 
-    public HealthBar healthBar;
-    public HealthBar armourBar;
+    public SlotManager healthBar;
+    public SlotManager armourBar;
 
     public bool hasArmour;
 
@@ -37,10 +37,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         currentHealth = stats.health;
         currentArmour = stats.armour;
 
-        healthBar.maxHealth = stats.health;
-        healthBar.currentHealth = currentHealth;
-        armourBar.currentHealth = currentArmour;
-        armourBar.maxHealth = stats.armour;
+        healthBar.maxValue = stats.health;
+        healthBar.currentValue = currentHealth;
+        armourBar.currentValue = currentArmour;
+        armourBar.maxValue = stats.armour;
 
         mats = GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterials;
     }
@@ -54,9 +54,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
             if (hasArmour)
             {
                 float remainingDamage = damage - currentArmour;
-                Debug.Log(remainingDamage);
+                //Debug.Log(remainingDamage);
                 currentArmour -= damage;
-                armourBar.currentHealth = currentArmour;
+                armourBar.currentValue = currentArmour;
                 armourBar.DrawSlots();
                 if (currentArmour <= 0)
                 {
@@ -65,7 +65,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
                     if (remainingDamage > 0)
                     {
                         currentHealth -= remainingDamage;
-                        healthBar.currentHealth = currentHealth;
+                        healthBar.currentValue = currentHealth;
                         healthBar.DrawSlots();
                     }
                 }
@@ -74,7 +74,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
             else
             {
                 currentHealth -= damage;
-                healthBar.currentHealth = currentHealth;
+                healthBar.currentValue = currentHealth;
                 healthBar.DrawSlots();
             }
 

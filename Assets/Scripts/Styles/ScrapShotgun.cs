@@ -11,6 +11,17 @@ public class ScrapShotgun : HeavyStyleInfo
     public GameObject shotgunVFX;
     public Transform vfxSpawn;
 
+    [Header("UI")]
+    [SerializeField] SlotManager ammoUI;
+
+    public bool canAddAmmo = true;
+
+    private void Start()
+    {
+        shells = maxShells;
+        ammoUI.currentValue = shells * 10;
+        ammoUI.maxValue = maxShells * 10;
+    }
 
     public override void Attack1(float damage, float range)
     {
@@ -36,7 +47,27 @@ public class ScrapShotgun : HeavyStyleInfo
         if (shells > 0)
         {
             Instantiate(shotgunVFX, vfxSpawn.position, Quaternion.identity);
-            shells--;
+            player.CheckForEnemies();
+            ChangeAmmo(-1f);
         }
+    }
+
+    public void ChangeAmmo(float amount)
+    {
+        if (amount > 0 && canAddAmmo) { shells += amount; StartCoroutine(CanAddAmmo()); }
+        else if (amount < 0) { shells += amount; }
+        if (shells > maxShells)
+        {
+            shells = maxShells;
+        }
+        ammoUI.currentValue = shells * 10;
+        ammoUI.DrawSlots();
+    }
+
+    IEnumerator CanAddAmmo()
+    {
+        canAddAmmo = false;
+        yield return new WaitForSeconds(1f);
+        canAddAmmo = true;
     }
 }

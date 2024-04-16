@@ -16,7 +16,20 @@ public class DamageObject : MonoBehaviour
             target.TakeDamage(damage);
 
             if (other.gameObject.tag == "Enemy") // check in place to avoid errors when hitting scrap piles -J
-            other.gameObject.GetComponent<EnemyHealth>().GetStunned(.1f);
+                other.gameObject.GetComponent<EnemyHealth>().GetStunned(.1f);
+
+            IncreaseShotgunAmmo();
+        }
+    }
+
+    private void IncreaseShotgunAmmo()
+    {
+        var parent = transform.root;
+        ScrapShotgun shotgun = parent.GetComponentInChildren<ScrapShotgun>();
+        if (shotgun != null)
+        {
+            Debug.Log("uwu");
+            shotgun.ChangeAmmo(1);
         }
     }
 }
