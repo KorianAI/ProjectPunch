@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
@@ -39,6 +40,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public SlotManager healthBar;
     public SlotManager armourBar;
+
+    public static event Action enterScrapStyle;
+    public static event Action exitScrapStyle;
+
+    [SerializeField] PlayerStateManager stateManager;
 
     private void OnEnable()
     {
@@ -94,11 +100,15 @@ public class PlayerResources : MonoBehaviour, IDamageable
         if (scrapStyle)
         {
             CameraManager.SwitchPlayerCam(scrapCam);
+            enterScrapStyle?.Invoke();
+            stateManager.whipAnim.gameObject.SetActive(true);
         }
 
         else
         {
             CameraManager.SwitchPlayerCam(regularCam);
+            exitScrapStyle?.Invoke();
+            stateManager.whipAnim.gameObject.SetActive(false);
         }
 
     }

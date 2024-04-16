@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,21 @@ public class ScrapShotgun : HeavyStyleInfo
     [Header("UI")]
     [SerializeField] SlotManager ammoUI;
 
+    Coroutine reloading = null;
+
     public bool canAddAmmo = true;
+
+    private void OnEnable()
+    {
+        PlayerResources.enterScrapStyle += ShowWeapon;
+        PlayerResources.exitScrapStyle += HideWeapon;
+    }
+
+    private void OnDisable()
+    {
+        PlayerResources.enterScrapStyle -= ShowWeapon;
+        PlayerResources.exitScrapStyle -= HideWeapon;
+    }
 
     private void Start()
     {
@@ -55,7 +70,14 @@ public class ScrapShotgun : HeavyStyleInfo
     public void ChangeAmmo(float amount)
     {
         if (amount > 0 && canAddAmmo) { shells += amount; StartCoroutine(CanAddAmmo()); }
-        else if (amount < 0) { shells += amount; }
+        else if (amount < 0)
+        {
+            shells += amount;
+
+            if (reloading != null) { StopCoroutine(reloading); }
+            reloading = StartCoroutine(ReloadMissingShells());
+        }
+
         if (shells > maxShells)
         {
             shells = maxShells;
@@ -70,4 +92,32 @@ public class ScrapShotgun : HeavyStyleInfo
         yield return new WaitForSeconds(1f);
         canAddAmmo = true;
     }
+
+    IEnumerator ReloadMissingShells()
+    {
+        yield return new WaitForSeconds(2f);
+
+        while (shells < maxShells)
+        {
+            shells++;
+            ammoUI.currentValue = shells * 10;
+            ammoUI.DrawSlots();
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+
+    void ShowWeapon()
+    {
+        ammoUI.gameObject.transform.parent.gameObject.SetActive(true);
+        weaponObject.SetActive(true);
+    }
+
+    void HideWeapon()
+    {
+        ammoUI.gameObject.transform.parent.gameObject.SetActive(false);
+        weaponObject.SetActive(false);
+    }
+
+
 }

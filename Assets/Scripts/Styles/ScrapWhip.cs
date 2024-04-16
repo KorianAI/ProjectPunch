@@ -22,4 +22,5 @@ public class ScrapWhip : LightStyleInfo
         Debug.Log(styleName + ": Attack 3");
         player.anim.runtimeAnimatorController = attack3;
     }
+
 }
