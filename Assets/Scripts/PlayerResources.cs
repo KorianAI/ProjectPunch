@@ -32,6 +32,9 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public StyleInfo lightStyle;
     public StyleInfo heavyStyle;
 
+    //shifts
+    public bool scrapShift;
+
     [SerializeField] CinemachineFreeLook scrapCam;
     [SerializeField] CinemachineFreeLook regularCam;
 
@@ -43,6 +46,9 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public static event Action enterScrapStyle;
     public static event Action exitScrapStyle;
+
+    public static event Action enterScrapShift;
+    public static event Action exitScrapShift;
 
     [SerializeField] PlayerStateManager stateManager;
 
@@ -77,25 +83,47 @@ public class PlayerResources : MonoBehaviour, IDamageable
             scrapDecreaseTimer += Time.deltaTime;
             if (scrapDecreaseTimer >= .01)
             {
-                UpdateScrap(scrapDecreaseAmnt);
+                if (scrapShift)
+                {
+                    UpdateScrap(scrapDecreaseAmnt * 1.5f);
+                }
+
+                else
+                {
+                    UpdateScrap(scrapDecreaseAmnt);
+                }
+               
                 scrapDecreaseTimer = 0;
             }
         }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            ActivateScrapStyle();
-        }
+            if (currentScrap == maxScrap)
+            {
+                ActivateScrapShift(true);
+            }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            TakeDamage(testDMG);
+            else
+            {
+                if (!scrapStyle)
+                {
+                    ActivateScrapStyle(true);
+                }
+
+                else
+                {
+                    ActivateScrapStyle(false);
+                }
+               
+            }
+           
         }
     }
 
-    private void ActivateScrapStyle()
+    private void ActivateScrapStyle(bool on)
     {
-        scrapStyle = !scrapStyle;
+        if (on) { scrapStyle = true; } else if (!on) { scrapStyle = false; }
 
         if (scrapStyle)
         {
@@ -111,6 +139,22 @@ public class PlayerResources : MonoBehaviour, IDamageable
             stateManager.whipAnim.gameObject.SetActive(false);
         }
 
+    }
+
+    private void ActivateScrapShift(bool on)
+    {
+        if (on) { scrapShift = true; } else if (!on) { scrapShift = false; }
+        ActivateScrapStyle(false);
+
+        if (scrapShift)
+        {
+            enterScrapShift?.Invoke();
+        }
+
+        else
+        {
+            exitScrapShift?.Invoke();
+        }
     }
 
     public void TakeDamage(float damage)
@@ -144,11 +188,6 @@ public class PlayerResources : MonoBehaviour, IDamageable
         }
     }
 
-    //void UpdateHealthUI()
-    //{
-    //    healthFillImage.fillAmount = currentValue / maxValue;
-    //}
-
     public void UpdateScrap(float amount)
     {
         if (amount >0 )
@@ -165,6 +204,15 @@ public class PlayerResources : MonoBehaviour, IDamageable
         if (currentScrap +amount < 0)
         {
             currentScrap = 0;
+            if (scrapShift)
+            {
+                ActivateScrapShift(false);
+            }
+            if (scrapStyle)
+            {
+                ActivateScrapStyle(false);
+            }
+
         }
 
         UpdateScrapUI();
