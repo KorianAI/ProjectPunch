@@ -31,6 +31,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public bool scrapStyle;
     public StyleInfo lightStyle;
     public StyleInfo heavyStyle;
+    public ShiftInfo shift;
 
     //shifts
     public bool scrapShift;
@@ -78,7 +79,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (currentScrap > 0 && scrapDecrease && scrapStyle)
+        if (currentScrap > 0 && scrapDecrease && (scrapStyle || scrapShift))
         {
             scrapDecreaseTimer += Time.deltaTime;
             if (scrapDecreaseTimer >= .01)
@@ -118,6 +119,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
                
             }
            
+        }
+
+        if (Input.GetKeyDown(KeyCode.Period))
+        {
+            UpdateScrap(100);
         }
     }
 

@@ -322,6 +322,23 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                         }
                     }
 
+                    else if (resources.scrapShift)
+                    {
+                        if (comboCounter == 0)
+                        {
+                            resources.shift.LAttack1(1, 1);
+                        }
+
+                        else if (comboCounter == 1)
+                        {
+                            resources.shift.LAttack2(1, 1);
+                        }
+
+                        else
+                        {
+                            resources.shift.LAttack3(1, 1);
+                        }
+                    }
                     else
                     {
                         anim.runtimeAnimatorController = lightCombo[comboCounter];
@@ -346,6 +363,24 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                         else
                         {
                             resources.heavyStyle.Attack3(1, 1);
+                        }
+                    }
+
+                    else if (resources.scrapShift)
+                    {
+                        if (comboCounter == 0)
+                        {
+                            resources.shift.HAttack1(1, 1);
+                        }
+
+                        else if (comboCounter == 1)
+                        {
+                            resources.shift.HAttack2(1, 1);
+                        }
+
+                        else
+                        {
+                            resources.shift.HAttack3(1, 1);
                         }
                     }
 
