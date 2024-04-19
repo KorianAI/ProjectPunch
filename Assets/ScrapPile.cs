@@ -41,7 +41,7 @@ public class ScrapPile : MonoBehaviour, IDamageable
                 player.GetComponent<TargetLock>().isTargeting = false;
                 player.GetComponent<TargetLock>().lastTargetTag = null;
 
-                //destroy with a plume of extra particles & more scrap to player
+                //destroy with a plume of extra particles & more scrap to collision
                 SpawnParticle();
                 SpawnParticle();
 

@@ -55,7 +55,8 @@ public class Cashmere : BossInfo
 
         foreach (GameObject proj in scrapVolleyProjectiles)
         {
-            proj.transform.DOMove(PlayerStateManager.instance.gameObject.transform.position, 1f).OnComplete(() => proj.SetActive(false));
+            ScrapVolleyProjectile vp = proj.GetComponent<ScrapVolleyProjectile>();  
+            proj.transform.DOMove(PlayerStateManager.instance.gameObject.transform.position, .7f).OnComplete(() => vp.SpawnScrapPile());
             yield return new WaitForSeconds(.5f);
         }
 

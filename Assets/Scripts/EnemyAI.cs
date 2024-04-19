@@ -171,7 +171,7 @@ public class EnemyAI : MonoBehaviour
             randomDirection = Random.insideUnitSphere * radius;
             randomDirection += center;
 
-            // Check the distance between the random point and the player
+            // Check the distance between the random point and the collision
             if (Vector3.Distance(randomDirection, center) >= minRadius)
             {
                 // Check if the random point is on the NavMesh

@@ -90,7 +90,7 @@ public class Generator : MonoBehaviour, IDamageable
         blastDoorOpen.Play();
         yield return new WaitForSecondsRealtime(3);
 
-        //return to player cam
+        //return to collision cam
         CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
     }
 }

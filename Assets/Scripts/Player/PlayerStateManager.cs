@@ -208,7 +208,10 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public void IsGrounded()
     {
-        bool groundRaycast = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
+        RaycastHit debugHit;
+        bool groundRaycast = Physics.Raycast(transform.position, Vector3.down, out debugHit, playerHeight * 0.5f + 0.2f, ground);
+
+
 
         if (groundRaycast && controller.isGrounded)
         {

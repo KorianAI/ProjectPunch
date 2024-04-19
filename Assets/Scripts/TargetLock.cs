@@ -29,7 +29,7 @@ public class TargetLock : MonoBehaviour
 
     [SerializeField] private InputActionReference input;
     [SerializeField] private Vector2 targetLockOffset;
-    [SerializeField] private float minDistance; // minimum distance to stop rotation if player gets close to target
+    [SerializeField] private float minDistance; // minimum distance to stop rotation if collision gets close to target
     [SerializeField] private float maxDistance;
     [Space]
 

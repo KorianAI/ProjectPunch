@@ -25,10 +25,10 @@ public class Muzzler : EnemyInfo
 
     private Vector3 CalculateAttackPosition(Vector3 playerPosition)
     {
-        // Calculate the direction from the enemy to the player
+        // Calculate the direction from the enemy to the collision
         Vector3 directionToPlayer = (playerPosition - transform.position).normalized;
 
-        // Calculate the attack position based on the enemy's current position, player's position, and desired distance
+        // Calculate the attack position based on the enemy's current position, collision's position, and desired distance
 
         Vector3 pos = playerPosition - directionToPlayer * stats.range;
         pos.y = ai.transform.position.y;
@@ -85,7 +85,7 @@ public class Muzzler : EnemyInfo
     {
         if (!Application.isPlaying) return;
         // Calculate the attack position
-        Vector3 playerPosition = ai.playerPos.transform.position;// Get player position
+        Vector3 playerPosition = ai.playerPos.transform.position;// Get collision position
         Vector3 directionToPlayer = (playerPosition - transform.position).normalized;
         Vector3 attackPosition = playerPosition - directionToPlayer * stats.range;
 

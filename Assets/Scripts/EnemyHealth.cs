@@ -240,7 +240,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         ai.manager.exitDoorOpen.Play();
         yield return new WaitForSecondsRealtime(3);
 
-        //return to player cam
+        //return to collision cam
         CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
         PlayerStateManager.instance.anim.speed = 1f;
     }
