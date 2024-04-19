@@ -113,20 +113,33 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     private void ScrapShiftKeybind(InputAction.CallbackContext obj)
     {
+        // style to shift
         if (currentScrap == maxScrap)
         {
+            ActivateScrapStyle(false);
             ActivateScrapShift(true);
         }
 
         else
         {
-            if (!scrapStyle)
+            // from shift to style
+            if (scrapShift && currentScrap > 0)
             {
+                ActivateScrapShift(false);
                 ActivateScrapStyle(true);
             }
 
+            // nothing to style
+            else if (!scrapStyle && currentScrap > 50)
+            {
+                CameraManager.SwitchPlayerCam(scrapCam);
+                ActivateScrapStyle(true);
+            }
+
+            // style to nothing
             else
             {
+                CameraManager.SwitchPlayerCam(regularCam);
                 ActivateScrapStyle(false);
             }
 
@@ -138,15 +151,13 @@ public class PlayerResources : MonoBehaviour, IDamageable
         if (on) { scrapStyle = true; } else if (!on) { scrapStyle = false; }
 
         if (scrapStyle)
-        {
-            CameraManager.SwitchPlayerCam(scrapCam);
+        {          
             enterScrapStyle?.Invoke();
             stateManager.whipAnim.gameObject.SetActive(true);
         }
 
         else
-        {
-            CameraManager.SwitchPlayerCam(regularCam);
+        {           
             exitScrapStyle?.Invoke();
             stateManager.whipAnim.gameObject.SetActive(false);
         }
@@ -156,7 +167,6 @@ public class PlayerResources : MonoBehaviour, IDamageable
     private void ActivateScrapShift(bool on)
     {
         if (on) { scrapShift = true; } else if (!on) { scrapShift = false; }
-        ActivateScrapStyle(false);
 
         if (scrapShift)
         {
@@ -202,7 +212,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public void UpdateScrap(float amount)
     {
-        if (amount >0 )
+        if (amount > 0 )
         {
             scrapDecrease = false;
             StopAllCoroutines();

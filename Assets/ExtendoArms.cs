@@ -13,6 +13,33 @@ public class ExtendoArms : ShiftInfo
 
     public float knockbackForce;
 
+    public GameObject leftFist;
+    public GameObject rightFist;
+
+    private void OnEnable()
+    {
+        PlayerResources.enterScrapShift += ShowWeapons;
+        PlayerResources.exitScrapShift += HideWeapons;
+    }
+
+    private void OnDisable()
+    {
+        PlayerResources.enterScrapShift -= ShowWeapons;
+        PlayerResources.exitScrapShift -= HideWeapons;
+    }
+
+    void ShowWeapons()
+    {
+        leftFist.SetActive(true);
+        rightFist.SetActive(true);
+    }
+
+    void HideWeapons()
+    {
+        leftFist.SetActive(false);
+        rightFist.SetActive(false);
+    }
+
     // HEAVY COMBO
 
     public override void HAttack1(float damage, float range)

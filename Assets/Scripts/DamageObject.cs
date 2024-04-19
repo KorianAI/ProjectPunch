@@ -7,6 +7,7 @@ public class DamageObject : MonoBehaviour
 {
     public int damage;
     public GameObject hitVFX;
+    
 
     private void OnTriggerEnter(Collider other)
     {
