@@ -46,7 +46,8 @@ public class EMRail : MonoBehaviour, IMagnetisable
 
         ps = player;
         ps.rail = this;
-        
+        ps.speedlines.SetActive(true);
+
         player.SwitchState(player.railState);
         playerObj.transform.DOMove(pullPos.transform.position, 0.5f).OnComplete(SetParent); //pull to the EM
         DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 70, .1f);
@@ -55,7 +56,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
     void SetParent()
     {
         playerObj.transform.SetParent(pullPos.transform); //set parent to EM
-
+        ps.speedlines.SetActive(false);
         DOTween.To(() => ps.playerCam.m_Lens.FieldOfView, x => ps.playerCam.m_Lens.FieldOfView = x, 50, .25f);
 
         CameraManager.SwitchNonPlayerCam(ps.railCam);
@@ -70,6 +71,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
         playerObj.GetComponent<TargetLock>().isTargeting = false;
         ps.anim.Play("Hang");
         ps.anim.SetBool("onRail", true);
+        ps.speedlines.SetActive(false);
     }
 
     public void Push(PlayerStateManager player)

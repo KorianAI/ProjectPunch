@@ -12,6 +12,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     [SerializeField] public CharacterController controller;
     [SerializeField] public Animator anim;
+    [SerializeField] public GameObject speedlines;
 
     // states
     public PlayerIdleState idleState = new PlayerIdleState();
@@ -460,6 +461,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         {
             DOTween.To(() => playerCam.m_Lens.FieldOfView, x => playerCam.m_Lens.FieldOfView = x, 85, .4f);
             duration = .4f;
+            
         }
 
         else // spotlight

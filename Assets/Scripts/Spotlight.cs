@@ -15,7 +15,8 @@ public class Spotlight : MonoBehaviour, IMagnetisable
 
     public void Pull(PlayerStateManager player)
     {
-        playerObj.transform.DOMove(pullPos.transform.position, 1.5f);
+        player.speedlines.SetActive(true);
+        playerObj.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(() => player.speedlines.SetActive(false));
         playerObj.GetComponent<TargetLock>().currentTarget = null;
         playerObj.GetComponent<TargetLock>().isTargeting = false;
         DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);
