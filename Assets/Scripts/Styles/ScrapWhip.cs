@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class ScrapWhip : LightStyleInfo
 {
+    private void OnEnable()
+    {
+        PlayerResources.enterScrapStyle += ShowWeapon;
+        PlayerResources.exitScrapStyle += HideWeapon;
+    }
 
+    private void OnDisable()
+    {
+        PlayerResources.enterScrapStyle -= ShowWeapon;
+        PlayerResources.exitScrapStyle -= HideWeapon;
+    }
     public override void Attack1(float damage, float range)
     {
         Debug.Log(styleName + ": Attack 1");
@@ -21,6 +31,18 @@ public class ScrapWhip : LightStyleInfo
     {
         Debug.Log(styleName + ": Attack 3");
         player.anim.runtimeAnimatorController = attack3;
+    }
+
+    void ShowWeapon()
+    {
+
+        weaponObject.SetActive(true);
+    }
+
+    void HideWeapon()
+    {
+
+        weaponObject.SetActive(false);
     }
 
 }

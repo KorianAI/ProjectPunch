@@ -114,7 +114,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
     private void ScrapShiftKeybind(InputAction.CallbackContext obj)
     {
         // style to shift
-        if (currentScrap == maxScrap)
+        if (currentScrap == maxScrap && !scrapShift)
         {
             ActivateScrapStyle(false);
             ActivateScrapShift(true);
@@ -153,13 +153,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
         if (scrapStyle)
         {          
             enterScrapStyle?.Invoke();
-            stateManager.whipAnim.gameObject.SetActive(true);
         }
 
         else
         {           
             exitScrapStyle?.Invoke();
-            stateManager.whipAnim.gameObject.SetActive(false);
         }
 
     }
