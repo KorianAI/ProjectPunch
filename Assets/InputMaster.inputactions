@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ScrapShift",
+                    "type": "Button",
+                    "id": "dfb1b3e1-ecec-420b-8761-bbd34d4da1c9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -282,7 +291,7 @@
                 {
                     "name": "",
                     "id": "c8f75541-1f48-41a1-83e9-4a364e9198e7",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/rightStickPress",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -309,6 +318,50 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Push",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Gamepad",
+                    "id": "7443f83a-7fb0-4179-a66b-fe6b22a2ed38",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrapShift",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "17c81149-87b3-45bf-b99e-517742c714a7",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ScrapShift",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "69a2462a-2025-4098-a1bc-9d8873dbace7",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScrapShift",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "ba467db6-abb6-44fa-acf2-dfcc845c6c42",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "ScrapShift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

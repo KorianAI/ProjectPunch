@@ -4,8 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+
+
 
 [DefaultExecutionOrder(0)]
 public class PlayerResources : MonoBehaviour, IDamageable
@@ -51,18 +54,22 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public static event Action enterScrapShift;
     public static event Action exitScrapShift;
 
+    public InputActionReference scrapShiftKeybind;
+
     [SerializeField] PlayerStateManager stateManager;
 
     private void OnEnable()
     {
         CameraManager.RegisterPC(scrapCam);
         CameraManager.RegisterPC(regularCam);
+        scrapShiftKeybind.action.performed += ScrapShiftKeybind;
     }
 
     private void OnDisable()
     {
         CameraManager.UnRegisterPC(scrapCam);
         CameraManager.UnRegisterPC(regularCam);
+        scrapShiftKeybind.action.performed -= ScrapShiftKeybind;
     }
 
     private void Start()
@@ -98,32 +105,31 @@ public class PlayerResources : MonoBehaviour, IDamageable
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.Period))
         {
-            if (currentScrap == maxScrap)
+            UpdateScrap(100);
+        }
+    }
+
+    private void ScrapShiftKeybind(InputAction.CallbackContext obj)
+    {
+        if (currentScrap == maxScrap)
+        {
+            ActivateScrapShift(true);
+        }
+
+        else
+        {
+            if (!scrapStyle)
             {
-                ActivateScrapShift(true);
+                ActivateScrapStyle(true);
             }
 
             else
             {
-                if (!scrapStyle)
-                {
-                    ActivateScrapStyle(true);
-                }
-
-                else
-                {
-                    ActivateScrapStyle(false);
-                }
-               
+                ActivateScrapStyle(false);
             }
-           
-        }
 
-        if (Input.GetKeyDown(KeyCode.Period))
-        {
-            UpdateScrap(100);
         }
     }
 

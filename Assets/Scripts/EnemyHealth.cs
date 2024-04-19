@@ -26,6 +26,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     public bool hasArmour;
 
+    public GameObject stunnedVFX;
+
     public Material[] mats;
     bool isFading;
 
@@ -184,7 +186,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         
         transform.DOMove(player.pullPosition.position, 1f);
         GetStunned(1);
-        transform.DOShakeRotation(1, 15f, 10, 90);
+        //transform.DOShakeRotation(1, 15f, 10, 90);
         DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);
     }
 
@@ -194,15 +196,16 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         if (hasArmour) { return; }
         transform.DOMove(transform.position + player.orientation.forward * player.kbForce, 1f);
         GetStunned(1);
-        transform.DOShakeRotation(1, 15f, 10, 90);
+        //transform.DOShakeRotation(1, 15f, 10, 90);
     }
 
     public void GetStunned(float stunLength)
     {
         if (hasArmour) { return; }
         ai.enemy.anim.SetBool("Stunned", true);
-        ai.enemy.agent.isStopped = true;
+        ai.enemy.agent.isStopped = true;    
         ai.SwitchState(ai.stunnedState);
+        stunnedVFX.SetActive(true);
         StartCoroutine(ResetStun(stunLength));
     }
 
@@ -210,6 +213,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     {
         yield return new WaitForSeconds(stunLength);
         ai.enemy.anim.SetBool("Stunned", false);
+        stunnedVFX.SetActive(false);
         yield return new WaitForSeconds(.5f);
 
         if (ai.currentState == ai.deadState) yield return null;
