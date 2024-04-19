@@ -555,7 +555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8605884693507294514
 Transform:
   m_ObjectHideFlags: 0
@@ -743,12 +743,12 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -89.73, y: 35.915, z: 491.13248}
-  - {x: -89.4625, y: 36.25, z: 492.095}
-  - {x: -88.332504, y: 36.4975, z: 492.715}
-  - {x: -87.0575, y: 36.5175, z: 493.0225}
-  - {x: -85.8375, y: 36.315002, z: 493.07498}
-  - {x: -86.5, y: 35.050003, z: 494.565}
+  - {x: -99.4, y: 35.915, z: 485.7525}
+  - {x: -99.1325, y: 36.25, z: 486.71503}
+  - {x: -98.0025, y: 36.4975, z: 487.33502}
+  - {x: -96.7275, y: 36.5175, z: 487.64252}
+  - {x: -95.5075, y: 36.315002, z: 487.695}
+  - {x: -96.17, y: 35.050003, z: 489.18503}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -913,7 +913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2482044037956117213
 Transform:
   m_ObjectHideFlags: 0
@@ -11482,6 +11482,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   hitVFX: {fileID: 0}
+  extendoFists: 0
+  projectile: {fileID: 0}
+  whip: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &6196915457173700407
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26377,6 +26383,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   hitVFX: {fileID: 0}
+  extendoFists: 0
+  projectile: {fileID: 0}
+  whip: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &8645188055815250410
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26526,6 +26538,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   hitVFX: {fileID: 0}
+  extendoFists: 0
+  projectile: {fileID: 0}
+  whip: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &8723522415084708044
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51053,6 +51071,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   hitVFX: {fileID: 5202283562307879676, guid: 2a6571f9f4181f9428ab64c69a34b58e, type: 3}
+  extendoFists: 1
+  projectile: {fileID: 3104773352909008554, guid: 95af0db6b7be5a548aef0d51bda55e73, type: 3}
+  whip: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!54 &5302538280112271249
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51202,6 +51226,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   hitVFX: {fileID: 0}
+  extendoFists: 0
+  projectile: {fileID: 0}
+  whip: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &39401642432061602
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51292,6 +51322,8 @@ MonoBehaviour:
   smallerShockwaveVFX: {fileID: 458717390586564003, guid: 369ab737ee820734495468044670b23e, type: 3}
   rumblePosition: {fileID: 5321553880263593771}
   knockbackForce: 0
+  leftFist: {fileID: 7421299282517947942}
+  rightFist: {fileID: 9026891221562703394}
 --- !u!1 &5391860493346708334
 GameObject:
   m_ObjectHideFlags: 0
@@ -90217,6 +90249,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   hitVFX: {fileID: 5202283562307879676, guid: 2a6571f9f4181f9428ab64c69a34b58e, type: 3}
+  extendoFists: 1
+  projectile: {fileID: 3104773352909008554, guid: 95af0db6b7be5a548aef0d51bda55e73, type: 3}
+  whip: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!54 &134837767037544906
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -90366,6 +90404,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   hitVFX: {fileID: 0}
+  extendoFists: 0
+  projectile: {fileID: 0}
+  whip: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &8395316353736153895
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -100197,7 +100241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5378680600740744121
 Transform:
   m_ObjectHideFlags: 0
@@ -110136,6 +110180,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   hitVFX: {fileID: 0}
+  extendoFists: 0
+  projectile: {fileID: 0}
+  whip: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &8398265703289662653
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -120048,6 +120098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 4685031014608878443}
   anim: {fileID: 6753895265341255476}
+  speedlines: {fileID: 0}
   move: {fileID: -4545462013602576153, guid: bb71729d126c7504da922e6c1e99a3f3, type: 3}
   jump: {fileID: 3777841272290663292, guid: bb71729d126c7504da922e6c1e99a3f3, type: 3}
   lightAttack: {fileID: -2437952188547668174, guid: bb71729d126c7504da922e6c1e99a3f3, type: 3}
@@ -125245,7 +125296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5525998731241380330}
-  weaponObject: {fileID: 0}
+  weaponObject: {fileID: 553456669743372129}
   icon: {fileID: 21300000, guid: 6d6985ff668cbdf44ad348e7b579be35, type: 3}
   styleName: Whip
   currentDurability: 0
@@ -130098,7 +130149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3936518939824010809
 Transform:
   m_ObjectHideFlags: 0
