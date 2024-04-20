@@ -5,19 +5,10 @@ using DG.Tweening;
 
 public class MovableObject : MonoBehaviour, IMagnetisable
 {
-    public GameObject player;
-    public PlayerStateManager ps;
-
-    private void Start()
-    {
-        player = GameObject.Find("Player");
-    }
-
     public void Pull(PlayerStateManager player)
     {
-        ps = player;
-        transform.DOMove(player.pullPosition.position, 1f);
-        //transform.DOShakeRotation(1, 15f, 10, 90);
+        //transform.DOMove(player.pullPosition.position, 1f);
+        transform.DOShakeRotation(.5f, 5f, 10, 90);
     }
 
     public void Push(PlayerStateManager player)

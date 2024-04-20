@@ -79,8 +79,8 @@ Material:
     - _SmoothnessSource: 1
     - _SpecSource: 0
     - _SpecularHighlights: 1
-    - _SpecularStep: 0.038
-    - _SpecularStepSmooth: 0.05
+    - _SpecularStep: 0
+    - _SpecularStepSmooth: 0
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0

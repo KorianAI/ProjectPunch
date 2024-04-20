@@ -10,7 +10,7 @@ public class Spotlight : MonoBehaviour, IMagnetisable
 
     private void Start()
     {
-        playerObj = GameObject.Find("Player");
+        playerObj = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void Pull(PlayerStateManager player)

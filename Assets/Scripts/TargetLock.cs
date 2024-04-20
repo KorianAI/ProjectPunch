@@ -94,7 +94,7 @@ public class TargetLock : MonoBehaviour
             isTargeting = false;
             currentTarget = null;
 
-            if (lastTarget.gameObject.CompareTag("Enemy"))
+            if (lastTarget.gameObject.CompareTag("Enemy") == true)
             {
                 lastTarget.GetComponentInChildren<HealthBars>().ShowBarsTargeted();
             }
