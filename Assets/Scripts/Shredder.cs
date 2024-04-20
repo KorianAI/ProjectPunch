@@ -19,14 +19,36 @@ public class Shredder : MonoBehaviour, IMagnetisable
 
     public bool invert;
 
+    float timer;
+    float maxTime = 3f;
+    bool addToTimer;
+
     void Start()
     {      
         Extend();
     }
 
+    private void LateUpdate()
+    {
+        if (addToTimer)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= maxTime)
+            {
+                addToTimer = false;
+                timer = 0f;
+
+                Extend();
+            }
+        }
+    }
+
+
     public void Pull(PlayerStateManager player)
     {
-        Debug.Log(gameObject + "pulled");
+        addToTimer = false;
+        timer = 0f;
 
         transform.DOKill(false);
 
@@ -42,7 +64,12 @@ public class Shredder : MonoBehaviour, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
-        Debug.Log("nuh huh *noise pls*");
+        //stop its movement for a few moments
+
+        transform.DOKill(false);
+
+        timer = 0f;
+        addToTimer = true;
     }
 
     void Extend()

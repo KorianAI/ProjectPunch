@@ -18,50 +18,50 @@ public class Crusher : MonoBehaviour, IMagnetisable
     public float downSpeed;
     public float pulledSpeed;
 
-    public bool invert;
+    float timer;
+    float maxTime = 3f;
+    bool addToTimer;
 
-    //[Header("Piston Arm")]
-    //public GameObject arm;
-    
-    //[Space]
-    //public float armStartDisplace;
-    //public float armExpandDisplace;
-
-    //[Space]
-    //public float armStartScale;
-    //public float armExpandScale;
-    //public float scaleReturnSpeed;
 
     void Start()
     {
         Extend();
     }
 
+    private void LateUpdate()
+    {
+        if (addToTimer)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= maxTime)
+            {
+                addToTimer = false;
+                timer = 0f;
+
+                Extend();
+            }
+        }
+    }
+
     public void Pull(PlayerStateManager player)
     {
-        Debug.Log(gameObject + "pulled");
+        addToTimer = false;
+        timer = 0f;
 
         transform.DOKill(false);
 
-        if (invert)
-        {
-            transform.DOLocalMoveY(retractedPos, pulledSpeed).OnComplete(Retract);
-
-            //arm.transform.DOLocalMoveY(armExpandDisplace, pulledSpeed);
-            //arm.transform.DOScaleY(armExpandScale, pulledSpeed);
-        }
-        else
-        {
-            transform.DOLocalMoveY(extendedPos, pulledSpeed).OnComplete(Retract);
-
-            //arm.transform.DOLocalMoveY(armExpandDisplace, pulledSpeed);
-            //arm.transform.DOScaleY(armExpandScale, pulledSpeed);
-        }
+        transform.DOLocalMoveY(extendedPos, pulledSpeed).OnComplete(Retract);
     }
 
     public void Push(PlayerStateManager player)
     {
-        Debug.Log("nuh huh *noise pls*");
+        //stop its movement for a few moments
+
+        transform.DOKill(false);
+
+        timer = 0f;
+        addToTimer = true;
     }
 
     void Extend()
@@ -70,9 +70,6 @@ public class Crusher : MonoBehaviour, IMagnetisable
 
         transform.DOLocalMoveY(extendedPos, downSpeed).OnComplete(Retract)
             .SetEase(Ease.Linear);
-
-        //arm.transform.DOLocalMoveY(armExpandDisplace, downSpeed);
-        //arm.transform.DOScaleY(armExpandScale, downSpeed);
     }
 
     void Retract()
@@ -81,8 +78,5 @@ public class Crusher : MonoBehaviour, IMagnetisable
 
         transform.DOLocalMoveY(retractedPos, upSpeed).OnComplete(Extend)
             .SetEase(Ease.Linear);
-
-        //arm.transform.DOLocalMoveY(armStartDisplace, upSpeed);
-        //arm.transform.DOScaleY(armStartScale, upSpeed);
     }
 }
