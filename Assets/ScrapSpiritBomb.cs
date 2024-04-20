@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class ScrapSpiritBomb : MonoBehaviour
@@ -8,6 +9,7 @@ public class ScrapSpiritBomb : MonoBehaviour
     public Transform impactPoint;
     public GameObject shockwaveVFX;
     public GameObject rumbleVFX;
+    public GameObject bombObject;
 
     [Header("Jumping")]
     public float jumpDuration = 1f;
@@ -19,15 +21,18 @@ public class ScrapSpiritBomb : MonoBehaviour
     Vector3 originalPos;
 
     [Header("Slamming")]
-    public float punchPower;
-    public float punchDuration;
-
+    public float rotationSpeed;
     public Transform slamPosition;
 
     private void Start()
     {
         originalPos = transform.position;
         sortedQueue = new CashmereSpotlight[jumpPoints.Length];
+    }
+
+    private void Update()
+    {
+        bombObject.transform.Rotate(Vector3.right, rotationSpeed * Time.deltaTime);
     }
 
     public void Slam()
@@ -43,9 +48,11 @@ public class ScrapSpiritBomb : MonoBehaviour
         
         // Get the next jump point
         Transform targetPoint = sortedQueue[currentIndex].bombPoint;
+        rotationSpeed *= 4f;
         transform.DOJump(targetPoint.position, jumpPower, 1, jumpDuration)
             .OnComplete(() =>
             {
+                rotationSpeed *= .25f;
                 // Move to the next point
                 sortedQueue[currentIndex].Electrocute();
                 Slam();
@@ -93,9 +100,11 @@ public class ScrapSpiritBomb : MonoBehaviour
 
     public IEnumerator RepeatedSlam()
     {
-        transform.DOMove(slamPosition.position, .5f).OnComplete(() => { Slam(); });
-        yield return new WaitForSeconds(.5f);
-        transform.DOMove(originalPos, 1f).OnComplete(() =>  { StartCoroutine(RepeatedSlam());  });
+        rotationSpeed *= 4f;
+        transform.DOMove(slamPosition.position, .5f).OnComplete(() => {  Slam(); });
+        yield return new WaitForSeconds(1f);
+        rotationSpeed *= .25f;
+        transform.DOMove(originalPos, 1f).OnComplete(() =>  {  StartCoroutine(RepeatedSlam());  });
 
     }
 
