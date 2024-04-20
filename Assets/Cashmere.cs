@@ -6,9 +6,14 @@ using System.Linq;
 
 public class Cashmere : BossInfo
 {
+    [Header("Volley")]
     [SerializeField] GameObject[] scrapVolleyProjectiles;
     [SerializeField] Animator volleyAnimator;
     [SerializeField] Vector3[] originalVolleyPosition;
+
+    [Header("Bomb")]
+    [SerializeField] ScrapSpiritBomb bomb;
+    [SerializeField] public int currentSpotlight;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +29,8 @@ public class Cashmere : BossInfo
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Attack1();
+            //Attack1();
+            Attack2();
         }
     }
 
@@ -70,7 +76,9 @@ public class Cashmere : BossInfo
 
     public override void Attack2()
     {
-        throw new System.NotImplementedException();
+        bomb.gameObject.SetActive(true);
+        bomb.SortJumpOrder(currentSpotlight);
+        bomb.JumpToNextPoint();
     }
 
     public override void Attack3()
