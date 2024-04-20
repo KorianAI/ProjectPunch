@@ -15,6 +15,8 @@ public class Cashmere : BossInfo
     [SerializeField] ScrapSpiritBomb bomb;
     [SerializeField] public int currentSpotlight;
 
+    [SerializeField] CashmereSpotlight[] spotlights;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -15,14 +15,15 @@ public class ScrapSpiritBomb : MonoBehaviour
 
     private int currentIndex = 0;
 
-    public Transform[] jumpPoints;
-    public Transform[] sortedQueue;
+    public CashmereSpotlight[] jumpPoints;
+    public CashmereSpotlight[] sortedQueue;
+    public GameObject bigScrapPile;
     Vector3 originalPos;
 
     private void Start()
     {
         originalPos = transform.position;
-        sortedQueue = new Transform[jumpPoints.Length];
+        sortedQueue = new CashmereSpotlight[jumpPoints.Length];
     }
 
     public void Slam()
@@ -34,17 +35,19 @@ public class ScrapSpiritBomb : MonoBehaviour
     public void JumpToNextPoint()
     {
         // If all points have been visited, stop jumping
-        if (currentIndex >= sortedQueue.Length) { gameObject.SetActive(false); transform.position = originalPos; currentIndex = 0; return; }
+        if (currentIndex >= sortedQueue.Length) { gameObject.SetActive(false); transform.position = originalPos; currentIndex = 0; Instantiate(bigScrapPile, transform.position
+            , Quaternion.identity);  return; }
         // Get the next jump point
-        Transform targetPoint = sortedQueue[currentIndex];
+        Transform targetPoint = sortedQueue[currentIndex].bombPoint;
 
         // Jump to the next point using DOTween
         transform.DOJump(targetPoint.position, jumpPower, 1, jumpDuration)
             .OnComplete(() =>
             {
                 // Move to the next point
-                currentIndex++;
+                sortedQueue[currentIndex].Electrocute();
                 Slam();
+                currentIndex++;            
                 // Recursively call the function to jump to the next point
                 JumpToNextPoint();
             });
@@ -84,6 +87,5 @@ public class ScrapSpiritBomb : MonoBehaviour
             sortedQueue[3] = jumpPoints[2];
         }
     }
-
 
 }
