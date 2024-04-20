@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using RotaryHeart.Lib.PhysicsExtension;
 using UnityEngine.InputSystem;
 using System.Linq;
-
+using UnityEngine.Rendering;
 
 public class TargetLock : MonoBehaviour
 { 
@@ -94,9 +94,13 @@ public class TargetLock : MonoBehaviour
             isTargeting = false;
             currentTarget = null;
 
-            if (lastTarget.gameObject.CompareTag("Enemy") == true)
+            if (lastTarget != null && lastTarget.gameObject.CompareTag("Enemy") == true)
             {
-                lastTarget.GetComponentInChildren<HealthBars>().ShowBarsTargeted();
+                if (lastTarget.GetComponentInChildren<HealthBars>() != null)
+                {
+                    lastTarget.GetComponentInChildren<HealthBars>().ShowBarsTargeted();
+                }
+                
             }
 
             return;
@@ -120,8 +124,11 @@ public class TargetLock : MonoBehaviour
                 {
                     lastTargetTag = enemyTag;
                     lastTarget = hit.transform.gameObject;
-
-                    hit.transform.gameObject.GetComponentInChildren<HealthBars>().ShowBars();
+                    if (hit.transform.gameObject.GetComponentInChildren<HealthBars>() != null)
+                    {
+                        hit.transform.gameObject.GetComponentInChildren<HealthBars>().ShowBars();
+                    }
+                    
                 }
 
                 if (hit.transform.CompareTag(railTag))
