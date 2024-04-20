@@ -7175,6 +7175,7 @@ GameObject:
   - component: {fileID: 1323992883426764763}
   - component: {fileID: 4601475155559086067}
   - component: {fileID: 7637359535988413712}
+  - component: {fileID: 7258165156925060771}
   m_Layer: 8
   m_Name: Spotlight
   m_TagString: Spotlight
@@ -7259,6 +7260,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 14, z: 4}
   m_Center: {x: 0, y: -9.01, z: 0}
+--- !u!114 &7258165156925060771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686509866134369565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 582f178c002934e42a605106fe8b4312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPoint: {fileID: 1701208347303489589}
 --- !u!1 &7875354483778194934
 GameObject:
   m_ObjectHideFlags: 0
