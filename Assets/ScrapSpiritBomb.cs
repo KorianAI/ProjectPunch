@@ -35,18 +35,17 @@ public class ScrapSpiritBomb : MonoBehaviour
     public void JumpToNextPoint()
     {
         // If all points have been visited, stop jumping
-        if (currentIndex >= sortedQueue.Length) { gameObject.SetActive(false); transform.position = originalPos; currentIndex = 0; Instantiate(bigScrapPile, transform.position
-            , Quaternion.identity);  return; }
+        if (currentIndex >= sortedQueue.Length) { gameObject.SetActive(false); transform.position = originalPos; currentIndex = 0;  return; }
+        
         // Get the next jump point
         Transform targetPoint = sortedQueue[currentIndex].bombPoint;
-
-        // Jump to the next point using DOTween
         transform.DOJump(targetPoint.position, jumpPower, 1, jumpDuration)
             .OnComplete(() =>
             {
                 // Move to the next point
                 sortedQueue[currentIndex].Electrocute();
                 Slam();
+                if (currentIndex == sortedQueue.Length - 1) { Instantiate(bigScrapPile, sortedQueue[currentIndex].bombPoint.position, Quaternion.identity); }
                 currentIndex++;            
                 // Recursively call the function to jump to the next point
                 JumpToNextPoint();
