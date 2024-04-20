@@ -22,6 +22,9 @@ public class Generator : MonoBehaviour, IDamageable
 
     public EMRail[] rails;
 
+    HealthBars healthBars;
+
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -30,18 +33,22 @@ public class Generator : MonoBehaviour, IDamageable
         }
     }
 
-    #region health
-
     private void Start()
     {
         healthBar.maxValue = maxHealth;
         healthBar.currentValue = currentHealth;
+
+        healthBars = GetComponentInChildren<HealthBars>();
     }
+
+    #region health
 
     public void TakeDamage(float damage)
     {
         if (!takenDamage)
         {
+            healthBars.ShowBarsAttacked();
+
             takenDamage = true;
             currentHealth -= damage;
             healthBar.currentValue = currentHealth;
@@ -75,8 +82,8 @@ public class Generator : MonoBehaviour, IDamageable
         }
 
         StartCoroutine(OpenDoor());
-
-        healthBar.gameObject.SetActive(false);
+        
+        healthBars.HideBars();
 
         smokeParticle.Play();
     }

@@ -31,6 +31,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     public Material[] mats;
     bool isFading;
 
+    HealthBars healthBars;
+
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -45,6 +47,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         armourBar.maxValue = stats.armour;
 
         mats = GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterials;
+
+        healthBars = GetComponentInChildren<HealthBars>();
     }
 
     public void TakeDamage(float damage)
@@ -52,6 +56,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         if (!takenDamage)
         {
             takenDamage = true;
+
+            healthBars.ShowBarsAttacked();
 
             if (hasArmour)
             {
@@ -106,6 +112,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     private void Die()
     {
+        healthBars.HideBars();
+
         ai.manager.enemies.Remove(ai);
 
         if (ai.manager.AliveEnemyCount() <= 0)

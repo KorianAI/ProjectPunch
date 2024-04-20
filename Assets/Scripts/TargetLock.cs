@@ -43,6 +43,7 @@ public class TargetLock : MonoBehaviour
 
     [Space]
     public Transform currentTarget;
+    public GameObject lastTarget;
     public string lastTargetTag; //required to allow players to push away from object when not locked on
 
     private float mouseX;
@@ -92,6 +93,12 @@ public class TargetLock : MonoBehaviour
         {
             isTargeting = false;
             currentTarget = null;
+
+            if (lastTarget.gameObject.CompareTag("Enemy"))
+            {
+                lastTarget.GetComponentInChildren<HealthBars>().ShowBarsTargeted();
+            }
+
             return;
         }
 
@@ -112,6 +119,9 @@ public class TargetLock : MonoBehaviour
                 if (hit.transform.CompareTag(enemyTag))
                 {
                     lastTargetTag = enemyTag;
+                    lastTarget = hit.transform.gameObject;
+
+                    hit.transform.gameObject.GetComponentInChildren<HealthBars>().ShowBars();
                 }
 
                 if (hit.transform.CompareTag(railTag))
