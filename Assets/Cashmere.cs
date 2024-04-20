@@ -32,7 +32,8 @@ public class Cashmere : BossInfo
         if (Input.GetKeyDown(KeyCode.K))
         {
             //Attack1();
-            Attack2();
+            //Attack2();
+            Attack3();
         }
     }
 
@@ -85,7 +86,7 @@ public class Cashmere : BossInfo
 
     public override void Attack3()
     {
-        throw new System.NotImplementedException();
+        StartCoroutine(bomb.RepeatedSlam());
     }
 
     #endregion

@@ -6,19 +6,23 @@ using UnityEngine;
 public class ScrapSpiritBomb : MonoBehaviour
 {
     public Transform impactPoint;
-
     public GameObject shockwaveVFX;
     public GameObject rumbleVFX;
 
+    [Header("Jumping")]
     public float jumpDuration = 1f;
     public float jumpPower;
-
     private int currentIndex = 0;
-
     public CashmereSpotlight[] jumpPoints;
     public CashmereSpotlight[] sortedQueue;
     public GameObject bigScrapPile;
     Vector3 originalPos;
+
+    [Header("Slamming")]
+    public float punchPower;
+    public float punchDuration;
+
+    public Transform slamPosition;
 
     private void Start()
     {
@@ -85,6 +89,14 @@ public class ScrapSpiritBomb : MonoBehaviour
             sortedQueue[2] = jumpPoints[1];
             sortedQueue[3] = jumpPoints[2];
         }
+    }
+
+    public IEnumerator RepeatedSlam()
+    {
+        transform.DOMove(slamPosition.position, .5f).OnComplete(() => { Slam(); });
+        yield return new WaitForSeconds(.5f);
+        transform.DOMove(originalPos, 1f).OnComplete(() =>  { StartCoroutine(RepeatedSlam());  });
+
     }
 
 }
