@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using DG.Tweening;
 
 public class Respawn : MonoBehaviour
 {
@@ -20,11 +21,13 @@ public class Respawn : MonoBehaviour
     public bool fadedIn = false;
     public bool fadedOut = false;
 
+    PlayerStateManager sm;
+
 
     private void Start()
     {
         followTarget = deathCam.Follow.gameObject;
-
+        sm = GetComponent<PlayerStateManager>();
         vignetteAnim = vignette.GetComponent<Animator>();
         vignette.SetActive(false);
 
@@ -37,6 +40,9 @@ public class Respawn : MonoBehaviour
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // <- nuclear option in case this doesn't work
 
+            sm.SwitchState(sm.idleState);
+            sm.yVelocity = 0;
+            sm.velocity = Vector3.zero;
             canReset = false;
 
             if (cpManager != null)
@@ -50,7 +56,6 @@ public class Respawn : MonoBehaviour
     {
         CameraManager.SwitchNonPlayerCam(deathCam);
         deathCam.Follow = null;
-
         FadeOut();
     }
 
@@ -76,7 +81,7 @@ public class Respawn : MonoBehaviour
             //set player position --THIS IS THE BIT THAT WORKS AND THEN DOESN'T
             if (cpManager.respawnPoint != null)
             {
-                transform.position = cpManager.respawnPoint.position;
+                transform.DOMove(cpManager.respawnPoint.position, .01f);
             }
 
             vignetteAnim.SetTrigger("FadeIn");
