@@ -13,6 +13,7 @@ public class BlastWave : MonoBehaviour
     public int pointsCount;
 
     public GameObject hitBox;
+    public ScrapShockwave shockwave;
     Vector3 hitboxOriginalScale;
 
     private void Awake()
@@ -30,9 +31,10 @@ public class BlastWave : MonoBehaviour
     {
         lineRenderer.enabled = true;
         hitBox.transform.DOKill();
-        hitBox.gameObject.SetActive(false);
+        hitBox.gameObject.SetActive(true);
         float currentRadius = 0f;
         hitBox.transform.localScale = hitboxOriginalScale;
+        shockwave.canDealDamage = true;
 
         ScaleObject();
         while (currentRadius < maxRadius)

@@ -44,6 +44,7 @@ public class DamageObject : MonoBehaviour
         else if (other.CompareTag("Player"))
         {
             target.TakeDamage(15f);
+            Debug.Log("Haha u were hit by: " + gameObject.name);
         }
     }
 
