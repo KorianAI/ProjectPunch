@@ -16,6 +16,7 @@ public class Cashmere : BossInfo
     [SerializeField] public int currentSpotlight;
 
     [SerializeField] CashmereSpotlight[] spotlights;
+    public GameObject cashmereObj;
 
     // Start is called before the first frame update
     void Start()
@@ -90,6 +91,9 @@ public class Cashmere : BossInfo
         bomb.gameObject.SetActive(true);
         bomb.SortJumpOrder(currentSpotlight);
         bomb.JumpToNextPoint();
+
+       
+        
     }
 
     public override void Attack3()

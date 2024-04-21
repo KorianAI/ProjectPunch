@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class ScrapSpiritBomb : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class ScrapSpiritBomb : MonoBehaviour
     [Header("Jumping")]
     public float jumpDuration = 1f;
     public float jumpPower;
-    private int currentIndex = 0;
+    public int currentIndex = 0;
     public CashmereSpotlight[] jumpPoints;
     public CashmereSpotlight[] sortedQueue;
     public GameObject bigScrapPile;
@@ -29,6 +30,7 @@ public class ScrapSpiritBomb : MonoBehaviour
 
     public LayerMask player;
     public BlastWave blastWave;
+    public Cashmere cashmere;
 
     private void Start()
     {
@@ -58,11 +60,14 @@ public class ScrapSpiritBomb : MonoBehaviour
 
     public void JumpToNextPoint()
     {
+
         // If all points have been visited, stop jumping
         if (currentIndex >= sortedQueue.Length) { gameObject.SetActive(false); transform.position = originalPos; currentIndex = 0;  return; }
-        
+
         // Get the next jump point
         Transform targetPoint = sortedQueue[currentIndex].bombPoint;
+        Vector3 lookAtPosition = new Vector3(targetPoint.position.x, cashmere.transform.position.y, targetPoint.position.z);
+        cashmere.cashmereObj.transform.DOLookAt(lookAtPosition, .5f);
         rotationSpeed *= 4f;
         transform.DOJump(targetPoint.position, jumpPower, 1, jumpDuration)
             .OnComplete(() =>
@@ -72,9 +77,10 @@ public class ScrapSpiritBomb : MonoBehaviour
                 sortedQueue[currentIndex].Electrocute();
                 Slam();
                 if (currentIndex == sortedQueue.Length - 1) { Instantiate(bigScrapPile, sortedQueue[currentIndex].bombPoint.position, Quaternion.identity); }
-                currentIndex++;            
+                currentIndex++;
                 // Recursively call the function to jump to the next point
                 JumpToNextPoint();
+
             });
     }
 
