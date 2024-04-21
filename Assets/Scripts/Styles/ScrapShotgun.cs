@@ -62,7 +62,7 @@ public class ScrapShotgun : HeavyStyleInfo
         if (shells > 0)
         {
             Instantiate(shotgunVFX, vfxSpawn.position, Quaternion.identity);
-            player.CheckForEnemies();
+            player.CheckForEnemies(3);
             ChangeAmmo(-1f);
         }
     }

@@ -587,14 +587,28 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         shotgun.ShotgunBlast();
     }
 
-    public void CheckForEnemies()
+    public void CheckForEnemies(float attackType)
     {
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider c in enemies)
         {
-            c.GetComponent<IDamageable>().TakeDamage(attackDamage);
+            if (attackType == 1) // light
+            {
+                c.GetComponent<IDamageable>().TakeDamage(attackDamage);
+            }
+
+            if (attackType == 2) // heavy
+            {
+                c.GetComponent<IDamageable>().TakeDamage(attackDamage * 1.5f);
+            }
+
+            if (attackType == 3) // shotgun
+            {
+                c.GetComponent<IDamageable>().TakeDamage(attackDamage * 1.5f);
+            }
+
             //c.GetComponent<IKnockback>().Knockback(1.5f, orientation);
-            
+
             GameObject hitParticle = Instantiate(hitVFX, c.transform);
             //RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
 
