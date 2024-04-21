@@ -102,6 +102,11 @@ MonoBehaviour:
   spotlight: 3
   spotlightObj: {fileID: 7438581458457868824}
   bombPoint: {fileID: 6215048367403761756}
+  electricVFX: {fileID: 0}
+  electricVFXpoint: {fileID: 0}
+  player:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &2121617671135132831
 MonoBehaviour:
   m_ObjectHideFlags: 0

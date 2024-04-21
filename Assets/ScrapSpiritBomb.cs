@@ -24,6 +24,9 @@ public class ScrapSpiritBomb : MonoBehaviour
     public float rotationSpeed;
     public Transform slamPosition;
 
+
+    public LayerMask player;
+
     private void Start()
     {
         originalPos = transform.position;
@@ -39,6 +42,15 @@ public class ScrapSpiritBomb : MonoBehaviour
     {
         GameObject shockwaveEffect = Instantiate(shockwaveVFX, impactPoint.position, Quaternion.Euler(-90, 0, 0));
         GameObject rumbleEffect = Instantiate(rumbleVFX, impactPoint.position, Quaternion.identity);
+
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, player);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag("Player"))
+            {
+                collider.GetComponent<IDamageable>().TakeDamage(35);
+            }
+        }
     }
 
     public void JumpToNextPoint()
