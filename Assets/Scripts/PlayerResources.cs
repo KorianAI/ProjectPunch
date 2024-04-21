@@ -58,6 +58,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     [SerializeField] PlayerStateManager stateManager;
 
+    PlayerAudioManager audioManager;
+
     private void OnEnable()
     {
         CameraManager.RegisterPC(scrapCam);
@@ -82,6 +84,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
         healthBar.currentValue = currentHealth;
         armourBar.maxValue = maxArmour;
         armourBar.currentValue = currentArmour;
+
+        audioManager = GetComponent<PlayerAudioManager>();
     }
 
     private void Update()
@@ -196,6 +200,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
                 hasArmour = false;
                 Instantiate(armourShatter, transform.position, Quaternion.identity);
 
+                //audioManager.ArmourBreak();
+
                 if (remainingDamage > 0)
                 {               
                     currentHealth -= remainingDamage;
@@ -280,6 +286,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
         currentArmour = maxArmour;
         armourBar.currentValue = currentArmour;
         armourBar.DrawSlots();
+        audioManager.ArmourRestore();
     }
 
     public void ReplenishAll()
