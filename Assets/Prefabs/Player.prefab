@@ -120154,7 +120154,7 @@ MonoBehaviour:
   finisherCam: {fileID: 6403670349000545617}
   ground:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   playerHeight: 2
 --- !u!114 &2868451051391315535
 MonoBehaviour:
@@ -120186,6 +120186,7 @@ MonoBehaviour:
   isTargeting: 0
   sphereCastRadius: 1
   currentTarget: {fileID: 0}
+  lastTarget: {fileID: 0}
   lastTargetTag: 
 --- !u!114 &51049146503844932
 MonoBehaviour:

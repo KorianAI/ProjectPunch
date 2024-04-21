@@ -14,6 +14,9 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     [SerializeField] public Animator anim;
     [SerializeField] public GameObject speedlines;
 
+    [Header("Checkpoint")]
+    public Transform spawnPoint;
+
     // states
     public PlayerIdleState idleState = new PlayerIdleState();
     public PlayerMoveState moveState = new PlayerMoveState();
@@ -151,6 +154,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         currentState.EnterState(this);
 
         readyToJump = true;
+
+        //transform.position = spawnPoint.position;
     }
 
     private void Update()
@@ -160,7 +165,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         ApplyGravity();
 
         currentState.FrameUpdate(this);
-        Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
+        //Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
         ShowDebugState();
     }
 
