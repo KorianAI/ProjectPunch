@@ -644,8 +644,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
-    public void Knockback(float distance, Transform attacker)
+    public void Knockback(float distance, Transform attacker, float length)
     {
-        throw new System.NotImplementedException();
+        transform.DOMoveY(transform.position.y + distance, length);
     }
 }

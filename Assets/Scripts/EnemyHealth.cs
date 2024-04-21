@@ -229,7 +229,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         ai.SwitchState(ai.attackState);
     }
 
-    public void Knockback(float distance, Transform attacker)
+    public void Knockback(float distance, Transform attacker, float length)
     {
         transform.DOMove(transform.position += attacker.forward * distance, 3f);
     }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class ScrapShockwave : MonoBehaviour
 {
     public bool canDealDamage = true;
+    public float knockupPower;
+    public float length;
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -17,6 +19,7 @@ public class ScrapShockwave : MonoBehaviour
             {
                 target.TakeDamage(10);
                 canDealDamage = false;
+                collision.gameObject.GetComponentInParent<IKnockback>().Knockback(knockupPower, transform, length);
             }
 
         }

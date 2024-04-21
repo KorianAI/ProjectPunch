@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IKnockback
 {
-    void Knockback(float distance, Transform attacker);
+    void Knockback(float distance, Transform attacker, float length);
 }
