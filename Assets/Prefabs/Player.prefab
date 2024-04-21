@@ -867,8 +867,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769957380004403550}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2669336, y: 3.4238033e-15, z: -1.836517e-15, w: 0.96371496}
-  m_LocalPosition: {x: 0, y: 0.19835602, z: -0.20016967}
+  m_LocalRotation: {x: 0.26693356, y: -0.000000028720944, z: 0.00000000795524, w: 0.96371496}
+  m_LocalPosition: {x: 0, y: 0.19835605, z: -0.20016967}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -120605,6 +120605,7 @@ GameObject:
   - component: {fileID: 7910453648586319201}
   - component: {fileID: 6123515639793098576}
   - component: {fileID: 2475349074968897809}
+  - component: {fileID: 4251895381292277722}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -120824,6 +120825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 100
+  invincible: 0
   hasArmour: 1
   currentArmour: 0
   maxArmour: 30
@@ -120995,6 +120997,30 @@ MonoBehaviour:
   threshold: -5
   vignette: {fileID: 3159848996316253910}
   deathCam: {fileID: 6835850351782982529}
+--- !u!114 &4251895381292277722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8672332899436751137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0120c2f3672072742a5a09e5eb45e9f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armourRestore: {fileID: 8300000, guid: 0753d623c69d33b458fbb91b2931a14b, type: 3}
+  baseAttack: {fileID: 8300000, guid: 3ccc96f95adbd7b4d8c5f89654c8cf82, type: 3}
+  baseSwing: {fileID: 8300000, guid: 13a745a065dca464db4fc3d08a8f615e, type: 3}
+  baseAttackMetallic: {fileID: 8300000, guid: 665f0ce548b3c1442952c51adb4abaf4, type: 3}
+  extendo_1_2: {fileID: 8300000, guid: 29a5366524dfedc428adb99b8de9a254, type: 3}
+  pull: {fileID: 8300000, guid: 68467ef02646c3044b8f2e61b44c893c, type: 3}
+  push: {fileID: 8300000, guid: d36da0c637c708e47a98c03cec3b5e98, type: 3}
+  collectScrap: {fileID: 8300000, guid: 69e3a8f660fa73048917b915214f660e, type: 3}
+  shotgunHeavy:
+  - {fileID: 8300000, guid: e16be712c310e0b4da5dbf47d5a9980f, type: 3}
+  - {fileID: 8300000, guid: 63313930ba300f349b332a4541489089, type: 3}
+  slamExplode: {fileID: 8300000, guid: 29899558860502a439f38751e48653f9, type: 3}
 --- !u!1 &8768304904001897748
 GameObject:
   m_ObjectHideFlags: 0
