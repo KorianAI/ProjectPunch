@@ -26,6 +26,7 @@ public class ScrapSpiritBomb : MonoBehaviour
 
 
     public LayerMask player;
+    public BlastWave blastWave;
 
     private void Start()
     {
@@ -113,7 +114,7 @@ public class ScrapSpiritBomb : MonoBehaviour
     public IEnumerator RepeatedSlam()
     {
         rotationSpeed *= 4f;
-        transform.DOMove(slamPosition.position, .5f).OnComplete(() => {  Slam(); });
+        transform.DOMove(slamPosition.position, .5f).OnComplete(() => {  Slam(); StartCoroutine(blastWave.Blast()); });
         yield return new WaitForSeconds(1f);
         rotationSpeed *= .25f;
         transform.DOMove(originalPos, 1f).OnComplete(() =>  {  StartCoroutine(RepeatedSlam());  });

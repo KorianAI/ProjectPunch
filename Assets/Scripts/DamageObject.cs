@@ -40,6 +40,11 @@ public class DamageObject : MonoBehaviour
             }
           
         }
+
+        else if (other.CompareTag("Player"))
+        {
+            target.TakeDamage(15f);
+        }
     }
 
     void LaunchProjectile(Transform hitPos, GameObject hitEnemy)
