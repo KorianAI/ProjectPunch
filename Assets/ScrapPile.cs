@@ -11,6 +11,9 @@ public class ScrapPile : MonoBehaviour, IDamageable
 
     public bool canSpawn;
 
+    AudioSource source;
+    public AudioClip damageSound;
+
     [SerializeField] float currentHealth;
     [SerializeField] float maxHealth;
 
@@ -20,6 +23,7 @@ public class ScrapPile : MonoBehaviour, IDamageable
     {
         currentHealth = maxHealth;
         player = GameObject.Find("Player");
+        source = GetComponent<AudioSource>();
     }
 
     #region health
@@ -33,6 +37,7 @@ public class ScrapPile : MonoBehaviour, IDamageable
 
             SpawnParticle();
             transform.DOShakeScale(.4f, .5f, 10, 90);
+            source.PlayOneShot(damageSound);
 
             if (currentHealth <= 0)
             {

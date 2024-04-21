@@ -16,10 +16,14 @@ public class ExtendoArms : ShiftInfo
     public GameObject leftFist;
     public GameObject rightFist;
 
+    PlayerAudioManager audioManager;
+
     private void OnEnable()
     {
         PlayerResources.enterScrapShift += ShowWeapons;
         PlayerResources.exitScrapShift += HideWeapons;
+
+        audioManager = GetComponentInParent<PlayerAudioManager>();
     }
 
     private void OnDisable()
@@ -45,16 +49,19 @@ public class ExtendoArms : ShiftInfo
     public override void HAttack1(float damage, float range)
     {
         player.anim.runtimeAnimatorController = hAttack1;
+        audioManager.Extendo_1_2();
     }
 
     public override void HAttack2(float damage, float range)
     {
         player.anim.runtimeAnimatorController = hAttack2;
+        audioManager.Extendo_1_2();
     }
 
     public override void HAttack3(float damage, float range)
     {
         player.anim.runtimeAnimatorController = hAttack3;
+        audioManager.Extendo_1_2(); // REPLACE WITH NEW SOUNDS
     }
 
     // LIGHT COMBO
@@ -62,16 +69,19 @@ public class ExtendoArms : ShiftInfo
     public override void LAttack1(float damage, float range)
     {
         player.anim.runtimeAnimatorController = lAttack1;
+        audioManager.Extendo_1_2(); // REPLACE WITH NEW SOUNDS
     }
 
     public override void LAttack2(float damage, float range)
     {
         player.anim.runtimeAnimatorController = lAttack2;
+        audioManager.Extendo_1_2(); // REPLACE WITH NEW SOUNDS
     }
 
     public override void LAttack3(float damage, float range)
     {
         player.anim.runtimeAnimatorController = lAttack3;
+        audioManager.Extendo_1_2(); // REPLACE WITH NEW SOUNDS
     }
 
     public void Shockwave(float type)
@@ -105,6 +115,7 @@ public class ExtendoArms : ShiftInfo
         {
             GameObject shockwaveEffect = Instantiate(shockwaveVFX, rumblePosition.position, Quaternion.Euler(-90, 0, 0));
             GameObject rumbleEffect = Instantiate(rumbleVFX, rumblePosition.position, Quaternion.identity);
+            audioManager.SlamExplode();
             Collider[] enemies = Physics.OverlapSphere(rumblePosition.position, range, player.enemyLayer);
             foreach (Collider c in enemies)
             {
@@ -141,6 +152,7 @@ public class ExtendoArms : ShiftInfo
         else
         {
             GameObject shockwaveEffect = Instantiate(smallerShockwaveVFX, rumblePosition.position, Quaternion.Euler(-90, 0, 0));
+            audioManager.SlamExplode();
             Collider[] enemies = Physics.OverlapSphere(rumblePosition.position, range * .8f, player.enemyLayer);
             foreach (Collider c in enemies)
             {

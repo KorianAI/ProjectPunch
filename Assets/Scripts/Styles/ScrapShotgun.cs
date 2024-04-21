@@ -19,10 +19,14 @@ public class ScrapShotgun : HeavyStyleInfo
 
     public bool canAddAmmo = true;
 
+    PlayerAudioManager audioManager;
+
     private void OnEnable()
     {
         PlayerResources.enterScrapStyle += ShowWeapon;
         PlayerResources.exitScrapStyle += HideWeapon;
+
+        audioManager = GetComponentInParent<PlayerAudioManager>();
     }
 
     private void OnDisable()
@@ -42,18 +46,21 @@ public class ScrapShotgun : HeavyStyleInfo
     {
         Debug.Log(styleName + ": Attack 1");
         player.anim.runtimeAnimatorController = attack1;
+        audioManager.ShotgunHeavy();
     }
 
     public override void Attack2(float damage, float range)
     {
         Debug.Log(styleName + ": Attack 2");
         player.anim.runtimeAnimatorController = attack2;
+        audioManager.ShotgunHeavy();
     }
 
     public override void Attack3(float damage, float range)
     {
         Debug.Log(styleName + ": Attack 3");
         player.anim.runtimeAnimatorController = attack3;
+        audioManager.ShotgunHeavy();
     }
 
     public void ShotgunBlast()

@@ -1377,6 +1377,7 @@ GameObject:
   - component: {fileID: 7826769798182713798}
   - component: {fileID: 4360131028242730843}
   - component: {fileID: 2390021426467358384}
+  - component: {fileID: 8916209884553460030}
   m_Layer: 7
   m_Name: Muzzler
   m_TagString: Enemy
@@ -1510,6 +1511,7 @@ MonoBehaviour:
   minRadius: 3
   damageRadius: 1.01
   debugDestination: {x: 0, y: 0, z: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &7826769798182713798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1645,6 +1647,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8916209884553460030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105524914971712823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace1025b53b7fa8418751ce62b1a574d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armourRestore: {fileID: 8300000, guid: 0753d623c69d33b458fbb91b2931a14b, type: 3}
+  baseAttack: {fileID: 8300000, guid: 3ccc96f95adbd7b4d8c5f89654c8cf82, type: 3}
+  baseSwing: {fileID: 8300000, guid: 13a745a065dca464db4fc3d08a8f615e, type: 3}
 --- !u!1 &4270234911416187242
 GameObject:
   m_ObjectHideFlags: 0

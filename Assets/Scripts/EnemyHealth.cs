@@ -33,6 +33,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     HealthBars healthBars;
 
+    EnemyAudioManager audioManager;
+
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -49,6 +51,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         mats = GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterials;
 
         healthBars = GetComponentInChildren<HealthBars>();
+
+        audioManager = GetComponent<EnemyAudioManager>();
     }
 
     public void TakeDamage(float damage)
@@ -58,6 +62,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
             takenDamage = true;
 
             healthBars.ShowBarsAttacked();
+
+            //audioManager.BaseAttack();
 
             if (hasArmour)
             {

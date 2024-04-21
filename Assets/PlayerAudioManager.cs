@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class PlayerAudioManager : MonoBehaviour
 {
+    //audioManager = GetComponent<PlayerAudioManager>();
+    //PlayerAudioManager audioManager;
+
+
     AudioSource source;
     AudioClip currentClip;
 
-    [SerializeField] AudioClip armourBreak;
     [SerializeField] AudioClip armourRestore;
     [SerializeField] AudioClip baseAttack;
     [SerializeField] AudioClip baseSwing;
-    [SerializeField] AudioClip extendo;
+    [SerializeField] AudioClip baseAttackMetallic;
+    [SerializeField] AudioClip extendo_1_2;
     [SerializeField] AudioClip pull;
     [SerializeField] AudioClip push;
     [SerializeField] AudioClip collectScrap;
-    [SerializeField] AudioClip shotgunHeavy;
+    [SerializeField] AudioClip[] shotgunHeavy;
     [SerializeField] AudioClip slamExplode;
 
-    // Start is called before the first frame update
     void Start()
     {
         source = GetComponent<AudioSource>();
@@ -27,12 +30,6 @@ public class PlayerAudioManager : MonoBehaviour
     void PlayChosen()
     {
         source.PlayOneShot(currentClip);
-    }
-
-    public void ArmourBreak()
-    {
-        currentClip = armourBreak;
-        PlayChosen();
     }
 
     public void ArmourRestore()
@@ -53,9 +50,15 @@ public class PlayerAudioManager : MonoBehaviour
         PlayChosen();
     }
 
-    public void Extendo()
+    public void BaseAttackMetallic()
     {
-        currentClip = extendo;
+        currentClip = baseAttackMetallic;
+        PlayChosen();
+    }
+
+    public void Extendo_1_2()
+    {
+        currentClip = extendo_1_2;
         PlayChosen();
     }
 
@@ -79,7 +82,7 @@ public class PlayerAudioManager : MonoBehaviour
 
     public void ShotgunHeavy()
     {
-        currentClip = shotgunHeavy;
+        currentClip = shotgunHeavy[Random.Range(0, shotgunHeavy.Length)];
         PlayChosen();
     }
 

@@ -97,6 +97,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public LayerMask ground;
     public float playerHeight;
 
+    PlayerAudioManager audioManager;
 
     public enum DebugState
     {
@@ -156,7 +157,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
         readyToJump = true;
 
-        //transform.position = spawnPoint.position;
+        audioManager = GetComponent<PlayerAudioManager>();
     }
 
     private void Update()
@@ -283,6 +284,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                 //canAttack = false;
                 RotateToTarget();
                 Attack(true);
+
+                audioManager.BaseSwing();
             }
         }
     }
@@ -295,6 +298,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                 //canAttack = false;
                 RotateToTarget();
                 Attack(false);
+
+                audioManager.BaseAttackMetallic();
             }
         }
     }
@@ -449,6 +454,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             if (target != null)
             {
                 anim.Play("Pull");
+                audioManager.Pull();
                 StopCoroutine("PullEffect");
                 StartCoroutine("PullEffect");
             }
@@ -498,6 +504,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
             {
                 anim.Play("Push");
+                audioManager.Push();
                 StopCoroutine("PushEffect");
                 StartCoroutine("PushEffect");
             }

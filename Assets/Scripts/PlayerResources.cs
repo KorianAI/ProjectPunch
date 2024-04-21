@@ -191,6 +191,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
     {
         if (invincible) return;
 
+        audioManager.BaseAttack();
+
         if (hasArmour)
         {
             float remainingDamage = damage - currentArmour;
@@ -202,8 +204,6 @@ public class PlayerResources : MonoBehaviour, IDamageable
             {
                 hasArmour = false;
                 Instantiate(armourShatter, transform.position, Quaternion.identity);
-
-                //audioManager.ArmourBreak();
 
                 if (remainingDamage > 0)
                 {               
@@ -240,6 +240,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
             scrapDecrease = false;
             StopAllCoroutines();
             StartCoroutine("ResetScrapDecrease");
+            audioManager.CollectScrap();
         }
         currentScrap += amount;
         if (currentScrap + amount > maxScrap)

@@ -54,6 +54,7 @@ public class EnemyAI : MonoBehaviour
     public Vector3 debugDestination;
     NavMeshHit hit;
 
+    public EnemyAudioManager audioManager;
 
     private void Start()
     {
@@ -61,6 +62,7 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.speed = Random.Range(enemy.stats.moveSpeed - 2, enemy.stats.moveSpeed);
         enemy.ai = this;
+        audioManager = GetComponent<EnemyAudioManager>();
 
         currentState = idleState;
         currentState.EnterState(this);
