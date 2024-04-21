@@ -6,11 +6,15 @@ using UnityEngine;
 public class CashmereSpotlight : MonoBehaviour
 {
     [SerializeField] Cashmere cashmere;
+
     [SerializeField] int spotlight;
     [SerializeField] GameObject spotlightObj;
     [SerializeField] public Transform bombPoint;
+
     [SerializeField] GameObject electricVFX;
-    [SerializeField] Transform electricVFXpoint;
+    [SerializeField] Transform vfxStartPoint;
+    [SerializeField] Transform vfxEndPoint;
+
     [SerializeField] public LayerMask player;
 
     private void OnTriggerEnter(Collider other)
@@ -23,8 +27,13 @@ public class CashmereSpotlight : MonoBehaviour
 
     public void Electrocute()
     {
+        Debug.Log("bruh");
+        // visuals
         spotlightObj.transform.DOShakePosition(1, 1);
-        GameObject shockVFX = Instantiate(electricVFX, electricVFXpoint.position, Quaternion.identity);
+        GameObject shockVFX = Instantiate(electricVFX, vfxStartPoint.position, Quaternion.identity);
+        shockVFX.transform.DOMove(vfxEndPoint.position, 1).OnComplete(() => { Destroy(shockVFX); });
+
+        // check for player
         Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, player);
         foreach (Collider collider in colliders)
         {
