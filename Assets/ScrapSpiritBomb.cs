@@ -62,26 +62,28 @@ public class ScrapSpiritBomb : MonoBehaviour
     {
 
         // If all points have been visited, stop jumping
-        if (currentIndex >= sortedQueue.Length) { gameObject.SetActive(false); transform.position = originalPos; currentIndex = 0;  return; }
+        if (currentIndex >= sortedQueue.Length) { gameObject.SetActive(false); transform.position = originalPos; currentIndex = 0; return; }
 
         // Get the next jump point
         Transform targetPoint = sortedQueue[currentIndex].bombPoint;
         Vector3 lookAtPosition = new Vector3(targetPoint.position.x, cashmere.transform.position.y, targetPoint.position.z);
-        cashmere.cashmereObj.transform.DOLookAt(lookAtPosition, .5f);
-        rotationSpeed *= 4f;
-        transform.DOJump(targetPoint.position, jumpPower, 1, jumpDuration)
-            .OnComplete(() =>
-            {
-                rotationSpeed *= .25f;
-                // Move to the next point
-                sortedQueue[currentIndex].Electrocute();
-                Slam();
-                if (currentIndex == sortedQueue.Length - 1) { Instantiate(bigScrapPile, sortedQueue[currentIndex].bombPoint.position, Quaternion.identity); }
-                currentIndex++;
-                // Recursively call the function to jump to the next point
-                JumpToNextPoint();
+        cashmere.cashmereObj.transform.DOLookAt(lookAtPosition, .5f).OnComplete(() => {
+            rotationSpeed *= 4f;
+            transform.DOJump(targetPoint.position, jumpPower, 1, jumpDuration)
+                .OnComplete(() =>
+                {
+                    rotationSpeed *= .25f;
+                    // Move to the next point
+                    sortedQueue[currentIndex].Electrocute();
+                    Slam();
+                    if (currentIndex == sortedQueue.Length - 1) { Instantiate(bigScrapPile, sortedQueue[currentIndex].bombPoint.position, Quaternion.identity); }
+                    currentIndex++;
+                    // Recursively call the function to jump to the next point
+                    JumpToNextPoint();
 
-            });
+                });
+        });
+
     }
 
     public void SortJumpOrder(float order)
