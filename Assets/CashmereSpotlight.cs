@@ -17,6 +17,9 @@ public class CashmereSpotlight : MonoBehaviour
 
     [SerializeField] public LayerMask player;
 
+    public float knockback;
+    public float kbSpeed;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -31,7 +34,10 @@ public class CashmereSpotlight : MonoBehaviour
         // visuals
         spotlightObj.transform.DOShakePosition(1, 1);
         GameObject shockVFX = Instantiate(electricVFX, vfxStartPoint.position, Quaternion.identity);
-        shockVFX.transform.DOMove(vfxEndPoint.position, 1).OnComplete(() => { Destroy(shockVFX); });
+        
+        shockVFX.transform.DOMove(vfxEndPoint.position, 1).OnComplete(() => {  Destroy(shockVFX); });
+
+        StunPlayer();
 
         // check for player
         Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, player);
@@ -43,4 +49,24 @@ public class CashmereSpotlight : MonoBehaviour
             }
         }
     }
+
+    void StunPlayer()
+    {   
+        Collider[] colliders = Physics.OverlapSphere(vfxEndPoint.position, 4f, player);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag("Player"))
+            {
+
+                collider.GetComponent<IDamageable>().TakeDamage(10);
+                collider.GetComponent<IKnockback>().Knockback(knockback, transform, kbSpeed);
+            }
+        }
+    }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.magenta;
+    //    Gizmos.DrawWireSphere(vfxEndPoint.position, 4f);
+    //}
 }
