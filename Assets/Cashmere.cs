@@ -29,12 +29,20 @@ public class Cashmere : BossInfo
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Attack1();
+        }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            //Attack1();
-            //Attack2();
+            Attack2();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
             Attack3();
         }
+
     }
 
     #region Attacks
@@ -86,6 +94,7 @@ public class Cashmere : BossInfo
 
     public override void Attack3()
     {
+        bomb.gameObject.SetActive(true);
         StartCoroutine(bomb.RepeatedSlam());
     }
 

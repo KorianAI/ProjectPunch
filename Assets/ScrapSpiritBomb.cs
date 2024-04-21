@@ -23,6 +23,8 @@ public class ScrapSpiritBomb : MonoBehaviour
     [Header("Slamming")]
     public float rotationSpeed;
     public Transform slamPosition;
+    public float currentSlam;
+    public float maxSlams;
 
 
     public LayerMask player;
@@ -113,12 +115,25 @@ public class ScrapSpiritBomb : MonoBehaviour
 
     public IEnumerator RepeatedSlam()
     {
+        currentSlam++;
         rotationSpeed *= 4f;
         transform.DOMove(slamPosition.position, .5f).OnComplete(() => {  Slam(); StartCoroutine(blastWave.Blast()); });
         yield return new WaitForSeconds(1f);
         rotationSpeed *= .25f;
-        transform.DOMove(originalPos, 1f).OnComplete(() =>  {  StartCoroutine(RepeatedSlam());  });
+        transform.DOMove(originalPos, 1f).OnComplete(() =>
+        {
+            if (currentSlam < maxSlams)
+            {
+                StartCoroutine(RepeatedSlam());
+            }
 
+            else
+            {
+                currentSlam = 0;
+                gameObject.SetActive(false);
+            }
+            
+        });
     }
 
 }
