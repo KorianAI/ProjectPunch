@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheckpointSingle : MonoBehaviour
 {
     CheckpointManager manager;
+    public GameObject point;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class CheckpointSingle : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Checkpoint" + name);
-            manager.UpdateCheckpoint(transform);
+            manager.UpdateCheckpoint(point.transform);
         }
     }
 }

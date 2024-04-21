@@ -109,6 +109,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
         {
             UpdateScrap(100);
         }
+
+        if (Input.GetKeyDown(KeyCode.Comma))
+        {
+            TakeDamage(10);
+        }
     }
 
     private void ScrapShiftKeybind(InputAction.CallbackContext obj)
@@ -195,16 +200,27 @@ public class PlayerResources : MonoBehaviour, IDamageable
                 {               
                     currentHealth -= remainingDamage;
                     healthBar.currentValue = currentHealth;
-                    healthBar.DrawSlots();
+                    healthBar.DrawSlots();                    
                 }
             }
         }
 
         else
         {
-            currentHealth -= damage;
-            healthBar.currentValue = currentHealth;
-            healthBar.DrawSlots();
+            if (currentHealth > 10)
+            {
+                currentHealth -= damage;
+                healthBar.currentValue = currentHealth;
+                healthBar.DrawSlots();
+            }
+
+            else if (currentHealth <= 10)
+            {
+                currentHealth -= damage;
+                healthBar.currentValue = currentHealth;
+                healthBar.DrawSlots(); 
+                GetComponent<Respawn>().ResetPlayer();
+            }
         }
     }
 
@@ -266,4 +282,14 @@ public class PlayerResources : MonoBehaviour, IDamageable
         armourBar.DrawSlots();
     }
 
+    public void ReplenishAll()
+    {
+        currentHealth = maxHealth;
+        currentArmour = maxArmour;
+        healthBar.currentValue = currentHealth;
+        healthBar.DrawSlots();
+        armourBar.currentValue = currentArmour;
+        armourBar.DrawSlots();
+        currentScrap = 0;
+    }
 }

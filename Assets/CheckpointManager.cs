@@ -5,7 +5,7 @@ using UnityEngine;
 public class CheckpointManager : MonoBehaviour
 {
     public Transform respawnPoint;
-    //public Transform defaultStartPoint;
+    public GameObject defaultStartPoint;
     
 
     public void UpdateCheckpoint(Transform pos)

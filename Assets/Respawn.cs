@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Cinemachine;
 using DG.Tweening;
 
@@ -17,17 +16,19 @@ public class Respawn : MonoBehaviour
 
     CheckpointManager cpManager;
 
-    public bool canReset = true;
-    public bool fadedIn = false;
-    public bool fadedOut = false;
+    bool canReset = true;
+    bool fadedIn = false;
+    bool fadedOut = false;
 
     PlayerStateManager sm;
+    PlayerResources pr;
 
 
     private void Start()
     {
         followTarget = deathCam.Follow.gameObject;
         sm = GetComponent<PlayerStateManager>();
+        pr = GetComponent<PlayerResources>();
         vignetteAnim = vignette.GetComponent<Animator>();
         vignette.SetActive(false);
 
@@ -38,7 +39,8 @@ public class Respawn : MonoBehaviour
     {
         if (transform.position.y < threshold && canReset)
         {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // <- nuclear option in case this doesn't work
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+            // ^ nuclear option in case this script doesn't work
 
             sm.SwitchState(sm.idleState);
             sm.yVelocity = 0;
@@ -52,7 +54,7 @@ public class Respawn : MonoBehaviour
         }
     }
 
-    void ResetPlayer()
+    public void ResetPlayer()
     {
         CameraManager.SwitchNonPlayerCam(deathCam);
         deathCam.Follow = null;
@@ -64,7 +66,6 @@ public class Respawn : MonoBehaviour
         if (!fadedOut)
         {
             fadedOut = true;
-            Debug.Log("Respawn fading out");
 
             vignette.SetActive(true);
             vignetteAnim.SetTrigger("FadeOut");
@@ -76,13 +77,21 @@ public class Respawn : MonoBehaviour
         if (!fadedIn)
         {
             fadedIn = true;
-            Debug.Log("Respawn fading in");
 
-            //set player position --THIS IS THE BIT THAT WORKS AND THEN DOESN'T
+            //set player position
             if (cpManager.respawnPoint != null)
             {
                 transform.DOMove(cpManager.respawnPoint.position, .01f);
             }
+
+            else
+            {
+                transform.DOMove(cpManager.defaultStartPoint.transform.position, .01f);
+            }
+
+            pr.ReplenishAll();
+
+            CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
 
             vignetteAnim.SetTrigger("FadeIn");
         }
@@ -90,7 +99,6 @@ public class Respawn : MonoBehaviour
 
     public void ResetCams() //should be setting things back to how they were
     {
-        CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
         deathCam.Follow = followTarget.transform;
         vignette.SetActive(false);
         fadedOut = false;
@@ -99,10 +107,9 @@ public class Respawn : MonoBehaviour
         StartCoroutine(AllowRespawn());
     }
 
-    IEnumerator AllowRespawn() //tried to perform a delayed reset of the canReset bool, but because the player gets moved back to the ground it gets set to false again on next frame
+    IEnumerator AllowRespawn() //delayed reset of the canReset bool
     { 
         yield return new WaitForSeconds(1f);
-        Debug.Log("canreset");
         canReset = true;
     }
 
