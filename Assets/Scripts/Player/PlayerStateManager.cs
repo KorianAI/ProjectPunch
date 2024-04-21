@@ -23,6 +23,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public PlayerAttack attackState = new PlayerAttack();
     public PlayerAirState inAirState = new PlayerAirState();
     public PlayerRailState railState = new PlayerRailState();
+    public PlayerStunnedState stunnedState = new PlayerStunnedState();
 
     [Header("MovementInputs")]
     public InputActionReference move;
@@ -198,7 +199,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
         else
         {
-            if (currentState == inAirState)
+            if (currentState == inAirState || currentState == stunnedState)
             {
                 yVelocity += gravity * gravMultiplier * Time.deltaTime;
             }
@@ -646,6 +647,30 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public void Knockback(float distance, Transform attacker, float length)
     {
-        transform.DOMoveY(transform.position.y + distance, length);
+        if (resources.invincible) return;
+
+        resources.invincible = true;
+        SwitchState(stunnedState);
+        anim.SetBool("Stunned", true);
+        anim.SetTrigger("StunnedTrigger");
+
+        StartCoroutine(StunTimer());
+
+        IEnumerator StunTimer()
+        {
+            yield return new WaitForSeconds(.2f);
+            Vector3 knockbackDirection = -transform.forward;
+            // Calculate the knockback destination
+            Vector3 knockbackDestination = transform.position + knockbackDirection * distance;
+            transform.DOMove(knockbackDestination, length);
+        }
+
+    }
+
+    public void RecoverFromStun()
+    {
+        SwitchState(idleState);
+        anim.SetBool("Stunned", false);
+        resources.invincible = false;
     }
 }

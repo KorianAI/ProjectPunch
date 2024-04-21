@@ -16,6 +16,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
     [Header("Health")]
     public float currentHealth;
     public float maxHealth;
+    public bool invincible;
 
     [Header("Armour")]
     public bool hasArmour;
@@ -188,6 +189,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
+        if (invincible) return;
+
         if (hasArmour)
         {
             float remainingDamage = damage - currentArmour;

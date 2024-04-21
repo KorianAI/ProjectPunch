@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStunnedState : MonoBehaviour
+public class PlayerStunnedState : PlayerState
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void EnterState(PlayerStateManager player)
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void ExitState(PlayerStateManager player)
     {
         
+    }
+
+    public override void FrameUpdate(PlayerStateManager player)
+    {
+        
+    }
+
+    public override void PhysicsUpdate(PlayerStateManager player)
+    {
+        player.velocity.y = player.yVelocity;
+        player.controller.Move(player.velocity * Time.deltaTime);
     }
 }
