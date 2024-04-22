@@ -15,6 +15,8 @@ public class CashmereSpotlight : MonoBehaviour
     [SerializeField] Transform vfxStartPoint;
     [SerializeField] Transform vfxEndPoint;
 
+    [SerializeField] public Transform cmPoint;
+
     [SerializeField] public LayerMask player;
 
     public float knockback;

@@ -15,8 +15,12 @@ public class Cashmere : BossInfo
     [SerializeField] ScrapSpiritBomb bomb;
     [SerializeField] public int currentSpotlight;
 
+    [Header("Movement")]
     [SerializeField] CashmereSpotlight[] spotlights;
     public GameObject cashmereObj;
+    public CashmereSpotlight nextSpotlight;
+    public float moveDur;
+    public float timeBetweenMove;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +45,7 @@ public class Cashmere : BossInfo
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            Attack3();
+            MoveToSpotlight();
         }
 
     }
@@ -100,6 +104,40 @@ public class Cashmere : BossInfo
     {
         bomb.gameObject.SetActive(true);
         StartCoroutine(bomb.RepeatedSlam());
+    }
+
+    #endregion
+
+    #region Movement
+
+    public void MoveToSpotlight()
+    {
+        // Remove the current target from the list of available points
+        List<CashmereSpotlight> availablePoints = new List<CashmereSpotlight>(spotlights);
+        if (nextSpotlight != null)
+        {
+            availablePoints.Remove(nextSpotlight);
+        }
+
+        // Select a random point from the available points
+        int randomIndex = Random.Range(0, availablePoints.Count);
+        CashmereSpotlight newTarget = availablePoints[randomIndex];
+
+        // Move the enemy to the selected point using DOTween
+        transform.DOMove(newTarget.cmPoint.position, moveDur).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            // After completing the movement, set the new target as the current target
+            nextSpotlight = newTarget;
+            // Move to the next random point
+            StartCoroutine(WaitToMove());
+            
+        });
+    }
+
+    IEnumerator WaitToMove()
+    {
+        yield return new WaitForSeconds(timeBetweenMove);
+        MoveToSpotlight();
     }
 
     #endregion
