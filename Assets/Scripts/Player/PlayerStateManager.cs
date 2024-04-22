@@ -36,6 +36,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public InputActionReference push;
     public bool canAttack;
     public Transform attackPoint;
+    public Transform pushPoint;
+    public float pushRange;
     public LayerMask enemyLayer;
     public float attackRange;
     public float attackDamage;
@@ -303,7 +305,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             }
         }
     }
-
     void Attack(bool light)
     {
         if (Time.time - lastComboEnd > 0.5f && comboCounter < lightCombo.Count)
@@ -419,21 +420,18 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             }
         }
     }
-
     public void ExitAttack()
     {
         canAttack = true;
         CanRotate();
         EndCombo();
     }
-
     void EndCombo()
     {
         SwitchState(idleState);
        lastRoutine =  StartCoroutine(ResetCombo());
         CanRotate();
     }
-
     IEnumerator ResetCombo()
     {
         yield return new WaitForSeconds(1);
@@ -447,21 +445,21 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     {
         if (canAttack && lockOn.currentTarget != null)
         {
-            var target = lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>();
-            canAttack = false;
-            RotateToTarget();
+            var target = lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>();         
 
             if (target != null)
             {
+                canAttack = false;
+                RotateToTarget();
                 anim.Play("Pull");
                 audioManager.Pull();
-                StopCoroutine("PullEffect");
-                StartCoroutine("PullEffect");
+                StopCoroutine("TargetPull");
+                StartCoroutine("TargetPull");
             }
         } 
     }
 
-    public IEnumerator PullEffect()
+    public IEnumerator TargetPull()
     {
         var target = lockOn.currentTarget.gameObject;
         float duration = 0;
@@ -505,10 +503,10 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             {
                 anim.Play("Push");
                 audioManager.Push();
-                StopCoroutine("PushEffect");
-                StartCoroutine("PushEffect");
+                StopCoroutine("PushTarget");
+                StartCoroutine(PushTarget(lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>()));
             }
-        }
+        } // targetting something
 
         if (currentState == railState)
         {
@@ -527,19 +525,37 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             anim.SetBool("onRail", false);
 
             
-        }
+        } // on rail
 
-        else if (canAttack && lockOn.currentTarget == null)
+        else if (canAttack && lockOn.currentTarget == null) // not targetting
         {
-            // dodge
+            anim.Play("Push");
+            audioManager.Push();
+
+
+
+            Collider[] colliders = Physics.OverlapSphere(attackPoint.position, pushRange);
+            foreach (Collider collider in colliders)
+            {
+               
+                Debug.Log(collider);
+
+                IMagnetisable target = collider.GetComponent<IMagnetisable>();
+                if (target != null)
+                {
+                    canAttack = false;
+                    StartCoroutine(PushTarget(target));
+                }
+            }
+
+           
         }
     }
 
-    public IEnumerator PushEffect()
+    public IEnumerator PushTarget(IMagnetisable target)
     {
         yield return new WaitForSeconds(0.25f);
-
-        lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Push(this);
+        target.Push(this);      
         canAttack = true;
         SwitchState(moveState);
     }
@@ -664,6 +680,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(pushPoint.position, pushRange);
     }
 
     public void Knockback(float distance, Transform attacker, float length)

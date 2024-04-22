@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [DefaultExecutionOrder(0)]
-public class BossHealth : MonoBehaviour, IDamageable
+public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
 {
     public BossInfo boss;
     public EnemySO stats;
@@ -33,12 +33,13 @@ public class BossHealth : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && hasArmour) { TakeDamage(100); }
-        if (Input.GetMouseButtonDown(1) && !hasArmour) { RegainArmour(); }
+
     }
 
     public void TakeDamage(float damage)
     {
+        damage *= 0.5f;
+
         if (hasArmour)
         {
             currentArmour -= damage;
@@ -68,5 +69,16 @@ public class BossHealth : MonoBehaviour, IDamageable
         armourBar.currentValue = currentArmour;
         armourBar.DrawSlots();
         uiAnim.Play("ArmourRegen");
+    }
+
+    public void Pull(PlayerStateManager player)
+    {
+        if (hasArmour) { return; }
+
+    }
+
+    public void Push(PlayerStateManager player)
+    {
+        //
     }
 }

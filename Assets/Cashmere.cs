@@ -43,6 +43,7 @@ public class Cashmere : BossInfo
         for (int i = 0; i  < scrapVolleyProjectiles.Length; i++)
         {
             originalVolleyPosition[i] = scrapVolleyProjectiles[i].transform.localPosition;
+            
         }
 
         player = PlayerStateManager.instance;
@@ -98,9 +99,10 @@ public class Cashmere : BossInfo
 
         foreach (GameObject proj in scrapVolleyProjectiles)
         {
-            ScrapVolleyProjectile vp = proj.GetComponent<ScrapVolleyProjectile>();  
-            proj.transform.DOMove(PlayerStateManager.instance.gameObject.transform.position, .7f).OnComplete(() => vp.SpawnScrapPile());
-            yield return new WaitForSeconds(.5f);
+            ScrapVolleyProjectile vp = proj.GetComponent<ScrapVolleyProjectile>();
+            vp.cm = this;
+            proj.transform.DOMove(PlayerStateManager.instance.gameObject.transform.position, 1.2f).OnComplete(() => vp.SpawnScrapPile());
+            yield return new WaitForSeconds(1f);
         }
 
         yield return new WaitForSeconds(1f);
