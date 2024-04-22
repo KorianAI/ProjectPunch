@@ -25,7 +25,16 @@ public class Cashmere : BossInfo
     public bool moving;
     Coroutine wait2move;
 
+
     PlayerStateManager player;
+
+    [Header("Stunned")]
+    public Transform stunnedPos;
+    public float stunLength;
+    public GameObject disengageVFX;
+    public LayerMask pLayer;
+    public float kbForce;
+    public float kbDur;
 
     // Start is called before the first frame update
     void Start()
@@ -158,6 +167,56 @@ public class Cashmere : BossInfo
     {
         transform.DOKill();
         if (wait2move != null) { StopCoroutine(wait2move); }
+    }
+
+    public override void Stunned()
+    {
+        // kill tweens
+        CancelMovement();
+        bomb.transform.DOKill();
+
+        // stop coroutines
+        StopAllCoroutines();
+        bomb.StopAllCoroutines();
+
+        ResetProjectiles();
+
+        transform.DOMoveY(stunnedPos.position.y, 1f).OnComplete(() => { StartCoroutine(StunLength()); });
+
+    }
+
+    IEnumerator StunLength()
+    {
+        yield return new WaitForSeconds(stunLength);
+        Disengage();   
+        transform.DOMove(new Vector3(arenaCenter.position.x, transform.position.y, arenaCenter.position.z), 1f).OnComplete(() =>
+        { transform.DOMoveY(arenaCenter.position.y, 2f).OnComplete(() =>
+        { health.RegainArmour(); });
+        });
+    }
+
+    void ResetProjectiles()
+    {
+        for (int i = 0; i < scrapVolleyProjectiles.Length; i++)
+        {
+            scrapVolleyProjectiles[i].transform.localPosition = originalVolleyPosition[i];
+            scrapVolleyProjectiles[i].gameObject.SetActive(false);
+        }
+        bomb.ResetBomb();
+        volleyAnimator.Play("Idle");
+        volleyAnimator.enabled = false;
+    }
+
+    void Disengage()
+    {   
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 4f, pLayer);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag("Player"))
+            {
+                collider.GetComponent<IKnockback>().Knockback(kbForce, transform, kbDur);
+            }
+        }       
     }
 
     #endregion

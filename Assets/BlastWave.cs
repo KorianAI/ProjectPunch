@@ -9,7 +9,7 @@ public class BlastWave : MonoBehaviour
     public float maxRadius;
     public float speed;
     public float startWidth;
-    private LineRenderer lineRenderer;
+    public LineRenderer lineRenderer;
     public int pointsCount;
 
     public GameObject hitBox;

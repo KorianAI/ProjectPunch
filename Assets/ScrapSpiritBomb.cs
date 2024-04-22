@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 using UnityEngine.ProBuilder.MeshOperations;
+using static UnityEngine.Rendering.DebugUI;
 
 public class ScrapSpiritBomb : MonoBehaviour
 {
@@ -149,6 +151,19 @@ public class ScrapSpiritBomb : MonoBehaviour
             }
             
         });
+    }
+
+    public void ResetBomb()
+    {
+        
+        currentSlam = 0;
+        transform.position = originalPos; currentIndex = 0;
+
+        blastWave.lineRenderer.enabled = false;
+        blastWave.hitBox.transform.DOKill();
+        blastWave.hitBox.SetActive(false);
+
+        gameObject.SetActive(false);
     }
 
 }

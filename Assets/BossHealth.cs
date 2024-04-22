@@ -5,6 +5,7 @@ using UnityEngine;
 [DefaultExecutionOrder(0)]
 public class BossHealth : MonoBehaviour, IDamageable
 {
+    public BossInfo boss;
     public EnemySO stats;
     public float currentHealth;
     public float currentArmour;
@@ -40,22 +41,15 @@ public class BossHealth : MonoBehaviour, IDamageable
     {
         if (hasArmour)
         {
-            float remainingDamage = damage - currentArmour;
-            //Debug.Log(remainingDamage);
             currentArmour -= damage;
             armourBar.currentValue = currentArmour;
             armourBar.DrawSlots();
             if (currentArmour <= 0)
             {
+                boss.Stunned();
                 Instantiate(shatterVFX, transform.position, Quaternion.identity);
                 hasArmour = false;
                 uiAnim.Play("ArmourRemove");
-                if (remainingDamage > 0)
-                {
-                    currentHealth -= remainingDamage;
-                    healthBar.currentValue = currentHealth;
-                    healthBar.DrawSlots();
-                }
             }
         }
 
