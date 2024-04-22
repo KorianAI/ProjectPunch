@@ -11,11 +11,12 @@ public class ScrapVolleyProjectile : MonoBehaviour, IMagnetisable
     public GameObject scrapPile;
 
     public Cashmere cm;
+    public bool beenParried;
 
     bool playerHit;
 
     public void SpawnScrapPile()
-    {      
+    {   
         Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, collision);
         foreach (Collider collider in colliders)
         {
@@ -56,7 +57,7 @@ public class ScrapVolleyProjectile : MonoBehaviour, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
-        Debug.Log("i was pushed lol");
+
         transform.DOKill();
         transform.DOMove(cm.transform.position, .4f).OnComplete(() => { cm.health.TakeDamage(68); GameObject rumbleEffect = Instantiate(rumbleVFX, transform.position, transform.rotation); gameObject.SetActive(false); });
     }

@@ -527,14 +527,14 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             
         } // on rail
 
-        else if (canAttack && lockOn.currentTarget == null) // not targetting
+       if (canAttack) // not targetting
         {
             anim.Play("Push");
             audioManager.Push();
 
 
 
-            Collider[] colliders = Physics.OverlapSphere(attackPoint.position, pushRange);
+            Collider[] colliders = Physics.OverlapSphere(pushPoint.position, pushRange);
             foreach (Collider collider in colliders)
             {
                
