@@ -19,8 +19,13 @@ public class Cashmere : BossInfo
     [SerializeField] CashmereSpotlight[] spotlights;
     public GameObject cashmereObj;
     public CashmereSpotlight nextSpotlight;
+    public Transform arenaCenter;
     public float moveDur;
     public float timeBetweenMove;
+    public bool moving;
+    Coroutine wait2move;
+
+    PlayerStateManager player;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +34,8 @@ public class Cashmere : BossInfo
         {
             originalVolleyPosition[i] = scrapVolleyProjectiles[i].transform.localPosition;
         }
+
+        player = PlayerStateManager.instance;
     }
 
     // Update is called once per frame
@@ -48,6 +55,10 @@ public class Cashmere : BossInfo
             MoveToSpotlight();
         }
 
+        if (moving)
+        {
+            cashmereObj.transform.LookAt(new Vector3(player.transform.position.x, cashmereObj.transform.position.y, player.transform.position.z));
+        }
     }
 
     #region Attacks
@@ -92,18 +103,21 @@ public class Cashmere : BossInfo
 
     public override void Attack2()
     {
-        bomb.gameObject.SetActive(true);
-        bomb.SortJumpOrder(currentSpotlight);
-        bomb.JumpToNextPoint();
-
-       
-        
+        CancelMovement();
+        transform.DOMove(arenaCenter.position, 2f).OnComplete(() => {
+            bomb.gameObject.SetActive(true);
+            bomb.SortJumpOrder(currentSpotlight);
+            bomb.JumpToNextPoint(); ; });   
     }
 
     public override void Attack3()
     {
-        bomb.gameObject.SetActive(true);
-        StartCoroutine(bomb.RepeatedSlam());
+        CancelMovement();
+        transform.DOMove(arenaCenter.position, 2f).OnComplete(() => {
+            bomb.gameObject.SetActive(true);
+            StartCoroutine(bomb.RepeatedSlam());
+        });
+
     }
 
     #endregion
@@ -122,22 +136,28 @@ public class Cashmere : BossInfo
         // Select a random point from the available points
         int randomIndex = Random.Range(0, availablePoints.Count);
         CashmereSpotlight newTarget = availablePoints[randomIndex];
-
+        moving = true;
         // Move the enemy to the selected point using DOTween
         transform.DOMove(newTarget.cmPoint.position, moveDur).SetEase(Ease.Linear).OnComplete(() =>
         {
             // After completing the movement, set the new target as the current target
             nextSpotlight = newTarget;
             // Move to the next random point
-            StartCoroutine(WaitToMove());
-            
+            moving = false;
+            wait2move = StartCoroutine(WaitToMove());
         });
     }
 
     IEnumerator WaitToMove()
-    {
+    {      
         yield return new WaitForSeconds(timeBetweenMove);
-        MoveToSpotlight();
+        MoveToSpotlight();       
+    }
+
+    public void CancelMovement()
+    {
+        transform.DOKill();
+        if (wait2move != null) { StopCoroutine(wait2move); }
     }
 
     #endregion

@@ -36,6 +36,8 @@ public class ScrapSpiritBomb : MonoBehaviour
     {
         originalPos = transform.position;
         sortedQueue = new CashmereSpotlight[jumpPoints.Length];
+
+        gameObject.SetActive(false);
     }
 
     private void Update()
