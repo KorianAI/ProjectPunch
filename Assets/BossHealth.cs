@@ -2,17 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossHealth : MonoBehaviour
+[DefaultExecutionOrder(0)]
+public class BossHealth : MonoBehaviour, IDamageable
 {
-    // Start is called before the first frame update
-    void Start()
+    public EnemySO stats;
+    public float currentHealth;
+    public float currentArmour;
+
+    [Header("HealthBar")]
+    public SlotManager healthBar;
+    public SlotManager armourBar;
+
+    private void Start()
     {
-        
+        currentHealth = stats.health;
+        currentArmour = stats.armour;
+        armourBar.currentValue = currentArmour;
+        armourBar.maxValue = stats.armour;
+        healthBar.currentValue = currentHealth;
+        healthBar.maxValue = stats.health;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(float damage)
     {
-        
+        currentHealth -= damage;
+        healthBar.currentValue = currentHealth;
+        healthBar.DrawSlots();
     }
 }
