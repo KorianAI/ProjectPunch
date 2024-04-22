@@ -66,7 +66,7 @@ public class ScrapSpiritBomb : MonoBehaviour
     {
 
         // If all points have been visited, stop jumping
-        if (currentIndex >= sortedQueue.Length) { gameObject.SetActive(false); transform.position = originalPos; currentIndex = 0; return; }
+        if (currentIndex >= sortedQueue.Length) { gameObject.SetActive(false); transform.position = originalPos; currentIndex = 0; cashmere.SelectNextAttack(); return; }
 
         // Get the next jump point
         Transform targetPoint = sortedQueue[currentIndex].bombPoint;
@@ -80,6 +80,7 @@ public class ScrapSpiritBomb : MonoBehaviour
                     // Move to the next point
                     sortedQueue[currentIndex].Electrocute();
                     Slam();
+                    StartCoroutine(blastWave.Blast());
                     if (currentIndex == sortedQueue.Length - 1) { Instantiate(bigScrapPile, sortedQueue[currentIndex].bombPoint.position, Quaternion.identity); }
                     currentIndex++;
                     // Recursively call the function to jump to the next point
@@ -148,6 +149,7 @@ public class ScrapSpiritBomb : MonoBehaviour
             {
                 currentSlam = 0;
                 gameObject.SetActive(false);
+                cashmere.SelectNextAttack();
             }
             
         });

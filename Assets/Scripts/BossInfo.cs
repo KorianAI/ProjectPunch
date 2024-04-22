@@ -15,4 +15,7 @@ public abstract class BossInfo : MonoBehaviour
     #endregion
 
     public abstract void Stunned();
+
+    public abstract void StartFight();
+    public abstract void EndFight();
 }

@@ -27,6 +27,15 @@ public class CashmereSpotlight : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             cashmere.currentSpotlight = spotlight;
+            cashmere.playerOnSpotlight = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            cashmere.playerOnSpotlight = false;
         }
     }
 

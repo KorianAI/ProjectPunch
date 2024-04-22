@@ -5,11 +5,14 @@ using UnityEngine;
 [DefaultExecutionOrder(0)]
 public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
 {
-    public BossInfo boss;
+    public Cashmere boss;
     public EnemySO stats;
     public float currentHealth;
     public float currentArmour;
     public bool hasArmour;
+
+    public float successiveHits;
+    Coroutine resetHitCount;
 
     [Header("UI")]
     public SlotManager healthBar;
@@ -38,7 +41,19 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
 
     public void TakeDamage(float damage)
     {
-        damage *= 0.5f;
+        //damage *= 0.5f;
+        if (! boss.stunned) {
+            if (resetHitCount != null) { StopCoroutine(resetHitCount); }
+            resetHitCount = StartCoroutine(SuccessiveHits());
+            successiveHits++;
+        }
+        
+
+        if (successiveHits >= 3 && boss.playerOnSpotlight)
+        {
+            boss.needsToAtk2= true;
+            boss.SelectNextAttack();
+        }
 
         if (hasArmour)
         {
@@ -60,6 +75,12 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
             healthBar.currentValue = currentHealth;
             healthBar.DrawSlots();
         }
+    }
+
+    IEnumerator SuccessiveHits()
+    {
+        yield return new WaitForSeconds(2);
+        successiveHits = 0;
     }
 
     public void RegainArmour()

@@ -27,6 +27,7 @@ public class Cashmere : BossInfo
 
 
     PlayerStateManager player;
+    public Animator anim;
 
     [Header("Stunned")]
     public Transform stunnedPos;
@@ -36,6 +37,17 @@ public class Cashmere : BossInfo
     public LayerMask pLayer;
     public float kbForce;
     public float kbDur;
+    public bool stunned;
+
+    [Header("AttackManagement")]
+    public float atkAmnt;
+    public float prevAtk;
+    public bool playerOnSpotlight;
+    public float volleyCD;
+    bool firstVolley;
+    public bool needsToAtk2;
+    public bool needsToAtk3;
+    public float minDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +66,7 @@ public class Cashmere : BossInfo
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            Attack1();
+           StartFight();
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -66,10 +78,12 @@ public class Cashmere : BossInfo
             MoveToSpotlight();
         }
 
-        if (moving)
+        if (!stunned)
         {
             cashmereObj.transform.LookAt(new Vector3(player.transform.position.x, cashmereObj.transform.position.y, player.transform.position.z));
         }
+
+        
     }
 
     #region Attacks
@@ -81,7 +95,11 @@ public class Cashmere : BossInfo
 
     IEnumerator ScrapVolley()
     {
-           
+        while ((Vector3.Distance(transform.position, player.transform.position) < minDistance))
+        {
+            yield return null;
+        }
+
         foreach (GameObject proj in scrapVolleyProjectiles)
         {
             proj.SetActive(true);
@@ -99,8 +117,10 @@ public class Cashmere : BossInfo
 
         foreach (GameObject proj in scrapVolleyProjectiles)
         {
+            cashmereObj.transform.LookAt(new Vector3(player.transform.position.x, cashmereObj.transform.position.y, player.transform.position.z));
             ScrapVolleyProjectile vp = proj.GetComponent<ScrapVolleyProjectile>();
             vp.cm = this;
+            anim.SetTrigger("ScrapVolley");
             proj.transform.DOMove(PlayerStateManager.instance.gameObject.transform.position, 1.2f).OnComplete(() => vp.SpawnScrapPile());
             yield return new WaitForSeconds(1f);
         }
@@ -111,6 +131,16 @@ public class Cashmere : BossInfo
         {
             scrapVolleyProjectiles[i].transform.localPosition =   originalVolleyPosition[i];
         }
+
+        if (!firstVolley)
+        {
+            firstVolley = true;
+            SelectNextAttack();
+           
+        }
+
+        yield return new WaitForSeconds(volleyCD);
+        Attack1();
     }
 
     public override void Attack2()
@@ -131,6 +161,7 @@ public class Cashmere : BossInfo
         });
 
     }
+
 
     #endregion
 
@@ -183,7 +214,8 @@ public class Cashmere : BossInfo
         bomb.StopAllCoroutines();
 
         ResetProjectiles();
-
+        stunned= true;
+        needsToAtk3 = true;
         transform.DOMoveY(stunnedPos.position.y, 1f).OnComplete(() => { StartCoroutine(StunLength()); });
 
     }
@@ -194,7 +226,7 @@ public class Cashmere : BossInfo
         Disengage();   
         transform.DOMove(new Vector3(arenaCenter.position.x, transform.position.y, arenaCenter.position.z), 1f).OnComplete(() =>
         { transform.DOMoveY(arenaCenter.position.y, 2f).OnComplete(() =>
-        { health.RegainArmour(); });
+        { health.RegainArmour(); stunned = false; SelectNextAttack(); });
         });
     }
 
@@ -222,7 +254,57 @@ public class Cashmere : BossInfo
             }
         }       
     }
+    #endregion
 
+    #region EventManagement
+    public override void StartFight()
+    {
+        // cinematic bs
+
+        Attack3();
+    }
+
+
+
+    public void SelectNextAttack()
+    {
+        if (needsToAtk3)
+        {
+            Attack3();
+            needsToAtk3 = false;
+            return;
+        }
+
+        if (needsToAtk2)
+        {
+            Attack2();
+            needsToAtk2 = false;
+        }
+
+        if (atkAmnt >= 3) { MoveToSpotlight(); atkAmnt = 0;  } // checks how many atks its been since moved
+
+        else
+        {
+            if (!firstVolley) { Attack1();  atkAmnt++;  return; }
+
+            if (playerOnSpotlight)
+            {
+                Attack2();
+            }
+
+            else
+            {
+                Attack3();
+            }
+
+            atkAmnt++;
+        }
+    }
+
+    public override void EndFight()
+    {
+        throw new System.NotImplementedException();
+    }
     #endregion
 
 }

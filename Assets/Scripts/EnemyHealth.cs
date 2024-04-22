@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     bool takenDamage;
 
     public PlayerStateManager ps;
+  
 
     [SerializeField] EnemyAI ai;
     [SerializeField] EnemySO stats;
