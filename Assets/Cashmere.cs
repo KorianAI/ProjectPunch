@@ -32,6 +32,7 @@ public class Cashmere : BossInfo
     public Transform stunnedPos;
     public float stunLength;
     public GameObject disengageVFX;
+    public Transform dsVFXPoint;
     public LayerMask pLayer;
     public float kbForce;
     public float kbDur;
@@ -208,7 +209,8 @@ public class Cashmere : BossInfo
     }
 
     void Disengage()
-    {   
+    {
+        GameObject vfx = Instantiate(disengageVFX, dsVFXPoint.position, Quaternion.Euler(-90, 0, 0));
         Collider[] colliders = Physics.OverlapSphere(transform.position, 4f, pLayer);
         foreach (Collider collider in colliders)
         {
