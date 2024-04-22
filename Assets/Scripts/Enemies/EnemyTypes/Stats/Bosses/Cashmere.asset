@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cashmere
   m_EditorClassIdentifier: 
   health: 300
-  armour: 50
+  armour: 100
   range: 0
   patrolRange: 0
   attackSpeed: 0

@@ -132,6 +132,11 @@ public class ScrapSpiritBomb : MonoBehaviour
         rotationSpeed *= .25f;
         transform.DOMove(originalPos, 1f).OnComplete(() =>
         {
+            foreach (CashmereSpotlight s in jumpPoints)
+            {
+                s.Electrocute();
+            }
+
             if (currentSlam < maxSlams)
             {
                 StartCoroutine(RepeatedSlam());

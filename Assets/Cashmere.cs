@@ -47,7 +47,7 @@ public class Cashmere : BossInfo
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Attack2();
+            Attack3();
         }
 
         if (Input.GetKeyDown(KeyCode.L))
