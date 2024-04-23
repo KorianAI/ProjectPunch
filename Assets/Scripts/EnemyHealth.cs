@@ -123,6 +123,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
         ai.manager.enemies.Remove(ai);
 
+        player.GetComponent<TargetLock>().currentTarget = null;
+        player.GetComponent<TargetLock>().isTargeting = false;
+        player.GetComponent<TargetLock>().lastTargetTag = null;
+
         if (ai.manager.AliveEnemyCount() <= 0)
         {
             StartCoroutine(Finisher());
@@ -247,13 +251,13 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         Time.timeScale = .5f;
         CameraManager.SwitchNonPlayerCam(ai.manager.finisherCam);
         PlayerStateManager.instance.anim.speed = .5f;
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(4);
 
         //door cam
         Time.timeScale = 1f;
         CameraManager.SwitchNonPlayerCam(ai.manager.exitDoorCam);
         ai.manager.exitDoorOpen.Play();
-        yield return new WaitForSecondsRealtime(3);
+        yield return new WaitForSecondsRealtime(4);
 
         //return to collision cam
         CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);

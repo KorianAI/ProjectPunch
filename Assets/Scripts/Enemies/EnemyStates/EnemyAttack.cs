@@ -37,7 +37,7 @@ public class EnemyAttack : EnemyState
             enemyAI.enemy.Attack(enemyAI.playerPos.transform);
             enemyAI.rePositioning = false;
 
-            enemyAI.audioManager.BaseSwing();
+            //enemyAI.audioManager.BaseSwing();
         }
 
         else
