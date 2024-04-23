@@ -233,12 +233,15 @@ public class Cashmere : BossInfo
 
     IEnumerator StunLength()
     {
-        yield return new WaitForSeconds(stunLength);
+        yield return new WaitForSeconds(stunLength - 1);
+        health.canBeHit = false;
         anim.SetBool("Stunned", false);
+        anim.SetTrigger("Disengage");
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         Disengage();   
         transform.DOMove(new Vector3(arenaCenter.position.x, transform.position.y, arenaCenter.position.z), 1f).OnComplete(() =>
         { transform.DOMoveY(arenaCenter.position.y, 1.5f).OnComplete(() =>
-        { health.RegainArmour(); stunned = false; SelectNextAttack(); });
+        { health.RegainArmour(); stunned = false; SelectNextAttack(); health.canBeHit = true; });
         });
     }
 

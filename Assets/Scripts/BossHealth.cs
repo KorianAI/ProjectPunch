@@ -22,6 +22,8 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
 
     public GameObject shatterVFX;
 
+    public bool canBeHit = true;
+
     public Animator vignette;
 
     private void Start()
@@ -47,7 +49,11 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
 
     public void TakeDamage(float damage)
     {
+        if (!canBeHit) { return; }
         //damage *= 0.5f;
+
+        boss.anim.SetTrigger("Hit");
+
         if (! boss.stunned) {
             if (resetHitCount != null) { StopCoroutine(resetHitCount); }
             resetHitCount = StartCoroutine(SuccessiveHits());
