@@ -26,7 +26,6 @@ public class Shredder : MonoBehaviour, IMagnetisable
     [Header("Audio")]
     public AudioSource source;
     public AudioClip stopped;
-    public AudioClip moving;
 
     void Start()
     {
@@ -45,9 +44,6 @@ public class Shredder : MonoBehaviour, IMagnetisable
             {
                 addToTimer = false;
                 timer = 0f;
-
-                source.clip = moving;
-                source.Play();
 
                 Extend();
             }
@@ -78,7 +74,6 @@ public class Shredder : MonoBehaviour, IMagnetisable
 
         transform.DOKill(false);
 
-        source.Stop();
         source.PlayOneShot(stopped);
 
         timer = 0f;

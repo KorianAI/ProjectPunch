@@ -17,9 +17,36 @@ public class CombatManager : MonoBehaviour
 
     public CinemachineVirtualCamera finisherCam;
 
+    public Animation entranceDoorOpen;
+    public CinemachineVirtualCamera entranceDoorCam;
+    bool playedOpen = false;
+
     public Animation exitDoorOpen;
     public CinemachineVirtualCamera exitDoorCam;
 
+    private void OnTriggerExit(Collider other)
+    {       
+        if (other.gameObject.CompareTag("Player") == true && !playedOpen)
+        {
+            playedOpen = true;
+            StartCoroutine(DoorShut());
+        }
+    }
+
+    public IEnumerator DoorShut()
+    {
+        //door cam
+        CameraManager.SwitchNonPlayerCam(entranceDoorCam);
+        entranceDoorOpen.Play();
+        yield return new WaitForSecondsRealtime(2);
+
+        //return to collision cam
+        CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
+
+        yield return new WaitForSecondsRealtime(1);
+
+        StartCombat();
+    }
 
     public void StartCombat()
     {
