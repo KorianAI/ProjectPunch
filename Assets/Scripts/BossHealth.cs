@@ -22,6 +22,8 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
 
     public GameObject shatterVFX;
 
+    public Animator vignette;
+
     private void Start()
     {
         currentHealth = stats.health;
@@ -37,7 +39,10 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
 
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TakeDamage(10000);
+        }
     }
 
     public void TakeDamage(float damage)
@@ -75,7 +80,24 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
             currentHealth -= damage;
             healthBar.currentValue = currentHealth;
             healthBar.DrawSlots();
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
+    }
+
+    void Die()
+    {
+        foreach (GameObject u in boss.ui)
+        {
+            u.SetActive(false);
+        }
+
+        boss.enabled = false;
+        vignette.Play("EndScreen");
+
     }
 
     IEnumerator SuccessiveHits()
