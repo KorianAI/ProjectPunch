@@ -21,6 +21,8 @@ public class CombatManager : MonoBehaviour
     public CinemachineVirtualCamera entranceDoorCam;
     bool playedOpen = false;
 
+    public CinemachineVirtualCamera enemyCam;
+
     public Animation exitDoorOpen;
     public CinemachineVirtualCamera exitDoorCam;
 
@@ -38,12 +40,17 @@ public class CombatManager : MonoBehaviour
         //door cam
         CameraManager.SwitchNonPlayerCam(entranceDoorCam);
         entranceDoorOpen.Play();
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(4);
+
+        //enemy cam
+        CameraManager.SwitchNonPlayerCam(enemyCam);
+
+        yield return new WaitForSecondsRealtime(4);
 
         //return to collision cam
         CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
 
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(4);
 
         StartCombat();
     }
