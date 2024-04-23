@@ -32,7 +32,6 @@ public class Cashmere : BossInfo
 
     PlayerStateManager player;
     public Animator anim;
-    public CashmereAudioManager audioManager;
     public AudioSource source;
     public AudioClip volleyBuild;
     public AudioClip volleyShoot;
@@ -67,8 +66,6 @@ public class Cashmere : BossInfo
     // Start is called before the first frame update
     void Start()
     {
-        audioManager = GetComponent<CashmereAudioManager>();
-
         for (int i = 0; i  < scrapVolleyProjectiles.Length; i++)
         {
             originalVolleyPosition[i] = scrapVolleyProjectiles[i].transform.localPosition;
