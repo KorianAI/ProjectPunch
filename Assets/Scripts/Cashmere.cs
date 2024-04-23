@@ -95,22 +95,17 @@ public class Cashmere : BossInfo
 
     IEnumerator ScrapVolley()
     {
-        while ((Vector3.Distance(transform.position, player.transform.position) < minDistance))
-        {
-            yield return null;
-        }
-
         foreach (GameObject proj in scrapVolleyProjectiles)
         {
             proj.SetActive(true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(.3f);
         }
 
         volleyAnimator.enabled = true;
         yield return new WaitForSeconds(.1f);
         volleyAnimator.Play("ScrapVolley");
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         volleyAnimator.Play("Idle");
         volleyAnimator.enabled = false;
@@ -121,7 +116,7 @@ public class Cashmere : BossInfo
             ScrapVolleyProjectile vp = proj.GetComponent<ScrapVolleyProjectile>();
             vp.cm = this;
             anim.SetTrigger("ScrapVolley");
-            proj.transform.DOMove(PlayerStateManager.instance.gameObject.transform.position, 1.2f).OnComplete(() => vp.SpawnScrapPile());
+            proj.transform.DOMove(PlayerStateManager.instance.gameObject.transform.position, 1f).OnComplete(() => vp.SpawnScrapPile());
             yield return new WaitForSeconds(1f);
         }
 
@@ -135,12 +130,10 @@ public class Cashmere : BossInfo
         if (!firstVolley)
         {
             firstVolley = true;
-            SelectNextAttack();
            
         }
 
-        yield return new WaitForSeconds(volleyCD);
-        Attack1();
+        SelectNextAttack();
     }
 
     public override void Attack2()
@@ -271,6 +264,7 @@ public class Cashmere : BossInfo
         if (needsToAtk3)
         {
             Attack3();
+            prevAtk = 3;
             needsToAtk3 = false;
             return;
         }
@@ -278,10 +272,11 @@ public class Cashmere : BossInfo
         if (needsToAtk2)
         {
             Attack2();
+            prevAtk = 2;
             needsToAtk2 = false;
         }
 
-        if (atkAmnt >= 3) { MoveToSpotlight(); atkAmnt = 0;  } // checks how many atks its been since moved
+        if (atkAmnt >= 3) { MoveToSpotlight(); atkAmnt = 0; Attack1(); prevAtk = 1;  } // checks how many atks its been since moved
 
         else
         {
@@ -289,12 +284,33 @@ public class Cashmere : BossInfo
 
             if (playerOnSpotlight)
             {
-                Attack2();
+                if (prevAtk == 1 || prevAtk == 3)
+                {
+                    Attack2();
+                    prevAtk = 2;
+                }
+
+                else if(prevAtk == 2)
+                {
+                    Attack1();
+                    prevAtk = 1;
+                }
+                
             }
 
             else
             {
-                Attack3();
+                if (prevAtk == 1 || prevAtk == 2)
+                {
+                    Attack3();
+                    prevAtk = 3;
+                }
+
+                else if (prevAtk == 3)
+                {
+                    Attack1();
+                    prevAtk = 1;
+                }
             }
 
             atkAmnt++;

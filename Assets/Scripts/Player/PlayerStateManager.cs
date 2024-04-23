@@ -307,6 +307,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     }
     void Attack(bool light)
     {
+        if (currentState == stunnedState) { return; }
         if (Time.time - lastComboEnd > 0.5f && comboCounter < lightCombo.Count)
         {
             if (Time.time - lastClickedTime >= .4f)
@@ -411,6 +412,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                 anim.CrossFadeInFixedTime("Attack", 0.1f);
                 comboCounter++;
                 lastClickedTime = Time.time;
+                resources.invincible = false;
 
                 if (comboCounter >= lightCombo.Count)
                 {
@@ -494,7 +496,9 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public void Push(InputAction.CallbackContext obj)
     {
-        if (canAttack && lockOn.currentTarget != null && currentState != stunnedState)
+        if (currentState == stunnedState) { return; }
+
+        if (canAttack && lockOn.currentTarget != null)
         {
             RotateToTarget();
 
@@ -687,6 +691,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     {
         if (resources.invincible) return;
 
+        StopAllCoroutines();
         EndCombo();
         resources.invincible = true;
         SwitchState(stunnedState);
