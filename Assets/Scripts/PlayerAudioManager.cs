@@ -15,12 +15,16 @@ public class PlayerAudioManager : MonoBehaviour
     [SerializeField] AudioClip baseAttack;
     [SerializeField] AudioClip baseSwing;
     [SerializeField] AudioClip baseAttackMetallic;
-    [SerializeField] AudioClip extendo_1_2;
+    [SerializeField] AudioClip extendoLight;
+    [SerializeField] AudioClip extendoHeavy;
+    [SerializeField] AudioClip shockwave;
     [SerializeField] AudioClip pull;
     [SerializeField] AudioClip push;
     [SerializeField] AudioClip collectScrap;
     [SerializeField] AudioClip[] shotgunHeavy;
     [SerializeField] AudioClip slamExplode;
+    [SerializeField] AudioClip shiftSwitch;
+    [SerializeField] AudioClip styleSwitch;
 
     void Start()
     {
@@ -56,9 +60,21 @@ public class PlayerAudioManager : MonoBehaviour
         PlayChosen();
     }
 
-    public void Extendo_1_2()
+    public void ExtendoLight()
     {
-        currentClip = extendo_1_2;
+        currentClip = extendoLight;
+        PlayChosen();
+    }
+
+    public void ExtendoHeavy()
+    {
+        currentClip = extendoHeavy;
+        PlayChosen();
+    }
+
+    public void Shockwave()
+    {
+        currentClip = shockwave;
         PlayChosen();
     }
 
@@ -89,6 +105,18 @@ public class PlayerAudioManager : MonoBehaviour
     public void SlamExplode()
     {
         currentClip = slamExplode;
+        PlayChosen();
+    }
+
+    public void ShiftSwitch()
+    {
+        currentClip = shiftSwitch;
+        PlayChosen();
+    }
+
+    public void StyleSwitch()
+    {
+        currentClip = styleSwitch;
         PlayChosen();
     }
 }

@@ -120901,9 +120901,9 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2.09
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_SlopeLimit: 67.36
-  m_StepOffset: 0.3
+  m_StepOffset: 0.4
   m_SkinWidth: 0.05
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.32, z: 0}
@@ -121047,7 +121047,9 @@ MonoBehaviour:
   baseAttack: {fileID: 8300000, guid: 3ccc96f95adbd7b4d8c5f89654c8cf82, type: 3}
   baseSwing: {fileID: 8300000, guid: 13a745a065dca464db4fc3d08a8f615e, type: 3}
   baseAttackMetallic: {fileID: 8300000, guid: 665f0ce548b3c1442952c51adb4abaf4, type: 3}
-  extendo_1_2: {fileID: 8300000, guid: 29a5366524dfedc428adb99b8de9a254, type: 3}
+  extendoLight: {fileID: 8300000, guid: 30651f65cf9eb1d44b922026faab581e, type: 3}
+  extendoHeavy: {fileID: 8300000, guid: 29a5366524dfedc428adb99b8de9a254, type: 3}
+  shockwave: {fileID: 8300000, guid: bc9d6dbb847774f49b8b53684ab65d86, type: 3}
   pull: {fileID: 8300000, guid: 68467ef02646c3044b8f2e61b44c893c, type: 3}
   push: {fileID: 8300000, guid: d36da0c637c708e47a98c03cec3b5e98, type: 3}
   collectScrap: {fileID: 8300000, guid: 69e3a8f660fa73048917b915214f660e, type: 3}
@@ -121055,6 +121057,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e16be712c310e0b4da5dbf47d5a9980f, type: 3}
   - {fileID: 8300000, guid: 63313930ba300f349b332a4541489089, type: 3}
   slamExplode: {fileID: 8300000, guid: 29899558860502a439f38751e48653f9, type: 3}
+  shiftSwitch: {fileID: 8300000, guid: d10380494370cd3478fee95d5a82df4b, type: 3}
+  styleSwitch: {fileID: 8300000, guid: bbed0ecb6f4d19e4d85f5f156e64d4c7, type: 3}
 --- !u!1 &8768304904001897748
 GameObject:
   m_ObjectHideFlags: 0

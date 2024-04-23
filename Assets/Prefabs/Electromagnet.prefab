@@ -1293,7 +1293,7 @@ MonoBehaviour:
   railCam: {fileID: 0}
   source: {fileID: 7517908723078973166}
   active: {fileID: 8300000, guid: f899d24c80fe36b47bbbf4a3dc8eed69, type: 3}
-  stop: {fileID: 8300000, guid: ee7ff5c54d8eda94aa6cfc554cf3495c, type: 3}
+  stop: {fileID: 8300000, guid: ad61614359e9e5843b548e9d56555d85, type: 3}
 --- !u!65 &5362519107938976526
 BoxCollider:
   m_ObjectHideFlags: 0
