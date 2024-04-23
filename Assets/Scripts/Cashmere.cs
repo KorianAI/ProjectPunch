@@ -70,7 +70,7 @@ public class Cashmere : BossInfo
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Attack3();
+            Attack2();
         }
 
         if (Input.GetKeyDown(KeyCode.L))
@@ -107,8 +107,15 @@ public class Cashmere : BossInfo
 
         yield return new WaitForSeconds(1);
 
+        while (moving)
+        {
+            yield return null;
+        }
+
         volleyAnimator.Play("Idle");
         volleyAnimator.enabled = false;
+
+
 
         foreach (GameObject proj in scrapVolleyProjectiles)
         {
@@ -139,7 +146,7 @@ public class Cashmere : BossInfo
     public override void Attack2()
     {
         CancelMovement();
-        transform.DOMove(arenaCenter.position, 2f).OnComplete(() => {
+        transform.DOMove(arenaCenter.position, 1f).OnComplete(() => {
             bomb.gameObject.SetActive(true);
             bomb.SortJumpOrder(currentSpotlight);
             bomb.JumpToNextPoint(); ; });   
@@ -148,7 +155,7 @@ public class Cashmere : BossInfo
     public override void Attack3()
     {
         CancelMovement();
-        transform.DOMove(arenaCenter.position, 2f).OnComplete(() => {
+        transform.DOMove(arenaCenter.position, 1f).OnComplete(() => {
             bomb.gameObject.SetActive(true);
             StartCoroutine(bomb.RepeatedSlam());
         });
@@ -218,7 +225,7 @@ public class Cashmere : BossInfo
         yield return new WaitForSeconds(stunLength);
         Disengage();   
         transform.DOMove(new Vector3(arenaCenter.position.x, transform.position.y, arenaCenter.position.z), 1f).OnComplete(() =>
-        { transform.DOMoveY(arenaCenter.position.y, 2f).OnComplete(() =>
+        { transform.DOMoveY(arenaCenter.position.y, 1.5f).OnComplete(() =>
         { health.RegainArmour(); stunned = false; SelectNextAttack(); });
         });
     }

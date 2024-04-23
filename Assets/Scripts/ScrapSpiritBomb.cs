@@ -78,9 +78,8 @@ public class ScrapSpiritBomb : MonoBehaviour
                 {
                     rotationSpeed *= .25f;
                     // Move to the next point
-                    sortedQueue[currentIndex].Electrocute();
+                    sortedQueue[currentIndex].Electrocute(1);
                     Slam();
-                    StartCoroutine(blastWave.Blast());
                     if (currentIndex == sortedQueue.Length - 1) { Instantiate(bigScrapPile, sortedQueue[currentIndex].bombPoint.position, Quaternion.identity); }
                     currentIndex++;
                     // Recursively call the function to jump to the next point
@@ -137,7 +136,7 @@ public class ScrapSpiritBomb : MonoBehaviour
         {
             foreach (CashmereSpotlight s in jumpPoints)
             {
-                s.Electrocute();
+                s.Electrocute(2);
             }
 
             if (currentSlam < maxSlams)
@@ -164,7 +163,6 @@ public class ScrapSpiritBomb : MonoBehaviour
         blastWave.lineRenderer.enabled = false;
         blastWave.hitBox.transform.DOKill();
         blastWave.hitBox.SetActive(false);
-
         gameObject.SetActive(false);
     }
 

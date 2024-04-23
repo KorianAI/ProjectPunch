@@ -15,6 +15,10 @@ public class BlastWave : MonoBehaviour
     public GameObject hitBox;
     public ScrapShockwave shockwave;
     Vector3 hitboxOriginalScale;
+    public float scaleWise;
+    public float scaleDur;
+
+    bool prefab;
 
     private void Awake()
     {
@@ -64,6 +68,6 @@ public class BlastWave : MonoBehaviour
     void ScaleObject()
     {
         hitBox.gameObject.SetActive(true);
-        hitBox.transform.DOScale(new Vector3(17, transform.localScale.y, 17), 2.3f).OnComplete(() => { hitBox.gameObject.SetActive(false);  });
+        hitBox.transform.DOScale(new Vector3(scaleWise, transform.localScale.y, scaleWise), scaleDur).OnComplete(() => { hitBox.gameObject.SetActive(false);  });
     }
 }

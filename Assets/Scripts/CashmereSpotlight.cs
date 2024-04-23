@@ -19,6 +19,8 @@ public class CashmereSpotlight : MonoBehaviour
 
     [SerializeField] public LayerMask player;
 
+    public BlastWave smallBlast;
+
     public float knockback;
     public float kbSpeed;
 
@@ -39,12 +41,13 @@ public class CashmereSpotlight : MonoBehaviour
         }
     }
 
-    public void Electrocute()
+    public void Electrocute(float type)
     {
         Debug.Log("bruh");
         // visuals
         spotlightObj.transform.DOShakePosition(1, 1);
         GameObject shockVFX = Instantiate(electricVFX, vfxStartPoint.position, Quaternion.identity);
+        if (type == 1) { StartCoroutine(smallBlast.Blast()); }
         
         shockVFX.transform.DOMove(vfxEndPoint.position, 1).OnComplete(() => {  Destroy(shockVFX); });
 
