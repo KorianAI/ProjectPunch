@@ -25,7 +25,6 @@ public class ScrapWhip : LightStyleInfo
         Debug.Log(styleName + ": Attack 1");
         player.anim.runtimeAnimatorController = attack1;
         audioManager.BaseAttackMetallic();
-        
     }
 
     public override void Attack2(float damage, float range)

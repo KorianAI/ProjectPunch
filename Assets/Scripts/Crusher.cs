@@ -22,9 +22,16 @@ public class Crusher : MonoBehaviour, IMagnetisable
     float maxTime = 3f;
     bool addToTimer;
 
+    [Header("Audio")]
+    public AudioSource source;
+    public AudioClip stopped;
+    public AudioClip retracting;
+    public AudioClip extending;
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
+        
         Extend();
     }
 
@@ -39,6 +46,9 @@ public class Crusher : MonoBehaviour, IMagnetisable
                 addToTimer = false;
                 timer = 0f;
 
+                source.clip = retracting;
+                source.Play();
+
                 Extend();
             }
         }
@@ -51,6 +61,9 @@ public class Crusher : MonoBehaviour, IMagnetisable
 
         transform.DOKill(false);
 
+        source.Stop();
+        source.PlayOneShot(extending);
+
         transform.DOLocalMoveY(extendedPos, pulledSpeed).OnComplete(Retract);
     }
 
@@ -60,6 +73,9 @@ public class Crusher : MonoBehaviour, IMagnetisable
 
         transform.DOKill(false);
 
+        source.Stop();
+        source.PlayOneShot(stopped);
+
         timer = 0f;
         addToTimer = true;
     }
@@ -67,6 +83,9 @@ public class Crusher : MonoBehaviour, IMagnetisable
     void Extend()
     {
         transform.DOKill(false);
+
+        source.Stop();
+        source.PlayOneShot(extending);
 
         transform.DOLocalMoveY(extendedPos, downSpeed).OnComplete(Retract)
             .SetEase(Ease.Linear);

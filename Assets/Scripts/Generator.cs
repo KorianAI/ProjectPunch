@@ -20,6 +20,9 @@ public class Generator : MonoBehaviour, IDamageable
     public ParticleSystem scrapParticle;
     public ParticleSystem smokeParticle;
 
+    public VolumetricFire[] fires;
+    public Light[] lights;
+
     public EMRail[] rails;
 
     HealthBars healthBars;
@@ -97,6 +100,17 @@ public class Generator : MonoBehaviour, IDamageable
         healthBars.HideBars();
 
         smokeParticle.Play();
+
+        foreach (VolumetricFire fire in fires)
+        {
+            fire.enabled = true;
+        }
+
+        foreach (Light light in lights)
+        {
+            light.enabled = true;
+        }
+
         source.Stop();
         source.PlayOneShot(doors);
 

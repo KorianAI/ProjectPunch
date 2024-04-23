@@ -833,7 +833,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3073845899676776836}
-  - component: {fileID: 5983760458118069659}
   m_Layer: 0
   m_Name: Piston
   m_TagString: Untagged
@@ -859,22 +858,6 @@ Transform:
   - {fileID: 4334656656827387326}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &5983760458118069659
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6362500167588824322}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 960cec44d35340746a3e9bf6b9d4af7e, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 960cec44d35340746a3e9bf6b9d4af7e, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &7646763613847544240
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +874,7 @@ GameObject:
   - component: {fileID: 7698106246786973043}
   - component: {fileID: 7965718171066267718}
   - component: {fileID: 3286707211714703886}
+  - component: {fileID: 1062243717523371595}
   m_Layer: 8
   m_Name: PistonBase
   m_TagString: Crusher
@@ -1249,7 +1233,10 @@ MonoBehaviour:
   upSpeed: 5
   downSpeed: 0.5
   pulledSpeed: 0.2
-  invert: 0
+  source: {fileID: 1062243717523371595}
+  stopped: {fileID: 8300000, guid: 38893521f55331e4d99b593143d3756a, type: 3}
+  retracting: {fileID: 8300000, guid: f899d24c80fe36b47bbbf4a3dc8eed69, type: 3}
+  extending: {fileID: 8300000, guid: 09f96da95fe46894083a7a3fead6e833, type: 3}
 --- !u!114 &3286707211714703886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1263,6 +1250,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPoint: {fileID: 4621151628980988782}
+--- !u!82 &1062243717523371595
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7646763613847544240}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 5
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &9000855270113759522
 GameObject:
   m_ObjectHideFlags: 0

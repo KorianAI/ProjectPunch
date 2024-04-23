@@ -23,8 +23,15 @@ public class Shredder : MonoBehaviour, IMagnetisable
     float maxTime = 3f;
     bool addToTimer;
 
+    [Header("Audio")]
+    public AudioSource source;
+    public AudioClip stopped;
+    public AudioClip moving;
+
     void Start()
-    {      
+    {
+        source = GetComponent<AudioSource>();
+        
         Extend();
     }
 
@@ -38,6 +45,9 @@ public class Shredder : MonoBehaviour, IMagnetisable
             {
                 addToTimer = false;
                 timer = 0f;
+
+                source.clip = moving;
+                source.Play();
 
                 Extend();
             }
@@ -67,6 +77,9 @@ public class Shredder : MonoBehaviour, IMagnetisable
         //stop its movement for a few moments
 
         transform.DOKill(false);
+
+        source.Stop();
+        source.PlayOneShot(stopped);
 
         timer = 0f;
         addToTimer = true;
