@@ -83,15 +83,6 @@ public class Cashmere : BossInfo
         {
            StartFight();
         }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Attack2();
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            MoveToSpotlight();
-        }
 
         if (!stunned)
         {
@@ -164,6 +155,7 @@ public class Cashmere : BossInfo
     {
         CancelMovement();
         transform.DOMove(arenaCenter.position, 1f).OnComplete(() => {
+     
             bomb.gameObject.SetActive(true);
             bomb.SortJumpOrder(currentSpotlight);
             bomb.JumpToNextPoint(); ; });   
@@ -173,6 +165,7 @@ public class Cashmere : BossInfo
     {
         CancelMovement();
         transform.DOMove(arenaCenter.position, 1f).OnComplete(() => {
+           
             bomb.gameObject.SetActive(true);
             StartCoroutine(bomb.RepeatedSlam());
         });

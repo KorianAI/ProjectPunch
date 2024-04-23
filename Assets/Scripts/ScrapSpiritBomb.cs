@@ -76,9 +76,11 @@ public class ScrapSpiritBomb : MonoBehaviour
         if (currentIndex >= sortedQueue.Length) { gameObject.SetActive(false); transform.position = originalPos; currentIndex = 0; cashmere.SelectNextAttack(); return; }
 
         // Get the next jump point
+        cashmere.anim.SetTrigger("Slam");
         Transform targetPoint = sortedQueue[currentIndex].bombPoint;
         Vector3 lookAtPosition = new Vector3(targetPoint.position.x, cashmere.transform.position.y, targetPoint.position.z);
-        cashmere.cashmereObj.transform.DOLookAt(lookAtPosition, .5f).OnComplete(() => {
+        cashmere.cashVFX.transform.DOLookAt(lookAtPosition, .5f).OnComplete(() => {
+            
             rotationSpeed *= 4f;
             transform.DOJump(targetPoint.position, jumpPower, 1, jumpDuration)
                 .OnComplete(() =>
@@ -136,8 +138,11 @@ public class ScrapSpiritBomb : MonoBehaviour
     {
         currentSlam++;
         rotationSpeed *= 4f;
-        transform.DOMove(slamPosition.position, .5f).OnComplete(() => {  Slam(); StartCoroutine(blastWave.Blast()); });
+        cashmere.anim.SetTrigger("Slam");
+        yield return new WaitForSeconds(.5f);
+        transform.DOMove(slamPosition.position, .5f).OnComplete(() => {  Slam(); StartCoroutine(blastWave.Blast());  });
         yield return new WaitForSeconds(1f);
+        
         rotationSpeed *= .25f;
         transform.DOMove(originalPos, 1f).OnComplete(() =>
         {
