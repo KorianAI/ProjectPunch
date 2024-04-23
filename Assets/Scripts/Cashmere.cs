@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System.Linq;
+using UnityEngine.Playables;
+using Unity.VisualScripting;
+using Cinemachine;
 
 public class Cashmere : BossInfo
 {
@@ -18,6 +21,7 @@ public class Cashmere : BossInfo
     [Header("Movement")]
     [SerializeField] CashmereSpotlight[] spotlights;
     public GameObject cashmereObj;
+    public GameObject cashVFX;
     public CashmereSpotlight nextSpotlight;
     public Transform arenaCenter;
     public float moveDur;
@@ -49,6 +53,13 @@ public class Cashmere : BossInfo
     public bool needsToAtk3;
     public float minDistance;
 
+    public PlayableDirector cutscene;
+    public CinemachineVirtualCamera cutsceneCam;
+    public Transform playerBossPos;
+    public GameObject playerVisuals;
+
+    public GameObject[] ui;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +70,7 @@ public class Cashmere : BossInfo
         }
 
         player = PlayerStateManager.instance;
+        cutscene.stopped += CutsceneFinished;
     }
 
     // Update is called once per frame
@@ -260,11 +272,39 @@ public class Cashmere : BossInfo
     public override void StartFight()
     {
         // cinematic bs
-
-        Attack3();
+        cutsceneCam.m_Priority = 50;
+        foreach (GameObject g in ui)
+        {
+            g.SetActive(false);
+        }
+        playerVisuals.SetActive(false);
+        player.transform.DOMove(playerBossPos.position, 0f);
+        cutscene.Play();
     }
 
+    private void CutsceneFinished(PlayableDirector obj)
+    {
+        cutscene.enabled = false;
+        cutsceneCam.m_Priority = 0;
+        playerVisuals.SetActive(true);
+        
 
+        StartCoroutine(StartAttacking());
+
+        IEnumerator StartAttacking()
+        {
+            yield return new WaitForSeconds(1);
+            cashVFX.SetActive(true);
+            cutscene.gameObject.SetActive(false);
+            foreach (GameObject g in ui)
+            {
+                g.SetActive(true);
+            }
+            yield return new WaitForSeconds(2);
+            Attack3();
+        }
+        
+    }
 
     public void SelectNextAttack()
     {
