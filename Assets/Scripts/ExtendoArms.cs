@@ -49,19 +49,19 @@ public class ExtendoArms : ShiftInfo
     public override void HAttack1(float damage, float range)
     {
         player.anim.runtimeAnimatorController = hAttack1;
-        audioManager.Extendo_1_2();
+        audioManager.ExtendoHeavy();
     }
 
     public override void HAttack2(float damage, float range)
     {
         player.anim.runtimeAnimatorController = hAttack2;
-        audioManager.Extendo_1_2();
+        audioManager.ExtendoHeavy();
     }
 
     public override void HAttack3(float damage, float range)
     {
         player.anim.runtimeAnimatorController = hAttack3;
-        audioManager.Extendo_1_2(); // REPLACE WITH NEW SOUNDS
+        audioManager.Shockwave();
     }
 
     // LIGHT COMBO
@@ -69,19 +69,19 @@ public class ExtendoArms : ShiftInfo
     public override void LAttack1(float damage, float range)
     {
         player.anim.runtimeAnimatorController = lAttack1;
-        audioManager.Extendo_1_2(); // REPLACE WITH NEW SOUNDS
+        audioManager.ExtendoLight();
     }
 
     public override void LAttack2(float damage, float range)
     {
         player.anim.runtimeAnimatorController = lAttack2;
-        audioManager.Extendo_1_2(); // REPLACE WITH NEW SOUNDS
+        audioManager.ExtendoLight();
     }
 
     public override void LAttack3(float damage, float range)
     {
         player.anim.runtimeAnimatorController = lAttack3;
-        audioManager.Extendo_1_2(); // REPLACE WITH NEW SOUNDS
+        audioManager.ExtendoLight();
     }
 
     public void Shockwave(float type)

@@ -15,6 +15,8 @@ public class ScrapVolleyProjectile : MonoBehaviour, IMagnetisable
 
     bool playerHit;
 
+    public AudioSource source;
+
     public void SpawnScrapPile()
     {   
         Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, collision);

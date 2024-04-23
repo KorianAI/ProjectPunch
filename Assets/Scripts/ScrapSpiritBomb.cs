@@ -34,10 +34,15 @@ public class ScrapSpiritBomb : MonoBehaviour
     public BlastWave blastWave;
     public Cashmere cashmere;
 
+    public AudioSource source;
+    public AudioClip slamExplosion;
+
     private void Start()
     {
         originalPos = transform.position;
         sortedQueue = new CashmereSpotlight[jumpPoints.Length];
+
+        source = GetComponent<AudioSource>();
 
         gameObject.SetActive(false);
     }
@@ -49,6 +54,8 @@ public class ScrapSpiritBomb : MonoBehaviour
 
     public void Slam()
     {
+        source.PlayOneShot(slamExplosion);
+
         GameObject shockwaveEffect = Instantiate(shockwaveVFX, impactPoint.position, Quaternion.Euler(-90, 0, 0));
         GameObject rumbleEffect = Instantiate(rumbleVFX, impactPoint.position, Quaternion.identity);
 

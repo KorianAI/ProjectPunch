@@ -128,6 +128,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
         {
             ActivateScrapStyle(false);
             ActivateScrapShift(true);
+
+            audioManager.ShiftSwitch();
         }
 
         else
@@ -137,6 +139,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
             {
                 ActivateScrapShift(false);
                 ActivateScrapStyle(true);
+
+                audioManager.StyleSwitch();
             }
 
             // nothing to style
@@ -144,6 +148,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
             {
                 CameraManager.SwitchPlayerCam(scrapCam);
                 ActivateScrapStyle(true);
+
+                audioManager.StyleSwitch();
             }
 
             // style to nothing
@@ -151,6 +157,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
             {
                 CameraManager.SwitchPlayerCam(regularCam);
                 ActivateScrapStyle(false);
+
+                audioManager.StyleSwitch();
             }
 
         }
