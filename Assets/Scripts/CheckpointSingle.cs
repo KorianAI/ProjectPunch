@@ -16,6 +16,7 @@ public class CheckpointSingle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Checkpoint" + name);
             manager.UpdateCheckpoint(point.transform);
         }
     }

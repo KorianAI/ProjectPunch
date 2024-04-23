@@ -50,7 +50,7 @@ public class CombatManager : MonoBehaviour
         //return to collision cam
         CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
 
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(4);
 
         StartCombat();
     }
