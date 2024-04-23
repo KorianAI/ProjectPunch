@@ -279,7 +279,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     #region Combat
     public void LightAttack(InputAction.CallbackContext obj)
     {
-        if (currentState != inAirState)
+        if (currentState != inAirState && currentState != stunnedState)
         {
             if (canAttack)
             {
@@ -293,7 +293,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     }
     public void HeavyAttack(InputAction.CallbackContext obj)
     {
-        if (currentState != inAirState)
+        if (currentState != inAirState && currentState != stunnedState)
         {
             if (canAttack)
             {
@@ -316,7 +316,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                 SwitchState(attackState);
                 if (lastRoutine != null) { StopCoroutine(lastRoutine); }
                 
-                Debug.Log("Attacked");
 
                 if (light)
                 {
@@ -443,7 +442,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public void Pull(InputAction.CallbackContext obj)
     {
-        if (canAttack && lockOn.currentTarget != null)
+        if (canAttack && lockOn.currentTarget != null && currentState != stunnedState)
         {
             var target = lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>();         
 
@@ -495,7 +494,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public void Push(InputAction.CallbackContext obj)
     {
-        if (canAttack && lockOn.currentTarget != null)
+        if (canAttack && lockOn.currentTarget != null && currentState != stunnedState)
         {
             RotateToTarget();
 
@@ -688,6 +687,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     {
         if (resources.invincible) return;
 
+        EndCombo();
         resources.invincible = true;
         SwitchState(stunnedState);
         anim.SetBool("Stunned", true);

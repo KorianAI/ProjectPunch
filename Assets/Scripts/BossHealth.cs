@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -96,7 +97,8 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
     {
         if (hasArmour) { return; }
 
-
+        transform.DOMove(player.pullPosition.position, 1f);
+        DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);
     }
 
     public void Push(PlayerStateManager player)
