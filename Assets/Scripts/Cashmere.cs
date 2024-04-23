@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System.Linq;
+using UnityEngine.Playables;
+using Cinemachine;
 
 public class Cashmere : BossInfo
 {
@@ -49,6 +51,9 @@ public class Cashmere : BossInfo
     public bool needsToAtk3;
     public float minDistance;
 
+    public PlayableDirector cutscene;
+    public CinemachineVirtualCamera cutsCam;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +64,8 @@ public class Cashmere : BossInfo
         }
 
         player = PlayerStateManager.instance;
+
+        cutscene.stopped += Cutscene;
     }
 
     // Update is called once per frame
@@ -259,9 +266,14 @@ public class Cashmere : BossInfo
     #region EventManagement
     public override void StartFight()
     {
-        // cinematic bs
+        cutscene.Play();
+        //Attack3();
+    }
 
-        Attack3();
+    void Cutscene(PlayableDirector obj)
+    {
+        cutscene.enabled = false;
+        cutsCam.m_Priority = 0;
     }
 
 
