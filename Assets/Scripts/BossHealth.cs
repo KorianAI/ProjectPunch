@@ -35,6 +35,11 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
       
     }
 
+    private void Update()
+    {
+
+    }
+
     public void TakeDamage(float damage)
     {
         //damage *= 0.5f;
