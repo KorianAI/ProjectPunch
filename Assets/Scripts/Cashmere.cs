@@ -222,7 +222,8 @@ public class Cashmere : BossInfo
         // stop coroutines
         StopAllCoroutines();
         bomb.StopAllCoroutines();
-
+        anim.SetBool("Stunned", true);
+        anim.SetTrigger("Stun");
         ResetProjectiles();
         stunned= true;
         needsToAtk3 = true;
@@ -233,6 +234,7 @@ public class Cashmere : BossInfo
     IEnumerator StunLength()
     {
         yield return new WaitForSeconds(stunLength);
+        anim.SetBool("Stunned", false);
         Disengage();   
         transform.DOMove(new Vector3(arenaCenter.position.x, transform.position.y, arenaCenter.position.z), 1f).OnComplete(() =>
         { transform.DOMoveY(arenaCenter.position.y, 1.5f).OnComplete(() =>
