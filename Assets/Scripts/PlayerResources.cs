@@ -2,6 +2,7 @@ using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -43,6 +44,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
     [SerializeField] CinemachineFreeLook scrapCam;
     [SerializeField] CinemachineFreeLook regularCam;
 
+    public Animator scrapAnim;
+    public GameObject scrapAnimObj;
 
     public float testDMG;
 
@@ -105,7 +108,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
                 {
                     UpdateScrap(scrapDecreaseAmnt);
                 }
-               
+
                 scrapDecreaseTimer = 0;
             }
         }
@@ -119,6 +122,41 @@ public class PlayerResources : MonoBehaviour, IDamageable
         {
             TakeDamage(10);
         }
+
+     
+
+    }
+
+    private void ShowIndicator()
+    {
+        // style to shift
+        if (currentScrap == maxScrap && !scrapShift)
+        {
+            scrapAnimObj.SetActive(true);
+            scrapAnim.Play("SSIndicator");
+        }
+
+        else
+        {
+            // from shift to style
+            if (scrapShift && currentScrap > 0)
+            {
+                scrapAnimObj.SetActive(false);
+            }
+
+            // nothing to style
+            else if (!scrapStyle && currentScrap > 50)
+            {
+                scrapAnimObj.SetActive(true);
+                scrapAnim.Play("SSIndicator");
+            }
+
+            // style to nothing
+            else
+            {
+                scrapAnimObj.SetActive(false);
+            }
+        }
     }
 
     private void ScrapShiftKeybind(InputAction.CallbackContext obj)
@@ -128,7 +166,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
         {
             ActivateScrapStyle(false);
             ActivateScrapShift(true);
-
+            scrapAnimObj.SetActive(false);
             audioManager.ShiftSwitch();
         }
 
@@ -139,7 +177,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
             {
                 ActivateScrapShift(false);
                 ActivateScrapStyle(true);
-
+               
                 audioManager.StyleSwitch();
             }
 
@@ -148,7 +186,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
             {
                 CameraManager.SwitchPlayerCam(scrapCam);
                 ActivateScrapStyle(true);
-
+                scrapAnimObj.SetActive(false);
                 audioManager.StyleSwitch();
             }
 
@@ -270,6 +308,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
         }
 
         UpdateScrapUI();
+        ShowIndicator();
     }
 
     void UpdateScrapUI()

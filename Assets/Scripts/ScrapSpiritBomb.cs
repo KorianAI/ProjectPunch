@@ -37,6 +37,8 @@ public class ScrapSpiritBomb : MonoBehaviour
     public AudioSource source;
     public AudioClip slamExplosion;
 
+    public Vector3 maxScale;
+
     private void Start()
     {
         originalPos = transform.position;
@@ -44,7 +46,9 @@ public class ScrapSpiritBomb : MonoBehaviour
 
         source = GetComponent<AudioSource>();
 
-        gameObject.SetActive(false);
+        maxScale = transform.localScale;
+        //gameObject.SetActive(false);
+        //transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
     }
 
     private void Update()
@@ -73,7 +77,7 @@ public class ScrapSpiritBomb : MonoBehaviour
     {
 
         // If all points have been visited, stop jumping
-        if (currentIndex >= sortedQueue.Length) { gameObject.SetActive(false); transform.position = originalPos; currentIndex = 0; cashmere.SelectNextAttack(); return; }
+        if (currentIndex >= sortedQueue.Length) { gameObject.SetActive(false); transform.position = originalPos; currentIndex = 0; cashmere.SelectNextAttack(); transform.localScale = new Vector3(0.01f, 0.01f, 0.01f); return; }
 
         // Get the next jump point
         cashmere.anim.SetTrigger("Slam");
@@ -160,6 +164,7 @@ public class ScrapSpiritBomb : MonoBehaviour
             {
                 currentSlam = 0;
                 gameObject.SetActive(false);
+                transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
                 cashmere.SelectNextAttack();
             }
             

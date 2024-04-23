@@ -60,7 +60,7 @@ public class Cashmere : BossInfo
     public CinemachineVirtualCamera cutsceneCam;
     public Transform playerBossPos;
     public GameObject playerVisuals;
-
+    public GameObject bossTitle;
     public GameObject[] ui;
 
     // Start is called before the first frame update
@@ -154,22 +154,26 @@ public class Cashmere : BossInfo
     public override void Attack2()
     {
         CancelMovement();
+
         transform.DOMove(arenaCenter.position, 1f).OnComplete(() => {
-     
             bomb.gameObject.SetActive(true);
-            bomb.SortJumpOrder(currentSpotlight);
-            bomb.JumpToNextPoint(); ; });   
+            bomb.transform.DOScale(bomb.maxScale, 1f).OnComplete(() => {         
+                bomb.SortJumpOrder(currentSpotlight);
+                bomb.JumpToNextPoint(); ;
+            });
+
+        });
     }
 
     public override void Attack3()
     {
         CancelMovement();
         transform.DOMove(arenaCenter.position, 1f).OnComplete(() => {
-           
             bomb.gameObject.SetActive(true);
+            bomb.transform.DOScale(bomb.maxScale, 1f).OnComplete(() => {                  
             StartCoroutine(bomb.RepeatedSlam());
+            });
         });
-
     }
 
 
@@ -255,6 +259,7 @@ public class Cashmere : BossInfo
         bomb.ResetBomb();
         volleyAnimator.Play("Idle");
         volleyAnimator.enabled = false;
+        bomb.transform.DOScale(new Vector3(.01f, .01f, .01f), 0f);
     }
 
     void Disengage()
@@ -288,6 +293,7 @@ public class Cashmere : BossInfo
     private void CutsceneFinished(PlayableDirector obj)
     {
         cutscene.enabled = false;
+        bossTitle.SetActive(false);
         cutsceneCam.m_Priority = 0;
         playerVisuals.SetActive(true);
         
@@ -298,12 +304,13 @@ public class Cashmere : BossInfo
         {
             yield return new WaitForSeconds(1);
             cashVFX.SetActive(true);
+            bomb.gameObject.SetActive(true);
             cutscene.gameObject.SetActive(false);
             foreach (GameObject g in ui)
             {
                 g.SetActive(true);
             }
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             Attack3();
         }
         
