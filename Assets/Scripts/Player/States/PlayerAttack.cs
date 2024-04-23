@@ -17,7 +17,13 @@ public class PlayerAttack : PlayerState
 
     public override void FrameUpdate(PlayerStateManager player)
     {
-
+        if (!player.grounded)
+        {
+            player.transform.DOMove(player.transform.position + (player.orientation.transform.forward), .5f);
+            player.SwitchState(player.inAirState);
+            player.canAttack = true;
+            player.cam.canRotate = true;
+        }
     }
 
     public override void PhysicsUpdate(PlayerStateManager player)
