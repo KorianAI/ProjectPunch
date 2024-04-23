@@ -12,6 +12,9 @@ public class DamageableObject : MonoBehaviour, IDamageable
     float currentHealth;
     [SerializeField] float maxHealth;
 
+    public AudioSource source;
+    public AudioClip takeDamage;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -28,6 +31,8 @@ public class DamageableObject : MonoBehaviour, IDamageable
             currentHealth -= damage;
 
             transform.DOShakeScale(.4f, .5f, 10, 90);
+
+            source.PlayOneShot(takeDamage);
 
             if (currentHealth <= 0)
             {

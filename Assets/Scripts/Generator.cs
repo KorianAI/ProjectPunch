@@ -24,14 +24,18 @@ public class Generator : MonoBehaviour, IDamageable
 
     HealthBars healthBars;
 
+    public AudioSource source;
+    public AudioClip takeDamage;
+    public AudioClip doors;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            StartCoroutine(OpenDoor());
-        }
-    }
+
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Alpha3))
+    //    {
+    //        StartCoroutine(OpenDoor());
+    //    }
+    //}
 
     private void Start()
     {
@@ -39,6 +43,8 @@ public class Generator : MonoBehaviour, IDamageable
         healthBar.currentValue = currentHealth;
 
         healthBars = GetComponentInChildren<HealthBars>();
+
+        source = GetComponent<AudioSource>();
     }
 
     #region health
@@ -55,6 +61,8 @@ public class Generator : MonoBehaviour, IDamageable
             healthBar.DrawSlots();
 
             transform.DOShakeScale(.2f, .1f, 10, 90);
+
+            source.PlayOneShot(takeDamage);
 
             if (currentHealth <= 0)
             {
@@ -79,6 +87,9 @@ public class Generator : MonoBehaviour, IDamageable
         foreach (EMRail rail in rails) //pauses all EM rails, ensuring they remain in sync
         {
             rail.MoveToNextPoint();
+            rail.source.loop = true;
+            rail.source.clip = rail.active;
+            rail.source.Play();
         }
 
         StartCoroutine(OpenDoor());
@@ -86,6 +97,12 @@ public class Generator : MonoBehaviour, IDamageable
         healthBars.HideBars();
 
         smokeParticle.Play();
+        source.Stop();
+        source.PlayOneShot(doors);
+
+        player.GetComponent<TargetLock>().currentTarget = null;
+        player.GetComponent<TargetLock>().isTargeting = false;
+        player.GetComponent<TargetLock>().lastTargetTag = null;
     }
 
     #endregion

@@ -9,9 +9,13 @@ public class Bridge : MonoBehaviour, IMagnetisable
 
     bool played = false;
 
+    public AudioSource source;
+    public AudioClip pulled;
+
     private void Start()
     {
         anim = GetComponent<Animation>();
+        source = GetComponent<AudioSource>();
     }
 
     public void Pull(PlayerStateManager player)
@@ -21,6 +25,8 @@ public class Bridge : MonoBehaviour, IMagnetisable
             played = true;
 
             anim.Play();
+
+            source.PlayOneShot(pulled);
 
             player.GetComponent<TargetLock>().currentTarget = null;
             player.GetComponent<TargetLock>().isTargeting = false;

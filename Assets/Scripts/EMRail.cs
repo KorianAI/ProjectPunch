@@ -29,8 +29,15 @@ public class EMRail : MonoBehaviour, IMagnetisable
     public CinemachineFreeLook playerCam;
     public CinemachineVirtualCamera railCam;
 
+    [Header("Audio")]
+    public AudioSource source;
+    public AudioClip active;
+    public AudioClip stop;
+
     private void Start()
     {
+        source = GetComponent<AudioSource>();
+        
         if (playOnStart)
         {
             MoveToNextPoint();
@@ -42,6 +49,10 @@ public class EMRail : MonoBehaviour, IMagnetisable
         foreach (EMRail script in rails) //pauses all EM rails, ensuring they remain in sync
         {
             script.transform.DOPause();
+
+            script.source.Stop();
+            script.source.loop = false;
+            script.source.PlayOneShot(stop);
         }
 
         ps = player;
@@ -65,6 +76,10 @@ public class EMRail : MonoBehaviour, IMagnetisable
         foreach (EMRail script in rails) //plays all EM rails
         {
             script.transform.DOPlay();
+
+            script.source.loop = true;
+            script.source.clip = script.active;
+            script.source.Play();
         }
 
         playerObj.GetComponent<TargetLock>().currentTarget = null;
