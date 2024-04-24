@@ -241,7 +241,7 @@ public class Cashmere : BossInfo
         health.canBeHit = false;
         anim.SetBool("Stunned", false);
         anim.SetTrigger("Disengage");
-        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length - .8f);
         Disengage();   
         transform.DOMove(new Vector3(arenaCenter.position.x, transform.position.y, arenaCenter.position.z), 1f).OnComplete(() =>
         { transform.DOMoveY(arenaCenter.position.y, 1.5f).OnComplete(() =>
