@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerAudioManager : MonoBehaviour
 {
-    //audioManager = GetComponent<PlayerAudioManager>();
     //PlayerAudioManager audioManager;
-
+    //audioManager = GetComponent<PlayerAudioManager>();
 
     AudioSource source;
     AudioClip currentClip;
