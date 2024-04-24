@@ -31,8 +31,8 @@ public class Crusher : MonoBehaviour, IMagnetisable
     void Start()
     {
         source = GetComponent<AudioSource>();
-        
-        Extend();
+
+        Invoke("Extend", .1f);
     }
 
     private void LateUpdate()
@@ -82,7 +82,7 @@ public class Crusher : MonoBehaviour, IMagnetisable
 
     void Extend()
     {
-        transform.DOKill(false);
+        //transform.DOKill(false);
 
         source.Stop();
         source.PlayOneShot(extending);
@@ -93,7 +93,7 @@ public class Crusher : MonoBehaviour, IMagnetisable
 
     void Retract()
     {
-        transform.DOKill(false);
+        //transform.DOKill(false);
 
         transform.DOLocalMoveY(retractedPos, upSpeed).OnComplete(Extend)
             .SetEase(Ease.Linear);

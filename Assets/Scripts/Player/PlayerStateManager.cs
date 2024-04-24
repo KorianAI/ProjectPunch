@@ -160,6 +160,11 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         readyToJump = true;
 
         audioManager = GetComponent<PlayerAudioManager>();
+
+        if (DOTween.IsTweening(transform))
+        {
+            transform.DOKill();
+        }    
     }
 
     private void Update()

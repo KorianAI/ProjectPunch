@@ -8,6 +8,8 @@ public class StreetLamps : MonoBehaviour, IMagnetisable
     public GameObject playerObj;
     public Transform pullPos;
 
+    PlayerStateManager ps;
+
     private void Start()
     {
         playerObj = PlayerStateManager.instance.gameObject;
@@ -17,10 +19,16 @@ public class StreetLamps : MonoBehaviour, IMagnetisable
     {
         player.speedlines.SetActive(true);
         player.resources.invincible = true;
-        playerObj.transform.DOMove(pullPos.transform.position, 1.5f). OnComplete(() => { player.speedlines.SetActive(false); player.resources.invincible = false; player.canAttack = true; });
-        playerObj.GetComponent<TargetLock>().currentTarget = null;
-        playerObj.GetComponent<TargetLock>().isTargeting = false;
-        DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);
+        ps = player;
+        ps.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(ResetVariables);
+        ps.GetComponent<TargetLock>().currentTarget = null;
+        ps.GetComponent<TargetLock>().isTargeting = false;
+        //DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);
+    }
+
+    private void ResetVariables()
+    {
+        ps.speedlines.SetActive(false); ps.resources.invincible = false; ps.canAttack = true;
     }
 
     public void Push(PlayerStateManager player)
