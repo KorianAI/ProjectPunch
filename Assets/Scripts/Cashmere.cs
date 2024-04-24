@@ -259,8 +259,9 @@ public class Cashmere : BossInfo
     {
         for (int i = 0; i < scrapVolleyProjectiles.Length; i++)
         {
-            scrapVolleyProjectiles[i].transform.localPosition = originalVolleyPosition[i];
             scrapVolleyProjectiles[i].gameObject.SetActive(false);
+            scrapVolleyProjectiles[i].transform.localPosition = originalVolleyPosition[i];   
+            scrapVolleyProjectiles[i].transform.DOKill();
         }
         bomb.ResetBomb();
         volleyAnimator.Play("Idle");
@@ -277,6 +278,7 @@ public class Cashmere : BossInfo
             if (collider.CompareTag("Player"))
             {
                 collider.GetComponent<IKnockback>().Knockback(kbForce, transform, kbDur);
+                collider.GetComponent<IDamageable>().TakeDamage(5);
             }
         }       
     }

@@ -28,7 +28,7 @@ public class MusicManager : MonoBehaviour
             timeElapsed += Time.deltaTime;
         }
         
-        yield return new WaitForSeconds(silenceTime);
+        yield return new WaitForSeconds(0);
 
         source.Stop();
 

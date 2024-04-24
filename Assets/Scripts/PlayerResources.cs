@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -64,6 +65,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     PlayerAudioManager audioManager;
 
+    public bool superInvincible;
+
     private void OnEnable()
     {
         CameraManager.RegisterPC(scrapCam);
@@ -114,17 +117,15 @@ public class PlayerResources : MonoBehaviour, IDamageable
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Period))
+        if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             UpdateScrap(100);
         }
 
-        if (Input.GetKeyDown(KeyCode.Comma))
+        if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            TakeDamage(10);
+            superInvincible = !superInvincible;
         }
-
-     
 
     }
 
@@ -236,7 +237,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        if (invincible) return;
+        if (invincible || superInvincible) return;
 
         audioManager.BaseAttack();
 
@@ -270,12 +271,13 @@ public class PlayerResources : MonoBehaviour, IDamageable
                 healthBar.DrawSlots();
             }
 
-            else if (currentHealth <= 10)
+            else if (currentHealth <= 0)
             {
                 currentHealth -= damage;
                 healthBar.currentValue = currentHealth;
-                healthBar.DrawSlots(); 
-                GetComponent<Respawn>().ResetPlayer();
+                healthBar.DrawSlots();
+                //GetComponent<Respawn>().ResetPlayer();
+                SceneManager.LoadScene(1);
             }
         }
     }

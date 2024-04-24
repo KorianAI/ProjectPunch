@@ -63,7 +63,7 @@ public class ScrapSpiritBomb : MonoBehaviour
         GameObject shockwaveEffect = Instantiate(shockwaveVFX, impactPoint.position, Quaternion.Euler(-90, 0, 0));
         GameObject rumbleEffect = Instantiate(rumbleVFX, impactPoint.position, Quaternion.identity);
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, player);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 3.5f, player);
         foreach (Collider collider in colliders)
         {
             if (collider.CompareTag("Player"))

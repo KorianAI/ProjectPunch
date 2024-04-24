@@ -63,7 +63,7 @@ public class TargetLock : MonoBehaviour
 
     void Start()
     {
-        maxAngle = 20f; // always 90 to target enemies in front of camera.
+        maxAngle = 15f; // always 90 to target enemies in front of camera.
         cinemachineFreeLook.m_XAxis.m_InputAxisName = "";
         cinemachineFreeLook.m_YAxis.m_InputAxisName = "";
     }

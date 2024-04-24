@@ -41,7 +41,7 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Keypad3))
         {
             TakeDamage(10000);
         }
@@ -50,7 +50,7 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
     public void TakeDamage(float damage)
     {
         if (!canBeHit) { return; }
-        //damage *= 0.5f;
+        damage *= 0.5f;
 
         boss.anim.SetTrigger("Hit");
 
