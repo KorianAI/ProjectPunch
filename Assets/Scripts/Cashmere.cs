@@ -104,6 +104,7 @@ public class Cashmere : BossInfo
         foreach (GameObject proj in scrapVolleyProjectiles)
         {
             proj.SetActive(true);
+            source.volume = .5f;
             source.PlayOneShot(volleyBuild);
             yield return new WaitForSeconds(.3f);
         }
@@ -131,6 +132,7 @@ public class Cashmere : BossInfo
             vp.cm = this;
             anim.SetTrigger("ScrapVolley");
             proj.transform.DOMove(PlayerStateManager.instance.gameObject.transform.position, 1f).OnComplete(() => vp.SpawnScrapPile());
+            source.volume = 1f;
             vp.source.PlayOneShot(volleyShoot);
             yield return new WaitForSeconds(1f);
         }
@@ -157,6 +159,8 @@ public class Cashmere : BossInfo
 
         transform.DOMove(arenaCenter.position, 1f).OnComplete(() => {
             bomb.gameObject.SetActive(true);
+            source.volume = 1f;
+            source.PlayOneShot(volleyBuild);
             bomb.transform.DOScale(bomb.maxScale, 1f).OnComplete(() => {         
                 bomb.SortJumpOrder(currentSpotlight);
                 bomb.JumpToNextPoint(); ;
@@ -170,6 +174,8 @@ public class Cashmere : BossInfo
         CancelMovement();
         transform.DOMove(arenaCenter.position, 1f).OnComplete(() => {
             bomb.gameObject.SetActive(true);
+            source.volume = 1f;
+            source.PlayOneShot(volleyBuild);
             bomb.transform.DOScale(bomb.maxScale, 1f).OnComplete(() => {                  
             StartCoroutine(bomb.RepeatedSlam());
             });

@@ -69,6 +69,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
         CameraManager.RegisterPC(scrapCam);
         CameraManager.RegisterPC(regularCam);
         scrapShiftKeybind.action.performed += ScrapShiftKeybind;
+        CameraManager.SwitchPlayerCam(regularCam);
     }
 
     private void OnDisable()

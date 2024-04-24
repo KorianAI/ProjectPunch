@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using EZCameraShake;
-using TreeEditor;
 
 public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 {
