@@ -6,7 +6,7 @@ public class PlayerStunnedState : PlayerState
 {
     public override void EnterState(PlayerStateManager player)
     {
-        
+        player.velocity = Vector3.zero;
     }
 
     public override void ExitState(PlayerStateManager player)

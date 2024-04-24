@@ -1001,8 +1001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDamage: 30
   enemyDamage: 200
-  knockbackDist: 10
-  knockbackLength: 3
+  knockbackDist: 3
+  knockbackLength: 0.5
 --- !u!1 &5539990167059191451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,7 +1922,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2866
+  m_VersionIndex: 2869
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

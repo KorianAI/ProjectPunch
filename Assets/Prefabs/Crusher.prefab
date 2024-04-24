@@ -535,7 +535,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1697
+  m_VersionIndex: 1700
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -888,7 +888,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1728
+  m_VersionIndex: 1731
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1016,7 +1016,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6362500167588824322}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 64, y: 36.800003, z: 40.700024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   playerDamage: 30
   enemyDamage: 200
   knockbackDist: 10
-  knockbackLength: 3
+  knockbackLength: 0.5
 --- !u!1 &7646763613847544240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,7 +1433,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1728
+  m_VersionIndex: 1731
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1553,8 +1553,8 @@ MonoBehaviour:
   ps: {fileID: 0}
   retractedPos: -13.04
   extendedPos: -14.6
-  upSpeed: 5
-  downSpeed: 0.5
+  upSpeed: 4
+  downSpeed: 0.3
   pulledSpeed: 0.2
   source: {fileID: 1062243717523371595}
   stopped: {fileID: 8300000, guid: 38893521f55331e4d99b593143d3756a, type: 3}
@@ -2235,7 +2235,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 967
+  m_VersionIndex: 970
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
