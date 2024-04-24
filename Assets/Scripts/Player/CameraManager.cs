@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Unity.VisualScripting;
 
 public static class CameraManager
 {
@@ -36,6 +37,8 @@ public static class CameraManager
     }
     #endregion
 
+    
+
     public static void SwitchNonPlayerCam (CinemachineVirtualCamera cam)
     {
         cam.Priority = 10;
@@ -62,6 +65,7 @@ public static class CameraManager
         cam.Priority = 10;
         activePlayerCamera = cam;
 
+
         foreach (CinemachineVirtualCamera c in nonPlayerCameras)
         {
             c.Priority = 0;
@@ -74,6 +78,14 @@ public static class CameraManager
                 c.Priority = 0;
             }
 
+            //CinemachineInputProvider input = c.GetComponent<CinemachineInputProvider>();
+            //if (input != null)
+            //{
+            //    input.enabled = false;
+            //    ResetCameraInput r = c.GetComponent<ResetCameraInput>();
+               
+            //}
         }
+
     }
 }

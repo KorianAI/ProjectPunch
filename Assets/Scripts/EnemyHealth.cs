@@ -202,7 +202,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         if (hasArmour) { return; }
         ps = player;
         
-        transform.DOMove(player.pullPosition.position, 1f);
+        transform.DOMove(player.pullPosition.position, 1f).OnComplete(() => { player.canAttack = true; });
         GetStunned(1);
         //transform.DOShakeRotation(1, 15f, 10, 90);
         DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);

@@ -56,6 +56,7 @@ public class EMRail : MonoBehaviour, IMagnetisable
         }
 
         ps = player;
+        ps.resources.invincible = true;
         ps.rail = this;
         ps.speedlines.SetActive(true);
 
@@ -69,7 +70,8 @@ public class EMRail : MonoBehaviour, IMagnetisable
         playerObj.transform.SetParent(pullPos.transform); //set parent to EM
         ps.speedlines.SetActive(false);
         DOTween.To(() => ps.playerCam.m_Lens.FieldOfView, x => ps.playerCam.m_Lens.FieldOfView = x, 50, .25f);
-
+        ps.resources.invincible = false;
+        ps.canAttack = true;
         CameraManager.SwitchNonPlayerCam(ps.railCam);
         ps.playerObj.forward = ps.rail.gameObject.transform.forward;
 

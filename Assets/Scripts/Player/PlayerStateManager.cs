@@ -494,7 +494,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
         
         target.GetComponent<IMagnetisable>().Pull(this);
-        canAttack = true;
+       
        
         //SwitchState(moveState);
     }
@@ -516,7 +516,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             }
         } // targetting something
 
-        if (currentState == railState)
+        if (currentState == railState && canAttack)
         {
             CameraManager.SwitchPlayerCam(playerCam);
 
@@ -655,7 +655,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     #region Jumping
     public void Jump(InputAction.CallbackContext obj)
     {
-        if (currentState == railState)
+        if (currentState == railState && canAttack)
         {
             CameraManager.SwitchPlayerCam(playerCam);
 

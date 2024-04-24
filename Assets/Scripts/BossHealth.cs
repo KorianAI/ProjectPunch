@@ -125,7 +125,10 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
     {
         if (hasArmour) { return; }
 
-        transform.DOMove(player.pullPosition.position, 1f);
+        transform.DOMove(player.pullPosition.position, 1f).OnComplete(() =>
+        {
+            player.canAttack = true;
+        });
         DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);
     }
 

@@ -15,6 +15,11 @@ public class ThirdPersonCamera : MonoBehaviour
     public bool canRotate;
     public PlayerStateManager ps;
 
+    public CinemachineBrain brain;
+
+    public CinemachineInputProvider[] inputProvider;
+    public bool blending;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -36,5 +41,25 @@ public class ThirdPersonCamera : MonoBehaviour
         {
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
         }
+
+        if (brain.IsBlending && !blending)
+        {
+            blending = true;
+            foreach (CinemachineInputProvider provider in inputProvider)
+            {
+                provider.enabled = false;
+            }
+        }
+
+        else if (!brain.IsBlending && blending)
+        {
+            blending= false;
+            foreach (CinemachineInputProvider provider in inputProvider)
+            {
+                provider.enabled = true;
+            }
+        }
     }
+
+    
 }
