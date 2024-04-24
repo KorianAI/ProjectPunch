@@ -316,6 +316,7 @@ public class Cashmere : BossInfo
             {
                 g.SetActive(true);
             }
+            player.resources.ReplenishAll();
             yield return new WaitForSeconds(1);
             Attack3();
         }
