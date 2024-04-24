@@ -287,7 +287,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                 RotateToTarget();
                 Attack(true);
 
-                audioManager.BaseSwing();
+               
             }
         }
     }
@@ -301,7 +301,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                 RotateToTarget();
                 Attack(false);
 
-                audioManager.BaseAttackMetallic();
+               
             }
         }
     }
@@ -359,7 +359,10 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                     {
                         anim.runtimeAnimatorController = lightCombo[comboCounter];
                         //Debug.Log("LIGHT ATTACK: " + comboCounter);
-                    }               
+                    }
+                    audioManager.BaseSwing();
+
+                  
                 }
 
                 else if (!light)
@@ -405,7 +408,9 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                         anim.runtimeAnimatorController = heavyCombo[comboCounter];
                         Debug.Log("HEAVY ATTACK: " + comboCounter);
                     }
-                    
+
+                    audioManager.BaseAttackMetallic();
+
                 }
 
                 anim.Play("Attack", 0, 0);
