@@ -31,6 +31,7 @@ public class Bridge : MonoBehaviour, IMagnetisable
             player.GetComponent<TargetLock>().currentTarget = null;
             player.GetComponent<TargetLock>().isTargeting = false;
             player.GetComponent<TargetLock>().lastTargetTag = null;
+            player.canAttack = true;
         }
     }
 

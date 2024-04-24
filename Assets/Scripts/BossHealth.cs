@@ -50,7 +50,7 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
     public void TakeDamage(float damage)
     {
         if (!canBeHit) { return; }
-        damage *= 0.5f;
+       
 
         boss.anim.SetTrigger("Hit");
 

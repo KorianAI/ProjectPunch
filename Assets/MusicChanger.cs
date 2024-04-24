@@ -17,6 +17,7 @@ public class MusicChanger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             manager.StartCoroutine(manager.SwapTrack(newMusic));
+            Destroy(gameObject);
         }
     }
 }
