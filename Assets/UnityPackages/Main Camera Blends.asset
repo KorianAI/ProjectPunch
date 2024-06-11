@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CustomBlends:
   - m_From: '**ANY CAMERA**'
-    m_To: Rail Camera
+    m_To: ThirdPersonCamera
     m_Blend:
       m_Style: 1
       m_Time: 1
@@ -25,32 +25,10 @@ MonoBehaviour:
         m_PostInfinity: 0
         m_RotationOrder: 0
   - m_From: '**ANY CAMERA**'
-    m_To: CashCutsceneCam
-    m_Blend:
-      m_Style: 0
-      m_Time: 2
-      m_CustomCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 0
-        m_PostInfinity: 0
-        m_RotationOrder: 0
-  - m_From: '**ANY CAMERA**'
-    m_To: CashCutsceneCam
+    m_To: Target Group Cam
     m_Blend:
       m_Style: 1
-      m_Time: 2
-      m_CustomCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 0
-        m_PostInfinity: 0
-        m_RotationOrder: 0
-  - m_From: Rail Camera
-    m_To: ThirdPersonCamera
-    m_Blend:
-      m_Style: 1
-      m_Time: 0.5
+      m_Time: 1
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
