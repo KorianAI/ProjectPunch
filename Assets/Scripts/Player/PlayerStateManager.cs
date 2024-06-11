@@ -101,6 +101,14 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     PlayerAudioManager audioManager;
 
+    public float lr1;
+    public float lr2;
+    public float lrDur;
+
+    public float hr1;
+    public float hr2;
+    public float hrDur;
+
     public enum DebugState
     {
         idle,
@@ -292,7 +300,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                 RotateToTarget();
                 Attack(true);
 
-               
+
             }
         }
     }
@@ -322,7 +330,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                 SwitchState(attackState);
                 if (lastRoutine != null) { StopCoroutine(lastRoutine); }
                 
-
                 if (light)
                 {
                     if (resources.scrapStyle)
@@ -420,6 +427,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
                 anim.Play("Attack", 0, 0);
                 anim.CrossFadeInFixedTime("Attack", 0.1f);
+                AttackRumble();
                 comboCounter++;
                 lastClickedTime = Time.time;
                 resources.invincible = false;
@@ -429,6 +437,19 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                     comboCounter = 0;
                 }
             }
+        }
+    }
+
+    void AttackRumble()
+    {
+        if (comboCounter < 2)
+        {
+            RumbleManager.instance.RumblePulse(lr1, lr2, lrDur);
+        }
+
+        else
+        {
+            RumbleManager.instance.RumblePulse(hr1, hr2, hrDur);
         }
     }
     public void ExitAttack()
@@ -646,14 +667,17 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             //c.GetComponent<IKnockback>().Knockback(1.5f, orientation);
 
             GameObject hitParticle = Instantiate(hitVFX, c.transform);
-            //RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
+           
 
             if (c.GetComponent<EnemyHealth>() != null)
             {
                 c.GetComponent<EnemyHealth>().GetStunned(.2f);
             }
+
             
         }
+
+
     }
     #endregion
 

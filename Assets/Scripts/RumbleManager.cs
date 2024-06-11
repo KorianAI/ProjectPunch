@@ -7,7 +7,7 @@ public class RumbleManager : MonoBehaviour
 {
     public static RumbleManager instance;
 
-    private Gamepad gamePad;
+    public Gamepad gamePad;
 
     private Coroutine stopRumbleAfterTimeCoroutine;
 
@@ -30,6 +30,7 @@ public class RumbleManager : MonoBehaviour
 
         if (gamePad != null)
         {
+            
             gamePad.SetMotorSpeeds(lowFreq, highFreq);
 
             stopRumbleAfterTimeCoroutine = StartCoroutine(StopRumble(dur, gamePad));
