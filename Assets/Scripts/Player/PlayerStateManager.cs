@@ -109,6 +109,10 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public float hr2;
     public float hrDur;
 
+    public float attackMoveDistance;
+    public float attackBufferTime = 0.2f;
+    public float aBuffTimer;
+
     public enum DebugState
     {
         idle,
@@ -602,13 +606,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             Vector3 t = new Vector3(lockOn.currentTarget.transform.position.x, playerObj.transform.position.y, lockOn.currentTarget.transform.position.z);
             playerObj.transform.DOLookAt(t, 0f).onComplete = CanRotate;
             
-        }
-
-        else
-        {
-            cam.canRotate = false;
-            playerObj.forward = orientation.forward;
-            CanRotate();
         }
     }
 

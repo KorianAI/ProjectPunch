@@ -7,7 +7,10 @@ public class PlayerAttack : PlayerState
 {
     public override void EnterState(PlayerStateManager player)
     {
-        player.transform.DOMove(player.transform.position + (player.orientation.transform.forward / 2), .5f);
+        if (player.comboCounter < 2)
+        {
+            player.transform.DOMove(player.transform.position + (player.playerObj.forward * player.attackMoveDistance), .5f);
+        }       
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -19,7 +22,7 @@ public class PlayerAttack : PlayerState
     {
         if (!player.grounded)
         {
-            player.transform.DOMove(player.transform.position + (player.orientation.transform.forward), .5f);
+            player.transform.DOMove(player.transform.position + (player.playerObj.forward), .5f);
             player.SwitchState(player.inAirState);
             player.canAttack = true;
             player.cam.canRotate = true;
