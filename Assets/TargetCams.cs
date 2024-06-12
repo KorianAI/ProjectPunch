@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using RotaryHeart.Lib.PhysicsExtension;
 using System.Linq;
+using System.Threading;
 
 public class TargetCams : MonoBehaviour
 {
@@ -31,6 +33,8 @@ public class TargetCams : MonoBehaviour
 
     [SerializeField] private string enemyTag;
 
+    [Header("UI")]
+    [SerializeField] private Image aimIcon;  // ui image of aim icon
 
     private void OnEnable()
     {
@@ -40,6 +44,14 @@ public class TargetCams : MonoBehaviour
     private void OnDisable()
     {
         input.action.performed -= AssignTarget;
+    }
+
+    void Update()
+    {
+        if (aimIcon)
+            aimIcon.gameObject.SetActive(isTargeting);
+
+            aimIcon.transform.position = mainCamera.WorldToScreenPoint(currentTarget.position);
     }
 
     public void AssignTarget(InputAction.CallbackContext obj)
@@ -56,7 +68,7 @@ public class TargetCams : MonoBehaviour
             }
 
             isTargeting = false;
-            currentTarget = null;            
+            currentTarget = null;     
 
             return;
         }
@@ -76,6 +88,7 @@ public class TargetCams : MonoBehaviour
                 targetGroup.AddMember(currentTarget, 1, 0);
                 freeLook.Priority = 1;
                 targetCam.Priority = 10;
+
             }
 
             else
