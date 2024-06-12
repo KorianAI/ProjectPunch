@@ -16,7 +16,7 @@ public class ThirdPersonCamera : MonoBehaviour
     public PlayerStateManager ps;
 
     public CinemachineBrain brain;
-
+    
     public CinemachineInputProvider[] inputProvider;
     public bool blending;
 
@@ -50,7 +50,7 @@ public class ThirdPersonCamera : MonoBehaviour
                 provider.enabled = false;
             }
         }
-
+        
         else if (!brain.IsBlending && blending)
         {
             blending= false;
