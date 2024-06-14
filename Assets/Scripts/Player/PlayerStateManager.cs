@@ -430,7 +430,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                 }
 
                 anim.Play("Attack", 0, 0);
-                anim.CrossFadeInFixedTime("Attack", 0.1f);
                 AttackRumble();
                 comboCounter++;
                 lastClickedTime = Time.time;
