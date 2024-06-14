@@ -17,7 +17,7 @@ MonoBehaviour:
     m_To: ThirdPersonCamera
     m_Blend:
       m_Style: 1
-      m_Time: 1
+      m_Time: 0.3
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
@@ -28,7 +28,7 @@ MonoBehaviour:
     m_To: Target Group Cam
     m_Blend:
       m_Style: 1
-      m_Time: 1
+      m_Time: 0.4
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
