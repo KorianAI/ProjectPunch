@@ -41,4 +41,9 @@ public class PlayerAirState : PlayerState
         player.controller.Move(player.velocity * Time.deltaTime);
     }
 
+    public override void HandleBufferedInput(InputCommand command)
+    {
+
+    }
+
 }

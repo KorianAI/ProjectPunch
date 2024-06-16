@@ -30,4 +30,9 @@ public class PlayerRailState : PlayerState
     {
         
     }
+
+    public override void HandleBufferedInput(InputCommand command)
+    {
+
+    }
 }

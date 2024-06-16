@@ -45,4 +45,9 @@ public class PlayerMoveState : PlayerState
         // on ground
         player.controller.SimpleMove(player.velocity);
     }
+
+    public override void HandleBufferedInput(InputCommand command)
+    {
+
+    }
 }

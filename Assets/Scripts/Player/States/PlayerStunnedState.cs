@@ -24,4 +24,9 @@ public class PlayerStunnedState : PlayerState
         player.velocity.y = player.yVelocity;
         player.controller.Move(player.velocity * Time.deltaTime);
     }
+
+    public override void HandleBufferedInput(InputCommand command)
+    {
+
+    }
 }

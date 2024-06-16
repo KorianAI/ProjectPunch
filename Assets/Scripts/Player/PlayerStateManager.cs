@@ -20,7 +20,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     // states
     public PlayerIdleState idleState = new PlayerIdleState();
     public PlayerMoveState moveState = new PlayerMoveState();
-    public PlayerAttack attackState = new PlayerAttack();
+    public PlayerAttackState attackState = new PlayerAttackState();
     public PlayerAirState inAirState = new PlayerAirState();
     public PlayerRailState railState = new PlayerRailState();
     public PlayerStunnedState stunnedState = new PlayerStunnedState();
@@ -42,14 +42,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public float attackRange;
     public float attackDamage;
     public GameObject hitVFX;
-
-    [Header("Combos")]
-    float lastClickedTime;
-    float lastComboEnd;
-    public int comboCounter;
-    public List<AnimatorOverrideController> lightCombo;
-    public List<AnimatorOverrideController> heavyCombo;
-    Coroutine lastRoutine;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -110,8 +102,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public float hrDur;
 
     public float attackMoveDistance;
-    public float attackBufferTime = 0.2f;
-    public float aBuffTimer;
 
     public enum DebugState
     {
@@ -140,8 +130,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     private void OnEnable()
     {
-        lightAttack.action.performed += LightAttack;
-        heavyAttack.action.performed += HeavyAttack;
         jump.action.performed += Jump;
         pull.action.performed += Pull;
         push.action.performed += Push;
@@ -153,8 +141,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     private void OnDisable()
     {
-        lightAttack.action.performed -= LightAttack;
-        heavyAttack.action.performed -= HeavyAttack;
         jump.action.performed -= Jump;
         pull.action.performed -= Pull;
         push.action.performed -= Push;
@@ -293,189 +279,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         //Debug.Log("Entered: " + state + " " + Time.time);
     }
 
-    #region Combat
-    public void LightAttack(InputAction.CallbackContext obj)
-    {
-        if (currentState != inAirState && currentState != stunnedState)
-        {
-            if (canAttack)
-            {
-                //canAttack = false;
-                RotateToTarget();
-                Attack(true);
 
-
-            }
-        }
-    }
-    public void HeavyAttack(InputAction.CallbackContext obj)
-    {
-        if (currentState != inAirState && currentState != stunnedState)
-        {
-            if (canAttack)
-            {
-                //canAttack = false;
-                RotateToTarget();
-                Attack(false);
-
-               
-            }
-        }
-    }
-    void Attack(bool light)
-    {
-        if (currentState == stunnedState) { return; }
-        if (Time.time - lastComboEnd > 0.5f && comboCounter < lightCombo.Count)
-        {
-            if (Time.time - lastClickedTime >= .4f)
-            {
-                cam.canRotate = false;
-                canAttack = false;
-                SwitchState(attackState);
-                if (lastRoutine != null) { StopCoroutine(lastRoutine); }
-                
-                if (light)
-                {
-                    if (resources.scrapStyle)
-                    {
-                        if (comboCounter == 0)
-                        {
-                            resources.lightStyle.Attack1(1, 1);
-                        }
-
-                        else if (comboCounter == 1)
-                        {
-                            resources.lightStyle.Attack2(1, 1);
-                        }
-
-                        else
-                        {
-                            resources.lightStyle.Attack3(1, 1);
-                        }
-                    }
-
-                    else if (resources.scrapShift)
-                    {
-                        if (comboCounter == 0)
-                        {
-                            resources.shift.LAttack1(1, 1);
-                        }
-
-                        else if (comboCounter == 1)
-                        {
-                            resources.shift.LAttack2(1, 1);
-                        }
-
-                        else
-                        {
-                            resources.shift.LAttack3(1, 1);
-                        }
-                    }
-                    else
-                    {
-                        anim.runtimeAnimatorController = lightCombo[comboCounter];
-                        //Debug.Log("LIGHT ATTACK: " + comboCounter);
-                    }
-                    audioManager.BaseSwing();
-
-                  
-                }
-
-                else if (!light)
-                {
-                    if (resources.scrapStyle)
-                    {
-                        if (comboCounter == 0)
-                        {
-                            resources.heavyStyle.Attack1(1, 1);
-                        }
-
-                        else if (comboCounter == 1)
-                        {
-                            resources.heavyStyle.Attack2(1, 1);
-                        }
-
-                        else
-                        {
-                            resources.heavyStyle.Attack3(1, 1);
-                        }
-                    }
-
-                    else if (resources.scrapShift)
-                    {
-                        if (comboCounter == 0)
-                        {
-                            resources.shift.HAttack1(1, 1);
-                        }
-
-                        else if (comboCounter == 1)
-                        {
-                            resources.shift.HAttack2(1, 1);
-                        }
-
-                        else
-                        {
-                            resources.shift.HAttack3(1, 1);
-                        }
-                    }
-
-                    else
-                    {
-                        anim.runtimeAnimatorController = heavyCombo[comboCounter];
-                        Debug.Log("HEAVY ATTACK: " + comboCounter);
-                    }
-
-                    audioManager.BaseAttackMetallic();
-
-                }
-
-                anim.Play("Attack", 0, 0);
-                AttackRumble();
-                comboCounter++;
-                lastClickedTime = Time.time;
-                resources.invincible = false;
-
-                if (comboCounter >= lightCombo.Count)
-                {
-                    comboCounter = 0;
-                }
-            }
-        }
-    }
-
-    void AttackRumble()
-    {
-        if (comboCounter < 2)
-        {
-            RumbleManager.instance.RumblePulse(lr1, lr2, lrDur);
-        }
-
-        else
-        {
-            RumbleManager.instance.RumblePulse(hr1, hr2, hrDur);
-        }
-    }
-    public void ExitAttack()
-    {
-        canAttack = true;
-        CanRotate();
-        EndCombo();
-    }
-    void EndCombo()
-    {
-        SwitchState(idleState);
-       lastRoutine =  StartCoroutine(ResetCombo());
-        CanRotate();
-    }
-    IEnumerator ResetCombo()
-    {
-        yield return new WaitForSeconds(1);
-        Debug.Log("dude");
-        comboCounter = 0;
-        lastComboEnd = Time.time;
-        canAttack = true;
-    }
-
+    
     public void Pull(InputAction.CallbackContext obj)
     {
         if (canAttack && lockOn.currentTarget != null && currentState != stunnedState)
@@ -675,7 +480,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
 
     }
-    #endregion
+
 
     #region Jumping
     public void Jump(InputAction.CallbackContext obj)
@@ -722,7 +527,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         if (resources.invincible) return;
 
         StopAllCoroutines();
-        EndCombo();
         resources.invincible = true;
         SwitchState(stunnedState);
         anim.SetBool("Stunned", true);
