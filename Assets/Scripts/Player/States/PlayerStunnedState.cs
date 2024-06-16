@@ -6,7 +6,7 @@ public class PlayerStunnedState : PlayerState
 {
     public override void EnterState(PlayerStateManager player)
     {
-        player.velocity = Vector3.zero;
+        player.pm.velocity = Vector3.zero;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -21,8 +21,8 @@ public class PlayerStunnedState : PlayerState
 
     public override void PhysicsUpdate(PlayerStateManager player)
     {
-        player.velocity.y = player.yVelocity;
-        player.controller.Move(player.velocity * Time.deltaTime);
+        player.pm.velocity.y = player.pm.yVelocity;
+        player.controller.Move(player.pm.velocity * Time.deltaTime);
     }
 
     public override void HandleBufferedInput(InputCommand command)

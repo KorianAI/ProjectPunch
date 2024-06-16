@@ -20,18 +20,12 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     // states
     public PlayerIdleState idleState = new PlayerIdleState();
     public PlayerMoveState moveState = new PlayerMoveState();
-    public PlayerAttackState attackState = new PlayerAttackState();
+    public PlayerAttackBase attackState = new PlayerAttackBase();
     public PlayerAirState inAirState = new PlayerAirState();
     public PlayerRailState railState = new PlayerRailState();
     public PlayerStunnedState stunnedState = new PlayerStunnedState();
 
-    [Header("MovementInputs")]
-    public InputActionReference move;
-    public InputActionReference jump;
-
     [Header("CombatInputs")]
-    public InputActionReference lightAttack;
-    public InputActionReference heavyAttack;
     public InputActionReference pull;
     public InputActionReference push;
     public bool canAttack;
@@ -43,16 +37,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public float attackDamage;
     public GameObject hitVFX;
 
-    [Header("Movement")]
-    public float moveSpeed;
-    public float groundDrag;
-    public float jumpForce;
-    public float jumpCooldown;
-    public float airMultiplier;
-    public bool readyToJump;
-    [HideInInspector] public float walkSpeed;
-    [HideInInspector] public float sprintSpeed;
-    public Vector3 velocity;
     public EMRail rail;
 
     public Transform orientation;
@@ -60,13 +44,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public float verticalInput;
     public Vector3 moveDirection;
     public AnimationHandler animHandler;
-
-    [Header("Grav")]
-    public bool applyGrav = true;
-    [SerializeField] private float gravMultiplier = 3.0f;
-    private float gravity = -0.91f;   
-    public float yVelocity;
-    public bool grounded;
 
     public DebugState debugState;
     public TargetLock lockOn;
@@ -87,21 +64,11 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public CinemachineVirtualCamera railCam;
     public CinemachineVirtualCamera finisherCam;
 
-    [Header("GroundCheck")]
-    public LayerMask ground;
-    public float playerHeight;
-
     PlayerAudioManager audioManager;
 
-    public float lr1;
-    public float lr2;
-    public float lrDur;
-
-    public float hr1;
-    public float hr2;
-    public float hrDur;
-
-    public float attackMoveDistance;
+    public PlayerMovement pm;
+    public PlayerInputHandler inputHandler;
+    public PlayerCombat pc;
 
     public enum DebugState
     {
@@ -130,7 +97,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     private void OnEnable()
     {
-        jump.action.performed += Jump;
         pull.action.performed += Pull;
         push.action.performed += Push;
 
@@ -141,7 +107,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     private void OnDisable()
     {
-        jump.action.performed -= Jump;
         pull.action.performed -= Pull;
         push.action.performed -= Push;
 
@@ -155,8 +120,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         currentState = moveState;
         currentState.EnterState(this);
 
-        readyToJump = true;
-
         audioManager = GetComponent<PlayerAudioManager>();
 
         if (DOTween.IsTweening(transform))
@@ -166,75 +129,14 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     }
 
     private void Update()
-    {
-        IsGrounded();
-        anim.SetBool("isGrounded", grounded);
-        ApplyGravity();
-
+    {      
         currentState.FrameUpdate(this);
+        
         //Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
         ShowDebugState();
     }
 
-    public void MovementInput()
-    {
-        Vector2 movementInput = move.action.ReadValue<Vector2>();
 
-        if (grounded)
-        {
-            horizontalInput = movementInput.x;
-            verticalInput = movementInput.y;
-        }
-
-        else
-        {
-            horizontalInput = movementInput.x;
-            verticalInput = movementInput.y;
-        }
-
-
-        velocity = moveDirection * moveSpeed + Vector3.up * yVelocity;
-    }
-
-    public void ApplyGravity()
-    {
-        if (grounded && currentState != inAirState)
-        {
-            yVelocity = -1f;
-        }
-
-        else
-        {
-            if (currentState == inAirState || currentState == stunnedState)
-            {
-                yVelocity += gravity * gravMultiplier * Time.deltaTime;
-            }
-
-            else
-            {
-                yVelocity = 0f;
-            }
-            
-        }                  
-    }
-
-    public void IsGrounded()
-    {
-        RaycastHit debugHit;
-        bool groundRaycast = Physics.Raycast(transform.position, Vector3.down, out debugHit, playerHeight * 0.5f + 0.2f, ground);
-
-
-
-        if (groundRaycast && controller.isGrounded)
-        {
-            grounded = true;
-        }
-
-        if (!groundRaycast)
-        {
-            grounded = false;
-        }
-    }  
 
     void ShowDebugState()
     {
@@ -480,38 +382,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
 
     }
-
-
-    #region Jumping
-    public void Jump(InputAction.CallbackContext obj)
-    {
-        if (currentState == railState && canAttack)
-        {
-            CameraManager.SwitchPlayerCam(playerCam);
-
-            lockOn.currentTarget = null;
-            lockOn.isTargeting = false;
-            lockOn.lastTargetTag = null;
-            cam.canRotate = true;
-
-            transform.SetParent(null);
-            currentState = inAirState;
-
-            anim.Play("PlayerInAir");
-            anim.SetBool("onRail", false);
-        }
-        
-        if (currentState != moveState && currentState != idleState) return;
-
-        if (grounded) //readyToJump check removed due to bug (issue #3)
-        {
-            yVelocity = jumpForce;
-            anim.Play("PlayerJumpStart");
-            SwitchState(inAirState);
-        }       
-    }
-
-    #endregion
 
 
     private void OnDrawGizmos()

@@ -43,8 +43,8 @@ public class Respawn : MonoBehaviour
             // ^ nuclear option in case this script doesn't work
 
             sm.SwitchState(sm.idleState);
-            sm.yVelocity = 0;
-            sm.velocity = Vector3.zero;
+            sm.pm.yVelocity = 0;
+            sm.pm.velocity = Vector3.zero;
             canReset = false;
 
             if (cpManager != null)

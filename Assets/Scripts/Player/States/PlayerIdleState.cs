@@ -7,8 +7,8 @@ public class PlayerIdleState : PlayerState
 {
     public override void EnterState(PlayerStateManager player)
     {
-        player.animHandler.ChangeAnimationState("PlayerIdle");
-        player.velocity = Vector3.zero;
+        _sm = player;
+        player.pm.velocity = Vector3.zero;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -19,12 +19,12 @@ public class PlayerIdleState : PlayerState
     public override void FrameUpdate(PlayerStateManager player)
     {
 
-        if (!player.grounded)
+        if (!player.pm.grounded)
         {
             player.SwitchState(player.inAirState);
         }
 
-        if (player.move.action.ReadValue<Vector2>() != Vector2.zero)
+        if (player.inputHandler.InputMaster.Player.Movement.ReadValue<Vector2>() != Vector2.zero)
         {
             player.SwitchState(player.moveState);
         }
@@ -37,6 +37,17 @@ public class PlayerIdleState : PlayerState
 
     public override void HandleBufferedInput(InputCommand command)
     {
+        if (command.Type == InputType.X)
+        {
+            Debug.Log("Light Attack received in move state");
+            // Example transition to Attack1State
+            _sm.SwitchState(new PlayerLightAttack());
+        }
 
+        else if (command.Type == InputType.Y)
+        {
+            Debug.Log("Heavy Attack received in move state");
+            _sm.SwitchState(new PlayerHeavyAttack());
+        }
     }
 }

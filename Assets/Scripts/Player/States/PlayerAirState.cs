@@ -12,7 +12,7 @@ public class PlayerAirState : PlayerState
     {
         
         _player = player;
-        player.readyToJump = false;
+        player.pm.readyToJump = false;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -23,27 +23,38 @@ public class PlayerAirState : PlayerState
 
     public override void FrameUpdate(PlayerStateManager player)
     {
-        if (player.grounded && player.yVelocity < 0)
+        if (player.pm.grounded && player.pm.yVelocity < 0)
         {
             player.SwitchState(player.moveState);
         }
 
-        player.MovementInput();
+        player.pm.MovementInput();
     }
 
 
 
     public override void PhysicsUpdate(PlayerStateManager player)
     {
-        player.moveDirection = player.orientation.forward * player.verticalInput + player.orientation.right * player.horizontalInput;
+        player.pm.moveDirection = player.orientation.forward * player.pm.verticalInput + player.orientation.right * player.pm.horizontalInput;
 
-        player.velocity.y = player.yVelocity;
-        player.controller.Move(player.velocity * Time.deltaTime);
+        player.pm.velocity.y = player.pm.yVelocity;
+        player.pm.controller.Move(player.pm.velocity * Time.deltaTime);
     }
 
     public override void HandleBufferedInput(InputCommand command)
     {
+        if (command.Type == InputType.X)
+        {
+            Debug.Log("Light Attack received in move state");
+            // Example transition to Attack1State
+            _sm.SwitchState(new PlayerLightAttack());
+        }
 
+        else if (command.Type == InputType.Y)
+        {
+            Debug.Log("Heavy Attack received in move state");
+            _sm.SwitchState(new PlayerHeavyAttack());
+        }
     }
 
 }

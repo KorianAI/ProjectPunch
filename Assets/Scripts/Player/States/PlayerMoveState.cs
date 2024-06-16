@@ -9,6 +9,7 @@ public class PlayerMoveState : PlayerState
     public override void EnterState(PlayerStateManager player)
     {
         player.anim.SetBool("isWalking", true);
+        _sm = player;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -21,10 +22,10 @@ public class PlayerMoveState : PlayerState
         // ground check
         // collision.grounded = Physics.Raycast(collision.transform.position, Vector3.down, collision.playerHeight * 0.5f + 0.3f, collision.whatIsGround);
 
-        player.MovementInput();
+        player.pm.MovementInput();
         //SpeedControl(collision);
 
-        if (player.move.action.ReadValue<Vector2>() == Vector2.zero)
+        if (player.inputHandler.InputMaster.Player.Movement.ReadValue<Vector2>() == Vector2.zero)
         {
             player.SwitchState(player.idleState);
         }
@@ -40,14 +41,25 @@ public class PlayerMoveState : PlayerState
     private void MovePlayer(PlayerStateManager player)
     {
         // calculate movement direction
-        player.moveDirection = player.orientation.forward * player.verticalInput + player.orientation.right * player.horizontalInput;
+        player.pm.moveDirection = player.orientation.forward * player.pm.verticalInput + player.orientation.right * player.pm.horizontalInput;
 
         // on ground
-        player.controller.SimpleMove(player.velocity);
+        player.pm.controller.SimpleMove(player.pm.velocity);
     }
 
     public override void HandleBufferedInput(InputCommand command)
     {
+        if (command.Type == InputType.X)
+        {
+            Debug.Log("Light Attack received in move state");
+            // Example transition to Attack1State
+            _sm.SwitchState(new PlayerLightAttack());
+        }
 
+        else if (command.Type == InputType.Y)
+        {
+            Debug.Log("Heavy Attack received in move state");
+            _sm.SwitchState(new PlayerHeavyAttack());
+        }
     }
 }
