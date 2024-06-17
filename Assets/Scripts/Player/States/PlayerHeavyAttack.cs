@@ -7,8 +7,10 @@ public class PlayerHeavyAttack : PlayerAttackBase
     public override void EnterState(PlayerStateManager player)
     {
         base.EnterState(player);
-        duration = 0.5f;
+        duration = 1f;
         player.anim.SetTrigger("HeavyAttack");
+        canAttack = false;
+
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -18,9 +20,18 @@ public class PlayerHeavyAttack : PlayerAttackBase
 
     public override void FrameUpdate(PlayerStateManager player)
     {
-        if (fixedtime >= .8f)
+        base.FrameUpdate(player);
+        if (fixedtime > duration)
         {
-            _sm.SwitchState(new PlayerIdleState());
+            if (_sm.inputHandler.GetBufferedInputs().Length > 0)
+            {
+                _sm.inputHandler.SetCanConsumeInput(true);
+            }
+
+            else
+            {
+                _sm.SwitchState(new PlayerIdleState());
+            }
         }
     }
 
@@ -31,8 +42,6 @@ public class PlayerHeavyAttack : PlayerAttackBase
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        if (fixedtime > duration)
-        {
             if (command.Type == InputType.X)
             {
                 _sm.SwitchState(new PlayerLightAttack());
@@ -44,6 +53,5 @@ public class PlayerHeavyAttack : PlayerAttackBase
                 Debug.Log("Heavy Attack received in heavy state");
                 _sm.SwitchState(new PlayerHeavyAttack());
             }
-        }
     }
 }

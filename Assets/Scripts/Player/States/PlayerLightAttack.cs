@@ -11,6 +11,7 @@ public class PlayerLightAttack : PlayerAttackBase
         base.EnterState(player);
         duration = 0.5f;
         player.anim.SetTrigger("LightAttack");
+        canAttack = false;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -21,10 +22,18 @@ public class PlayerLightAttack : PlayerAttackBase
     public override void FrameUpdate(PlayerStateManager player)
     {
         base.FrameUpdate(player);
-        if (fixedtime >= .8f)
+
+        if (fixedtime > duration)
         {
-            Debug.Log("breh");
-            _sm.SwitchState(new PlayerIdleState());
+            if (_sm.inputHandler.GetBufferedInputs().Length > 0)
+            {
+                _sm.inputHandler.SetCanConsumeInput(true);
+            }
+
+            else
+            {
+                _sm.SwitchState(new PlayerIdleState());
+            }
         }
 
     }

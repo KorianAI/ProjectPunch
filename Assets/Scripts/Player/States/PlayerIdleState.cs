@@ -7,8 +7,10 @@ public class PlayerIdleState : PlayerState
 {
     public override void EnterState(PlayerStateManager player)
     {
+        
         _sm = player;
         player.pm.velocity = Vector3.zero;
+        _sm.inputHandler.SetCanConsumeInput(true);
     }
 
     public override void ExitState(PlayerStateManager player)

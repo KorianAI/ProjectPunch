@@ -7,13 +7,14 @@ public class PlayerAttackBase : PlayerState
 {
     public float duration;
     protected Animator animator;
-    protected bool canAttack;
+    protected bool canAttack = false;
     public int attackIndex;
 
     public override void EnterState(PlayerStateManager player)
     {
         base.EnterState(player);
         animator = GetComponent<Animator>();
+        _sm.inputHandler.SetCanConsumeInput(false);
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -24,6 +25,7 @@ public class PlayerAttackBase : PlayerState
     public override void FrameUpdate(PlayerStateManager player)
     {
         base.FrameUpdate(player);
+       
     }
 
     public override void HandleBufferedInput(InputCommand command)

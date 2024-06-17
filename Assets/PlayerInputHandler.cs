@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerInputHandler : MonoBehaviour
@@ -14,6 +15,8 @@ public class PlayerInputHandler : MonoBehaviour
     private Queue<InputCommand> inputBuffer = new Queue<InputCommand>();
     public float bufferTime = 0.5f; // Buffer time in seconds
     public float bufferTimer;
+
+    public bool canConsumeInput;
 
     private void Awake()
     {
@@ -55,7 +58,11 @@ public class PlayerInputHandler : MonoBehaviour
             inputBuffer.Clear(); // Clear buffer after timer expires
         }
 
-        ConsumeBufferedInput();
+        if (canConsumeInput)
+        {
+            ConsumeBufferedInput();
+        }
+        
     }
 
     private void BufferInput(InputCommand command)
@@ -65,14 +72,20 @@ public class PlayerInputHandler : MonoBehaviour
 
     }
 
-    private void ConsumeBufferedInput()
+    public void ConsumeBufferedInput()
     {
         if (inputBuffer.Count > 0)
         {
-            var command = inputBuffer.Dequeue();
-
-            sm.currentState.HandleBufferedInput(command); // Pass the command to the current state for handling
+            //var command = inputBuffer.Dequeue();
+            Debug.Log("consumed");
+            sm.currentState.HandleBufferedInput(inputBuffer.Dequeue()); // Pass the command to the current state for handling
+            canConsumeInput = false;
         }
+    }
+
+    public void SetCanConsumeInput(bool canConsume)
+    {
+        canConsumeInput = canConsume;
     }
 
     public InputCommand[] GetBufferedInputs()
