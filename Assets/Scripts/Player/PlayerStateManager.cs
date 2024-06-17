@@ -341,12 +341,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         
     }
 
-    public void ShotgunBlast()
-    {
-        ScrapShotgun shotgun = GetComponentInChildren<ScrapShotgun>();
-        shotgun.ShotgunBlast();
-    }
-
     public void CheckForEnemies(float attackType)
     {
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);

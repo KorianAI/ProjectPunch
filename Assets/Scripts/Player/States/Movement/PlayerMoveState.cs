@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMoveState : PlayerState
+public class PlayerMoveState : PlayerMovementBase
 {
     
     public override void EnterState(PlayerStateManager player)
@@ -49,17 +49,6 @@ public class PlayerMoveState : PlayerState
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        if (command.Type == InputType.X)
-        {
-            Debug.Log("Light Attack received in move state");
-            // Example transition to Attack1State
-            _sm.SwitchState(new PlayerLightAttack());
-        }
-
-        else if (command.Type == InputType.Y)
-        {
-            Debug.Log("Heavy Attack received in move state");
-            _sm.SwitchState(new PlayerHeavyAttack());
-        }
+        base.HandleBufferedInput(command);
     }
 }

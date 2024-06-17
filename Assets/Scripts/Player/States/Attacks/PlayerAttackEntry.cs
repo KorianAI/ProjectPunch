@@ -7,15 +7,14 @@ public class PlayerAttackEntry : PlayerState
     public override void EnterState(PlayerStateManager player)
     {
 
-        // if grounded
+        if (_sm.pm.grounded)
         {
-            // start ground combo
+            // enter ground combo
         }
 
-        // else
-
+        else
         {
-            // start air combo
+            _sm.SwitchState(new PlayerAirState());
         }
     }
 

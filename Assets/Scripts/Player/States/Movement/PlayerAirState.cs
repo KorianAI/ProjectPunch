@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
-public class PlayerAirState : PlayerState
+public class PlayerAirState : PlayerMovementBase
 {
     public PlayerStateManager _player;
     bool fallAnim; 
@@ -43,18 +43,7 @@ public class PlayerAirState : PlayerState
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        if (command.Type == InputType.X)
-        {
-            Debug.Log("Light Attack received in move state");
-            // Example transition to Attack1State
-            _sm.SwitchState(new PlayerLightAttack());
-        }
-
-        else if (command.Type == InputType.Y)
-        {
-            Debug.Log("Heavy Attack received in move state");
-            _sm.SwitchState(new PlayerHeavyAttack());
-        }
+        base.HandleBufferedInput(command);
     }
 
 }
