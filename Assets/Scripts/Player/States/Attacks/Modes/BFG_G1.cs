@@ -23,6 +23,8 @@ public class BFG_G1 : PlayerAttackBase
         base.FrameUpdate(player);
         if (fixedtime > duration)
         {
+            canAttack = true;
+
             if (_sm.inputHandler.GetBufferedInputs().Length > 0)
             {
                 _sm.inputHandler.SetCanConsumeInput(true);
@@ -42,6 +44,8 @@ public class BFG_G1 : PlayerAttackBase
 
     public override void HandleBufferedInput(InputCommand command)
     {
+        if (canAttack)
+        {
             if (command.Type == InputType.X)
             {
                 _sm.resources.attachment.Input(command, _sm.pm.grounded);
@@ -52,5 +56,11 @@ public class BFG_G1 : PlayerAttackBase
                 Debug.Log("Heavy Attack received in heavy state");
                 _sm.SwitchState(new BFG_G2());
             }
+
+            else
+            {
+                base.HandleBufferedInput(command);
+            }
+        }
     }
 }

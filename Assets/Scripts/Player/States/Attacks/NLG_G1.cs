@@ -60,6 +60,11 @@ public class NLG_G1 : PlayerAttackBase
                 _sm.SwitchState(new NLG_G1());
                 Debug.Log("Light Attack received in light state");
             }
+
+            else
+            {
+                base.HandleBufferedInput(command);
+            }
         }
 
     }

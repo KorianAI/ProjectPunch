@@ -30,7 +30,10 @@ public class PlayerAttackBase : PlayerState
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        
+        if (command.Type == InputType.A)
+        {
+            _sm.pm.Jump();
+        }
     }
 
     public override void PhysicsUpdate(PlayerStateManager player)

@@ -10,7 +10,7 @@ public class PlayerAirState : PlayerMovementBase
 
     public override void EnterState(PlayerStateManager player)
     {
-        
+        base.EnterState(player);
         _player = player;
         player.pm.readyToJump = false;
     }

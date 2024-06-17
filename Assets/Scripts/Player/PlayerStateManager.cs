@@ -1,7 +1,9 @@
 using Cinemachine;
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -70,6 +72,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public PlayerInputHandler inputHandler;
     public PlayerCombat pc;
 
+    public string currentStateDebug;
+
     public enum DebugState
     {
         idle,
@@ -134,6 +138,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         
         //Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
         ShowDebugState();
+        currentStateDebug = currentState.ToSafeString();
     }
 
 
@@ -181,8 +186,15 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         //Debug.Log("Entered: " + state + " " + Time.time);
     }
 
+    public bool IsInMoveState(PlayerState state)
+    {
+        Type stateType = currentState.GetType();
+        return stateType == typeof(PlayerMoveState) ||
+               stateType == typeof(PlayerAirState) ||
+               stateType == typeof(PlayerIdleState);
+    }
 
-    
+
     public void Pull(InputAction.CallbackContext obj)
     {
         if (canAttack && lockOn.currentTarget != null && currentState != stunnedState)

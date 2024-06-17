@@ -45,6 +45,11 @@ public class PlayerInputHandler : MonoBehaviour
         {
             BufferInput(new InputCommand { Type = InputType.Y });
         };
+
+        InputMaster.Player.Jump.started += ctx =>
+        {
+            BufferInput(new InputCommand { Type = InputType.A });
+        };
     }
 
     private void Update()

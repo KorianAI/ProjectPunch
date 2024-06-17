@@ -31,7 +31,7 @@ public class PlayerState
 
     public virtual void HandleBufferedInput(InputCommand command)
     {
-
+        
     }
 
     #region Passthrough Methods

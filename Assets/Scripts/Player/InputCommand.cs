@@ -17,5 +17,7 @@ public class InputCommand
 public enum InputType
 {
     X,
-    Y
+    Y,
+    A,
+    B
 }

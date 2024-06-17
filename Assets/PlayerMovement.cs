@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     void OnEnable()
     {
         InputActions.Enable();
-        InputActions.Player.Jump.performed += ctx => { Jump(); };
+        //InputActions.Player.Jump.performed += ctx => { Jump(); };
     }
 
     void OnDisable()
@@ -121,6 +121,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
+        Debug.Log("1");
+
         if (sm.currentState == sm.railState && sm.canAttack)
         {
             CameraManager.SwitchPlayerCam(sm.playerCam);
@@ -137,13 +139,16 @@ public class PlayerMovement : MonoBehaviour
             sm.anim.SetBool("onRail", false);
         }
 
-        if (sm.currentState != sm.moveState && sm.currentState != sm.idleState) return;
+        //if (sm.currentState != sm.moveState && sm.currentState != sm.idleState) return;
+
+        Debug.Log("2");
 
         if (grounded) //readyToJump check removed due to bug (issue #3)
         {
             yVelocity = jumpForce;
             sm.anim.Play("PlayerJumpStart");
             sm.SwitchState(sm.inAirState);
+            Debug.Log("3");
         }
     }
 }

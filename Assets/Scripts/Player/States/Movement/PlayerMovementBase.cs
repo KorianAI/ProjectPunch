@@ -21,7 +21,9 @@ public class PlayerMovementBase : PlayerState
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        if (_sm.resources.scrapShift)
+        if (command == null) return;
+
+        if (_sm.resources.shift != null)
         {
             _sm.SwitchState(new PlayerIdleState());
         }
@@ -38,6 +40,11 @@ public class PlayerMovementBase : PlayerState
             {
                 Debug.Log("Heavy Attack received in move state");
                 _sm.resources.mode.Input(command, _sm.pm.grounded);
+            }
+
+            else if (command.Type == InputType.A)
+            {
+                _sm.pm.Jump();
             }
         }
 

@@ -8,6 +8,7 @@ public class PlayerMoveState : PlayerMovementBase
     
     public override void EnterState(PlayerStateManager player)
     {
+        base.EnterState(player);
         player.anim.SetBool("isWalking", true);
         _sm = player;
     }
