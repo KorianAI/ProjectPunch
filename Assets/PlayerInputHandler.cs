@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class PlayerInputHandler : MonoBehaviour
@@ -11,8 +10,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public InputMaster InputMaster { get; private set; }
 
-
-    private Queue<InputCommand> inputBuffer = new Queue<InputCommand>();
+    private Stack<InputCommand> inputBuffer = new Stack<InputCommand>();
     public float bufferTime = 0.5f; // Buffer time in seconds
     public float bufferTimer;
 
@@ -41,7 +39,6 @@ public class PlayerInputHandler : MonoBehaviour
         InputMaster.Player.LightAttack.started += ctx =>
         {
             BufferInput(new InputCommand { Type = InputType.X });
-
         };
 
         InputMaster.Player.HeavyAttack.started += ctx =>
@@ -62,23 +59,20 @@ public class PlayerInputHandler : MonoBehaviour
         {
             ConsumeBufferedInput();
         }
-        
     }
 
     private void BufferInput(InputCommand command)
     {
-        inputBuffer.Enqueue(command);
+        inputBuffer.Push(command); // Add to the stack
         bufferTimer = bufferTime; // Reset buffer timer when a new command is added
-
     }
 
     public void ConsumeBufferedInput()
     {
         if (inputBuffer.Count > 0)
         {
-            //var command = inputBuffer.Dequeue();
             Debug.Log("consumed");
-            sm.currentState.HandleBufferedInput(inputBuffer.Dequeue()); // Pass the command to the current state for handling
+            sm.currentState.HandleBufferedInput(inputBuffer.Pop()); // Pass the command to the current state for handling
             canConsumeInput = false;
         }
     }
