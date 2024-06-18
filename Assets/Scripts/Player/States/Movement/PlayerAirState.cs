@@ -28,17 +28,20 @@ public class PlayerAirState : PlayerMovementBase
             player.SwitchState(player.moveState);
         }
 
-        player.pm.MovementInput();
+ 
     }
-
 
 
     public override void PhysicsUpdate(PlayerStateManager player)
     {
-        player.pm.moveDirection = player.orientation.forward * player.pm.verticalInput + player.orientation.right * player.pm.horizontalInput;
+
+           
+     
+
 
         player.pm.velocity.y = player.pm.yVelocity;
         player.pm.controller.Move(player.pm.velocity * Time.deltaTime);
+       
     }
 
     public override void HandleBufferedInput(InputCommand command)

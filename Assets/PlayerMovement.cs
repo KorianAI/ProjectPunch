@@ -6,11 +6,15 @@ public class PlayerMovement : MonoBehaviour
 {
     public PlayerStateManager sm;
     public CharacterController controller;
-    public float moveSpeed;
+    public float currentSpeed;
+    public float airSpeed;
+
+    public float runSpeed;
     public float groundDrag;
     public float jumpForce;
     public float jumpCooldown;
-    public float airMultiplier;
+    public bool jumpInputCD;
+
 
 
     public Vector3 moveDirection;
@@ -79,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        velocity = moveDirection * moveSpeed + Vector3.up * yVelocity;
+        velocity = moveDirection * currentSpeed + Vector3.up * yVelocity;
     }
 
     public void ApplyGravity()
@@ -111,18 +115,18 @@ public class PlayerMovement : MonoBehaviour
         if (groundRaycast && controller.isGrounded)
         {
             grounded = true;
+            currentSpeed = runSpeed;
         }
 
         if (!groundRaycast)
         {
             grounded = false;
+            currentSpeed = airSpeed;
         }
     }
 
     public void Jump()
     {
-        Debug.Log("1");
-
         if (sm.currentState == sm.railState && sm.canAttack)
         {
             CameraManager.SwitchPlayerCam(sm.playerCam);
@@ -141,14 +145,20 @@ public class PlayerMovement : MonoBehaviour
 
         //if (sm.currentState != sm.moveState && sm.currentState != sm.idleState) return;
 
-        Debug.Log("2");
+ 
 
         if (grounded) //readyToJump check removed due to bug (issue #3)
-        {
-            yVelocity = jumpForce;
-            sm.anim.Play("PlayerJumpStart");
-            sm.SwitchState(sm.inAirState);
-            Debug.Log("3");
+        {           
+            sm.anim.Play("PlayerJumpStart");         
         }
     }
+
+    public void JumpForce()
+    {
+        yVelocity = jumpForce;
+        jumpInputCD = true;
+        sm.SwitchState(sm.inAirState);
+    }
+
+
 }

@@ -7,7 +7,7 @@ public class BFG_G2 : PlayerAttackBase
     public override void EnterState(PlayerStateManager player)
     {
         base.EnterState(player);
-        duration = 1f;
+        duration = .5f;
         player.anim.SetTrigger("HeavyAttack2");
         canAttack = false;
     }
