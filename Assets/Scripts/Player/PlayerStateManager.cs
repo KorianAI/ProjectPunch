@@ -1,7 +1,9 @@
 using Cinemachine;
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,18 +22,12 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     // states
     public PlayerIdleState idleState = new PlayerIdleState();
     public PlayerMoveState moveState = new PlayerMoveState();
-    public PlayerAttack attackState = new PlayerAttack();
+    public PlayerAttackBase attackState = new PlayerAttackBase();
     public PlayerAirState inAirState = new PlayerAirState();
     public PlayerRailState railState = new PlayerRailState();
     public PlayerStunnedState stunnedState = new PlayerStunnedState();
 
-    [Header("MovementInputs")]
-    public InputActionReference move;
-    public InputActionReference jump;
-
     [Header("CombatInputs")]
-    public InputActionReference lightAttack;
-    public InputActionReference heavyAttack;
     public InputActionReference pull;
     public InputActionReference push;
     public bool canAttack;
@@ -43,24 +39,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public float attackDamage;
     public GameObject hitVFX;
 
-    [Header("Combos")]
-    float lastClickedTime;
-    float lastComboEnd;
-    public int comboCounter;
-    public List<AnimatorOverrideController> lightCombo;
-    public List<AnimatorOverrideController> heavyCombo;
-    Coroutine lastRoutine;
-
-    [Header("Movement")]
-    public float moveSpeed;
-    public float groundDrag;
-    public float jumpForce;
-    public float jumpCooldown;
-    public float airMultiplier;
-    public bool readyToJump;
-    [HideInInspector] public float walkSpeed;
-    [HideInInspector] public float sprintSpeed;
-    public Vector3 velocity;
     public EMRail rail;
 
     public Transform orientation;
@@ -68,13 +46,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public float verticalInput;
     public Vector3 moveDirection;
     public AnimationHandler animHandler;
-
-    [Header("Grav")]
-    public bool applyGrav = true;
-    [SerializeField] private float gravMultiplier = 3.0f;
-    private float gravity = -0.91f;   
-    public float yVelocity;
-    public bool grounded;
 
     public DebugState debugState;
     public TargetLock lockOn;
@@ -95,23 +66,13 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public CinemachineVirtualCamera railCam;
     public CinemachineVirtualCamera finisherCam;
 
-    [Header("GroundCheck")]
-    public LayerMask ground;
-    public float playerHeight;
-
     PlayerAudioManager audioManager;
 
-    public float lr1;
-    public float lr2;
-    public float lrDur;
+    public PlayerMovement pm;
+    public PlayerInputHandler inputHandler;
+    public PlayerCombat pc;
 
-    public float hr1;
-    public float hr2;
-    public float hrDur;
-
-    public float attackMoveDistance;
-    public float attackBufferTime = 0.2f;
-    public float aBuffTimer;
+    public string currentStateDebug;
 
     public enum DebugState
     {
@@ -140,9 +101,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     private void OnEnable()
     {
-        lightAttack.action.performed += LightAttack;
-        heavyAttack.action.performed += HeavyAttack;
-        jump.action.performed += Jump;
         pull.action.performed += Pull;
         push.action.performed += Push;
 
@@ -153,9 +111,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     private void OnDisable()
     {
-        lightAttack.action.performed -= LightAttack;
-        heavyAttack.action.performed -= HeavyAttack;
-        jump.action.performed -= Jump;
         pull.action.performed -= Pull;
         push.action.performed -= Push;
 
@@ -169,8 +124,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         currentState = moveState;
         currentState.EnterState(this);
 
-        readyToJump = true;
-
         audioManager = GetComponent<PlayerAudioManager>();
 
         if (DOTween.IsTweening(transform))
@@ -180,75 +133,15 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     }
 
     private void Update()
-    {
-        IsGrounded();
-        anim.SetBool("isGrounded", grounded);
-        ApplyGravity();
-
+    {      
         currentState.FrameUpdate(this);
+        
         //Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
         ShowDebugState();
+        currentStateDebug = currentState.ToSafeString();
     }
 
-    public void MovementInput()
-    {
-        Vector2 movementInput = move.action.ReadValue<Vector2>();
 
-        if (grounded)
-        {
-            horizontalInput = movementInput.x;
-            verticalInput = movementInput.y;
-        }
-
-        else
-        {
-            horizontalInput = movementInput.x;
-            verticalInput = movementInput.y;
-        }
-
-
-        velocity = moveDirection * moveSpeed + Vector3.up * yVelocity;
-    }
-
-    public void ApplyGravity()
-    {
-        if (grounded && currentState != inAirState)
-        {
-            yVelocity = -1f;
-        }
-
-        else
-        {
-            if (currentState == inAirState || currentState == stunnedState)
-            {
-                yVelocity += gravity * gravMultiplier * Time.deltaTime;
-            }
-
-            else
-            {
-                yVelocity = 0f;
-            }
-            
-        }                  
-    }
-
-    public void IsGrounded()
-    {
-        RaycastHit debugHit;
-        bool groundRaycast = Physics.Raycast(transform.position, Vector3.down, out debugHit, playerHeight * 0.5f + 0.2f, ground);
-
-
-
-        if (groundRaycast && controller.isGrounded)
-        {
-            grounded = true;
-        }
-
-        if (!groundRaycast)
-        {
-            grounded = false;
-        }
-    }  
 
     void ShowDebugState()
     {
@@ -293,188 +186,14 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         //Debug.Log("Entered: " + state + " " + Time.time);
     }
 
-    #region Combat
-    public void LightAttack(InputAction.CallbackContext obj)
+    public bool IsInMoveState(PlayerState state)
     {
-        if (currentState != inAirState && currentState != stunnedState)
-        {
-            if (canAttack)
-            {
-                //canAttack = false;
-                RotateToTarget();
-                Attack(true);
-
-
-            }
-        }
-    }
-    public void HeavyAttack(InputAction.CallbackContext obj)
-    {
-        if (currentState != inAirState && currentState != stunnedState)
-        {
-            if (canAttack)
-            {
-                //canAttack = false;
-                RotateToTarget();
-                Attack(false);
-
-               
-            }
-        }
-    }
-    void Attack(bool light)
-    {
-        if (currentState == stunnedState) { return; }
-        if (Time.time - lastComboEnd > 0.5f && comboCounter < lightCombo.Count)
-        {
-            if (Time.time - lastClickedTime >= .4f)
-            {
-                cam.canRotate = false;
-                canAttack = false;
-                SwitchState(attackState);
-                if (lastRoutine != null) { StopCoroutine(lastRoutine); }
-                
-                if (light)
-                {
-                    if (resources.scrapStyle)
-                    {
-                        if (comboCounter == 0)
-                        {
-                            resources.lightStyle.Attack1(1, 1);
-                        }
-
-                        else if (comboCounter == 1)
-                        {
-                            resources.lightStyle.Attack2(1, 1);
-                        }
-
-                        else
-                        {
-                            resources.lightStyle.Attack3(1, 1);
-                        }
-                    }
-
-                    else if (resources.scrapShift)
-                    {
-                        if (comboCounter == 0)
-                        {
-                            resources.shift.LAttack1(1, 1);
-                        }
-
-                        else if (comboCounter == 1)
-                        {
-                            resources.shift.LAttack2(1, 1);
-                        }
-
-                        else
-                        {
-                            resources.shift.LAttack3(1, 1);
-                        }
-                    }
-                    else
-                    {
-                        anim.runtimeAnimatorController = lightCombo[comboCounter];
-                        //Debug.Log("LIGHT ATTACK: " + comboCounter);
-                    }
-                    audioManager.BaseSwing();
-
-                  
-                }
-
-                else if (!light)
-                {
-                    if (resources.scrapStyle)
-                    {
-                        if (comboCounter == 0)
-                        {
-                            resources.heavyStyle.Attack1(1, 1);
-                        }
-
-                        else if (comboCounter == 1)
-                        {
-                            resources.heavyStyle.Attack2(1, 1);
-                        }
-
-                        else
-                        {
-                            resources.heavyStyle.Attack3(1, 1);
-                        }
-                    }
-
-                    else if (resources.scrapShift)
-                    {
-                        if (comboCounter == 0)
-                        {
-                            resources.shift.HAttack1(1, 1);
-                        }
-
-                        else if (comboCounter == 1)
-                        {
-                            resources.shift.HAttack2(1, 1);
-                        }
-
-                        else
-                        {
-                            resources.shift.HAttack3(1, 1);
-                        }
-                    }
-
-                    else
-                    {
-                        anim.runtimeAnimatorController = heavyCombo[comboCounter];
-                        Debug.Log("HEAVY ATTACK: " + comboCounter);
-                    }
-
-                    audioManager.BaseAttackMetallic();
-
-                }
-
-                anim.Play("Attack", 0, 0);
-                AttackRumble();
-                comboCounter++;
-                lastClickedTime = Time.time;
-                resources.invincible = false;
-
-                if (comboCounter >= lightCombo.Count)
-                {
-                    comboCounter = 0;
-                }
-            }
-        }
+        Type stateType = currentState.GetType();
+        return stateType == typeof(PlayerMoveState) ||
+               stateType == typeof(PlayerAirState) ||
+               stateType == typeof(PlayerIdleState);
     }
 
-    void AttackRumble()
-    {
-        if (comboCounter < 2)
-        {
-            RumbleManager.instance.RumblePulse(lr1, lr2, lrDur);
-        }
-
-        else
-        {
-            RumbleManager.instance.RumblePulse(hr1, hr2, hrDur);
-        }
-    }
-    public void ExitAttack()
-    {
-        canAttack = true;
-        CanRotate();
-        EndCombo();
-    }
-    void EndCombo()
-    {
-        SwitchState(idleState);
-       lastRoutine =  StartCoroutine(ResetCombo());
-        CanRotate();
-    }
-    IEnumerator ResetCombo()
-    {
-        yield return new WaitForSeconds(1);
-        Debug.Log("dude");
-        comboCounter = 0;
-        lastComboEnd = Time.time;
-        canAttack = true;
-    }
 
     public void Pull(InputAction.CallbackContext obj)
     {
@@ -634,12 +353,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         
     }
 
-    public void ShotgunBlast()
-    {
-        ScrapShotgun shotgun = GetComponentInChildren<ScrapShotgun>();
-        shotgun.ShotgunBlast();
-    }
-
     public void CheckForEnemies(float attackType)
     {
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
@@ -675,38 +388,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
 
     }
-    #endregion
-
-    #region Jumping
-    public void Jump(InputAction.CallbackContext obj)
-    {
-        if (currentState == railState && canAttack)
-        {
-            CameraManager.SwitchPlayerCam(playerCam);
-
-            lockOn.currentTarget = null;
-            lockOn.isTargeting = false;
-            lockOn.lastTargetTag = null;
-            cam.canRotate = true;
-
-            transform.SetParent(null);
-            currentState = inAirState;
-
-            anim.Play("PlayerInAir");
-            anim.SetBool("onRail", false);
-        }
-        
-        if (currentState != moveState && currentState != idleState) return;
-
-        if (grounded) //readyToJump check removed due to bug (issue #3)
-        {
-            yVelocity = jumpForce;
-            anim.Play("PlayerJumpStart");
-            SwitchState(inAirState);
-        }       
-    }
-
-    #endregion
 
 
     private void OnDrawGizmos()
@@ -722,7 +403,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         if (resources.invincible) return;
 
         StopAllCoroutines();
-        EndCombo();
         resources.invincible = true;
         SwitchState(stunnedState);
         anim.SetBool("Stunned", true);

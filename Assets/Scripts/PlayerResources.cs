@@ -34,13 +34,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
     float scrapDecreaseTimer;
     public bool scrapDecrease;
 
-    public bool scrapStyle;
-    public StyleInfo lightStyle;
-    public StyleInfo heavyStyle;
-    public ShiftInfo shift;
-
     //shifts
     public bool scrapShift;
+    public WeaponInfo shift;
+    public WeaponInfo mode;
+    public WeaponInfo attachment;
 
     [SerializeField] CinemachineFreeLook scrapCam;
     [SerializeField] CinemachineFreeLook regularCam;
@@ -52,12 +50,6 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public SlotManager healthBar;
     public SlotManager armourBar;
-
-    public static event Action enterScrapStyle;
-    public static event Action exitScrapStyle;
-
-    public static event Action enterScrapShift;
-    public static event Action exitScrapShift;
 
     public InputActionReference scrapShiftKeybind;
 
@@ -98,30 +90,6 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        if (currentScrap > 0 && scrapDecrease && (scrapStyle || scrapShift))
-        {
-            scrapDecreaseTimer += Time.deltaTime;
-            if (scrapDecreaseTimer >= .01)
-            {
-                if (scrapShift)
-                {
-                    UpdateScrap(scrapDecreaseAmnt * 1.5f);
-                }
-
-                else
-                {
-                    UpdateScrap(scrapDecreaseAmnt);
-                }
-
-                scrapDecreaseTimer = 0;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            UpdateScrap(100);
-        }
-
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             superInvincible = !superInvincible;
@@ -137,28 +105,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
             scrapAnimObj.SetActive(true);
             scrapAnim.Play("SSIndicator");
         }
-
         else
         {
-            // from shift to style
-            if (scrapShift && currentScrap > 0)
-            {
-                scrapAnimObj.SetActive(false);
-            }
-
-            // nothing to style
-            else if (!scrapStyle && currentScrap > 50)
-            {
-                scrapAnimObj.SetActive(true);
-                scrapAnim.Play("SSIndicator");
-            }
-
-            // style to nothing
-            else
-            {
-                scrapAnimObj.SetActive(false);
-            }
+            scrapAnimObj.SetActive(false);
         }
+        
     }
 
     private void ScrapShiftKeybind(InputAction.CallbackContext obj)
@@ -166,73 +117,25 @@ public class PlayerResources : MonoBehaviour, IDamageable
         // style to shift
         if (currentScrap == maxScrap && !scrapShift)
         {
-            ActivateScrapStyle(false);
             ActivateScrapShift(true);
             scrapAnimObj.SetActive(false);
             audioManager.ShiftSwitch();
         }
-
-        else
-        {
-            // from shift to style
-            if (scrapShift && currentScrap > 0)
-            {
-                ActivateScrapShift(false);
-                ActivateScrapStyle(true);
-               
-                audioManager.StyleSwitch();
-            }
-
-            // nothing to style
-            else if (!scrapStyle && currentScrap > 50)
-            {
-                CameraManager.SwitchPlayerCam(scrapCam);
-                ActivateScrapStyle(true);
-                scrapAnimObj.SetActive(false);
-                audioManager.StyleSwitch();
-            }
-
-            // style to nothing
-            else
-            {
-                CameraManager.SwitchPlayerCam(regularCam);
-                ActivateScrapStyle(false);
-
-                audioManager.StyleSwitch();
-            }
-
-        }
-    }
-
-    private void ActivateScrapStyle(bool on)
-    {
-        if (on) { scrapStyle = true; } else if (!on) { scrapStyle = false; }
-
-        if (scrapStyle)
-        {          
-            enterScrapStyle?.Invoke();
-        }
-
-        else
-        {           
-            exitScrapStyle?.Invoke();
-        }
-
     }
 
     private void ActivateScrapShift(bool on)
     {
-        if (on) { scrapShift = true; } else if (!on) { scrapShift = false; }
+        //if (on) { scrapShift = true; } else if (!on) { scrapShift = false; }
 
-        if (scrapShift)
-        {
-            enterScrapShift?.Invoke();
-        }
+        //if (scrapShift)
+        //{
+        //    enterScrapShift?.Invoke();
+        //}
 
-        else
-        {
-            exitScrapShift?.Invoke();
-        }
+        //else
+        //{
+        //    exitScrapShift?.Invoke();
+        //}
     }
 
     public void TakeDamage(float damage)
@@ -302,10 +205,6 @@ public class PlayerResources : MonoBehaviour, IDamageable
             if (scrapShift)
             {
                 ActivateScrapShift(false);
-            }
-            if (scrapStyle)
-            {
-                ActivateScrapStyle(false);
             }
 
         }

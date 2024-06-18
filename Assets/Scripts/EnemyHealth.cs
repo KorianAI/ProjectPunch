@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using EZCameraShake;
 
 public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 {

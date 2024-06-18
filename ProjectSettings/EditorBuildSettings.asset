@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Arkham.unity
     guid: 0dde5bf08d3bdd54fb462af0f46b7efc
   - enabled: 1
-    path: Assets/Scenes/EndScreen.unity
+    path: Assets/_Scenes/EndScreen.unity
     guid: 43081eb978266b94a81334e223831123
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/_Scenes/Level1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

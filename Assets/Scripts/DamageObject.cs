@@ -8,12 +8,7 @@ public class DamageObject : MonoBehaviour
 {
     public int damage;
     public GameObject hitVFX;
-
-    
-    public bool extendoFists;
     public GameObject projectile;
-
-    public bool whip;
     public LayerMask enemyLayer;
 
 
@@ -28,16 +23,6 @@ public class DamageObject : MonoBehaviour
 
             if (other.gameObject.tag == "Enemy") // check in place to avoid errors when hitting scrap piles -J
                 other.gameObject.GetComponent<EnemyHealth>().GetStunned(.1f);
-
-            if (whip)
-            {
-                IncreaseShotgunAmmo();
-            }
-
-            if (extendoFists)
-            {
-                LaunchProjectile(other.transform, other.gameObject);
-            }
           
         }
     }
@@ -67,17 +52,6 @@ public class DamageObject : MonoBehaviour
                 .SetEase(Ease.Linear)
                 .OnComplete(() => h.Detonate()); // Destroy the projectile when the tween is complete
 
-        }
-    }
-
-    private void IncreaseShotgunAmmo()
-    {
-        var parent = transform.root;
-        ScrapShotgun shotgun = parent.GetComponentInChildren<ScrapShotgun>();
-        if (shotgun != null)
-        {
-            Debug.Log("uwu");
-            shotgun.ChangeAmmo(1);
         }
     }
 
