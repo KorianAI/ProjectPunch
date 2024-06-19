@@ -10,7 +10,7 @@ public class BFG_G1 : PlayerAttackBase
         duration = .5f;
         player.anim.SetTrigger("HeavyAttack1");
         canAttack = false;
-
+        base.MoveForward(_sm, 2f, .2f);
     }
 
     public override void ExitState(PlayerStateManager player)

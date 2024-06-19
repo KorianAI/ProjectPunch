@@ -10,7 +10,7 @@ public class PlayerState
     public virtual void EnterState(PlayerStateManager player)
     {
         _sm = player;
-        Debug.Log(this.GetType().Name);
+        //Debug.Log(this.GetType().Name);
     }
 
     public virtual void ExitState(PlayerStateManager player)

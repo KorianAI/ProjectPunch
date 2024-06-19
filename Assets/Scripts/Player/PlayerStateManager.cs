@@ -77,6 +77,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public string currentStateDebug;
 
+    public bool attackHit;
+
     public enum DebugState
     {
         idle,
