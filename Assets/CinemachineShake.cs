@@ -7,6 +7,13 @@ public class CinemachineShake : MonoBehaviour
 {
     CinemachineVirtualCamera brain;
     public float shakeTimer;
+    public float fovChangeTimer;
+    public float originalFov;
+
+    public float shakeIntensity;
+    public float fovChangeIntensity;
+    public float shakeTimerTotal;
+    public float fovChangeTimerTotal;
 
     public static CinemachineShake Instance;
 
@@ -16,6 +23,7 @@ public class CinemachineShake : MonoBehaviour
         if (Instance == null )
         {
             Instance = this;
+            originalFov = brain.m_Lens.FieldOfView;
         }
 
         else
@@ -29,6 +37,16 @@ public class CinemachineShake : MonoBehaviour
         CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin = brain.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = intensity;
         shakeTimer = time;
+        shakeTimerTotal = time;
+        shakeIntensity = intensity;
+    }
+
+    public void ChangeFov(float newFov, float time)
+    {
+        brain.m_Lens.FieldOfView += newFov;
+        fovChangeTimer = time;
+        fovChangeTimerTotal = time;
+        fovChangeIntensity = brain.m_Lens.FieldOfView += newFov;
     }
 
     private void Update()
@@ -36,13 +54,22 @@ public class CinemachineShake : MonoBehaviour
         if (shakeTimer > 0)
         {
             shakeTimer -= Time.deltaTime;
-            if (shakeTimer < 0)
-            {
-                CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
-                    brain.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
-                cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
-            }
+            CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
+                brain.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
+            cinemachineBasicMultiChannelPerlin.m_AmplitudeGain =
+            Mathf.Lerp(shakeIntensity, 0f, 1 - (shakeTimer / shakeTimerTotal));
+           
+        }
+
+        if (fovChangeTimer > 0)
+        {
+            fovChangeTimer -= Time.deltaTime;
+
+                brain.m_Lens.FieldOfView = 
+                Mathf.Lerp(fovChangeIntensity, originalFov, 1 - (fovChangeTimer / fovChangeTimerTotal));
+            
         }
     }
 }
