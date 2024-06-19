@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -40,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
     InputMaster InputActions;
 
     public Animator anim;
+
+    public VisualEffect jumpEffectPrefab;
+    public Transform jumpEffectPosition;
 
     void Awake()
     {
@@ -157,6 +161,15 @@ public class PlayerMovement : MonoBehaviour
     {
         yVelocity = jumpForce;
         jumpInputCD = true;
+
+        if (jumpEffectPrefab != null && jumpEffectPosition != null)
+        {
+            // Instantiate the VFX at the player's feet position
+            VisualEffect newJumpEffect = Instantiate(jumpEffectPrefab, jumpEffectPosition.position, Quaternion.identity);
+            newJumpEffect.Play();
+            Destroy(newJumpEffect.gameObject, 1f);
+        }
+
         sm.SwitchState(sm.inAirState);
     }
 
