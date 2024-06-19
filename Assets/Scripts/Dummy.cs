@@ -13,7 +13,7 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
 
     bool takenDamage;
 
-    public Animation anim;
+    public Animator anim;
 
     private void Start()
     {
@@ -27,9 +27,9 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
             takenDamage = true;
 
             SpawnParticle();
-            transform.DOShakeScale(.2f, .1f, 10, 90);
+            //transform.DOShakeScale(.2f, .1f, 10, 90);
 
-            anim.Play();
+            anim.SetTrigger("Hit");
 
             StartCoroutine(ResetTakenDamage());
         }

@@ -58,7 +58,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public Transform playerObj;
 
     public float kbForce;
-
+    public float hitstopAmnt;
     public Animator whipAnim;
 
     [Header("Cameras")]
@@ -366,6 +366,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             if (attackType == 2) // heavy
             {
                 c.GetComponent<IDamageable>().TakeDamage(attackDamage * 1.5f);
+                HitstopManager.Instance.TriggerHitstop(hitstopAmnt, gameObject, c.gameObject);
+                RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
             }
 
             if (attackType == 3) // shotgun
@@ -381,6 +383,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             if (c.GetComponent<EnemyHealth>() != null)
             {
                 c.GetComponent<EnemyHealth>().GetStunned(.2f);
+               
             }
 
             
