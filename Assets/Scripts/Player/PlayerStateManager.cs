@@ -59,6 +59,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public float kbForce;
     public float hitstopAmnt;
+    public float shakeAmnt;
+    public float shakeTimer;
     public Animator whipAnim;
 
     [Header("Cameras")]
@@ -367,6 +369,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             {
                 c.GetComponent<IDamageable>().TakeDamage(attackDamage * 1.5f);
                 HitstopManager.Instance.TriggerHitstop(hitstopAmnt, gameObject, c.gameObject);
+                CinemachineShake.Instance.ShakeCamera(shakeAmnt, shakeTimer);
                 RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
             }
 
