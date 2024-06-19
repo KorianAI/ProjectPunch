@@ -2152,8 +2152,10 @@ MonoBehaviour:
   particle: {fileID: 8130095455052460666}
   canSpawn: 1
   player: {fileID: 0}
+  dummy: {fileID: 6508560105852292820}
   ps: {fileID: 0}
   anim: {fileID: 2342257644642305081}
+  xShake: 0.25
 --- !u!114 &5342694837946206485
 MonoBehaviour:
   m_ObjectHideFlags: 0

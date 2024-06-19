@@ -9,11 +9,15 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
     public bool canSpawn;
     public GameObject player;
 
+    public GameObject dummy;
+
     public PlayerStateManager ps;
 
     bool takenDamage;
 
     public Animator anim;
+
+    public float xShake;
 
     private void Start()
     {
@@ -30,7 +34,7 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
             //transform.DOShakeScale(.2f, .1f, 10, 90);
 
             anim.SetTrigger("Hit");
-
+            dummy.transform.DOShakePosition(.25f, new Vector3(xShake, 0f, 0f), 11, 90, false, false, ShakeRandomnessMode.Harmonic);
             StartCoroutine(ResetTakenDamage());
         }
 

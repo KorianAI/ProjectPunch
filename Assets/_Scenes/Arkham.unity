@@ -24540,7 +24540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.075813375, y: -0.1923702, z: 0.014908101, w: 0.97827595}
+  m_LocalRotation: {x: 0.075813375, y: -0.1923702, z: 0.014908103, w: 0.97827595}
   m_LocalPosition: {x: -20.221968, y: 17.628313, z: 251.36597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32562,6 +32562,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1868814876}
     m_Modifications:
+    - target: {fileID: 159437567986432582, guid: 1fa77970b4655fd439cf0feac36848b2, type: 3}
+      propertyPath: xShake
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3503880501705332991, guid: 1fa77970b4655fd439cf0feac36848b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.900002
@@ -45628,7 +45632,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8698382998310868556}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.04646896, y: -0.00000028312206, z: 0.00000004656613, w: 0.9989198}
+  m_LocalRotation: {x: -0.04646896, y: -0.00000031292439, z: 0.00000005401671, w: 0.9989198}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -56304,7 +56308,7 @@ PrefabInstance:
       objectReference: {fileID: 888444077320411739, guid: 0c2509361b13505428ce788b7f846686, type: 3}
     - target: {fileID: 2185168564731813592, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: fovChange
-      value: 1
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2185168564731813592, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: playerCam
@@ -56385,6 +56389,10 @@ PrefabInstance:
     - target: {fileID: 5671452699864209851, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263612794386232658, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: runSpeed
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
