@@ -377,6 +377,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
                 CinemachineShake.Instance.ShakeCamera(shakeAmnt, shakeTimer);
                 CinemachineShake.Instance.ChangeFov(fovChange, shakeTimer);
                 RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
+                transform.DOKill();
             }
 
             if (attackType == 3) // shotgun

@@ -62,6 +62,8 @@ public class PlayerAttackBase : PlayerState
     #region MoveForward
     protected void MoveForward(PlayerStateManager player, float moveDistance, float moveDuration)
     {
+       
+
         isMovingForward = true;
         _sm.attackHit = false;
         initialPosition = player.transform.position;
@@ -85,7 +87,7 @@ public class PlayerAttackBase : PlayerState
 
     private IEnumerator MoveForwardCoroutine(PlayerStateManager player, float moveDuration)
     {
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(0f);
         player.transform.DOMove(targetPosition, atkMoveDur);
 
         isMovingForward = false;
@@ -123,6 +125,7 @@ public class PlayerAttackBase : PlayerState
 
         isRotating = false;
 
+        if (Vector3.Distance(player.transform.position, player.tl.currentTarget.position) > 2)
         MoveForward(_sm, atkMoveDistance, atkMoveDur);
     }
     #endregion
