@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using RotaryHeart.Lib.PhysicsExtension;
 using UnityEngine.InputSystem;
 using System.Linq;
-
+using UnityEngine.Rendering;
 
 public class TargetLock : MonoBehaviour
 { 
@@ -23,11 +23,13 @@ public class TargetLock : MonoBehaviour
     [SerializeField] private string enemyTag;
     [SerializeField] private string railTag;
     [SerializeField] private string lightTag;
+    [SerializeField] private string shredderTag;
+    [SerializeField] private string crusherTag;
     [Space]
 
     [SerializeField] private InputActionReference input;
     [SerializeField] private Vector2 targetLockOffset;
-    [SerializeField] private float minDistance; // minimum distance to stop rotation if player gets close to target
+    [SerializeField] private float minDistance; // minimum distance to stop rotation if collision gets close to target
     [SerializeField] private float maxDistance;
     [Space]
 
@@ -41,6 +43,7 @@ public class TargetLock : MonoBehaviour
 
     [Space]
     public Transform currentTarget;
+    public GameObject lastTarget;
     public string lastTargetTag; //required to allow players to push away from object when not locked on
 
     private float mouseX;
@@ -60,7 +63,7 @@ public class TargetLock : MonoBehaviour
 
     void Start()
     {
-        maxAngle = 20f; // always 90 to target enemies in front of camera.
+        maxAngle = 15f; // always 90 to target enemies in front of camera.
         cinemachineFreeLook.m_XAxis.m_InputAxisName = "";
         cinemachineFreeLook.m_YAxis.m_InputAxisName = "";
     }
@@ -74,7 +77,7 @@ public class TargetLock : MonoBehaviour
         }
         else
         {
-            NewInputTarget(currentTarget);
+            NewInputTarget(currentTarget.GetComponentInChildren<Targetable>().targetPoint);
         }
 
         if (aimIcon) 
@@ -90,6 +93,16 @@ public class TargetLock : MonoBehaviour
         {
             isTargeting = false;
             currentTarget = null;
+
+            if (lastTarget != null && lastTarget.gameObject.CompareTag("Enemy") == true)
+            {
+                if (lastTarget.GetComponentInChildren<HealthBars>() != null)
+                {
+                    lastTarget.GetComponentInChildren<HealthBars>().ShowBarsTargeted();
+                }
+                
+            }
+
             return;
         }
 
@@ -106,26 +119,41 @@ public class TargetLock : MonoBehaviour
 
             if (UnityEngine.Physics.SphereCast(mainCamera.transform.position, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, targetableLayers))
             {
+
                 if (hit.transform.CompareTag(enemyTag))
                 {
-                    currentTarget = hit.transform;
-                    isTargeting = true;
                     lastTargetTag = enemyTag;
+                    lastTarget = hit.transform.gameObject;
+                    if (hit.transform.gameObject.GetComponentInChildren<HealthBars>() != null)
+                    {
+                        hit.transform.gameObject.GetComponentInChildren<HealthBars>().ShowBars();
+                    }
+                    
                 }
 
                 if (hit.transform.CompareTag(railTag))
                 {
-                    currentTarget = hit.transform;
-                    isTargeting = true;
                     lastTargetTag = railTag;
                 }
 
                 if (hit.transform.CompareTag(lightTag))
                 {
-                    currentTarget = hit.transform;
-                    isTargeting = true;
                     lastTargetTag = lightTag;
                 }
+
+                if (hit.transform.CompareTag(shredderTag))
+                {
+                    lastTargetTag = shredderTag;
+                }
+
+                if (hit.transform.CompareTag(crusherTag))
+                {
+                    lastTargetTag = crusherTag;
+                }
+
+
+                currentTarget = hit.transform;
+                isTargeting = true;
             }
 
             else
@@ -188,9 +216,13 @@ public class TargetLock : MonoBehaviour
         List<GameObject> enemies = GameObject.FindGameObjectsWithTag(enemyTag).ToList();
         List<GameObject> lights = GameObject.FindGameObjectsWithTag(lightTag).ToList();
         List<GameObject> rails = GameObject.FindGameObjectsWithTag(railTag).ToList();
+        List<GameObject> shredders = GameObject.FindGameObjectsWithTag(shredderTag).ToList();
+        List<GameObject> crushers = GameObject.FindGameObjectsWithTag(crusherTag).ToList();
 
         List<GameObject> gos = enemies.Union(lights).ToList();
         gos = gos.Union(rails).ToList();
+        gos = gos.Union(shredders).ToList();
+        gos = gos.Union(crushers).ToList();
 
         GameObject closest = null;
         float distance = maxDistance;

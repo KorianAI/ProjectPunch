@@ -14,10 +14,12 @@ public class ThirdPersonCamera : MonoBehaviour
 
     public float rotationSpeed;
     public bool canRotate;
+    public PlayerStateManager ps;
 
-    [Header("RailCam")]
-    public GameObject railCam;
-    public CinemachineVirtualCamera camSettings;
+    public CinemachineBrain brain;
+
+    public CinemachineInputProvider[] inputProvider;
+    public bool blending;
 
     private void Start()
     {
@@ -33,33 +35,34 @@ public class ThirdPersonCamera : MonoBehaviour
         Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
         orientation.forward = viewDir.normalized;
 
-        // rotate player object
+        // rotate collision object
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
         Vector3 inputDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        if (inputDir != Vector3.zero)
+        if (inputDir != Vector3.zero && canRotate)
         {
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
         }
-    }
 
-    public void ChangeRailCam(bool value)
-    {
-        //if ps.State == railstate
-        //activate rail cam
-        //set to follow the EM
-
-        if (value == true)
+        if (brain.IsBlending && !blending)
         {
-            railCam.SetActive(true);
-            //camSettings.Follow = playerObj.GetComponent<TargetLock>().currentTarget;
-            //camSettings.LookAt = playerObj.GetComponent<TargetLock>().currentTarget;
+            blending = true;
+            foreach (CinemachineInputProvider provider in inputProvider)
+            {
+                provider.enabled = false;
+            }
         }
 
-        else if (value == false)
+        else if (!brain.IsBlending && blending)
         {
-            railCam.SetActive(false);
+            blending= false;
+            foreach (CinemachineInputProvider provider in inputProvider)
+            {
+                provider.enabled = true;
+            }
         }
     }
+
+
 }

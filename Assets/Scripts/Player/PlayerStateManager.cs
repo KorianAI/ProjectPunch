@@ -1,69 +1,51 @@
+using Cinemachine;
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerStateManager : MonoBehaviour
+public class PlayerStateManager : MonoBehaviour, IKnockback
 {
     public PlayerState currentState {  get; set; }
 
     [SerializeField] public CharacterController controller;
     [SerializeField] public Animator anim;
+    [SerializeField] public GameObject speedlines;
+
+    [Header("Checkpoint")]
+    public Transform spawnPoint;
 
     // states
     public PlayerIdleState idleState = new PlayerIdleState();
     public PlayerMoveState moveState = new PlayerMoveState();
-    public PlayerAttack lightAttackState = new PlayerAttack();
+    public PlayerAttackBase attackState = new PlayerAttackBase();
     public PlayerAirState inAirState = new PlayerAirState();
     public PlayerRailState railState = new PlayerRailState();
-
-    [Header("MovementInputs")]
-    public InputActionReference move;
-    public InputActionReference jump;
+    public PlayerStunnedState stunnedState = new PlayerStunnedState();
 
     [Header("CombatInputs")]
-    public InputActionReference lightAttack;
-    public InputActionReference heavyAttack;
     public InputActionReference pull;
     public InputActionReference push;
     public bool canAttack;
     public Transform attackPoint;
+    public Transform pushPoint;
+    public float pushRange;
     public LayerMask enemyLayer;
     public float attackRange;
     public float attackDamage;
+    public GameObject hitVFX;
 
-    [Header("Combos")]
-    float lastClickedTime;
-    float lastComboEnd;
-    public int comboCounter;
-    public List<AnimatorOverrideController> lightCombo;
-    public List<AnimatorOverrideController> heavyCombo;
-
-    [Header("Movement")]
-    public float moveSpeed;
-    public float groundDrag;
-    public float jumpForce;
-    public float jumpCooldown;
-    public float airMultiplier;
-    public bool readyToJump;
-    [HideInInspector] public float walkSpeed;
-    [HideInInspector] public float sprintSpeed;
-    public Vector3 velocity;
+    public EMRail rail;
 
     public Transform orientation;
     public float horizontalInput;
     public float verticalInput;
     public Vector3 moveDirection;
     public AnimationHandler animHandler;
-
-    [Header("Grav")]
-    public bool applyGrav = true;
-    [SerializeField] private float gravMultiplier = 3.0f;
-    private float gravity = -0.91f;   
-    public float yVelocity;
-    public bool grounded;
 
     public DebugState debugState;
     public TargetLock lockOn;
@@ -76,12 +58,26 @@ public class PlayerStateManager : MonoBehaviour
     public Transform playerObj;
 
     public float kbForce;
-
+    public float hitstopAmnt;
+    public float shakeAmnt;
+    public float shakeTimer;
+    public float fovChange;
     public Animator whipAnim;
 
-    [Header("GroundCheck")]
-    public LayerMask ground;
-    public float playerHeight;
+    [Header("Cameras")]
+    public CinemachineFreeLook playerCam;
+    public CinemachineVirtualCamera railCam;
+    public CinemachineVirtualCamera finisherCam;
+
+    PlayerAudioManager audioManager;
+
+    public PlayerMovement pm;
+    public PlayerInputHandler inputHandler;
+    public PlayerCombat pc;
+
+    public string currentStateDebug;
+
+    public bool attackHit;
 
     public enum DebugState
     {
@@ -95,99 +91,62 @@ public class PlayerStateManager : MonoBehaviour
         rail
     }
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     private void OnEnable()
     {
-        lightAttack.action.performed += LightAttack;
-        heavyAttack.action.performed += HeavyAttack;
-        jump.action.performed += Jump;
         pull.action.performed += Pull;
         push.action.performed += Push;
+
+        CameraManager.RegisterPC(playerCam);
+        CameraManager.RegisterVC(railCam);
+        CameraManager.RegisterVC(finisherCam);
     }
 
     private void OnDisable()
     {
-        lightAttack.action.performed -= LightAttack;
-        heavyAttack.action.performed -= HeavyAttack;
-        jump.action.performed -= Jump;
         pull.action.performed -= Pull;
         push.action.performed -= Push;
+
+        CameraManager.UnRegisterPC(playerCam);
+        CameraManager.UnRegisterVC(railCam);
+        CameraManager.UnRegisterVC(finisherCam);
     }
+
     private void Start()
     {
         currentState = moveState;
         currentState.EnterState(this);
 
-        readyToJump = true;
+        audioManager = GetComponent<PlayerAudioManager>();
+
+        if (DOTween.IsTweening(transform))
+        {
+            transform.DOKill();
+        }    
     }
 
     private void Update()
-    {
-        IsGrounded();
-        anim.SetBool("isGrounded", grounded);
-        ApplyGravity();
-        ExitAttack();
-
+    {      
         currentState.FrameUpdate(this);
-        Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
+        
+        //Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
         ShowDebugState();
+        currentStateDebug = currentState.ToSafeString();
     }
 
-    public void MovementInput()
-    {
-        Vector2 movementInput = move.action.ReadValue<Vector2>();
 
-        if (grounded)
-        {
-            horizontalInput = movementInput.x;
-            verticalInput = movementInput.y;
-        }
-
-        else
-        {
-            horizontalInput = movementInput.x;
-            verticalInput = movementInput.y;
-        }
-
-
-        velocity = moveDirection * moveSpeed + Vector3.up * yVelocity;
-    }
-
-    public void ApplyGravity()
-    {
-        if (grounded && currentState != inAirState)
-        {
-            yVelocity = -1f;
-        }
-
-        else
-        {
-            if (currentState == inAirState)
-            {
-                yVelocity += gravity * gravMultiplier * Time.deltaTime;
-            }
-
-            else
-            {
-                yVelocity = 0f;
-            }
-            
-        }                  
-    }
-
-    public void IsGrounded()
-    {
-        bool groundRaycast = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
-
-        if (groundRaycast && controller.isGrounded)
-        {
-            grounded = true;
-        }
-
-        if (!groundRaycast)
-        {
-            grounded = false;
-        }
-    }  
 
     void ShowDebugState()
     {
@@ -201,7 +160,7 @@ public class PlayerStateManager : MonoBehaviour
             debugState = DebugState.walk;
         }
 
-        else if (currentState == lightAttackState)
+        else if (currentState == attackState)
         {
             debugState = DebugState.lightAttack;
         }
@@ -232,155 +191,71 @@ public class PlayerStateManager : MonoBehaviour
         //Debug.Log("Entered: " + state + " " + Time.time);
     }
 
- #region Combat
-
-
-    public void LightAttack(InputAction.CallbackContext obj)
+    public bool IsInMoveState(PlayerState state)
     {
-        if (currentState != inAirState)
-        {
-            if (canAttack)
-            {
-                //canAttack = false;
-                RotateToTarget();
-                Attack(true);
-            }
-        }
-    }
-    public void HeavyAttack(InputAction.CallbackContext obj)
-    {
-        if (currentState != inAirState)
-        {
-            if (canAttack)
-            {
-                //canAttack = false;
-                RotateToTarget();
-                Attack(false);
-            }
-        }
+        Type stateType = currentState.GetType();
+        return stateType == typeof(PlayerMoveState) ||
+               stateType == typeof(PlayerAirState) ||
+               stateType == typeof(PlayerIdleState);
     }
 
-    void Attack(bool light)
-    {
-        if (Time.time - lastComboEnd > 0.5f && comboCounter < lightCombo.Count)
-        {
-            CancelInvoke("EndCombo");
-
-            if (Time.time - lastClickedTime >= .6f)
-            {
-                if (light)
-                {
-                    if (resources.scrapStyle)
-                    {
-                        if (comboCounter == 0)
-                        {
-                            resources.lightStyle.Attack1(1, 1);
-                        }
-
-                        else if (comboCounter == 1)
-                        {
-                            resources.lightStyle.Attack2(1, 1);
-                        }
-
-                        else
-                        {
-                            resources.lightStyle.Attack3(1, 1);
-                        }
-                    }
-
-                    else
-                    {
-                        anim.runtimeAnimatorController = lightCombo[comboCounter];
-                        Debug.Log("LIGHT ATTACK: " + comboCounter);
-                    }               
-                }
-
-                else if (!light)
-                {
-                    if (resources.scrapStyle)
-                    {
-                        if (comboCounter == 0)
-                        {
-                            resources.heavyStyle.Attack1(1, 1);
-                        }
-
-                        else if (comboCounter == 1)
-                        {
-                            resources.heavyStyle.Attack2(1, 1);
-                        }
-
-                        else
-                        {
-                            resources.heavyStyle.Attack3(1, 1);
-                        }
-                    }
-
-                    else
-                    {
-                        anim.runtimeAnimatorController = heavyCombo[comboCounter];
-                        Debug.Log("HEAVY ATTACK: " + comboCounter);
-                    }
-                    
-                }
-
-                anim.Play("Attack", 0, 0);
-                anim.CrossFadeInFixedTime("Attack", 0.1f);
-                comboCounter++;
-                lastClickedTime = Time.time;
-
-                if (comboCounter >= lightCombo.Count)
-                {
-                    comboCounter = 0;
-                }
-            }
-        }
-    }
-
-    void ExitAttack()
-    {
-        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.9f)
-        {
-            canAttack = true;
-            Invoke("EndCombo", 1);
-        }
-    }
-
-    void EndCombo()
-    {
-        comboCounter = 0;
-        lastComboEnd = Time.time;
-        canAttack = true;
-    }
 
     public void Pull(InputAction.CallbackContext obj)
     {
-        if (canAttack && lockOn.currentTarget != null)
+        if (canAttack && lockOn.currentTarget != null && currentState != stunnedState)
         {
-            canAttack = false;
-            RotateToTarget();
+            var target = lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>();         
 
-            if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
+            if (target != null)
             {
+                canAttack = false;
+                RotateToTarget();
                 anim.Play("Pull");
-                StopCoroutine("PullEffect");
-                StartCoroutine("PullEffect");
+                audioManager.Pull();
+                StopCoroutine("TargetPull");
+                StartCoroutine("TargetPull");
             }
         } 
     }
 
-    public IEnumerator PullEffect()
+    public IEnumerator TargetPull()
     {
-        //float cd = anim.GetCurrentAnimatorStateInfo(0).length / 2.5f;
-        //Debug.Log(cd);
-        yield return new WaitForSeconds(0.25f);
+        var target = lockOn.currentTarget.gameObject;
+        float duration = 0;
 
-        lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Pull(this);
-        canAttack = true;
+        if (target.CompareTag("Enemy"))
+        {
+            DOTween.To(() => playerCam.m_Lens.FieldOfView, x => playerCam.m_Lens.FieldOfView = x, 48, .25f);
+            duration = 0.25f;
+        }
+
+        else if (target.CompareTag("Rail"))
+        {
+            DOTween.To(() => playerCam.m_Lens.FieldOfView, x => playerCam.m_Lens.FieldOfView = x, 85, .4f);
+            duration = .4f;
+            
+        }
+
+        else // spotlight
+        {
+            DOTween.To(() => playerCam.m_Lens.FieldOfView, x => playerCam.m_Lens.FieldOfView = x, 85, .4f);
+            duration = .4f;
+        }
+
+        
+        yield return new WaitForSeconds(duration);
+
+        
+        target.GetComponent<IMagnetisable>().Pull(this);
+       
+       
         //SwitchState(moveState);
     }
 
     public void Push(InputAction.CallbackContext obj)
     {
+        if (currentState == stunnedState) { return; }
+
         if (canAttack && lockOn.currentTarget != null)
         {
             RotateToTarget();
@@ -388,37 +263,60 @@ public class PlayerStateManager : MonoBehaviour
             if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
             {
                 anim.Play("Push");
-                StopCoroutine("PuEffect");
-                StartCoroutine("PushEffect");
+                audioManager.Push();
+                StopCoroutine("PushTarget");
+                StartCoroutine(PushTarget(lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>()));
             }
-        }
+        } // targetting something
 
-        if (lockOn.currentTarget == null && currentState == railState)
+        if (currentState == railState && canAttack)
         {
+            CameraManager.SwitchPlayerCam(playerCam);
+
             lockOn.currentTarget = null;
             lockOn.isTargeting = false;
             lockOn.lastTargetTag = null;
+            rail = null;
+            cam.canRotate = true;
 
             transform.SetParent(null);
             currentState = inAirState;
 
             anim.Play("PlayerInAir");
             anim.SetBool("onRail", false);
-        }
 
-        else if (canAttack && lockOn.currentTarget == null)
+            
+        } // on rail
+
+       if (canAttack) // not targetting
         {
-            // dodge
+            anim.Play("Push");
+            audioManager.Push();
+
+
+
+            Collider[] colliders = Physics.OverlapSphere(pushPoint.position, pushRange);
+            foreach (Collider collider in colliders)
+            {
+               
+                Debug.Log(collider);
+
+                IMagnetisable target = collider.GetComponent<IMagnetisable>();
+                if (target != null)
+                {
+                    canAttack = false;
+                    StartCoroutine(PushTarget(target));
+                }
+            }
+
+           
         }
     }
 
-    public IEnumerator PushEffect()
+    public IEnumerator PushTarget(IMagnetisable target)
     {
-        //float cd = anim.GetCurrentAnimatorStateInfo(0).length / 2.5f;
-        //Debug.Log(cd);
         yield return new WaitForSeconds(0.25f);
-
-        lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>().Push(this);
+        target.Push(this);      
         canAttack = true;
         SwitchState(moveState);
     }
@@ -429,9 +327,14 @@ public class PlayerStateManager : MonoBehaviour
         {
             cam.canRotate = false;
             Vector3 t = new Vector3(lockOn.currentTarget.transform.position.x, playerObj.transform.position.y, lockOn.currentTarget.transform.position.z);
-            playerObj.transform.DOLookAt(t, 0f);
+            playerObj.transform.DOLookAt(t, 0f).onComplete = CanRotate;
             
         }
+    }
+
+    void CanRotate()
+    {
+        cam.canRotate = true;
     }
 
     public void FuckOff(float attackNo)
@@ -455,51 +358,83 @@ public class PlayerStateManager : MonoBehaviour
         
     }
 
-
-    public void CheckForEnemies()
+    public void CheckForEnemies(float attackType)
     {
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider c in enemies)
         {
-            c.GetComponent<IDamageable>().TakeDamage(attackDamage);
-            return;
+            if (attackType == 1) // light
+            {
+                c.GetComponent<IDamageable>().TakeDamage(attackDamage);
+            }
+
+            if (attackType == 2) // heavy
+            {
+                c.GetComponent<IDamageable>().TakeDamage(attackDamage * 1.5f);
+                HitstopManager.Instance.TriggerHitstop(hitstopAmnt, gameObject, c.gameObject);
+                CinemachineShake.Instance.ShakeCamera(shakeAmnt, shakeTimer);
+                CinemachineShake.Instance.ChangeFov(fovChange, shakeTimer);
+                RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
+            }
+
+            if (attackType == 3) // shotgun
+            {
+                c.GetComponent<IDamageable>().TakeDamage(attackDamage * 1.5f);
+            }
+
+            //c.GetComponent<IKnockback>().Knockback(1.5f, orientation);
+
+            GameObject hitParticle = Instantiate(hitVFX, c.transform);
+           
+
+            if (c.GetComponent<EnemyHealth>() != null)
+            {
+                c.GetComponent<EnemyHealth>().GetStunned(.2f);
+               
+            }
+
+            
         }
+
+
     }
-    #endregion
-
-    #region Jumping
-    public void Jump(InputAction.CallbackContext obj)
-    {
-        if (currentState == railState)
-        {
-            lockOn.currentTarget = null;
-            lockOn.isTargeting = false;
-            lockOn.lastTargetTag = null;
-
-            transform.SetParent(null);
-            currentState = inAirState;
-
-            anim.Play("PlayerInAir");
-            anim.SetBool("onRail", false);
-        }
-        
-        if (currentState != moveState && currentState != idleState) return;
-
-        if (grounded) //readyToJump check removed due to bug (issue #3)
-        {
-            yVelocity = jumpForce;
-            anim.Play("PlayerJumpStart");
-            SwitchState(inAirState);
-        }       
-    }
-
-    #endregion
 
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(pushPoint.position, pushRange);
     }
 
+    public void Knockback(float distance, Transform attacker, float length)
+    {
+        if (resources.invincible) return;
+
+        StopAllCoroutines();
+        resources.invincible = true;
+        SwitchState(stunnedState);
+        anim.SetBool("Stunned", true);
+        anim.SetTrigger("StunnedTrigger");
+
+        StartCoroutine(StunTimer());
+
+        IEnumerator StunTimer()
+        {
+            yield return new WaitForSeconds(.2f);
+            Vector3 knockbackDirection = -transform.forward;
+            // Calculate the knockback destination
+            Vector3 knockbackDestination = transform.position + knockbackDirection * distance;
+            transform.DOMove(knockbackDestination, length);
+        }
+
+    }
+
+    public void RecoverFromStun()
+    {
+        SwitchState(idleState);
+        anim.SetBool("Stunned", false);
+        resources.invincible = false;
+    }
 }

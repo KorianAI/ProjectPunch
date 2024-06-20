@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using static UnityEngine.Rendering.DebugUI;
+using Cinemachine;
 
 public class EMRail : MonoBehaviour, IMagnetisable
 {
     public GameObject playerObj;
     public PlayerStateManager ps;
     public Transform pullPos;
+
+    public bool playOnStart;
 
     [Header("Points")]
     public Vector3[] points;
@@ -21,10 +25,23 @@ public class EMRail : MonoBehaviour, IMagnetisable
     [Header("Connected Rails")]
     public EMRail[] rails;
 
+    [Header("Cameras")]
+    public CinemachineFreeLook playerCam;
+    public CinemachineVirtualCamera railCam;
+
+    [Header("Audio")]
+    public AudioSource source;
+    public AudioClip active;
+    public AudioClip stop;
+
     private void Start()
     {
-        ps = playerObj.GetComponent<PlayerStateManager>();
-        MoveToNextPoint();
+        source = GetComponent<AudioSource>();
+        
+        if (playOnStart)
+        {
+            MoveToNextPoint();
+        }
     }
 
     public void Pull(PlayerStateManager player)
@@ -32,50 +49,54 @@ public class EMRail : MonoBehaviour, IMagnetisable
         foreach (EMRail script in rails) //pauses all EM rails, ensuring they remain in sync
         {
             script.transform.DOPause();
+
+            script.source.Stop();
+            script.source.loop = false;
+            script.source.PlayOneShot(stop);
         }
 
+        ps = player;
+        ps.resources.invincible = true;
+        ps.rail = this;
+        ps.speedlines.SetActive(true);
+
         player.SwitchState(player.railState);
-        playerObj.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(SetParent); //pull to
+        playerObj.transform.DOMove(pullPos.transform.position, 0.5f).OnComplete(SetParent); //pull to the EM
+        DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 70, .1f);
     }
 
     void SetParent()
     {
         playerObj.transform.SetParent(pullPos.transform); //set parent to EM
+        ps.speedlines.SetActive(false);
+        DOTween.To(() => ps.playerCam.m_Lens.FieldOfView, x => ps.playerCam.m_Lens.FieldOfView = x, 50, .25f);
+        ps.resources.invincible = false;
+        ps.canAttack = true;
+        CameraManager.SwitchNonPlayerCam(ps.railCam);
+        ps.playerObj.forward = ps.rail.gameObject.transform.forward;
 
         foreach (EMRail script in rails) //plays all EM rails
         {
             script.transform.DOPlay();
+
+            script.source.loop = true;
+            script.source.clip = script.active;
+            script.source.Play();
         }
 
         playerObj.GetComponent<TargetLock>().currentTarget = null;
         playerObj.GetComponent<TargetLock>().isTargeting = false;
         ps.anim.Play("Hang");
         ps.anim.SetBool("onRail", true);
+        ps.speedlines.SetActive(false);
     }
 
     public void Push(PlayerStateManager player)
     {
-        if (playerObj.GetComponent<TargetLock>().currentTarget != null || playerObj.GetComponent<TargetLock>().lastTargetTag == "Rail")
-        {
-            playerObj.GetComponent<TargetLock>().currentTarget = null;
-            playerObj.GetComponent<TargetLock>().isTargeting = false;
-            playerObj.GetComponent<TargetLock>().lastTargetTag = null;
-
-            playerObj.transform.SetParent(null); //unset parent
-
-            ps.SwitchState(ps.inAirState);
-
-            ps.anim.Play("PlayerInAir");
-            ps.anim.SetBool("onRail", false);
-        }
-        else
-        {
-            //Should play an audio effect to indicate that this does not work on static objects
-            Debug.Log("nuh huh");
-        }
+        Debug.Log("nuh huh *noise pls*");
     }
 
-    private void MoveToNextPoint()
+    public void MoveToNextPoint()
     {
         transform.DOMove(points[arrayPosition], transitionspeed).OnComplete(RotateAtNextPoint)
             .SetEase(Ease.Linear);

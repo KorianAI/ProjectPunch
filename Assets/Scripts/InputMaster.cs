@@ -21,14 +21,14 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     public @InputMaster()
     {
         asset = InputActionAsset.FromJson(@"{
-    ""styleName"": ""InputMaster"",
+    ""name"": ""InputMaster"",
     ""maps"": [
         {
-            ""styleName"": ""Player"",
+            ""name"": ""Player"",
             ""id"": ""9acd4495-6213-4dd7-966c-a844a921d1e2"",
             ""actions"": [
                 {
-                    ""styleName"": ""Movement"",
+                    ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""246e1a34-a7e4-48cd-a739-eb2c624dc4ea"",
                     ""expectedControlType"": ""Vector2"",
@@ -37,7 +37,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""styleName"": ""Jump"",
+                    ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""219f26ac-79d0-4a97-9f9e-96e09e24450a"",
                     ""expectedControlType"": ""Button"",
@@ -46,7 +46,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""styleName"": ""LightAttack"",
+                    ""name"": ""LightAttack"",
                     ""type"": ""Button"",
                     ""id"": ""8749f044-a4de-4e64-8e5b-72d0bbd2144c"",
                     ""expectedControlType"": ""Button"",
@@ -55,7 +55,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""styleName"": ""HeavyAttack"",
+                    ""name"": ""HeavyAttack"",
                     ""type"": ""Button"",
                     ""id"": ""73032a77-2a60-4f93-847f-f492cfb7b1d0"",
                     ""expectedControlType"": ""Button"",
@@ -64,7 +64,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""styleName"": ""Pull"",
+                    ""name"": ""Pull"",
                     ""type"": ""Button"",
                     ""id"": ""13d81229-b64b-47f7-b0a1-6bc98be30cce"",
                     ""expectedControlType"": ""Button"",
@@ -73,7 +73,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""styleName"": ""LockOn"",
+                    ""name"": ""LockOn"",
                     ""type"": ""Button"",
                     ""id"": ""654c92e9-67d8-487d-a94e-b2468b1e4242"",
                     ""expectedControlType"": ""Button"",
@@ -82,9 +82,18 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""styleName"": ""Push"",
+                    ""name"": ""Push"",
                     ""type"": ""Button"",
                     ""id"": ""54f79034-07ba-4a15-92ca-32505c2f1ec2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ScrapShift"",
+                    ""type"": ""Button"",
+                    ""id"": ""dfb1b3e1-ecec-420b-8761-bbd34d4da1c9"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -93,7 +102,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""styleName"": ""WASD"",
+                    ""name"": ""WASD"",
                     ""id"": ""3ede8c25-20b2-499b-ac26-e343d390fd00"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -104,7 +113,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": ""up"",
+                    ""name"": ""up"",
                     ""id"": ""983bb966-7b8d-4e6b-9a54-db749e64dc9c"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
@@ -115,7 +124,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""styleName"": ""down"",
+                    ""name"": ""down"",
                     ""id"": ""a96ea029-f1e3-46be-acc4-473f0f800551"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
@@ -126,7 +135,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""styleName"": ""left"",
+                    ""name"": ""left"",
                     ""id"": ""174b2937-ed78-478b-b31a-f7ac6dad140f"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
@@ -137,7 +146,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""styleName"": ""right"",
+                    ""name"": ""right"",
                     ""id"": ""9233cf89-4d2a-4b5a-9bf0-0759bbde903a"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
@@ -148,7 +157,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""styleName"": ""Left Stick"",
+                    ""name"": ""Left Stick"",
                     ""id"": ""d4f5bf9a-5787-44a8-8095-bf558064cfbf"",
                     ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
@@ -159,7 +168,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": ""up"",
+                    ""name"": ""up"",
                     ""id"": ""41265b8b-e595-4d48-a150-b25525225178"",
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
@@ -170,7 +179,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""styleName"": ""down"",
+                    ""name"": ""down"",
                     ""id"": ""b0d2d698-ad7e-4b01-aded-e19011f01a5e"",
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
@@ -181,7 +190,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""styleName"": ""left"",
+                    ""name"": ""left"",
                     ""id"": ""a5ca230a-ca6b-4a79-8342-26c264edd2a4"",
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
@@ -192,7 +201,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""styleName"": ""right"",
+                    ""name"": ""right"",
                     ""id"": ""671ecd5a-a48d-4a41-ace8-5a39e785b03b"",
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
@@ -203,7 +212,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""styleName"": """",
+                    ""name"": """",
                     ""id"": ""83662368-5b9b-4a84-98da-a378f0c7eac4"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -214,7 +223,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": """",
+                    ""name"": """",
                     ""id"": ""537bd3df-2069-4784-84a7-2748924a098c"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
@@ -225,7 +234,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": """",
+                    ""name"": """",
                     ""id"": ""e954a1ed-ca72-4419-b7fe-514394846856"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -236,7 +245,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": """",
+                    ""name"": """",
                     ""id"": ""d7c39035-d4b8-4456-82c3-8baeba8e92eb"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
@@ -247,7 +256,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": """",
+                    ""name"": """",
                     ""id"": ""b6351dae-eaa4-4fe0-8e65-cdf1a867049e"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
@@ -258,7 +267,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": """",
+                    ""name"": """",
                     ""id"": ""d7998050-bcc0-4b13-b4bc-5ef03aca1b0d"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -269,7 +278,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": """",
+                    ""name"": """",
                     ""id"": ""1cf3caa8-4bb7-4e1c-be89-be4146ef65f8"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
@@ -280,7 +289,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": """",
+                    ""name"": """",
                     ""id"": ""9315abb2-2a0d-4887-84e5-47591314f40d"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
@@ -291,7 +300,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": """",
+                    ""name"": """",
                     ""id"": ""20586131-5250-493a-9e9f-9836667fc0a2"",
                     ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
@@ -302,9 +311,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": """",
+                    ""name"": """",
                     ""id"": ""c8f75541-1f48-41a1-83e9-4a364e9198e7"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -313,7 +322,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": """",
+                    ""name"": """",
                     ""id"": ""2a1ea4e0-1337-4b0a-85c6-1d2375d9ead4"",
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
@@ -324,7 +333,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""styleName"": """",
+                    ""name"": """",
                     ""id"": ""fc5b597e-8cc1-4cfc-81ea-099546106e2b"",
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
@@ -333,13 +342,57 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Push"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""7443f83a-7fb0-4179-a66b-fe6b22a2ed38"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrapShift"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""17c81149-87b3-45bf-b99e-517742c714a7"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ScrapShift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""69a2462a-2025-4098-a1bc-9d8873dbace7"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ScrapShift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba467db6-abb6-44fa-acf2-dfcc845c6c42"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""ScrapShift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": [
         {
-            ""styleName"": ""Keyboard and Mouse"",
+            ""name"": ""Keyboard and Mouse"",
             ""bindingGroup"": ""Keyboard and Mouse"",
             ""devices"": [
                 {
@@ -355,7 +408,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""styleName"": ""Gamepad"",
+            ""name"": ""Gamepad"",
             ""bindingGroup"": ""Gamepad"",
             ""devices"": [
                 {
@@ -376,6 +429,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
         m_Player_LockOn = m_Player.FindAction("LockOn", throwIfNotFound: true);
         m_Player_Push = m_Player.FindAction("Push", throwIfNotFound: true);
+        m_Player_ScrapShift = m_Player.FindAction("ScrapShift", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -444,6 +498,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Pull;
     private readonly InputAction m_Player_LockOn;
     private readonly InputAction m_Player_Push;
+    private readonly InputAction m_Player_ScrapShift;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -455,6 +510,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @Pull => m_Wrapper.m_Player_Pull;
         public InputAction @LockOn => m_Wrapper.m_Player_LockOn;
         public InputAction @Push => m_Wrapper.m_Player_Push;
+        public InputAction @ScrapShift => m_Wrapper.m_Player_ScrapShift;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -485,6 +541,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Push.started += instance.OnPush;
             @Push.performed += instance.OnPush;
             @Push.canceled += instance.OnPush;
+            @ScrapShift.started += instance.OnScrapShift;
+            @ScrapShift.performed += instance.OnScrapShift;
+            @ScrapShift.canceled += instance.OnScrapShift;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -510,6 +569,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Push.started -= instance.OnPush;
             @Push.performed -= instance.OnPush;
             @Push.canceled -= instance.OnPush;
+            @ScrapShift.started -= instance.OnScrapShift;
+            @ScrapShift.performed -= instance.OnScrapShift;
+            @ScrapShift.canceled -= instance.OnScrapShift;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -554,5 +616,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnPull(InputAction.CallbackContext context);
         void OnLockOn(InputAction.CallbackContext context);
         void OnPush(InputAction.CallbackContext context);
+        void OnScrapShift(InputAction.CallbackContext context);
     }
 }

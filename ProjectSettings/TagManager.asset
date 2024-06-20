@@ -7,17 +7,21 @@ TagManager:
   - Enemy
   - Rail
   - Spotlight
+  - FxTemporaire
+  - Shredder
+  - Crusher
+  - WallBounce
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - whatIsGround
   - Enemy
   - Targetable
-  - 
+  - PlayerDetection
   - 
   - 
   - 
@@ -43,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: black
+    uniqueID: 1877745037
     locked: 0
