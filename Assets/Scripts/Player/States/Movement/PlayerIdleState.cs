@@ -27,7 +27,7 @@ public class PlayerIdleState : PlayerMovementBase
             player.SwitchState(player.inAirState);
         }
 
-        if (player.inputHandler.InputMaster.Player.Movement.ReadValue<Vector2>() != Vector2.zero)
+        if (player.ih.InputMaster.Player.Movement.ReadValue<Vector2>() != Vector2.zero)
         {
             player.SwitchState(player.moveState);
         }

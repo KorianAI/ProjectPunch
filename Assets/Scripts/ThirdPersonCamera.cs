@@ -14,7 +14,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
     public float rotationSpeed;
     public bool canRotate;
-    public PlayerStateManager ps;
+
 
     public CinemachineBrain brain;
 
@@ -26,7 +26,7 @@ public class ThirdPersonCamera : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible= false;
 
-        railCam.SetActive(false);
+
     }
 
     private void Update()

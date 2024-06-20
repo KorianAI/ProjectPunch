@@ -26,7 +26,7 @@ public class PlayerMoveState : PlayerMovementBase
         player.pm.MovementInput();
         //SpeedControl(collision);
 
-        if (player.inputHandler.InputMaster.Player.Movement.ReadValue<Vector2>() == Vector2.zero)
+        if (player.ih.InputMaster.Player.Movement.ReadValue<Vector2>() == Vector2.zero)
         {
             player.SwitchState(player.idleState);
         }

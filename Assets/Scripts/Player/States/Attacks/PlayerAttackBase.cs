@@ -19,11 +19,20 @@ public class PlayerAttackBase : PlayerState
     private Vector3 targetPosition;
     private float elapsedTime = 0f;
     public bool isMovingForward;
+
+    // rotating to enemy 
+    protected bool isRotating = false;
+    private Quaternion initialRotation;
+    private Quaternion targetRotation;
+    private float rotationElapsedTime = 0f;
+
     public override void EnterState(PlayerStateManager player)
     {
+
         base.EnterState(player);
+        RotateTowardsTarget(_sm, .1f);
         animator = GetComponent<Animator>();
-        _sm.inputHandler.SetCanConsumeInput(false);
+        _sm.ih.SetCanConsumeInput(false);
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -50,6 +59,7 @@ public class PlayerAttackBase : PlayerState
         base.PhysicsUpdate(player);
     }
 
+    #region MoveForward
     protected void MoveForward(PlayerStateManager player, float moveDistance, float moveDuration)
     {
         isMovingForward = true;
@@ -75,15 +85,45 @@ public class PlayerAttackBase : PlayerState
 
     private IEnumerator MoveForwardCoroutine(PlayerStateManager player, float moveDuration)
     {
-        while (elapsedTime < moveDuration && !_sm.attackHit)
-        {
-            elapsedTime += Time.deltaTime;
-            float progress = Mathf.Clamp01(elapsedTime / moveDuration);
-            player.transform.position = Vector3.Lerp(initialPosition, targetPosition, progress);
-            yield return null;
-        }
+        yield return new WaitForSeconds(.1f);
+        player.transform.DOMove(targetPosition, atkMoveDur);
 
         isMovingForward = false;
     }
+    #endregion
 
+    #region RotateToTarget
+    protected void RotateTowardsTarget(PlayerStateManager player, float rotationDuration)
+    {
+        if (player.tl.currentTarget == null) { MoveForward(_sm, atkMoveDistance, atkMoveDur); }
+
+        else
+        {
+            isRotating = true;
+            initialRotation = player.transform.rotation;
+            Vector3 directionToTarget = (player.tl.currentTarget.position - player.transform.position).normalized;
+            targetRotation = Quaternion.LookRotation(new Vector3(directionToTarget.x, 0, directionToTarget.z));
+            rotationElapsedTime = 0f;
+
+            player.StartCoroutine(RotateTowardsTargetCoroutine(player, rotationDuration));
+
+        }
+    }
+
+
+    private IEnumerator RotateTowardsTargetCoroutine(PlayerStateManager player, float rotationDuration)
+    {
+        while (rotationElapsedTime < rotationDuration)
+        {
+            rotationElapsedTime += Time.deltaTime;
+            float progress = Mathf.Clamp01(rotationElapsedTime / rotationDuration);
+            player.playerObj.transform.rotation = Quaternion.Slerp(initialRotation, targetRotation, progress);
+            yield return null;
+        }
+
+        isRotating = false;
+
+        MoveForward(_sm, atkMoveDistance, atkMoveDur);
+    }
+    #endregion
 }

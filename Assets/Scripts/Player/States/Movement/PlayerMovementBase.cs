@@ -7,7 +7,7 @@ public class PlayerMovementBase : PlayerState
     public override void EnterState(PlayerStateManager player)
     {
         base.EnterState(player);
-        _sm.inputHandler.SetCanConsumeInput(true);
+        _sm.ih.SetCanConsumeInput(true);
     }
 
     public override void ExitState(PlayerStateManager player)

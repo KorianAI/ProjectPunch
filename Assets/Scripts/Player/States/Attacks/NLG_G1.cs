@@ -27,9 +27,9 @@ public class NLG_G1 : PlayerAttackBase
         {
             canAttack = true;
 
-            if (_sm.inputHandler.GetBufferedInputs().Length > 0)
+            if (_sm.ih.GetBufferedInputs().Length > 0)
             {
-                _sm.inputHandler.SetCanConsumeInput(true);
+                _sm.ih.SetCanConsumeInput(true);
             }
 
             else

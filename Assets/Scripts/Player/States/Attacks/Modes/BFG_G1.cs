@@ -6,11 +6,13 @@ public class BFG_G1 : PlayerAttackBase
 {
     public override void EnterState(PlayerStateManager player)
     {
+        atkMoveDistance = 2.25f;
+        atkMoveDur = .4f;
+        duration = .4f;
         base.EnterState(player);
-        duration = .5f;
         player.anim.SetTrigger("HeavyAttack1");
         canAttack = false;
-        base.MoveForward(_sm, 2f, .2f);
+
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -25,9 +27,9 @@ public class BFG_G1 : PlayerAttackBase
         {
             canAttack = true;
 
-            if (_sm.inputHandler.GetBufferedInputs().Length > 0)
+            if (_sm.ih.GetBufferedInputs().Length > 0)
             {
-                _sm.inputHandler.SetCanConsumeInput(true);
+                _sm.ih.SetCanConsumeInput(true);
             }
 
             else

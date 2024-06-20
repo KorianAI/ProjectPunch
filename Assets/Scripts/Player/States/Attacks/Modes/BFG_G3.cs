@@ -6,12 +6,12 @@ public class BFG_G3 : PlayerAttackBase
 {
     public override void EnterState(PlayerStateManager player)
     {
+        atkMoveDistance = 2;
+        atkMoveDur = .7f;
         base.EnterState(player);
-        duration = 1f;
+        duration = .7f;
         player.anim.SetTrigger("HeavyAttack3");
         canAttack = false;
-
-        base.MoveForward(_sm, 1f, .1f);
     }
 
     public override void ExitState(PlayerStateManager player)

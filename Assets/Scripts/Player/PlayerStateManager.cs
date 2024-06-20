@@ -72,8 +72,9 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     PlayerAudioManager audioManager;
 
     public PlayerMovement pm;
-    public PlayerInputHandler inputHandler;
+    public PlayerInputHandler ih;
     public PlayerCombat pc;
+    public TargetCams tl;
 
     public string currentStateDebug;
 
@@ -371,6 +372,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             if (attackType == 2) // heavy
             {
                 c.GetComponent<IDamageable>().TakeDamage(attackDamage * 1.5f);
+                attackHit = true;
                 HitstopManager.Instance.TriggerHitstop(hitstopAmnt, gameObject, c.gameObject);
                 CinemachineShake.Instance.ShakeCamera(shakeAmnt, shakeTimer);
                 CinemachineShake.Instance.ChangeFov(fovChange, shakeTimer);
