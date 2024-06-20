@@ -65,8 +65,6 @@ public class PlayerAttackBase : PlayerState
     #region MoveForward
     protected void MoveForward(PlayerStateManager player, float moveDistance, float moveDuration)
     {
-       
-
         isMovingForward = true;
         _sm.attackHit = false;
         initialPosition = player.transform.position;
@@ -104,10 +102,13 @@ public class PlayerAttackBase : PlayerState
         Vector3 inputDir = new Vector3(horizontalInput, 0f, verticalInput);
 
 
-        if (player.tl.currentTarget == null || inputDir != Vector3.zero) { MoveForward(_sm, atkMoveDistance, atkMoveDur); }
+        if (player.tl.currentTarget == null) 
+                { MoveForward(_sm, atkMoveDistance, atkMoveDur); }
 
         else
         {
+            if (inputDir != Vector3.zero && Vector3.Distance(player.transform.position, player.tl.currentTarget.position) > 5) return;
+
             isRotating = true;
             initialRotation = player.transform.rotation;
             Vector3 directionToTarget = (player.tl.currentTarget.position - player.transform.position).normalized;
@@ -132,7 +133,7 @@ public class PlayerAttackBase : PlayerState
 
         isRotating = false;
 
-        if (Vector3.Distance(player.transform.position, player.tl.currentTarget.position) > 2)
+        if (Vector3.Distance(player.transform.position, player.tl.currentTarget.position) > 3)
         MoveForward(_sm, atkMoveDistance, atkMoveDur);
     }
     #endregion

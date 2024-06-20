@@ -22,7 +22,7 @@ public class BFG_G3 : PlayerAttackBase
     public override void FrameUpdate(PlayerStateManager player)
     {
         base.FrameUpdate(player);
-        if (fixedtime > duration)
+        if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
         {
             _sm.SwitchState(new PlayerIdleState());
         }

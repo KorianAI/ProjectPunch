@@ -34,7 +34,8 @@ public class BFG_G1 : PlayerAttackBase
 
             else
             {
-                _sm.SwitchState(new PlayerIdleState());
+                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
+                    _sm.SwitchState(new PlayerIdleState());
             }
         }
     }
