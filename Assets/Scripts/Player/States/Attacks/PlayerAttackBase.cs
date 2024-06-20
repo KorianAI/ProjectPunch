@@ -32,6 +32,7 @@ public class PlayerAttackBase : PlayerState
         base.EnterState(player);
         RotateTowardsTarget(_sm, .1f);
         animator = GetComponent<Animator>();
+        _sm.cam.canRotate = false;
         _sm.ih.SetCanConsumeInput(false);
     }
 

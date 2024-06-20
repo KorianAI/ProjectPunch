@@ -8,6 +8,10 @@ public class PlayerMovementBase : PlayerState
     {
         base.EnterState(player);
         _sm.ih.SetCanConsumeInput(true);
+        if (_sm.pm.grounded)
+        {
+            _sm.cam.canRotate = true;
+        }
     }
 
     public override void ExitState(PlayerStateManager player)
