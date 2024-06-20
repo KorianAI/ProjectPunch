@@ -13,6 +13,7 @@ public class PlayerAirState : PlayerMovementBase
         base.EnterState(player);
         _player = player;
         player.pm.readyToJump = false;
+        _sm.cam.canRotate = false;
     }
 
     public override void ExitState(PlayerStateManager player)

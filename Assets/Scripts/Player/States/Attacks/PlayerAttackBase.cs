@@ -26,6 +26,8 @@ public class PlayerAttackBase : PlayerState
     private Quaternion targetRotation;
     private float rotationElapsedTime = 0f;
 
+
+
     public override void EnterState(PlayerStateManager player)
     {
 
@@ -76,7 +78,6 @@ public class PlayerAttackBase : PlayerState
         if (inputDir == Vector3.zero)
         {
             inputDir = player.playerObj.transform.forward; // Default to forward if no input
-            Debug.Log("f");
         }
 
 
@@ -98,7 +99,12 @@ public class PlayerAttackBase : PlayerState
     #region RotateToTarget
     protected void RotateTowardsTarget(PlayerStateManager player, float rotationDuration)
     {
-        if (player.tl.currentTarget == null) { MoveForward(_sm, atkMoveDistance, atkMoveDur); }
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
+        Vector3 inputDir = new Vector3(horizontalInput, 0f, verticalInput);
+
+
+        if (player.tl.currentTarget == null || inputDir != Vector3.zero) { MoveForward(_sm, atkMoveDistance, atkMoveDur); }
 
         else
         {

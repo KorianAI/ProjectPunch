@@ -152,7 +152,8 @@ public class PlayerMovement : MonoBehaviour
  
 
         if (grounded) //readyToJump check removed due to bug (issue #3)
-        {           
+        {
+            sm.SwitchState(new PlayerJumpStart());
             sm.anim.Play("PlayerJumpStart");         
         }
     }
