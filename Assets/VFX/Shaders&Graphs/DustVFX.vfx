@@ -20,7 +20,7 @@ MonoBehaviour:
     x: 199
     y: -113
     width: 939
-    height: 1679
+    height: 1660
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -821,7 +821,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.015139087103307248,"y":0.21182774007320405,"z":-1.513364315032959}}'
+      m_SerializableObject: '{"vector":{"x":0.015139087103307248,"y":0.8586229085922241,"z":-1.2640843391418458}}'
     m_Space: 0
   m_Property:
     name: A
@@ -2166,7 +2166,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.15
+      m_SerializableObject: 0.125
     m_Space: 2147483647
   m_Property:
     name: A
@@ -2200,7 +2200,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.2
+      m_SerializableObject: 0.15
     m_Space: 2147483647
   m_Property:
     name: B
@@ -2573,7 +2573,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.23074007034301759,"g":0.09530748426914215,"b":0.027320891618728639,"a":1.0},"time":0.7823605537414551},{"color":{"r":0.22641509771347047,"g":0.22641509771347047,"b":0.22641509771347047,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":0.6705882549285889,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.23074007034301759,"g":0.09530748426914215,"b":0.027320891618728639,"a":1.0},"time":0.7823605537414551},{"color":{"r":0.22641509771347047,"g":0.1274474859237671,"b":0.077963687479496,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":0.6705882549285889,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
