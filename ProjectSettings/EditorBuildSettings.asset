@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Arkham.unity
-    guid: 0dde5bf08d3bdd54fb462af0f46b7efc
+    path: Assets/_Scenes/Arkham.unity
+    guid: 085909b49f3a1eb40ba5b8003a6c08e0
   - enabled: 1
     path: Assets/_Scenes/EndScreen.unity
     guid: 43081eb978266b94a81334e223831123

@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class WeaponInfo : MonoBehaviour
 {
     public PlayerStateManager sm;
+    public AttackStats[] stats;
 
     public virtual void Start()
     {
