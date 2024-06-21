@@ -12,5 +12,5 @@ public abstract class WeaponInfo : MonoBehaviour
         sm = GetComponentInParent<PlayerStateManager>();
     }
 
-    public abstract void Input(InputCommand command, bool grounded);   
+    public abstract void WeaponInput(InputCommand command, bool grounded);   
 }

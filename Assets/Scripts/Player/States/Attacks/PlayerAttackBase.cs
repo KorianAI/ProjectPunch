@@ -26,6 +26,7 @@ public class PlayerAttackBase : PlayerState
     private Quaternion targetRotation;
     private float rotationElapsedTime = 0f;
 
+    protected AttackStats attackStats;
 
 
     public override void EnterState(PlayerStateManager player)
@@ -137,4 +138,6 @@ public class PlayerAttackBase : PlayerState
         MoveForward(_sm, atkMoveDistance, atkMoveDur);
     }
     #endregion
+
+
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NLG_G1 : PlayerAttackBase
 {
+    float timeBetweenShots = .2f;
+    float maxShots = 3;
 
     public override void EnterState(PlayerStateManager player)
     {   
@@ -25,7 +27,6 @@ public class NLG_G1 : PlayerAttackBase
 
         if (fixedtime > duration)
         {
-            canAttack = true;
 
             if (_sm.ih.GetBufferedInputs().Length > 0)
             {
@@ -67,5 +68,18 @@ public class NLG_G1 : PlayerAttackBase
             }
         }
 
+    }
+
+    private IEnumerator FireNailVolley()
+    {
+        float currentShots = 0;
+        for (int i = 0; i < maxShots; i++)
+        {
+            // fire shot
+            currentShots++;
+            yield return new WaitForSeconds(timeBetweenShots);
+        }
+
+        canAttack = true;
     }
 }

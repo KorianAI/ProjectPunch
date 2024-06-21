@@ -9,7 +9,7 @@ public class BFG : WeaponInfo
         base.Start();
     }
 
-    public override void Input(InputCommand command, bool grounded)
+    public override void WeaponInput(InputCommand command, bool grounded)
     {
         if (grounded && command.Type == InputType.Y)
         {

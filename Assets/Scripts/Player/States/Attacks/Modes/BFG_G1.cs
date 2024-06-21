@@ -51,7 +51,7 @@ public class BFG_G1 : PlayerAttackBase
         {
             if (command.Type == InputType.X)
             {
-                _sm.resources.attachment.Input(command, _sm.pm.grounded);
+                _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded);
             }
 
             else if (command.Type == InputType.Y)
