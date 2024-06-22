@@ -12,6 +12,8 @@ public class Nailgun : WeaponInfo
 
     public LayerMask hittable;
 
+    public AttackStats stats;
+
     public override void Start()
     {
         base.Start();
@@ -19,10 +21,7 @@ public class Nailgun : WeaponInfo
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Shoot();
-        }
+        
     }
 
     public override void WeaponInput(InputCommand command, bool grounded)
@@ -77,6 +76,10 @@ public class Nailgun : WeaponInfo
         }
 
         trail.transform.position = enemy;
+        HitstopManager.Instance.TriggerHitstop(stats.hitstopAmnt, sm.tl.currentTarget.gameObject);
+        CinemachineShake.Instance.ShakeCamera(stats.shakeAmnt, stats.shakeDur);
+        CinemachineShake.Instance.ChangeFov(stats.zoomAmnt, stats.shakeDur);
+        RumbleManager.instance.RumblePulse(.05f, .15f, .1f);
         Destroy(trail.gameObject, trail.time);
     }
 }

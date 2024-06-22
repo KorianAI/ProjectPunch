@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NLG_G1 : PlayerAttackBase
 {
-    float timeBetweenShots = .2f;
+    float timeBetweenShots = .05f;
     float maxShots = 3;
 
     public override void EnterState(PlayerStateManager player)
@@ -13,6 +13,7 @@ public class NLG_G1 : PlayerAttackBase
         base.EnterState(player);
         duration = 0.5f;
         player.anim.SetTrigger("LightAttack");
+        player.StartCoroutine(FireNailVolley());
         canAttack = false;
     }
 
@@ -73,9 +74,11 @@ public class NLG_G1 : PlayerAttackBase
     private IEnumerator FireNailVolley()
     {
         float currentShots = 0;
+        Nailgun ng = GameObject.Find("Nailgun").GetComponent<Nailgun>();
         for (int i = 0; i < maxShots; i++)
         {
-            // fire shot
+            Debug.Log("boom");
+            ng.Shoot();
             currentShots++;
             yield return new WaitForSeconds(timeBetweenShots);
         }
