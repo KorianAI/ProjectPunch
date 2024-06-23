@@ -19,5 +19,7 @@ public enum InputType
     X,
     Y,
     A,
-    B
+    B,
+    Push,
+    Pull
 }

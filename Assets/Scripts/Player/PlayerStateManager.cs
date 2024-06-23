@@ -137,13 +137,12 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public void Pull(InputAction.CallbackContext obj)
     {
-        if (canAttack && lockOn.currentTarget != null && currentState != stunnedState)
+        if (canAttack && tl.currentTarget != null && currentState != stunnedState)
         {
-            var target = lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>();         
+            var target = tl.currentTarget.gameObject.GetComponent<IMagnetisable>();         
 
             if (target != null)
             {
-                canAttack = false;
                 anim.Play("Pull");
                 audioManager.Pull();
                 StopCoroutine("TargetPull");
@@ -154,7 +153,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public IEnumerator TargetPull()
     {
-        var target = lockOn.currentTarget.gameObject;
+        var target = tl.currentTarget.gameObject;
         float duration = 0;
 
         if (target.CompareTag("Enemy"))
@@ -190,15 +189,15 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     {
         if (currentState == stunnedState) { return; }
 
-        if (canAttack && lockOn.currentTarget != null)
+        if (canAttack && tl.currentTarget != null)
         {
 
-            if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
+            if (tl.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
             {
                 anim.Play("Push");
                 audioManager.Push();
                 StopCoroutine("PushTarget");
-                StartCoroutine(PushTarget(lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>()));
+                StartCoroutine(PushTarget(tl.currentTarget.gameObject.GetComponent<IMagnetisable>()));
             }
         } // targetting something
 
@@ -206,9 +205,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         {
             CameraManager.SwitchPlayerCam(playerCam);
 
-            lockOn.currentTarget = null;
-            lockOn.isTargeting = false;
-            lockOn.lastTargetTag = null;
+            tl.currentTarget = null;
+            tl.isTargeting = false;
             rail = null;
             cam.canRotate = true;
 

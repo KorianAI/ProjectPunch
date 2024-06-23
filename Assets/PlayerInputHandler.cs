@@ -50,6 +50,16 @@ public class PlayerInputHandler : MonoBehaviour
         {
             BufferInput(new InputCommand { Type = InputType.A });
         };
+
+        InputMaster.Player.Push.started += ctx =>
+        {
+            BufferInput(new InputCommand { Type = InputType.Push });
+        };
+
+        InputMaster.Player.Pull.started += ctx =>
+        {
+            BufferInput(new InputCommand { Type = InputType.Pull });
+        };
     }
 
     private void Update()
