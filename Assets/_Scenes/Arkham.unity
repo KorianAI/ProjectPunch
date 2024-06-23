@@ -22535,6 +22535,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1670618558}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &751019230 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 849913943693761486, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+  m_PrefabInstance: {fileID: 7273782442707240300}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &753122014
 GameObject:
   m_ObjectHideFlags: 0
@@ -24197,7 +24202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.075813375, y: -0.1923702, z: 0.014908103, w: 0.97827595}
+  m_LocalRotation: {x: 0.075813375, y: -0.1923702, z: 0.014908101, w: 0.97827595}
   m_LocalPosition: {x: -20.221968, y: 17.628313, z: 251.36597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40461,7 +40466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8698382998310868556}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.04646896, y: -0.00000031292439, z: 0.00000005401671, w: 0.9989198}
+  m_LocalRotation: {x: -0.04646896, y: -0.00000028312206, z: 0.00000004656613, w: 0.9989198}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46303,7 +46308,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 7273782442707240300}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f74e84b7d4049914082c1f15d97c2aee, type: 3}
   m_Name: 
@@ -51213,6 +51218,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.123956576
       objectReference: {fileID: 0}
+    - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: hitVFX
+      value: 
+      objectReference: {fileID: 888444077320411739, guid: 0c2509361b13505428ce788b7f846686, type: 3}
+    - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 751019230}
+    - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: attackRange
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 839693898884694531, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: sm
       value: 
@@ -51310,6 +51331,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2712155063390552575}
     - target: {fileID: 2238942971547358808, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238942971547358808, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: targetCam
       value: 
       objectReference: {fileID: 1161700242}
@@ -51385,6 +51410,26 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.006351933
       objectReference: {fileID: 0}
+    - target: {fileID: 3993690727185807125, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 11a24d90576a5014e8f0ba9c06e844d4, type: 2}
+    - target: {fileID: 3993690727185807125, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: baseComboStats.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993690727185807125, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: baseComboStats.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 11a24d90576a5014e8f0ba9c06e844d4, type: 2}
+    - target: {fileID: 3993690727185807125, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: baseComboStats.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: f941e11d71b96274ab53bd50bff5f8b6, type: 2}
+    - target: {fileID: 3993690727185807125, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: baseComboStats.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: ce1fb101099941442b5db83a2f219f4e, type: 2}
     - target: {fileID: 5332063008067716751, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.84617794

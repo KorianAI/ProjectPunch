@@ -26,9 +26,6 @@ public class PlayerAttackBase : PlayerState
     private Quaternion targetRotation;
     private float rotationElapsedTime = 0f;
 
-    protected AttackStats attackStats;
-
-
     public override void EnterState(PlayerStateManager player)
     {
 
@@ -46,15 +43,27 @@ public class PlayerAttackBase : PlayerState
 
     public override void FrameUpdate(PlayerStateManager player)
     {
+        Debug.Log(attackIndex);
         base.FrameUpdate(player);
        
     }
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        if (command.Type == InputType.A)
+
+        if (command.Type == InputType.X)
         {
-            _sm.pm.Jump();
+            _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, attackIndex);
+        }
+
+        else if (command.Type == InputType.Y)
+        {
+            _sm.resources.mode.WeaponInput(command, _sm.pm.grounded, attackIndex);
+        }
+
+        else
+        {
+            base.HandleBufferedInput(command);
         }
     }
 

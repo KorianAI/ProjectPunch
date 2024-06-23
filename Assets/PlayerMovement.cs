@@ -131,21 +131,21 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (sm.currentState == sm.railState && sm.canAttack)
-        {
-            CameraManager.SwitchPlayerCam(sm.playerCam);
+        //if (sm.currentState == sm.railState && sm.canAttack)
+        //{
+        //    CameraManager.SwitchPlayerCam(sm.playerCam);
 
-            sm.lockOn.currentTarget = null;
-            sm.lockOn.isTargeting = false;
-            sm.lockOn.lastTargetTag = null;
-            sm.cam.canRotate = true;
+        //    sm.lockOn.currentTarget = null;
+        //    sm.lockOn.isTargeting = false;
+        //    sm.lockOn.lastTargetTag = null;
+        //    sm.cam.canRotate = true;
 
-            transform.SetParent(null);
-            sm.currentState = sm.inAirState;
+        //    transform.SetParent(null);
+        //    sm.currentState = sm.inAirState;
 
-            sm.anim.Play("PlayerInAir");
-            sm.anim.SetBool("onRail", false);
-        }
+        //    sm.anim.Play("PlayerInAir");
+        //    sm.anim.SetBool("onRail", false);
+        //}
 
         //if (sm.currentState != sm.moveState && sm.currentState != sm.idleState) return;
 
@@ -171,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(newJumpEffect.gameObject, 1f);
         }
 
-        sm.SwitchState(sm.inAirState);
+        sm.SwitchState(new PlayerAirState());
     }
 
 

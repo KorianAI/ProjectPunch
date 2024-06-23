@@ -6,12 +6,14 @@ public class BFG_G1 : PlayerAttackBase
 {
     public override void EnterState(PlayerStateManager player)
     {
+
         atkMoveDistance = 2.25f;
         atkMoveDur = .4f;
-        duration = .4f;
+        duration = .3f;
         base.EnterState(player);
         player.anim.SetTrigger("HeavyAttack1");
         canAttack = false;
+
 
     }
 
@@ -25,6 +27,7 @@ public class BFG_G1 : PlayerAttackBase
         base.FrameUpdate(player);
         if (fixedtime > duration)
         {
+            attackIndex = 1;
             canAttack = true;
 
             if (_sm.ih.GetBufferedInputs().Length > 0)
@@ -49,21 +52,7 @@ public class BFG_G1 : PlayerAttackBase
     {
         if (canAttack)
         {
-            if (command.Type == InputType.X)
-            {
-                _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded);
-            }
-
-            else if (command.Type == InputType.Y)
-            {
-                Debug.Log("Heavy Attack received in heavy state");
-                _sm.SwitchState(new BFG_G2());
-            }
-
-            else
-            {
-                base.HandleBufferedInput(command);
-            }
+            base.HandleBufferedInput(command);
         }
     }
 }

@@ -8,11 +8,11 @@ public class BFG_G2 : PlayerAttackBase
     {
         atkMoveDistance = 2f;
         atkMoveDur = .4f;
-        duration = .4f;
+        duration = .3f;
         base.EnterState(player);
-
         player.anim.SetTrigger("HeavyAttack2");
         canAttack = false;
+
 
     }
 
@@ -26,6 +26,8 @@ public class BFG_G2 : PlayerAttackBase
         base.FrameUpdate(player);
         if (fixedtime > duration)
         {
+            canAttack = true;
+            attackIndex = 2;
             if (_sm.ih.GetBufferedInputs().Length > 0)
             {
                 _sm.ih.SetCanConsumeInput(true);
@@ -33,7 +35,7 @@ public class BFG_G2 : PlayerAttackBase
 
             else
             {
-                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
+                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length + 1)
                     _sm.SwitchState(new PlayerIdleState());
             }
         }
@@ -41,15 +43,9 @@ public class BFG_G2 : PlayerAttackBase
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        if (command.Type == InputType.X)
+        if (canAttack)
         {
-            _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded);
-        }
-
-        else if (command.Type == InputType.Y)
-        {
-            Debug.Log("Heavy Attack received in heavy state");
-            _sm.SwitchState(new BFG_G3());
+            base.HandleBufferedInput(command);
         }
     }
 

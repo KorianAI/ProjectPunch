@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class WeaponInfo : MonoBehaviour
+public class WeaponInfo : MonoBehaviour
 {
     public PlayerStateManager sm;
+    public AttackStats stats;
 
 
     public virtual void Start()
@@ -13,5 +14,8 @@ public abstract class WeaponInfo : MonoBehaviour
         sm = GetComponentInParent<PlayerStateManager>();
     }
 
-    public abstract void WeaponInput(InputCommand command, bool grounded);   
+    public virtual void WeaponInput(InputCommand command, bool grounded, int index)
+    {
+
+    }
 }

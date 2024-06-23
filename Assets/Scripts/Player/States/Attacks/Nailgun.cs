@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Nailgun : WeaponInfo
+public class Nailgun : Attachment
 {
     public bool bulletSpread;
     public float spreadVariance;
@@ -12,7 +12,7 @@ public class Nailgun : WeaponInfo
 
     public LayerMask hittable;
 
-    public AttackStats stats;
+
 
     public override void Start()
     {
@@ -24,7 +24,7 @@ public class Nailgun : WeaponInfo
         
     }
 
-    public override void WeaponInput(InputCommand command, bool grounded)
+    public override void WeaponInput(InputCommand command, bool grounded, int index)
     {
         if (grounded && command.Type == InputType.X)
         {
@@ -33,7 +33,7 @@ public class Nailgun : WeaponInfo
 
         else
         {
-            sm.SwitchState(sm.inAirState);
+            sm.SwitchState(new PlayerAirState());
         }
     }
 

@@ -37,14 +37,14 @@ public class PlayerMovementBase : PlayerState
         {
             if (command.Type == InputType.X)
             {
-                Debug.Log("X received in move state");
-                _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded);
+                
+                _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, 0);
             }
 
             else if (command.Type == InputType.Y)
             {
-                Debug.Log("Heavy Attack received in move state");
-                _sm.resources.mode.WeaponInput(command, _sm.pm.grounded);
+                
+                _sm.resources.mode.WeaponInput(command, _sm.pm.grounded, 0);
             }
 
             else if (command.Type == InputType.A)

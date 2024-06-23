@@ -84,7 +84,7 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
-        transform.DOMove(transform.position + player.orientation.forward * player.kbForce, 1f);
+        transform.DOMove(transform.position + player.orientation.forward, 1f);
         transform.DOShakeRotation(1, 15f, 10, 90);
     }
 }

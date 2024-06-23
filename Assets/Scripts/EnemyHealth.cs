@@ -211,7 +211,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     public void Push(PlayerStateManager player)
     {
         if (hasArmour) { return; }
-        transform.DOMove(transform.position + player.orientation.forward * player.kbForce, 1f);
+        transform.DOMove(transform.position + player.orientation.forward, 1f);
         GetStunned(1);
         //transform.DOShakeRotation(1, 15f, 10, 90);
     }

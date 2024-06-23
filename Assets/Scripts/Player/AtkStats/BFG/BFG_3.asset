@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b458e8d8b19234b8a48541c9d932c2, type: 3}
+  m_Name: BFG_3
+  m_EditorClassIdentifier: 
+  attackName: BFG_1
+  damage: 15
+  rumbleAmnt: 0.15
+  shakeAmnt: 1.15
+  zoomAmnt: -3
+  shakeDur: 1
+  hitstopAmnt: 0.2

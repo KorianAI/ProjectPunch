@@ -34,20 +34,14 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public Transform attackPoint;
     public Transform pushPoint;
     public float pushRange;
-    public LayerMask enemyLayer;
-    public float attackRange;
-    public float attackDamage;
-    public GameObject hitVFX;
+
 
     public EMRail rail;
 
     public Transform orientation;
-    public float horizontalInput;
-    public float verticalInput;
-    public Vector3 moveDirection;
-    public AnimationHandler animHandler;
 
-    public DebugState debugState;
+
+
     public TargetLock lockOn;
     public Transform pullPosition;
 
@@ -57,12 +51,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public Transform playerObj;
 
-    public float kbForce;
-    public float hitstopAmnt;
-    public float shakeAmnt;
-    public float shakeTimer;
-    public float fovChange;
-    public Animator whipAnim;
 
     [Header("Cameras")]
     public CinemachineFreeLook playerCam;
@@ -80,17 +68,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public bool attackHit;
 
-    public enum DebugState
-    {
-        idle,
-        walk,
-        lightAttack,
-        heavyAttack,
-        inAir,
-        pull,
-        push,
-        rail
-    }
+
 
     private void Awake()
     {
@@ -141,41 +119,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     private void Update()
     {      
         currentState.FrameUpdate(this);
-        
-        //Debug.DrawRay(transform.position, Vector3.down * (playerHeight * 0.5f + 0.2f), Color.green);
-        ShowDebugState();
         currentStateDebug = currentState.ToSafeString();
-    }
-
-
-
-    void ShowDebugState()
-    {
-        if (currentState == idleState)
-        {
-            debugState = DebugState.idle;
-        }
-
-        else if (currentState == moveState)
-        {
-            debugState = DebugState.walk;
-        }
-
-        else if (currentState == attackState)
-        {
-            debugState = DebugState.lightAttack;
-        }
-
-        else if (currentState == inAirState)
-        {
-            debugState = DebugState.inAir;
-        }
-
-        else if (currentState == railState)
-        {
-            debugState = DebugState.rail;
-        }
-
     }
 
     private void FixedUpdate()
@@ -185,19 +129,9 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public void SwitchState(PlayerState state)
     {
-        //Debug.Log("Came from: " + state + " " + Time.time);
         currentState.ExitState(this);
         currentState = state;
         state.EnterState(this);
-        //Debug.Log("Entered: " + state + " " + Time.time);
-    }
-
-    public bool IsInMoveState(PlayerState state)
-    {
-        Type stateType = currentState.GetType();
-        return stateType == typeof(PlayerMoveState) ||
-               stateType == typeof(PlayerAirState) ||
-               stateType == typeof(PlayerIdleState);
     }
 
 
@@ -210,7 +144,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             if (target != null)
             {
                 canAttack = false;
-                RotateToTarget();
                 anim.Play("Pull");
                 audioManager.Pull();
                 StopCoroutine("TargetPull");
@@ -250,7 +183,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         target.GetComponent<IMagnetisable>().Pull(this);
        
        
-        //SwitchState(moveState);
+
     }
 
     public void Push(InputAction.CallbackContext obj)
@@ -259,7 +192,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
         if (canAttack && lockOn.currentTarget != null)
         {
-            RotateToTarget();
 
             if (lockOn.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
             {
@@ -320,95 +252,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         target.Push(this);      
         canAttack = true;
         SwitchState(moveState);
-    }
-
-    public void RotateToTarget()
-    {
-        if (lockOn.currentTarget != null)
-        {
-            cam.canRotate = false;
-            Vector3 t = new Vector3(lockOn.currentTarget.transform.position.x, playerObj.transform.position.y, lockOn.currentTarget.transform.position.z);
-            playerObj.transform.DOLookAt(t, 0f).onComplete = CanRotate;
-            
-        }
-    }
-
-    void CanRotate()
-    {
-        cam.canRotate = true;
-    }
-
-    public void FuckOff(float attackNo)
-    {
-        //whipAnim.gameObject.SetActive(true);
-
-        if (attackNo == 1)
-        {
-            whipAnim.Play("WhipEffect");
-        }
-
-        else if (attackNo == 2)
-        {
-            whipAnim.Play("Whip2Effect");
-        }
-
-        else if (attackNo == 3)
-        {
-            whipAnim.Play("Whip3Effect");
-        }
-        
-    }
-
-    public void CheckForEnemies(float attackType)
-    {
-        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
-        foreach (Collider c in enemies)
-        {
-            if (attackType == 1) // light
-            {
-                c.GetComponent<IDamageable>().TakeDamage(attackDamage);
-            }
-
-            if (attackType == 2) // heavy
-            {
-                c.GetComponent<IDamageable>().TakeDamage(attackDamage * 1.5f);
-                attackHit = true;
-                HitstopManager.Instance.TriggerHitstop(hitstopAmnt, gameObject, c.gameObject);
-                CinemachineShake.Instance.ShakeCamera(shakeAmnt, shakeTimer);
-                CinemachineShake.Instance.ChangeFov(fovChange, shakeTimer);
-                RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
-                transform.DOKill();
-            }
-
-            if (attackType == 3) // shotgun
-            {
-                c.GetComponent<IDamageable>().TakeDamage(attackDamage * 1.5f);
-            }
-
-            //c.GetComponent<IKnockback>().Knockback(1.5f, orientation);
-
-            GameObject hitParticle = Instantiate(hitVFX, c.transform);
-           
-
-            if (c.GetComponent<EnemyHealth>() != null)
-            {
-                c.GetComponent<EnemyHealth>().GetStunned(.2f);
-               
-            }
-
-            
-        }
-
-
-    }
-
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(pushPoint.position, pushRange);
     }
 
     public void Knockback(float distance, Transform attacker, float length)
