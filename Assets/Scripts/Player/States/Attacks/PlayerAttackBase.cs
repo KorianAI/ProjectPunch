@@ -9,7 +9,6 @@ public class PlayerAttackBase : PlayerState
     public float duration;
     protected Animator animator;
     protected bool canAttack = false;
-    public int attackIndex;
 
     // attack movement
     protected bool moveForward;
@@ -25,6 +24,8 @@ public class PlayerAttackBase : PlayerState
     private Quaternion initialRotation;
     private Quaternion targetRotation;
     private float rotationElapsedTime = 0f;
+
+    public bool rangeAttack;
 
     public override void EnterState(PlayerStateManager player)
     {
@@ -50,21 +51,7 @@ public class PlayerAttackBase : PlayerState
 
     public override void HandleBufferedInput(InputCommand command)
     {
-
-        if (command.Type == InputType.X)
-        {
-            _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, attackIndex);
-        }
-
-        else if (command.Type == InputType.Y)
-        {
-            _sm.resources.mode.WeaponInput(command, _sm.pm.grounded, attackIndex);
-        }
-
-        else
-        {
-            base.HandleBufferedInput(command);
-        }
+        base.HandleBufferedInput(command);
     }
 
     public override void PhysicsUpdate(PlayerStateManager player)
@@ -117,7 +104,7 @@ public class PlayerAttackBase : PlayerState
 
         else
         {
-            if (inputDir != Vector3.zero && Vector3.Distance(player.transform.position, player.tl.currentTarget.position) > 5) return;
+            if (inputDir != Vector3.zero && !rangeAttack && Vector3.Distance(player.transform.position, player.tl.currentTarget.position) > 5) return;
 
             isRotating = true;
             initialRotation = player.transform.rotation;

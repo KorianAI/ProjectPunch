@@ -77,7 +77,7 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
     {
         ps = player;
 
-        transform.DOMove(player.pullPosition.position, .5f);
+        transform.DOMove(player.pullPosition.position, .5f).OnComplete(() => player.pulling = false);
         transform.DOShakeRotation(1, 15f, 10, 90);
         DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);
     }

@@ -26,33 +26,7 @@ public class PlayerMovementBase : PlayerState
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        if (command == null) return;
-
-        if (_sm.resources.shift != null)
-        {
-            _sm.SwitchState(new PlayerIdleState());
-        }
-
-        else
-        {
-            if (command.Type == InputType.X)
-            {
-                
-                _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, 0);
-            }
-
-            else if (command.Type == InputType.Y)
-            {
-                
-                _sm.resources.mode.WeaponInput(command, _sm.pm.grounded, 0);
-            }
-
-            else if (command.Type == InputType.A)
-            {
-                _sm.pm.Jump();
-            }
-        }
-
+        base.HandleBufferedInput(command);
     }
 
     public override void PhysicsUpdate(PlayerStateManager player)

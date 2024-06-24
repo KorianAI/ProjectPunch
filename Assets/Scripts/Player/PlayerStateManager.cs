@@ -67,6 +67,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public string currentStateDebug;
 
     public bool attackHit;
+    public bool pulling;
+    public bool pushing;
 
 
 
@@ -145,45 +147,12 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
             {
                 anim.Play("Pull");
                 audioManager.Pull();
-                StopCoroutine("TargetPull");
-                StartCoroutine("TargetPull");
+
             }
         } 
     }
 
-    public IEnumerator TargetPull()
-    {
-        var target = tl.currentTarget.gameObject;
-        float duration = 0;
-
-        if (target.CompareTag("Enemy"))
-        {
-            DOTween.To(() => playerCam.m_Lens.FieldOfView, x => playerCam.m_Lens.FieldOfView = x, 48, .25f);
-            duration = 0.25f;
-        }
-
-        else if (target.CompareTag("Rail"))
-        {
-            DOTween.To(() => playerCam.m_Lens.FieldOfView, x => playerCam.m_Lens.FieldOfView = x, 85, .4f);
-            duration = .4f;
-            
-        }
-
-        else // spotlight
-        {
-            DOTween.To(() => playerCam.m_Lens.FieldOfView, x => playerCam.m_Lens.FieldOfView = x, 85, .4f);
-            duration = .4f;
-        }
-
-        
-        yield return new WaitForSeconds(duration);
-
-        
-        target.GetComponent<IMagnetisable>().Pull(this);
-       
-       
-
-    }
+ 
 
     public void Push(InputAction.CallbackContext obj)
     {

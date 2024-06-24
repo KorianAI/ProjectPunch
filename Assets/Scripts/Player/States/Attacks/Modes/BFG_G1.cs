@@ -6,7 +6,7 @@ public class BFG_G1 : PlayerAttackBase
 {
     public override void EnterState(PlayerStateManager player)
     {
-
+        rangeAttack = false;
         atkMoveDistance = 2.25f;
         atkMoveDur = .4f;
         duration = .3f;

@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerState
 {
     public PlayerStateManager _sm;
-
+    public int attackIndex;
     protected float time { get; set; }
     protected float fixedtime { get; set; }
 
@@ -31,7 +31,42 @@ public class PlayerState
 
     public virtual void HandleBufferedInput(InputCommand command)
     {
-        
+        if (command == null) return;
+
+        if (_sm.resources.shift != null)
+        {
+            _sm.SwitchState(new PlayerIdleState());
+        }
+
+        else
+        {
+            if (command.Type == InputType.X)
+            {
+
+                _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, attackIndex);
+            }
+
+            else if (command.Type == InputType.Y)
+            {
+
+                _sm.resources.mode.WeaponInput(command, _sm.pm.grounded, attackIndex);
+            }
+
+            else if (command.Type == InputType.A)
+            {
+                _sm.pm.Jump();
+            }
+
+            else if (command.Type == InputType.Push)
+            {
+                //_sm.SwitchState(new PushState());
+            }
+
+            else if (command.Type == InputType.Pull)
+            {
+                _sm.SwitchState(new PullState());
+            }
+        }
     }
 
     #region Passthrough Methods
