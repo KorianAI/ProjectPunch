@@ -163,6 +163,13 @@ public class PlayerMovement : MonoBehaviour
         yVelocity = jumpForce;
         jumpInputCD = true;
 
+        JumpEffect();
+
+        sm.SwitchState(sm.inAirState);
+    }
+
+    public void JumpEffect()
+    {
         if (jumpEffectPrefab != null && jumpEffectPosition != null)
         {
             // Instantiate the VFX at the player's feet position
@@ -170,9 +177,5 @@ public class PlayerMovement : MonoBehaviour
             newJumpEffect.Play();
             Destroy(newJumpEffect.gameObject, 1f);
         }
-
-        sm.SwitchState(sm.inAirState);
     }
-
-
 }

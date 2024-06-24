@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using UnityEngine.VFX;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -18,10 +19,13 @@ public class PlayerCombat : MonoBehaviour
     public float launchHeight;
     public float launchDuration;
 
+    PlayerMovement movement;
+
     private void Start()
     {
         _sm = GetComponent<PlayerStateManager>();
         resources = GetComponent<PlayerResources>();
+        movement = GetComponent<PlayerMovement>();
     }
     public void CheckForEnemies()
     {
@@ -60,7 +64,7 @@ public class PlayerCombat : MonoBehaviour
             CinemachineShake.Instance.ShakeCamera(modeStats.shakeAmnt, modeStats.shakeAmnt);
             RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
             transform.DOKill();
-            Vector3 launchPosition = new Vector3(c.transform.position.x, c.transform.position.y + launchHeight, c.transform.position.z);
+            Vector3 launchPosition = new Vector3(c.transform.position.x, transform.position.y + launchHeight, c.transform.position.z);
             c.transform.DOMove(launchPosition, launchDuration).SetEase(Ease.OutQuad);
 
             if (c.GetComponent<EnemyHealth>() != null)
@@ -75,6 +79,7 @@ public class PlayerCombat : MonoBehaviour
         {
             Vector3 launchPosition = new Vector3(transform.position.x, transform.position.y + launchHeight, transform.position.z);
             transform.DOMove(launchPosition, launchDuration).SetEase(Ease.OutQuad);
+            movement.JumpEffect();
         }
     }
 }

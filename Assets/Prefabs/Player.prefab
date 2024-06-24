@@ -15452,33 +15452,24 @@ MonoBehaviour:
   attackPoint: {fileID: 849913943693761486}
   pushPoint: {fileID: 7368844571388968065}
   pushRange: 3.1
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  attackRange: 1.3
-  attackDamage: 10
-  hitVFX: {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
   rail: {fileID: 0}
   orientation: {fileID: 1555699519002420172}
-  horizontalInput: 0
-  verticalInput: 0
-  moveDirection: {x: 0, y: 0, z: 0}
-  animHandler: {fileID: 0}
-  debugState: 0
   lockOn: {fileID: 0}
   pullPosition: {fileID: 3721092474853231661}
   resources: {fileID: 267864902146514877}
   cam: {fileID: 0}
   playerObj: {fileID: 6894526416184488810}
-  kbForce: 10
-  whipAnim: {fileID: 360980163747008256}
   playerCam: {fileID: 0}
   railCam: {fileID: 5526744652232716901}
   finisherCam: {fileID: 7010416021022778632}
   pm: {fileID: 6263612794386232658}
-  inputHandler: {fileID: 3175627670532644242}
+  ih: {fileID: 0}
   pc: {fileID: 778906580203837835}
+  tl: {fileID: 0}
   currentStateDebug: 
+  attackHit: 0
+  pulling: 0
+  pushing: 0
 --- !u!114 &267864902146514877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15735,6 +15726,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b2fd63b8765894396388278942c34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPoint: {fileID: 0}
+  attackRange: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  hitVFX: {fileID: 0}
+  launchHeight: 0
+  launchDuration: 0
 --- !u!114 &6263612794386232658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15771,6 +15770,8 @@ MonoBehaviour:
   yVelocity: 1
   grounded: 0
   anim: {fileID: 1633006527204081895}
+  jumpEffectPrefab: {fileID: 0}
+  jumpEffectPosition: {fileID: 0}
 --- !u!114 &3175627670532644242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95635,6 +95636,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sm: {fileID: 0}
+  stats: {fileID: 0}
+  bulletSpread: 0
+  spreadVariance: 0
+  spawnPoint: {fileID: 0}
+  projTrail: {fileID: 0}
+  hittable:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6275265921583832524
 GameObject:
   m_ObjectHideFlags: 0
@@ -136516,6 +136525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sm: {fileID: 0}
+  stats: {fileID: 0}
+  baseComboStats: []
 --- !u!1 &9105728765401635754
 GameObject:
   m_ObjectHideFlags: 0
