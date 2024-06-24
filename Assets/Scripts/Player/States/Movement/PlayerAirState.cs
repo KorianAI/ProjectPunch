@@ -24,6 +24,8 @@ public class PlayerAirState : PlayerMovementBase
 
     public override void FrameUpdate(PlayerStateManager player)
     {
+        _sm.anim.SetBool("isGrounded", _sm.pm.grounded);
+
         if (player.pm.grounded && player.pm.yVelocity < 0)
         {
             player.SwitchState(player.moveState);

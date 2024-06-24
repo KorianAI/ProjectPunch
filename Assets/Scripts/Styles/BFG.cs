@@ -21,7 +21,10 @@ public class BFG : Mode
 
         else
         {
-            sm.SwitchState(new PlayerAirState());
+            if (command.Type == InputType.Y)
+            {
+                BaseCombo(index);
+            }
         }
     }
 

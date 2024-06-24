@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        anim.SetBool("isGrounded", grounded);
+        
         IsGrounded();
         ApplyGravity();
         MovementInput();
