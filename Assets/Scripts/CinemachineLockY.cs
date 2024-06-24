@@ -7,6 +7,13 @@ public class CinemachineLockY : CinemachineExtension
     [Tooltip("Lock the camera's Y position to this value")]
     public float m_YPosition = 10;
 
+    public Transform player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player").transform;
+    }
+
     protected override void PostPipelineStageCallback(
         CinemachineVirtualCameraBase vcam,
         CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
@@ -14,7 +21,7 @@ public class CinemachineLockY : CinemachineExtension
         if (stage == CinemachineCore.Stage.Finalize)
         {
             var pos = state.RawPosition;
-            pos.y = m_YPosition;
+            pos.y = player.position.y + m_YPosition;
             state.RawPosition = pos;
         }
     }

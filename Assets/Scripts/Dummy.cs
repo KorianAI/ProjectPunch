@@ -16,6 +16,7 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
     bool takenDamage;
 
     public Animator anim;
+    public GameObject pullVFX;
 
     public float xShake;
 
@@ -76,8 +77,8 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
     public void Pull(PlayerStateManager player)
     {
         ps = player;
-
-        transform.DOMove(player.pullPosition.position, .5f).OnComplete(() => player.pulling = false);
+        pullVFX.SetActive(true);
+        transform.DOMove(player.pullPosition.position, .5f).OnComplete(() => { player.pulling = false; pullVFX.SetActive(false); });  
         transform.DOShakeRotation(1, 15f, 10, 90);
         DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);
     }

@@ -11,6 +11,7 @@ public class PullState : PlayerAttackBase
         duration = .4f;
         rangeAttack = true;
         base.EnterState(player);
+        _sm.anim.Play("Pull");
         _sm.StartCoroutine(TargetPull());
         _sm.pulling = true;
         _sm.ih.SetCanConsumeInput(true);

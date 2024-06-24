@@ -59,7 +59,7 @@ public class PlayerState
 
             else if (command.Type == InputType.Push)
             {
-                //_sm.SwitchState(new PushState());
+                _sm.SwitchState(new PushState());
             }
 
             else if (command.Type == InputType.Pull)

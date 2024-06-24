@@ -15,6 +15,9 @@ public class PlayerCombat : MonoBehaviour
 
     public GameObject hitVFX;
 
+    public float launchHeight;
+    public float launchDuration;
+
     private void Start()
     {
         _sm = GetComponent<PlayerStateManager>();
@@ -44,6 +47,34 @@ public class PlayerCombat : MonoBehaviour
 
             }
 
+        }
+    }
+
+    public void Knockup(float type)
+    {
+        AttackStats modeStats = resources.mode.stats;
+        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
+        foreach (Collider c in enemies)
+        {
+            HitstopManager.Instance.TriggerHitstop(modeStats.hitstopAmnt, gameObject, c.gameObject);
+            CinemachineShake.Instance.ShakeCamera(modeStats.shakeAmnt, modeStats.shakeAmnt);
+            RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
+            transform.DOKill();
+            Vector3 launchPosition = new Vector3(c.transform.position.x, c.transform.position.y + launchHeight, c.transform.position.z);
+            c.transform.DOMove(launchPosition, launchDuration).SetEase(Ease.OutQuad);
+
+            if (c.GetComponent<EnemyHealth>() != null)
+            {
+                c.GetComponent<EnemyHealth>().GetStunned(.2f);
+
+            }
+
+        }
+
+        if (type == 2)
+        {
+            Vector3 launchPosition = new Vector3(transform.position.x, transform.position.y + launchHeight, transform.position.z);
+            transform.DOMove(launchPosition, launchDuration).SetEase(Ease.OutQuad);
         }
     }
 }

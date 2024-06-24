@@ -139,78 +139,14 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public void Pull(InputAction.CallbackContext obj)
     {
-        if (canAttack && tl.currentTarget != null && currentState != stunnedState)
-        {
-            var target = tl.currentTarget.gameObject.GetComponent<IMagnetisable>();         
 
-            if (target != null)
-            {
-                anim.Play("Pull");
-                audioManager.Pull();
-
-            }
-        } 
     }
 
  
 
     public void Push(InputAction.CallbackContext obj)
     {
-        if (currentState == stunnedState) { return; }
 
-        if (canAttack && tl.currentTarget != null)
-        {
-
-            if (tl.currentTarget.gameObject.GetComponent<IMagnetisable>() != null)
-            {
-                anim.Play("Push");
-                audioManager.Push();
-                StopCoroutine("PushTarget");
-                StartCoroutine(PushTarget(tl.currentTarget.gameObject.GetComponent<IMagnetisable>()));
-            }
-        } // targetting something
-
-        if (currentState == railState && canAttack)
-        {
-            CameraManager.SwitchPlayerCam(playerCam);
-
-            tl.currentTarget = null;
-            tl.isTargeting = false;
-            rail = null;
-            cam.canRotate = true;
-
-            transform.SetParent(null);
-            currentState = inAirState;
-
-            anim.Play("PlayerInAir");
-            anim.SetBool("onRail", false);
-
-            
-        } // on rail
-
-       if (canAttack) // not targetting
-        {
-            anim.Play("Push");
-            audioManager.Push();
-
-
-
-            Collider[] colliders = Physics.OverlapSphere(pushPoint.position, pushRange);
-            foreach (Collider collider in colliders)
-            {
-               
-                Debug.Log(collider);
-
-                IMagnetisable target = collider.GetComponent<IMagnetisable>();
-                if (target != null)
-                {
-                    canAttack = false;
-                    StartCoroutine(PushTarget(target));
-                }
-            }
-
-           
-        }
     }
 
     public IEnumerator PushTarget(IMagnetisable target)
