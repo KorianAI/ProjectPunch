@@ -9,19 +9,23 @@ public class PlayerCombat : MonoBehaviour
 {
     PlayerStateManager _sm;
     PlayerResources resources;
+    PlayerMovement movement;
 
+    // attacking
     public Transform attackPoint;
     public float attackRange;
     public LayerMask enemyLayer;
-
     public GameObject hitVFX;
 
-    public float launchHeight;
-    public float launchDuration;
+    // launch
+    [SerializeField] float launchHeight;
+    [SerializeField] float launchDuration;
+    [SerializeField] public float yPosition;
 
-    PlayerMovement movement;
+    // slam
+    [SerializeField] float slamDuration;
 
-    public float yPosition;
+
 
     private void Start()
     {
@@ -85,4 +89,19 @@ public class PlayerCombat : MonoBehaviour
             movement.JumpEffect();
         }
     }
+
+    private void DetectAndSlamEnemies()
+    {
+        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
+        foreach (var c in enemies)
+        {
+            Dummy enemy = c.GetComponent<Dummy>();
+            if (enemy != null)
+            {
+                enemy.SlamToGround();
+            }
+        }
+    }
+
+
 }

@@ -2157,6 +2157,7 @@ MonoBehaviour:
   anim: {fileID: 2342257644642305081}
   pullVFX: {fileID: 1713116022251988249}
   xShake: 0.25
+  slamDuration: 0.1
 --- !u!114 &5342694837946206485
 MonoBehaviour:
   m_ObjectHideFlags: 0

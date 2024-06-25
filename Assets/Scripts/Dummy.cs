@@ -20,6 +20,8 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
 
     public float xShake;
 
+    public float slamDuration = 0.5f; 
+
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -86,5 +88,30 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
     public void Push(PlayerStateManager player)
     {
 
+    }
+
+
+    public void SlamToGround()
+    {
+        // Detect the ground position
+        float groundYPosition = DetectGroundPosition();
+
+        // Move the enemy down to the ground
+        transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad);
+    }
+
+
+    private float DetectGroundPosition()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
+        {
+            return hit.point.y;
+        }
+        else
+        {
+            // Fallback if no ground detected (unlikely in a well-defined environment)
+            return 0f;
+        }
     }
 }
