@@ -419,32 +419,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-3914099348224997786
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: ExL1 2
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: dbd7732dfca04af479901ffb2e4f2ebe, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1101 &-3208444515183145529
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -684,6 +658,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: Dash
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -873,14 +853,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &3777139457216628544
+--- !u!1102 &3792213310537690414
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AirCombo
+  m_Name: PlayerDash
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -893,7 +873,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: da1c1b34a680f3c488aa56a60bfc1676, type: 2}
+  m_Motion: {fileID: 7400000, guid: 46a6b457043c6ae4a950493b92b11e30, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -931,10 +911,7 @@ AnimatorStateMachine:
     m_Position: {x: -610, y: 440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5325255508823775483}
-    m_Position: {x: -780, y: 320, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -3914099348224997786}
-    m_Position: {x: -870, y: 220, z: 0}
+    m_Position: {x: -610, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1812813240784671567}
     m_Position: {x: 40.798706, y: 973.23596, z: 0}
@@ -960,11 +937,11 @@ AnimatorStateMachine:
     m_State: {fileID: -6689276070865609750}
     m_Position: {x: -90, y: -210, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 3777139457216628544}
-    m_Position: {x: 110, y: 450, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 7715600052332572300}
-    m_Position: {x: -520, y: -200, z: 0}
+    m_Position: {x: -290, y: -300, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 3792213310537690414}
+    m_Position: {x: -654.6787, y: -207.16034, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -6483512155635442010}
@@ -974,6 +951,7 @@ AnimatorStateMachine:
   - {fileID: 9147634602229591232}
   - {fileID: 5558692501240108657}
   - {fileID: -7376089029459340420}
+  - {fileID: 7560078436234689966}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
@@ -1102,6 +1080,31 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.8735955
   m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &7560078436234689966
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Dash
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 3792213310537690414}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1

@@ -51,6 +51,11 @@ public class PlayerInputHandler : MonoBehaviour
             BufferInput(new InputCommand { Type = InputType.A });
         };
 
+        InputMaster.Player.Dash.started += ctx =>
+        {
+            BufferInput(new InputCommand { Type = InputType.B });
+        };
+
         InputMaster.Player.Push.started += ctx =>
         {
             BufferInput(new InputCommand { Type = InputType.Push });

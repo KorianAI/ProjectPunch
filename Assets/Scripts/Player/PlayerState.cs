@@ -57,6 +57,11 @@ public class PlayerState
                 _sm.pm.Jump();
             }
 
+            else if (command.Type == InputType.B)
+            {
+                _sm.SwitchState(new PlayerDashState());
+            }
+
             else if (command.Type == InputType.Push)
             {
                 _sm.SwitchState(new PushState());
@@ -68,6 +73,7 @@ public class PlayerState
             }
         }
     }
+
 
     #region Passthrough Methods
 

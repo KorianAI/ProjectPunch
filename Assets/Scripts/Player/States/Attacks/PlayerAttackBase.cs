@@ -72,10 +72,10 @@ public class PlayerAttackBase : PlayerState
 
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
-        Vector3 inputDir =_sm.orientation.forward * verticalInput + _sm.orientation.right * horizontalInput;
+        Vector3 inputDir = _sm.orientation.forward * verticalInput + _sm.orientation.right * horizontalInput;
         if (inputDir == Vector3.zero)
         {
-            inputDir = player.playerObj.transform.forward; // Default to forward if no input
+            inputDir = _sm.playerObj.transform.forward; // Default to forward if no input
         }
 
 
@@ -107,7 +107,7 @@ public class PlayerAttackBase : PlayerState
 
         else
         {
-            if (inputDir != Vector3.zero && !rangeAttack && Vector3.Distance(player.transform.position, player.tl.currentTarget.position) > 5) return;
+            if (inputDir != Vector3.zero && !rangeAttack && Vector3.Distance(player.transform.position, player.tl.currentTarget.position) > 4) return;
 
             isRotating = true;
             initialRotation = player.transform.rotation;

@@ -98,6 +98,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""ae66f845-0afa-4678-82ab-a192a321f826"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -161,7 +170,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""id"": ""d4f5bf9a-5787-44a8-8095-bf558064cfbf"",
                     ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone"",
+                    ""processors"": ""StickDeadzone(min=1.401298E-45)"",
                     ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": true,
@@ -269,7 +278,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d7998050-bcc0-4b13-b4bc-5ef03aca1b0d"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
@@ -386,6 +395,28 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""ScrapShift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""69884f2d-75f8-43a2-abe6-f63a2504e43c"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39654a35-4de9-49af-aef4-c2c89f7056be"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -430,6 +461,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_LockOn = m_Player.FindAction("LockOn", throwIfNotFound: true);
         m_Player_Push = m_Player.FindAction("Push", throwIfNotFound: true);
         m_Player_ScrapShift = m_Player.FindAction("ScrapShift", throwIfNotFound: true);
+        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -499,6 +531,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LockOn;
     private readonly InputAction m_Player_Push;
     private readonly InputAction m_Player_ScrapShift;
+    private readonly InputAction m_Player_Dash;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -511,6 +544,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @LockOn => m_Wrapper.m_Player_LockOn;
         public InputAction @Push => m_Wrapper.m_Player_Push;
         public InputAction @ScrapShift => m_Wrapper.m_Player_ScrapShift;
+        public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -544,6 +578,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @ScrapShift.started += instance.OnScrapShift;
             @ScrapShift.performed += instance.OnScrapShift;
             @ScrapShift.canceled += instance.OnScrapShift;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -572,6 +609,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @ScrapShift.started -= instance.OnScrapShift;
             @ScrapShift.performed -= instance.OnScrapShift;
             @ScrapShift.canceled -= instance.OnScrapShift;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -617,5 +657,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnLockOn(InputAction.CallbackContext context);
         void OnPush(InputAction.CallbackContext context);
         void OnScrapShift(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
 }
