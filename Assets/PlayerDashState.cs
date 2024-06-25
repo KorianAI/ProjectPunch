@@ -5,14 +5,24 @@ using UnityEngine;
 
 public class PlayerDashState : PlayerMovementBase
 {
-    private float dashDistance = 5f; 
+    private float dashDistance = 4f; 
     private float dashDuration = 0.3f; 
     private Vector3 dashDirection; 
 
     public override void EnterState(PlayerStateManager player)
     {
         base.EnterState(player);
-        _sm.cam.canRotate = false;
+
+
+        //float horizontalInput = Input.GetAxisRaw("Horizontal");
+        //float verticalInput = Input.GetAxisRaw("Vertical");
+        //Vector3 inputDir = _sm.orientation.forward * verticalInput + _sm.orientation.right * horizontalInput;
+        //if (inputDir == Vector3.zero)
+        //{
+        //    inputDir = _sm.playerObj.transform.forward; // Default to forward if no input
+        //}
+
+
         player.transform.DOMove(player.transform.position + player.playerObj.transform.forward * dashDistance, dashDuration)
                  .SetEase(Ease.OutQuad)
                  .OnComplete(() => OnDashComplete());

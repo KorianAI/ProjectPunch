@@ -42,7 +42,6 @@ public class PlayerState
         {
             if (command.Type == InputType.X)
             {
-
                 _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, attackIndex);
             }
 

@@ -8,6 +8,7 @@ public class PlayerJumpStart : PlayerState
     {
         base.EnterState(player);
         _sm.cam.canRotate = false;
+        _sm.ih.SetCanConsumeInput(false);
     }
 
     public override void ExitState(PlayerStateManager player)
