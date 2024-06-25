@@ -49,9 +49,14 @@ public class TargetCams : MonoBehaviour
     void Update()
     {
         if (aimIcon)
+        {
             aimIcon.gameObject.SetActive(isTargeting);
+            if (currentTarget != null)
+            {
+                aimIcon.transform.position = mainCamera.WorldToScreenPoint(currentTarget.position);
+            }
+        }
 
-            aimIcon.transform.position = mainCamera.WorldToScreenPoint(currentTarget.position);
     }
 
     public void AssignTarget(InputAction.CallbackContext obj)
