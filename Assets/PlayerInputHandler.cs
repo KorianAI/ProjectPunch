@@ -86,7 +86,6 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (inputBuffer.Count > 0)
         {
-            Debug.Log("consumed");
             sm.currentState.HandleBufferedInput(inputBuffer.Pop()); // Pass the command to the current state for handling
             canConsumeInput = false;
         }

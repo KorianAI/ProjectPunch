@@ -20,11 +20,10 @@ public class PlayerMoveState : PlayerMovementBase
 
     public override void FrameUpdate(PlayerStateManager player)
     {
-        // ground check
-        // collision.grounded = Physics.Raycast(collision.transform.position, Vector3.down, collision.playerHeight * 0.5f + 0.3f, collision.whatIsGround);
+        _sm.pm.ApplyGravity(1);
 
         player.pm.MovementInput();
-        //SpeedControl(collision);
+
 
         if (player.ih.InputMaster.Player.Movement.ReadValue<Vector2>() == Vector2.zero)
         {

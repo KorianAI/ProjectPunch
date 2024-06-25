@@ -21,6 +21,8 @@ public class PlayerIdleState : PlayerMovementBase
 
     public override void FrameUpdate(PlayerStateManager player)
     {
+        _sm.pm.ApplyGravity(1);
+
 
         if (!player.pm.grounded)
         {

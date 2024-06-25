@@ -21,6 +21,8 @@ public class PlayerCombat : MonoBehaviour
 
     PlayerMovement movement;
 
+    public float yPosition;
+
     private void Start()
     {
         _sm = GetComponent<PlayerStateManager>();
@@ -78,6 +80,7 @@ public class PlayerCombat : MonoBehaviour
         if (type == 2)
         {
             Vector3 launchPosition = new Vector3(transform.position.x, transform.position.y + launchHeight, transform.position.z);
+            yPosition = launchPosition.y;
             transform.DOMove(launchPosition, launchDuration).SetEase(Ease.OutQuad);
             movement.JumpEffect();
         }

@@ -23,7 +23,7 @@ public class BFG : Mode
         {
             if (command.Type == InputType.Y)
             {
-                BaseCombo(index);
+                AirCombo(index);
             }
         }
     }
@@ -45,6 +45,26 @@ public class BFG : Mode
         else if (index == 2)
         {
             sm.SwitchState(new BFG_G3());
+        }
+    }
+
+    public void AirCombo(int index)
+    {
+        stats = baseComboStats[index];
+
+        if (index == 0)
+        {
+            sm.SwitchState(new BFG_A1());
+        }
+
+        else if (index == 1)
+        {
+            sm.SwitchState(new BFG_A2());
+        }
+
+        else if (index == 2)
+        {
+            sm.SwitchState(new BFG_A3());
         }
     }
 }

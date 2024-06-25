@@ -62,10 +62,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update()
-    {
-        
+    {       
         IsGrounded();
-        ApplyGravity();
         MovementInput();
 
     }
@@ -90,25 +88,26 @@ public class PlayerMovement : MonoBehaviour
         velocity = moveDirection * currentSpeed + Vector3.up * yVelocity;
     }
 
-    public void ApplyGravity()
+    public void ApplyGravity(float type)
     {
-        if (grounded && sm.currentState != sm.inAirState)
+        if (type == 1) // grounded
         {
             yVelocity = -1f;
         }
 
+        else if (type == 2) // full grav
+        {
+            yVelocity += gravity * gravMultiplier * Time.deltaTime;
+        }
+
+        else if (type == 3)
+        {
+            yVelocity += gravity * (gravMultiplier / 3) * Time.deltaTime;
+        }
+
         else
         {
-            if (sm.currentState == sm.inAirState || sm.currentState == sm.stunnedState)
-            {
-                yVelocity += gravity * gravMultiplier * Time.deltaTime;
-            }
-
-            else
-            {
-                yVelocity = 0f;
-            }
-
+            yVelocity = 0f;         
         }
     }
 
@@ -119,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
         if (groundRaycast && controller.isGrounded)
         {
             grounded = true;
+            anim.SetBool("isGrounded", true);
             currentSpeed = runSpeed;
         }
 

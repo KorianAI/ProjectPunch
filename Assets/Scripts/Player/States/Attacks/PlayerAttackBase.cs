@@ -26,6 +26,9 @@ public class PlayerAttackBase : PlayerState
     private float rotationElapsedTime = 0f;
 
     public bool rangeAttack;
+    public bool airAttack;
+
+    public float yPos;
 
     public override void EnterState(PlayerStateManager player)
     {
@@ -44,7 +47,6 @@ public class PlayerAttackBase : PlayerState
 
     public override void FrameUpdate(PlayerStateManager player)
     {
-        Debug.Log(attackIndex);
         base.FrameUpdate(player);
        
     }
@@ -62,6 +64,7 @@ public class PlayerAttackBase : PlayerState
     #region MoveForward
     protected void MoveForward(PlayerStateManager player, float moveDistance, float moveDuration)
     {
+        if (airAttack) { return;}
         isMovingForward = true;
         _sm.attackHit = false;
         initialPosition = player.transform.position;

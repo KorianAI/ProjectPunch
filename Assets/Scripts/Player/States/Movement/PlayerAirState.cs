@@ -11,6 +11,8 @@ public class PlayerAirState : PlayerMovementBase
     public override void EnterState(PlayerStateManager player)
     {
         base.EnterState(player);
+        _sm.anim.SetBool("AirAttack", false);
+        _sm.anim.SetBool("isGrounded", false);
         _player = player;
         player.pm.readyToJump = false;
         _sm.cam.canRotate = false;
@@ -24,7 +26,7 @@ public class PlayerAirState : PlayerMovementBase
 
     public override void FrameUpdate(PlayerStateManager player)
     {
-        _sm.anim.SetBool("isGrounded", _sm.pm.grounded);
+        _sm.pm.ApplyGravity(2);
 
         if (player.pm.grounded && player.pm.yVelocity < 0)
         {
@@ -37,10 +39,6 @@ public class PlayerAirState : PlayerMovementBase
 
     public override void PhysicsUpdate(PlayerStateManager player)
     {
-
-           
-     
-
 
         player.pm.velocity.y = player.pm.yVelocity;
         player.pm.controller.Move(player.pm.velocity * Time.deltaTime);

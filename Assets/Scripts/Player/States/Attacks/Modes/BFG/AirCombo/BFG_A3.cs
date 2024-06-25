@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PushState : PlayerAttackBase
+public class BFG_A3 : PlayerAirAttack
 {
-    bool canFall = false;
-
     public override void EnterState(PlayerStateManager player)
     {
-        duration = .5f;
+        rangeAttack = false;
+        atkMoveDistance = 2.25f;
+        atkMoveDur = .4f;
+        duration = .7f;
         base.EnterState(player);
-        _sm.anim.Play("Push");
+        player.anim.SetTrigger("HeavyAttack3");
+        canAttack = false;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -20,10 +22,12 @@ public class PushState : PlayerAttackBase
 
     public override void FrameUpdate(PlayerStateManager player)
     {
+        base.FrameUpdate(player);
         if (fixedtime > duration)
         {
+            attackIndex = 0;
             canAttack = true;
-            canFall = true; 
+            canFall = true;
 
             if (_sm.ih.GetBufferedInputs().Length > 0)
             {
@@ -32,39 +36,19 @@ public class PushState : PlayerAttackBase
 
             else
             {
-                if (fixedtime > duration + .5f)
-                {
-                    _sm.pm.ApplyGravity(3);
-
-                    if (_sm.pm.grounded)
-                    {
-                        _sm.SwitchState(new PlayerIdleState());
-                    }
-
-                    else
-                    {
-                        _sm.SwitchState(new PlayerAirState());
-                    }
-                }
+                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
+                    _sm.SwitchState(new PlayerAirState());
             }
         }
     }
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        if (canAttack)
-        {
-            base.HandleBufferedInput(command);
-        }
+        base.HandleBufferedInput(command);
     }
 
     public override void PhysicsUpdate(PlayerStateManager player)
     {
         base.PhysicsUpdate(player);
-        if (canFall)
-        {
-            player.pm.velocity.y = player.pm.yVelocity;
-            player.pm.controller.Move(player.pm.velocity * Time.deltaTime);
-        }
     }
 }
