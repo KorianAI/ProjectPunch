@@ -14,13 +14,15 @@ public class PlayerDashState : PlayerMovementBase
         base.EnterState(player);
 
 
-        //float horizontalInput = Input.GetAxisRaw("Horizontal");
-        //float verticalInput = Input.GetAxisRaw("Vertical");
-        //Vector3 inputDir = _sm.orientation.forward * verticalInput + _sm.orientation.right * horizontalInput;
-        //if (inputDir == Vector3.zero)
-        //{
-        //    inputDir = _sm.playerObj.transform.forward; // Default to forward if no input
-        //}
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
+        Vector3 inputDir = _sm.orientation.forward * verticalInput + _sm.orientation.right * horizontalInput;
+        if (inputDir == Vector3.zero)
+        {
+            inputDir = _sm.playerObj.transform.forward; // Default to forward if no input
+        }
+
+        _sm.playerObj.transform.forward = inputDir.normalized;
 
 
         player.transform.DOMove(player.transform.position + player.playerObj.transform.forward * dashDistance, dashDuration)
