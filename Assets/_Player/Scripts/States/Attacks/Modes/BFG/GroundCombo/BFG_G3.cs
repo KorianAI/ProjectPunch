@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BFG_G3 : PlayerAttackBase
+public class BFG_G3 : PlayerGroundAttack
 {
     public override void EnterState(PlayerStateManager player)
     {
@@ -23,10 +23,22 @@ public class BFG_G3 : PlayerAttackBase
     public override void FrameUpdate(PlayerStateManager player)
     {
         base.FrameUpdate(player);
-        if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
+        if (fixedtime > duration)
         {
-            _sm.SwitchState(new PlayerIdleState());
-            attackIndex= 0;
+            attackIndex = 0;
+            canAttack = true;
+
+
+            if (_sm.ih.GetBufferedInputs().Length > 0)
+            {
+                _sm.ih.SetCanConsumeInput(true);
+            }
+
+            else
+            {
+                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
+                    _sm.SwitchState(new PlayerAirState());
+            }
         }
     }
 

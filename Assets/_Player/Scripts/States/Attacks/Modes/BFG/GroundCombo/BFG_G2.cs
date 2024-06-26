@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BFG_G2 : PlayerAttackBase
+public class BFG_G2 : PlayerGroundAttack
 {
     public override void EnterState(PlayerStateManager player)
     {
