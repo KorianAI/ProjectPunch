@@ -10627,6 +10627,9 @@ MonoBehaviour:
   launchDuration: 0.5
   yPosition: 0
   slamDuration: 0
+  maxAirAttacks: 0
+  currentAirAttacks: 0
+  airAtkGravity: 0
 --- !u!114 &6263612794386232658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10641,6 +10644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sm: {fileID: 2185168564731813592}
   controller: {fileID: 8845991115023646309}
+  combat: {fileID: 0}
   currentSpeed: 0
   airSpeed: 7.5
   runSpeed: 12
@@ -16315,7 +16319,6 @@ Transform:
   - {fileID: 5567928630680702388}
   - {fileID: 3374704501932507083}
   - {fileID: 6962770142250968160}
-  - {fileID: 6237939127186453411}
   - {fileID: 8251806220325928245}
   - {fileID: 2600366129315723173}
   - {fileID: 2979430889179559222}
@@ -46018,13 +46021,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6996646188833440513}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0.0757, y: 0.0549, z: -0.0165}
-  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
+  m_LocalRotation: {x: -0, y: -0.38268346, z: -0, w: 0.9238796}
+  m_LocalPosition: {x: 0.07255436, y: 0.052618682, z: -0.015814397}
+  m_LocalScale: {x: 0.038337827, y: 0.038337827, z: 0.038337827}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 488470976586068697}
-  m_Father: {fileID: 6894526416184488810}
+  m_Father: {fileID: 8088488293913440453}
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!114 &7010416021022778632
 MonoBehaviour:
@@ -47356,6 +47359,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 11a24d90576a5014e8f0ba9c06e844d4, type: 2}
   - {fileID: 11400000, guid: f941e11d71b96274ab53bd50bff5f8b6, type: 2}
   - {fileID: 11400000, guid: ce1fb101099941442b5db83a2f219f4e, type: 2}
+  airComboStats: []
 --- !u!1 &9196864821797419150
 GameObject:
   m_ObjectHideFlags: 0
@@ -47967,6 +47971,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8a952d140b027ce4f8f4deda022a9d26, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4715301655121559172}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8a952d140b027ce4f8f4deda022a9d26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6237939127186453411}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a952d140b027ce4f8f4deda022a9d26, type: 3}
 --- !u!4 &8088488293913440453 stripped

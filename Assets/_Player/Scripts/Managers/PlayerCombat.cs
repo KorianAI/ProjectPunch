@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using UnityEngine.VFX;
+using Unity.VisualScripting;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class PlayerCombat : MonoBehaviour
 
     // slam
     [SerializeField] float slamDuration;
+
+    public float maxAirAttacks;
+    public float currentAirAttacks;
+    public bool airAtkGravity;
 
 
 
@@ -101,6 +106,21 @@ public class PlayerCombat : MonoBehaviour
                 enemy.SlamToGround();
             }
         }
+    }
+
+    public void AirAttackIncrement(float amnt)
+    {
+        currentAirAttacks += amnt;
+        if (currentAirAttacks >= maxAirAttacks)
+        {
+            airAtkGravity = true;
+        }
+    }
+
+    public void ResetAirGrav()
+    {
+        airAtkGravity = false;
+        currentAirAttacks = 0;
     }
 
 

@@ -11,6 +11,7 @@ public class PlayerMoveState : PlayerMovementBase
         base.EnterState(player);
         player.anim.SetBool("isWalking", true);
         _sm = player;
+        _sm.pc.ResetAirGrav();
     }
 
     public override void ExitState(PlayerStateManager player)

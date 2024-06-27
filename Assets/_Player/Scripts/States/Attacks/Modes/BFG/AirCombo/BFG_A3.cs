@@ -26,19 +26,10 @@ public class BFG_A3 : PlayerAirAttack
         if (fixedtime > duration)
         {
             attackIndex = 0;
-            canAttack = true;
             canFall = true;
+            if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
+                _sm.SwitchState(new PlayerAirState());
 
-            if (_sm.ih.GetBufferedInputs().Length > 0)
-            {
-                _sm.ih.SetCanConsumeInput(true);
-            }
-
-            else
-            {
-                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
-                    _sm.SwitchState(new PlayerAirState());
-            }
         }
     }
 

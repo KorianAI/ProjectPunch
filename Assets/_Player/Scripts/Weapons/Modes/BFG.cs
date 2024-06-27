@@ -50,7 +50,7 @@ public class BFG : Mode
 
     public void AirCombo(int index)
     {
-        stats = baseComboStats[index];
+        stats = airComboStats[index];
 
         if (index == 0)
         {

@@ -20,7 +20,8 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
 
     public float xShake;
 
-    public float slamDuration = 0.5f; 
+    public float slamDuration = 0.5f;
+    public GameObject slamVFX;
 
     private void Start()
     {
@@ -97,7 +98,7 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
         float groundYPosition = DetectGroundPosition();
 
         // Move the enemy down to the ground
-        transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad);
+        transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad).OnComplete(() => { Instantiate(slamVFX, transform.position, Quaternion.identity); });
     }
 
 

@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public PlayerStateManager sm;
     public CharacterController controller;
+    public PlayerCombat combat;
     public float currentSpeed;
     public float airSpeed;
 
@@ -59,6 +60,11 @@ public class PlayerMovement : MonoBehaviour
     void OnDisable()
     {
         InputActions.Disable();
+    }
+
+    private void Start()
+    {
+        combat = GetComponent<PlayerCombat>();
     }
 
     private void Update()

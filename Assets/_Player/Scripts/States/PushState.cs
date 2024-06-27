@@ -11,6 +11,7 @@ public class PushState : PlayerAttackBase
         duration = .5f;
         base.EnterState(player);
         _sm.anim.Play("Push");
+        _sm.pc.ResetAirGrav();
     }
 
     public override void ExitState(PlayerStateManager player)

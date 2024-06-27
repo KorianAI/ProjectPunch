@@ -29,6 +29,7 @@ public class TargetCams : MonoBehaviour
     private float maxAngle;
 
     public Transform currentTarget;
+    public Transform targetPoint;
 
     [SerializeField] private string enemyTag;
 
@@ -52,7 +53,7 @@ public class TargetCams : MonoBehaviour
             aimIcon.gameObject.SetActive(isTargeting);
             if (currentTarget != null)
             {
-                aimIcon.transform.position = mainCamera.WorldToScreenPoint(currentTarget.position);
+                aimIcon.transform.position = mainCamera.WorldToScreenPoint(targetPoint.position);
             }
         }
 
@@ -72,7 +73,8 @@ public class TargetCams : MonoBehaviour
             }
 
             isTargeting = false;
-            currentTarget = null;     
+            currentTarget = null;   
+            targetPoint = null;
 
             return;
         }
@@ -86,10 +88,11 @@ public class TargetCams : MonoBehaviour
             {
 
                 currentTarget = hit.transform;
+                targetPoint = hit.collider.GetComponent<Targetable>().targetPoint;
                 isTargeting = true;
 
                 //swap to target cam, setting the current target as the targeted object in the target group
-                targetGroup.AddMember(currentTarget, 1, 0);
+                targetGroup.AddMember(targetPoint, 1, 0);
                 freeLook.Priority = 1;
                 targetCam.Priority = 10;
 
@@ -100,6 +103,7 @@ public class TargetCams : MonoBehaviour
                 if (ClosestTarget())
                 {
                     currentTarget = ClosestTarget().transform;
+                    targetPoint = currentTarget.GetComponent<Targetable>().targetPoint;
                     isTargeting = true;
                 }
             }

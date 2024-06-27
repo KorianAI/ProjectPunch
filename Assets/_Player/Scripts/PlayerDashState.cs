@@ -53,6 +53,15 @@ public class PlayerDashState : PlayerMovementBase
 
     void OnDashComplete()
     {
-        _sm.SwitchState(new PlayerIdleState());
+        if (_sm.pm.grounded)
+        {
+            _sm.SwitchState(new PlayerIdleState());
+        }
+
+        else
+        {
+            _sm.SwitchState(new PlayerAirState());
+        }
+
     }
 }
