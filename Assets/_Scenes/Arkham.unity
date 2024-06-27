@@ -7454,7 +7454,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 50
+  field of view: 90
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -7480,8 +7480,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.16332161, y: -0.51157236, z: -0.09974336, w: 0.83765805}
-  m_LocalPosition: {x: -19.645254, y: 14.800419, z: 254.77579}
+  m_LocalRotation: {x: 0.533157, y: 0.021653682, z: 0.0136524215, w: 0.845629}
+  m_LocalPosition: {x: -21.142242, y: 17.397404, z: 255.5436}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18444,7 +18444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816595133134537681}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.16261874, y: -0.2784713, z: -0.047901753, w: 0.94536465}
+  m_LocalRotation: {x: -0.16261873, y: -0.2784713, z: -0.047901757, w: 0.94536465}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -23883,6 +23883,10 @@ PrefabInstance:
     - target: {fileID: 6263612794386232658, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: attackGravMultiplier
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010416021022778632, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
