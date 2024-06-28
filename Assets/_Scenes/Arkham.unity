@@ -18244,7 +18244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8698382998310868556}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.18450336, y: -0.27728528, z: -0.054348223, w: 0.9413383}
+  m_LocalRotation: {x: -0.18450336, y: -0.27728528, z: -0.05434823, w: 0.9413383}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18444,7 +18444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816595133134537681}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.16261874, y: -0.2784713, z: -0.047901753, w: 0.94536465}
+  m_LocalRotation: {x: -0.16261873, y: -0.2784713, z: -0.047901757, w: 0.94536465}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -23773,8 +23773,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1565190453}
     - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: comboWindow
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: maxAirAttacks
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: pauseWindowTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: currentAirAttacks
@@ -23821,6 +23829,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3993690727185807125, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: baseComboStats.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993690727185807125, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: airComboStats.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 0173f9fee83b7634a80804f5e1dac232, type: 2}
@@ -23832,6 +23844,14 @@ PrefabInstance:
       propertyPath: airComboStats.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: fff7cd793f125e143a047eff2c80e4bf, type: 2}
+    - target: {fileID: 3993690727185807125, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: baseComboStats.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: ca47cd0f13695f8419ad2d743c63aebe, type: 2}
+    - target: {fileID: 3993690727185807125, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: baseComboStats.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: ca189c53324b4694685cf529a3dd3687, type: 2}
     - target: {fileID: 5671452699864209851, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: m_LocalPosition.x
       value: -22.43

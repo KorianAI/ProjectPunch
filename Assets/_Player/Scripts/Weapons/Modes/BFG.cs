@@ -39,12 +39,26 @@ public class BFG : Mode
 
         else if (index == 1)
         {
-            sm.SwitchState(new BFG_G2());
+            if (sm.pc.pauseWindow <= 0)
+            {
+                sm.SwitchState(new BFG_G4());
+            }
+
+            else
+            {
+                sm.SwitchState(new BFG_G2());
+            }
+
         }
 
         else if (index == 2)
         {
             sm.SwitchState(new BFG_G3());
+        }
+
+        else if (index == 3)
+        {
+            sm.SwitchState(new BFG_G5());
         }
     }
 

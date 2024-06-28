@@ -33,6 +33,7 @@ public class PlayerCombat : MonoBehaviour
     public int attackIndex;
     public float pauseWindow;
     public float comboWindow;
+    public float pauseWindowTime;
 
     Coroutine ComboWindowCoroutine;
 
@@ -145,7 +146,7 @@ public class PlayerCombat : MonoBehaviour
         }
         
         ComboWindowCoroutine = StartCoroutine(ClearAtkIndex());
-        pauseWindow = 0.2f;
+        pauseWindow = pauseWindowTime;
     }
 
     IEnumerator ClearAtkIndex()

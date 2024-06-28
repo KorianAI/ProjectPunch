@@ -33,8 +33,4 @@ public class PlayerGroundAttack : PlayerAttackBase
     {
         base.PhysicsUpdate(player);
     }
-
-
-
-
 }
