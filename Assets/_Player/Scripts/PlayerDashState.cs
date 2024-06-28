@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerDashState : PlayerMovementBase
 {
-    private float dashDistance = 4f; 
+    private float dashDistance = 5f; 
     private float dashDuration = 0.3f; 
     private Vector3 dashDirection; 
 

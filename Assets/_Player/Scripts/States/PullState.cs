@@ -8,9 +8,10 @@ public class PullState : PlayerAttackBase
     public override void EnterState(PlayerStateManager player)
     {
 
-        duration = .4f;
-        rangeAttack = true;
+        duration = .2f;
         base.EnterState(player);
+        if (!_sm.pm.grounded) { _sm.anim.SetBool("AirAttack", true); }
+        rangeAttack = true;
         _sm.anim.Play("Pull");
         _sm.StartCoroutine(TargetPull());
         _sm.pulling = true;

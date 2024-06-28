@@ -15,7 +15,7 @@ public class PlayerAirAttack : PlayerAttackBase
         airAttack = true;
         base.EnterState(player);
         _sm.anim.SetBool("AirAttack", true);
-        player.pm.velocity = Vector3.zero;
+        _sm.pm.moveDirection = Vector3.zero;
         float targetYPosition = player.transform.position.y + moveUpDistance;
         if (targetYPosition > _sm.pc.yPosition) { targetYPosition = _sm.pc.yPosition; };
         player.transform.DOMoveY(targetYPosition, moveUpDuration).SetEase(Ease.OutQuad);

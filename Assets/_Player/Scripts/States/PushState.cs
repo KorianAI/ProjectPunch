@@ -8,8 +8,9 @@ public class PushState : PlayerAttackBase
 
     public override void EnterState(PlayerStateManager player)
     {
-        duration = .5f;
+        duration = .2f;
         base.EnterState(player);
+        if (!_sm.pm.grounded) { _sm.anim.SetBool("AirAttack", true); }
         _sm.anim.Play("Push");
         _sm.pc.ResetAirGrav();
     }
