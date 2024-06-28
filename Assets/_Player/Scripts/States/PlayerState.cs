@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerState
 {
     public PlayerStateManager _sm;
-    public int attackIndex;
     protected float time { get; set; }
     protected float fixedtime { get; set; }
 
@@ -42,13 +41,13 @@ public class PlayerState
         {
             if (command.Type == InputType.X)
             {
-                _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, attackIndex);
+                _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
             }
 
             else if (command.Type == InputType.Y)
             {
 
-                _sm.resources.mode.WeaponInput(command, _sm.pm.grounded, attackIndex);
+                _sm.resources.mode.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
             }
 
             else if (command.Type == InputType.A)
@@ -58,7 +57,19 @@ public class PlayerState
 
             else if (command.Type == InputType.B)
             {
-                _sm.SwitchState(new PlayerDashState());
+                if (_sm.pm.grounded)
+                {
+                    _sm.SwitchState(new PlayerDashState());
+                }
+
+                else
+                {
+                    if (_sm.pm.airDashAmount < _sm.pm.maxAirDash)
+                    {
+                        _sm.SwitchState(new PlayerDashState());
+                        _sm.pm.airDashAmount++;
+                    }
+                }               
             }
 
             else if (command.Type == InputType.Push)

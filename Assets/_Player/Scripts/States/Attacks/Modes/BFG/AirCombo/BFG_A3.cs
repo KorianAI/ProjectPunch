@@ -13,6 +13,7 @@ public class BFG_A3 : PlayerAirAttack
         base.EnterState(player);
         player.anim.SetTrigger("AirSlam");
         canAttack = false;
+        _sm.pc.SaveAtkIndex(0);
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -25,7 +26,7 @@ public class BFG_A3 : PlayerAirAttack
         base.FrameUpdate(player);
         if (fixedtime > duration)
         {
-            attackIndex = 0;
+           
             canFall = true;
             if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
                 _sm.SwitchState(new PlayerAirState());

@@ -15,7 +15,6 @@ public class PullState : PlayerAttackBase
         _sm.anim.Play("Pull");
         _sm.StartCoroutine(TargetPull());
         _sm.pulling = true;
-        _sm.pc.ResetAirGrav();
         canAttack = false;
     }
 

@@ -30,13 +30,25 @@ public class PlayerCombat : MonoBehaviour
     public float currentAirAttacks;
     public bool airAtkGravity;
 
+    public int attackIndex;
+    public float pauseWindow;
+    public float comboWindow;
 
+    Coroutine ComboWindowCoroutine;
 
     private void Start()
     {
         _sm = GetComponent<PlayerStateManager>();
         resources = GetComponent<PlayerResources>();
         movement = GetComponent<PlayerMovement>();
+    }
+
+    private void Update()
+    {
+        if (pauseWindow > 0)
+        {
+            pauseWindow -= Time.deltaTime; 
+        }
     }
     public void CheckForEnemies()
     {
@@ -121,6 +133,25 @@ public class PlayerCombat : MonoBehaviour
     {
         airAtkGravity = false;
         currentAirAttacks = 0;
+        movement.airDashAmount = 0;
+    }
+
+    public void SaveAtkIndex(int index)
+    {
+        attackIndex = index;
+        if (ComboWindowCoroutine != null)
+        {
+            StopCoroutine(ComboWindowCoroutine);
+        }
+        
+        ComboWindowCoroutine = StartCoroutine(ClearAtkIndex());
+        pauseWindow = 0.2f;
+    }
+
+    IEnumerator ClearAtkIndex()
+    {
+        yield return new WaitForSeconds(comboWindow);
+        attackIndex = 0;
     }
 
 

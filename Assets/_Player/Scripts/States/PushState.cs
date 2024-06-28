@@ -12,7 +12,6 @@ public class PushState : PlayerAttackBase
         base.EnterState(player);
         if (!_sm.pm.grounded) { _sm.anim.SetBool("AirAttack", true); }
         _sm.anim.Play("Push");
-        _sm.pc.ResetAirGrav();
     }
 
     public override void ExitState(PlayerStateManager player)

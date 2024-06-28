@@ -17,8 +17,6 @@ public class PlayerMovement : MonoBehaviour
     public float jumpCooldown;
     public bool jumpInputCD;
 
-
-
     public Vector3 moveDirection;
     public Vector3 velocity;
 
@@ -45,6 +43,9 @@ public class PlayerMovement : MonoBehaviour
 
     public VisualEffect jumpEffectPrefab;
     public Transform jumpEffectPosition;
+
+    public float airDashAmount;
+    public float maxAirDash;
 
     void Awake()
     {

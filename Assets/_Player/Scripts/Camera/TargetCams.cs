@@ -69,7 +69,7 @@ public class TargetCams : MonoBehaviour
 
             if (currentTarget != null)
             {
-                targetGroup.RemoveMember(currentTarget);
+                targetGroup.RemoveMember(targetPoint);
             }
 
             isTargeting = false;

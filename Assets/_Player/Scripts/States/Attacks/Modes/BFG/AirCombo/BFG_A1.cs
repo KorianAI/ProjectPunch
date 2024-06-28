@@ -13,6 +13,7 @@ public class BFG_A1 : PlayerAirAttack
         base.EnterState(player);
         player.anim.SetTrigger("HeavyAttack1");
         canAttack = false;
+        _sm.pc.SaveAtkIndex(1);
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -25,7 +26,7 @@ public class BFG_A1 : PlayerAirAttack
         base.FrameUpdate(player);
         if (fixedtime > duration)
         {
-            attackIndex = 1;
+            
             canAttack = true;
             canFall = true;
 

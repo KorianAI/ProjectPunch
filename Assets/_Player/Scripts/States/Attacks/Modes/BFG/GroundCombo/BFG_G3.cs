@@ -12,6 +12,7 @@ public class BFG_G3 : PlayerGroundAttack
         base.EnterState(player);
         player.anim.SetTrigger("HeavyAttack3");
         canAttack = false;
+        _sm.pc.SaveAtkIndex(0);
 
     }
 
@@ -25,7 +26,7 @@ public class BFG_G3 : PlayerGroundAttack
         base.FrameUpdate(player);
         if (fixedtime > duration)
         {
-            attackIndex = 0;
+            
             canAttack = true;
 
 
@@ -36,7 +37,7 @@ public class BFG_G3 : PlayerGroundAttack
 
             else
             {
-                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
+                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length -.5f)
                     _sm.SwitchState(new PlayerAirState());
             }
         }

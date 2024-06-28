@@ -12,7 +12,7 @@ public class BFG_G2 : PlayerGroundAttack
         base.EnterState(player);
         player.anim.SetTrigger("HeavyAttack2");
         canAttack = false;
-
+        _sm.pc.SaveAtkIndex(2);
 
     }
 
@@ -26,8 +26,9 @@ public class BFG_G2 : PlayerGroundAttack
         base.FrameUpdate(player);
         if (fixedtime > duration)
         {
+          
             canAttack = true;
-            attackIndex = 2;
+            
             if (_sm.ih.GetBufferedInputs().Length > 0)
             {
                 _sm.ih.SetCanConsumeInput(true);

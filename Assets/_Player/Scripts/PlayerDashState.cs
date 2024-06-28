@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerDashState : PlayerMovementBase
 {
-    private float dashDistance = 5f; 
-    private float dashDuration = 0.3f; 
+    private float dashDistance = 4f; 
+    private float dashDuration = 0.2f; 
     private Vector3 dashDirection; 
 
     public override void EnterState(PlayerStateManager player)
@@ -29,6 +29,12 @@ public class PlayerDashState : PlayerMovementBase
                  .SetEase(Ease.OutQuad)
                  .OnComplete(() => OnDashComplete());
         _sm.anim.SetTrigger("Dash");
+        _sm.ih.SetCanConsumeInput(true);
+
+        if (!_sm.pm.grounded)
+        {
+            _sm.pc.ResetAirGrav();
+        }
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -39,11 +45,17 @@ public class PlayerDashState : PlayerMovementBase
     public override void FrameUpdate(PlayerStateManager player)
     {
         base.FrameUpdate(player);
+
     }
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        base.HandleBufferedInput(command);
+
+        if (fixedtime > dashDuration * .5f)
+        {
+            base.HandleBufferedInput(command);
+        }
+
     }
 
     public override void PhysicsUpdate(PlayerStateManager player)
