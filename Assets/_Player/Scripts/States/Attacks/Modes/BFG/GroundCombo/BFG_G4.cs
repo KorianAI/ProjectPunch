@@ -7,8 +7,8 @@ public class BFG_G4 : PlayerGroundAttack
     public override void EnterState(PlayerStateManager player)
     {
         atkMoveDistance = 2f;
-        atkMoveDur = .4f;
-        duration = .3f;
+        atkMoveDur = .7f;
+        duration = .75f;
         base.EnterState(player);
         player.anim.SetTrigger("HeavyAttack4");
         canAttack = false;

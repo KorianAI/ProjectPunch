@@ -26,20 +26,10 @@ public class BFG_G3 : PlayerGroundAttack
         base.FrameUpdate(player);
         if (fixedtime > duration)
         {
-            
-            canAttack = true;
 
+            if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length - .5f)
+                _sm.SwitchState(new PlayerIdleState());
 
-            if (_sm.ih.GetBufferedInputs().Length > 0)
-            {
-                _sm.ih.SetCanConsumeInput(true);
-            }
-
-            else
-            {
-                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length -.5f)
-                    _sm.SwitchState(new PlayerAirState());
-            }
         }
     }
 

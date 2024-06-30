@@ -6,9 +6,9 @@ public class BFG_G5 : PlayerGroundAttack
 {
     public override void EnterState(PlayerStateManager player)
     {
-        atkMoveDistance = 2f;
-        atkMoveDur = .4f;
-        duration = .3f;
+        atkMoveDistance = 2;
+        atkMoveDur = .7f;
+        duration = 1f;
         base.EnterState(player);
         player.anim.SetTrigger("HeavyAttack5");
         canAttack = false;
@@ -27,18 +27,9 @@ public class BFG_G5 : PlayerGroundAttack
         if (fixedtime > duration)
         {
 
-            canAttack = true;
+            if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
+                _sm.SwitchState(new PlayerIdleState());
 
-            if (_sm.ih.GetBufferedInputs().Length > 0)
-            {
-                _sm.ih.SetCanConsumeInput(true);
-            }
-
-            else
-            {
-                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
-                    _sm.SwitchState(new PlayerIdleState());
-            }
         }
     }
 
