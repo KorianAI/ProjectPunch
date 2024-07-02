@@ -119,7 +119,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
         {
             ActivateScrapShift(true);
             scrapAnimObj.SetActive(false);
-            audioManager.ShiftSwitch();
+
         }
     }
 
@@ -142,7 +142,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
     {
         if (invincible || superInvincible) return;
 
-        audioManager.BaseAttack();
+
 
         if (hasArmour)
         {
@@ -192,7 +192,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
             scrapDecrease = false;
             StopAllCoroutines();
             StartCoroutine("ResetScrapDecrease");
-            audioManager.CollectScrap();
+
         }
         currentScrap += amount;
         if (currentScrap + amount > maxScrap)

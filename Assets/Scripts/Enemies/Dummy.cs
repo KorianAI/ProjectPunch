@@ -98,7 +98,7 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
         float groundYPosition = DetectGroundPosition();
 
         // Move the enemy down to the ground
-        transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad).OnComplete(() => { Instantiate(slamVFX, transform.position, Quaternion.identity); });
+        transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad).OnComplete(() => { PlayerAudioManager.instance.SlamExplode(); Instantiate(slamVFX, transform.position, Quaternion.identity); });
     }
 
 

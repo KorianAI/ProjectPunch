@@ -18244,7 +18244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8698382998310868556}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.18450336, y: -0.27728528, z: -0.05434823, w: 0.9413383}
+  m_LocalRotation: {x: -0.18450336, y: -0.27728528, z: -0.054348223, w: 0.9413383}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18444,7 +18444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816595133134537681}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.16261873, y: -0.2784713, z: -0.047901757, w: 0.94536465}
+  m_LocalRotation: {x: -0.16261874, y: -0.2784713, z: -0.047901753, w: 0.94536465}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -23772,6 +23772,14 @@ PrefabInstance:
       propertyPath: scrapFillImage
       value: 
       objectReference: {fileID: 1565190453}
+    - target: {fileID: 588834378717756476, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: slamSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1748c3d1372ea9642b402c2134824c2a, type: 3}
+    - target: {fileID: 588834378717756476, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: baseAttackMetallic
+      value: 
+      objectReference: {fileID: 8300000, guid: c3544393f8c775a48828272136dca9d4, type: 3}
     - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: comboWindow
       value: 2
@@ -23786,7 +23794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: currentAirAttacks
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1238952640201979079, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: m_Name

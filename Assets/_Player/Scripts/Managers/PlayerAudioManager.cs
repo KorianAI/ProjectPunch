@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class PlayerAudioManager : MonoBehaviour
 {
-    //PlayerAudioManager audioManager;
+    public static PlayerAudioManager instance;
     //audioManager = GetComponent<PlayerAudioManager>();
 
     AudioSource source;
@@ -15,7 +16,7 @@ public class PlayerAudioManager : MonoBehaviour
     [SerializeField] AudioClip baseSwing;
     [SerializeField] AudioClip baseAttackMetallic;
     [SerializeField] AudioClip extendoLight;
-    [SerializeField] AudioClip extendoHeavy;
+    [SerializeField] AudioClip slamSFX;
     [SerializeField] AudioClip shockwave;
     [SerializeField] AudioClip pull;
     [SerializeField] AudioClip push;
@@ -24,6 +25,19 @@ public class PlayerAudioManager : MonoBehaviour
     [SerializeField] AudioClip slamExplode;
     [SerializeField] AudioClip shiftSwitch;
     [SerializeField] AudioClip styleSwitch;
+
+    private void Awake()
+    {
+       if (instance == null)
+            {
+                instance = this;
+            }
+
+       else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     void Start()
     {
@@ -56,18 +70,15 @@ public class PlayerAudioManager : MonoBehaviour
     public void BaseAttackMetallic()
     {
         currentClip = baseAttackMetallic;
+        source.pitch = Random.Range(.9f, 1.1f);
         PlayChosen();
     }
 
-    public void ExtendoLight()
-    {
-        currentClip = extendoLight;
-        PlayChosen();
-    }
 
-    public void ExtendoHeavy()
+
+    public void SlamSFX()
     {
-        currentClip = extendoHeavy;
+        currentClip = slamSFX;
         PlayChosen();
     }
 

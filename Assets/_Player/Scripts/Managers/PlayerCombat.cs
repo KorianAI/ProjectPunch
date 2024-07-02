@@ -76,6 +76,11 @@ public class PlayerCombat : MonoBehaviour
             }
 
         }
+
+        if (enemies.Length > 0)
+        {
+            PlayerAudioManager.instance.BaseAttackMetallic();
+        }
     }
 
     public void Knockup(float type)
