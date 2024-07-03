@@ -2106,6 +2106,7 @@ Transform:
   - {fileID: 7272519653935691692}
   - {fileID: 8514054675210855217}
   - {fileID: 7882655898645672908}
+  - {fileID: 3612105987424366726}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5774871766206527273
@@ -2159,6 +2160,7 @@ MonoBehaviour:
   xShake: 0.25
   slamDuration: 0.1
   slamVFX: {fileID: 7642563901005490453, guid: dc7b89bd2a278cf4ba9f424c96af54d9, type: 3}
+  slamDetectionPoint: {fileID: 3612105987424366726}
 --- !u!114 &5342694837946206485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2551,6 +2553,37 @@ Transform:
   m_Children:
   - {fileID: 7988334051234449966}
   m_Father: {fileID: 3197970636017542974}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8700769164128246550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3612105987424366726}
+  m_Layer: 7
+  m_Name: SlamRaycastPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3612105987424366726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8700769164128246550}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3503880501705332991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8758240523390371881
 GameObject:

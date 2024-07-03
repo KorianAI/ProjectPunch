@@ -172,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
 
         JumpEffect();
 
-        sm.SwitchState(sm.inAirState);
+        sm.SwitchState(new PlayerAirState());
     }
 
     public void JumpEffect()
