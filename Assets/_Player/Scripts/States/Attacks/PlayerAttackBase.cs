@@ -30,6 +30,8 @@ public class PlayerAttackBase : PlayerState
 
     public float yPos;
 
+    Vector3 target;
+
     public override void EnterState(PlayerStateManager player)
     {
 
@@ -101,23 +103,28 @@ public class PlayerAttackBase : PlayerState
         float verticalInput = Input.GetAxisRaw("Vertical");
         Vector3 inputDir = new Vector3(horizontalInput, 0f, verticalInput);
 
-
-        if (player.tl.currentTarget == null) 
-                { MoveForward(_sm, atkMoveDistance, atkMoveDur); }
+        if (player.tl.currentTarget != null)
+        {
+            target = player.tl.currentTarget.transform.position;
+        }
 
         else
         {
-            if (inputDir != Vector3.zero && !rangeAttack && Vector3.Distance(player.transform.position, player.tl.currentTarget.position) > 4) return;
-
-            isRotating = true;
-            initialRotation = player.transform.rotation;
-            Vector3 directionToTarget = (player.tl.currentTarget.position - player.transform.position).normalized;
-            targetRotation = Quaternion.LookRotation(new Vector3(directionToTarget.x, 0, directionToTarget.z));
-            rotationElapsedTime = 0f;
-
-            player.StartCoroutine(RotateTowardsTargetCoroutine(player, rotationDuration));
-
+            target = player.pc.ClosestEnemy();
         }
+
+
+
+        if (inputDir != Vector3.zero && !rangeAttack && Vector3.Distance(player.transform.position, target) > 4) return;
+
+        isRotating = true;
+        initialRotation = player.transform.rotation;
+        Vector3 directionToTarget = (target - player.transform.position).normalized;
+        targetRotation = Quaternion.LookRotation(new Vector3(directionToTarget.x, 0, directionToTarget.z));
+        rotationElapsedTime = 0f;
+
+        player.StartCoroutine(RotateTowardsTargetCoroutine(player, rotationDuration));
+
     }
 
 
@@ -133,7 +140,7 @@ public class PlayerAttackBase : PlayerState
 
         isRotating = false;
 
-        if (Vector3.Distance(player.transform.position, player.tl.currentTarget.position) > 3)
+        if (Vector3.Distance(player.transform.position, target) > 3)
         MoveForward(_sm, atkMoveDistance, atkMoveDur);
     }
     #endregion

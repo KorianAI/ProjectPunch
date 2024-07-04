@@ -15,6 +15,7 @@ public class PlayerCombat : MonoBehaviour
     // attacking
     public Transform attackPoint;
     public float attackRange;
+    public float enemyCheckRange;
     public LayerMask enemyLayer;
     public GameObject hitVFX;
 
@@ -39,6 +40,8 @@ public class PlayerCombat : MonoBehaviour
     public bool pauseAttack;
     Coroutine ComboWindowCoroutine;
     Coroutine PauseWindowCoroutine;
+
+
 
     private void Start()
     {
@@ -169,5 +172,28 @@ public class PlayerCombat : MonoBehaviour
         attackIndex = 0;
     }
 
+    public Vector3 ClosestEnemy()
+    {
+        Collider[] enemies = Physics.OverlapSphere(transform.position, enemyCheckRange, enemyLayer);
+        Collider closestEnemy = null;
+        float closestDistanceSqr = Mathf.Infinity;
+
+        foreach (Collider enemy in enemies)
+        {
+            Vector3 directionToEnemy = enemy.transform.position - transform.position;
+            float dSqrToTarget = directionToEnemy.sqrMagnitude;
+            if (dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                closestEnemy = enemy;
+            }
+        }
+
+        if (closestEnemy != null)
+        {
+            return closestEnemy.transform.position;
+        }
+        return Vector3.zero;
+    }
 
 }
