@@ -32,10 +32,13 @@ public class PlayerCombat : MonoBehaviour
 
     public int attackIndex;
     public float pauseWindow;
+    public float pauseLength;
     public float comboWindow;
     public float pauseWindowTime;
 
+    public bool pauseAttack;
     Coroutine ComboWindowCoroutine;
+    Coroutine PauseWindowCoroutine;
 
     private void Start()
     {
@@ -46,10 +49,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
-        if (pauseWindow > 0)
-        {
-            pauseWindow -= Time.deltaTime; 
-        }
+
     }
     public void CheckForEnemies()
     {
@@ -143,10 +143,24 @@ public class PlayerCombat : MonoBehaviour
         if (ComboWindowCoroutine != null)
         {
             StopCoroutine(ComboWindowCoroutine);
-        }
-        
+        }        
         ComboWindowCoroutine = StartCoroutine(ClearAtkIndex());
-        pauseWindow = pauseWindowTime;
+        
+        if (PauseWindowCoroutine != null)
+        {
+            StopCoroutine(PauseWindowCoroutine);
+        }
+
+        PauseWindowCoroutine = StartCoroutine(ComboPause());
+        
+    }
+
+    IEnumerator ComboPause()
+    {
+        yield return new WaitForSeconds(pauseLength);
+        pauseAttack = true;
+        yield return new WaitForSeconds(pauseWindow);
+        pauseAttack = false;
     }
 
     IEnumerator ClearAtkIndex()

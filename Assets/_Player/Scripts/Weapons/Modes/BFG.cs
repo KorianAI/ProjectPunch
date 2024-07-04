@@ -39,7 +39,7 @@ public class BFG : Mode
 
         else if (index == 1)
         {
-            if (sm.pc.pauseWindow <= 0)
+            if (sm.pc.pauseAttack)
             {
                 sm.SwitchState(new BFG_G4());
             }
