@@ -153,12 +153,12 @@ public class PlayerCombat : MonoBehaviour
             StopCoroutine(ComboWindowCoroutine);
         }        
         ComboWindowCoroutine = StartCoroutine(ClearAtkIndex());
-        
+
+        if (index < 1) return;
         if (PauseWindowCoroutine != null)
         {
             StopCoroutine(PauseWindowCoroutine);
         }
-
         PauseWindowCoroutine = StartCoroutine(ComboPause());
         
     }
@@ -175,6 +175,7 @@ public class PlayerCombat : MonoBehaviour
     {
         yield return new WaitForSeconds(comboWindow);
         attackIndex = 0;
+        pauseAttack = false;
     }
 
     public Vector3 ClosestEnemy()
