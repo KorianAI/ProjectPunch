@@ -7,7 +7,7 @@ using Cinemachine;
 public class RailPoint : MonoBehaviour, IMagnetisable
 {
     public Transform endPosition;
-    public Transform startPosition;
+    public Vector3 startPosition;
     public Transform movePos;
     PlayerStateManager ps;
 
@@ -17,20 +17,25 @@ public class RailPoint : MonoBehaviour, IMagnetisable
     public CinemachineVirtualCamera targetCam;
     public CinemachineFreeLook playerCam;
 
+    private void Start()
+    {
+        startPosition = movePos.position;
+    }
+
     public void Pull(PlayerStateManager player)
     {
         ps = player;
         ps.resources.invincible = true;
 
         PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.railCam);
-        ps.SwitchState(player.railState);
-        ps.playerObj.transform.DOMove(movePos.position, 1f).OnComplete(SetParent); //pull to the EM
+        ps.SwitchState(new PlayerRailState());
+        ps.transform.DOMove(movePos.position, 1f).OnComplete(SetParent); //pull to the EM
 
     }
 
     void SetParent()
     {
-        ps.playerObj.transform.SetParent(movePos); //set parent to EM
+        ps.transform.SetParent(movePos); //set parent to EM
         ps.playerObj.transform.forward = movePos.forward;
         ps.speedlines.SetActive(false);
 
@@ -55,6 +60,16 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
     void Detach()
     {
-        //PlayerCameraManager.instance.SwitchPlayerCam();
+        PlayerCameraManager.instance.SwitchPlayerCam();
+
+
+        ps.cam.canRotate = true;
+
+        ps.transform.SetParent(null);
+        ps.SwitchState(new PlayerAirState());
+
+        ps.anim.Play("PlayerInAir");
+        ps.anim.SetBool("onRail", false);
+        movePos.position = startPosition;
     }
 }
