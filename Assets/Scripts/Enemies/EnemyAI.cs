@@ -7,18 +7,8 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    public enum DebugState
-    {
-        Idle,
-        Chase,
-        Attack,
-        Circle,
-        Stunned,
-        Dead
-    }
-
     public EnemyState currentState { get; set; }
-    public DebugState debugState;
+
 
     // states
     public EnemyIdle idleState = new EnemyIdle();
@@ -70,19 +60,18 @@ public class EnemyAI : MonoBehaviour
 
     public void SwitchState(EnemyState _state)
     {
-        //Debug.Log("Came from: " + currentState + " " + Time.time);
+
         _state.ExitState(this);
         currentState = _state;
         _state.EnterState(this);
-        //Debug.Log("Entered: " + currentState + " " + Time.time);
+
     }
 
     private void Update()
     {
        if (!InAttackRange()) { available = false; }
        currentState.FrameUpdate(this);
-       debugDestination = agent.destination;
-       ShowDebugState();
+       debugDestination = agent.destination;;
     }
 
     private void FixedUpdate()
@@ -121,40 +110,6 @@ public class EnemyAI : MonoBehaviour
 
             rePositioning = false;
         }
-    }
-
-    void ShowDebugState()
-    {
-        if (currentState == idleState)
-        {
-            debugState = DebugState.Idle;
-        }
-
-        else if (currentState == chaseState)
-        {
-            debugState = DebugState.Chase;
-        }
-
-        else if (currentState == attackState)
-        {
-            debugState = DebugState.Attack;
-        }
-
-        else if (currentState == circleState)
-        {
-            debugState = DebugState.Circle;
-        }
-
-        else if (currentState == stunnedState)
-        {
-            debugState = DebugState.Stunned;
-        }
-
-        else if (currentState == deadState)
-        {
-            debugState = DebugState.Dead;
-        }
-
     }
 
     public bool InAttackRange()

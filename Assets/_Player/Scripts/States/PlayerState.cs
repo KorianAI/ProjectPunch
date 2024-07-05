@@ -74,7 +74,10 @@ public class PlayerState
 
             else if (command.Type == InputType.Push)
             {
-                _sm.SwitchState(new PushState());
+                if (_sm.pm.grounded)
+                {
+                    _sm.SwitchState(new PushState());
+                }
             }
 
             else if (command.Type == InputType.Pull)

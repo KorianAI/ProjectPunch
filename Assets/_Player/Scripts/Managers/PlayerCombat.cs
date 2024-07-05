@@ -15,6 +15,7 @@ public class PlayerCombat : MonoBehaviour
     // attacking
     public Transform attackPoint;
     public float attackRange;
+    public float enemyCheckRange;
     public LayerMask enemyLayer;
     public GameObject hitVFX;
 
@@ -32,10 +33,15 @@ public class PlayerCombat : MonoBehaviour
 
     public int attackIndex;
     public float pauseWindow;
+    public float pauseLength;
     public float comboWindow;
     public float pauseWindowTime;
 
+    public bool pauseAttack;
     Coroutine ComboWindowCoroutine;
+    Coroutine PauseWindowCoroutine;
+
+
 
     private void Start()
     {
@@ -46,10 +52,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
-        if (pauseWindow > 0)
-        {
-            pauseWindow -= Time.deltaTime; 
-        }
+
     }
     public void CheckForEnemies()
     {
@@ -148,10 +151,24 @@ public class PlayerCombat : MonoBehaviour
         if (ComboWindowCoroutine != null)
         {
             StopCoroutine(ComboWindowCoroutine);
-        }
-        
+        }        
         ComboWindowCoroutine = StartCoroutine(ClearAtkIndex());
-        pauseWindow = pauseWindowTime;
+        
+        if (PauseWindowCoroutine != null)
+        {
+            StopCoroutine(PauseWindowCoroutine);
+        }
+
+        PauseWindowCoroutine = StartCoroutine(ComboPause());
+        
+    }
+
+    IEnumerator ComboPause()
+    {
+        yield return new WaitForSeconds(pauseLength);
+        pauseAttack = true;
+        yield return new WaitForSeconds(pauseWindow);
+        pauseAttack = false;
     }
 
     IEnumerator ClearAtkIndex()
@@ -160,5 +177,28 @@ public class PlayerCombat : MonoBehaviour
         attackIndex = 0;
     }
 
+    public Vector3 ClosestEnemy()
+    {
+        Collider[] enemies = Physics.OverlapSphere(transform.position, enemyCheckRange, enemyLayer);
+        Collider closestEnemy = null;
+        float closestDistanceSqr = Mathf.Infinity;
+
+        foreach (Collider enemy in enemies)
+        {
+            Vector3 directionToEnemy = enemy.transform.position - transform.position;
+            float dSqrToTarget = directionToEnemy.sqrMagnitude;
+            if (dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                closestEnemy = enemy;
+            }
+        }
+
+        if (closestEnemy != null)
+        {
+            return closestEnemy.transform.position;
+        }
+        return Vector3.zero;
+    }
 
 }

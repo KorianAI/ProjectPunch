@@ -26,7 +26,7 @@ public class PlayerIdleState : PlayerMovementBase
 
         if (!player.pm.grounded)
         {
-            player.SwitchState(player.inAirState);
+            player.SwitchState(new PlayerAirState());
         }
 
         if (player.ih.InputMaster.Player.Movement.ReadValue<Vector2>() != Vector2.zero)

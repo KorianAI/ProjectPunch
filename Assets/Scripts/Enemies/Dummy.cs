@@ -22,6 +22,7 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
 
     public float slamDuration = 0.5f;
     public GameObject slamVFX;
+    public Transform slamDetectionPoint;
 
     private void Start()
     {
@@ -105,7 +106,7 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
     private float DetectGroundPosition()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
+        if (Physics.Raycast(slamDetectionPoint.position, Vector3.down, out hit, Mathf.Infinity))
         {
             return hit.point.y;
         }
