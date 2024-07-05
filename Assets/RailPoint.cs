@@ -22,10 +22,9 @@ public class RailPoint : MonoBehaviour, IMagnetisable
         ps = player;
         ps.resources.invincible = true;
 
-        targetCam.Priority = 0;
-        playerCam.Priority = 10;
+        PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.railCam);
         ps.SwitchState(player.railState);
-        ps.playerObj.transform.DOMove(startPosition.position, 1f).OnComplete(SetParent); //pull to the EM
+        ps.playerObj.transform.DOMove(movePos.position, 1f).OnComplete(SetParent); //pull to the EM
 
     }
 
@@ -34,8 +33,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
         ps.playerObj.transform.SetParent(movePos); //set parent to EM
         ps.playerObj.transform.forward = movePos.forward;
         ps.speedlines.SetActive(false);
-        playerCam.Priority = 0;
-        railCam.Priority = 10;
+
         ps.resources.invincible = false;
         ps.canAttack = true;
 
@@ -57,7 +55,6 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
     void Detach()
     {
-        playerCam.Priority = 10;
-        railCam.Priority = 0;
+        //PlayerCameraManager.instance.SwitchPlayerCam();
     }
 }

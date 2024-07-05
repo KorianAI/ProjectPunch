@@ -35,22 +35,22 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: Target Group Cam
-    m_To: Finisher Camera
+  - m_From: Rail Camera
+    m_To: ThirdPersonCamera
     m_Blend:
       m_Style: 1
-      m_Time: 1
+      m_Time: 0.1
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: Finisher Camera
-    m_To: Target Group Cam
+  - m_From: Target Group Cam
+    m_To: Rail Camera
     m_Blend:
       m_Style: 1
-      m_Time: 0.5
+      m_Time: 1
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
