@@ -85,6 +85,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   movePos: {fileID: 6308786208265556069}
   railSpeed: 1
+  rotationDur: 0
   railCam: {fileID: 0}
   targetCam: {fileID: 0}
   playerCam: {fileID: 0}
@@ -235,6 +236,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   movePos: {fileID: 6362151105389432703}
   railSpeed: 1
+  rotationDur: 0.25
   railCam: {fileID: 0}
   targetCam: {fileID: 0}
   playerCam: {fileID: 0}

@@ -12,6 +12,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
     PlayerStateManager ps;
 
     public float railSpeed;
+    public float rotationDur;
 
     public CinemachineVirtualCamera railCam;
     public CinemachineVirtualCamera targetCam;
@@ -29,8 +30,15 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
         PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.railCam);
         ps.SwitchState(new PlayerRailState());
+        RotatePlayer();
         ps.transform.DOMove(movePos.position, 1f).OnComplete(SetParent); //pull to the EM
 
+    }
+
+    void RotatePlayer()
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(movePos.forward);
+        ps.playerObj.transform.DORotateQuaternion(targetRotation, rotationDur);
     }
 
     void SetParent()
