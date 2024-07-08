@@ -47,6 +47,12 @@ public class PlayerMovement : MonoBehaviour
     public float airDashAmount;
     public float maxAirDash;
 
+    [Header("Rail Exit")]
+    public float launchForce = 10f;
+    public float launchDuration = 0.5f;
+    public Vector3 launchDirection;
+
+
     void Awake()
     {
         InputActions = new InputMaster();

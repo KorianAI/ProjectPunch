@@ -36,7 +36,7 @@ MonoBehaviour:
         m_PostInfinity: 0
         m_RotationOrder: 0
   - m_From: Rail Camera
-    m_To: ThirdPersonCamera
+    m_To: Target Group Cam
     m_Blend:
       m_Style: 3
       m_Time: 0.5

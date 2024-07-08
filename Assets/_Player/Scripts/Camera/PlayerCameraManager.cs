@@ -68,7 +68,7 @@ public class PlayerCameraManager : MonoBehaviour
 
         foreach (CinemachineVirtualCamera c in virtualCams)
         {
-            if (c == !cam && c.Priority != 0)
+            if (c != cam && c.Priority != 0)
             {
                 c.Priority = 0;
             }

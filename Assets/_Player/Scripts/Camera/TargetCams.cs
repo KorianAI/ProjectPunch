@@ -38,12 +38,12 @@ public class TargetCams : MonoBehaviour
 
     private void OnEnable()
     {
-        input.action.performed += AssignTarget;
+        input.action.performed += TargetLockInput;
     }
 
     private void OnDisable()
     {
-        input.action.performed -= AssignTarget;
+        input.action.performed -= TargetLockInput;
     }
 
     void Update()
@@ -59,23 +59,14 @@ public class TargetCams : MonoBehaviour
 
     }
 
-    public void AssignTarget(InputAction.CallbackContext obj)
+    public void TargetLockInput(InputAction.CallbackContext obj)
     {
         if (isTargeting) //deactivate targeting
         {
             //swap to freelook cam
             freeLook.Priority = 10;
             targetCam.Priority = 1;
-
-            if (currentTarget != null)
-            {
-                targetGroup.RemoveMember(targetPoint);
-            }
-
-            isTargeting = false;
-            currentTarget = null;   
-            targetPoint = null;
-
+            ResetTarget();
             return;
         }
 
@@ -86,28 +77,40 @@ public class TargetCams : MonoBehaviour
 
             if (UnityEngine.Physics.SphereCast(mainCamera.transform.position, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, targetableLayers))
             {
-
-                currentTarget = hit.transform;
-                targetPoint = hit.collider.GetComponent<Targetable>().targetPoint;
-                isTargeting = true;
-
-                //swap to target cam, setting the current target as the targeted object in the target group
-                targetGroup.AddMember(targetPoint, 1, 0);
-                freeLook.Priority = 1;
-                targetCam.Priority = 10;
-
+                AssignTarget(hit.transform, hit.collider.GetComponent<Targetable>().targetPoint, 1);
             }
 
             else
             {
                 if (ClosestTarget())
                 {
-                    currentTarget = ClosestTarget().transform;
-                    targetPoint = currentTarget.GetComponent<Targetable>().targetPoint;
-                    isTargeting = true;
+                    AssignTarget(ClosestTarget().transform, currentTarget.GetComponent<Targetable>().targetPoint, 1);
                 }
             }
         }
+    }
+
+    public void AssignTarget(Transform target, Transform point, float weight)
+    {
+        currentTarget = target;
+        targetPoint = point;
+        isTargeting = true;
+        targetGroup.AddMember(point, weight, 0);
+        PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.targetCam);
+    }
+
+    public void ResetTarget()
+    {
+        if (currentTarget != null)
+        {
+            targetGroup.RemoveMember(targetPoint);
+        }
+
+        isTargeting = false;
+        currentTarget = null;
+        targetPoint = null;
+
+        return;
     }
 
     public GameObject ClosestTarget() // this is modified func from unity Docs (Gets Closest Object with Tag)

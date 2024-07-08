@@ -61,7 +61,7 @@ public static class CameraManager
 
     public static void SwitchPlayerCam(CinemachineFreeLook cam)
     {
-        Debug.Log("Called");
+        
         cam.Priority = 10;
         activePlayerCamera = cam;
 

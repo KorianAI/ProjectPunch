@@ -63,11 +63,11 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.43
+  m_Radius: 2.84
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5232865231039314284
 MonoBehaviour:
@@ -89,6 +89,7 @@ MonoBehaviour:
   railCam: {fileID: 0}
   targetCam: {fileID: 0}
   playerCam: {fileID: 0}
+  nextRail: {fileID: 0}
 --- !u!1 &1963678492815287039
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,11 +215,11 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.43
+  m_Radius: 2.84
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5172016520553336018
 MonoBehaviour:
@@ -240,6 +241,7 @@ MonoBehaviour:
   railCam: {fileID: 0}
   targetCam: {fileID: 0}
   playerCam: {fileID: 0}
+  nextRail: {fileID: 0}
 --- !u!1 &5690315067295512164
 GameObject:
   m_ObjectHideFlags: 0

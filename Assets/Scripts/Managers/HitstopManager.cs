@@ -5,6 +5,8 @@ public class HitstopManager : MonoBehaviour
 {
     public static HitstopManager Instance;
 
+    Coroutine timeStop;
+
     private void Awake()
     {
         if (Instance == null)
@@ -65,5 +67,30 @@ public class HitstopManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void AlterTimeScale(float t, float d)
+    {
+        if (timeStop != null)
+        {
+            StopCoroutine(timeStop);
+        }
+
+        timeStop = StartCoroutine(ChangeTimeScale(t, d));
+    }
+
+    IEnumerator ChangeTimeScale(float target, float duration)
+    {
+        float start = Time.timeScale;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime; // Use unscaledDeltaTime to ensure smooth transition even if time scale is changing
+            Time.timeScale = Mathf.Lerp(start, target, elapsed / duration);
+            yield return null; // Wait for the next frame
+        }
+
+        Time.timeScale = target; // Ensure the time scale is set to the target value at the end
     }
 }

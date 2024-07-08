@@ -18,6 +18,8 @@ public class RailPoint : MonoBehaviour, IMagnetisable
     public CinemachineVirtualCamera targetCam;
     public CinemachineFreeLook playerCam;
 
+    public GameObject nextRail;
+
     private void Start()
     {
         startPosition = movePos.position;
@@ -54,6 +56,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
         ps.anim.Play("Hang");
         ps.anim.SetBool("onRail", true);
         MoveAlongRail();
+        ps.tl.ResetTarget();
     }
 
     void MoveAlongRail()
@@ -68,14 +71,20 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
     void Detach()
     {
-        PlayerCameraManager.instance.SwitchPlayerCam();
+        if (nextRail != null)
+        {
+            ps.tl.AssignTarget(nextRail.transform, nextRail.GetComponent<Targetable>().targetPoint, 2);
+            ps.SwitchState(new PlayerRailExit());
+        }
 
-
-        ps.cam.canRotate = true;
+        else
+        {
+            ps.cam.canRotate = true;
+            PlayerCameraManager.instance.SwitchPlayerCam();
+            ps.SwitchState(new PlayerAirState());
+        }
 
         ps.transform.SetParent(null);
-        ps.SwitchState(new PlayerAirState());
-
         ps.anim.Play("PlayerInAir");
         ps.anim.SetBool("onRail", false);
         movePos.position = startPosition;

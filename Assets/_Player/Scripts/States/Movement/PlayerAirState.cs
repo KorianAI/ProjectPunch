@@ -31,7 +31,7 @@ public class PlayerAirState : PlayerMovementBase
     {
         base.FrameUpdate(player);
         _sm.pm.ApplyGravity(2);
-        Debug.Log(fixedtime);
+
         //Debug.Log(time);
         if (fixedtime > atkcooldown)
         {
