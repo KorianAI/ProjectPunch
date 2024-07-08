@@ -22,15 +22,19 @@ public class PlayerRailExit : PlayerMovementBase
     public override void FrameUpdate(PlayerStateManager player)
     {
         base.FrameUpdate(player);
-        _sm.pm.ApplyGravity(3);
-        movement = _sm.pm.launchDirection * _sm.pm.launchForce * Time.deltaTime;
-
-        if (fixedtime > _sm.pm.launchDuration)
+        if (fixedtime > _sm.anim.GetCurrentAnimatorStateInfo(0).length / 4)
         {
-            _sm.SwitchState(new PlayerAirState());
-            _sm.anim.SetBool("onRail", false);
-            //HitstopManager.Instance.AlterTimeScale(1, .25f);
+            _sm.pm.ApplyGravity(3);
+            movement = _sm.pm.launchDirection * _sm.pm.launchForce * Time.deltaTime;
+
+            if (fixedtime > _sm.pm.launchDuration + (_sm.anim.GetCurrentAnimatorStateInfo(0).length / 4))
+            {
+                _sm.SwitchState(new PlayerAirState());
+                _sm.anim.SetBool("onRail", false);
+                //HitstopManager.Instance.AlterTimeScale(1, .25f);
+            }
         }
+
     }
 
     public override void HandleBufferedInput(InputCommand command)

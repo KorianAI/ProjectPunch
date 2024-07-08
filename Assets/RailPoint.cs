@@ -75,6 +75,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
         if (nextRail != null)
         {
             ps.tl.AssignTarget(nextRail.transform, nextRail.GetComponent<Targetable>().targetPoint, 2);
+            //ps.playerObj.transform.DORotate(nextRail.transform, .5f);
             ps.SwitchState(new PlayerRailExit());
         }
 
