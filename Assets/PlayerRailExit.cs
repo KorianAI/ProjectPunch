@@ -9,8 +9,9 @@ public class PlayerRailExit : PlayerMovementBase
     public override void EnterState(PlayerStateManager player)
     {
         base.EnterState(player);
-        _sm.ih.SetCanConsumeInput(false);
+        _sm.anim.Play("Backflip");
         _sm.pm.launchDirection = (_sm.playerObj.transform.forward + _sm.playerObj.transform.up).normalized;
+        //HitstopManager.Instance.AlterTimeScale(0.5f, .1f);
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -27,6 +28,8 @@ public class PlayerRailExit : PlayerMovementBase
         if (fixedtime > _sm.pm.launchDuration)
         {
             _sm.SwitchState(new PlayerAirState());
+            _sm.anim.SetBool("onRail", false);
+            //HitstopManager.Instance.AlterTimeScale(1, .25f);
         }
     }
 

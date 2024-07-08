@@ -61,6 +61,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
     void MoveAlongRail()
     {
+
         movePos.DOMove(endPosition.position, railSpeed).SetEase(Ease.Linear).OnComplete(Detach);
     }
 
@@ -82,11 +83,11 @@ public class RailPoint : MonoBehaviour, IMagnetisable
             ps.cam.canRotate = true;
             PlayerCameraManager.instance.SwitchPlayerCam();
             ps.SwitchState(new PlayerAirState());
+            ps.anim.SetBool("onRail", false);
+            ps.anim.Play("PlayerInAir");
         }
 
         ps.transform.SetParent(null);
-        ps.anim.Play("PlayerInAir");
-        ps.anim.SetBool("onRail", false);
         movePos.position = startPosition;
     }
 }
