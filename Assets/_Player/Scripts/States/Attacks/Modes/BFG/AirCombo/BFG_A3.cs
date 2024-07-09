@@ -11,7 +11,7 @@ public class BFG_A3 : PlayerAirAttack
         atkMoveDur = .4f;
         duration = .7f;
         base.EnterState(player);
-        player.anim.SetTrigger("AirSlam");
+        player.anim.Play("AirSlam");
         canAttack = false;
         _sm.pc.SaveAtkIndex(0);
     }

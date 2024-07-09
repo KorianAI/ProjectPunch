@@ -10,7 +10,7 @@ public class BFG_G4 : PlayerGroundAttack
         atkMoveDur = .7f;
         duration = .75f;
         base.EnterState(player);
-        player.anim.SetTrigger("HeavyAttack4");
+        player.anim.Play("HeavyAttack4");
         canAttack = false;
         _sm.pc.SaveAtkIndex(3);
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Cinemachine;
+using Dreamteck.Splines;
 
 public class RailPoint : MonoBehaviour, IMagnetisable
 {
@@ -19,6 +20,8 @@ public class RailPoint : MonoBehaviour, IMagnetisable
     public CinemachineFreeLook playerCam;
 
     public GameObject nextRail;
+
+    public SplineComputer flipSpline;
 
     private void Start()
     {
@@ -72,9 +75,15 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
     void Detach()
     {
+        ps.transform.SetParent(null);
+
         if (nextRail != null)
         {
             ps.tl.AssignTarget(nextRail.transform, nextRail.GetComponent<Targetable>().targetPoint, 2);
+            ps.splineFollower.enabled = true;
+            ps.splineFollower.spline = flipSpline;
+            ps.splineFollower.Restart();
+
             //ps.playerObj.transform.DORotate(nextRail.transform, .5f);
             ps.SwitchState(new PlayerRailExit());
         }
@@ -88,7 +97,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
             ps.anim.Play("PlayerInAir");
         }
 
-        ps.transform.SetParent(null);
+
         movePos.position = startPosition;
     }
 }

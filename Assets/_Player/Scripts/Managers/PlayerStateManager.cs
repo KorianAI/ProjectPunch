@@ -1,9 +1,7 @@
 using Cinemachine;
 using DG.Tweening;
-using System;
+using Dreamteck.Splines;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,6 +13,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     [SerializeField] public CharacterController controller;
     [SerializeField] public Animator anim;
     [SerializeField] public GameObject speedlines;
+    [SerializeField] public SplineFollower splineFollower;
 
     [Header("Checkpoint")]
     public Transform spawnPoint;
@@ -35,12 +34,9 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public Transform pushPoint;
     public float pushRange;
 
-
     public EMRail rail;
 
     public Transform orientation;
-
-
 
     public TargetLock lockOn;
     public Transform pullPosition;
@@ -50,7 +46,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public ThirdPersonCamera cam;
 
     public Transform playerObj;
-
 
     [Header("Cameras")]
     public CinemachineFreeLook playerCam;
@@ -69,8 +64,6 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public bool attackHit;
     public bool pulling;
     public bool pushing;
-
-
 
     private void Awake()
     {
@@ -185,5 +178,13 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         SwitchState(idleState);
         anim.SetBool("Stunned", false);
         resources.invincible = false;
+    }
+
+    public void ResetSplineFollower()
+    {
+        
+        splineFollower.spline = null;
+        splineFollower.enabled = false;
+       
     }
 }

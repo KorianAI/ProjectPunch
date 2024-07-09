@@ -5,13 +5,15 @@ using UnityEngine;
 public class PlayerRailExit : PlayerMovementBase
 {
     Vector3 movement;
+    float dur;
+    bool launched;
+    bool applyGrav = false;
 
     public override void EnterState(PlayerStateManager player)
     {
         base.EnterState(player);
         _sm.anim.Play("Backflip");
-        _sm.pm.launchDirection = (_sm.playerObj.transform.forward + _sm.playerObj.transform.up).normalized;
-        //HitstopManager.Instance.AlterTimeScale(0.5f, .1f);
+        dur = _sm.splineFollower.followDuration;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -22,19 +24,24 @@ public class PlayerRailExit : PlayerMovementBase
     public override void FrameUpdate(PlayerStateManager player)
     {
         base.FrameUpdate(player);
-        if (fixedtime > _sm.anim.GetCurrentAnimatorStateInfo(0).length / 4)
-        {
-            _sm.pm.ApplyGravity(3);
-            movement = _sm.pm.launchDirection * _sm.pm.launchForce * Time.deltaTime;
 
-            if (fixedtime > _sm.pm.launchDuration + (_sm.anim.GetCurrentAnimatorStateInfo(0).length / 4))
+        movement = (_sm.transform.forward + _sm.transform.up).normalized;
+
+        if (fixedtime > dur) 
+        {
+            if (!launched)
             {
-                _sm.SwitchState(new PlayerAirState());
                 _sm.anim.SetBool("onRail", false);
-                //HitstopManager.Instance.AlterTimeScale(1, .25f);
+                launched = true;
             }
+
+            _sm.pm.ApplyGravity(3);
         }
 
+        if (player.pm.grounded && player.pm.yVelocity < 0)
+        {
+            player.SwitchState(player.moveState);
+        }
     }
 
     public override void HandleBufferedInput(InputCommand command)
@@ -45,6 +52,11 @@ public class PlayerRailExit : PlayerMovementBase
     public override void PhysicsUpdate(PlayerStateManager player)
     {
         base.PhysicsUpdate(player);
-        _sm.controller.Move(movement);
+        if (launched)
+        {
+            _sm.pm.velocity = _sm.playerObj.forward * _sm.pm.launchForce;
+            _sm.pm.velocity.y = _sm.pm.yVelocity;
+            _sm.pm.controller.Move(_sm.pm.velocity * Time.deltaTime);
+        }
     }
 }

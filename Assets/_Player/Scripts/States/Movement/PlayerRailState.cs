@@ -16,8 +16,6 @@ public class PlayerRailState : PlayerState
 
     public override void ExitState(PlayerStateManager player)
     {
-        player.anim.SetBool("onRail", false);
-        ps.cam.canRotate = true;
     }
 
     public override void FrameUpdate(PlayerStateManager player)

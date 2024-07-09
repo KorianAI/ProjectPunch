@@ -51,7 +51,5 @@ public class PlayerAirAttack : PlayerAttackBase
             player.pm.velocity.y = player.pm.yVelocity;
             player.pm.controller.Move(player.pm.velocity * Time.deltaTime);
         }
-
-
     }
 }

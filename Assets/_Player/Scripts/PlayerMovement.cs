@@ -131,7 +131,6 @@ public class PlayerMovement : MonoBehaviour
         if (groundRaycast && controller.isGrounded)
         {
             grounded = true;
-            anim.SetBool("isGrounded", true);
             currentSpeed = runSpeed;
         }
 
@@ -140,6 +139,8 @@ public class PlayerMovement : MonoBehaviour
             grounded = false;
             currentSpeed = airSpeed;
         }
+
+        anim.SetBool("isGrounded", grounded);
     }
 
     public void Jump()

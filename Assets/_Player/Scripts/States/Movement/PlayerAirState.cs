@@ -15,7 +15,6 @@ public class PlayerAirState : PlayerMovementBase
         base.EnterState(player);
         _sm.ih.SetCanConsumeInput(false);
         _sm.anim.SetBool("AirAttack", false);
-        _sm.anim.SetBool("isGrounded", false);
         _player = player;
         player.pm.readyToJump = false;
         _sm.cam.canRotate = false;
