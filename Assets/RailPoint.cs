@@ -15,15 +15,14 @@ public class RailPoint : MonoBehaviour, IMagnetisable
     public float railSpeed;
     public float rotationDur;
 
-    public CinemachineVirtualCamera railCam;
-    public CinemachineVirtualCamera targetCam;
-    public CinemachineFreeLook playerCam;
 
     public GameObject nextRail;
 
     public SplineComputer flipSpline;
 
     public Tween pullTween;
+
+    public int railPos;
 
     private void Start()
     {
@@ -35,22 +34,42 @@ public class RailPoint : MonoBehaviour, IMagnetisable
         ps = player;
         ps.resources.invincible = true;
 
-        PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.railCam);
+
+
         ps.SwitchState(new PlayerRailState());
 
         pullTween = ps.transform.DOMove(movePos.position, 1f).OnComplete(SetParent); //pull to the EM
         StartCoroutine(RotatePlayer());
     }
 
+    private void DetermineCamera()
+    {
+        if (railPos == 1) // middle
+        {
+            PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.centerRail);
+        }
+
+        else if (railPos == 2) // left
+        {
+            PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.leftRail);
+        }
+
+        else if (railPos == 3) // right
+        {
+            PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.rightRail);
+        }
+    }
+
     IEnumerator RotatePlayer()
     {
-        while (pullTween.Elapsed() < pullTween.Duration() * .8f)
+        while (pullTween.Elapsed() < pullTween.Duration() * .6f)
         {
             yield return null;
         }
-        
+
+        DetermineCamera();
         Quaternion targetRotation = Quaternion.LookRotation(movePos.forward);
-        ps.playerObj.transform.DORotateQuaternion(targetRotation, pullTween.Duration() * .2f);
+        ps.playerObj.transform.DORotateQuaternion(targetRotation, pullTween.Duration() * .4f);
     }
 
     void SetParent()
@@ -60,8 +79,6 @@ public class RailPoint : MonoBehaviour, IMagnetisable
         ps.speedlines.SetActive(false);
 
         ps.resources.invincible = false;
-        ps.canAttack = true;
-
 
         ps.anim.Play("Hang");
         ps.anim.SetBool("onRail", true);

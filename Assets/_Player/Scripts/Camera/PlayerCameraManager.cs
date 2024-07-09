@@ -13,9 +13,14 @@ public class PlayerCameraManager : MonoBehaviour
 
     [Header("Virtual")]
     public CinemachineVirtualCamera targetCam;
-    public CinemachineVirtualCamera railCam;
     public CinemachineVirtualCamera finisherCam;
     public CinemachineVirtualCamera[] virtualCams;
+
+    [Header("Rails")]
+    public CinemachineVirtualCamera centerRail;
+    public CinemachineVirtualCamera leftRail;
+    public CinemachineVirtualCamera rightRail;
+
     public CinemachineVirtualCamera activeCam;
 
     public static PlayerCameraManager instance;
