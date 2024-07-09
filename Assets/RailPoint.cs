@@ -23,6 +23,8 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
     public SplineComputer flipSpline;
 
+    public Tween pullTween;
+
     private void Start()
     {
         startPosition = movePos.position;
@@ -35,21 +37,26 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
         PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.railCam);
         ps.SwitchState(new PlayerRailState());
-        RotatePlayer();
-        ps.transform.DOMove(movePos.position, 1f).OnComplete(SetParent); //pull to the EM
 
+        pullTween = ps.transform.DOMove(movePos.position, 1f).OnComplete(SetParent); //pull to the EM
+        StartCoroutine(RotatePlayer());
     }
 
-    void RotatePlayer()
+    IEnumerator RotatePlayer()
     {
+        while (pullTween.Elapsed() < pullTween.Duration() * .8f)
+        {
+            yield return null;
+        }
+        
         Quaternion targetRotation = Quaternion.LookRotation(movePos.forward);
-        ps.playerObj.transform.DORotateQuaternion(targetRotation, rotationDur);
+        ps.playerObj.transform.DORotateQuaternion(targetRotation, pullTween.Duration() * .2f);
     }
 
     void SetParent()
     {
         ps.transform.SetParent(movePos); //set parent to EM
-        ps.playerObj.transform.forward = movePos.forward;
+
         ps.speedlines.SetActive(false);
 
         ps.resources.invincible = false;
@@ -84,7 +91,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
             ps.splineFollower.spline = flipSpline;
             ps.splineFollower.Restart();
 
-            //ps.playerObj.transform.DORotate(nextRail.transform, .5f);
+            ps.playerObj.DOLookAt(nextRail.transform.position, 0.5f, AxisConstraint.None, Vector3.up);
             ps.SwitchState(new PlayerRailExit());
         }
 
