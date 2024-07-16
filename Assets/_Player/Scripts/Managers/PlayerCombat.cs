@@ -20,7 +20,7 @@ public class PlayerCombat : MonoBehaviour
     public GameObject hitVFX;
 
     // launch
-    [SerializeField] float launchHeight;
+    [SerializeField] public float launchHeight;
     [SerializeField] float launchDuration;
     [SerializeField] public float yPosition;
 
@@ -48,6 +48,8 @@ public class PlayerCombat : MonoBehaviour
         _sm = GetComponent<PlayerStateManager>();
         resources = GetComponent<PlayerResources>();
         movement = GetComponent<PlayerMovement>();
+        Vector3 launchPosition = new Vector3(transform.position.x, transform.position.y + launchHeight, transform.position.z);
+        yPosition = launchPosition.y;
     }
 
     private void Update()
@@ -178,7 +180,7 @@ public class PlayerCombat : MonoBehaviour
         pauseAttack = false;
     }
 
-    public Vector3 ClosestEnemy()
+    public (Vector3 position, float distance) ClosestEnemy()
     {
         Collider[] enemies = Physics.OverlapSphere(transform.position, enemyCheckRange, enemyLayer);
         Collider closestEnemy = null;
@@ -197,9 +199,11 @@ public class PlayerCombat : MonoBehaviour
 
         if (closestEnemy != null)
         {
-            return closestEnemy.transform.position;
+            float closestDistance = Mathf.Sqrt(closestDistanceSqr); // Calculate the actual distance
+            return (closestEnemy.transform.position, closestDistance);
         }
-        return Vector3.zero;
+
+        return (Vector3.zero, 0f);
     }
 
 }

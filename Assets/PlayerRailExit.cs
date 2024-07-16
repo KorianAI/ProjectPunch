@@ -7,7 +7,7 @@ public class PlayerRailExit : PlayerMovementBase
     Vector3 movement;
     float dur;
     bool launched;
-    bool applyGrav = false;
+
 
     public override void EnterState(PlayerStateManager player)
     {

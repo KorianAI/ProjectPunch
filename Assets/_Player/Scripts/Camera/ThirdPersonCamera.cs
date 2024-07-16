@@ -45,23 +45,7 @@ public class ThirdPersonCamera : MonoBehaviour
             playerObj.forward = Vector3.Slerp(playerObj.forward, inputDir.normalized, Time.deltaTime * rotationSpeed);
         }
 
-        if (brain.IsBlending && !blending)
-        {
-            blending = true;
-            foreach (CinemachineInputProvider provider in inputProvider)
-            {
-                provider.enabled = false;
-            }
-        }
 
-        else if (!brain.IsBlending && blending)
-        {
-            blending= false;
-            foreach (CinemachineInputProvider provider in inputProvider)
-            {
-                provider.enabled = true;
-            }
-        }
     }
 
 

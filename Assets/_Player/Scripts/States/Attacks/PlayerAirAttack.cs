@@ -10,8 +10,11 @@ public class PlayerAirAttack : PlayerAttackBase
     public float moveUpDuration = 0.1f; // Adjust the duration of the upward movement
     public bool canFall = false;
 
+    float maxPoint;
+
     public override void EnterState(PlayerStateManager player)
     {
+
         airAttack = true;
         base.EnterState(player);
         _sm.anim.SetBool("AirAttack", true);

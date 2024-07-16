@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PushState : PlayerAttackBase
 {
-    bool canFall = false;
-
+    GameObject target;
     public override void EnterState(PlayerStateManager player)
     {
+
         duration = .2f;
         base.EnterState(player);
-        if (!_sm.pm.grounded) { _sm.anim.SetBool("AirAttack", true); }
         _sm.anim.Play("Push");
+        _sm.StartCoroutine(TargetPush());
+        _sm.pushing = true;
+        canAttack = false;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -24,7 +26,6 @@ public class PushState : PlayerAttackBase
         if (fixedtime > duration)
         {
             canAttack = true;
-            canFall = true; 
 
             if (_sm.ih.GetBufferedInputs().Length > 0)
             {
@@ -33,27 +34,15 @@ public class PushState : PlayerAttackBase
 
             else
             {
-                if (fixedtime > duration + .5f)
-                {
-                    _sm.pm.ApplyGravity(3);
-
-                    if (_sm.pm.grounded)
-                    {
-                        _sm.SwitchState(new PlayerIdleState());
-                    }
-
-                    else
-                    {
-                        _sm.SwitchState(new PlayerAirState());
-                    }
-                }
+                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length + .1f)
+                    _sm.SwitchState(new PlayerIdleState());
             }
         }
     }
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        if (canAttack)
+        if (!_sm.pushing || canAttack)
         {
             base.HandleBufferedInput(command);
         }
@@ -62,10 +51,15 @@ public class PushState : PlayerAttackBase
     public override void PhysicsUpdate(PlayerStateManager player)
     {
         base.PhysicsUpdate(player);
-        if (canFall)
+    }
+
+    public IEnumerator TargetPush()
+    {
+        yield return new WaitForSeconds(.2f);
+        if (_sm.tl.currentTarget != null)
         {
-            player.pm.velocity.y = player.pm.yVelocity;
-            player.pm.controller.Move(player.pm.velocity * Time.deltaTime);
+            target = _sm.tl.currentTarget.gameObject;
         }
+        target.GetComponent<IMagnetisable>().Push(_sm);
     }
 }

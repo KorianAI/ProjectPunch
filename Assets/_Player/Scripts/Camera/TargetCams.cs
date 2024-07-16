@@ -30,6 +30,7 @@ public class TargetCams : MonoBehaviour
 
     public Transform currentTarget;
     public Transform targetPoint;
+    public Targetable targetable;
 
     [SerializeField] private string enemyTag;
 
@@ -93,6 +94,7 @@ public class TargetCams : MonoBehaviour
     public void AssignTarget(Transform target, Transform point, float weight)
     {
         currentTarget = target;
+        targetable = currentTarget.GetComponent<Targetable>();
         targetPoint = point;
         isTargeting = true;
         targetGroup.AddMember(point, weight, 0);

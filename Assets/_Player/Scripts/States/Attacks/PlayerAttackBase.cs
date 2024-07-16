@@ -16,7 +16,6 @@ public class PlayerAttackBase : PlayerState
     public float atkMoveDur;
     private Vector3 initialPosition;
     private Vector3 targetPosition;
-    private float elapsedTime = 0f;
     public bool isMovingForward;
 
     // rotating to enemy 
@@ -82,7 +81,6 @@ public class PlayerAttackBase : PlayerState
 
 
         targetPosition = player.transform.position + inputDir * moveDistance;
-        elapsedTime = 0f;
 
         player.StartCoroutine(MoveForwardCoroutine(player, moveDuration));
     }
@@ -110,7 +108,7 @@ public class PlayerAttackBase : PlayerState
 
         else
         {
-            target = player.pc.ClosestEnemy();
+            target = player.pc.ClosestEnemy().position;
         }
 
 

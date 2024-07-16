@@ -38,12 +38,12 @@ public class PlayerInputHandler : MonoBehaviour
     {
         InputMaster.Player.LightAttack.started += ctx =>
         {
-            BufferInput(new InputCommand { Type = InputType.X });
+            BufferInput(new InputCommand { Type = InputType.X, Direction = InputMaster.Player.Movement.ReadValue<Vector2>() });
         };
 
         InputMaster.Player.HeavyAttack.started += ctx =>
         {
-            BufferInput(new InputCommand { Type = InputType.Y });
+            BufferInput(new InputCommand { Type = InputType.Y, Direction = InputMaster.Player.Movement.ReadValue<Vector2>() });
         };
 
         InputMaster.Player.Jump.started += ctx =>
@@ -58,12 +58,12 @@ public class PlayerInputHandler : MonoBehaviour
 
         InputMaster.Player.Push.started += ctx =>
         {
-            BufferInput(new InputCommand { Type = InputType.Push });
+            BufferInput(new InputCommand { Type = InputType.Push, Direction = InputMaster.Player.Movement.ReadValue<Vector2>() });
         };
 
         InputMaster.Player.Pull.started += ctx =>
         {
-            BufferInput(new InputCommand { Type = InputType.Pull });
+            BufferInput(new InputCommand { Type = InputType.Pull, Direction = InputMaster.Player.Movement.ReadValue<Vector2>() });
         };
     }
 

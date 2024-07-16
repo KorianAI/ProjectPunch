@@ -62,30 +62,30 @@ public static class CameraManager
     public static void SwitchPlayerCam(CinemachineFreeLook cam)
     {
         
-        cam.Priority = 10;
-        activePlayerCamera = cam;
+        //cam.Priority = 10;
+        //activePlayerCamera = cam;
 
 
-        foreach (CinemachineVirtualCamera c in nonPlayerCameras)
-        {
-            c.Priority = 0;
-        }
+        //foreach (CinemachineVirtualCamera c in nonPlayerCameras)
+        //{
+        //    c.Priority = 0;
+        //}
 
-        foreach (CinemachineFreeLook c in playerCameras)
-        {
-            if (c != cam)
-            {
-                c.Priority = 0;
-            }
+        //foreach (CinemachineFreeLook c in playerCameras)
+        //{
+        //    if (c != cam)
+        //    {
+        //        c.Priority = 0;
+        //    }
 
-            //CinemachineInputProvider input = c.GetComponent<CinemachineInputProvider>();
-            //if (input != null)
-            //{
-            //    input.enabled = false;
-            //    ResetCameraInput r = c.GetComponent<ResetCameraInput>();
+        //    //CinemachineInputProvider input = c.GetComponent<CinemachineInputProvider>();
+        //    //if (input != null)
+        //    //{
+        //    //    input.enabled = false;
+        //    //    ResetCameraInput r = c.GetComponent<ResetCameraInput>();
                
-            //}
-        }
+        //    //}
+        //}
 
     }
 }

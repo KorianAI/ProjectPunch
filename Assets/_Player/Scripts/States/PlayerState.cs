@@ -36,7 +36,7 @@ public class PlayerState
         {
             _sm.SwitchState(new PlayerIdleState());
         }
-
+     
         else
         {
             if (command.Type == InputType.X)
@@ -76,7 +76,7 @@ public class PlayerState
             {
                 if (_sm.pm.grounded)
                 {
-                    _sm.SwitchState(new PushState());
+                    _sm.SwitchState(new PushKnockup());
                 }
             }
 
