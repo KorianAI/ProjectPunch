@@ -76,13 +76,13 @@ public class PlayerState
             {
                 if (_sm.pm.grounded)
                 {
-                    _sm.SwitchState(new PushKnockup());
+                    _sm.magnets.PushInput(command, _sm.pm.grounded);
                 }
             }
 
             else if (command.Type == InputType.Pull)
             {
-                _sm.SwitchState(new PullState());
+                _sm.magnets.PullInput(command);
             }
         }
     }

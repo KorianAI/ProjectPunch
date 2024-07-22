@@ -58,6 +58,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public PlayerInputHandler ih;
     public PlayerCombat pc;
     public TargetCams tl;
+    public PlayerMagnets magnets;
 
     public string currentStateDebug;
 
