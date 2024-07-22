@@ -11,7 +11,7 @@ public class PushKnockup : PlayerAttackBase
         duration = .2f;
         base.EnterState(player);
         if (!_sm.pm.grounded) { _sm.anim.SetBool("AirAttack", true); }
-        _sm.anim.Play("Push");
+        _sm.anim.Play("PushKnockup");
     }
 
     public override void ExitState(PlayerStateManager player)

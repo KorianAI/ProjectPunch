@@ -23,6 +23,8 @@ public class PlayerMagnets : MonoBehaviour
 
     public void PushInput(InputCommand command, bool grounded)
     {
+        Debug.Log("fuck");
+
         if (t.targetable != null)
         {
             if (!t.targetable.environment)
@@ -49,6 +51,7 @@ public class PlayerMagnets : MonoBehaviour
             else
             {
                 sm.SwitchState(new PushState());
+                Debug.Log("breh");
             }
         }
     }
