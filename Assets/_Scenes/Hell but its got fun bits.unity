@@ -4396,7 +4396,7 @@ Transform:
   m_GameObject: {fileID: 30443129}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -58.054096, y: 0.3345523, z: -134.9989}
+  m_LocalPosition: {x: -57.394096, y: 0.23455238, z: -135.0789}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9876,6 +9876,7 @@ MonoBehaviour:
   rotationDur: 0.25
   nextRail: {fileID: 5239476310401391432}
   flipSpline: {fileID: 434195874}
+  t: {fileID: 0}
   railPos: 0
 --- !u!135 &137547016
 SphereCollider:
@@ -25082,7 +25083,7 @@ Transform:
   m_GameObject: {fileID: 544795334}
   serializedVersion: 2
   m_LocalRotation: {x: -0.102044575, y: 0.38473836, z: 0.042843614, w: 0.91636664}
-  m_LocalPosition: {x: -57.723877, y: 1.9209931, z: -139.41698}
+  m_LocalPosition: {x: -57.063873, y: 1.8209932, z: -139.49698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31102,6 +31103,7 @@ MonoBehaviour:
   rotationDur: 0
   nextRail: {fileID: 872168835}
   flipSpline: {fileID: 161185216}
+  t: {fileID: 0}
   railPos: 3
 --- !u!135 &674608201
 SphereCollider:
@@ -31328,7 +31330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714031682}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03152702, y: -0.41388667, z: -0.07832604, w: 0.90640444}
+  m_LocalRotation: {x: 0.03152701, y: -0.413887, z: -0.078326106, w: 0.9064042}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36671,7 +36673,7 @@ GameObject:
   - component: {fileID: 802928009}
   - component: {fileID: 802928008}
   - component: {fileID: 802928007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trash Pile 1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36687,8 +36689,8 @@ Transform:
   m_GameObject: {fileID: 802928005}
   serializedVersion: 2
   m_LocalRotation: {x: 8.7409805e-18, y: 0.6165476, z: 6.845052e-18, w: 0.7873177}
-  m_LocalPosition: {x: -3.412, y: 0.826, z: -4.924}
-  m_LocalScale: {x: 0.4578463, y: 0.4578463, z: 0.4578463}
+  m_LocalPosition: {x: -3.288, y: 0.8044, z: -4.881}
+  m_LocalScale: {x: 0.90577275, y: 0.5500867, z: 0.5500867}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1242479195}
@@ -38385,8 +38387,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821488036}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.067056544, y: -0.037209332, z: -0.0025025068, w: 0.99705195}
-  m_LocalPosition: {x: -57.723877, y: 1.9209931, z: -139.41698}
+  m_LocalRotation: {x: -0.067056544, y: -0.037209786, z: -0.0025025373, w: 0.99705195}
+  m_LocalPosition: {x: -57.063873, y: 1.8209932, z: -139.49698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41205,6 +41207,7 @@ MonoBehaviour:
   rotationDur: 0
   nextRail: {fileID: 0}
   flipSpline: {fileID: 62669374}
+  t: {fileID: 0}
   railPos: 2
 --- !u!135 &872168838
 SphereCollider:
@@ -46566,7 +46569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961882468}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.052543223, y: -0.41559204, z: -0.06870457, w: 0.90542924}
+  m_LocalRotation: {x: 0.05254321, y: -0.4155925, z: -0.068704635, w: 0.9054291}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -56680,6 +56683,7 @@ MonoBehaviour:
   rotationDur: 0
   nextRail: {fileID: 674608198}
   flipSpline: {fileID: 434195874}
+  t: {fileID: 0}
   railPos: 2
 --- !u!135 &1271250346
 SphereCollider:
@@ -71205,6 +71209,7 @@ MonoBehaviour:
   rotationDur: 0.25
   nextRail: {fileID: 137547014}
   flipSpline: {fileID: 161185216}
+  t: {fileID: 0}
   railPos: 0
 --- !u!135 &1532576628
 SphereCollider:
@@ -74171,15 +74176,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5671452699864209851, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -57.05
+      value: -56.39
       objectReference: {fileID: 0}
     - target: {fileID: 5671452699864209851, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.3
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 5671452699864209851, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -159.95
+      value: -160.03
       objectReference: {fileID: 0}
     - target: {fileID: 5671452699864209851, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: m_LocalRotation.w
@@ -87286,8 +87291,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970232601}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.073622055, y: -0.41708028, z: -0.05900424, w: 0.90395933}
-  m_LocalPosition: {x: -138.37988, y: -35.74697, z: 345.34006}
+  m_LocalRotation: {x: 0.07362206, y: -0.41708025, z: -0.059004236, w: 0.90395933}
+  m_LocalPosition: {x: -141.82172, y: -29.8935, z: 341.2039}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -87592,6 +87597,7 @@ MonoBehaviour:
   rotationDur: 0.25
   nextRail: {fileID: 1532576626}
   flipSpline: {fileID: 62669374}
+  t: {fileID: 0}
   railPos: 0
 --- !u!135 &2033922976
 SphereCollider:
@@ -91535,6 +91541,7 @@ MonoBehaviour:
   rotationDur: 0.25
   nextRail: {fileID: 9153368862987066184}
   flipSpline: {fileID: 74313015855072294}
+  t: {fileID: 0}
   railPos: 0
 --- !u!1 &1434571210168020154
 GameObject:
@@ -91753,6 +91760,7 @@ MonoBehaviour:
   rotationDur: 0
   nextRail: {fileID: 1434571210168020154}
   flipSpline: {fileID: 74313015855072294}
+  t: {fileID: 0}
   railPos: 2
 --- !u!1 &2153073481267442325
 GameObject:
@@ -92127,6 +92135,7 @@ MonoBehaviour:
   rotationDur: 0.25
   nextRail: {fileID: 1961553745911524580}
   flipSpline: {fileID: 5946596521562796938}
+  t: {fileID: 0}
   railPos: 0
 --- !u!4 &4760665880330512344
 Transform:
@@ -92279,6 +92288,7 @@ MonoBehaviour:
   rotationDur: 0
   nextRail: {fileID: 1271250343}
   flipSpline: {fileID: 5946596521562796938}
+  t: {fileID: 0}
   railPos: 3
 --- !u!1 &5651962146601977145
 GameObject:
@@ -93366,6 +93376,7 @@ MonoBehaviour:
   rotationDur: 0.25
   nextRail: {fileID: 0}
   flipSpline: {fileID: 7293466954846270346}
+  t: {fileID: 0}
   railPos: 0
 --- !u!4 &8688989923290565571
 Transform:
@@ -93409,6 +93420,7 @@ MonoBehaviour:
   rotationDur: 0
   nextRail: {fileID: 4640418072983313174}
   flipSpline: {fileID: 7293466954846270346}
+  t: {fileID: 0}
   railPos: 3
 --- !u!135 &9128016837891223672
 SphereCollider:

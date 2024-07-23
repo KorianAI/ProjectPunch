@@ -68,12 +68,12 @@ public class PlayerMagnets : MonoBehaviour
 
                 if (closestEnemyDistance < distance)  // chokeslam aoe
                 {
-                    sm.SwitchState(new PullState());
+                    sm.SwitchState(new PullEnemyState());
                 }
 
                 else
                 {
-                    sm.SwitchState(new PullState());  // pull enemy
+                    sm.SwitchState(new PullEnemyState());  // pull enemy
                 }
             }
 
