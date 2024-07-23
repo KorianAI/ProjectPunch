@@ -8,9 +8,14 @@ using Dreamteck.Splines;
 public class Bouncepad : MonoBehaviour, IMagnetisable
 {
     public SplineComputer flipSpline;
-    public CapsuleCollider td;
+    CharacterController cc;
     public bool playerInCollider;
-    public float duration;
+    public float duration = 1f;
+
+    private void Start()
+    {
+        cc = PlayerStateManager.instance.GetComponent<CharacterController>();
+    }
 
     public void Pull(PlayerStateManager player)
     {
@@ -19,40 +24,31 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
-        //if player is standing on the pad and presses push
-        //activate the spline follower
-        //make the player move along the curve of the spline
-
-
-        //player.pm.JumpForce();
-
         if (playerInCollider)
         {
             player.splineFollower.followDuration = duration;
             player.splineFollower.enabled = true;
             player.splineFollower.spline = flipSpline;
-            player.splineFollower.Restart();
 
-            //speed lines, pull out cam?
+            player.SwitchState(new PlayerBounceState());
+            
+            player.splineFollower.Restart();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        playerInCollider = true;
-
-        //if (other == td)
-        //{
-            
-        //}
+        if (other == cc)
+        {
+            playerInCollider = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        playerInCollider = false;
-        //if (other == td)
-        //{
-            
-        //}
+        if (other == cc)
+        {
+            playerInCollider = false;
+        }
     }
 }
