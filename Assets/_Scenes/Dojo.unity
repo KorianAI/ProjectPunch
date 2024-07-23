@@ -1798,6 +1798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58e8ee2f5dcdc2468bbac20f7c83181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flipSpline: {fileID: 0}
 --- !u!114 &352910082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4528,6 +4529,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 897354577}
     - target: {fileID: 2185168564731813592, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: magnets
+      value: 
+      objectReference: {fileID: 1664410727}
+    - target: {fileID: 2185168564731813592, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 279276591}
@@ -7192,6 +7197,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654629775}
   m_CullTransparentMesh: 1
+--- !u!114 &1664410727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2962569387459006504, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+  m_PrefabInstance: {fileID: 977329534}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1fbe169b9107a488279c282d11024d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1680691378
 GameObject:
   m_ObjectHideFlags: 0
