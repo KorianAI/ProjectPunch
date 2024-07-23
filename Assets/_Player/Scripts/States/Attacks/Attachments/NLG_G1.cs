@@ -77,7 +77,7 @@ public class NLG_G1 : PlayerAttackBase
         Nailgun ng = GameObject.Find("Nailgun").GetComponent<Nailgun>();
         for (int i = 0; i < maxShots; i++)
         {
-            Debug.Log("boom");
+            //Debug.Log("boom");
             ng.Shoot();
             currentShots++;
             yield return new WaitForSeconds(timeBetweenShots);

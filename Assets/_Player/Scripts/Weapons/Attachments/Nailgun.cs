@@ -49,19 +49,28 @@ public class Nailgun : Attachment
 
     public Vector3 GetDirection()
     {
-        Vector3 dir = sm.tl.currentTarget.position;
-
-        if (bulletSpread)
+        if (sm.tl.currentTarget != null)
         {
-            dir += new Vector3(Random.Range(-spreadVariance, spreadVariance),
-                Random.Range(0, spreadVariance),
-                Random.Range(-spreadVariance, spreadVariance));
+            Vector3 dir = sm.tl.currentTarget.position;
 
-            //dir.Normalize();
+            if (bulletSpread)
+            {
+                dir += new Vector3(Random.Range(-spreadVariance, spreadVariance),
+                    Random.Range(0, spreadVariance),
+                    Random.Range(-spreadVariance, spreadVariance));
 
+                //dir.Normalize();
+
+            }
+
+            return dir;
         }
 
-        return dir;
+        else
+        {
+            throw new System.Exception("No CurrentTarget for Nailgun Lock.");
+        }
+        
     }
 
     IEnumerator SpawnTrail(TrailRenderer trail, Vector3 enemy)
