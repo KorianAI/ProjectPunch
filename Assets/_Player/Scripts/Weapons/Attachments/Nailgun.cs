@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class Nailgun : Attachment
 
     public LayerMask hittable;
 
+    public GameObject concentratedNail;
+    public float cnDur;
 
 
     public override void Start()
@@ -31,6 +34,11 @@ public class Nailgun : Attachment
             sm.SwitchState(new NLG_G1());
         }
 
+        else if (command.Type == InputType.xH)
+        {
+            sm.SwitchState(new NLG_G2());
+        }
+
         else
         {
             sm.SwitchState(new PlayerAirState());
@@ -39,12 +47,20 @@ public class Nailgun : Attachment
 
     public void Shoot()
     {
-        //shootSystem.Play();
         Vector3 direction = GetDirection();
 
         TrailRenderer trail = Instantiate(projTrail, spawnPoint.position, Quaternion.identity);
         StartCoroutine(SpawnTrail(trail, direction));
 
+    }
+
+    public void ConcentratedNail()
+    {
+        Vector3 direction = sm.tl.currentTarget.position - transform.position;
+        GameObject p = Instantiate(concentratedNail, spawnPoint.position, Quaternion.identity);
+
+        p.transform.rotation = Quaternion.LookRotation(direction.normalized);
+        p.transform.DOMove(sm.tl.targetPoint.position, cnDur);
     }
 
     public Vector3 GetDirection()

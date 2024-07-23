@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LightAttackHold",
+                    "type": "Button",
+                    "id": "381f0855-8e28-4659-b640-bf51da038437",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -223,7 +232,7 @@
                 {
                     "name": "",
                     "id": "e954a1ed-ca72-4419-b7fe-514394846856",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
@@ -256,7 +265,7 @@
                 {
                     "name": "",
                     "id": "d7998050-bcc0-4b13-b4bc-5ef03aca1b0d",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
@@ -393,6 +402,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8718a9b6-a85a-400c-9f72-793a6a57d343",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "LightAttackHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "77dccf65-a9de-4cc0-84dd-0fe207f407b0",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "LightAttackHold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

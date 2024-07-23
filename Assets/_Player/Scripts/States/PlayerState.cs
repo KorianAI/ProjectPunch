@@ -39,14 +39,13 @@ public class PlayerState
      
         else
         {
-            if (command.Type == InputType.X)
+            if (command.Type == InputType.X || command.Type == InputType.xH)
             {
                 _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
             }
 
             else if (command.Type == InputType.Y)
             {
-
                 _sm.resources.mode.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
             }
 
