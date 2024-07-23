@@ -8,7 +8,7 @@ using Dreamteck.Splines;
 public class Bouncepad : MonoBehaviour, IMagnetisable
 {
     public SplineComputer flipSpline;
-    public CapsuleCollider td;
+    public Collider td;
     public bool playerInCollider;
     public float duration;
 
@@ -41,10 +41,10 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     {
         playerInCollider = true;
 
-        //if (other == td)
-        //{
-            
-        //}
+        if (other == td)
+        {
+            Debug.Log("yeet");
+        }
     }
 
     private void OnTriggerExit(Collider other)
