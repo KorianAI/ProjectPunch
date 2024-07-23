@@ -19,6 +19,11 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
+        //if player is standing on the pad and presses push
+        //activate the spline follower
+        //make the player move along the curve of the spline
+
+
         //player.pm.JumpForce();
 
         if (playerInCollider)
@@ -34,21 +39,20 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == td)
-        {
-            playerInCollider = true;
-        }
+        playerInCollider = true;
+
+        //if (other == td)
+        //{
+            
+        //}
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other == td)
-        {
-            playerInCollider = false;
-        }
+        playerInCollider = false;
+        //if (other == td)
+        //{
+            
+        //}
     }
-
-    //if player is standing on the pad and presses push
-    //activate the spline follower
-    //make the player move along the curve of the spline
 }
