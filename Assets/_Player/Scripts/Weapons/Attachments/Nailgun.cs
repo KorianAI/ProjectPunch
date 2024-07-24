@@ -15,7 +15,7 @@ public class Nailgun : Attachment
 
     public GameObject concentratedNail;
     public float cnDur;
-
+    public float speed;
 
     public override void Start()
     {
@@ -57,10 +57,11 @@ public class Nailgun : Attachment
     public void ConcentratedNail()
     {
         Vector3 direction = sm.tl.currentTarget.position - transform.position;
-        GameObject p = Instantiate(concentratedNail, spawnPoint.position, Quaternion.identity);
-
+        ConcentratedNail p = Instantiate(concentratedNail, spawnPoint.position, Quaternion.identity).GetComponent<ConcentratedNail>();
         p.transform.rotation = Quaternion.LookRotation(direction.normalized);
-        p.transform.DOMove(sm.tl.targetPoint.position, cnDur);
+        float distance = Vector3.Distance(spawnPoint.position, sm.tl.targetPoint.position);
+        p.dur = distance / speed;
+        p.enemy = sm.tl.targetPoint;
     }
 
     public Vector3 GetDirection()

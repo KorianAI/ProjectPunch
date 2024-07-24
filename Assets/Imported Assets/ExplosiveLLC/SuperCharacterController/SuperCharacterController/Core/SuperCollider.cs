@@ -122,7 +122,7 @@ public static class SuperCollider {
         Vector3 local = ct.InverseTransformPoint(to); // The position of the controller in local coordinates
 
         Vector3 p = Vector3.zero; // Contact point
-        Vector3 pt = Vector3.zero; // The point we need to use to get a direction vector with the controller to calculate contact point
+        Vector3 pt = Vector3.zero; // The point we need to use to get a enemy vector with the controller to calculate contact point
 
         if (local.y < lineLength * 0.5f && local.y > -lineLength * 0.5f) // Controller is contacting with cylinder, not spheres
             pt = dir * local.y + collider.center;

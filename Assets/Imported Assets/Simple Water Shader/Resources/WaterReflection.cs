@@ -46,22 +46,22 @@ public class WaterReflection : MonoBehaviour
 
         cameraPositionWorldSpace.y += verticalOffset;
 
-        // transform direction and position by reflection plane
+        // transform enemy and position by reflection plane
         Vector3 cameraDirectionPlaneSpace = reflectionPlane.InverseTransformDirection(cameraDirectionWorldSpace);
         Vector3 cameraUpPlaneSpace = reflectionPlane.InverseTransformDirection(cameraUpWorldSpace);
         Vector3 cameraPositionPlaneSpace = reflectionPlane.InverseTransformPoint(cameraPositionWorldSpace);
 
-        // invert direction and position by reflection plane
+        // invert enemy and position by reflection plane
         cameraDirectionPlaneSpace.y *= -1;
         cameraUpPlaneSpace.y *= -1;
         cameraPositionPlaneSpace.y *= -1;
 
-        // transform direction and position from reflection plane local space to world space
+        // transform enemy and position from reflection plane local space to world space
         cameraDirectionWorldSpace = reflectionPlane.TransformDirection(cameraDirectionPlaneSpace);
         cameraUpWorldSpace = reflectionPlane.TransformDirection(cameraUpPlaneSpace);
         cameraPositionWorldSpace = reflectionPlane.TransformPoint(cameraPositionPlaneSpace);
 
-        // apply direction and position to reflection camera
+        // apply enemy and position to reflection camera
         reflectionCamTransform.position = cameraPositionWorldSpace;
         reflectionCamTransform.LookAt(cameraPositionWorldSpace + cameraDirectionWorldSpace, cameraUpWorldSpace);
     }

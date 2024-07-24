@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class NLG_G1 : PlayerAttackBase
 {
-    float timeBetweenShots = .05f;
-    float maxShots = 3;
-
     public override void EnterState(PlayerStateManager player)
     {         
         base.EnterState(player);

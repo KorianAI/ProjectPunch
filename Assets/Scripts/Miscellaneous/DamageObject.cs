@@ -44,7 +44,7 @@ public class DamageObject : MonoBehaviour
             GameObject proj = Instantiate(projectile, hitPos.position, Quaternion.identity);
             HomingProjectile h = proj.GetComponent<HomingProjectile>();
 
-            // Calculate direction towards the random enemy
+            // Calculate enemy towards the random enemy
             Vector3 targetPosition = randomEnemy.transform.position;
 
             // Use DOTween to move the projectile towards the target

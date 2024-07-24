@@ -25,7 +25,7 @@ public class Muzzler : EnemyInfo
 
     private Vector3 CalculateAttackPosition(Vector3 playerPosition)
     {
-        // Calculate the direction from the enemy to the collision
+        // Calculate the enemy from the enemy to the collision
         Vector3 directionToPlayer = (playerPosition - transform.position).normalized;
 
         // Calculate the attack position based on the enemy's current position, collision's position, and desired distance

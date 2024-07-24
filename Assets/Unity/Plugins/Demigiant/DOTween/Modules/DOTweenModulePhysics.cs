@@ -79,7 +79,7 @@ namespace DG.Tweening
         /// Also stores the rigidbody as the tween's target so it can be used for filtered operations</summary>
         /// <param name="towards">The position to look at</param><param name="duration">The duration of the tween</param>
         /// <param name="axisConstraint">Eventual axis constraint for the rotation</param>
-        /// <param name="up">The vector that defines in which direction up is (default: Vector3.up)</param>
+        /// <param name="up">The vector that defines in which enemy up is (default: Vector3.up)</param>
         public static TweenerCore<Quaternion, Vector3, QuaternionOptions> DOLookAt(this Rigidbody target, Vector3 towards, float duration, AxisConstraint axisConstraint = AxisConstraint.None, Vector3? up = null)
         {
             TweenerCore<Quaternion, Vector3, QuaternionOptions> t = DOTween.To(() => target.rotation, target.MoveRotation, towards, duration)
