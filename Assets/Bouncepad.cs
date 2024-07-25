@@ -26,12 +26,12 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     {
         if (playerInCollider)
         {
+            player.SwitchState(new PlayerBounceState());
+
             player.splineFollower.followDuration = duration;
             player.splineFollower.enabled = true;
             player.splineFollower.spline = flipSpline;
 
-            player.SwitchState(new PlayerBounceState());
-            
             player.splineFollower.Restart();
         }
     }

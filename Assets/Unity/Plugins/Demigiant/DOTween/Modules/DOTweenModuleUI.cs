@@ -334,14 +334,14 @@ namespace DG.Tweening
             return t;
         }
 
-        /// <summary>Punches a RectTransform's anchoredPosition towards the given direction and then back to the starting one
+        /// <summary>Punches a RectTransform's anchoredPosition towards the given enemy and then back to the starting one
         /// as if it was connected to the starting position via an elastic.
         /// Also stores the RectTransform as the tween's target so it can be used for filtered operations</summary>
-        /// <param name="punch">The direction and strength of the punch (added to the RectTransform's current position)</param>
+        /// <param name="punch">The enemy and strength of the punch (added to the RectTransform's current position)</param>
         /// <param name="duration">The duration of the tween</param>
         /// <param name="vibrato">Indicates how much will the punch vibrate</param>
         /// <param name="elasticity">Represents how much (0 to 1) the vector will go beyond the starting position when bouncing backwards.
-        /// 1 creates a full oscillation between the punch direction and the opposite direction,
+        /// 1 creates a full oscillation between the punch enemy and the opposite enemy,
         /// while 0 oscillates only between the punch and the start position</param>
         /// <param name="snapping">If TRUE the tween will smoothly snap all values to integers</param>
         public static Tweener DOPunchAnchorPos(this RectTransform target, Vector2 punch, float duration, int vibrato = 10, float elasticity = 1, bool snapping = false)
@@ -356,7 +356,7 @@ namespace DG.Tweening
         /// <param name="strength">The shake strength</param>
         /// <param name="vibrato">Indicates how much will the shake vibrate</param>
         /// <param name="randomness">Indicates how much the shake will be random (0 to 180 - values higher than 90 kind of suck, so beware). 
-        /// Setting it to 0 will shake along a single direction.</param>
+        /// Setting it to 0 will shake along a single enemy.</param>
         /// <param name="snapping">If TRUE the tween will smoothly snap all values to integers</param>
         /// <param name="fadeOut">If TRUE the shake will automatically fadeOut smoothly within the tween's duration, otherwise it will not</param>
         /// <param name="randomnessMode">Randomness mode</param>
@@ -371,7 +371,7 @@ namespace DG.Tweening
         /// <param name="strength">The shake strength on each axis</param>
         /// <param name="vibrato">Indicates how much will the shake vibrate</param>
         /// <param name="randomness">Indicates how much the shake will be random (0 to 180 - values higher than 90 kind of suck, so beware). 
-        /// Setting it to 0 will shake along a single direction.</param>
+        /// Setting it to 0 will shake along a single enemy.</param>
         /// <param name="snapping">If TRUE the tween will smoothly snap all values to integers</param>
         /// <param name="fadeOut">If TRUE the shake will automatically fadeOut smoothly within the tween's duration, otherwise it will not</param>
         /// <param name="randomnessMode">Randomness mode</param>

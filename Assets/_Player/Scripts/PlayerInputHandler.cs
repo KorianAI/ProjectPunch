@@ -41,6 +41,11 @@ public class PlayerInputHandler : MonoBehaviour
             BufferInput(new InputCommand { Type = InputType.X, Direction = InputMaster.Player.Movement.ReadValue<Vector2>() });
         };
 
+        InputMaster.Player.LightAttackHold.performed += ctx =>
+        {
+            BufferInput(new InputCommand { Type = InputType.xH, Direction = InputMaster.Player.Movement.ReadValue<Vector2>() });
+        };
+
         InputMaster.Player.HeavyAttack.started += ctx =>
         {
             BufferInput(new InputCommand { Type = InputType.Y, Direction = InputMaster.Player.Movement.ReadValue<Vector2>() });

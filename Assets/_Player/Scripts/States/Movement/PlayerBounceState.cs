@@ -8,9 +8,6 @@ public class PlayerBounceState : PlayerMovementBase
     {
         base.EnterState(player);
 
-        _sm.tl.ResetTarget();
-        _sm.cam.canRotate = true;
-        PlayerCameraManager.instance.SwitchPlayerCam();
         _sm.anim.Play("Backflip");
 
         //speed lines, pull out cam?
@@ -19,6 +16,10 @@ public class PlayerBounceState : PlayerMovementBase
     public override void ExitState(PlayerStateManager player)
     {
         base.ExitState(player);
+
+        _sm.tl.ResetTarget();
+        _sm.cam.canRotate = true;
+        PlayerCameraManager.instance.SwitchPlayerCam();
     }
 
     public override void FrameUpdate(PlayerStateManager player)

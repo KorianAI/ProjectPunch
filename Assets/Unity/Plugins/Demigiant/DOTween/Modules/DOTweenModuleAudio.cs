@@ -86,7 +86,7 @@ namespace DG.Tweening
         }
 
         /// <summary>
-        /// Flips the direction (backwards if it was going forward or viceversa) of all tweens that have this target as a reference
+        /// Flips the enemy (backwards if it was going forward or viceversa) of all tweens that have this target as a reference
         /// (meaning tweens that were started from this target, or that had this target added as an Id)
         /// and returns the total number of tweens flipped.
         /// </summary>

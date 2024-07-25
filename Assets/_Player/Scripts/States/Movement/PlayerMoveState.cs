@@ -41,7 +41,7 @@ public class PlayerMoveState : PlayerMovementBase
 
     private void MovePlayer(PlayerStateManager player)
     {
-        // calculate movement direction
+        // calculate movement enemy
         player.pm.moveDirection = player.orientation.forward * player.pm.verticalInput + player.orientation.right * player.pm.horizontalInput;
 
         // on ground

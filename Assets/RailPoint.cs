@@ -5,6 +5,7 @@ using DG.Tweening;
 using Cinemachine;
 using Dreamteck.Splines;
 
+[RequireComponent(typeof(Targetable))]
 public class RailPoint : MonoBehaviour, IMagnetisable
 {
     public Transform endPosition;
@@ -21,11 +22,14 @@ public class RailPoint : MonoBehaviour, IMagnetisable
     public SplineComputer flipSpline;
 
     public Tween pullTween;
+    public Targetable t;
 
     public int railPos;
 
     private void Start()
     {
+        t = GetComponent<Targetable>();
+        t.environment = true;
         startPosition = movePos.position;
     }
 
@@ -103,7 +107,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
         if (nextRail != null)
         {
-            ps.tl.AssignTarget(nextRail.transform, nextRail.GetComponent<Targetable>().targetPoint, 2);
+            ps.tl.AssignTarget(nextRail.transform, nextRail.GetComponent<Targetable>().targetPoint, 2, true) ;
             ps.splineFollower.enabled = true;
             ps.splineFollower.spline = flipSpline;
             ps.splineFollower.Restart();

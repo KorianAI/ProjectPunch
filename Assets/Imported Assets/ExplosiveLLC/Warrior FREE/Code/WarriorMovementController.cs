@@ -217,7 +217,7 @@ namespace WarriorAnimsFREE
 		#endregion
 
 		/// <summary>
-		/// Rotate towards the direction the Warrior is moving.
+		/// Rotate towards the enemy the Warrior is moving.
 		/// </summary>
 		private void RotateTowardsMovementDir()
 		{

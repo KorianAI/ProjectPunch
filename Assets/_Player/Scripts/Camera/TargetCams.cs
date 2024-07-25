@@ -78,27 +78,30 @@ public class TargetCams : MonoBehaviour
 
             if (UnityEngine.Physics.SphereCast(mainCamera.transform.position, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, targetableLayers))
             {
-                AssignTarget(hit.transform, hit.collider.GetComponent<Targetable>().targetPoint, 1);
+                AssignTarget(hit.transform, hit.collider.GetComponent<Targetable>().targetPoint, 1, true);
             }
 
             else
             {
                 if (ClosestTarget())
                 {
-                    AssignTarget(ClosestTarget().transform, currentTarget.GetComponent<Targetable>().targetPoint, 1);
+                    AssignTarget(ClosestTarget().transform, currentTarget.GetComponent<Targetable>().targetPoint, 1, true);
                 }
             }
         }
     }
 
-    public void AssignTarget(Transform target, Transform point, float weight)
+    public void AssignTarget(Transform target, Transform point, float weight, bool changeCam)
     {
         currentTarget = target;
         targetable = currentTarget.GetComponent<Targetable>();
         targetPoint = point;
         isTargeting = true;
         targetGroup.AddMember(point, weight, 0);
-        PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.targetCam);
+        if (changeCam)
+        {
+            PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.targetCam);
+        }
     }
 
     public void ResetTarget()

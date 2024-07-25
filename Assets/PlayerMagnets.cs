@@ -23,7 +23,7 @@ public class PlayerMagnets : MonoBehaviour
 
     public void PushInput(InputCommand command, bool grounded)
     {
-        Debug.Log("fuck");
+        //Debug.Log("fuck");
 
         if (t.targetable != null)
         {
@@ -51,7 +51,7 @@ public class PlayerMagnets : MonoBehaviour
             else
             {
                 sm.SwitchState(new PushState());
-                Debug.Log("breh");
+                //Debug.Log("breh");
             }
         }
     }
@@ -68,12 +68,12 @@ public class PlayerMagnets : MonoBehaviour
 
                 if (closestEnemyDistance < distance)  // chokeslam aoe
                 {
-                    sm.SwitchState(new PullState());
+                    sm.SwitchState(new PullEnemyState());
                 }
 
                 else
                 {
-                    sm.SwitchState(new PullState());  // pull enemy
+                    sm.SwitchState(new PullEnemyState());  // pull enemy
                 }
             }
 

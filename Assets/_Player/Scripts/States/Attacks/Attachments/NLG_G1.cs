@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class NLG_G1 : PlayerAttackBase
 {
-    float timeBetweenShots = .05f;
-    float maxShots = 3;
-
     public override void EnterState(PlayerStateManager player)
-    {   
-        
+    {         
         base.EnterState(player);
         duration = 0.5f;
-        player.anim.SetTrigger("LightAttack");
-        player.StartCoroutine(FireNailVolley());
+        _sm.anim.Play("NailGun");
         canAttack = false;
     }
 
@@ -28,7 +23,7 @@ public class NLG_G1 : PlayerAttackBase
 
         if (fixedtime > duration)
         {
-
+            canAttack = true;
             if (_sm.ih.GetBufferedInputs().Length > 0)
             {
                 _sm.ih.SetCanConsumeInput(true);
@@ -69,20 +64,5 @@ public class NLG_G1 : PlayerAttackBase
             }
         }
 
-    }
-
-    private IEnumerator FireNailVolley()
-    {
-        float currentShots = 0;
-        Nailgun ng = GameObject.Find("Nailgun").GetComponent<Nailgun>();
-        for (int i = 0; i < maxShots; i++)
-        {
-            //Debug.Log("boom");
-            ng.Shoot();
-            currentShots++;
-            yield return new WaitForSeconds(timeBetweenShots);
-        }
-
-        canAttack = true;
     }
 }

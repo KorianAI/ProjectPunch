@@ -17,7 +17,9 @@ public class InputCommand
 public enum InputType
 {
     X,
+    xH,
     Y,
+    yH,
     A,
     B,
     Push,
