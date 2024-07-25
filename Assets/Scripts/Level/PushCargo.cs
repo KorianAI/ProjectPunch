@@ -36,9 +36,9 @@ public class PushCargo : MonoBehaviour, IMagnetisable
 
             source.PlayOneShot(pushed);
 
-            player.GetComponent<TargetLock>().currentTarget = null;
-            player.GetComponent<TargetLock>().isTargeting = false;
-            player.GetComponent<TargetLock>().lastTargetTag = null;
+            player.tl.ResetTarget();
+            player.cam.canRotate = true;
+            PlayerCameraManager.instance.SwitchPlayerCam();
         }
     }
 }

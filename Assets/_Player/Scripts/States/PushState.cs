@@ -59,7 +59,7 @@ public class PushState : PlayerAttackBase
         if (_sm.tl.currentTarget != null)
         {
             target = _sm.tl.currentTarget.gameObject;
+            target.GetComponent<IMagnetisable>().Push(_sm);
         }
-        target.GetComponent<IMagnetisable>().Push(_sm);
     }
 }

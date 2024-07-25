@@ -36,8 +36,12 @@ public class PullState : PlayerState
 
     public IEnumerator TargetPull()
     {
-        var target = _sm.tl.currentTarget.gameObject;
         yield return new WaitForSeconds(.2f);
-        target.GetComponent<IMagnetisable>().Pull(_sm);
+
+        if (_sm.tl.currentTarget != null)
+        {
+            var target = _sm.tl.currentTarget.gameObject;
+            target.GetComponent<IMagnetisable>().Pull(_sm);
+        }
     }
 }
