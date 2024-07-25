@@ -10,6 +10,8 @@ public class Respawn : MonoBehaviour
  
     public GameObject vignette;
     Animator vignetteAnim;
+    public GameObject respawnAnimObj;
+    Animation respawnAnim;
 
     public CinemachineVirtualCamera deathCam;
     GameObject followTarget;
@@ -26,11 +28,11 @@ public class Respawn : MonoBehaviour
 
     private void Start()
     {
-        followTarget = deathCam.Follow.gameObject;
+        //followTarget = deathCam.Follow.gameObject;
         sm = GetComponent<PlayerStateManager>();
         pr = GetComponent<PlayerResources>();
-        vignetteAnim = vignette.GetComponent<Animator>();
-        vignette.SetActive(false);
+        //respawnAnimObj.SetActive(false);
+        respawnAnim = respawnAnimObj.GetComponent<Animation>();
 
         cpManager = GameObject.Find("CheckpointManager").GetComponent<CheckpointManager>();
     }
@@ -49,16 +51,15 @@ public class Respawn : MonoBehaviour
 
             if (cpManager != null)
             {
-                ResetPlayer();
+                ResetAnim();
             }
         }
     }
 
     public void ResetPlayer()
     {
-        CameraManager.SwitchNonPlayerCam(deathCam);
-        deathCam.Follow = null;
-        FadeOut();
+        //CameraManager.SwitchNonPlayerCam(deathCam);
+        //deathCam.Follow = null;
     }
 
     public void FadeOut() //adds vignette
@@ -91,16 +92,12 @@ public class Respawn : MonoBehaviour
 
             pr.ReplenishAll();
 
-            CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
-
-            vignetteAnim.SetTrigger("FadeIn");
+            //CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
         }
     }
 
     public void ResetCams() //should be setting things back to how they were
     {
-        deathCam.Follow = followTarget.transform;
-        vignette.SetActive(false);
         fadedOut = false;
         fadedIn = false;
 
@@ -113,4 +110,12 @@ public class Respawn : MonoBehaviour
         canReset = true;
     }
 
+    public void ResetAnim()
+    {
+        if (!fadedOut)
+        {
+            fadedOut = true;
+            respawnAnim.Play();
+        }
+    }
 }

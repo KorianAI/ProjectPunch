@@ -114,6 +114,7 @@ public class TargetCams : MonoBehaviour
         isTargeting = false;
         currentTarget = null;
         targetPoint = null;
+        targetable = null;
 
         return;
     }
