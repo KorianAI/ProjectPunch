@@ -23,26 +23,23 @@ public class PushState : PlayerAttackBase
 
     public override void FrameUpdate(PlayerStateManager player)
     {
-        if (fixedtime > duration)
+
+        if (_sm.ih.GetBufferedInputs().Length > 0)
         {
-            canAttack = true;
-
-            if (_sm.ih.GetBufferedInputs().Length > 0)
-            {
-                _sm.ih.SetCanConsumeInput(true);
-            }
-
-            else
-            {
-                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length + .1f)
-                    _sm.SwitchState(new PlayerIdleState());
-            }
+            _sm.ih.SetCanConsumeInput(true);
         }
+
+        else
+        {
+            if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length + .1f)
+                _sm.SwitchState(new PlayerIdleState());
+        }
+
     }
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        if (!_sm.pushing || canAttack)
+        if (!_sm.pushing)
         {
             base.HandleBufferedInput(command);
         }

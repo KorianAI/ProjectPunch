@@ -20,6 +20,7 @@ public class PlayerBounceState : PlayerMovementBase
         _sm.tl.ResetTarget();
         _sm.cam.canRotate = true;
         PlayerCameraManager.instance.SwitchPlayerCam();
+        _sm.tl.targetable = null;
     }
 
     public override void FrameUpdate(PlayerStateManager player)
