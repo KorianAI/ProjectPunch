@@ -31,8 +31,6 @@ public class Respawn : MonoBehaviour
         //followTarget = deathCam.Follow.gameObject;
         sm = GetComponent<PlayerStateManager>();
         pr = GetComponent<PlayerResources>();
-        //vignetteAnim = vignette.GetComponent<Animator>();
-        //vignette.SetActive(false);
         //respawnAnimObj.SetActive(false);
         respawnAnim = respawnAnimObj.GetComponent<Animation>();
 
@@ -62,8 +60,6 @@ public class Respawn : MonoBehaviour
     {
         //CameraManager.SwitchNonPlayerCam(deathCam);
         //deathCam.Follow = null;
-        //FadeOut();
-        ResetAnim();
     }
 
     public void FadeOut() //adds vignette
@@ -97,16 +93,11 @@ public class Respawn : MonoBehaviour
             pr.ReplenishAll();
 
             //CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
-
-            //vignetteAnim.SetTrigger("FadeIn");
         }
     }
 
     public void ResetCams() //should be setting things back to how they were
     {
-        //deathCam.Follow = followTarget.transform;
-        //vignette.SetActive(false);
-        //respawnAnimObj.SetActive(false);
         fadedOut = false;
         fadedIn = false;
 
@@ -124,7 +115,6 @@ public class Respawn : MonoBehaviour
         if (!fadedOut)
         {
             fadedOut = true;
-            //respawnAnimObj.SetActive(true);
             respawnAnim.Play();
         }
     }
