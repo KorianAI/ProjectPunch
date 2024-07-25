@@ -65,6 +65,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public bool attackHit;
     public bool pulling;
     public bool pushing;
+    public bool bouncing;
 
     private void Awake()
     {
@@ -183,9 +184,12 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public void ResetSplineFollower()
     {
-        
+        if (bouncing)
+        {
+            SwitchState(new PlayerAirState());
+        }
+
         splineFollower.spline = null;
         splineFollower.enabled = false;
-       
     }
 }
