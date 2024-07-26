@@ -10361,10 +10361,12 @@ MonoBehaviour:
   ih: {fileID: 3175627670532644242}
   pc: {fileID: 778906580203837835}
   tl: {fileID: 2238942971547358808}
+  magnets: {fileID: 2962569387459006504}
   currentStateDebug: 
   attackHit: 0
   pulling: 0
   pushing: 0
+  bouncing: 0
 --- !u!114 &267864902146514877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10538,6 +10540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dustParticle: {fileID: 4719226195395446180}
+  nailgun: {fileID: 839693898884694531}
 --- !u!114 &843993473779376218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10552,6 +10555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: -5
   vignette: {fileID: 7975278771397535649}
+  respawnAnimObj: {fileID: 0}
   deathCam: {fileID: 4466860551635756720}
 --- !u!114 &588834378717756476
 MonoBehaviour:
@@ -11544,6 +11548,37 @@ Transform:
   m_Children:
   - {fileID: 3721092474853231661}
   m_Father: {fileID: 5671452699864209851}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3146788695574694899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5076042612283325586}
+  m_Layer: 3
+  m_Name: NailgunPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5076042612283325586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3146788695574694899}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0029, y: 0.0562, z: 0.0371}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6894526416184488810}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3206278422467197885
 GameObject:
@@ -16722,6 +16757,7 @@ Transform:
   - {fileID: 8251806220325928245}
   - {fileID: 2600366129315723173}
   - {fileID: 2979430889179559222}
+  - {fileID: 5076042612283325586}
   m_Father: {fileID: 5671452699864209851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4792803190947217326
@@ -41671,6 +41707,9 @@ MonoBehaviour:
   hittable:
     serializedVersion: 2
     m_Bits: 192
+  concentratedNail: {fileID: 4970311237545831321, guid: 57b1f76052351fb4b8dcaab8400a9038, type: 3}
+  cnDur: 0.5
+  speed: 35
 --- !u!1 &6597302919235826152
 GameObject:
   m_ObjectHideFlags: 0
