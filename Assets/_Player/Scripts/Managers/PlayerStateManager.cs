@@ -67,6 +67,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public bool pushing;
     public bool bouncing;
 
+    public Animation ltPressAnim;
+
     private void Awake()
     {
         if (instance == null)
@@ -186,7 +188,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     {
         if (bouncing)
         {
-            SwitchState(new PlayerAirState());
+            bouncing = false;
         }
 
         splineFollower.spline = null;

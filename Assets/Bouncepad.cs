@@ -9,8 +9,12 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
 {
     public SplineComputer flipSpline;
     CharacterController cc;
+    PlayerStateManager ps;
+
     public bool playerInCollider;
     public float duration = 1f;
+
+    public GameObject nextRail;
 
     private void Start()
     {
@@ -19,7 +23,7 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
 
     public void Pull(PlayerStateManager player)
     {
-        
+
     }
 
     public void Push(PlayerStateManager player)
@@ -27,8 +31,14 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
         if (playerInCollider)
         {
             player.SwitchState(new PlayerBounceState());
+            player.tl.ResetTarget();
 
-            player.splineFollower.followDuration = duration;
+            if (nextRail != null)
+            {
+                player.tl.AssignTarget(nextRail.transform, nextRail.GetComponent<Targetable>().targetPoint, 2, true);
+                player.ltPressAnim.Play();
+            }
+
             player.splineFollower.enabled = true;
             player.splineFollower.spline = flipSpline;
 

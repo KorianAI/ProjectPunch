@@ -113,6 +113,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
             ps.splineFollower.Restart();
 
             ps.playerObj.DOLookAt(nextRail.transform.position, 0.5f, AxisConstraint.None, Vector3.up);
+            ps.ltPressAnim.Play();
             ps.SwitchState(new PlayerRailExit());
         }
 
