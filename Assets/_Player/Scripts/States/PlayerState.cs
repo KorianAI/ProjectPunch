@@ -51,7 +51,14 @@ public class PlayerState
 
             else if (command.Type == InputType.A)
             {
-                _sm.pm.Jump();
+                if (_sm.tutIsActive)
+                {
+                    _sm.HideTutorials();
+                }
+                else
+                {
+                    _sm.pm.Jump();
+                }
             }
 
             else if (command.Type == InputType.B)

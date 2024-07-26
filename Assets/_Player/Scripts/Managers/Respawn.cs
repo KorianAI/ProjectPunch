@@ -14,7 +14,6 @@ public class Respawn : MonoBehaviour
     Animation respawnAnim;
 
     public CinemachineVirtualCamera deathCam;
-    GameObject followTarget;
 
     CheckpointManager cpManager;
 
@@ -28,7 +27,6 @@ public class Respawn : MonoBehaviour
 
     private void Start()
     {
-        //followTarget = deathCam.Follow.gameObject;
         sm = GetComponent<PlayerStateManager>();
         pr = GetComponent<PlayerResources>();
         //respawnAnimObj.SetActive(false);

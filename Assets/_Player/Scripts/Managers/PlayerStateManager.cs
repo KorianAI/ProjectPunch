@@ -67,7 +67,12 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public bool pushing;
     public bool bouncing;
 
+    [Header("Tutorials")]
+    TutorialManager tutManager;
+    public bool tutIsActive;
     public Animation ltPressAnim;
+
+
 
     private void Awake()
     {
@@ -108,6 +113,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         currentState.EnterState(this);
 
         audioManager = GetComponent<PlayerAudioManager>();
+        tutManager = GameObject.Find("TutorialManager").GetComponent<TutorialManager>();
 
         if (DOTween.IsTweening(transform))
         {
@@ -193,5 +199,10 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
         splineFollower.spline = null;
         splineFollower.enabled = false;
+    }
+
+    public void HideTutorials()
+    {
+        tutManager.HideTutorial();
     }
 }

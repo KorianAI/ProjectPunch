@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 moveDirection;
     public Vector3 velocity;
 
-
+    public bool canMove = true;
     public Transform orientation;
     public float horizontalInput;
     public float verticalInput;
@@ -76,9 +76,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {       
-        IsGrounded();
-        MovementInput();
-
+        if (canMove)
+        {
+            IsGrounded();
+            MovementInput();
+        }
     }
 
     public void MovementInput()
