@@ -38,11 +38,11 @@ public class RailPoint : MonoBehaviour, IMagnetisable
         ps = player;
         ps.resources.invincible = true;
 
-
+        ps.speedboost.Play();
 
         ps.SwitchState(new PlayerRailState());
 
-        pullTween = ps.transform.DOMove(movePos.position, 1f).OnComplete(SetParent); //pull to the EM
+        pullTween = ps.transform.DOMove(movePos.position, ps.moveToRailSpeed).OnComplete(SetParent); //pull to the EM
         StartCoroutine(RotatePlayer());
     }
 
@@ -80,7 +80,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
     {
         ps.transform.SetParent(movePos); //set parent to EM
 
-        ps.speedlines.SetActive(false);
+        //ps.speedlines.SetActive(false);
 
         ps.resources.invincible = false;
 
@@ -104,6 +104,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
     void Detach()
     {
         ps.transform.SetParent(null);
+        ps.speedboost.Stop();
 
         if (nextRail != null)
         {

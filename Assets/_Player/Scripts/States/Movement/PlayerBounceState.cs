@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerBounceState : PlayerMovementBase
 {
-    float duration = 1f;
     Bouncepad currentPad;
 
     public override void EnterState(PlayerStateManager player)
@@ -17,8 +16,8 @@ public class PlayerBounceState : PlayerMovementBase
         _sm.pm.velocity = Vector3.zero;
 
         currentPad = player.tl.targetable.GetComponent<Bouncepad>();
-        duration = currentPad.duration;
-        //speed lines, pull out cam?
+        _sm.splineFollower.followDuration = currentPad.duration;
+        Debug.Log(currentPad.duration);
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -34,7 +33,7 @@ public class PlayerBounceState : PlayerMovementBase
     public override void FrameUpdate(PlayerStateManager player)
     {
         base.FrameUpdate(player);
-        if (fixedtime > duration)
+        if (fixedtime > currentPad.duration)
         {
             _sm.SwitchState(new PlayerAirState());
             _sm.anim.SetBool("Bouncing", false);

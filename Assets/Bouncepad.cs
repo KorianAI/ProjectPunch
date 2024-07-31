@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Cinemachine;
 using Dreamteck.Splines;
+using UnityEngine.VFX;
 
 public class Bouncepad : MonoBehaviour, IMagnetisable
 {
@@ -14,7 +15,9 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     public bool playerInCollider;
     public float duration = 1f;
 
-    public GameObject nextRail;
+    public GameObject nextTarget;
+
+    public VisualEffect bounceVFX;
 
     private void Start()
     {
@@ -23,20 +26,25 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
 
     public void Pull(PlayerStateManager player)
     {
-
+        throw new System.NotImplementedException();
     }
 
     public void Push(PlayerStateManager player)
     {
         if (playerInCollider)
         {
+            bounceVFX.Play();
+
             player.SwitchState(new PlayerBounceState());
             player.tl.ResetTarget();
 
-            if (nextRail != null)
+            if (nextTarget != null)
             {
-                player.tl.AssignTarget(nextRail.transform, nextRail.GetComponent<Targetable>().targetPoint, 2, true);
-                player.ltPressAnim.Play();
+                StartCoroutine (NextTarget(player));
+            }
+            else
+            {
+                Debug.Log("no next target");
             }
 
             player.splineFollower.enabled = true;
@@ -44,6 +52,13 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
 
             player.splineFollower.Restart();
         }
+    }
+
+    private IEnumerator NextTarget(PlayerStateManager player)
+    {
+        yield return new WaitForSeconds(player.nextRailLockDelay);
+        player.tl.AssignTarget(nextTarget.transform, nextTarget.GetComponent<Targetable>().targetPoint, 2, true);
+        player.ltPressAnim.Play();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -7,13 +7,13 @@ public class PlayerRailExit : PlayerMovementBase
     Vector3 movement;
     float dur;
     bool launched;
-
+    public float duration = 0.3f;
 
     public override void EnterState(PlayerStateManager player)
     {
         base.EnterState(player);
         _sm.anim.Play("Backflip");
-        dur = _sm.splineFollower.followDuration;
+        _sm.splineFollower.followDuration = duration;
     }
 
     public override void ExitState(PlayerStateManager player)
@@ -27,7 +27,7 @@ public class PlayerRailExit : PlayerMovementBase
 
         movement = (_sm.transform.forward + _sm.transform.up).normalized;
 
-        if (fixedtime > dur) 
+        if (fixedtime > duration) 
         {
             if (!launched)
             {

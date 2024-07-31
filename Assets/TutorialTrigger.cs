@@ -6,10 +6,12 @@ public class TutorialTrigger : MonoBehaviour
 {
     TutorialManager manager;
     public GameObject tutorialAnim;
+    BoxCollider boxCollider;
 
     private void Start()
     {
         manager = GameObject.Find("TutorialManager").GetComponent<TutorialManager>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -17,6 +19,7 @@ public class TutorialTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             manager.SetCurrent(tutorialAnim); //set the chosen tutorial object
+            boxCollider.enabled = false;
         }
     }
 }

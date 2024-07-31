@@ -5,6 +5,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class PlayerStateManager : MonoBehaviour, IKnockback
 {
@@ -72,7 +73,11 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public bool tutIsActive;
     public Animation ltPressAnim;
 
+    [Header("VFX")]
+    public VisualEffect speedboost;
 
+    public float moveToRailSpeed = 0.5f;
+    public float nextRailLockDelay = .5f;
 
     private void Awake()
     {
