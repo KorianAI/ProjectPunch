@@ -116,6 +116,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f9b0148-4940-4c3f-9e32-7790c67242f2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -448,6 +457,28 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""LightAttackHold"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7428ca46-872b-4634-a452-80ca4a3bd3cc"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca629306-0348-4cfe-b61d-eaea3f00463a"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -494,6 +525,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_ScrapShift = m_Player.FindAction("ScrapShift", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_LightAttackHold = m_Player.FindAction("LightAttackHold", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -565,6 +597,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ScrapShift;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_LightAttackHold;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -579,6 +612,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @ScrapShift => m_Wrapper.m_Player_ScrapShift;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @LightAttackHold => m_Wrapper.m_Player_LightAttackHold;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -618,6 +652,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @LightAttackHold.started += instance.OnLightAttackHold;
             @LightAttackHold.performed += instance.OnLightAttackHold;
             @LightAttackHold.canceled += instance.OnLightAttackHold;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -652,6 +689,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @LightAttackHold.started -= instance.OnLightAttackHold;
             @LightAttackHold.performed -= instance.OnLightAttackHold;
             @LightAttackHold.canceled -= instance.OnLightAttackHold;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -699,5 +739,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnScrapShift(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnLightAttackHold(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

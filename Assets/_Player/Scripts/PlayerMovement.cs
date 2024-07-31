@@ -81,6 +81,12 @@ public class PlayerMovement : MonoBehaviour
             IsGrounded();
             MovementInput();
         }
+        else
+        {
+            ApplyGravity(0);
+            moveDirection = Vector3.zero;
+            velocity = Vector3.zero;
+        }
     }
 
     public void MovementInput()
