@@ -24,23 +24,23 @@ public class PauseMenu : MonoBehaviour
         //}
     }
 
-    private void Update()
-    {
-        //look for inputs for the pause (esc., controller start button)
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if (!paused)
-            {
-                paused = true;
-                PauseGame();
-            }
-            else
-            {
-                paused = false;
-                ResumeGame();
-            }
-        }
-    }
+    //private void Update()
+    //{
+    //    //look for inputs for the pause (esc., controller start button)
+    //    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Alpha2))
+    //    {
+    //        if (!paused)
+    //        {
+    //            paused = true;
+    //            PauseGame();
+    //        }
+    //        else
+    //        {
+    //            paused = false;
+    //            ResumeGame();
+    //        }
+    //    }
+    //}
 
     public void PauseGame()
     {
