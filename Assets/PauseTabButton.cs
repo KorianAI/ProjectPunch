@@ -15,6 +15,9 @@ public class PauseTabButton : MonoBehaviour, IPointerEnterHandler, IPointerClick
     public UnityEvent onTabSelected;
     public UnityEvent onTabDeselected;
 
+    //script used in conjunction with PauseTabGroup script
+    //sets up events for each button, allowing the images to be clicked on
+
     public void OnPointerClick(PointerEventData eventData)
     {
         tabGroup.OnTabSelected(this);

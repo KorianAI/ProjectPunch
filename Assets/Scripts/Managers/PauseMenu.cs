@@ -7,18 +7,27 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public bool paused = false;
+    public bool paused;
     public PlayerMovement pm;
+    PlayerInputHandler ih;
+    public PauseTabGroup tabGroup;
 
     private void Start()
     {
-        pauseMenu.SetActive(false);
+        
+        paused = false;
+        ih = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
+
+        //if (ih != null)
+        //{
+        //    ih.InputMaster.
+        //}
     }
 
     private void Update()
     {
         //look for inputs for the pause (esc., controller start button)
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Alpha2))
         {
             if (!paused)
             {
@@ -39,6 +48,7 @@ public class PauseMenu : MonoBehaviour
         
         pauseMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         pm.canMove = false; //movement and looking off
     }
@@ -47,26 +57,10 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        tabGroup.defaultTab.Select(); //set tab group to page 1
+        
         pm.canMove = true; //movement and looking on
-    }
-
-    public void ShowCombos()
-    {
-
-    }
-
-    public void HideCombos()
-    {
-
-    }
-
-    public void ChangeScene(int sceneId)
-    {
-        SceneManager.LoadScene(sceneId);
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
     }
 }
