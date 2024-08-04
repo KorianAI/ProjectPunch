@@ -41,7 +41,8 @@ public class PlayerCombat : MonoBehaviour
     Coroutine ComboWindowCoroutine;
     Coroutine PauseWindowCoroutine;
 
-
+    public float parryRange;
+    public Transform parryPoint;
 
     private void Start()
     {
@@ -205,5 +206,7 @@ public class PlayerCombat : MonoBehaviour
 
         return (Vector3.zero, 0f);
     }
+
+
 
 }

@@ -44,7 +44,7 @@ public class PlayerMagnets : MonoBehaviour
 
                 else  // parry
                 {
-                    sm.SwitchState(new PushKnockup());
+                    sm.SwitchState(new ParryState());
                 }
             }
 
@@ -73,10 +73,6 @@ public class PlayerMagnets : MonoBehaviour
 
                 else
                 {
-                    if (command.Direction.y < -.5f)
-                    {
-
-                    }
                     sm.SwitchState(new PullEnemyState());  // pull enemy
                 }
             }

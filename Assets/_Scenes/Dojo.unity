@@ -1654,6 +1654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Muzzler
       objectReference: {fileID: 0}
+    - target: {fileID: 7127234183087727484, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1801,6 +1805,8 @@ MonoBehaviour:
   flipSpline: {fileID: 0}
   playerInCollider: 0
   duration: 1
+  nextTarget: {fileID: 0}
+  bounceVFX: {fileID: 0}
 --- !u!114 &352910082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3894,6 +3900,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848759233}
   m_CullTransparentMesh: 1
+--- !u!1 &870635499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 870635500}
+  - component: {fileID: 870635501}
+  - component: {fileID: 870635502}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &870635500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870635499}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.045, z: 0.0134}
+  m_LocalScale: {x: 0.16915, y: 0.16915, z: 0.16915}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2080263793}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &870635501
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870635499}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &870635502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870635499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93868107b1a3444ca0c614d9bea57b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &889092834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3503880501705332991, guid: 1fa77970b4655fd439cf0feac36848b2, type: 3}
@@ -4612,7 +4684,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8088488293913440453, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 870635500}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
 --- !u!114 &977329535 stripped
@@ -9213,6 +9288,11 @@ RectTransform:
   m_AnchoredPosition: {x: 37, y: -183}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &2080263793 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8088488293913440453, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+  m_PrefabInstance: {fileID: 977329534}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2082028599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3503880501705332991, guid: 1fa77970b4655fd439cf0feac36848b2, type: 3}

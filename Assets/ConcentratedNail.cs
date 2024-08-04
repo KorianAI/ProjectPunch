@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ConcentratedNail : MonoBehaviour, IMagnetisable
+public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
 {
     public EnemyHealth enemy;
     public Transform destination;
@@ -59,5 +59,13 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable
         float distance = Vector3.Distance(transform.position, spawnPoint.position);
         float dur = distance / speed;
         transform.DOMove(spawnPoint.position, dur);
+    }
+
+    public void Parry()
+    {
+        Debug.Log("uwaahhhh parried!");
+        float distance = Vector3.Distance(spawnPoint.position, destination.position);
+        float dur = distance / speed;
+        transform.DOMove(destination.position, dur).OnComplete(DestroyNail);
     }
 }
