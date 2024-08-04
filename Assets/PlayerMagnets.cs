@@ -73,6 +73,10 @@ public class PlayerMagnets : MonoBehaviour
 
                 else
                 {
+                    if (command.Direction.y < -.5f)
+                    {
+
+                    }
                     sm.SwitchState(new PullEnemyState());  // pull enemy
                 }
             }
@@ -84,29 +88,4 @@ public class PlayerMagnets : MonoBehaviour
         }
     }
 
-    public Vector3 ClosestMangeticObject()
-    {
-        Collider[] enemies = Physics.OverlapSphere(transform.position, 5f);
-        Collider closestEnemy = null;
-        float closestDistanceSqr = Mathf.Infinity;
-
-        foreach (Collider enemy in enemies)
-        {
-            Vector3 directionToEnemy = enemy.transform.position - transform.position;
-            float dSqrToTarget = directionToEnemy.sqrMagnitude;
-            if (dSqrToTarget < closestDistanceSqr)
-            {
-                closestDistanceSqr = dSqrToTarget;
-                closestEnemy = enemy;
-            }
-        }
-
-        if (closestEnemy != null)
-        {
-            float closestDistance = Mathf.Sqrt(closestDistanceSqr); // Calculate the actual distance
-            return (closestEnemy.transform.position);
-        }
-
-        return (Vector3.zero);
-    }
 }

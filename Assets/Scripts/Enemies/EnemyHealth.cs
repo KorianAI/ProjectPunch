@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Rendering;
 
 public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 {
@@ -33,6 +34,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     HealthBars healthBars;
 
     EnemyAudioManager audioManager;
+
+    // Nails
+    public bool nailImpaled;
+    public ConcentratedNail nail;
+    public float dir;
+
 
     private void Start()
     {
@@ -198,13 +205,23 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     public void Pull(PlayerStateManager player)
     {
-        if (hasArmour) { return; }
+        //if (hasArmour) { return; }
         ps = player;
-        
-        transform.DOMove(player.pullPosition.position, 1f).OnComplete(() => { player.canAttack = true; });
-        GetStunned(1);
-        //transform.DOShakeRotation(1, 15f, 10, 90);
-        DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);
+        if (ps.ih.inputDir.y < -.5f && nail != null)
+        {
+            Debug.Log("pulled the nail out lel");
+            nail.ReturnToSpawn();
+            nail = null;
+            nailImpaled = false;
+            ps.pulling = false;
+        }
+
+        else
+        {
+            transform.DOMove(player.pullPosition.position, 1f).OnComplete(() => { ps.pulling = false; });
+        }
+
+
     }
 
 

@@ -56,12 +56,21 @@ public class Nailgun : Attachment
 
     public void ConcentratedNail()
     {
-        Vector3 direction = sm.tl.currentTarget.position - transform.position;
-        ConcentratedNail p = Instantiate(concentratedNail, spawnPoint.position, Quaternion.identity).GetComponent<ConcentratedNail>();
-        p.transform.rotation = Quaternion.LookRotation(direction.normalized);
-        float distance = Vector3.Distance(spawnPoint.position, sm.tl.targetPoint.position);
-        p.dur = distance / speed;
-        p.enemy = sm.tl.targetPoint;
+        if (sm.tl.currentTarget != null && !sm.tl.targetable.environment)
+        {
+            EnemyHealth enemy = sm.tl.currentTarget.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                Vector3 direction = sm.tl.currentTarget.position - transform.position;
+                ConcentratedNail p = Instantiate(concentratedNail, spawnPoint.position, Quaternion.identity).GetComponent<ConcentratedNail>();
+                p.transform.rotation = Quaternion.LookRotation(direction.normalized);
+                p.enemy = enemy;
+                p.destination = sm.tl.targetPoint;
+                p.spawnPoint = spawnPoint;
+                p.sm = sm;
+            }
+        }
+ 
     }
 
     public Vector3 GetDirection()

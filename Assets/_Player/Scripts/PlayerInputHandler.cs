@@ -16,6 +16,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool canConsumeInput;
 
+    public Vector2 inputDir;
+
     private void Awake()
     {
         pm = GetComponent<PlayerMovement>();
@@ -97,6 +99,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (inputBuffer.Count > 0)
         {
             sm.currentState.HandleBufferedInput(inputBuffer.Pop()); // Pass the command to the current state for handling
+            
             canConsumeInput = false;
         }
     }

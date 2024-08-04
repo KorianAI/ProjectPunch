@@ -91,6 +91,8 @@ public class PlayerState
                 _sm.magnets.PullInput(command);
             }
         }
+
+        _sm.ih.inputDir = command.Direction;
     }
 
 
