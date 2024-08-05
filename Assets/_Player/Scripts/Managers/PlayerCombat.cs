@@ -43,6 +43,7 @@ public class PlayerCombat : MonoBehaviour
 
     public float parryRange;
     public Transform parryPoint;
+    public AttackStats parryStats;
 
     private void Start()
     {
@@ -205,6 +206,15 @@ public class PlayerCombat : MonoBehaviour
         }
 
         return (Vector3.zero, 0f);
+    }
+
+    public void ParryEffect(GameObject c)
+    {
+        HitstopManager.Instance.TriggerHitstop(parryStats.hitstopAmnt, gameObject, c);
+        CinemachineShake.Instance.ShakeCamera(parryStats.shakeAmnt, parryStats.shakeAmnt);
+        CinemachineShake.Instance.ChangeFov(parryStats.zoomAmnt, parryStats.shakeDur);
+        RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
+        transform.DOKill();
     }
 
 

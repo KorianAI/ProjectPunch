@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class ParryCollider : MonoBehaviour
 {
+
+    PlayerCombat pc;
+
+    private void Start()
+    {
+        pc = GetComponentInParent<PlayerCombat>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         IParriable parryObj = other.GetComponent<IParriable>();
@@ -11,6 +18,7 @@ public class ParryCollider : MonoBehaviour
         if (parryObj != null)
         {
             parryObj.Parry();
+            pc.ParryEffect(other.gameObject);
         }
     }
 }
