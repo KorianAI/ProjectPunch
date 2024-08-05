@@ -29,7 +29,7 @@ public class PlayerIdleState : PlayerMovementBase
             player.SwitchState(new PlayerAirState());
         }
 
-        if (player.ih.InputMaster.Player.Movement.ReadValue<Vector2>() != Vector2.zero)
+        if (InputMapManager.inputActions.Player.Movement.ReadValue<Vector2>() != Vector2.zero)
         {
             player.SwitchState(player.moveState);
         }

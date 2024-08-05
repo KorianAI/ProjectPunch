@@ -34,7 +34,7 @@ public class PlayerMoveState : PlayerMovementBase
             _sm.pm.velocity = Vector3.zero;
         }
 
-        if (player.ih.InputMaster.Player.Movement.ReadValue<Vector2>() == Vector2.zero)
+        if (InputMapManager.inputActions.Player.Movement.ReadValue<Vector2>() == Vector2.zero)
         {
             player.SwitchState(player.idleState);
         }

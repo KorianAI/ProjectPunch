@@ -17,7 +17,7 @@ public class PauseTabGroup : MonoBehaviour
     public PauseTabButton defaultTab;
     [Space]
     public List<GameObject> objectsToSwap;
-    public int currentIndex = 0;
+    //public int index = 0;
 
     //script used in conjunction with PauseTabButton script
     //assigns tabs from list to the buttons in the UI, and allows for swapping beterrn them
@@ -25,120 +25,28 @@ public class PauseTabGroup : MonoBehaviour
 
     private void Start()
     {
-        Invoke("SelectDefault", 0.01f);
+        Invoke("SetInitialTab", 0.5f);
+        
+        InputMapManager.inputActions.Menus.TabLeft.started += ctx =>
+        {
+            TabLeft();
+        };
+
+        InputMapManager.inputActions.Menus.TabRight.started += ctx =>
+        {
+            TabRight();
+        };
     }
 
-    void SelectDefault()
+    private void SetInitialTab()
     {
         OnTabSelected(defaultTab);
-        Debug.Log("invoked tab default");
-        pm.pauseMenu.SetActive(false);
+        pm.pauseUI.SetActive(false);
     }
-
-
 
     private void Update()
     {
-        if (pm.paused) //only allows tab swapping if paused
-        {
-            int index = selectedTab.transform.GetSiblingIndex(); //find index of currentTab in tabButtons list
-            Debug.Log(index);
-
-            if (Input.GetKeyDown(KeyCode.Alpha1)) //swap tab left
-            {
-                if (index >= 0 && index < (tabButtons.Count))
-                {
-                    //index -1
-                    //index--;
-
-                    OnTabSelected(tabButtons[index -1]);
-                }
-
-                if (index <= 0)
-                {
-                    //set to highest in tabButtons
-                    //index = (tabButtons.Count - 1);
-                    
-                    OnTabSelected(tabButtons[tabButtons.Count - 1]);
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha3)) //swap tab right
-            {
-                if (index >= 0 && index < (tabButtons.Count))
-                {
-                    //index +1
-                    //index++;
-
-                    OnTabSelected(tabButtons[index + 1]);
-                }
-
-                if (index >= (tabButtons.Count))
-                {
-                    //set to lowest in tabButtons
-                    //index = 0;
-
-                    OnTabSelected(tabButtons[0]);
-                }
-            }
-
-
-            //if (Input.GetKeyDown(KeyCode.Alpha4)) //swap tab left
-            //{   
-            //    for (int i = 0; i < tabButtons.Count; i++)
-            //    {
-            //        if (i == index)
-            //        {
-            //            if (i <= 0)
-            //            {
-            //                //set to highest in tabButtons
-            //                i = tabButtons.Count;
-            //                //tabButtons[i].Select();
-            //                Debug.Log(tabButtons[i]);
-            //                OnTabSelected(tabButtons[i]);
-            //            }
-            //            else if (i >= 0)
-            //            {
-            //                //index -1
-            //                i--;
-            //                //tabButtons[i].Select();
-            //                Debug.Log(tabButtons[i]);
-
-            //                OnTabSelected(tabButtons[i]);
-
-            //            }
-            //        }
-            //    }
-            //}
-
-            //if (Input.GetKeyDown(KeyCode.Alpha5)) //swap tab right
-            //{
-            //    for (int i = 0; i < tabButtons.Count; i++)
-            //    {
-            //        if (i == index)
-            //        {
-            //            if (i >= tabButtons.Count)
-            //            {
-            //                //set to lowest in tabButtons
-            //                i = 0;
-            //                //tabButtons[i].Select();
-            //                Debug.Log(tabButtons[i]);
-
-            //                OnTabSelected(tabButtons[i]);
-            //            }
-            //            else if (i >= 0)
-            //            {
-            //                //index +1
-            //                i++;
-            //                //tabButtons[i].Select();
-            //                Debug.Log(tabButtons[i]);
-
-            //                OnTabSelected(tabButtons[i]);
-            //            }
-            //        }
-            //    }
-            //}
-        }
+        //index = selectedTab.transform.GetSiblingIndex(); //find index of currentTab in tabButtons list
     }
 
     public void Subscribe(PauseTabButton button)
@@ -149,6 +57,36 @@ public class PauseTabGroup : MonoBehaviour
         }
 
         tabButtons.Add(button);
+    }
+
+    public void TabLeft() //swap tab left
+    {
+        if (selectedTab.transform.GetSiblingIndex() > 0)
+        {
+            //index--;
+            OnTabSelected(tabButtons[selectedTab.transform.GetSiblingIndex() -1]);
+        }
+
+        else if (selectedTab.transform.GetSiblingIndex() <= 0)
+        {
+            //set to highest in tabButtons
+            OnTabSelected(tabButtons[tabButtons.Count -1]);
+        }
+    }
+
+    public void TabRight() //swap tab right
+    {
+        if (selectedTab.transform.GetSiblingIndex() < (tabButtons.Count -1))
+        {
+            //index++;
+            OnTabSelected(tabButtons[selectedTab.transform.GetSiblingIndex() +1]);
+        }
+
+        else if (selectedTab.transform.GetSiblingIndex() >= (tabButtons.Count -1))
+        {
+            //set to lowest in tabButtons
+            OnTabSelected(tabButtons[0]);
+        }
     }
 
     public void OnTabEnter(PauseTabButton button)

@@ -8,7 +8,7 @@ public class PlayerInputHandler : MonoBehaviour
     private PlayerCombat pc;
     private PlayerStateManager sm;
 
-    public InputMaster InputMaster { get; private set; }
+    //public InputMaster InputMaster { get; private set; }
 
     private Stack<InputCommand> inputBuffer = new Stack<InputCommand>();
     public float bufferTime = 0.5f; // Buffer time in seconds
@@ -23,54 +23,54 @@ public class PlayerInputHandler : MonoBehaviour
         pm = GetComponent<PlayerMovement>();
         pc = GetComponent<PlayerCombat>();
         sm = GetComponent<PlayerStateManager>();
-        InputMaster = new InputMaster();
+        //InputMaster = new InputMaster();
     }
 
-    void OnEnable()
-    {
-        InputMaster.Enable();
-    }
+    //void OnEnable()
+    //{
+    //    InputMapManager.inputActions.Enable();
+    //}
 
-    void OnDisable()
-    {
-        InputMaster.Disable();
-    }
-
+    //void OnDisable()
+    //{
+    //    InputMapManager.inputActions.Disable();
+    //}
+    
     private void Start()
     {
-        InputMaster.Player.LightAttack.started += ctx =>
+        InputMapManager.inputActions.Player.LightAttack.started += ctx =>
         {
-            BufferInput(new InputCommand { Type = InputType.X, Direction = InputMaster.Player.Movement.ReadValue<Vector2>() });
+            BufferInput(new InputCommand { Type = InputType.X, Direction = InputMapManager.inputActions.Player.Movement.ReadValue<Vector2>() });
         };
 
-        InputMaster.Player.LightAttackHold.performed += ctx =>
+        InputMapManager.inputActions.Player.LightAttackHold.performed += ctx =>
         {
-            BufferInput(new InputCommand { Type = InputType.xH, Direction = InputMaster.Player.Movement.ReadValue<Vector2>() });
+            BufferInput(new InputCommand { Type = InputType.xH, Direction = InputMapManager.inputActions.Player.Movement.ReadValue<Vector2>() });
         };
 
-        InputMaster.Player.HeavyAttack.started += ctx =>
+        InputMapManager.inputActions.Player.HeavyAttack.started += ctx =>
         {
-            BufferInput(new InputCommand { Type = InputType.Y, Direction = InputMaster.Player.Movement.ReadValue<Vector2>() });
+            BufferInput(new InputCommand { Type = InputType.Y, Direction = InputMapManager.inputActions.Player.Movement.ReadValue<Vector2>() });
         };
 
-        InputMaster.Player.Jump.started += ctx =>
+        InputMapManager.inputActions.Player.Jump.started += ctx =>
         {
             BufferInput(new InputCommand { Type = InputType.A });
         };
 
-        InputMaster.Player.Dash.started += ctx =>
+        InputMapManager.inputActions.Player.Dash.started += ctx =>
         {
             BufferInput(new InputCommand { Type = InputType.B });
         };
 
-        InputMaster.Player.Push.started += ctx =>
+        InputMapManager.inputActions.Player.Push.started += ctx =>
         {
-            BufferInput(new InputCommand { Type = InputType.Push, Direction = InputMaster.Player.Movement.ReadValue<Vector2>() });
+            BufferInput(new InputCommand { Type = InputType.Push, Direction = InputMapManager.inputActions.Player.Movement.ReadValue<Vector2>() });
         };
 
-        InputMaster.Player.Pull.started += ctx =>
+        InputMapManager.inputActions.Player.Pull.started += ctx =>
         {
-            BufferInput(new InputCommand { Type = InputType.Pull, Direction = InputMaster.Player.Movement.ReadValue<Vector2>() });
+            BufferInput(new InputCommand { Type = InputType.Pull, Direction = InputMapManager.inputActions.Player.Movement.ReadValue<Vector2>() });
         };
     }
 

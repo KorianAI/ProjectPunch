@@ -36,7 +36,7 @@ public class PauseTabButton : MonoBehaviour, IPointerEnterHandler, IPointerClick
     void Start()
     {
         background = GetComponent<Image>();
-        tabGroup.Subscribe(this);
+        //tabGroup.Subscribe(this);
     }
 
     public void Select()

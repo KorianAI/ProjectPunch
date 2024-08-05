@@ -15,12 +15,17 @@ public class MainMenu : MonoBehaviour
 
     public void ChangeScene(int sceneId)
     {
-        //make the screen fade to black first?
-
+        //make the screen fade to black first
         loading.SetActive(true);
-        
-        SceneManager.LoadScene(sceneId);
+
+        StartCoroutine(Load(sceneId));
     }    
+
+    IEnumerator Load(int sceneId)
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(sceneId);
+    }
 
     public void Quit()
     {

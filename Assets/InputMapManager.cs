@@ -6,24 +6,28 @@ using System;
 
 public class InputMapManager : MonoBehaviour
 {
-    //public static InputMaster inputActions = new InputMaster();
-    //public static event Action<InputActionMap> actionMapChange;
+    public static InputMaster inputActions;
+    public static event Action<InputActionMap> actionMapChange;
 
-    //void Start()
-    //{
-    //    //start with the player controller enabled
-    //    ToggleActionMap(inputActions.Player);
-    //}
+    private void Awake()
+    {
+        inputActions = new InputMaster();
+    }
 
-    //public static void ToggleActionMap(InputActionMap actionMap)
-    //{
-    //    if (actionMap.enabled)
-    //    {
-    //        return;
-    //    }
+    void Start()
+    {
+        //start with the player controller enabled
+        ToggleActionMap(inputActions.Player);
+    }
 
-    //    inputActions.Disable();
-    //    actionMapChange?.Invoke(actionMap);
-    //    actionMap.Enable();
-    //}
+    public static void ToggleActionMap(InputActionMap actionMap)
+    {
+        if (actionMap.enabled) { return; }
+
+        inputActions.Disable();
+        actionMapChange?.Invoke(actionMap);
+        actionMap.Enable();
+
+        //Debug.Log("New Action Map: " + actionMap.name);
+    }
 }
