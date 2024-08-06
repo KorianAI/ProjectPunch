@@ -10367,6 +10367,13 @@ MonoBehaviour:
   pulling: 0
   pushing: 0
   bouncing: 0
+  tutIsActive: 0
+  ltPressAnim: {fileID: 0}
+  speedboost: {fileID: 0}
+  moveToRailSpeed: 0.3
+  nextRailLockDelay: 0.5
+  inBounceCollider: 0
+  currentPad: {fileID: 0}
 --- !u!114 &267864902146514877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10397,7 +10404,7 @@ MonoBehaviour:
   attachment: {fileID: 839693898884694531}
   scrapCam: {fileID: 0}
   regularCam: {fileID: 0}
-  scrapAnim: {fileID: 0}
+  scrapAnim: {fileID: 360980163747008256}
   scrapAnimObj: {fileID: 0}
   testDMG: 5
   healthBar: {fileID: 0}
@@ -10426,7 +10433,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2.09
   m_Radius: 0.3
-  m_SlopeLimit: 67.36
+  m_SlopeLimit: 50
   m_StepOffset: 0.4
   m_SkinWidth: 0.05
   m_MinMoveDistance: 0.001
@@ -10548,7 +10555,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238952640201979079}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae9bb5ffa4492b64fa64013de706f3b4, type: 3}
   m_Name: 
@@ -10615,6 +10622,9 @@ MonoBehaviour:
   targetable: {fileID: 0}
   enemyTag: Enemy
   aimIcon: {fileID: 0}
+  canRemoveLock: 0
+  timer: 0
+  maxTime: 10
 --- !u!114 &778906580203837835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10647,6 +10657,9 @@ MonoBehaviour:
   comboWindow: 2
   pauseWindowTime: 0.5
   pauseAttack: 0
+  parryRange: 0
+  parryPoint: {fileID: 0}
+  parryStats: {fileID: 0}
 --- !u!114 &6263612794386232658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10706,6 +10719,7 @@ MonoBehaviour:
   bufferTime: 0.4
   bufferTimer: 0
   canConsumeInput: 1
+  inputDir: {x: 0, y: 0}
 --- !u!114 &2328989364925361945
 MonoBehaviour:
   m_ObjectHideFlags: 0
