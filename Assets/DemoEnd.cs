@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DemoEnd : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int sceneId;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            ChangeScene(sceneId);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeScene(int sceneId)
     {
-        
+        SceneManager.LoadScene(sceneId);
     }
 }

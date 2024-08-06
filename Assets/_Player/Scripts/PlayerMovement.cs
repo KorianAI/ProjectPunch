@@ -171,7 +171,11 @@ public class PlayerMovement : MonoBehaviour
 
         //if (sm.currentState != sm.moveState && sm.currentState != sm.idleState) return;
 
- 
+        if (grounded && sm.inBounceCollider)
+        {
+            sm.tl.AssignTarget(sm.currentPad.gameObject.transform, sm.currentPad.GetComponent<Targetable>().targetPoint, 1, true);
+            sm.currentPad.Push(sm);
+        }
 
         if (grounded) //readyToJump check removed due to bug (issue #3)
         {

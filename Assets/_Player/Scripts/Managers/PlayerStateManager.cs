@@ -76,8 +76,11 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     [Header("VFX")]
     public VisualEffect speedboost;
 
+    [Header("Platforming")]
     public float moveToRailSpeed = 0.5f;
     public float nextRailLockDelay = .5f;
+    public bool inBounceCollider;
+    public Bouncepad currentPad;
 
     private void Awake()
     {

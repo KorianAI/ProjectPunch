@@ -12,7 +12,7 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     CharacterController cc;
     PlayerStateManager ps;
 
-    public bool playerInCollider;
+    //public bool playerInCollider;
     public float duration = 1f;
 
     public GameObject nextTarget;
@@ -22,6 +22,7 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     private void Start()
     {
         cc = PlayerStateManager.instance.GetComponent<CharacterController>();
+        ps = PlayerStateManager.instance;
     }
 
     public void Pull(PlayerStateManager player)
@@ -31,7 +32,7 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
-        if (playerInCollider)
+        if (ps.inBounceCollider)
         {
             bounceVFX.Play();
 
@@ -65,7 +66,8 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     {
         if (other == cc)
         {
-            playerInCollider = true;
+            ps.inBounceCollider = true;
+            ps.currentPad = this;
         }
     }
 
@@ -73,7 +75,8 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     {
         if (other == cc)
         {
-            playerInCollider = false;
+            ps.inBounceCollider = false;
+            ps.currentPad = null;
         }
     }
 }
