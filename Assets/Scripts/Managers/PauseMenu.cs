@@ -50,6 +50,8 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
 
         InputMapManager.ToggleActionMap(InputMapManager.inputActions.Menus);
+
+        Time.timeScale = 0;
     }
 
     public void ResumeGame()
@@ -64,5 +66,7 @@ public class PauseMenu : MonoBehaviour
         tabGroup.defaultTab.Select(); //set tab group to page 1
         
         InputMapManager.ToggleActionMap(InputMapManager.inputActions.Player);
+
+        Time.timeScale = 1;
     }
 }

@@ -38,7 +38,7 @@ public class TargetCams : MonoBehaviour
     [SerializeField] private Image aimIcon;  // ui image of aim icon
 
     [Header("Timed Cancel")]
-    public bool canRemoveLock = false;
+    public bool timerOn = false;
     public float timer = 0f;
     public float maxTime = 10f;
 
@@ -63,13 +63,16 @@ public class TargetCams : MonoBehaviour
             }
         }
 
-        if (canRemoveLock)
+        if (timerOn)
         {
-            timer += .1f;
-
-            if (timer > maxTime)
+            if (timer < maxTime)
             {
-                canRemoveLock = false;
+                timer += Time.deltaTime;
+            }
+
+            else
+            {
+                timerOn = false;
                 timer = 0f;
                 CancelLock();
             }
@@ -171,7 +174,7 @@ public class TargetCams : MonoBehaviour
     public void StartTimer()
     {
         timer = 0f;
-        canRemoveLock = true;
+        timerOn = true;
     }
 
     private void CancelLock()

@@ -29,8 +29,6 @@ public class PlayerMoveState : PlayerMovementBase
         {
             player.SwitchState(player.idleState);
         }
-
-
     }
 
     public override void PhysicsUpdate(PlayerStateManager player)

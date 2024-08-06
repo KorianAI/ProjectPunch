@@ -167,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
             sm.currentPad.Push(sm);
         }
 
-        if (grounded) //readyToJump check removed due to bug (issue #3)
+        if (grounded && !sm.inBounceCollider) //readyToJump check removed due to bug (issue #3)
         {
             sm.SwitchState(new PlayerJumpStart());
             sm.anim.Play("PlayerJumpStart");         

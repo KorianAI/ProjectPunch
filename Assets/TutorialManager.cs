@@ -46,6 +46,7 @@ public class TutorialManager : MonoBehaviour
         }
         sm.tutIsActive = false;
         InputMapManager.ToggleActionMap(InputMapManager.inputActions.Player);
+
         StartCoroutine(TurnOff());
     }
 
