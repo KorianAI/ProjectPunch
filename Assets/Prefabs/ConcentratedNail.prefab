@@ -47,9 +47,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c40db86477ab248b4c9b33b4b3090c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 0}
-  speed: 45
+  enemy: {fileID: 0}
+  destination: {fileID: 0}
+  speed: 65
   stuck: 0
+  dur: 0
+  spawnPoint: {fileID: 0}
+  sm: {fileID: 0}
+  explosionPrefab: {fileID: 4431381434926038124, guid: 5f50a9fb62b1d1b4e8b46119761a13f4, type: 3}
+  explosionRange: 3
+  explosionDamage: 15
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  explosionStats: {fileID: 11400000, guid: 7f919a0b0cbf56b4a823934e65d2c9c6, type: 2}
 --- !u!65 &3778574025933101828
 BoxCollider:
   m_ObjectHideFlags: 0
