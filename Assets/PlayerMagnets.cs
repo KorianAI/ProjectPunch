@@ -38,7 +38,8 @@ public class PlayerMagnets : MonoBehaviour
 
                     else  // slam down
                     {
-                        sm.SwitchState(new PushKnockup());
+                        Debug.Log("dude");
+                        sm.SwitchState(new PlayerPushSlam());
                     }
                 }
 

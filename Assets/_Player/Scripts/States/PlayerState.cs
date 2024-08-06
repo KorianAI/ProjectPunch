@@ -73,10 +73,9 @@ public class PlayerState
 
             else if (command.Type == InputType.Push)
             {
-                if (_sm.pm.grounded)
-                {
+
                     _sm.magnets.PushInput(command, _sm.pm.grounded);
-                }
+
             }
 
             else if (command.Type == InputType.Pull)

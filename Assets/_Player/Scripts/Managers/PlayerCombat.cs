@@ -45,6 +45,9 @@ public class PlayerCombat : MonoBehaviour
     public Transform parryPoint;
     public AttackStats parryStats;
 
+    public Transform slamDetectionPoint;
+    public GameObject slamVFX;
+
     private void Start()
     {
         _sm = GetComponent<PlayerStateManager>();
@@ -130,6 +133,31 @@ public class PlayerCombat : MonoBehaviour
             {
                 enemy.SlamToGround();
             }
+        }
+    }
+
+    public void SlamToGround()
+    {
+        // Detect the ground position
+        _sm.anim.speed = 0;
+        float groundYPosition = DetectGroundPosition();
+        DetectAndSlamEnemies();
+        // Move the enemy down to the ground
+        transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad).OnComplete(() => { PlayerAudioManager.instance.SlamExplode(); Instantiate(slamVFX, transform.position, Quaternion.identity); _sm.anim.speed = 1; });
+    }
+
+
+    private float DetectGroundPosition()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(slamDetectionPoint.position, Vector3.down, out hit, Mathf.Infinity))
+        {
+            return hit.point.y + 1;
+        }
+        else
+        {
+            // Fallback if no ground detected (unlikely in a well-defined environment)
+            return 0f;
         }
     }
 

@@ -11,6 +11,8 @@ public class PushKnockup : PlayerAttackBase
         duration = .2f;
         base.EnterState(player);
         if (!_sm.pm.grounded) { _sm.anim.SetBool("AirAttack", true); }
+        _sm.pm.moveDirection = Vector3.zero;
+        _sm.pm.velocity = Vector3.zero;
         _sm.anim.Play("PushKnockup");
     }
 
@@ -33,7 +35,7 @@ public class PushKnockup : PlayerAttackBase
 
             else
             {
-                if (fixedtime > duration + .5f)
+                if (fixedtime > duration + 1f)
                 {
                     _sm.pm.ApplyGravity(3);
 
