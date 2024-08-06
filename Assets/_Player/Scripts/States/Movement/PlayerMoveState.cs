@@ -21,18 +21,9 @@ public class PlayerMoveState : PlayerMovementBase
 
     public override void FrameUpdate(PlayerStateManager player)
     {
-        if (player.pm.canMove)
-        {
-            _sm.pm.ApplyGravity(1);
+        _sm.pm.ApplyGravity(1);
 
-            player.pm.MovementInput();
-        }
-        else
-        {
-            _sm.pm.ApplyGravity(0);
-            _sm.pm.moveDirection = Vector3.zero;
-            _sm.pm.velocity = Vector3.zero;
-        }
+        player.pm.MovementInput();
 
         if (InputMapManager.inputActions.Player.Movement.ReadValue<Vector2>() == Vector2.zero)
         {

@@ -17,7 +17,6 @@ public class PlayerBounceState : PlayerMovementBase
 
         currentPad = player.tl.targetable.GetComponent<Bouncepad>();
         _sm.splineFollower.followDuration = currentPad.duration;
-        Debug.Log(currentPad.duration);
     }
 
     public override void ExitState(PlayerStateManager player)

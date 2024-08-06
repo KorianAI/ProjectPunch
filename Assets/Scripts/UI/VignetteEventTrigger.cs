@@ -10,8 +10,6 @@ public class VignetteEventTrigger : MonoBehaviour
     {
         if (respawn != null)
         {
-            Debug.Log("event fading out");
-
             respawn.FadeIn();
         }
     }
@@ -20,8 +18,6 @@ public class VignetteEventTrigger : MonoBehaviour
     {
         if (respawn != null)
         {
-            Debug.Log("event fading in");
-
             respawn.ResetCams();
         }
     }

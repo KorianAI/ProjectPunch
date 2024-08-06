@@ -45,8 +45,8 @@ public class RailPoint : MonoBehaviour, IMagnetisable
         pullTween = ps.transform.DOMove(movePos.position, ps.moveToRailSpeed).OnComplete(SetParent); //pull to the EM
         StartCoroutine(RotatePlayer());
 
-        ps.GetComponent<TargetCams>().maxTime = 15f;
-        ps.GetComponent<TargetCams>().StartTimer();
+        //ps.GetComponent<TargetCams>().maxTime = 15f;
+        //ps.GetComponent<TargetCams>().StartTimer();
     }
 
     private void DetermineCamera()
