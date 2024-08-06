@@ -13,7 +13,7 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     PlayerStateManager ps;
 
     public float duration = 1f;
-    public float camLockDuration = 8f;
+    public float camLockDuration = 1.5f;
 
     public GameObject nextTarget;
 
@@ -57,8 +57,8 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
         player.tl.AssignTarget(nextTarget.transform, nextTarget.GetComponent<Targetable>().targetPoint, 2, true);
         player.ltPressAnim.Play();
 
-        //ps.GetComponent<TargetCams>().maxTime = camLockDuration;
-        //ps.GetComponent<TargetCams>().StartTimer();
+        ps.GetComponent<TargetCams>().maxTime = camLockDuration;
+        ps.GetComponent<TargetCams>().StartTimer();
     }
 
     private void OnTriggerEnter(Collider other)

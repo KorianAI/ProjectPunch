@@ -22,4 +22,10 @@ public class TutorialTrigger : MonoBehaviour
             boxCollider.enabled = false;
         }
     }
+
+    public void ActivateTut()
+    {
+        manager.SetCurrent(tutorialAnim); //set the chosen tutorial object
+        boxCollider.enabled = false;
+    }
 }

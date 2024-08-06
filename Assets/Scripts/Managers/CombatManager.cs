@@ -26,6 +26,11 @@ public class CombatManager : MonoBehaviour
     public Animation exitDoorOpen;
     public CinemachineVirtualCamera exitDoorCam;
 
+    public bool tutToPlay;
+    public TutorialTrigger requiredTut;
+
+    public Animation combatStartAnim;
+
     private void OnTriggerExit(Collider other)
     {       
         if (other.gameObject.CompareTag("Player") == true && !playedOpen)
@@ -38,19 +43,32 @@ public class CombatManager : MonoBehaviour
     public IEnumerator DoorShut()
     {
         //door cam
-        CameraManager.SwitchNonPlayerCam(entranceDoorCam);
+        //CameraManager.SwitchNonPlayerCam(entranceDoorCam);
         entranceDoorOpen.Play();
-        yield return new WaitForSecondsRealtime(4);
+        //yield return new WaitForSecondsRealtime(4);
 
         //enemy cam
-        CameraManager.SwitchNonPlayerCam(enemyCam);
+        //CameraManager.SwitchNonPlayerCam(enemyCam);
 
-        yield return new WaitForSecondsRealtime(4);
+        //yield return new WaitForSecondsRealtime(4);
 
         //return to collision cam
-        CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
+        //CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
 
         yield return new WaitForSecondsRealtime(2);
+
+        if (tutToPlay && requiredTut != null)
+        {
+            requiredTut.ActivateTut();
+        }
+
+        yield return new WaitForSecondsRealtime(3);
+
+
+        if (combatStartAnim != null)
+        {
+            combatStartAnim.Play();
+        }
 
         StartCombat();
     }
@@ -58,6 +76,9 @@ public class CombatManager : MonoBehaviour
     public void StartCombat()
     {
         combatActive = true;
+
+        
+
         foreach (EnemyAI e in enemies)
         {
             e.aggro = true;
