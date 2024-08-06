@@ -9,7 +9,15 @@ public class TutorialManager : MonoBehaviour
 
     public GameObject currentTutorial; //set current so that the appear/disappear can be played by just calling for the current one
     Animation currentAnim;
-    public GameObject railTut;   
+    public GameObject railTut;
+
+    private void Start()
+    {
+        InputMapManager.inputActions.Menus.ClosePopup.started += ctx =>
+        {
+            HideTutorial();
+        };
+    }
 
     public void SetCurrent(GameObject newTut)
     {
@@ -25,19 +33,27 @@ public class TutorialManager : MonoBehaviour
     public void ShowTutorial()
     {
         currentTutorial.SetActive(true);
-        pm.canMove = false; //movement and looking off
         currentAnim.Play("TutorialWindowAppear");
         sm.tutIsActive = true;
+        InputMapManager.ToggleActionMap(InputMapManager.inputActions.Menus);
     }
 
     public void HideTutorial()
     {
-        pm.canMove = true; //movement and looking on
-        currentAnim.Play("TutorialWindowDisappear");
+        if (sm.tutIsActive)
+        {
+            currentAnim.Play("TutorialWindowDisappear");
+        }
         sm.tutIsActive = false;
-        //currentTutorial.SetActive(false);
+        InputMapManager.ToggleActionMap(InputMapManager.inputActions.Player);
+        StartCoroutine(TurnOff());
     }
 
+    IEnumerator TurnOff()
+    {
+        yield return new WaitForSeconds(2);
+        currentTutorial.SetActive(false);
+    }
 
     //when player walks through trigger box
     //find the correct tut to show

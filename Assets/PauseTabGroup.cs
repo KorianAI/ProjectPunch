@@ -41,7 +41,11 @@ public class PauseTabGroup : MonoBehaviour
     private void SetInitialTab()
     {
         OnTabSelected(defaultTab);
-        pm.pauseUI.SetActive(false);
+        
+        if (pm.pauseUI.activeSelf == true)
+        {
+            pm.pauseUI.SetActive(false);
+        }
     }
 
     private void Update()

@@ -602,6 +602,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ClosePopup"",
+                    ""type"": ""Button"",
+                    ""id"": ""a0146d46-6d96-42bf-a253-d38ee60167f1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1088,6 +1097,28 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fac21066-1c7c-4954-9192-b78bb1d5dfe0"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""ClosePopup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43cd6870-bb10-4e8e-84db-4517eea9a608"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ClosePopup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1150,6 +1181,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Menus_Cancel = m_Menus.FindAction("Cancel", throwIfNotFound: true);
         m_Menus_Submit = m_Menus.FindAction("Submit", throwIfNotFound: true);
         m_Menus_Navigate = m_Menus.FindAction("Navigate", throwIfNotFound: true);
+        m_Menus_ClosePopup = m_Menus.FindAction("ClosePopup", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1350,6 +1382,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Menus_Cancel;
     private readonly InputAction m_Menus_Submit;
     private readonly InputAction m_Menus_Navigate;
+    private readonly InputAction m_Menus_ClosePopup;
     public struct MenusActions
     {
         private @InputMaster m_Wrapper;
@@ -1367,6 +1400,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @Cancel => m_Wrapper.m_Menus_Cancel;
         public InputAction @Submit => m_Wrapper.m_Menus_Submit;
         public InputAction @Navigate => m_Wrapper.m_Menus_Navigate;
+        public InputAction @ClosePopup => m_Wrapper.m_Menus_ClosePopup;
         public InputActionMap Get() { return m_Wrapper.m_Menus; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1415,6 +1449,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Navigate.started += instance.OnNavigate;
             @Navigate.performed += instance.OnNavigate;
             @Navigate.canceled += instance.OnNavigate;
+            @ClosePopup.started += instance.OnClosePopup;
+            @ClosePopup.performed += instance.OnClosePopup;
+            @ClosePopup.canceled += instance.OnClosePopup;
         }
 
         private void UnregisterCallbacks(IMenusActions instance)
@@ -1458,6 +1495,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Navigate.started -= instance.OnNavigate;
             @Navigate.performed -= instance.OnNavigate;
             @Navigate.canceled -= instance.OnNavigate;
+            @ClosePopup.started -= instance.OnClosePopup;
+            @ClosePopup.performed -= instance.OnClosePopup;
+            @ClosePopup.canceled -= instance.OnClosePopup;
         }
 
         public void RemoveCallbacks(IMenusActions instance)
@@ -1522,5 +1562,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnCancel(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
         void OnNavigate(InputAction.CallbackContext context);
+        void OnClosePopup(InputAction.CallbackContext context);
     }
 }

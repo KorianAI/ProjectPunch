@@ -12,8 +12,8 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     CharacterController cc;
     PlayerStateManager ps;
 
-    //public bool playerInCollider;
     public float duration = 1f;
+    public float camLockDuration = 8f;
 
     public GameObject nextTarget;
 
@@ -43,10 +43,6 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
             {
                 StartCoroutine (NextTarget(player));
             }
-            else
-            {
-                Debug.Log("no next target");
-            }
 
             player.splineFollower.enabled = true;
             player.splineFollower.spline = flipSpline;
@@ -60,6 +56,9 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
         yield return new WaitForSeconds(player.nextRailLockDelay);
         player.tl.AssignTarget(nextTarget.transform, nextTarget.GetComponent<Targetable>().targetPoint, 2, true);
         player.ltPressAnim.Play();
+
+        //ps.GetComponent<TargetCams>().maxTime = camLockDuration;
+        //ps.GetComponent<TargetCams>().StartTimer();
     }
 
     private void OnTriggerEnter(Collider other)

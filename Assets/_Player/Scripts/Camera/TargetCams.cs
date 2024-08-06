@@ -37,6 +37,11 @@ public class TargetCams : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Image aimIcon;  // ui image of aim icon
 
+    [Header("Timed Cancel")]
+    public bool canRemoveLock = false;
+    public float timer = 0f;
+    public float maxTime = 10f;
+
     private void OnEnable()
     {
         input.action.performed += TargetLockInput;
@@ -58,6 +63,17 @@ public class TargetCams : MonoBehaviour
             }
         }
 
+        if (canRemoveLock)
+        {
+            timer += .1f;
+
+            if (timer > maxTime)
+            {
+                canRemoveLock = false;
+                timer = 0f;
+                CancelLock();
+            }
+        }
     }
 
     public void TargetLockInput(InputAction.CallbackContext obj)
@@ -150,5 +166,20 @@ public class TargetCams : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, maxDistance);
+    }
+
+    public void StartTimer()
+    {
+        timer = 0f;
+        canRemoveLock = true;
+    }
+
+    private void CancelLock()
+    {
+        ResetTarget();
+
+        //swap to freelook cam
+        freeLook.Priority = 10;
+        targetCam.Priority = 1;
     }
 }
