@@ -11,6 +11,10 @@ public class TutorialManager : MonoBehaviour
     Animation currentAnim;
     public GameObject railTut;
 
+    bool startCombatAfter;
+    public CombatManager cm;
+
+
     private void Start()
     {
         InputMapManager.inputActions.Menus.ClosePopup.started += ctx =>
@@ -28,6 +32,18 @@ public class TutorialManager : MonoBehaviour
         {
             ShowTutorial();
         }
+
+        
+    }
+
+    public void PrepareForCombat(bool startCombat, CombatManager combatManager)
+    {
+        if (startCombat)
+        {
+            startCombatAfter = true;
+        }
+
+        cm = combatManager;
     }
 
     public void ShowTutorial()
@@ -46,6 +62,13 @@ public class TutorialManager : MonoBehaviour
         }
         sm.tutIsActive = false;
         InputMapManager.ToggleActionMap(InputMapManager.inputActions.Player);
+
+        if (startCombatAfter == true && cm != null) //starts combat if necessary. Requires the correct combat manager.
+        {
+            cm.StartCombat();
+            startCombatAfter = false;
+            cm = null;
+        }
 
         StartCoroutine(TurnOff());
     }

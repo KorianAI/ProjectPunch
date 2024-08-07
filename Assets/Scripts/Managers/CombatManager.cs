@@ -42,42 +42,38 @@ public class CombatManager : MonoBehaviour
 
     public IEnumerator DoorShut()
     {
-        //door cam
-        //CameraManager.SwitchNonPlayerCam(entranceDoorCam);
+        //CameraManager.SwitchNonPlayerCam(entranceDoorCam); //door cam
         entranceDoorOpen.Play();
-        //yield return new WaitForSecondsRealtime(4);
-
-        //enemy cam
-        //CameraManager.SwitchNonPlayerCam(enemyCam);
 
         //yield return new WaitForSecondsRealtime(4);
 
-        //return to collision cam
-        //CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
+        //CameraManager.SwitchNonPlayerCam(enemyCam); //enemy cam
+
+        //yield return new WaitForSecondsRealtime(4);
+
+        //CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam); //return to collision cam
 
         yield return new WaitForSecondsRealtime(2);
 
-        if (tutToPlay && requiredTut != null)
+        if (tutToPlay && requiredTut != null && requiredTut.startCombatAfter) //if there is a tutorial to play, wait until that is closed before starting combat
         {
-            requiredTut.ActivateTut();
+            requiredTut.ActivateTut(this); //passes through this combat manager, ensuring that combat will be activated when tut is closed
         }
 
-        yield return new WaitForSecondsRealtime(3);
-
-
-        if (combatStartAnim != null)
+        else if (!tutToPlay || requiredTut == null || requiredTut.startCombatAfter) //if no tutorial to play, start the combat
         {
-            combatStartAnim.Play();
+            StartCombat();
         }
-
-        StartCombat();
     }
 
     public void StartCombat()
     {
         combatActive = true;
 
-        
+        if (combatStartAnim != null)
+        {
+            combatStartAnim.Play();
+        }
 
         foreach (EnemyAI e in enemies)
         {

@@ -8,6 +8,8 @@ public class TutorialTrigger : MonoBehaviour
     public GameObject tutorialAnim;
     BoxCollider boxCollider;
 
+    public bool startCombatAfter;
+
     private void Start()
     {
         manager = GameObject.Find("TutorialManager").GetComponent<TutorialManager>();
@@ -23,9 +25,10 @@ public class TutorialTrigger : MonoBehaviour
         }
     }
 
-    public void ActivateTut()
+    public void ActivateTut(CombatManager combatManager)
     {
         manager.SetCurrent(tutorialAnim); //set the chosen tutorial object
+        manager.PrepareForCombat(startCombatAfter, combatManager); //sets up combat to be played after the tut is closed
         boxCollider.enabled = false;
     }
 }
