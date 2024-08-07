@@ -1227,7 +1227,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PushSlam
-  m_Speed: 1
+  m_Speed: 2.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6921794865637898706}
@@ -1240,7 +1240,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f2a91c43c6651e549a5c43fbbf334d4f, type: 2}
+  m_Motion: {fileID: 7400000, guid: aaa5da09a203426498b6b552600de27d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -9,7 +9,7 @@ public class BFG_A3 : PlayerAirAttack
         rangeAttack = false;
         atkMoveDistance = 2.25f;
         atkMoveDur = .4f;
-        duration = .7f;
+        duration = .4f;
         base.EnterState(player);
         player.anim.Play("AirSlam");
         canAttack = false;
@@ -28,8 +28,7 @@ public class BFG_A3 : PlayerAirAttack
         {
            
             canFall = true;
-            if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
-                _sm.SwitchState(new PlayerAirState());
+            _sm.SwitchState(new PlayerAirState());
 
         }
     }

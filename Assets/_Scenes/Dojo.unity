@@ -4537,6 +4537,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7642563901005490453, guid: dc7b89bd2a278cf4ba9f424c96af54d9, type: 3}
     - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: slamDelay
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: launchHeight
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: slamDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: launchDuration
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 778906580203837835, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: slamDetectionPoint
       value: 
       objectReference: {fileID: 1125966357}

@@ -47,6 +47,7 @@ public class PlayerCombat : MonoBehaviour
 
     public Transform slamDetectionPoint;
     public GameObject slamVFX;
+    public float slamDelay;
 
     private void Start()
     {
@@ -138,12 +139,22 @@ public class PlayerCombat : MonoBehaviour
 
     public void SlamToGround()
     {
-        // Detect the ground position
         _sm.anim.speed = 0;
-        float groundYPosition = DetectGroundPosition();
-        DetectAndSlamEnemies();
-        // Move the enemy down to the ground
-        transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad).OnComplete(() => { PlayerAudioManager.instance.SlamExplode(); Instantiate(slamVFX, transform.position, Quaternion.identity); _sm.anim.speed = 1; });
+        StartCoroutine(PauseDelay());
+
+        IEnumerator PauseDelay()
+        {
+            yield return new WaitForSeconds(slamDelay);
+            _sm.anim.speed = 1;
+            float groundYPosition = DetectGroundPosition();
+            DetectAndSlamEnemies();
+            // Move the enemy down to the ground
+            transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad).OnComplete(() =>
+            {
+                PlayerAudioManager.instance.SlamExplode(); Instantiate(slamVFX, transform.position, Quaternion.identity); 
+            });
+        }
+
     }
 
 
