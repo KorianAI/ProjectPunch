@@ -53,7 +53,7 @@ public class CombatManager : MonoBehaviour
 
         //CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam); //return to collision cam
 
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(0);
 
         if (tutToPlay && requiredTut != null && requiredTut.startCombatAfter) //if there is a tutorial to play, wait until that is closed before starting combat
         {

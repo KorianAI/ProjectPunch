@@ -12,21 +12,27 @@ public class PushCargo : MonoBehaviour, IMagnetisable
     public AudioSource source;
     public AudioClip pushed;
 
+    Targetable targetable;
+    public bool canPull = false;
+    public bool canPush = true;
+
     private void Start()
     {
         anim = GetComponent<Animation>();
         source = GetComponent<AudioSource>();
+        
+        targetable = GetComponent<Targetable>();
+        targetable.pullMe = canPull;
+        targetable.pushMe = canPush;
     }
     public void Pull(PlayerStateManager player)
     {
-        //transform.DOMove(player.pullPosition.position, 1f);
         transform.DOShakeRotation(.5f, 5f, 10, 90);
     }
 
     public void Push(PlayerStateManager player)
     {
-        //transform.DOMove(transform.position + player.playerObj.forward * player.kbForce, 1f);
-        //transform.DOShakeRotation(1, 15f, 10, 90);
+        transform.DOShakeRotation(1, 15f, 10, 90);
 
         if (!played)
         {
@@ -40,5 +46,10 @@ public class PushCargo : MonoBehaviour, IMagnetisable
             player.cam.canRotate = true;
             PlayerCameraManager.instance.SwitchPlayerCam();
         }
+    }
+
+    public void Glow()
+    {
+        //play particles/swap material
     }
 }

@@ -6,4 +6,7 @@ public class Targetable : MonoBehaviour
 {
     public Transform targetPoint;
     public bool environment;
+
+    public bool pullMe;
+    public bool pushMe;
 }
