@@ -26,9 +26,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7886119009236330646}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -35.7, y: 12.63, z: -48.84}
-  m_LocalScale: {x: 1.1945, y: 1.1945, z: 1.1945}
+  m_LocalScale: {x: 2.788628, y: 2.570803, z: 1.1945}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,19 +51,19 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   enemiesAlive: 0
   player: {fileID: 0}
   radiusAroundTarget: 8
   chosenEnemy: {fileID: 0}
   finisherCam: {fileID: 0}
+  entranceDoorOpen: {fileID: 0}
+  entranceDoorCam: {fileID: 0}
+  enemyCam: {fileID: 0}
   exitDoorOpen: {fileID: 0}
   exitDoorCam: {fileID: 0}
+  tutToPlay: 1
+  requiredTut: {fileID: 0}
+  combatStartAnim: {fileID: 0}
 --- !u!65 &5533246833510587923
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombatManager : MonoBehaviour
@@ -30,6 +31,7 @@ public class CombatManager : MonoBehaviour
     public TutorialTrigger requiredTut;
 
     public Animation combatStartAnim;
+
 
     private void OnTriggerExit(Collider other)
     {       

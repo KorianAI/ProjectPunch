@@ -2,10 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EnemyState
+public class EnemyState
 {
-    public abstract void EnterState(EnemyAI enemyAI);
-    public abstract void ExitState(EnemyAI enemyAI);
-    public abstract void FrameUpdate(EnemyAI enemyAI); // regular update
-    public abstract void PhysicsUpdate(EnemyAI enemyAI); // fixed update
+    public virtual void EnterState(EnemyAI enemyAI)
+    {
+
+    }
+    public virtual void ExitState(EnemyAI enemyAI)
+    {
+
+    }
+    public virtual void FrameUpdate(EnemyAI enemyAI)
+    {
+
+    } // regular update
+    public virtual void PhysicsUpdate(EnemyAI enemyAI)
+    {
+
+    } // fixed update
 }
