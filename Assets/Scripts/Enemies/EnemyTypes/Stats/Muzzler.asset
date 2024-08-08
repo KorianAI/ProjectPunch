@@ -18,4 +18,4 @@ MonoBehaviour:
   patrolRange: 5
   attackSpeed: 2
   damage: 10
-  moveSpeed: 5
+  moveSpeed: 7

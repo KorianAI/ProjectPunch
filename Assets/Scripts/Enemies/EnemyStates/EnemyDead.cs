@@ -8,7 +8,7 @@ public class EnemyDead : EnemyState
     {
         enemyAI.agent.isStopped = true;
         enemyAI.GetComponent<Collider>().enabled = false;
-        enemyAI.enemy.anim.SetTrigger("Dies");
+        enemyAI.enemy.anim.SetBool("Dead", true);
         enemyAI.rePositioning = false;
         enemyAI.available = false;
     }

@@ -42,11 +42,11 @@ public class EnemyAttack : EnemyState
 
         else
         {
-            if (!enemyAI.rePositioning && enemyAI.manager.chosenEnemy != null)
-            {
-                if (enemyAI.patrol != null) { enemyAI.StopCoroutine(enemyAI.patrol); }        
-                enemyAI.patrol =  enemyAI.StartCoroutine(enemyAI.Patrol());
-            }       
+            //if (!enemyAI.rePositioning && enemyAI.manager.chosenEnemy != null)
+            //{
+            //    if (enemyAI.patrol != null) { enemyAI.StopCoroutine(enemyAI.patrol); }        
+            //    enemyAI.patrol =  enemyAI.StartCoroutine(enemyAI.Patrol());
+            //}       
         }
 
         if (!enemyAI.InAttackRange())

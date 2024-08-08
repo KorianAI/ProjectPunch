@@ -9,7 +9,6 @@ public class EnemyAI : MonoBehaviour
 {
     public EnemyState currentState { get; set; }
 
-
     // states
     public EnemyIdle idleState = new EnemyIdle();
     public EnemyChase chaseState = new EnemyChase();

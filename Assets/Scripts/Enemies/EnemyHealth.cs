@@ -40,10 +40,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     public ConcentratedNail nail;
     public float dir;
 
+    public PlayerStateManager sm;
 
     private void Start()
     {
         player = GameObject.Find("Player");
+        sm = player.GetComponent<PlayerStateManager>();
         ai = GetComponent<EnemyAI>();
 
         currentHealth = stats.health;
@@ -128,26 +130,27 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
         ai.manager.enemies.Remove(ai);
 
-        player.GetComponent<TargetLock>().currentTarget = null;
-        player.GetComponent<TargetLock>().isTargeting = false;
-        player.GetComponent<TargetLock>().lastTargetTag = null;
-
-        if (ai.manager.AliveEnemyCount() <= 0)
+        if (sm.tl.currentTarget = this.gameObject.transform)
         {
-            StartCoroutine(Finisher());
-            StartCoroutine(DelayedFinisher());
-
-            IEnumerator DelayedFinisher()
-            {
-                yield return new WaitForSeconds(.1f);
-                ai.SwitchState(ai.deadState);
-            }
+            player.GetComponent<TargetCams>().currentTarget = null;
+            player.GetComponent<TargetCams>().isTargeting = false;
         }
+
+        //if (ai.manager.AliveEnemyCount() <= 0)
+        //{
+        //    StartCoroutine(Finisher());
+        //    StartCoroutine(DelayedFinisher());
+
+        //    IEnumerator DelayedFinisher()
+        //    {
+        //        yield return new WaitForSeconds(.1f);
+        //        ai.SwitchState(ai.deadState);
+        //    }
+        //}
             
-        else
-        {
-            ai.SwitchState(ai.deadState);
-        }
+
+        ai.SwitchState(ai.deadState);
+
 
         if (ai.manager.chosenEnemy == ai) { ai.manager.RandomEnemy(); }
         ai.enabled = false;
