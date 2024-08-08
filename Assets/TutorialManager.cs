@@ -76,7 +76,11 @@ public class TutorialManager : MonoBehaviour
     IEnumerator TurnOff()
     {
         yield return new WaitForSeconds(2);
-        currentTutorial.SetActive(false);
+
+        if (currentTutorial != null)
+        {
+            currentTutorial.SetActive(false);
+        }
     }
 
     //when player walks through trigger box

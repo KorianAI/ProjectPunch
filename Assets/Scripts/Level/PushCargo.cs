@@ -32,7 +32,7 @@ public class PushCargo : MonoBehaviour, IMagnetisable
 
     public void Push(PlayerStateManager player)
     {
-        transform.DOShakeRotation(1, 15f, 10, 90);
+        //transform.DOShakeRotation(1, 15f, 10, 90);
 
         if (!played)
         {
