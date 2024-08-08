@@ -24,6 +24,7 @@ public class PauseControls : MonoBehaviour
 
     public void ChangeScene(int sceneId)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneId);
     }
 

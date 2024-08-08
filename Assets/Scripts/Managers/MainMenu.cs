@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         loading.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void ChangeScene(int sceneId)

@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        pauseUI.SetActive(true); //allows necessary setup code to run in PauseTabGroup script
         paused = false;
         
         InputMapManager.inputActions.Player.Pause.started += ctx =>
@@ -64,7 +65,8 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
 
         tabGroup.defaultTab.Select(); //set tab group to page 1
-        
+
+
         InputMapManager.ToggleActionMap(InputMapManager.inputActions.Player);
 
         Time.timeScale = 1;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PauseTabGroup : MonoBehaviour
 {
@@ -15,9 +16,10 @@ public class PauseTabGroup : MonoBehaviour
     [Space]
     public PauseTabButton selectedTab;
     public PauseTabButton defaultTab;
+    public GameObject defTabObj;
     [Space]
     public List<GameObject> objectsToSwap;
-    //public int index = 0;
+    public List<GameObject> firstSelected;
 
     //script used in conjunction with PauseTabButton script
     //assigns tabs from list to the buttons in the UI, and allows for swapping beterrn them
@@ -25,7 +27,7 @@ public class PauseTabGroup : MonoBehaviour
 
     private void Start()
     {
-        Invoke("SetInitialTab", 0.5f);
+        
         
         InputMapManager.inputActions.Menus.TabLeft.started += ctx =>
         {
@@ -36,21 +38,22 @@ public class PauseTabGroup : MonoBehaviour
         {
             TabRight();
         };
+
+        StartCoroutine(SetInitialTab());
     }
 
-    private void SetInitialTab()
+    IEnumerator SetInitialTab()
     {
+        yield return new WaitForEndOfFrame();
+
         OnTabSelected(defaultTab);
-        
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(firstSelected[0]);
+
         if (pm.pauseUI.activeSelf == true)
         {
             pm.pauseUI.SetActive(false);
-        }
-    }
-
-    private void Update()
-    {
-        //index = selectedTab.transform.GetSiblingIndex(); //find index of currentTab in tabButtons list
+        }        
     }
 
     public void Subscribe(PauseTabButton button)
@@ -126,6 +129,9 @@ public class PauseTabGroup : MonoBehaviour
             if (i == index)
             {
                 objectsToSwap[i].SetActive(true);
+
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(firstSelected[i]);
             }
             else
             {
