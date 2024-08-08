@@ -130,24 +130,29 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
         ai.manager.enemies.Remove(ai);
 
-        if (sm.tl.currentTarget = this.gameObject.transform)
+        if (sm.tl.currentTarget = gameObject.transform)
         {
-            player.GetComponent<TargetCams>().currentTarget = null;
-            player.GetComponent<TargetCams>().isTargeting = false;
+            Debug.Log("dude i was removed"); 
+            sm.tl.ResetTarget();
+            var nextTarget = sm.pc.ClosestEnemy();
+            if (nextTarget.transform == null) { return; }
+            sm.tl.AssignTarget(nextTarget.transform, nextTarget.transform.gameObject.GetComponent<Targetable>().targetPoint, 1, true);
+            Debug.Log("dude i was assigned");
         }
 
-        //if (ai.manager.AliveEnemyCount() <= 0)
-        //{
-        //    StartCoroutine(Finisher());
-        //    StartCoroutine(DelayedFinisher());
+        if (ai.manager.AliveEnemyCount() <= 0)
+        {
+            PlayerCameraManager.instance.SwitchPlayerCam();
+            //StartCoroutine(Finisher());
+            //StartCoroutine(DelayedFinisher());
 
-        //    IEnumerator DelayedFinisher()
-        //    {
-        //        yield return new WaitForSeconds(.1f);
-        //        ai.SwitchState(ai.deadState);
-        //    }
-        //}
-            
+            //IEnumerator DelayedFinisher()
+            //{
+            //    yield return new WaitForSeconds(.1f);
+            //    ai.SwitchState(ai.deadState);
+            //}
+        }
+
 
         ai.SwitchState(ai.deadState);
 

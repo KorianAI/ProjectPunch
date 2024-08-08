@@ -12,6 +12,8 @@ public class EnemyAttack : EnemyState
     {
         enemyAI.available = true;
         enemyAI.enemy.anim.SetBool("Patrolling", true);
+        if (enemyAI.patrol != null) { enemyAI.StopCoroutine(enemyAI.patrol); }        
+        enemyAI.patrol =  enemyAI.StartCoroutine(enemyAI.Patrol());
     }
 
     public override void ExitState(EnemyAI enemyAI)

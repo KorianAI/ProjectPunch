@@ -6,6 +6,11 @@ using UnityEngine;
 public class Muzzler : EnemyInfo
 {
 
+    private void Start()
+    {
+        anim.speed = agent.speed / stats.moveSpeed;
+    }
+
     public override void Attack(Transform target)
     {
         //agent.SetDestination(transform.position);

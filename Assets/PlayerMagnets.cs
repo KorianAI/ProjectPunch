@@ -64,7 +64,7 @@ public class PlayerMagnets : MonoBehaviour
             if (!t.targetable.environment)
             {
                 var result = pc.ClosestEnemy();
-                Vector3 closestEnemyPosition = result.position;
+                Vector3 closestEnemyPosition = result.transform.position;
                 float closestEnemyDistance = result.distance;
 
                 if (closestEnemyDistance < distance)  // chokeslam aoe

@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour
     {
         playerPos = PlayerStateManager.instance.gameObject;
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = Random.Range(enemy.stats.moveSpeed - 2, enemy.stats.moveSpeed);
+        agent.speed = Random.Range(enemy.stats.moveSpeed, enemy.stats.moveSpeed + 2);
         enemy.ai = this;
         audioManager = GetComponent<EnemyAudioManager>();
 

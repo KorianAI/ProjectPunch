@@ -221,7 +221,7 @@ public class PlayerCombat : MonoBehaviour
         pauseAttack = false;
     }
 
-    public (Vector3 position, float distance) ClosestEnemy()
+    public (Transform transform, float distance) ClosestEnemy()
     {
         Collider[] enemies = Physics.OverlapSphere(transform.position, enemyCheckRange, enemyLayer);
         Collider closestEnemy = null;
@@ -241,10 +241,10 @@ public class PlayerCombat : MonoBehaviour
         if (closestEnemy != null)
         {
             float closestDistance = Mathf.Sqrt(closestDistanceSqr); // Calculate the actual distance
-            return (closestEnemy.transform.position, closestDistance);
+            return (closestEnemy.transform, closestDistance);
         }
 
-        return (Vector3.zero, 0f);
+        return (null, 0f);
     }
 
     public void ParryEffect(GameObject c)

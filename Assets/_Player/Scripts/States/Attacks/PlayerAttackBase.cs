@@ -108,7 +108,9 @@ public class PlayerAttackBase : PlayerState
 
         else
         {
-            target = player.pc.ClosestEnemy().position;
+            var t = player.pc.ClosestEnemy();
+            if (t.transform == null) { return; }
+            target = t.transform.position;
         }
 
 

@@ -19,6 +19,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public float currentHealth;
     public float maxHealth;
     public bool invincible;
+    public float dmgShakeAmnt;
+    public float dmgShakeDur;
 
     [Header("Armour")]
     public bool hasArmour;
@@ -183,6 +185,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
                 SceneManager.LoadScene(1);
             }
         }
+
+        CinemachineShake.Instance.ShakeCamera(dmgShakeAmnt, dmgShakeDur);
     }
 
     public void UpdateScrap(float amount)
