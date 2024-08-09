@@ -6,13 +6,13 @@ public class TutorialManager : MonoBehaviour
 {
     public PlayerMovement pm;
     public PlayerStateManager sm;
+    public CombatManager cm;
 
     public GameObject currentTutorial; //set current so that the appear/disappear can be played by just calling for the current one
     Animation currentAnim;
-    public GameObject railTut;
 
     bool startCombatAfter;
-    public CombatManager cm;
+    
 
 
     private void Start()
