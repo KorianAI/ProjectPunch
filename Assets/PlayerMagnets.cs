@@ -63,11 +63,11 @@ public class PlayerMagnets : MonoBehaviour
         {
             if (!t.targetable.environment)
             {
-                var result = pc.ClosestEnemy();
-                Vector3 closestEnemyPosition = result.transform.position;
-                float closestEnemyDistance = result.distance;
+                Vector3 directionToEnemy = t.targetable.targetPoint.position - transform.position;
+                float dSqrToTarget = directionToEnemy.sqrMagnitude;
 
-                if (closestEnemyDistance < distance)  // chokeslam aoe
+
+                if (dSqrToTarget < distance)  // chokeslam aoe
                 {
                     sm.SwitchState(new PullEnemyState());
                 }

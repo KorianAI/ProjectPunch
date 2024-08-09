@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BFG_4
   m_EditorClassIdentifier: 
   attackName: BFG_4
-  damage: 15
+  damage: 20
   rumbleAmnt: 0.15
   shakeAmnt: 1.15
   zoomAmnt: -3

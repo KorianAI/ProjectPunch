@@ -132,25 +132,17 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
         if (sm.tl.currentTarget = gameObject.transform)
         {
-            Debug.Log("dude i was removed"); 
+ 
             sm.tl.ResetTarget();
-            var nextTarget = sm.pc.ClosestEnemy();
-            if (nextTarget.transform == null) { return; }
+            var nextTarget = NearestEnemy();
+            if (nextTarget == null) { return; }
             sm.tl.AssignTarget(nextTarget.transform, nextTarget.transform.gameObject.GetComponent<Targetable>().targetPoint, 1, true);
-            Debug.Log("dude i was assigned");
+
         }
 
         if (ai.manager.AliveEnemyCount() <= 0)
         {
             PlayerCameraManager.instance.SwitchPlayerCam();
-            //StartCoroutine(Finisher());
-            //StartCoroutine(DelayedFinisher());
-
-            //IEnumerator DelayedFinisher()
-            //{
-            //    yield return new WaitForSeconds(.1f);
-            //    ai.SwitchState(ai.deadState);
-            //}
         }
 
 
@@ -172,6 +164,27 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
             ai.agent.enabled = false;
             transform.DOMove(deadPos, 2f).onComplete = DestroyEnemy;
         }
+    }
+
+    public EnemyAI NearestEnemy()
+    {
+
+        EnemyAI closestEnemy = null;
+        float closestDistanceSqr = Mathf.Infinity; // Start with a large number
+
+        foreach (EnemyAI enemy in ai.manager.enemies)
+        {
+            Vector3 directionToEnemy = enemy.transform.position - transform.position;
+            float dSqrToTarget = directionToEnemy.sqrMagnitude;
+
+            if (dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                closestEnemy = enemy;
+            }
+        }
+
+        return closestEnemy;
     }
 
     void DestroyEnemy()
