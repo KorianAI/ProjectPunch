@@ -9,11 +9,13 @@ public class CrushCutscene : MonoBehaviour
     public PlayableAsset CutsceneP1;
     public PlayableAsset CutsceneP2;
 
+    [Space]
     public GameObject player;
     public GameObject cutCam1;
     public GameObject cutCam2;
     BoxCollider box;
 
+    [Space]
     public Animation RTPress;
     public int pressAmt = 8;
     public int currentAmt = 0;
@@ -25,18 +27,26 @@ public class CrushCutscene : MonoBehaviour
     bool skipCheck;
     public GameObject skipUI;
 
+    [Space]
+    public Vector3 cam1MashPos = new(8.976509f, -88.59833f, 11.64571f);
+    public Vector3 cam1MashRot = new(9.337f, -41.371f, 0.23f);
+
+    [Space]
     public GameObject kailaCutscene;
     public GameObject pole;
-    public Vector3 poleEndPos;
-    public Vector3 poleEndRot;
+    public Vector3 poleEndPos = new(7.54f, -94f, 18.06f);
+    public Vector3 poleEndRot = new(81.392f, -82.794f, -75.644f);
+
+    [Space]
     public GameObject tank;
-    public Vector3 tankEndPos;
-    public Vector3 tankEndRot;
+    public Vector3 tankEndPos = new(-0.0999999f, -116.7f, 78.08594f);
+    public Vector3 tankEndRot = new(0f, 0f, -9.946f);
 
     private void Start()
     {
         box = GetComponent<BoxCollider>();
         skipUI.SetActive(false);
+        RTPress.gameObject.SetActive(false);
 
         InputMapManager.inputActions.Cutscene.Push.performed += ctx =>
         {
@@ -115,7 +125,9 @@ public class CrushCutscene : MonoBehaviour
                 P1Ended();
                 dir.Stop();
 
-                cutCam1.SetActive(false);
+                cutCam1.SetActive(true);
+                cutCam1.transform.localPosition = cam1MashPos;
+                cutCam1.transform.localRotation= Quaternion.Euler(cam1MashRot.x, cam1MashRot.y, cam1MashRot.z); ;
                 cutCam2.SetActive(false);
 
                 skipCheck = false;
