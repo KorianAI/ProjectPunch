@@ -53,10 +53,10 @@ public class CrushCutscene : MonoBehaviour
             Push();
         };
 
-        InputMapManager.inputActions.Cutscene.Skip.started += ctx =>
-        {
-            Skip();
-        };
+        //InputMapManager.inputActions.Cutscene.Skip.started += ctx =>
+        //{
+        //    Skip();
+        //};
     }
 
     private void OnTriggerEnter(Collider other)

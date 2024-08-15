@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Cinemachine;
 using Dreamteck.Splines;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(Targetable))]
 public class RailPoint : MonoBehaviour, IMagnetisable
@@ -39,6 +40,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
         ps.resources.invincible = true;
 
         ps.speedboost.Play();
+        ps.electricityEffect.Play();
 
         ps.SwitchState(new PlayerRailState());
 
@@ -83,8 +85,6 @@ public class RailPoint : MonoBehaviour, IMagnetisable
     {
         ps.transform.SetParent(movePos); //set parent to EM
 
-        //ps.speedlines.SetActive(false);
-
         ps.resources.invincible = false;
 
         ps.anim.Play("Hang");
@@ -107,7 +107,9 @@ public class RailPoint : MonoBehaviour, IMagnetisable
     void Detach()
     {
         ps.transform.SetParent(null);
+
         ps.speedboost.Stop();
+        ps.electricityEffect.Stop();
 
         if (nextRail != null)
         {
