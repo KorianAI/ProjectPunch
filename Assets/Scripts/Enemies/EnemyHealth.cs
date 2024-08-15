@@ -146,7 +146,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         }
 
 
-        ai.SwitchState(ai.deadState);
+        ai.SwitchState(new EnemyDead());
 
 
         if (ai.manager.chosenEnemy == ai) { ai.manager.RandomEnemy(); }
@@ -154,7 +154,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         healthBar.gameObject.SetActive(false);
         armourBar.gameObject.SetActive(false);
         //if (ai.chase != null) { ai.StopCoroutine(ai.chase); }
-        //if (ai.patrol != null) { ai.StopCoroutine(ai.patrol); }
+        //if (ai.circle != null) { ai.StopCoroutine(ai.circle); }
         StartCoroutine(DeathEffect());
 
         IEnumerator DeathEffect()
@@ -259,7 +259,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         if (hasArmour) { return; }
         ai.enemy.anim.SetBool("Stunned", true);
         ai.enemy.agent.isStopped = true;    
-        ai.SwitchState(ai.stunnedState);
+        ai.SwitchState(new EnemyStunned());
         stunnedVFX.SetActive(true);
         StartCoroutine(ResetStun(stunLength));
     }
@@ -271,9 +271,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         stunnedVFX.SetActive(false);
         yield return new WaitForSeconds(.5f);
 
-        if (ai.currentState == ai.deadState) yield return null;
         ai.enemy.agent.isStopped = false;
-        ai.SwitchState(ai.attackState);
+        ai.SwitchState(new EnemyAttack());
     }
 
     public void Knockback(float distance, Transform attacker, float length)

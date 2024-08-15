@@ -2,38 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyIdle : EnemyState
+public class EnemyWait : EnemyState
 {
+
     public override void EnterState(EnemyAI enemyAI)
     {
         base.EnterState(enemyAI);
-        enemyAI.agent.isStopped = true;
     }
 
     public override void ExitState(EnemyAI enemyAI)
     {
-      base.ExitState(enemyAI);
+        base.ExitState(enemyAI);
     }
 
     public override void FrameUpdate(EnemyAI enemyAI)
     {
         base.FrameUpdate(enemyAI);
-        if (enemyAI.aggro)
+        if (enemyAI.circleToken)
         {
-            if (enemyAI.InAttackRange())
-            {
-                enemyAI.SwitchState(new EnemyWait());
-            }
-
-            else
-            {
-                enemyAI.SwitchState(new EnemyChase()); 
-            }
+            enemyAI.SwitchState(new EnemyCircle());
         }
+
+        if (!enemyAI.InAttackRange())
+        {
+            enemyAI.SwitchState(new EnemyChase());
+        }
+        // if not in combat range > swap to chase state
     }
 
     public override void PhysicsUpdate(EnemyAI enemyAI)
     {
-        base.PhysicsUpdate(enemyAI);
+        base.ExitState(enemyAI);
     }
 }

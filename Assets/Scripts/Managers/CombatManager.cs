@@ -123,7 +123,7 @@ public class CombatManager : MonoBehaviour
 
         else
         {
-            chosenEnemy.permissionToAttack = true;
+            chosenEnemy.attackToken = true;
         }
         yield return new WaitForSeconds(Random.Range(0, .5f));
     }

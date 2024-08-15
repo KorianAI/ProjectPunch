@@ -9,28 +9,22 @@ public class EnemyAI : MonoBehaviour
 {
     public EnemyState currentState { get; set; }
 
-    // states
-    public EnemyIdle idleState = new EnemyIdle();
-    public EnemyChase chaseState = new EnemyChase();
-    public EnemyAttack attackState = new EnemyAttack();
-    public EnemyCircle circleState = new EnemyCircle();
-    public EnemyStunned stunnedState = new EnemyStunned();
-    public EnemyDead deadState = new EnemyDead();
-
     [Header("References")]
     public CombatManager manager;
     public EnemyInfo enemy;
     public NavMeshAgent agent;
     public GameObject playerPos;
+    public GameObject enemyVisuals;
 
     [Header("Conditions")]
     public bool aggro;
     public bool inAttackRange;
-    public bool permissionToAttack;
+    public bool attackToken;
+    public bool circleToken;
     public bool rePositioning;
     public bool available;
 
-    public Coroutine patrol;
+    public Coroutine circle;
     public Coroutine chase;
     public bool preparingToChase;
 
@@ -45,6 +39,8 @@ public class EnemyAI : MonoBehaviour
 
     public EnemyAudioManager audioManager;
 
+    public string debugState;
+
     private void Start()
     {
         playerPos = PlayerStateManager.instance.gameObject;
@@ -53,7 +49,7 @@ public class EnemyAI : MonoBehaviour
         enemy.ai = this;
         audioManager = GetComponent<EnemyAudioManager>();
 
-        currentState = idleState;
+        currentState = new EnemyIdle();
         currentState.EnterState(this);
     }
 
@@ -70,6 +66,7 @@ public class EnemyAI : MonoBehaviour
     {
        if (!InAttackRange()) { available = false; }
        currentState.FrameUpdate(this);
+       debugState = currentState.ToString();
        debugDestination = agent.destination;;
     }
 
@@ -78,9 +75,9 @@ public class EnemyAI : MonoBehaviour
         currentState.PhysicsUpdate(this);
     }
 
-    public IEnumerator Patrol()
+    public IEnumerator Circle()
     {
-        Debug.Log("patrol started");
+        Debug.Log("circle started");
         available = false;
         rePositioning = true;
 
@@ -94,11 +91,6 @@ public class EnemyAI : MonoBehaviour
                 transform.LookAt(new Vector3(playerPos.transform.position.x, transform.position.y, playerPos.transform.position.z));
                 // Wait until the agent reaches its destination
                 yield return null;
-
-                if (currentState == deadState)
-                {
-                    break;
-                }
             }
 
             available = true;
@@ -117,7 +109,7 @@ public class EnemyAI : MonoBehaviour
         return inAttackRange;
     }
 
-    Vector3 GetRandomPointAroundPlayer(Vector3 center, float radius)
+    public Vector3 GetRandomPointAroundPlayer(Vector3 center, float radius)
     {       
         Vector3 randomDirection = Vector3.zero;
         bool foundValidPoint = false;
@@ -144,7 +136,7 @@ public class EnemyAI : MonoBehaviour
     public IEnumerator ChasePlayer()
     {
         yield return new WaitForSeconds(2);
-        SwitchState(chaseState);
+        SwitchState(new EnemyChase());
     }
 
     public void CheckForPlayer()

@@ -8,7 +8,7 @@ public class Muzzler : EnemyInfo
 
     private void Start()
     {
-        anim.speed = agent.speed / stats.moveSpeed;
+        anim.speed = (agent.speed / stats.moveSpeed) + .25f;
     }
 
     public override void Attack(Transform target)
@@ -41,11 +41,7 @@ public class Muzzler : EnemyInfo
     }
 
     void AttackAnim()
-    {
-        if (ai.currentState == ai.attackState)
-        {
-            anim.SetTrigger("Attack");
-        }     
+    {  
         StartCoroutine(ResetAttack());
     }
 
@@ -53,7 +49,7 @@ public class Muzzler : EnemyInfo
     {
         yield return new WaitForSeconds(stats.attackSpeed);
         canAttack = true;
-        ai.permissionToAttack = false;
+        ai.attackToken = false;
         ai.manager.chosenEnemy = null;
 
         if (ai.manager != null)
