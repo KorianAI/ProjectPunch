@@ -1119,6 +1119,109 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""ClosePopup"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5495115b-9de7-427f-a898-901817a06ab8"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClosePopup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Cutscene"",
+            ""id"": ""9412b999-807c-4937-99ab-f99f842d8e1b"",
+            ""actions"": [
+                {
+                    ""name"": ""Push"",
+                    ""type"": ""Button"",
+                    ""id"": ""2177d6c5-9245-4676-b111-6e3c2666c31b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""c0c46873-27f6-43c1-bc7e-f8bb4b8f58ee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c0c1c109-f9c1-4fb3-8ec1-ef4ec29aa69a"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Push"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fdc7de8a-22c8-42ef-ab82-20cd63234e7b"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Push"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""203446dc-62bb-4680-a88a-d42a9ee980f7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26247882-dc85-4e33-9e4a-9684ef53887a"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42ab4b4f-3611-4c3c-ba2d-7313123f4362"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ddb0daf-2089-46be-aa6c-d0c7914385b9"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1182,6 +1285,10 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Menus_Submit = m_Menus.FindAction("Submit", throwIfNotFound: true);
         m_Menus_Navigate = m_Menus.FindAction("Navigate", throwIfNotFound: true);
         m_Menus_ClosePopup = m_Menus.FindAction("ClosePopup", throwIfNotFound: true);
+        // Cutscene
+        m_Cutscene = asset.FindActionMap("Cutscene", throwIfNotFound: true);
+        m_Cutscene_Push = m_Cutscene.FindAction("Push", throwIfNotFound: true);
+        m_Cutscene_Skip = m_Cutscene.FindAction("Skip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1515,6 +1622,60 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         }
     }
     public MenusActions @Menus => new MenusActions(this);
+
+    // Cutscene
+    private readonly InputActionMap m_Cutscene;
+    private List<ICutsceneActions> m_CutsceneActionsCallbackInterfaces = new List<ICutsceneActions>();
+    private readonly InputAction m_Cutscene_Push;
+    private readonly InputAction m_Cutscene_Skip;
+    public struct CutsceneActions
+    {
+        private @InputMaster m_Wrapper;
+        public CutsceneActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Push => m_Wrapper.m_Cutscene_Push;
+        public InputAction @Skip => m_Wrapper.m_Cutscene_Skip;
+        public InputActionMap Get() { return m_Wrapper.m_Cutscene; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CutsceneActions set) { return set.Get(); }
+        public void AddCallbacks(ICutsceneActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CutsceneActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CutsceneActionsCallbackInterfaces.Add(instance);
+            @Push.started += instance.OnPush;
+            @Push.performed += instance.OnPush;
+            @Push.canceled += instance.OnPush;
+            @Skip.started += instance.OnSkip;
+            @Skip.performed += instance.OnSkip;
+            @Skip.canceled += instance.OnSkip;
+        }
+
+        private void UnregisterCallbacks(ICutsceneActions instance)
+        {
+            @Push.started -= instance.OnPush;
+            @Push.performed -= instance.OnPush;
+            @Push.canceled -= instance.OnPush;
+            @Skip.started -= instance.OnSkip;
+            @Skip.performed -= instance.OnSkip;
+            @Skip.canceled -= instance.OnSkip;
+        }
+
+        public void RemoveCallbacks(ICutsceneActions instance)
+        {
+            if (m_Wrapper.m_CutsceneActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICutsceneActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CutsceneActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CutsceneActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CutsceneActions @Cutscene => new CutsceneActions(this);
     private int m_KeyboardandMouseSchemeIndex = -1;
     public InputControlScheme KeyboardandMouseScheme
     {
@@ -1563,5 +1724,10 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnSubmit(InputAction.CallbackContext context);
         void OnNavigate(InputAction.CallbackContext context);
         void OnClosePopup(InputAction.CallbackContext context);
+    }
+    public interface ICutsceneActions
+    {
+        void OnPush(InputAction.CallbackContext context);
+        void OnSkip(InputAction.CallbackContext context);
     }
 }
