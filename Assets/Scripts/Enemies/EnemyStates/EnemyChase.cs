@@ -8,6 +8,7 @@ public class EnemyChase : EnemyState
     public override void EnterState(EnemyAI enemyAI)
     {
         base.EnterState(enemyAI);
+        ai.enemyVisuals.transform.localRotation = Quaternion.Euler(Vector3.zero);
         enemyAI.agent.isStopped = false;
         ai.agent.angularSpeed = 270;
         enemyAI.enemy.anim.SetBool("Walking", true);
@@ -30,7 +31,7 @@ public class EnemyChase : EnemyState
 
         if (enemyAI.InAttackRange())
         {
-            enemyAI.SwitchState(new EnemyWait());
+            enemyAI.SwitchState(new EnemyChaseWait());
             enemyAI.enemy.anim.SetBool("Walking", false);
         }
     }

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyWait : EnemyState
+public class EnemyAttackWait : EnemyState
 {
-
     public override void EnterState(EnemyAI enemyAI)
     {
         base.EnterState(enemyAI);
@@ -18,9 +17,12 @@ public class EnemyWait : EnemyState
     public override void FrameUpdate(EnemyAI enemyAI)
     {
         base.FrameUpdate(enemyAI);
-        if (enemyAI.circleToken)
+
+        ai.transform.LookAt(new Vector3(ai.playerPos.transform.position.x, ai.transform.position.y, ai.playerPos.transform.position.z));
+
+        if (enemyAI.attackToken)
         {
-            enemyAI.SwitchState(new EnemyCircle());
+            enemyAI.SwitchState(new EnemyAttack());
         }
 
         if (!enemyAI.InAttackRange())

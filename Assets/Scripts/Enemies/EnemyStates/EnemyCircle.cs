@@ -27,15 +27,11 @@ public class EnemyCircle : EnemyState
     {
         base.FrameUpdate(enemyAI);
 
-        if (ai.attackToken)
-        {
-            enemyAI.SwitchState(new EnemyAttack());
-        }
 
         if (!ai.InAttackRange())
         {
             ai.agent.SetDestination(ai.transform.position);
-            enemyAI.SwitchState(new EnemyChase());
+            ai.SwitchState(new EnemyChase());
         }
 
         if (rePositioning)
@@ -43,11 +39,8 @@ public class EnemyCircle : EnemyState
             Circle();
             if (ai.agent.remainingDistance <= ai.agent.stoppingDistance)
             {
-                ai.available = true;
- 
-
-                // Wait for a random duration before patrolling again          
-                rePositioning = false;
+                ai.agent.angularSpeed = 270;
+                ai.SwitchState(new EnemyAttackWait());
             }
         }
 
