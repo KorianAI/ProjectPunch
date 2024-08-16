@@ -591,8 +591,8 @@ VisualEffect:
   m_GameObject: {fileID: 4102778979244400040}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: ba196bef3a2a1f3499b7ab9978becd61, type: 3}
-  m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 0
+  m_InitialEventName: 
+  m_InitialEventNameOverriden: 1
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_AllowInstancing: 1
@@ -816,9 +816,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flipSpline: {fileID: 8671216423031652379}
-  playerInCollider: 0
   duration: 0.5
-  nextRail: {fileID: 0}
+  camLockDuration: 1.5
+  nextTarget: {fileID: 0}
   bounceVFX: {fileID: 3218570781829206322}
 --- !u!114 &1916252335128213094
 MonoBehaviour:
@@ -834,6 +834,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPoint: {fileID: 8366614698878055309}
   environment: 1
+  pullMe: 0
+  pushMe: 0
 --- !u!65 &1895917370620007847
 BoxCollider:
   m_ObjectHideFlags: 0
