@@ -80,11 +80,11 @@ public class PlayerCombat : MonoBehaviour
 
             GameObject hitParticle = Instantiate(hitVFX, c.transform);
 
-            if (c.GetComponent<EnemyHealth>() != null)
-            {
-                c.GetComponent<EnemyHealth>().GetStunned(.2f);
+            //if (c.GetComponent<EnemyHealth>() != null)
+            //{
+            //    c.GetComponent<EnemyHealth>().GetStunned(.2f);
 
-            }
+            //}
 
         }
 
@@ -107,11 +107,11 @@ public class PlayerCombat : MonoBehaviour
             Vector3 launchPosition = new Vector3(c.transform.position.x, transform.position.y + launchHeight, c.transform.position.z);
             c.transform.DOMove(launchPosition, launchDuration).SetEase(Ease.OutQuad);
 
-            if (c.GetComponent<EnemyHealth>() != null)
-            {
-                c.GetComponent<EnemyHealth>().GetStunned(.2f);
+            //if (c.GetComponent<EnemyHealth>() != null)
+            //{
+            //    c.GetComponent<EnemyHealth>().GetStunned(.2f);
 
-            }
+            //}
 
         }
 

@@ -128,28 +128,31 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
     {
         healthBars.HideBars();
 
-        ai.manager.enemies.Remove(ai);
-
         if (sm.tl.currentTarget = gameObject.transform)
         {
- 
+          
             sm.tl.ResetTarget();
             var nextTarget = NearestEnemy();
             if (nextTarget == null) { return; }
+            Debug.Log("PLEASE");
             sm.tl.AssignTarget(nextTarget.transform, nextTarget.transform.gameObject.GetComponent<Targetable>().targetPoint, 1, true);
 
         }
 
-        if (ai.manager.AliveEnemyCount() <= 0)
+        if (ai.manager)
         {
-            PlayerCameraManager.instance.SwitchPlayerCam();
+            ai.manager.enemies.Remove(ai);
+            if (ai.manager.AliveEnemyCount() <= 0)
+            {
+                PlayerCameraManager.instance.SwitchPlayerCam();
+            }
+
+            if (ai.manager.chosenEnemy == ai) { //ai.manager.RandomEnemy();
+                                              }
         }
 
-
         ai.SwitchState(new EnemyDead());
-
-
-        if (ai.manager.chosenEnemy == ai) { ai.manager.RandomEnemy(); }
+     
         ai.enabled = false;
         healthBar.gameObject.SetActive(false);
         armourBar.gameObject.SetActive(false);
@@ -174,6 +177,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
         foreach (EnemyAI enemy in ai.manager.enemies)
         {
+            if (enemy == ai) { continue; }
+
             Vector3 directionToEnemy = enemy.transform.position - transform.position;
             float dSqrToTarget = directionToEnemy.sqrMagnitude;
 

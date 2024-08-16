@@ -13,19 +13,13 @@ public class Muzzler : EnemyInfo
 
     public override void Attack(Transform target)
     {
-        //agent.SetDestination(transform.position);
-        
         if (canAttack)
         {
-            //transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
-            Debug.Log("dude");
             canAttack = false;
             Vector3 storedPos = CalculateAttackPosition(target.position);
             ai.transform.DOMove(storedPos, 1).onComplete = AttackAnim;
         }
-       
 
-       
     }
 
     private Vector3 CalculateAttackPosition(Vector3 playerPosition)
@@ -41,7 +35,8 @@ public class Muzzler : EnemyInfo
     }
 
     void AttackAnim()
-    {  
+    {
+        anim.SetTrigger("Attack");
         StartCoroutine(ResetAttack());
     }
 
@@ -50,10 +45,11 @@ public class Muzzler : EnemyInfo
         yield return new WaitForSeconds(stats.attackSpeed);
         canAttack = true;
         ai.attackToken = false;
-        ai.manager.chosenEnemy = null;
+       
 
         if (ai.manager != null)
         {
+            ai.manager.chosenEnemy = null;
             ai.manager.StartAI();
         }
     }

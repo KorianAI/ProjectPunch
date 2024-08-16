@@ -55,10 +55,9 @@ public class EnemyAI : MonoBehaviour
 
     public void SwitchState(EnemyState _state)
     {
-
-        _state.ExitState(this);
-        currentState = _state;
         _state.EnterState(this);
+        currentState = _state;
+        _state.ExitState(this);
 
     }
 
@@ -133,12 +132,6 @@ public class EnemyAI : MonoBehaviour
         return hit.position;
     }
 
-    public IEnumerator ChasePlayer()
-    {
-        yield return new WaitForSeconds(2);
-        SwitchState(new EnemyChase());
-    }
-
     public void CheckForPlayer()
     {
         Collider[] enemies = Physics.OverlapSphere(enemy.attackPoint.position, enemy.stats.range, enemy.whatIsPlayer);
@@ -156,6 +149,6 @@ public class EnemyAI : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.black;
-        Gizmos.DrawWireSphere(enemy.attackPoint.position, damageRadius);
+        Gizmos.DrawWireSphere(enemy.transform.position, enemy.stats.patrolRange);
     }
 }

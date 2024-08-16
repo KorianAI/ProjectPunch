@@ -141,22 +141,4 @@ public class CombatManager : MonoBehaviour
         return count;
     }
 
-    public void MakeAgentsCircleTarget(EnemyAI ai)
-    {
-        for (int i = 0; i < enemies.Count; i++)
-        {
-            if (enemies[i] == ai)
-            {
-                float randomI = i * Random.Range(i, i * 2);
-                //radiusAroundTarget = Random.Range(3, 5);
-                Vector3 target = new Vector3(player.position.x + radiusAroundTarget * Mathf.Cos(2 * Mathf.PI * randomI / enemies.Count),
-                player.position.y,
-                player.position.z + radiusAroundTarget * Mathf.Sin(2 * Mathf.PI * randomI / enemies.Count));
-
-                Debug.Log(target);
-                enemies[i].agent.SetDestination(target);
-            }
-        }
-    }
-
 }

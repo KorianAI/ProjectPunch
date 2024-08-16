@@ -12,7 +12,6 @@ public class EnemyChase : EnemyState
         enemyAI.agent.isStopped = false;
         ai.agent.angularSpeed = 270;
         enemyAI.enemy.anim.SetBool("Walking", true);
-        enemyAI.enemy.anim.SetBool("Patrolling", false);
     }
 
     public override void ExitState(EnemyAI enemyAI)
