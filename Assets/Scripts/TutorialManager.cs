@@ -12,8 +12,12 @@ public class TutorialManager : MonoBehaviour
     Animation currentAnim;
 
     bool startCombatAfter;
-    
 
+    //when player walks through trigger box
+    //find the correct tut to show
+    //play appear animation
+    //disable player movement and looking
+    //when A/Space pressed, play disappear anim and restore player movement
 
     private void Start()
     {
@@ -32,8 +36,6 @@ public class TutorialManager : MonoBehaviour
         {
             ShowTutorial();
         }
-
-        
     }
 
     public void PrepareForCombat(bool startCombat, CombatManager combatManager)
@@ -56,26 +58,34 @@ public class TutorialManager : MonoBehaviour
 
     public void HideTutorial()
     {
-        if (sm.tutIsActive)
+        if (sm.tutIsActive && currentTutorial.GetComponent<TutorialNextPage>().anotherPage && currentTutorial.GetComponent<TutorialNextPage>().pageToFollow != null) //skips to next tutorial, if available
+        {
+            NextPage();
+        }
+        
+        else if (sm.tutIsActive)
         {
             currentAnim.Play("TutorialWindowDisappear");
-        }
-        sm.tutIsActive = false;
-        InputMapManager.ToggleActionMap(InputMapManager.inputActions.Player);
 
-        if (startCombatAfter == true && cm != null) //starts combat if necessary. Requires the correct combat manager.
-        {
-            cm.StartCombat();
-            startCombatAfter = false;
-            cm = null;
+            sm.tutIsActive = false;
+            InputMapManager.ToggleActionMap(InputMapManager.inputActions.Player);
+
+            if (startCombatAfter == true && cm != null) //starts combat if necessary. Requires the correct combat manager.
+            {
+                cm.StartCombat();
+                startCombatAfter = false;
+                cm = null;
+            }
+
+            StartCoroutine(TurnOff());
         }
 
-        StartCoroutine(TurnOff());
+        
     }
 
     IEnumerator TurnOff()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         if (currentTutorial != null)
         {
@@ -83,9 +93,12 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    //when player walks through trigger box
-    //find the correct tut to show
-    //play appear animation
-    //disable player movement and looking
-    //when A/Space pressed, play disappear anim and restore player movement
+    public void NextPage() //allows another page to follow the previous tutorial
+    {
+        currentTutorial.SetActive(false);
+        //currentTutorial = currentTutorial.GetComponent<TutorialNextPage>().pageToFollow;
+
+        SetCurrent(currentTutorial.GetComponent<TutorialNextPage>().pageToFollow);
+        currentTutorial.SetActive(true);
+    }
 }

@@ -9,7 +9,6 @@ public class TutorialTrigger : MonoBehaviour
     BoxCollider boxCollider;
 
     public bool startCombatAfter;
-
     private void Start()
     {
         manager = GameObject.Find("TutorialManager").GetComponent<TutorialManager>();
