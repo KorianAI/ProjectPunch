@@ -5188,8 +5188,8 @@ VisualEffect:
   m_GameObject: {fileID: 456749138565859339}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: 79fd3c7a1a70f504bb4540fc1b4a66f3, type: 3}
-  m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 0
+  m_InitialEventName: 
+  m_InitialEventNameOverriden: 1
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_AllowInstancing: 1
@@ -31945,7 +31945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3374704501932507083
 Transform:
   m_ObjectHideFlags: 0
