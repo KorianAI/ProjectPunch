@@ -29,8 +29,11 @@ public class CombatManager : MonoBehaviour
     public Animation exitDoorOpen;
     public CinemachineVirtualCamera exitDoorCam;
 
-    public bool tutToPlay;
-    public TutorialTrigger requiredTut;
+    public bool playStartTut;
+    public TutorialTrigger requiredStartTut;
+
+    public bool playEndTut;
+    public TutorialTrigger requiredEndTut;
 
     public Animation combatStartAnim;
 
@@ -59,12 +62,12 @@ public class CombatManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0);
 
-        if (tutToPlay && requiredTut != null && requiredTut.startCombatAfter) //if there is a tutorial to play, wait until that is closed before starting combat
+        if (playStartTut && requiredStartTut != null && requiredStartTut.startCombatAfter) //if there is a tutorial to play, wait until that is closed before starting combat
         {
-            requiredTut.ActivateTut(this); //passes through this combat manager, ensuring that combat will be activated when tut is closed
+            requiredStartTut.ActivateTut(this); //passes through this combat manager, ensuring that combat will be activated when tut is closed
         }
 
-        else if (!tutToPlay || requiredTut == null || requiredTut.startCombatAfter) //if no tutorial to play, start the combat
+        else if (!playStartTut || requiredStartTut == null || requiredStartTut.startCombatAfter) //if no tutorial to play, start the combat
         {
             StartCombat();
         }

@@ -77,6 +77,11 @@ public class TargetCams : MonoBehaviour
                 CancelLock();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            AssignTarget(RightTarget().transform, currentTarget.GetComponent<Targetable>().targetPoint, 1, true);
+        }
     }
 
     public void TargetLockInput(InputAction.CallbackContext obj)
@@ -140,6 +145,54 @@ public class TargetCams : MonoBehaviour
 
     public GameObject ClosestTarget() // this is modified func from unity Docs (Gets Closest Object with Tag)
     {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject closest = null;
+        float distance = maxDistance;
+        float currAngle = maxAngle;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.magnitude;
+            if (curDistance < distance)
+            {
+                Vector3 viewPos = mainCamera.WorldToViewportPoint(go.transform.position);
+                Vector2 newPos = new Vector3(viewPos.x - 0.5f, viewPos.y - 0.5f);
+                if (Vector3.Angle(diff.normalized, mainCamera.transform.forward) < maxAngle)
+                {
+                    closest = go;
+                    currAngle = Vector3.Angle(diff.normalized, mainCamera.transform.forward.normalized);
+                    distance = curDistance;
+                }
+            }
+        }
+        return closest;
+    }
+
+    public GameObject RightTarget()
+    {
+        //GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        //GameObject closest = null;
+        //float dot = -2;
+
+        //foreach (GameObject enemy in enemies)
+        //{
+        //    // store the Dot compared to the camera's forward position (or where the object is locally in the camera's space)
+        //    // Very important that the point is normalized.
+
+        //    Vector3 localPoint = Camera.main.transform.InverseTransformPoint(enemy.transform.position).normalized;
+        //    Vector3 forward = Vector3.forward;
+        //    float test = Vector3.Dot(localPoint, forward);
+        //    if (test > dot)
+        //    {
+        //        dot = test;
+        //        closest = enemy;
+
+        //        print(enemy);
+        //    }
+        //}
+
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag(enemyTag);
         GameObject closest = null;
