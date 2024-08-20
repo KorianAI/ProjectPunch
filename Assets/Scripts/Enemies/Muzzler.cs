@@ -50,7 +50,7 @@ public class Muzzler : EnemyInfo
         if (ai.manager != null)
         {
             ai.manager.chosenEnemy = null;
-            ai.manager.StartAI();
+            ai.manager.RandomEnemy();
         }
     }
 

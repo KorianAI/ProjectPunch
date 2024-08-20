@@ -1490,7 +1490,7 @@ MonoBehaviour:
   available: 1
   preparingToChase: 0
   remainingDistance: 0
-  circleRadius: 7
+  circleRadius: 6
   minRadius: 5
   damageRadius: 1.01
   debugDestination: {x: 0, y: 0, z: 0}

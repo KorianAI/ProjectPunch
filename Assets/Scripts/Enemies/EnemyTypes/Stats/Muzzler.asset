@@ -15,7 +15,7 @@ MonoBehaviour:
   health: 70
   armour: 30
   range: 2
-  patrolRange: 10
+  patrolRange: 12
   attackSpeed: 2
   damage: 10
   moveSpeed: 7

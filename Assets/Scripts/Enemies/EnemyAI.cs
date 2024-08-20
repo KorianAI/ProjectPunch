@@ -63,7 +63,6 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-       if (!InAttackRange()) { available = false; }
        currentState.FrameUpdate(this);
        debugState = currentState.ToString();
        debugDestination = agent.destination;;

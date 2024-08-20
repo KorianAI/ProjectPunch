@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyChaseWait : EnemyState
 {
@@ -8,6 +9,8 @@ public class EnemyChaseWait : EnemyState
     public override void EnterState(EnemyAI enemyAI)
     {
         base.EnterState(enemyAI);
+        ai.agent.SetDestination(ai.transform.position);
+        ai.transform.LookAt(new Vector3(ai.playerPos.transform.position.x, ai.transform.position.y, ai.playerPos.transform.position.z));
     }
 
     public override void ExitState(EnemyAI enemyAI)

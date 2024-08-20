@@ -1,3 +1,4 @@
+using Autodesk.Fbx;
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ public class CombatManager : MonoBehaviour
 {
     public bool combatActive;
     public List<EnemyAI> enemies;
+    public List<EnemyAI> circlingEnemies;
     public float enemiesAlive;
 
     public Transform player;
@@ -90,7 +92,7 @@ public class CombatManager : MonoBehaviour
     {
         if (AliveEnemyCount() > 0)
         {
-            StartCoroutine(RandomEnemy());
+            SelectCircleEnemies();
         }
     }
 
@@ -102,10 +104,39 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    public void SelectCircleEnemies()
+    {
+        List<EnemyAI> availableEnemies = new List<EnemyAI>();
+        foreach (EnemyAI e in enemies)
+        {
+            availableEnemies.Add(e); // adds all enemies to an array
+        }
+
+        if (availableEnemies.Count > 0) // checks if array is bigger thn 0
+        {
+            int loopAmnt = availableEnemies.Count;
+            if (loopAmnt > 3) { loopAmnt = 3; }
+
+            for (int i = 0; i < loopAmnt; i++) // loops three times through 
+            {
+                int randomIndex = Random.Range(0, availableEnemies.Count); // picks three at random and then adds to circling enemies
+                circlingEnemies.Add(availableEnemies[randomIndex]);
+                availableEnemies.Remove(availableEnemies[randomIndex]);
+            }
+        }
+
+        foreach (EnemyAI cE in circlingEnemies) // sets all circling enemies to true
+        {
+            cE.circleToken = true;
+        }
+
+        StartCoroutine(RandomEnemy());
+    }
+
     public IEnumerator RandomEnemy()
     {
         List<EnemyAI> availableEnemies = new List<EnemyAI>();
-        foreach (EnemyAI enemyAI in enemies)
+        foreach (EnemyAI enemyAI in circlingEnemies)
         {
             if (enemyAI.available)
             {
