@@ -42,6 +42,13 @@ public class TargetCams : MonoBehaviour
     public float timer = 0f;
     public float maxTime = 10f;
 
+    [Header("Switch Target")]
+    public List<GameObject> enemiesInRange = null;
+    public List<float> enemyDistances = null;
+    public bool cooldown = false;
+    public float cooldownTimer = 1f;
+    public float mouseThreshhold = 3f;
+
     private void OnEnable()
     {
         input.action.performed += TargetLockInput;
@@ -50,6 +57,14 @@ public class TargetCams : MonoBehaviour
     private void OnDisable()
     {
         input.action.performed -= TargetLockInput;
+    }
+
+    private void Start()
+    {
+        InputMapManager.inputActions.Player.SwitchTarget.performed += ctx =>
+        {
+            OnMoveTarget(ctx);
+        };
     }
 
     void Update()
@@ -76,11 +91,6 @@ public class TargetCams : MonoBehaviour
                 timer = 0f;
                 CancelLock();
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            AssignTarget(RightTarget().transform, currentTarget.GetComponent<Targetable>().targetPoint, 1, true);
         }
     }
 
@@ -117,6 +127,11 @@ public class TargetCams : MonoBehaviour
 
     public void AssignTarget(Transform target, Transform point, float weight, bool changeCam)
     {
+        if (currentTarget != null)
+        {
+            targetGroup.RemoveMember(targetPoint);
+        }
+
         currentTarget = target;
         targetable = currentTarget.GetComponent<Targetable>();
         targetPoint = point;
@@ -170,52 +185,211 @@ public class TargetCams : MonoBehaviour
         return closest;
     }
 
-    public GameObject RightTarget()
+    private void OnMoveTarget(InputAction.CallbackContext context)
     {
-        //GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        //GameObject closest = null;
-        //float dot = -2;
-
-        //foreach (GameObject enemy in enemies)
-        //{
-        //    // store the Dot compared to the camera's forward position (or where the object is locally in the camera's space)
-        //    // Very important that the point is normalized.
-
-        //    Vector3 localPoint = Camera.main.transform.InverseTransformPoint(enemy.transform.position).normalized;
-        //    Vector3 forward = Vector3.forward;
-        //    float test = Vector3.Dot(localPoint, forward);
-        //    if (test > dot)
-        //    {
-        //        dot = test;
-        //        closest = enemy;
-
-        //        print(enemy);
-        //    }
-        //}
-
-        GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag(enemyTag);
-        GameObject closest = null;
-        float distance = maxDistance;
-        float currAngle = maxAngle;
-        Vector3 position = transform.position;
-        foreach (GameObject go in gos)
+        if (isTargeting) //ensure player is targeting first
         {
-            Vector3 diff = go.transform.position - position;
-            float curDistance = diff.magnitude;
-            if (curDistance < distance)
+            Vector2 input = context.ReadValue<Vector2>();
+
+            
+
+            if (input.x < -mouseThreshhold) // Move target to the left
             {
-                Vector3 viewPos = mainCamera.WorldToViewportPoint(go.transform.position);
-                Vector2 newPos = new Vector3(viewPos.x - 0.5f, viewPos.y - 0.5f);
-                if (Vector3.Angle(diff.normalized, mainCamera.transform.forward) < maxAngle)
+                if (currentTarget != null && SelectLeftTarget() != null && !cooldown)
                 {
-                    closest = go;
-                    currAngle = Vector3.Angle(diff.normalized, mainCamera.transform.forward.normalized);
-                    distance = curDistance;
+                    AssignTarget(SelectLeftTarget().transform, SelectLeftTarget().GetComponent<Targetable>().targetPoint, 1, true);
+                    StartCoroutine(TargetCooldown());
+                }
+                else if (SelectLeftTarget() == null)
+                {
+                    return;
+                }
+            }
+            else if (input.x > mouseThreshhold) // Move target to the right
+            {
+                if (currentTarget != null && SelectRightTarget() != null && !cooldown)
+                {
+                    AssignTarget(SelectRightTarget().transform, SelectRightTarget().GetComponent<Targetable>().targetPoint, 1, true);
+                    StartCoroutine(TargetCooldown());
+                }
+                else if (SelectRightTarget() == null)
+                {
+                    return;
+                }
+            }
+
+            if (input.y < 0) // Down scroll moves right
+            {
+                if (currentTarget != null && SelectRightTarget() != null)
+                {
+                    AssignTarget(SelectRightTarget().transform, SelectRightTarget().GetComponent<Targetable>().targetPoint, 1, true);
+                }
+                else if (SelectRightTarget() == null)
+                {
+                    return;
+                }
+            }
+            else if (input.y > 0) // Up scroll moves left
+            {
+                SelectLeftTarget();
+                if (currentTarget != null && SelectLeftTarget() != null)
+                {
+                    AssignTarget(SelectLeftTarget().transform, SelectLeftTarget().GetComponent<Targetable>().targetPoint, 1, true);
+                }
+                else if (SelectLeftTarget() == null)
+                {
+                    return;
                 }
             }
         }
-        return closest;
+    }
+
+    public GameObject SelectRightTarget()
+    {
+        enemiesInRange = new List<GameObject>();
+        enemyDistances = new List<float>();
+
+        if (currentTarget == null)
+        {
+            Debug.Log("current target was null on move right");
+            return null;
+        }
+
+        else
+        {
+            Vector3 ctViewPos = mainCamera.WorldToViewportPoint(currentTarget.transform.position);
+            Vector2 ctActualPos = new Vector3(ctViewPos.x - 0.5f, ctViewPos.y - 0.5f);
+
+
+            foreach (GameObject enemy in TargetManager.instance.targets)
+            {
+                if (enemy == currentTarget) //ensures it doesn't get stuck on the current target
+                {
+                    continue;
+                }
+
+                //check enemy is within lock on range
+                Vector3 diff = enemy.transform.position - transform.position;
+                float curDistance = diff.magnitude;
+                if (curDistance < maxDistance)
+                {
+                    Vector3 enemyViewPos = mainCamera.WorldToViewportPoint(enemy.transform.position);
+                    Vector2 enemyActualPos = new Vector3(enemyViewPos.x - 0.5f, enemyViewPos.y - 0.5f);
+
+                    if (enemyActualPos.x > ctActualPos.x) //if enemy is on the right of the middle of the screen, add to new list  //was MiddleOfScreen().x- MiddleOfScreen().x
+                    {
+                        enemiesInRange.Add(enemy);
+                        enemyDistances.Add(enemyActualPos.x);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+
+            float[] distances = enemyDistances.ToArray();
+            float minDistance = Mathf.Min(distances);
+
+            int index = 0;
+
+            if (enemyDistances != null)
+            {
+                for (int i = 0; i < distances.Length; i++) //Find the index number relative to the target with the smallest distance
+                {
+                    if (minDistance == distances[i])
+                        index = i;
+                }
+
+                return enemiesInRange[index]; //returns the enemy with the shortest distance
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+
+    public GameObject SelectLeftTarget()
+    {
+        enemiesInRange = new List<GameObject>();
+        enemyDistances = new List<float>();
+
+        if (currentTarget == null)
+        {
+            Debug.Log("current target was null on move left");
+            return null;
+        }
+
+        else
+        {
+            Vector3 ctViewPos = mainCamera.WorldToViewportPoint(currentTarget.transform.position);
+            Vector2 ctActualPos = new Vector3(ctViewPos.x - 0.5f, ctViewPos.y - 0.5f);
+
+
+            foreach (GameObject enemy in TargetManager.instance.targets)
+            {
+                if (enemy == currentTarget) //ensures it doesn't get stuck on the current target
+                {
+                    continue;
+                }
+
+                //check enemy is within lock on range
+                Vector3 diff = enemy.transform.position - transform.position;
+                float curDistance = diff.magnitude;
+                if (curDistance < maxDistance)
+                {
+                    Vector3 enemyViewPos = mainCamera.WorldToViewportPoint(enemy.transform.position);
+                    Vector2 enemyActualPos = new Vector3(enemyViewPos.x - 0.5f, enemyViewPos.y - 0.5f);
+
+                    if (enemyActualPos.x < ctActualPos.x) //if enemy is on the left of the middle of the screen, add to new list  //was MiddleOfScreen().x- MiddleOfScreen().x
+                    {
+                        enemiesInRange.Add(enemy);
+                        enemyDistances.Add(enemyActualPos.x);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+
+            
+
+            if (enemiesInRange != null || enemyDistances != null)
+            {
+                float[] distances = enemyDistances.ToArray();
+                float minDistance = Mathf.Max(distances);
+
+                int index = 0;
+
+                for (int i = 0; i < distances.Length; i++) //Find the index number relative to the target with the smallest distance
+                {
+                    if (minDistance == distances[i])
+                        index = i;
+                }
+
+                if (index >= 0 && index <= distances.Length)
+                {
+                    return enemiesInRange[index]; //returns the enemy with the shortest distance
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+
+    IEnumerator TargetCooldown()
+    {
+        cooldown = true;
+        yield return new WaitForSeconds(cooldownTimer);
+        cooldown = false;
     }
 
     private void OnDrawGizmos()

@@ -20,6 +20,13 @@ public class PauseTabGroup : MonoBehaviour
     [Space]
     public List<GameObject> objectsToSwap;
     public List<GameObject> firstSelected;
+    
+    [Header("Containers")]
+    public List<GameObject> containers;
+    public GameObject inactiveConParent;
+    public GameObject activeConParent;
+    public Color lighter;
+    public Color darker;
 
     //script used in conjunction with PauseTabButton script
     //assigns tabs from list to the buttons in the UI, and allows for swapping beterrn them
@@ -68,13 +75,13 @@ public class PauseTabGroup : MonoBehaviour
 
     public void TabLeft() //swap tab left
     {
-        if (selectedTab.transform.GetSiblingIndex() > 0)
+        if (selectedTab.transform.parent.GetSiblingIndex() > 0)
         {
             //index--;
-            OnTabSelected(tabButtons[selectedTab.transform.GetSiblingIndex() -1]);
+            OnTabSelected(tabButtons[selectedTab.transform.parent.GetSiblingIndex() -1]);
         }
 
-        else if (selectedTab.transform.GetSiblingIndex() <= 0)
+        else if (selectedTab.transform.parent.GetSiblingIndex() <= 0)
         {
             //set to highest in tabButtons
             OnTabSelected(tabButtons[tabButtons.Count -1]);
@@ -83,13 +90,13 @@ public class PauseTabGroup : MonoBehaviour
 
     public void TabRight() //swap tab right
     {
-        if (selectedTab.transform.GetSiblingIndex() < (tabButtons.Count -1))
+        if (selectedTab.transform.parent.GetSiblingIndex() < (tabButtons.Count -1))
         {
             //index++;
-            OnTabSelected(tabButtons[selectedTab.transform.GetSiblingIndex() +1]);
+            OnTabSelected(tabButtons[selectedTab.transform.parent.GetSiblingIndex() +1]);
         }
 
-        else if (selectedTab.transform.GetSiblingIndex() >= (tabButtons.Count -1))
+        else if (selectedTab.transform.parent.GetSiblingIndex() >= (tabButtons.Count -1))
         {
             //set to lowest in tabButtons
             OnTabSelected(tabButtons[0]);
@@ -101,7 +108,7 @@ public class PauseTabGroup : MonoBehaviour
         ResetTabs();
         if (selectedTab == null || button != selectedTab)
         {
-            button.background.sprite = tabHover;
+            //button.background.sprite = tabHover;
         }
     }
 
@@ -115,6 +122,7 @@ public class PauseTabGroup : MonoBehaviour
         if(selectedTab != null) //deselects currently selected tab
         {
             selectedTab.Deselect();
+            selectedTab.gameObject.SetActive(true);
         }
         
         selectedTab = button; //assigns new selected tab
@@ -122,13 +130,17 @@ public class PauseTabGroup : MonoBehaviour
         selectedTab.Select(); //selects new tab
 
         ResetTabs();
-        button.background.sprite = tabActive;
-        int index = button.transform.GetSiblingIndex();
+
+        button.gameObject.SetActive(false); //hides it whilst active, so that text can appear
+
+        int index = button.transform.parent.GetSiblingIndex();
         for(int i=0; i<objectsToSwap.Count; i++)
         {
             if (i == index)
             {
                 objectsToSwap[i].SetActive(true);
+                containers[i].transform.SetParent(activeConParent.transform);
+                containers[i].GetComponent<Image>().color = lighter;
 
                 EventSystem.current.SetSelectedGameObject(null);
                 EventSystem.current.SetSelectedGameObject(firstSelected[i]);
@@ -136,6 +148,8 @@ public class PauseTabGroup : MonoBehaviour
             else
             {
                 objectsToSwap[i].SetActive(false);
+                containers[i].transform.SetParent(inactiveConParent.transform);
+                containers[i].GetComponent<Image>().color = darker;
             }
         }
     }
@@ -145,7 +159,7 @@ public class PauseTabGroup : MonoBehaviour
         foreach(PauseTabButton button in tabButtons) //looks through all tabs
         {
             if(selectedTab!=null && button == selectedTab) { continue; } //skips currently selected tab
-            button.background.sprite = tabIdle; //sets all other tabs to idle appearance
+            //button.background.sprite = tabIdle; //sets all other tabs to idle appearance
         }
     }
 }
