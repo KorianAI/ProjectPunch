@@ -35,11 +35,10 @@ public class BFG_A1 : PlayerAirAttack
                 _sm.ih.SetCanConsumeInput(true);
             }
 
-            else
-            {
-                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length + .5f)
-                    _sm.SwitchState(new PlayerAirState());
-            }
+
+            if (fixedtime > duration + .5f)
+                _sm.SwitchState(new PlayerAirState());
+
         }
     }
 

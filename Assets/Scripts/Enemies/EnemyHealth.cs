@@ -42,6 +42,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     public PlayerStateManager sm;
 
+    // slam
+    public float slamDuration = 0.5f;
+    public GameObject slamVFX;
+    public Transform slamDetectionPoint;
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -306,6 +310,30 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         //return to collision cam
         CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
         PlayerStateManager.instance.anim.speed = 1f;
+    }
+
+    public void SlamToGround()
+    {
+        // Detect the ground position
+        float groundYPosition = DetectGroundPosition();
+
+        // Move the enemy down to the ground
+        transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad).OnComplete(() => { PlayerAudioManager.instance.SlamExplode(); Instantiate(slamVFX, transform.position, Quaternion.identity); });
+    }
+
+
+    private float DetectGroundPosition()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(slamDetectionPoint.position, Vector3.down, out hit, Mathf.Infinity))
+        {
+            return hit.point.y;
+        }
+        else
+        {
+            // Fallback if no ground detected (unlikely in a well-defined environment)
+            return 0f;
+        }
     }
 
 }

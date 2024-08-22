@@ -9,7 +9,7 @@ public class BFG_A3 : PlayerAirAttack
         rangeAttack = false;
         atkMoveDistance = 2.25f;
         atkMoveDur = .4f;
-        duration = .4f;
+        duration = .6f;
         base.EnterState(player);
         player.anim.Play("AirSlam");
         canAttack = false;

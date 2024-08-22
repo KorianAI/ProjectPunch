@@ -21,34 +21,7 @@ public class PlayerPushSlam : PlayerAttackBase
 
     public override void FrameUpdate(PlayerStateManager player)
     {
-        if (fixedtime > duration)
-        {
-            canAttack = true;
-            canFall = true;
 
-            if (_sm.ih.GetBufferedInputs().Length > 0)
-            {
-                _sm.ih.SetCanConsumeInput(true);
-            }
-
-            else
-            {
-                if (fixedtime > duration + .5f)
-                {
-                    _sm.pm.ApplyGravity(3);
-
-                    if (_sm.pm.grounded)
-                    {
-                        _sm.SwitchState(new PlayerIdleState());
-                    }
-
-                    else
-                    {
-                        _sm.SwitchState(new PlayerAirState());
-                    }
-                }
-            }
-        }
     }
 
     public override void HandleBufferedInput(InputCommand command)

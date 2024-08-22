@@ -132,10 +132,16 @@ public class PlayerCombat : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
         foreach (var c in enemies)
         {
-            Dummy enemy = c.GetComponent<Dummy>();
+            EnemyHealth enemy = c.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
                 enemy.SlamToGround();
+            }
+
+            Dummy dummy = c.GetComponent<Dummy>();
+            if (dummy != null)
+            {
+                dummy.SlamToGround();
             }
         }
     }
@@ -154,7 +160,7 @@ public class PlayerCombat : MonoBehaviour
             // Move the enemy down to the ground
             transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad).OnComplete(() =>
             {
-                PlayerAudioManager.instance.SlamExplode(); Instantiate(slamVFX, transform.position, Quaternion.identity); 
+                PlayerAudioManager.instance.SlamExplode(); Instantiate(slamVFX, transform.position, Quaternion.identity); _sm.SwitchState(new PlayerIdleState());
             });
         }
 
