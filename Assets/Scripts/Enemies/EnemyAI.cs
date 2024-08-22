@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject playerPos;
     public GameObject enemyVisuals;
+    public Rigidbody rb;
 
     [Header("Conditions")]
     public bool aggro;
@@ -23,6 +24,9 @@ public class EnemyAI : MonoBehaviour
     public bool circleToken;
     public bool rePositioning;
     public bool available;
+    public bool inAir;
+    public float enemyHeight;
+    public LayerMask whatIsGround;
 
     public Coroutine circle;
     public Coroutine chase;
@@ -63,9 +67,10 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-       currentState.FrameUpdate(this);
-       debugState = currentState.ToString();
-       debugDestination = agent.destination;;
+        IsGrounded();
+        currentState.FrameUpdate(this);
+        debugState = currentState.ToString();
+        debugDestination = agent.destination;;
     }
 
     private void FixedUpdate()
@@ -73,32 +78,21 @@ public class EnemyAI : MonoBehaviour
         currentState.PhysicsUpdate(this);
     }
 
-    public IEnumerator Circle()
+    public void IsGrounded()
     {
-        Debug.Log("circle started");
-        available = false;
-        rePositioning = true;
-
-        while (rePositioning)
+        RaycastHit debugHit;
+        bool groundRaycast = Physics.Raycast(transform.position, Vector3.down, out debugHit, enemyHeight * 0.5f + 0.2f, whatIsGround);
+        if (groundRaycast)
         {
-            Vector3 randomDestination = GetRandomPointAroundPlayer(playerPos.transform.position, circleRadius);
-            agent.SetDestination(randomDestination);
-
-            while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance)
-            {
-                transform.LookAt(new Vector3(playerPos.transform.position.x, transform.position.y, playerPos.transform.position.z));
-                // Wait until the agent reaches its destination
-                yield return null;
-            }
-
-            available = true;
-            Debug.Log("Reached destination");
-
-            // Wait for a random duration before patrolling again
-            yield return new WaitForSeconds(Random.Range(6, 11));
-
-            rePositioning = false;
+            inAir = false;
         }
+
+        if (!groundRaycast)
+        {
+            inAir = true;
+        }
+
+
     }
 
     public bool InAttackRange()

@@ -65,7 +65,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     public void TakeDamage(float damage)
     {
-        if (!takenDamage)
+        //if (!takenDamage)
         {
             takenDamage = true;
 
@@ -100,6 +100,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
                 healthBar.DrawSlots();
             }
 
+            if (ai.inAir)
+            {
+                ai.SwitchState(new EnemyAirborne());
+            }
 
             SpawnParticle();
             transform.DOShakeScale(.2f, .1f, 10, 90);
@@ -109,10 +113,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
                 Die();
             }
 
-            else
-            {
+            //else
+            //{
                 StartCoroutine(ResetTakenDamage());
-            }
+            //}
 
         }
 

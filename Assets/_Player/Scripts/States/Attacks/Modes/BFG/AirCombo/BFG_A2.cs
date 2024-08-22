@@ -37,7 +37,7 @@ public class BFG_A2 : PlayerAirAttack
 
             else
             {
-                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length)
+                if (fixedtime > animator.GetCurrentAnimatorStateInfo(0).length + .5f)
                     _sm.SwitchState(new PlayerAirState());
             }
         }

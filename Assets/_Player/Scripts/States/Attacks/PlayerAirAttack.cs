@@ -36,7 +36,7 @@ public class PlayerAirAttack : PlayerAttackBase
         base.FrameUpdate(player);
         if (_sm.pc.airAtkGravity)
         {
-            _sm.pm.ApplyGravity(3);
+            _sm.pm.ApplyGravity(2);
         }
 
     }

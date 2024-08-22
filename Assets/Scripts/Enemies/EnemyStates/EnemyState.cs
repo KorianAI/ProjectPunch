@@ -11,12 +11,12 @@ public class EnemyState
     {
         ai = enemyAI;
         ai.enemyVisuals.transform.localRotation = Quaternion.Euler(new Vector3(0, 25, 0));
-      // Debug.Log("Entering" + this.GetType().Name);
+        Debug.Log("Entering" + this.GetType().Name);
     }
     public virtual void ExitState(EnemyAI enemyAI)
     {
        
-       //Debug.Log("Leaving" + this.GetType().Name);
+        Debug.Log("Leaving" + this.GetType().Name);
     }
     public virtual void FrameUpdate(EnemyAI enemyAI)
     {

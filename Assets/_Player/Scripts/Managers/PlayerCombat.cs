@@ -80,12 +80,6 @@ public class PlayerCombat : MonoBehaviour
 
             GameObject hitParticle = Instantiate(hitVFX, c.transform);
 
-            //if (c.GetComponent<EnemyHealth>() != null)
-            //{
-            //    c.GetComponent<EnemyHealth>().GetStunned(.2f);
-
-            //}
-
         }
 
         if (enemies.Length > 0)
@@ -100,6 +94,13 @@ public class PlayerCombat : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider c in enemies)
         {
+
+            EnemyAI e = c.GetComponent<EnemyAI>();
+            if (e != null)
+            {
+                e.SwitchState(new EnemyAirborne());
+            }
+
             HitstopManager.Instance.TriggerHitstop(modeStats.hitstopAmnt, gameObject, c.gameObject);
             CinemachineShake.Instance.ShakeCamera(modeStats.shakeAmnt, modeStats.shakeAmnt);
             RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
@@ -112,6 +113,8 @@ public class PlayerCombat : MonoBehaviour
             //    c.GetComponent<EnemyHealth>().GetStunned(.2f);
 
             //}
+
+
 
         }
 

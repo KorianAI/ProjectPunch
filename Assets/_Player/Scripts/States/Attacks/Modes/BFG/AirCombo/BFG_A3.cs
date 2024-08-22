@@ -26,9 +26,13 @@ public class BFG_A3 : PlayerAirAttack
         base.FrameUpdate(player);
         if (fixedtime > duration)
         {
-           
+            _sm.ih.SetCanConsumeInput(true);
             canFall = true;
-            _sm.SwitchState(new PlayerAirState());
+            if (fixedtime > duration + .5f)
+            {
+                _sm.SwitchState(new PlayerAirState());
+            }
+
 
         }
     }
