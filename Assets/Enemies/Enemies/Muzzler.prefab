@@ -1377,6 +1377,7 @@ GameObject:
   - component: {fileID: 4360131028242730843}
   - component: {fileID: 2390021426467358384}
   - component: {fileID: 8916209884553460030}
+  - component: {fileID: 3522073094188789333}
   m_Layer: 7
   m_Name: Muzzler
   m_TagString: Enemy
@@ -1482,12 +1483,18 @@ MonoBehaviour:
   agent: {fileID: 0}
   playerPos: {fileID: 0}
   enemyVisuals: {fileID: 6013892465011591529}
+  rb: {fileID: 3522073094188789333}
   aggro: 0
   inAttackRange: 0
   attackToken: 0
   circleToken: 0
   rePositioning: 0
   available: 1
+  inAir: 0
+  enemyHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
   preparingToChase: 0
   remainingDistance: 0
   circleRadius: 6
@@ -1653,6 +1660,33 @@ MonoBehaviour:
   armourRestore: {fileID: 8300000, guid: 0753d623c69d33b458fbb91b2931a14b, type: 3}
   baseAttack: {fileID: 8300000, guid: 3ccc96f95adbd7b4d8c5f89654c8cf82, type: 3}
   baseSwing: {fileID: 8300000, guid: 13a745a065dca464db4fc3d08a8f615e, type: 3}
+--- !u!54 &3522073094188789333
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105524914971712823}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &4270234911416187242
 GameObject:
   m_ObjectHideFlags: 0
