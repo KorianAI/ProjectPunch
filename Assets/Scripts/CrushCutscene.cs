@@ -26,6 +26,7 @@ public class CrushCutscene : MonoBehaviour
 
     bool skipCheck;
     public GameObject skipUI;
+    public GameObject resourcesUI;
 
     //[Space]
     //public Vector3 cam1MashPos = new(8.976509f, -88.59833f, 11.64571f);
@@ -66,6 +67,7 @@ public class CrushCutscene : MonoBehaviour
             dir.Play(CutsceneP1);
             player = other.gameObject;
             player.SetActive(false);
+            resourcesUI.SetActive(false);
             InputMapManager.ToggleActionMap(InputMapManager.inputActions.Cutscene);
         }
     }
@@ -103,6 +105,7 @@ public class CrushCutscene : MonoBehaviour
     {
         InputMapManager.ToggleActionMap(InputMapManager.inputActions.Player);
         player.SetActive(true);
+        resourcesUI.SetActive(true);
 
         //cutCam1.SetActive(false);
         //cutCam2.SetActive(false);
