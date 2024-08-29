@@ -27,6 +27,8 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
     public int railPos;
 
+    public bool doSplineAnyway;
+
     private void Start()
     {
         t = GetComponent<Targetable>();
@@ -120,6 +122,14 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
             ps.playerObj.DOLookAt(nextRail.transform.position, 0.5f, AxisConstraint.None, Vector3.up);
             ps.ltPressAnim.Play();
+            ps.SwitchState(new PlayerRailExit());
+        }
+
+        if (doSplineAnyway)
+        {
+            ps.splineFollower.enabled = true;
+            ps.splineFollower.spline = flipSpline;
+            ps.splineFollower.Restart();
             ps.SwitchState(new PlayerRailExit());
         }
 
