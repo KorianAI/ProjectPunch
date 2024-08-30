@@ -92,12 +92,11 @@ public class TargetLock : MonoBehaviour
         {
             isTargeting = false;
             currentTarget = null;
-
             if (lastTarget != null && lastTarget.gameObject.CompareTag("Enemy") == true)
             {
                 if (lastTarget.GetComponentInChildren<HealthBars>() != null)
                 {
-                    lastTarget.GetComponentInChildren<HealthBars>().ShowBarsTargeted();
+                    lastTarget.GetComponentInChildren<HealthBars>().TargetEnding();
                 }
                 
             }
@@ -116,9 +115,8 @@ public class TargetLock : MonoBehaviour
             Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hit;
 
-            if (UnityEngine.Physics.SphereCast(mainCamera.transform.position, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, targetableLayers))
+            if (Physics.SphereCast(mainCamera.transform.position, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, targetableLayers))
             {
-
                 if (hit.transform.CompareTag(enemyTag))
                 {
                     lastTargetTag = enemyTag;
@@ -127,7 +125,6 @@ public class TargetLock : MonoBehaviour
                     {
                         hit.transform.gameObject.GetComponentInChildren<HealthBars>().ShowBars();
                     }
-                    
                 }
 
                 if (hit.transform.CompareTag(railTag))

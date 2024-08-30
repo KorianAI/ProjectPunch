@@ -137,6 +137,15 @@ public class TargetCams : MonoBehaviour
         targetPoint = point;
         isTargeting = true;
         targetGroup.AddMember(point, weight, 0);
+
+        if (currentTarget.transform.CompareTag(enemyTag)) //show health bars when targeting
+        {
+            if (currentTarget.transform.gameObject.GetComponentInChildren<HealthBars>() != null)
+            {
+                currentTarget.transform.gameObject.GetComponentInChildren<HealthBars>().ShowBars();
+            }
+        }
+
         if (changeCam)
         {
             PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.targetCam);
@@ -148,6 +157,14 @@ public class TargetCams : MonoBehaviour
         if (currentTarget != null)
         {
             targetGroup.RemoveMember(targetPoint);
+
+            if (currentTarget.transform.CompareTag(enemyTag)) //show health bars for a short time after targeting
+            {
+                if (currentTarget.transform.gameObject.GetComponentInChildren<HealthBars>() != null)
+                {
+                    currentTarget.transform.gameObject.GetComponentInChildren<HealthBars>().TargetEnding();
+                }
+            }
         }
 
         isTargeting = false;

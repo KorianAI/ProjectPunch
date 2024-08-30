@@ -60,11 +60,11 @@ public class HealthBars : MonoBehaviour
         timer = 0f;
     }
 
-    public void ShowBarsTargeted()
-        {
-            addToTimer = true;
-            lockedOn = false;
-        }
+    public void TargetEnding()
+    {
+        addToTimer = true;
+        lockedOn = false;
+    }
 
     public void HideBars()
     {
