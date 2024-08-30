@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 70
   armour: 30
-  range: 15
-  patrolRange: 0
+  range: 35
+  patrolRange: 35
   attackSpeed: 5
   damage: 10
   moveSpeed: 0

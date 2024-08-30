@@ -6,22 +6,24 @@ using DG.Tweening;
 public class TurretLocked : TurretState
 {
     bool locked;
+    TurretAI ai;
 
     public override void EnterState(TurretAI turretAI)
     {
         base.EnterState(turretAI);
-        turretAI.turretHead.transform.DOKill(false); //stop head movement
-
+        ai = turretAI;
         locked = false;
-        turretAI.turretHead.transform.DOLookAt(turretAI.playerPos.transform.position, .5f).SetEase(Ease.Linear).OnComplete(CompletedLock);
-        //play charging anims
-        //start countdown
-        turretAI.StartCoroutine(turretAI.FireCountdown());
+
+        turretAI.turretHead.transform.DOKill(false); //stop previous head movement
+        turretAI.turretHead.transform.DOLookAt(turretAI.playerPos.transform.position, .5f).SetEase(Ease.Linear).OnComplete(CompletedLock); //move quickly to player
     }
 
     void CompletedLock()
     {
         locked = true;
+        //play charging anims
+
+        ai.StartCoroutine(ai.FireCountdown()); //start countdown until firing
     }
 
     public override void ExitState(TurretAI turretAI)
@@ -33,9 +35,14 @@ public class TurretLocked : TurretState
     {
         base.FrameUpdate(turretAI);
 
-        if (locked)
+        if (locked) //keeps turret focused on player
         {
             turretAI.turretHead.transform.LookAt(new Vector3(turretAI.playerPos.transform.position.x, turretAI.playerPos.transform.position.y, turretAI.playerPos.transform.position.z)); //look at player pos
+        }
+
+        if (!turretAI.InAttackRange()) //returns to idle state if out of range
+        {
+            turretAI.SwitchState(new TurretIdle());
         }
     }
 

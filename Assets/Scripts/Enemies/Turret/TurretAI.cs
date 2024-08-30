@@ -9,34 +9,30 @@ public class TurretAI : MonoBehaviour
     public TurretState currentState { get; set; }
 
     [Header("References")]
-    //public CombatManager manager;
     public TurretInfo info;
     public GameObject playerPos;
-    //public GameObject enemyVisuals;
-    //public Rigidbody rb;
 
     [Header("Conditions")]
-    public bool aggro;
     public bool inAttackRange;
-    public bool available;
-    public bool inAir;
-    public float enemyHeight;
-    public LayerMask whatIsGround;
-
     public float damageRadius;
-
-    public Vector3 debugDestination;
-    NavMeshHit hit;
 
     public EnemyAudioManager audioManager;
 
     public string debugState;
 
+    [Header("Head Positioning")]
     public ActivateRailMovement arm;
+    public GameObject turretHead;
     public Transform lookPos1, lookPos2;
     public bool reachedPos1 = false, reachedPos2 = false;
-    public GameObject turretHead;
-    public float lookSpeed = 3f;
+    public float lookSpeed = 5f;
+
+    [Header("VFX")]
+    public List<Vector3> linePositions;
+    public GameObject lazerStartPos;
+    public LineRenderer targetLine;
+
+    [Header("Firing")]
     public float fireTimer = 5f;
 
     private void Start()
@@ -46,6 +42,9 @@ public class TurretAI : MonoBehaviour
 
         currentState = new TurretIdle();
         currentState.EnterState(this);
+
+        linePositions.Add(lazerStartPos.transform.localToWorldMatrix.GetPosition());
+        targetLine.enabled = false;
     }
 
     public void SwitchState(TurretState _state)
@@ -53,12 +52,10 @@ public class TurretAI : MonoBehaviour
         _state.EnterState(this);
         currentState = _state;
         _state.ExitState(this);
-
     }
 
     private void Update()
     {
-        IsGrounded();
         currentState.FrameUpdate(this);
         debugState = currentState.ToString();
 
@@ -67,6 +64,10 @@ public class TurretAI : MonoBehaviour
             currentState = new TurretIdle();
             currentState.EnterState(this);
         }
+
+        linePositions.RemoveAt(1);
+        linePositions.Add(playerPos.transform.localToWorldMatrix.GetPosition()); //keep player pos up to date
+        targetLine.SetPositions(linePositions.ToArray());
     }
 
     private void FixedUpdate()
@@ -74,39 +75,10 @@ public class TurretAI : MonoBehaviour
         currentState.PhysicsUpdate(this);
     }
 
-    public void IsGrounded()
-    {
-        RaycastHit debugHit;
-        bool groundRaycast = Physics.Raycast(transform.position, Vector3.down, out debugHit, enemyHeight * 0.5f + 0.2f, whatIsGround);
-        if (groundRaycast)
-        {
-            inAir = false;
-        }
-
-        if (!groundRaycast)
-        {
-            inAir = true;
-        }
-    }
-
     public bool InAttackRange()
     {
         inAttackRange = Physics.CheckSphere(transform.position, info.stats.patrolRange, info.whatIsPlayer);
         return inAttackRange;
-    }
-
-    public void CheckForPlayer() //redo for turret head movement
-    {
-        Collider[] enemies = Physics.OverlapSphere(info.attackPoint.position, info.stats.range, info.whatIsPlayer);
-        if (enemies.Length <= 0) { return; }
-        foreach (Collider c in enemies)
-        {
-            c.GetComponent<IDamageable>().TakeDamage(info.stats.damage);
-            GameObject hitVFX = Instantiate(info.hitVFX, info.attackPoint);
-            //c.GetComponent<IKnockback>().Knockback(1.5f, orientation);
-            //RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
-
-        }
     }
 
     private void OnDrawGizmos()
@@ -158,12 +130,15 @@ public class TurretAI : MonoBehaviour
 
     public IEnumerator LookPause()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         UpdateLookPosition();
     }
 
     public IEnumerator FireCountdown()
     {
+        //vfx
+        //line between player position and lazer point pos
+        targetLine.enabled = true;
         yield return new WaitForSeconds(fireTimer);
 
         currentState = new TurretFiring();

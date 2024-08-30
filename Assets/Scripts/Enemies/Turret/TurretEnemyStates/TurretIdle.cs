@@ -18,10 +18,9 @@ public class TurretIdle : TurretState
     public override void FrameUpdate(TurretAI turretAI)
     {
         base.FrameUpdate(turretAI);
-        if (turretAI.InAttackRange() || Input.GetKeyDown(KeyCode.Alpha8))
+        if (turretAI.InAttackRange())
         {
             turretAI.SwitchState(new TurretLocked());
-            Debug.Log("Enemy in range of '" + turretAI.gameObject.name + "' turret: ");
         }
     }
 
