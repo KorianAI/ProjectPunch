@@ -25,8 +25,6 @@ public class TurretLocked : TurretState
     void CompletedLock()
     {
         ai.locked = true;
-        //play charging anims
-
         ai.StartCoroutine(ai.FireCountdown()); //start countdown until firing
     }
 
@@ -42,7 +40,9 @@ public class TurretLocked : TurretState
 
         if (turretAI.locked) //keeps turret focused on player
         {
-            turretAI.turretHead.transform.LookAt(new Vector3(turretAI.playerPos.transform.position.x, turretAI.playerPos.transform.position.y, turretAI.playerPos.transform.position.z)); //look at player pos
+            //turretAI.turretHead.transform.LookAt(new Vector3(turretAI.playerPos.transform.position.x, turretAI.playerPos.transform.position.y, turretAI.playerPos.transform.position.z)); //look at player pos
+            turretAI.turretHead.transform.LookAt(turretAI.smoothedLinePosition); //look at player pos
+
         }
 
         if (!turretAI.InAttackRange()) //returns to idle state if out of range

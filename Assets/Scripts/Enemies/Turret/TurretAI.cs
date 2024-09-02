@@ -56,14 +56,13 @@ public class TurretAI : MonoBehaviour
     public float clipPlaneOffset = 6f;
     public float lineSmoothTime = 0.3f; // Smoothing time for the line's position
     private Vector3 lineVelocity = Vector3.zero; // Velocity of the line's endpoint
-    private Vector3 smoothedLinePosition; // Position of the line's endpoint after smoothing
-
-
+    public Vector3 smoothedLinePosition; // Position of the line's endpoint after smoothing
 
     [Header("Firing")]
     public float fireTimer = 5f;
     public GameObject projectile;
     public float projectileForce = 1;
+    public GameObject smokeVFX;
 
     private void Start()
     {
@@ -95,8 +94,6 @@ public class TurretAI : MonoBehaviour
             currentState = new TurretIdle();
             currentState.EnterState(this);
         }
-
-        
     }
 
     private void FixedUpdate()
@@ -136,7 +133,7 @@ public class TurretAI : MonoBehaviour
         }
     }
 
-    public void UpdateLookPosition()
+    public void UpdateIdleLookPosition() //move back and forth when idle
     {
         //start by moving to one of the positions
         //when position reached, move to other position
@@ -169,10 +166,10 @@ public class TurretAI : MonoBehaviour
         StartCoroutine(LookPause());
     }
 
-    public IEnumerator LookPause()
+    public IEnumerator LookPause() //pauses movement between idle movements, for effect
     {
         yield return new WaitForSeconds(lookPauseDuration);
-        UpdateLookPosition();
+        UpdateIdleLookPosition();
     }
 
     public IEnumerator FireCountdown()
@@ -180,11 +177,11 @@ public class TurretAI : MonoBehaviour
         //charging vfx
         flashInterval = flashIntervalLength;
 
-        yield return new WaitForSeconds(fireTimer /2);
+        yield return new WaitForSeconds(fireTimer /2); //changes some vfx after half the countdown
 
         flashInterval = flashIntervalLength /3;
 
-        yield return new WaitForSeconds(fireTimer /2);
+        yield return new WaitForSeconds(fireTimer /2); //finishes countdown
 
         if (InAttackRange()) //prevent firing if player has moved out of range
         {
@@ -213,10 +210,10 @@ public class TurretAI : MonoBehaviour
         targetLine.SetPosition(1, smoothedLinePosition);
 
         // Smoothly update the dot position using the smoothed line position
-        smoothedPosition = Vector3.SmoothDamp(dotInstance.transform.position, Camera.main.WorldToScreenPoint(smoothedLinePosition), ref dotVelocity, smoothTime);
+        //smoothedPosition = Vector3.SmoothDamp(dotInstance.transform.position, Camera.main.WorldToScreenPoint(smoothedLinePosition), ref dotVelocity, smoothTime);
 
         // Set the dot's position to the smoothed position
-        dotInstance.transform.position = smoothedPosition;
+        dotInstance.transform.position = Camera.main.WorldToScreenPoint(offsetPlayerPos);
 
         flashTimer += Time.deltaTime;
         if (flashTimer >= flashInterval)
@@ -231,12 +228,10 @@ public class TurretAI : MonoBehaviour
     public void InstantiateProjectile()
     {
         GameObject projectileGo = Instantiate(projectile, lineStartPos.transform.position, Quaternion.identity);
-
-        //projectileGo.GetComponent<TurretProjectile>().Setup();
-        //projectileGo.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, projectileForce));
         Vector3 direction = (playerPos.transform.position - lineStartPos.transform.position).normalized;
-
         projectileGo.GetComponent<Rigidbody>().velocity = direction * projectileForce;
+        GameObject smoke = Instantiate(smokeVFX, lineStartPos.transform.position, Quaternion.identity);
+        Destroy(smoke, 1.5f);
     }
 
     private void OnDestroy() //Remove dot instance when the enemy is destroyed

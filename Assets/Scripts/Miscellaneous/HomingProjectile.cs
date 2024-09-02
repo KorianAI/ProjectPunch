@@ -17,8 +17,6 @@ public class HomingProjectile : MonoBehaviour
             c.GetComponent<IDamageable>().TakeDamage(10);         
             //RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
         }
-
-        Debug.Log("lol");
         Destroy(gameObject);
     }
 }
