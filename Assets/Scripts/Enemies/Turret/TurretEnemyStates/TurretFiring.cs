@@ -7,7 +7,9 @@ public class TurretFiring : TurretState
     public override void EnterState(TurretAI turretAI)
     {
         base.EnterState(turretAI);
-        //fire projectile at high speed
+
+        turretAI.InstantiateProjectile();
+
         Debug.Log(turretAI.gameObject.name + "Fired!");
         turretAI.SwitchState(new TurretLocked());
     }

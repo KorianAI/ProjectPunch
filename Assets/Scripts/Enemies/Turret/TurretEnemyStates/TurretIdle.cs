@@ -7,6 +7,7 @@ public class TurretIdle : TurretState
     public override void EnterState(TurretAI turretAI)
     {
         base.EnterState(turretAI);
+        turretAI.locked = false;
         turretAI.UpdateLookPosition();
     }
 
