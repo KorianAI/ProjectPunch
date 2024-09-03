@@ -41,12 +41,12 @@ public class TurretLocked : TurretState
         if (turretAI.locked) //keeps turret focused on player
         {
             //turretAI.turretHead.transform.LookAt(new Vector3(turretAI.playerPos.transform.position.x, turretAI.playerPos.transform.position.y, turretAI.playerPos.transform.position.z)); //look at player pos
-            turretAI.turretHead.transform.LookAt(turretAI.smoothedLinePosition); //look at player pos
-
+            turretAI.turretHead.transform.LookAt(turretAI.smoothedLinePosition); //look at player pos, smoothed
         }
 
         if (!turretAI.InAttackRange()) //returns to idle state if out of range
         {
+            turretAI.locked = false;
             turretAI.SwitchState(new TurretIdle());
         }
     }

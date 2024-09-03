@@ -9,6 +9,7 @@ public class TurretIdle : TurretState
         base.EnterState(turretAI);
         turretAI.locked = false;
         turretAI.UpdateIdleLookPosition();
+        turretAI.StopCoroutine(turretAI.FireCountdown());
     }
 
     public override void ExitState(TurretAI turretAI)

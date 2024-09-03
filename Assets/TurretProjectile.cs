@@ -32,5 +32,4 @@ public class TurretProjectile : MonoBehaviour
             Destroy(gameObject, destroyTime);
         }
     }
-
 }

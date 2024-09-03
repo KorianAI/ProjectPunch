@@ -12,12 +12,13 @@ public class TurretAI : MonoBehaviour
     [Header("References")]
     public TurretInfo info;
     public GameObject playerPos;
+    public CombatManager manager;
+    public EnemyAudioManager audioManager;
 
     [Header("Conditions")]
     public bool inAttackRange;
     public float damageRadius;
 
-    public EnemyAudioManager audioManager;
 
     public string debugState;
 
@@ -38,7 +39,7 @@ public class TurretAI : MonoBehaviour
     public LineRenderer targetLine;
     public float playerYOffset = 0.5f;
 
-    [Header("Dot")]
+    [Header("Targeting Line & Dot")]
     public GameObject dotPrefab;
     private GameObject dotInstance;
     public GameObject dotParent;
@@ -62,7 +63,12 @@ public class TurretAI : MonoBehaviour
     public float fireTimer = 5f;
     public GameObject projectile;
     public float projectileForce = 1;
-    public GameObject smokeVFX;
+    public GameObject chargeVFX;
+
+
+    [Header("Death")]
+    public Transform deathFirePoint;
+    public bool dead = false;
 
     private void Start()
     {
@@ -88,12 +94,6 @@ public class TurretAI : MonoBehaviour
     {
         currentState.FrameUpdate(this);
         debugState = currentState.ToString();
-
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            currentState = new TurretIdle();
-            currentState.EnterState(this);
-        }
     }
 
     private void FixedUpdate()
@@ -110,13 +110,21 @@ public class TurretAI : MonoBehaviour
         {
             targetLine.enabled = false;
             dotInstance.SetActive(false);
+            chargeVFX.SetActive(false);
         }
     }
 
     public bool InAttackRange()
     {
-        inAttackRange = Physics.CheckSphere(transform.position, info.stats.patrolRange, info.whatIsPlayer);
-        return inAttackRange;
+        if (!dead)
+        {
+            inAttackRange = Physics.CheckSphere(transform.position, info.stats.patrolRange, info.whatIsPlayer);
+            return inAttackRange;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void OnDrawGizmos()
@@ -174,7 +182,7 @@ public class TurretAI : MonoBehaviour
 
     public IEnumerator FireCountdown()
     {
-        //charging vfx
+        chargeVFX.SetActive(true);
         flashInterval = flashIntervalLength;
 
         yield return new WaitForSeconds(fireTimer /2); //changes some vfx after half the countdown
@@ -182,6 +190,8 @@ public class TurretAI : MonoBehaviour
         flashInterval = flashIntervalLength /3;
 
         yield return new WaitForSeconds(fireTimer /2); //finishes countdown
+
+        chargeVFX.SetActive(false);
 
         if (InAttackRange()) //prevent firing if player has moved out of range
         {
@@ -230,8 +240,6 @@ public class TurretAI : MonoBehaviour
         GameObject projectileGo = Instantiate(projectile, lineStartPos.transform.position, Quaternion.identity);
         Vector3 direction = (playerPos.transform.position - lineStartPos.transform.position).normalized;
         projectileGo.GetComponent<Rigidbody>().velocity = direction * projectileForce;
-        GameObject smoke = Instantiate(smokeVFX, lineStartPos.transform.position, Quaternion.identity);
-        Destroy(smoke, 1.5f);
     }
 
     private void OnDestroy() //Remove dot instance when the enemy is destroyed

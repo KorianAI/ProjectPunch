@@ -5,11 +5,11 @@ using DG.Tweening;
 
 public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 {
-    public ParticleSystem particle;
+    public ParticleSystem scrapParticle;
     public bool canSpawn;
     public GameObject player;
 
-    bool takenDamage;
+    bool takenDamage = false;
 
     public PlayerStateManager ps;
 
@@ -63,13 +63,12 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
         //mats = GetComponentInChildren<SkinnedMeshRenderer>().sharedMaterials;
 
         healthBars = GetComponentInChildren<HealthBars>();
-
         audioManager = GetComponent<EnemyAudioManager>();
     }
 
     public void TakeDamage(float damage)
     {
-        //if (!takenDamage)
+        if (!takenDamage)
         {
             takenDamage = true;
 
@@ -109,21 +108,20 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
             //    ai.SwitchState(new EnemyAirborne());
             //}
 
-            SpawnParticle();
+            SpawnScrapParticle();
             transform.DOShakeScale(.2f, .1f, 10, 90);
 
             if (currentHealth <= 0)
             {
                 Die();
+                ai.ActivateRailMovement();
             }
 
             //else
             //{
-            StartCoroutine(ResetTakenDamage());
+                StartCoroutine(ResetTakenDamage());
             //}
-
         }
-
 
         IEnumerator ResetTakenDamage()
         {
@@ -135,89 +133,107 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
     private void Die()
     {
         healthBars.HideBars();
+        sm.tl.ResetTarget();
 
         //if (sm.tl.currentTarget = gameObject.transform)
         //{
 
         //    sm.tl.ResetTarget();
         //    var nextTarget = NearestEnemy();
-        //    if (nextTarget == null) { return; }
-        //    sm.tl.AssignTarget(nextTarget.transform, nextTarget.transform.gameObject.GetComponent<Targetable>().targetPoint, 1, true);
-
+        //    if (nextTarget == null)
+        //    {
+        //        return;
+        //    }
+        //    else if (nextTarget != null)
+        //    {
+        //        sm.tl.AssignTarget(nextTarget.transform, nextTarget.transform.gameObject.GetComponent<Targetable>().targetPoint, 1, true);
+        //    }
         //}
 
         //if (ai.manager)
         //{
-        //    ai.manager.enemies.Remove(ai);
+        //    ai.manager.turrets.Remove(ai);
         //    if (ai.manager.AliveEnemyCount() <= 0)
         //    {
         //        PlayerCameraManager.instance.SwitchPlayerCam();
         //    }
 
         //    if (ai.manager.chosenEnemy == ai)
-        //    { //ai.manager.RandomEnemy();
+        //    { ai.manager.RandomEnemy();
         //    }
         //}
 
-        //ai.SwitchState(new EnemyDead());
+        
 
+        ai.SwitchState(new TurretDead());
+
+        if (ai.deathFirePoint != null)
+        {
+            ai.turretHead.transform.LookAt(ai.deathFirePoint); //look at fire point
+            ai.InstantiateProjectile();
+        }
+        
         ai.enabled = false;
         healthBar.gameObject.SetActive(false);
         armourBar.gameObject.SetActive(false);
-        //if (ai.chase != null) { ai.StopCoroutine(ai.chase); }
-        //if (ai.circle != null) { ai.StopCoroutine(ai.circle); }
+
         StartCoroutine(DeathEffect());
 
         IEnumerator DeathEffect()
         {
-            yield return new WaitForSeconds(5);
-            Vector3 deadPos = new Vector3(transform.position.x, transform.position.y - .7f, transform.position.z);
+            yield return new WaitForSeconds(2);
+            Vector3 deadPos = new Vector3(transform.position.x, transform.position.y - 3f, transform.position.z);
             //ai.agent.enabled = false;
             transform.DOMove(deadPos, 2f).onComplete = DestroyEnemy;
         }
     }
 
-    //public EnemyAI NearestEnemy()
-    //{
+    public EnemyAI NearestEnemy()
+    {
+        if (ai.manager)
+        {
+            EnemyAI closestEnemy = null;
+            float closestDistanceSqr = Mathf.Infinity; // Start with a large number
 
-    //    EnemyAI closestEnemy = null;
-    //    float closestDistanceSqr = Mathf.Infinity; // Start with a large number
+            foreach (EnemyAI enemy in ai.manager.enemies)
+            {
+                if (enemy == ai) { continue; }
 
-    //    foreach (EnemyAI enemy in ai.manager.enemies)
-    //    {
-    //        if (enemy == ai) { continue; }
+                Vector3 directionToEnemy = enemy.transform.position - transform.position;
+                float dSqrToTarget = directionToEnemy.sqrMagnitude;
 
-    //        Vector3 directionToEnemy = enemy.transform.position - transform.position;
-    //        float dSqrToTarget = directionToEnemy.sqrMagnitude;
+                if (dSqrToTarget < closestDistanceSqr)
+                {
+                    closestDistanceSqr = dSqrToTarget;
+                    closestEnemy = enemy;
+                }
+            }
 
-    //        if (dSqrToTarget < closestDistanceSqr)
-    //        {
-    //            closestDistanceSqr = dSqrToTarget;
-    //            closestEnemy = enemy;
-    //        }
-    //    }
-
-    //    return closestEnemy;
-    //}
+            return closestEnemy;
+        }
+        else
+        {
+            return null;
+        }
+    }
 
     void DestroyEnemy()
     {
-
         transform.DOKill();
         ai.transform.DOKill();
         Destroy(gameObject);
     }
 
 
-    private void SpawnParticle()
+    private void SpawnScrapParticle()
     {
         if (canSpawn)
         {
-            var em = particle.emission;
-            var dur = particle.main.duration;
+            var em = scrapParticle.emission;
+            var dur = scrapParticle.main.duration;
 
             em.enabled = true;
-            particle.Play();
+            scrapParticle.Play();
 
             canSpawn = false;
             Invoke("TurnOff", dur / 2);
@@ -232,7 +248,7 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
 
     void TurnOff()
     {
-        var em = particle.emission;
+        var em = scrapParticle.emission;
         em.enabled = false;
         canSpawn = true;
     }

@@ -68,7 +68,7 @@ public class PlayerCombat : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider c in enemies)
         {
-
+            Debug.Log(c.name);
             c.GetComponent<IDamageable>().TakeDamage(modeStats.damage);
 
             _sm.attackHit = true;
@@ -79,7 +79,6 @@ public class PlayerCombat : MonoBehaviour
             transform.DOKill();         
 
             GameObject hitParticle = Instantiate(hitVFX, c.transform);
-
         }
 
         if (enemies.Length > 0)

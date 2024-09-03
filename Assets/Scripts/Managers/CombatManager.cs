@@ -9,6 +9,7 @@ public class CombatManager : MonoBehaviour
 {
     public bool combatActive;
     public List<EnemyAI> enemies;
+    public List<TurretAI> turrets;
     public List<EnemyAI> circlingEnemies;
     public float enemiesAlive;
 
