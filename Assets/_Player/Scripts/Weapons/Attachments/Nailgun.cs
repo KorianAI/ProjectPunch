@@ -50,7 +50,7 @@ public class Nailgun : Attachment
         Vector3 direction = GetDirection();
 
         TrailRenderer trail = Instantiate(projTrail, spawnPoint.position, Quaternion.identity);
-        EnemyHealth enemy = sm.tl.currentTarget.GetComponent<EnemyHealth>();
+        IDamageable enemy = sm.tl.currentTarget.GetComponent<IDamageable>();
         StartCoroutine(SpawnTrail(trail, direction, enemy));
 
     }
@@ -100,7 +100,7 @@ public class Nailgun : Attachment
         
     }
 
-    IEnumerator SpawnTrail(TrailRenderer trail, Vector3 enemy, EnemyHealth health)
+    IEnumerator SpawnTrail(TrailRenderer trail, Vector3 enemy, IDamageable health)
     {
         float time = 0;
         Vector3 startPos = trail.transform.position;

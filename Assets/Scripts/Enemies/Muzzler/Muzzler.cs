@@ -7,8 +7,8 @@ using UnityEngine.VFX;
 
 public class Muzzler : EnemyInfo
 {
-    VisualEffect indicatorVFX;
-    Transform vfxPos;
+    public VisualEffect indicatorVFX;
+    public Transform vfxPos;
 
     private void Start()
     {
@@ -21,7 +21,10 @@ public class Muzzler : EnemyInfo
         {
             canAttack = false;
             Vector3 storedPos = CalculateAttackPosition(target.position);
-            ai.transform.DOMove(storedPos, 1).onComplete = AttackAnim;
+            ai.transform.DOMove(storedPos, 1).OnComplete(() =>
+            {
+               StartCoroutine(AttackAnim());
+            }); 
         }
 
     }
@@ -38,8 +41,10 @@ public class Muzzler : EnemyInfo
         return pos;
     }
 
-    void AttackAnim()
+    IEnumerator AttackAnim()
     {
+        AttackIndicator();
+        yield return new WaitForSeconds(1);
         anim.SetTrigger("Attack");
         StartCoroutine(ResetAttack());
     }
