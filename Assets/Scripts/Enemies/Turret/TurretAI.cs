@@ -49,7 +49,7 @@ public class TurretAI : MonoBehaviour
     private bool isRed = true;
 
     [Space]
-    public float smoothTime = 0.3f; // Smoothing time for the dot's position
+    public float dotSmoothTime = 0.1f; // Smoothing time for the dot's position
     private Vector3 dotVelocity = Vector3.zero; // Velocity of the dot
     private Vector3 smoothedPosition; // Position of the dot after smoothing
     public float clipPlaneOffset = 6f;
@@ -212,9 +212,9 @@ public class TurretAI : MonoBehaviour
             targetLine.SetPosition(1, smoothedLinePosition);
 
             // Smoothly update the dot position using the smoothed line position
-            //smoothedPosition = Vector3.SmoothDamp(dotInstance.transform.position, Camera.main.WorldToScreenPoint(smoothedLinePosition), ref dotVelocity, smoothTime);
+            smoothedPosition = Vector3.SmoothDamp(dotInstance.transform.position, Camera.main.WorldToScreenPoint(smoothedLinePosition), ref dotVelocity, dotSmoothTime);
 
-            // Set the dot's position to the smoothed position
+            // Set the dot's position to the offset position
             dotInstance.transform.position = Camera.main.WorldToScreenPoint(offsetPlayerPos);
 
             flashTimer += Time.deltaTime;

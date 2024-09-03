@@ -26,18 +26,13 @@ public class ActivateRailMovement : MonoBehaviour
     private void Start()
     {
         ps = PlayerStateManager.instance;
-        railCam.gameObject.SetActive(false);
+        if (railCam != null)
+        {
+            railCam.gameObject.SetActive(false);
+        }
         rail.transform.position = railStartPos.position;
         pad.transform.position = padStartPos.position;
     }
-
-    //void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Alpha0) && ps.GetComponent<TargetCams>().currentTarget == transform)
-    //    {
-    //        Defeated();
-    //    }
-    //}
 
     public void Defeated()
     {
