@@ -14,6 +14,7 @@ public class TurretAI : MonoBehaviour
     public GameObject playerPos;
     public CombatManager manager;
     public EnemyAudioManager audioManager;
+    public Rigidbody rb;
 
     [Header("Conditions")]
     public bool inAttackRange;
@@ -72,6 +73,7 @@ public class TurretAI : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         playerPos = PlayerStateManager.instance.gameObject;
         info.ai = this;
 
@@ -206,32 +208,35 @@ public class TurretAI : MonoBehaviour
 
     void UpdateLinePoints()
     {
-        targetLine.SetPosition(0, lineStartPos.transform.position);
-        Vector3 offsetPlayerPos = new Vector3(playerPos.transform.position.x, playerPos.transform.position.y + playerYOffset, playerPos.transform.position.z);
-
-        // Calculate the world position of the intended second point
-        Vector3 worldPosition = Camera.main.WorldToScreenPoint(offsetPlayerPos);
-        worldPosition.z = Camera.main.nearClipPlane + clipPlaneOffset; // Set Z distance for the line
-
-        // Smoothly update the line's endpoint position
-        smoothedLinePosition = Vector3.SmoothDamp(targetLine.GetPosition(1), Camera.main.ScreenToWorldPoint(worldPosition), ref lineVelocity, lineSmoothTime);
-
-        // Set the second point of the line renderer to the smoothed line position
-        targetLine.SetPosition(1, smoothedLinePosition);
-
-        // Smoothly update the dot position using the smoothed line position
-        //smoothedPosition = Vector3.SmoothDamp(dotInstance.transform.position, Camera.main.WorldToScreenPoint(smoothedLinePosition), ref dotVelocity, smoothTime);
-
-        // Set the dot's position to the smoothed position
-        dotInstance.transform.position = Camera.main.WorldToScreenPoint(offsetPlayerPos);
-
-        flashTimer += Time.deltaTime;
-        if (flashTimer >= flashInterval)
+        if (!dead)
         {
-            // Toggle color
-            isRed = !isRed;
-            dotInstance.GetComponent<Image>().color = isRed ? Color.red : Color.white;
-            flashTimer = 0f; // Reset timer
+            targetLine.SetPosition(0, lineStartPos.transform.position);
+            Vector3 offsetPlayerPos = new Vector3(playerPos.transform.position.x, playerPos.transform.position.y + playerYOffset, playerPos.transform.position.z);
+
+            // Calculate the world position of the intended second point
+            Vector3 worldPosition = Camera.main.WorldToScreenPoint(offsetPlayerPos);
+            worldPosition.z = Camera.main.nearClipPlane + clipPlaneOffset; // Set Z distance for the line
+
+            // Smoothly update the line's endpoint position
+            smoothedLinePosition = Vector3.SmoothDamp(targetLine.GetPosition(1), Camera.main.ScreenToWorldPoint(worldPosition), ref lineVelocity, lineSmoothTime);
+
+            // Set the second point of the line renderer to the smoothed line position
+            targetLine.SetPosition(1, smoothedLinePosition);
+
+            // Smoothly update the dot position using the smoothed line position
+            //smoothedPosition = Vector3.SmoothDamp(dotInstance.transform.position, Camera.main.WorldToScreenPoint(smoothedLinePosition), ref dotVelocity, smoothTime);
+
+            // Set the dot's position to the smoothed position
+            dotInstance.transform.position = Camera.main.WorldToScreenPoint(offsetPlayerPos);
+
+            flashTimer += Time.deltaTime;
+            if (flashTimer >= flashInterval)
+            {
+                // Toggle color
+                isRed = !isRed;
+                dotInstance.GetComponent<Image>().color = isRed ? Color.red : Color.white;
+                flashTimer = 0f; // Reset timer
+            }
         }
     }
 

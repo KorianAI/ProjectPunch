@@ -152,3 +152,7 @@ MonoBehaviour:
     m_Bits: 8
   damage: 20
   destroyTime: 1
+  whatisGround:
+    serializedVersion: 2
+    m_Bits: 64
+  rumbleVFX: {fileID: 7642563901005490453, guid: dc7b89bd2a278cf4ba9f424c96af54d9, type: 3}
