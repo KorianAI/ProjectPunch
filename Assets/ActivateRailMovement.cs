@@ -31,22 +31,22 @@ public class ActivateRailMovement : MonoBehaviour
         pad.transform.position = padStartPos.position;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha0) && ps.GetComponent<TargetCams>().currentTarget == transform)
-        {
-            Defeated();
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Alpha0) && ps.GetComponent<TargetCams>().currentTarget == transform)
+    //    {
+    //        Defeated();
+    //    }
+    //}
 
     public void Defeated()
     {
         railCam.gameObject.SetActive(true);
-        if (rail != null && railEndPos != null) { rail.transform.DOMove(railEndPos.transform.position, 2f).OnComplete(ResetCams); }
+        if (rail != null && railEndPos != null) { rail.transform.DOMove(railEndPos.transform.position, 2f); }
         if (pad != null && padEndPos != null) { pad.transform.DOMove(padEndPos.transform.position, 2f); }
     }
 
-    void ResetCams()
+    public void ResetCams()
     {
         railCam.gameObject.SetActive(false);
         ps.tl.freeLook.Priority = 10;

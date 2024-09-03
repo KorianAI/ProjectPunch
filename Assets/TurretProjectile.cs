@@ -9,6 +9,10 @@ public class TurretProjectile : MonoBehaviour
     public float damage;
     public float destroyTime = 1f;
 
+    [Header("Hit Ground")]
+    public LayerMask whatisGround;
+    public GameObject rumbleVFX;
+
     private void OnCollisionEnter(Collision collision)
     {
         RumbleManager.instance.RumblePulse(.10f, .5f, .10f);
@@ -24,9 +28,17 @@ public class TurretProjectile : MonoBehaviour
                 c.GetComponent<IDamageable>().TakeDamage(damage);
                 //sfx - explode
                 RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
-                Destroy(gameObject);
+                
             }
+
+            if (collision.gameObject.layer == whatisGround)
+            {
+                Instantiate(rumbleVFX, transform.position, Quaternion.identity);
+            }
+
+            Destroy(gameObject);
         }
+
         else
         {
             Destroy(gameObject, destroyTime);

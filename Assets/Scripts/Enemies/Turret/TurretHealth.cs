@@ -46,6 +46,8 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
     public GameObject slamVFX;
     public Transform slamDetectionPoint;
 
+    public ParticleSystem smokevfx;
+
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -64,6 +66,14 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
 
         healthBars = GetComponentInChildren<HealthBars>();
         audioManager = GetComponent<EnemyAudioManager>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            Die();
+        }
     }
 
     public void TakeDamage(float damage)
@@ -132,48 +142,12 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
 
     private void Die()
     {
+        ai.dead = true;
         healthBars.HideBars();
         sm.tl.ResetTarget();
-
-        //if (sm.tl.currentTarget = gameObject.transform)
-        //{
-
-        //    sm.tl.ResetTarget();
-        //    var nextTarget = NearestEnemy();
-        //    if (nextTarget == null)
-        //    {
-        //        return;
-        //    }
-        //    else if (nextTarget != null)
-        //    {
-        //        sm.tl.AssignTarget(nextTarget.transform, nextTarget.transform.gameObject.GetComponent<Targetable>().targetPoint, 1, true);
-        //    }
-        //}
-
-        //if (ai.manager)
-        //{
-        //    ai.manager.turrets.Remove(ai);
-        //    if (ai.manager.AliveEnemyCount() <= 0)
-        //    {
-        //        PlayerCameraManager.instance.SwitchPlayerCam();
-        //    }
-
-        //    if (ai.manager.chosenEnemy == ai)
-        //    { ai.manager.RandomEnemy();
-        //    }
-        //}
-
-        
+        smokevfx.Play();
 
         ai.SwitchState(new TurretDead());
-
-        if (ai.deathFirePoint != null)
-        {
-            ai.turretHead.transform.LookAt(ai.deathFirePoint); //look at fire point
-            ai.InstantiateProjectile();
-        }
-        
-        ai.enabled = false;
         healthBar.gameObject.SetActive(false);
         armourBar.gameObject.SetActive(false);
 
@@ -181,10 +155,32 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
 
         IEnumerator DeathEffect()
         {
+            if (ai.deathFirePoint != null) //set targeting and fire a projectile
+            {
+                ai.turretHead.transform.DOLookAt(ai.deathFirePoint.position, 1f); //look at fire point
+
+                yield return new WaitForSeconds(1.2f);
+
+                ai.targetLine.SetPosition(0, ai.lineStartPos.transform.position);
+                ai.targetLine.SetPosition(1, ai.deathFirePoint.position);
+
+                yield return new WaitForSeconds(1.2f);
+
+                GameObject projectileGo = Instantiate(ai.projectile, ai.lineStartPos.transform.position, Quaternion.identity);
+                Vector3 direction = (ai.deathFirePoint.position - ai.lineStartPos.transform.position).normalized;
+                projectileGo.GetComponent<Rigidbody>().velocity = direction * ai.projectileForce;
+            }
+
+            ai.enabled = false;
+
             yield return new WaitForSeconds(2);
+
+            ai.arm.ResetCams();
+
+            ai.rb.isKinematic = false;
+            ai.rb.useGravity = true;
             Vector3 deadPos = new Vector3(transform.position.x, transform.position.y - 3f, transform.position.z);
-            //ai.agent.enabled = false;
-            transform.DOMove(deadPos, 2f).onComplete = DestroyEnemy;
+            transform.DOMove(deadPos, 1f).onComplete = DestroyEnemy;
         }
     }
 
@@ -255,32 +251,29 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
 
     public void Pull(PlayerStateManager player)
     {
-        //if (hasArmour) { return; }
-        ps = player;
-        if (ps.ih.inputDir.y < -.5f && nail != null)
-        {
-            Debug.Log("pulled the nail out lel");
-            nail.ReturnToSpawn();
-            nail = null;
-            nailImpaled = false;
-            ps.pulling = false;
-        }
+        ////if (hasArmour) { return; }
+        //ps = player;
+        //if (ps.ih.inputDir.y < -.5f && nail != null)
+        //{
+        //    Debug.Log("pulled the nail out lel");
+        //    nail.ReturnToSpawn();
+        //    nail = null;
+        //    nailImpaled = false;
+        //    ps.pulling = false;
+        //}
 
-        else
-        {
-            transform.DOMove(player.pullPosition.position, 1f).OnComplete(() => { ps.pulling = false; });
-        }
-
-
+        //else
+        //{
+        //    transform.DOMove(player.pullPosition.position, 1f).OnComplete(() => { ps.pulling = false; });
+        //}
     }
-
 
     public void Push(PlayerStateManager player)
     {
-        if (hasArmour) { return; }
-        transform.DOMove(transform.position + player.orientation.forward, 1f);
-        GetStunned(1);
-        //transform.DOShakeRotation(1, 15f, 10, 90);
+        //if (hasArmour) { return; }
+        //transform.DOMove(transform.position + player.orientation.forward, 1f);
+        //GetStunned(1);
+        ////transform.DOShakeRotation(1, 15f, 10, 90);
     }
 
     public void GetStunned(float stunLength)
