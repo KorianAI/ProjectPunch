@@ -139,6 +139,8 @@ public class CombatManager : MonoBehaviour
 
     public IEnumerator RandomEnemy()
     {
+        Debug.Log("RandomEnemy");
+
         List<EnemyAI> availableEnemies = new List<EnemyAI>();
         foreach (EnemyAI enemyAI in circlingEnemies)
         {
@@ -152,15 +154,15 @@ public class CombatManager : MonoBehaviour
         {
             int randomIndex = Random.Range(0, availableEnemies.Count);
             chosenEnemy = availableEnemies[randomIndex];
+            chosenEnemy.attackToken = true;
+            Debug.Log(availableEnemies[randomIndex]);
         }
-
-        if (chosenEnemy == null) { yield return new WaitForSeconds(2);  StartCoroutine(RandomEnemy()); }
 
         else
         {
-            chosenEnemy.attackToken = true;
+            yield return new WaitForSeconds(1); StartCoroutine(RandomEnemy());
         }
-        yield return new WaitForSeconds(Random.Range(0, .5f));
+
     }
 
     public int AliveEnemyCount()

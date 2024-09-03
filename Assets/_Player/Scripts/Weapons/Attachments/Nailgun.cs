@@ -50,7 +50,8 @@ public class Nailgun : Attachment
         Vector3 direction = GetDirection();
 
         TrailRenderer trail = Instantiate(projTrail, spawnPoint.position, Quaternion.identity);
-        StartCoroutine(SpawnTrail(trail, direction));
+        EnemyHealth enemy = sm.tl.currentTarget.GetComponent<EnemyHealth>();
+        StartCoroutine(SpawnTrail(trail, direction, enemy));
 
     }
 
@@ -75,7 +76,7 @@ public class Nailgun : Attachment
 
     public Vector3 GetDirection()
     {
-        if (sm.tl.currentTarget != null)
+        if (sm.tl.currentTarget != null && !sm.tl.targetable.environment)
         {
             Vector3 dir = sm.tl.currentTarget.position;
 
@@ -99,7 +100,7 @@ public class Nailgun : Attachment
         
     }
 
-    IEnumerator SpawnTrail(TrailRenderer trail, Vector3 enemy)
+    IEnumerator SpawnTrail(TrailRenderer trail, Vector3 enemy, EnemyHealth health)
     {
         float time = 0;
         Vector3 startPos = trail.transform.position;
@@ -111,6 +112,7 @@ public class Nailgun : Attachment
         }
 
         trail.transform.position = enemy;
+        health.TakeDamage(stats.damage);
         HitstopManager.Instance.TriggerHitstop(stats.hitstopAmnt, sm.tl.currentTarget.gameObject);
         CinemachineShake.Instance.ShakeCamera(stats.shakeAmnt, stats.shakeDur);
         CinemachineShake.Instance.ChangeFov(stats.zoomAmnt, stats.shakeDur);

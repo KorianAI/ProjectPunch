@@ -2,9 +2,13 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
+
 
 public class Muzzler : EnemyInfo
 {
+    VisualEffect indicatorVFX;
+    Transform vfxPos;
 
     private void Start()
     {
@@ -49,8 +53,9 @@ public class Muzzler : EnemyInfo
 
         if (ai.manager != null)
         {
+            Debug.Log("ResetAttack");
             ai.manager.chosenEnemy = null;
-            ai.manager.RandomEnemy();
+            StartCoroutine(ai.manager.RandomEnemy());
         }
     }
 
@@ -89,5 +94,13 @@ public class Muzzler : EnemyInfo
         // Draw a gizmo at the attack position
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(attackPosition, 0.1f);
+    }
+
+    void AttackIndicator()
+    {
+        // Instantiate the VFX at the player's feet position
+        VisualEffect vfx = Instantiate(indicatorVFX, vfxPos.position, Quaternion.identity);
+        vfx.Play();
+        Destroy(vfx.gameObject, 1f);
     }
 }
