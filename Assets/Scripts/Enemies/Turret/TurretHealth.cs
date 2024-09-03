@@ -47,12 +47,15 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
     public Transform slamDetectionPoint;
 
     public ParticleSystem smokevfx;
+    public ActivateRailMovement arm;
+
 
     private void Start()
     {
         player = GameObject.Find("Player");
         sm = player.GetComponent<PlayerStateManager>();
         ai = GetComponent<TurretAI>();
+        arm = GetComponent<ActivateRailMovement>();
 
         currentHealth = stats.health;
         currentArmour = stats.armour;
@@ -124,7 +127,6 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
             if (currentHealth <= 0)
             {
                 Die();
-                ai.ActivateRailMovement();
             }
 
             //else
@@ -143,8 +145,9 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
     private void Die()
     {
         ai.dead = true;
-        healthBars.HideBars();
+        
         sm.tl.ResetTarget();
+        healthBars.HideBars();
         smokevfx.Play();
 
         ai.SwitchState(new TurretDead());
@@ -157,6 +160,7 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
         {
             if (ai.deathFirePoint != null) //set targeting and fire a projectile
             {
+                arm.railCam.gameObject.SetActive(true); //change to cam perspective
                 ai.turretHead.transform.DOLookAt(ai.deathFirePoint.position, 1f); //look at fire point
 
                 yield return new WaitForSeconds(1.2f);
@@ -169,18 +173,30 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
                 GameObject projectileGo = Instantiate(ai.projectile, ai.lineStartPos.transform.position, Quaternion.identity);
                 Vector3 direction = (ai.deathFirePoint.position - ai.lineStartPos.transform.position).normalized;
                 projectileGo.GetComponent<Rigidbody>().velocity = direction * ai.projectileForce;
+
+                ai.enabled = false;
+
+                yield return new WaitForSeconds(1);
+
+                for (int i = 0; i < 3; i ++)
+                {
+                    Instantiate(slamVFX, ai.deathFirePoint.position, Quaternion.identity);
+                    RumbleManager.instance.RumblePulse(.10f, .5f, .10f);
+                    yield return new WaitForSeconds(.5f);
+                }
+
+                yield return new WaitForSeconds(1);
+
+                arm.Defeated();
+
+                yield return new WaitForSeconds(3f);
+
+                arm.ResetCams();
             }
 
-            ai.enabled = false;
-
-            yield return new WaitForSeconds(2);
-
-            ai.arm.ResetCams();
-
-            ai.rb.isKinematic = false;
-            ai.rb.useGravity = true;
-            Vector3 deadPos = new Vector3(transform.position.x, transform.position.y - 3f, transform.position.z);
-            transform.DOMove(deadPos, 1f).onComplete = DestroyEnemy;
+            //Vector3 deadPos = new Vector3(transform.position.x, transform.position.y - 3f, transform.position.z);
+            //transform.DOMove(deadPos, 1f).onComplete = DestroyEnemy;
+            DestroyEnemy();
         }
     }
 
@@ -217,7 +233,10 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
     {
         transform.DOKill();
         ai.transform.DOKill();
-        Destroy(gameObject);
+        Destroy(GetComponent<Targetable>());
+        Destroy(ai.dotInstance);
+        Destroy(ai.targetLine);
+        //Destroy(gameObject);
     }
 
 

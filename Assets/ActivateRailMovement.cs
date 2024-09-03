@@ -41,7 +41,6 @@ public class ActivateRailMovement : MonoBehaviour
 
     public void Defeated()
     {
-        railCam.gameObject.SetActive(true);
         if (rail != null && railEndPos != null) { rail.transform.DOMove(railEndPos.transform.position, 2f); }
         if (pad != null && padEndPos != null) { pad.transform.DOMove(padEndPos.transform.position, 2f); }
     }

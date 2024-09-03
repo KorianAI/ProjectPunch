@@ -14,17 +14,14 @@ public class TurretAI : MonoBehaviour
     public GameObject playerPos;
     public CombatManager manager;
     public EnemyAudioManager audioManager;
-    public Rigidbody rb;
 
     [Header("Conditions")]
     public bool inAttackRange;
-    public float damageRadius;
-
+    public float sightRange = 35f;
 
     public string debugState;
 
     [Header("Head Positioning")]
-    public ActivateRailMovement arm;
     public GameObject turretHead;
     public Transform lookPos1, lookPos2;
     public bool reachedPos1 = false, reachedPos2 = false;
@@ -42,7 +39,7 @@ public class TurretAI : MonoBehaviour
 
     [Header("Targeting Line & Dot")]
     public GameObject dotPrefab;
-    private GameObject dotInstance;
+    public GameObject dotInstance;
     public GameObject dotParent;
 
     [Space]
@@ -73,7 +70,6 @@ public class TurretAI : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
         playerPos = PlayerStateManager.instance.gameObject;
         info.ai = this;
 
@@ -120,7 +116,7 @@ public class TurretAI : MonoBehaviour
     {
         if (!dead)
         {
-            inAttackRange = Physics.CheckSphere(transform.position, info.stats.patrolRange, info.whatIsPlayer);
+            inAttackRange = Physics.CheckSphere(transform.position, sightRange, info.whatIsPlayer);
             return inAttackRange;
         }
         else
@@ -131,16 +127,8 @@ public class TurretAI : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.black;
-        Gizmos.DrawWireSphere(info.transform.position, info.stats.patrolRange);
-    }
-
-    public void ActivateRailMovement()
-    {
-        if (arm != null)
-        {
-            arm.Defeated();
-        }
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(info.transform.position, sightRange);
     }
 
     public void UpdateIdleLookPosition() //move back and forth when idle
