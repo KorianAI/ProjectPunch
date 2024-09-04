@@ -1442,6 +1442,12 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Null"",
+            ""id"": ""6debbdcf-a999-481b-a394-02172375d79b"",
+            ""actions"": [],
+            ""bindings"": []
         }
     ],
     ""controlSchemes"": [
@@ -1508,6 +1514,8 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Cutscene = asset.FindActionMap("Cutscene", throwIfNotFound: true);
         m_Cutscene_Push = m_Cutscene.FindAction("Push", throwIfNotFound: true);
         m_Cutscene_Skip = m_Cutscene.FindAction("Skip", throwIfNotFound: true);
+        // Null
+        m_Null = asset.FindActionMap("Null", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1903,6 +1911,44 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         }
     }
     public CutsceneActions @Cutscene => new CutsceneActions(this);
+
+    // Null
+    private readonly InputActionMap m_Null;
+    private List<INullActions> m_NullActionsCallbackInterfaces = new List<INullActions>();
+    public struct NullActions
+    {
+        private @InputMaster m_Wrapper;
+        public NullActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputActionMap Get() { return m_Wrapper.m_Null; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(NullActions set) { return set.Get(); }
+        public void AddCallbacks(INullActions instance)
+        {
+            if (instance == null || m_Wrapper.m_NullActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_NullActionsCallbackInterfaces.Add(instance);
+        }
+
+        private void UnregisterCallbacks(INullActions instance)
+        {
+        }
+
+        public void RemoveCallbacks(INullActions instance)
+        {
+            if (m_Wrapper.m_NullActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(INullActions instance)
+        {
+            foreach (var item in m_Wrapper.m_NullActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_NullActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public NullActions @Null => new NullActions(this);
     private int m_KeyboardandMouseSchemeIndex = -1;
     public InputControlScheme KeyboardandMouseScheme
     {
@@ -1957,5 +2003,8 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     {
         void OnPush(InputAction.CallbackContext context);
         void OnSkip(InputAction.CallbackContext context);
+    }
+    public interface INullActions
+    {
     }
 }

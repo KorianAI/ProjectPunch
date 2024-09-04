@@ -190,12 +190,14 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public IEnumerator Die()
     {
+        InputMapManager.ToggleActionMap(InputMapManager.inputActions.Null); //prevent movement
         stateManager.anim.SetTrigger("Die");
         yield return new WaitForSeconds(1);
         GetComponent<Respawn>().ResetPlayer();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1);
         stateManager.anim.SetTrigger("Get Up");
-        //SceneManager.LoadScene(1);
+        yield return new WaitForSeconds(2.5f);
+        InputMapManager.ToggleActionMap(InputMapManager.inputActions.Player); //allow movement
     }
 
     public void UpdateScrap(float amount)

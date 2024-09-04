@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d3a041c56bc6c0742ba22a3c0ae47b31, type: 2}
+  - {fileID: 2100000, guid: 591d534ae6218d9498d49a20b6f29faf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,3 +156,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rumbleVFX: {fileID: 7642563901005490453, guid: dc7b89bd2a278cf4ba9f424c96af54d9, type: 3}
+  speed: 65

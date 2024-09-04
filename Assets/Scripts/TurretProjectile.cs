@@ -9,6 +9,7 @@ public class TurretProjectile : MonoBehaviour, IParriable
     public LayerMask playerLayer;
     public float damage;
     public float destroyTime = 1f;
+    Rigidbody rb;
 
     [Header("Hit Ground")]
     public LayerMask whatisGround;
@@ -23,10 +24,13 @@ public class TurretProjectile : MonoBehaviour, IParriable
     {
         spawnPoint = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         playerPos = PlayerStateManager.instance.gameObject;
+        rb = GetComponent<Rigidbody>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        rb.velocity = Vector3.zero;
+        //rb.isKinematic = true;
         RumbleManager.instance.RumblePulse(.10f, .5f, .10f);
         //sfx - fire
 
