@@ -113,12 +113,15 @@ public class CombatManager : MonoBehaviour
         List<EnemyAI> availableEnemies = new List<EnemyAI>();
         foreach (EnemyAI e in enemies)
         {
-            availableEnemies.Add(e); // adds all enemies to an array
+            if (!e.circleToken)
+            {
+                availableEnemies.Add(e); // adds all enemies to an array
+            }
         }
 
         if (availableEnemies.Count > 0) // checks if array is bigger thn 0
         {
-            int loopAmnt = availableEnemies.Count;
+            int loopAmnt = 3 - circlingEnemies.Count;
             if (loopAmnt > 3) { loopAmnt = 3; }
 
             for (int i = 0; i < loopAmnt; i++) // loops three times through 
@@ -139,7 +142,6 @@ public class CombatManager : MonoBehaviour
 
     public IEnumerator RandomEnemy()
     {
-        Debug.Log("RandomEnemy");
 
         List<EnemyAI> availableEnemies = new List<EnemyAI>();
         foreach (EnemyAI enemyAI in circlingEnemies)
@@ -155,7 +157,6 @@ public class CombatManager : MonoBehaviour
             int randomIndex = Random.Range(0, availableEnemies.Count);
             chosenEnemy = availableEnemies[randomIndex];
             chosenEnemy.attackToken = true;
-            Debug.Log(availableEnemies[randomIndex]);
         }
 
         else

@@ -10459,7 +10459,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2.09
   m_Radius: 0.3
-  m_SlopeLimit: 50
+  m_SlopeLimit: 40.13
   m_StepOffset: 0.4
   m_SkinWidth: 0.05
   m_MinMoveDistance: 0.001
@@ -10586,10 +10586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9bb5ffa4492b64fa64013de706f3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallThreshold: -5
-  vignette: {fileID: 0}
   respawnAnimObj: {fileID: 0}
-  deathCam: {fileID: 0}
+  fallThreshold: -5
 --- !u!114 &588834378717756476
 MonoBehaviour:
   m_ObjectHideFlags: 0

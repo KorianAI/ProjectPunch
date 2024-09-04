@@ -22,7 +22,10 @@ public class Respawn : MonoBehaviour
     {
         sm = GetComponent<PlayerStateManager>();
         pr = GetComponent<PlayerResources>();
-        reloadAnim = respawnAnimObj.GetComponent<Animation>();
+        if (respawnAnimObj != null )
+        {
+            reloadAnim = respawnAnimObj.GetComponent<Animation>();
+        }
         cpManager = GameObject.Find("CheckpointManager").GetComponent<CheckpointManager>();
     }
 

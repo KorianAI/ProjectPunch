@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Rendering;
+using Autodesk.Fbx;
 
 public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 {
@@ -134,6 +135,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
     private void Die()
     {
+
         healthBars.HideBars();
 
         if (sm.tl.currentTarget = gameObject.transform)
@@ -141,23 +143,43 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
           
             sm.tl.ResetTarget();
             var nextTarget = NearestEnemy();
-            if (nextTarget == null) { return; }
-            Debug.Log("PLEASE");
-            sm.tl.AssignTarget(nextTarget.transform, nextTarget.transform.gameObject.GetComponent<Targetable>().targetPoint, 1, true);
+            if (nextTarget != null) { sm.tl.AssignTarget(nextTarget.transform, nextTarget.transform.gameObject.GetComponent<Targetable>().targetPoint, 1, true); }
+            
 
         }
 
         if (ai.manager)
         {
+            List<EnemyAI> enemiesToRemove = new List<EnemyAI>();
+
+            foreach (EnemyAI e in ai.manager.circlingEnemies)
+            {
+                if (e == ai)
+                {
+                    enemiesToRemove.Add(ai); // Collect enemy to remove later
+                }
+            }
+
+            // Remove collected enemies
+            foreach (EnemyAI e in enemiesToRemove)
+            {
+                ai.manager.circlingEnemies.Remove(e);
+            }
+
+            ai.manager.SelectCircleEnemies();
             ai.manager.enemies.Remove(ai);
+
             if (ai.manager.AliveEnemyCount() <= 0)
             {
                 PlayerCameraManager.instance.SwitchPlayerCam();
             }
 
-            if (ai.manager.chosenEnemy == ai) { //ai.manager.RandomEnemy();
-                                              }
+            if (ai.manager.chosenEnemy == ai)
+            {
+                // ai.manager.RandomEnemy(); // Uncomment if needed
+            }
         }
+
 
         ai.SwitchState(new EnemyDead());
      

@@ -1126,6 +1126,37 @@ Transform:
   - {fileID: 8257496782379909896}
   m_Father: {fileID: 7103878566166515756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3411742372291655258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3431413590372482701}
+  m_Layer: 0
+  m_Name: EnemyShoutVFXPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3431413590372482701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3411742372291655258}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.361, z: 0.106}
+  m_LocalScale: {x: 0.78787, y: 0.78787, z: 0.78787}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 766996352357563823}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3535987950544366366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,6 +1462,7 @@ Transform:
   m_Children:
   - {fileID: 7179494531664980476}
   - {fileID: 1348375248221567674}
+  - {fileID: 3431413590372482701}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1764567633179160360
@@ -1448,7 +1480,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6912,6 +6944,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   anim: {fileID: 7466497172451888301}
+  indicatorVFX: {fileID: 853049347807839713, guid: db8125708e2eef440aaf96c78546f3e7, type: 3}
+  vfxPos: {fileID: 3431413590372482701}
 --- !u!1 &6040717710413428862
 GameObject:
   m_ObjectHideFlags: 0

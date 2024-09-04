@@ -21,7 +21,10 @@ public class Muzzler : EnemyInfo
         {
             canAttack = false;
             Vector3 storedPos = CalculateAttackPosition(target.position);
-            ai.transform.DOMove(storedPos, 1).OnComplete(() =>
+            float distance = Vector3.Distance(transform.position, storedPos);
+            float dur = distance / agent.speed;
+            AttackIndicator();
+            ai.transform.DOMove(storedPos, dur).OnComplete(() =>
             {
                StartCoroutine(AttackAnim());
             }); 
@@ -43,8 +46,8 @@ public class Muzzler : EnemyInfo
 
     IEnumerator AttackAnim()
     {
-        AttackIndicator();
-        yield return new WaitForSeconds(1);
+        
+        yield return new WaitForSeconds(.3f);
         anim.SetTrigger("Attack");
         StartCoroutine(ResetAttack());
     }
@@ -58,7 +61,6 @@ public class Muzzler : EnemyInfo
 
         if (ai.manager != null)
         {
-            Debug.Log("ResetAttack");
             ai.manager.chosenEnemy = null;
             StartCoroutine(ai.manager.RandomEnemy());
         }
@@ -105,6 +107,7 @@ public class Muzzler : EnemyInfo
     {
         // Instantiate the VFX at the player's feet position
         VisualEffect vfx = Instantiate(indicatorVFX, vfxPos.position, Quaternion.identity);
+        vfx.transform.SetParent(transform);
         vfx.Play();
         Destroy(vfx.gameObject, 1f);
     }

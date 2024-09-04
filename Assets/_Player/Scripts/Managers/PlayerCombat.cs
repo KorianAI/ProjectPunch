@@ -68,7 +68,6 @@ public class PlayerCombat : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider c in enemies)
         {
-            Debug.Log(c.name);
             c.GetComponent<IDamageable>().TakeDamage(modeStats.damage);
 
             _sm.attackHit = true;
