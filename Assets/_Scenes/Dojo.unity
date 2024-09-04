@@ -1698,6 +1698,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3522073094188789333, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4105524914971712823, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
       propertyPath: m_Name
       value: Muzzler
@@ -3001,6 +3005,10 @@ PrefabInstance:
       propertyPath: circleToken
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3522073094188789333, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4105524914971712823, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
       propertyPath: m_Name
       value: Muzzler (1)
@@ -3498,6 +3506,10 @@ PrefabInstance:
     - target: {fileID: 766996352357563823, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522073094188789333, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4105524914971712823, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
       propertyPath: m_Name
@@ -5562,21 +5574,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2029688924906426502, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
-      propertyPath: available
+    - target: {fileID: 3522073094188789333, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
+      propertyPath: m_UseGravity
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2029688924906426502, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
-      propertyPath: circleToken
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4105524914971712823, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
       propertyPath: m_Name
       value: Muzzler (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7127234183087727484, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

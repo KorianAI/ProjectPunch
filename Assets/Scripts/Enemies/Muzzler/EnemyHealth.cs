@@ -182,8 +182,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
 
         ai.SwitchState(new EnemyDead());
-     
-        ai.enabled = false;
         healthBar.gameObject.SetActive(false);
         armourBar.gameObject.SetActive(false);
         //if (ai.chase != null) { ai.StopCoroutine(ai.chase); }
