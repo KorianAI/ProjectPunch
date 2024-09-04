@@ -16,6 +16,7 @@ public class EnemyAirborne : EnemyState
     public override void ExitState(EnemyAI enemyAI)
     {
         base.ExitState(enemyAI);
+
     }
 
     public override void FrameUpdate(EnemyAI enemyAI)
@@ -29,6 +30,7 @@ public class EnemyAirborne : EnemyState
             if (!ai.inAir)
             {
                 enemyAI.rb.useGravity = false;
+                ai.agent.enabled = true;
                 ai.SwitchState(new EnemyIdle());
             }
         }
