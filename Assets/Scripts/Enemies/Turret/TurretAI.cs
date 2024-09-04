@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class TurretAI : MonoBehaviour
 {
@@ -58,11 +59,12 @@ public class TurretAI : MonoBehaviour
     public Vector3 smoothedLinePosition; // Position of the line's endpoint after smoothing
 
     [Header("Firing")]
+    public GameObject projSpawnPoint;
     public float fireTimer = 5f;
     public GameObject projectile;
     public float projectileForce = 1;
     public GameObject chargeVFX;
-
+    public VisualEffect fireVFX;
 
     [Header("Death")]
     public Transform deathFirePoint;
@@ -182,6 +184,7 @@ public class TurretAI : MonoBehaviour
         yield return new WaitForSeconds(fireTimer /2); //finishes countdown
 
         chargeVFX.SetActive(false);
+        fireVFX.Play();
 
         if (InAttackRange()) //prevent firing if player has moved out of range
         {
@@ -230,8 +233,8 @@ public class TurretAI : MonoBehaviour
 
     public void InstantiateProjectile()
     {
-        GameObject projectileGo = Instantiate(projectile, lineStartPos.transform.position, Quaternion.identity);
-        Vector3 direction = (playerPos.transform.position - lineStartPos.transform.position).normalized;
+        GameObject projectileGo = Instantiate(projectile, projSpawnPoint.transform.position, Quaternion.identity);
+        Vector3 direction = (playerPos.transform.position - projSpawnPoint.transform.position).normalized;
         projectileGo.GetComponent<Rigidbody>().velocity = direction * projectileForce;
     }
 

@@ -6,19 +6,19 @@ public class VignetteEventTrigger : MonoBehaviour
 {
     [SerializeField] Respawn respawn;
 
-    public void FadeIn() //called by event trigger on fade out anim
+    public void RespawnAppear() //called by event trigger on fade out anim
     {
         if (respawn != null)
         {
-            respawn.FadeIn();
+            respawn.RespawnAppear();
         }
     }
 
-    public void ResetCams() //called by event trigger on fade in anim
+    public void RespawnDisappear() //called by event trigger on fade in anim
     {
         if (respawn != null)
         {
-            respawn.ResetCams();
+            respawn.RespawnDisappear();
         }
     }
 }

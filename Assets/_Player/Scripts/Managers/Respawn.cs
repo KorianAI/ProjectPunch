@@ -6,38 +6,29 @@ using DG.Tweening;
 
 public class Respawn : MonoBehaviour
 {
-    public float threshold = -5f;
- 
-    public GameObject vignette;
-    Animator vignetteAnim;
-    public GameObject respawnAnimObj;
-    Animation respawnAnim;
-
-    public CinemachineVirtualCamera deathCam;
-
-    CheckpointManager cpManager;
-
-    bool canReset = true;
-    bool fadedIn = false;
-    bool fadedOut = false;
-
+    [Header("References")]
     PlayerStateManager sm;
     PlayerResources pr;
+    public GameObject respawnAnimObj;
+    Animation reloadAnim;
+    CheckpointManager cpManager;
 
-
+    [Header("Variables")]
+    bool canReset = true;
+    bool respawnActive = false;
+    public float fallThreshold = -5f;
+    
     private void Start()
     {
         sm = GetComponent<PlayerStateManager>();
         pr = GetComponent<PlayerResources>();
-        //respawnAnimObj.SetActive(false);
-        respawnAnim = respawnAnimObj.GetComponent<Animation>();
-
+        reloadAnim = respawnAnimObj.GetComponent<Animation>();
         cpManager = GameObject.Find("CheckpointManager").GetComponent<CheckpointManager>();
     }
 
     void LateUpdate()
     {
-        if (transform.position.y < threshold && canReset)
+        if (transform.position.y < fallThreshold && canReset)
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
             // ^ nuclear option in case this script doesn't work
@@ -49,33 +40,29 @@ public class Respawn : MonoBehaviour
 
             if (cpManager != null)
             {
-                ResetAnim();
+                reloadAnim.Play();
             }
         }
     }
 
     public void ResetPlayer()
     {
-        //CameraManager.SwitchNonPlayerCam(deathCam);
-        //deathCam.Follow = null;
-    }
+        sm.SwitchState(sm.idleState);
+        sm.pm.yVelocity = 0;
+        sm.pm.velocity = Vector3.zero;
+        canReset = false;
 
-    public void FadeOut() //adds vignette
-    {
-        if (!fadedOut)
+        if (cpManager != null)
         {
-            fadedOut = true;
-
-            vignette.SetActive(true);
-            vignetteAnim.SetTrigger("FadeOut");
+            reloadAnim.Play();
         }
     }
 
-    public void FadeIn() //removes vignette
+    public void RespawnAppear()
     {
-        if (!fadedIn)
+        if (!respawnActive)
         {
-            fadedIn = true;
+            respawnActive = true;
 
             //set player position
             if (cpManager.respawnPoint != null)
@@ -89,16 +76,12 @@ public class Respawn : MonoBehaviour
             }
 
             pr.ReplenishAll();
-
-            //CameraManager.SwitchPlayerCam(PlayerStateManager.instance.playerCam);
         }
     }
 
-    public void ResetCams() //should be setting things back to how they were
+    public void RespawnDisappear() //should be setting things back to how they were
     {
-        fadedOut = false;
-        fadedIn = false;
-
+        respawnActive = false;
         StartCoroutine(AllowRespawn());
     }
 
@@ -106,14 +89,5 @@ public class Respawn : MonoBehaviour
     { 
         yield return new WaitForSeconds(1f);
         canReset = true;
-    }
-
-    public void ResetAnim()
-    {
-        if (!fadedOut)
-        {
-            fadedOut = true;
-            respawnAnim.Play();
-        }
-    }
+    }    
 }

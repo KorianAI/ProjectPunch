@@ -144,8 +144,6 @@ public class PlayerResources : MonoBehaviour, IDamageable
     {
         if (invincible || superInvincible) return;
 
-
-
         if (hasArmour)
         {
             float remainingDamage = damage - currentArmour;
@@ -169,24 +167,35 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
         else
         {
-            if (currentHealth > 10)
+            float healthRemaining = currentHealth - damage;
+
+            if (healthRemaining >= 1)
             {
                 currentHealth -= damage;
                 healthBar.currentValue = currentHealth;
                 healthBar.DrawSlots();
             }
 
-            else if (currentHealth <= 0)
+            else if (healthRemaining <= 0)
             {
                 currentHealth -= damage;
                 healthBar.currentValue = currentHealth;
                 healthBar.DrawSlots();
-                //GetComponent<Respawn>().ResetPlayer();
-                SceneManager.LoadScene(1);
+                StartCoroutine(Die());
             }
         }
 
         CinemachineShake.Instance.ShakeCamera(dmgShakeAmnt, dmgShakeDur);
+    }
+
+    public IEnumerator Die()
+    {
+        stateManager.anim.SetTrigger("Die");
+        yield return new WaitForSeconds(1);
+        GetComponent<Respawn>().ResetPlayer();
+        yield return new WaitForSeconds(1.5f);
+        stateManager.anim.SetTrigger("Get Up");
+        //SceneManager.LoadScene(1);
     }
 
     public void UpdateScrap(float amount)

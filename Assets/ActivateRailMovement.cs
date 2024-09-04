@@ -30,8 +30,14 @@ public class ActivateRailMovement : MonoBehaviour
         {
             railCam.gameObject.SetActive(false);
         }
-        rail.transform.position = railStartPos.position;
-        pad.transform.position = padStartPos.position;
+        if (rail != null)
+        {
+            rail.transform.position = railStartPos.position;
+        }
+        if (pad != null)
+        {
+            pad.transform.position = padStartPos.position;
+        }
     }
 
     public void Defeated()
