@@ -146,11 +146,13 @@ public class PlayerCombat : MonoBehaviour
 
     public void SlamToGround()
     {
+        Debug.Log("Slam Called");
         _sm.anim.speed = 0;
         StartCoroutine(PauseDelay());
 
         IEnumerator PauseDelay()
         {
+            Debug.Log("Slam Delay");
             yield return new WaitForSeconds(slamDelay);
             _sm.anim.speed = 1;
             float groundYPosition = DetectGroundPosition();
@@ -158,6 +160,8 @@ public class PlayerCombat : MonoBehaviour
             // Move the enemy down to the ground
             transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad).OnComplete(() =>
             {
+                Debug.Log("Slam Finished");
+                movement.grounded=true;
                 PlayerAudioManager.instance.SlamExplode(); Instantiate(slamVFX, transform.position, Quaternion.identity); _sm.SwitchState(new PlayerIdleState());
             });
         }

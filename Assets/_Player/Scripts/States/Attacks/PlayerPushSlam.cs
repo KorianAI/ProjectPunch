@@ -26,10 +26,7 @@ public class PlayerPushSlam : PlayerAttackBase
 
     public override void HandleBufferedInput(InputCommand command)
     {
-        if (canAttack)
-        {
-            base.HandleBufferedInput(command);
-        }
+
     }
 
     public override void PhysicsUpdate(PlayerStateManager player)
