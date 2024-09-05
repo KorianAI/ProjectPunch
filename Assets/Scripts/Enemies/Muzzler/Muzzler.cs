@@ -23,6 +23,7 @@ public class Muzzler : EnemyInfo
             Vector3 storedPos = CalculateAttackPosition(target.position);
             float distance = Vector3.Distance(transform.position, storedPos);
             float dur = distance / agent.speed;
+            anim.Play("StepIn");
             AttackIndicator();
             ai.transform.DOMove(storedPos, dur).OnComplete(() =>
             {
