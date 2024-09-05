@@ -33,17 +33,20 @@ public class ActivateRailMovement : MonoBehaviour
         if (rail != null)
         {
             rail.transform.position = railStartPos.position;
+            rail.GetComponentInChildren<Collider>().enabled = false;
         }
         if (pad != null)
         {
             pad.transform.position = padStartPos.position;
+            pad.GetComponent<Collider>().enabled = false;
         }
     }
 
     public void Defeated()
     {
-        if (rail != null && railEndPos != null) { rail.transform.DOMove(railEndPos.transform.position, 2f); }
-        if (pad != null && padEndPos != null) { pad.transform.DOMove(padEndPos.transform.position, 2f); }
+        if (rail != null && railEndPos != null) { rail.transform.DOMove(railEndPos.transform.position, 2f); rail.GetComponentInChildren<Collider>().enabled = true; }
+        if (pad != null && padEndPos != null) { pad.transform.DOMove(padEndPos.transform.position, 2f); pad.GetComponent<Collider>().enabled = true; }
+
     }
 
     public void ResetCams()
