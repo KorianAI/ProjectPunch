@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UnlocksManager : MonoBehaviour
 {
+    public PauseTabGroup group;
+
     [Header("Scrolls")]
     public List<GameObject> scrolls;
     public Scrollbar scrollsBar;
@@ -48,6 +50,7 @@ public class UnlocksManager : MonoBehaviour
 
                 //Assign the new navigation to your desired button or ui Object
                 scrollsBar.GetComponent<Scrollbar>().navigation = NewNav;
+                group.firstSelected[1] = scrolls[scrollNo].gameObject; //change the first selected object for that section
             }
         }
     }
