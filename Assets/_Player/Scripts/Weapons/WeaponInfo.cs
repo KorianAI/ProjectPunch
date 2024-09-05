@@ -8,6 +8,8 @@ public class WeaponInfo : MonoBehaviour
     public PlayerStateManager sm;
     public AttackStats stats;
 
+    public AttackStats[] baseComboStats;
+    public AttackStats[] airComboStats;
 
     public virtual void Start()
     {

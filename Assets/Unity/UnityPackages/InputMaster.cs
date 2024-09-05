@@ -91,7 +91,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ScrapShift"",
+                    ""name"": ""RealSteel"",
                     ""type"": ""Button"",
                     ""id"": ""dfb1b3e1-ecec-420b-8761-bbd34d4da1c9"",
                     ""expectedControlType"": ""Button"",
@@ -386,7 +386,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ScrapShift"",
+                    ""action"": ""RealSteel"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -397,7 +397,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""ScrapShift"",
+                    ""action"": ""RealSteel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -408,7 +408,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ScrapShift"",
+                    ""action"": ""RealSteel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -419,7 +419,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""ScrapShift"",
+                    ""action"": ""RealSteel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1489,7 +1489,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
         m_Player_LockOn = m_Player.FindAction("LockOn", throwIfNotFound: true);
         m_Player_Push = m_Player.FindAction("Push", throwIfNotFound: true);
-        m_Player_ScrapShift = m_Player.FindAction("ScrapShift", throwIfNotFound: true);
+        m_Player_ScrapShift = m_Player.FindAction("RealSteel", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_LightAttackHold = m_Player.FindAction("LightAttackHold", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);

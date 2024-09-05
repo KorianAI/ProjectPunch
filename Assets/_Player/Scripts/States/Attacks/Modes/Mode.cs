@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Mode : WeaponInfo
 {
-    public AttackStats[] baseComboStats;
-    public AttackStats[] airComboStats;
 
     public override void Start()
     {

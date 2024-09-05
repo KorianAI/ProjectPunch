@@ -127,17 +127,17 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     private void ActivateScrapShift(bool on)
     {
-        //if (on) { scrapShift = true; } else if (!on) { scrapShift = false; }
+        if (on) { scrapShift = true; } else if (!on) { scrapShift = false; }
 
-        //if (scrapShift)
-        //{
-        //    enterScrapShift?.Invoke();
-        //}
+        if (scrapShift)
+        {
+            
+        }
 
-        //else
-        //{
-        //    exitScrapShift?.Invoke();
-        //}
+        else
+        {
+            
+        }
     }
 
     public void TakeDamage(float damage)

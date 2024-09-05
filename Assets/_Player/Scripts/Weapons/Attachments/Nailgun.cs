@@ -29,7 +29,7 @@ public class Nailgun : Attachment
 
     public override void WeaponInput(InputCommand command, bool grounded, int index)
     {
-        if (grounded && command.Type == InputType.X)
+        if (command.Type == InputType.X)
         {
             sm.SwitchState(new NLG_G1());
         }
@@ -39,10 +39,7 @@ public class Nailgun : Attachment
             sm.SwitchState(new NLG_G2());
         }
 
-        else
-        {
-            sm.SwitchState(new PlayerAirState());
-        }
+
     }
 
     public void Shoot()

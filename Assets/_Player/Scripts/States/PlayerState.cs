@@ -32,56 +32,48 @@ public class PlayerState
     {
         if (command == null) return;
 
-        if (_sm.resources.shift != null)
+        if (command.Type == InputType.X || command.Type == InputType.xH)
         {
-            _sm.SwitchState(new PlayerIdleState());
+            _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
         }
-     
-        else
+
+        else if (command.Type == InputType.Y)
         {
-            if (command.Type == InputType.X || command.Type == InputType.xH)
+            _sm.resources.mode.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
+        }
+
+        else if (command.Type == InputType.A)
+        {
+            _sm.pm.Jump();
+        }
+
+        else if (command.Type == InputType.B)
+        {
+            if (_sm.pm.grounded)
             {
-                _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
+                _sm.SwitchState(new PlayerDashState());
             }
 
-            else if (command.Type == InputType.Y)
+            else
             {
-                _sm.resources.mode.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
-            }
-
-            else if (command.Type == InputType.A)
-            {
-                _sm.pm.Jump();
-            }
-
-            else if (command.Type == InputType.B)
-            {
-                if (_sm.pm.grounded)
+                if (_sm.pm.airDashAmount < _sm.pm.maxAirDash)
                 {
                     _sm.SwitchState(new PlayerDashState());
+                    _sm.pm.airDashAmount++;
                 }
+            }               
+        }
 
-                else
-                {
-                    if (_sm.pm.airDashAmount < _sm.pm.maxAirDash)
-                    {
-                        _sm.SwitchState(new PlayerDashState());
-                        _sm.pm.airDashAmount++;
-                    }
-                }               
-            }
+        else if (command.Type == InputType.Push)
+        {
 
-            else if (command.Type == InputType.Push)
-            {
+                _sm.magnets.PushInput(command, _sm.pm.grounded);
 
-                    _sm.magnets.PushInput(command, _sm.pm.grounded);
+        }
 
-            }
-
-            else if (command.Type == InputType.Pull)
-            {
-                _sm.magnets.PullInput(command);
-            }
+        else if (command.Type == InputType.Pull)
+        {
+            _sm.magnets.PullInput(command);
         }
 
         _sm.ih.inputDir = command.Direction;
