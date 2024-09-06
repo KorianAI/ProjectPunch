@@ -21,12 +21,12 @@ public class RealSteel : WeaponInfo
 
             else if (command.Type == InputType.X)
             {
-                // RS_X // change to shockwave
+                // RS_X // change to shockwave - Nailgun
             }
 
             else if (command.Type == InputType.xH)
             {
-                // RS_XH; // change to better nail
+                // RS_XH; // change to better nail - Nailgun
             }
         }
 
@@ -46,19 +46,19 @@ public class RealSteel : WeaponInfo
 
         if (index == 0)
         {
-            // RS_1 - Punch 1
+            sm.SwitchState(new RS_G1());
         }
 
         else if (index == 1)
         {
             if (sm.pc.pauseAttack)
             {
-                // RS_4 - Barrage 1
+                sm.SwitchState(new RS_G4());
             }
 
             else
             {
-                // RS_2 - Punch 2
+                sm.SwitchState(new RS_G2());
             }
 
         }
@@ -67,19 +67,19 @@ public class RealSteel : WeaponInfo
         {
             if (sm.pc.pauseAttack)
             {
-                // RS_6 - Haymaker
+                sm.SwitchState(new RS_G6());
             }
 
             else
             {
-                // RS_3 - Punch 3
+                sm.SwitchState(new RS_G3());
             }
 
         }
 
         else if (index == 3)
         {
-            // RS_5 - Barrage 2
+            sm.SwitchState(new RS_G5());
         }
     }
 

@@ -31,15 +31,31 @@ public class PlayerState
     public virtual void HandleBufferedInput(InputCommand command)
     {
         if (command == null) return;
-
+        
         if (command.Type == InputType.X || command.Type == InputType.xH)
         {
-            _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
+            if (_sm.resources.scrapShift)
+            {
+                _sm.resources.shift.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
+            }
+            else
+            {
+                _sm.resources.attachment.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
+            }
+
         }
 
         else if (command.Type == InputType.Y)
         {
-            _sm.resources.mode.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
+            if (_sm.resources.scrapShift)
+            {
+                _sm.resources.shift.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
+            }
+            else
+            {
+                _sm.resources.mode.WeaponInput(command, _sm.pm.grounded, _sm.pc.attackIndex);
+            }
+
         }
 
         else if (command.Type == InputType.A)

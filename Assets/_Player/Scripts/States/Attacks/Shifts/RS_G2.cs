@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RS_G4 : PlayerGroundAttack
+public class RS_G2 : PlayerGroundAttack
 {
     public override void EnterState(PlayerStateManager player)
     {
@@ -11,7 +11,7 @@ public class RS_G4 : PlayerGroundAttack
         atkMoveDur = .4f;
         duration = .3f;
         base.EnterState(player);
-        player.anim.Play("RS4");
+        player.anim.Play("RS2");
         canAttack = false;
         _sm.pc.SaveAtkIndex(2);
 

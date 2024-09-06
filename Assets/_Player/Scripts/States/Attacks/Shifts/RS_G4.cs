@@ -13,7 +13,7 @@ public class RS_G4 : PlayerGroundAttack
         base.EnterState(player);
         player.anim.Play("RS4");
         canAttack = false;
-        _sm.pc.SaveAtkIndex(2);
+        _sm.pc.SaveAtkIndex(3);
 
     }
 
