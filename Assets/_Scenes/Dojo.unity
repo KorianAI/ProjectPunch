@@ -4894,6 +4894,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 279276591}
     - target: {fileID: 267864902146514877, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: currentScrap
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 267864902146514877, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: scrapAnimObj
       value: 
       objectReference: {fileID: 225122121}

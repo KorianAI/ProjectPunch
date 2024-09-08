@@ -64,7 +64,16 @@ public class PlayerCombat : MonoBehaviour
     }
     public void CheckForEnemies()
     {
-        AttackStats modeStats = resources.mode.stats;
+        AttackStats modeStats = new AttackStats();
+        if (resources.scrapShift)
+        {
+            modeStats = resources.shift.stats;
+        }
+        else
+        {
+            modeStats = resources.mode.stats;
+        }
+
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider c in enemies)
         {

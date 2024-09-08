@@ -11,9 +11,12 @@ public class CinemachineShake : MonoBehaviour
     public float originalFov;
 
     public float shakeIntensity;
-    public float fovChangeIntensity;
     public float shakeTimerTotal;
+    public float maxShakeIntensity;
+
+    public float fovChangeIntensity;
     public float fovChangeTimerTotal;
+    public float maxFOVChange;
 
     public static CinemachineShake Instance;
 
@@ -39,11 +42,19 @@ public class CinemachineShake : MonoBehaviour
         shakeTimer = time;
         shakeTimerTotal = time;
         shakeIntensity = intensity;
+        if (shakeIntensity > maxShakeIntensity)
+        {
+            shakeIntensity = maxShakeIntensity;
+        }
     }
 
     public void ChangeFov(float newFov, float time)
     {
         brain.m_Lens.FieldOfView += newFov;
+        if (brain.m_Lens.FieldOfView > maxFOVChange)
+        {
+            brain.m_Lens.FieldOfView = maxFOVChange;
+        }
         fovChangeTimer = time;
         fovChangeTimerTotal = time;
         fovChangeIntensity = brain.m_Lens.FieldOfView += newFov;

@@ -9,7 +9,7 @@ public class RS_G2 : PlayerGroundAttack
         rangeAttack = false;
         atkMoveDistance = 2.25f;
         atkMoveDur = .4f;
-        duration = .3f;
+        duration = .5f;
         base.EnterState(player);
         player.anim.Play("RS2");
         canAttack = false;
