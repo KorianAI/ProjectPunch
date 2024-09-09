@@ -51,7 +51,7 @@ public class CinemachineShake : MonoBehaviour
     public void ChangeFov(float newFov, float time)
     {
         brain.m_Lens.FieldOfView += newFov;
-        if (brain.m_Lens.FieldOfView > maxFOVChange)
+        if (brain.m_Lens.FieldOfView < maxFOVChange)
         {
             brain.m_Lens.FieldOfView = maxFOVChange;
         }

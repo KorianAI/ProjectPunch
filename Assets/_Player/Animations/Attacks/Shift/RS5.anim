@@ -130982,16 +130982,16 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 2.2666667
-    functionName: Knockup
+    functionName: CheckForEnemies
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 2.2666667
-    functionName: CheckForEnemies
+    functionName: Knockup
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
+    floatParameter: 3
     intParameter: 0
     messageOptions: 0

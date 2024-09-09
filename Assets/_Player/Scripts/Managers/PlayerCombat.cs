@@ -125,11 +125,15 @@ public class PlayerCombat : MonoBehaviour
 
         }
 
-        if (type == 2)
+        if (type == 2 || type == 3 && _sm.attackHit)
         {
             Vector3 launchPosition = new Vector3(transform.position.x, transform.position.y + launchHeight, transform.position.z);
             yPosition = launchPosition.y;
             transform.DOMove(launchPosition, launchDuration).SetEase(Ease.OutQuad);
+            if (type == 3)
+            {
+                _sm.SwitchState(new PlayerLauncher());
+            }
             movement.JumpEffect();
         }
     }

@@ -5118,9 +5118,11 @@ MonoBehaviour:
   fovChangeTimer: 0
   originalFov: 0
   shakeIntensity: 0
-  fovChangeIntensity: 0
   shakeTimerTotal: 0
+  maxShakeIntensity: 2
+  fovChangeIntensity: 0
   fovChangeTimerTotal: 0
+  maxFOVChange: 50
 --- !u!114 &1029426728
 MonoBehaviour:
   m_ObjectHideFlags: 0

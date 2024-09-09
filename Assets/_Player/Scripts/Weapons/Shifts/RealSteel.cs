@@ -89,17 +89,17 @@ public class RealSteel : WeaponInfo
 
         if (index == 0)
         {
-            // RS_A1
+            sm.SwitchState(new BFG_A1());
         }
 
         else if (index == 1)
         {
-            // RS_A2
+            sm.SwitchState(new BFG_A2());
         }
 
         else if (index == 2)
         {
-            // RS_A3
+            sm.SwitchState(new BFG_A3());
         }
     }
 }
