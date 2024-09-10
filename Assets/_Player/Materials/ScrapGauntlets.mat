@@ -119,7 +119,7 @@ Material:
     - _Metallic: 0
     - _Min: 0.3
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.424
+    - _OutlineWidth: 0.001
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
