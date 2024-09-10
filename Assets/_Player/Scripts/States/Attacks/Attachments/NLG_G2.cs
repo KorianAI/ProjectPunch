@@ -9,7 +9,6 @@ public class NLG_G2 : PlayerAttackBase
     {         
         base.EnterState(player);
         duration = 0.5f;
-        Debug.Log("dude");
         _sm.anim.Play("ConcentratedNail");
         canAttack = false;
     }
@@ -48,22 +47,7 @@ public class NLG_G2 : PlayerAttackBase
     {
         if (canAttack)
         {
-            if (command.Type == InputType.Y)
-            {
-                Debug.Log("Heavy Attack received in light state");
-                _sm.SwitchState(new BFG_G1());
-            }
-
-            else if (command.Type == InputType.X)
-            {
-                _sm.SwitchState(new NLG_G1());
-                Debug.Log("Light Attack received in light state");
-            }
-
-            else
-            {
-                base.HandleBufferedInput(command);
-            }
+            base.HandleBufferedInput(command);
         }
 
     }

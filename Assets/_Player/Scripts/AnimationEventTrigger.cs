@@ -7,6 +7,7 @@ public class AnimationEventTrigger : MonoBehaviour
 
     [SerializeField] ParticleSystem dustParticle;
     [SerializeField] Nailgun nailgun;
+    [SerializeField] RealSteel rs;
 
     public void DustPlay()
     {
@@ -21,5 +22,10 @@ public class AnimationEventTrigger : MonoBehaviour
     public void ConcentratedNail()
     {
         nailgun.ConcentratedNail();
+    }
+
+    public void PunchBlast()
+    {
+        rs.PunchBlast();
     }
 }

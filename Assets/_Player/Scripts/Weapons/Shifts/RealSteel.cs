@@ -9,6 +9,11 @@ public class RealSteel : WeaponInfo
     float maxOverdrive;
     float currentOverdrive;
 
+    // shockblast
+    public GameObject projectile;
+    public GameObject muzzleVFX;
+    public Transform projSpawn;
+
     public override void WeaponInput(InputCommand command, bool grounded, int index)
     {
 
@@ -21,7 +26,7 @@ public class RealSteel : WeaponInfo
 
             else if (command.Type == InputType.X)
             {
-                // RS_X // change to shockwave - Nailgun
+                sm.SwitchState(new RS_X());
             }
 
             else if (command.Type == InputType.xH)
@@ -101,5 +106,25 @@ public class RealSteel : WeaponInfo
         {
             sm.SwitchState(new BFG_A3());
         }
+    }
+
+    public void PunchBlast()
+    {
+        if (sm.tl.currentTarget != null && !sm.tl.targetable.environment)
+        {
+            EnemyHealth enemy = sm.tl.currentTarget.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                Vector3 direction = sm.tl.currentTarget.position - transform.position;
+                RSProjectile p = Instantiate(projectile, projSpawn.position, Quaternion.identity).GetComponent<RSProjectile>();
+                GameObject muzzle = Instantiate(muzzleVFX, projSpawn.position, Quaternion.identity); 
+                p.transform.rotation = Quaternion.LookRotation(direction.normalized);
+                p.destination = sm.tl.targetPoint;
+                p.spawnPoint = projSpawn;
+
+                Destroy(muzzle, .2f);
+            }
+        }
+
     }
 }

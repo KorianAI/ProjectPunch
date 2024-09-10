@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NLG_G1 : PlayerAttackBase
+public class RS_X : PlayerAttackBase
 {
+
     public override void EnterState(PlayerStateManager player)
-    {         
+    {
         base.EnterState(player);
         duration = 0.5f;
-        _sm.anim.Play("NailGun");
+        _sm.anim.Play("RSX1");
         canAttack = false;
     }
 
@@ -48,6 +49,5 @@ public class NLG_G1 : PlayerAttackBase
         {
             base.HandleBufferedInput(command);
         }
-
     }
 }
