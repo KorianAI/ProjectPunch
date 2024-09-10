@@ -9,12 +9,12 @@ public class PlayerState
     public virtual void EnterState(PlayerStateManager player)
     {
         _sm = player;
-        Debug.Log("Into" + this.GetType().Name);
+        //Debug.Log("Into" + this.GetType().Name);
     }
 
     public virtual void ExitState(PlayerStateManager player)
     {
-        Debug.Log("Leaving" + this.GetType().Name);
+        //Debug.Log("Leaving" + this.GetType().Name);
     }
 
     public virtual void FrameUpdate(PlayerStateManager player)

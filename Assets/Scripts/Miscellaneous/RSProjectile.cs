@@ -19,6 +19,7 @@ public class RSProjectile : MonoBehaviour
         float distance = Vector3.Distance(spawnPoint.position, destination.position);
         float dur = distance / speed;
         transform.DOMove(destination.position, dur).OnComplete(Detonate);
+        Destroy(gameObject, dur + .2f);
     }
 
     public void Detonate()
@@ -41,6 +42,7 @@ public class RSProjectile : MonoBehaviour
             }
         }
 
+        Destroy(vfx, 1f); 
         Destroy(gameObject);
     }
 }

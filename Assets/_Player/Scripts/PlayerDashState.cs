@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerDashState : PlayerMovementBase
 {
     private float dashDistance = 4f; 
-    private float dashDuration = 0.2f; 
+    private float dashDuration = 0.3f; 
     private Vector3 dashDirection; 
 
     public override void EnterState(PlayerStateManager player)
@@ -24,12 +24,26 @@ public class PlayerDashState : PlayerMovementBase
 
         _sm.playerObj.transform.forward = inputDir.normalized;
 
+        if (_sm.resources.scrapShift)
+        {
 
-        player.transform.DOMove(player.transform.position + player.playerObj.transform.forward * dashDistance, dashDuration)
-                 .SetEase(Ease.OutQuad)
-                 .OnComplete(() => OnDashComplete());
+            player.transform.DOMove(player.transform.position + player.playerObj.transform.forward * (dashDistance * 2), .15f)
+                     .SetEase(Ease.OutQuad)
+                     .OnComplete(() => OnDashComplete());
+        }
+
+        else
+        {
+
+            player.transform.DOMove(player.transform.position + player.playerObj.transform.forward * dashDistance, dashDuration)
+                     .SetEase(Ease.OutQuad)
+                     .OnComplete(() => OnDashComplete());
+        }
+
         _sm.anim.SetTrigger("Dash");
         _sm.ih.SetCanConsumeInput(true);
+
+        _sm.pm.DashEffect();
 
         if (!_sm.pm.grounded)
         {
