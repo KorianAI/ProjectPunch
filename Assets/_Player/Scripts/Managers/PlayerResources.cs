@@ -60,6 +60,9 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public GameObject[] bandagesObj;
     public GameObject[] shiftObj;
 
+    public ParticleSystem[] shiftEquipVFX;
+    public ParticleSystem[] gauntletEquipVFX;
+
     [SerializeField] Volume pp;
     [SerializeField] AnimationCurve abbCurve;
     private float abbIntensityLastTime;
@@ -293,25 +296,76 @@ public class PlayerResources : MonoBehaviour, IDamageable
                 SetActive(bandagesObj, true);
                 SetActive(gauntletsObj, true);
                 SetActive(shiftObj, false);
+                foreach (ParticleSystem p in gauntletEquipVFX)
+                {
+                    var em = p.emission;
+                    var dur = p.main.duration;
+
+                    em.enabled = true;
+                    p.Play();
+                    Invoke("TurnOff", dur / 2);
+                }
                 break;
 
             case 2: // Mode > Shift
                 SetActive(bandagesObj, false);
                 SetActive(gauntletsObj, false);
                 SetActive(shiftObj, true);
+                foreach (ParticleSystem p in shiftEquipVFX)
+                {
+                    var em = p.emission;
+                    var dur = p.main.duration;
+
+                    em.enabled = true;
+                    p.Play();
+                    Invoke("TurnOff", dur / 2);
+                }
                 break;
 
             case 3: // Shift > Mode
                 SetActive(bandagesObj, true);
                 SetActive(gauntletsObj, true);
                 SetActive(shiftObj, false);
+                foreach (ParticleSystem p in gauntletEquipVFX)
+                {
+                    var em = p.emission;
+                    var dur = p.main.duration;
+
+                    em.enabled = true;
+                    p.Play();
+                    Invoke("TurnOff", dur / 2);
+                }
                 break;
 
             case 4: // Any > Gauntlets
                 SetActive(bandagesObj, false);
                 SetActive(gauntletsObj, true);
                 SetActive(shiftObj, false);
+                foreach (ParticleSystem p in gauntletEquipVFX)
+                {
+                    var em = p.emission;
+                    var dur = p.main.duration;
+
+                    em.enabled = true;
+                    p.Play();
+                    Invoke("TurnOff", dur / 2);
+                }
                 break;
+        }
+    }
+
+    void TurnOff()
+    {
+        foreach (ParticleSystem p in gauntletEquipVFX)
+        {
+            var em = p.emission;
+            em.enabled = false;
+        }
+
+        foreach (ParticleSystem p in shiftEquipVFX)
+        {
+            var em = p.emission;
+            em.enabled = false;
         }
     }
 

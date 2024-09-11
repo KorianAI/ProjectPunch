@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerDashState : PlayerMovementBase
 {
-    private float dashDistance = 4f; 
+    private float dashDistance = 5f; 
     private float dashDuration = 0.3f; 
     private Vector3 dashDirection; 
 
@@ -27,7 +27,7 @@ public class PlayerDashState : PlayerMovementBase
         if (_sm.resources.scrapShift)
         {
 
-            player.transform.DOMove(player.transform.position + player.playerObj.transform.forward, .15f)
+            player.transform.DOMove(player.transform.position + player.playerObj.transform.forward * dashDistance, .15f)
                      .SetEase(Ease.OutQuad)
                      .OnComplete(() => OnDashComplete());
         }
