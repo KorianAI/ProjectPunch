@@ -137,6 +137,7 @@ public class TargetCams : MonoBehaviour
 
         currentTarget = target;
         targetable = currentTarget.GetComponent<Targetable>();
+        targetable.SetColor();
         targetPoint = point;
         isTargeting = true;
         targetGroup.AddMember(point, weight, 0);
@@ -170,6 +171,7 @@ public class TargetCams : MonoBehaviour
             }
         }
 
+        targetable.ResetColor();
         isTargeting = false;
         currentTarget = null;
         targetPoint = null;
@@ -225,6 +227,7 @@ public class TargetCams : MonoBehaviour
                     {
                         warmup = false;
                         StartCoroutine(TargetCooldown());
+                        targetable.ResetColor();
                         AssignTarget(SelectLeftTarget().transform, SelectLeftTarget().GetComponent<Targetable>().targetPoint, 1, true);
                     }
                 }
@@ -245,6 +248,7 @@ public class TargetCams : MonoBehaviour
                     {
                         warmup = false;
                         StartCoroutine(TargetCooldown());
+                        targetable.ResetColor();
                         AssignTarget(SelectRightTarget().transform, SelectRightTarget().GetComponent<Targetable>().targetPoint, 1, true);
                     }
                 }
