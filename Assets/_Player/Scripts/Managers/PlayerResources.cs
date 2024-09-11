@@ -61,6 +61,10 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public bool superInvincible;
 
+    public GameObject[] gauntletsObj;
+    public GameObject[] bandagesObj;
+    public GameObject[] shiftObj;
+
     private void OnEnable()
     {
         CameraManager.RegisterPC(scrapCam);
@@ -121,23 +125,30 @@ public class PlayerResources : MonoBehaviour, IDamageable
         {
             ActivateScrapShift(true);
             scrapAnimObj.SetActive(false);
+        }
 
+        else if (scrapShift)
+        {
+            ActivateScrapShift(false);
         }
     }
 
     private void ActivateScrapShift(bool on)
     {
-        if (on) { scrapShift = true; } else if (!on) { scrapShift = false; }
-
-        if (scrapShift)
-        {
-            
+        if (on) 
+        { 
+            scrapShift = true; 
+            ChangeGauntlets(2); 
+        } 
+        
+        else if (!on)        
+        { 
+            scrapShift = false;
+            ChangeGauntlets(3);
         }
 
-        else
-        {
-            
-        }
+
+
     }
 
     public void TakeDamage(float damage)
@@ -266,5 +277,43 @@ public class PlayerResources : MonoBehaviour, IDamageable
         armourBar.currentValue = currentArmour;
         armourBar.DrawSlots();
         currentScrap = 0;
+    }
+
+    public void ChangeGauntlets(int type)
+    {
+        switch (type)
+        {
+            case 1: // Regular > Mode
+                SetActive(bandagesObj, true);
+                SetActive(gauntletsObj, true);
+                SetActive(shiftObj, false);
+                break;
+
+            case 2: // Mode > Shift
+                SetActive(bandagesObj, false);
+                SetActive(gauntletsObj, false);
+                SetActive(shiftObj, true);
+                break;
+
+            case 3: // Shift > Mode
+                SetActive(bandagesObj, true);
+                SetActive(gauntletsObj, true);
+                SetActive(shiftObj, false);
+                break;
+
+            case 4: // Any > Gauntlets
+                SetActive(bandagesObj, false);
+                SetActive(gauntletsObj, true);
+                SetActive(shiftObj, false);
+                break;
+        }
+    }
+
+    private void SetActive(GameObject[] objects, bool isActive)
+    {
+        foreach (GameObject obj in objects)
+        {
+            obj.SetActive(isActive);
+        }
     }
 }

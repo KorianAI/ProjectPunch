@@ -14,39 +14,11 @@ public class Targetable : MonoBehaviour
 
     public MeshRenderer mRenderer;
     public SkinnedMeshRenderer sRenderer;
+    public float outlineThicknessMultiplier = 2;
 
     private void Start()
     {
-        //mRenderer = GetComponent<MeshRenderer>() ?? GetComponentInChildren<MeshRenderer>() ?? GetComponentInParent<MeshRenderer>();
-        //if (mRenderer != null)
-        //{
-        //    Debug.Log("MeshRenderer found: " + mRenderer.gameObject.name);
-        //}
-        //else
-        //{
-        //    Debug.Log("MeshRenderer not found.");
-        //}
 
-        //if (mRenderer == null)
-        //{
-        //    sRenderer = GetComponent<SkinnedMeshRenderer>() ?? GetComponentInChildren<SkinnedMeshRenderer>() ?? GetComponentInParent<SkinnedMeshRenderer>();
-        //    if (sRenderer != null)
-        //    {
-        //        Debug.Log("SkinnedMeshRenderer found: " + sRenderer.gameObject.name);
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("SkinnedMeshRenderer not found.");
-        //    }
-        //}
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            SetColor();
-        }
     }
 
     public void SetColor()
@@ -75,6 +47,7 @@ public class Targetable : MonoBehaviour
             }
 
             newMat.SetColor("_OutlineColor", test);
+            newMat.SetFloat("_OutlineWidth", mat.GetFloat("_OutlineWidth") * outlineThicknessMultiplier); 
         }
     }
 

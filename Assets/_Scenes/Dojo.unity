@@ -1698,18 +1698,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3522073094188789333, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4105524914971712823, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
       propertyPath: m_Name
       value: Muzzler
       objectReference: {fileID: 0}
-    - target: {fileID: 4360131028242730843, guid: c996962c7665a1449bd4a6fdc8579d4f, type: 3}
-      propertyPath: mat
-      value: 
-      objectReference: {fileID: 2100000, guid: cd3032d9da59b7b4b935cdbaf2a99460, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4897,6 +4889,42 @@ PrefabInstance:
       propertyPath: scrapFillImage
       value: 
       objectReference: {fileID: 1841089833}
+    - target: {fileID: 267864902146514877, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: shiftObj.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 267864902146514877, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: bandagesObj.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 267864902146514877, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: shiftObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 6838904156977395699}
+    - target: {fileID: 267864902146514877, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: shiftObj.Array.data[1]
+      value: 
+      objectReference: {fileID: 202851359697047572}
+    - target: {fileID: 267864902146514877, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: gauntletsObj.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 267864902146514877, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: bandagesObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 2146782620882595614}
+    - target: {fileID: 267864902146514877, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: bandagesObj.Array.data[1]
+      value: 
+      objectReference: {fileID: 3542279546364512164}
+    - target: {fileID: 267864902146514877, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: gauntletsObj.Array.data[0]
+      value: 
+      objectReference: {fileID: 6997313629333832027}
+    - target: {fileID: 267864902146514877, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
+      propertyPath: gauntletsObj.Array.data[1]
+      value: 
+      objectReference: {fileID: 4578114796040420516}
     - target: {fileID: 1238952640201979079, guid: d027b55b5db801442a8cedcd7c438d66, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10098,7 +10126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &366175169667096231
 Transform:
   m_ObjectHideFlags: 0
@@ -10511,7 +10539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2172138623313470708
 GameObject:
   m_ObjectHideFlags: 0
@@ -10972,7 +11000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &3614653200443358401
 GameObject:
   m_ObjectHideFlags: 0
@@ -11411,7 +11439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &4890665111079838592
 GameObject:
   m_ObjectHideFlags: 0
@@ -11747,7 +11775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6856734861026343553
 Transform:
   m_ObjectHideFlags: 0
@@ -11795,7 +11823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7078722786565044053
 Transform:
   m_ObjectHideFlags: 0

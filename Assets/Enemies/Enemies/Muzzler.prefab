@@ -1616,7 +1616,7 @@ MonoBehaviour:
   pullMe: 0
   pushMe: 0
   mat: {fileID: 2100000, guid: cd3032d9da59b7b4b935cdbaf2a99460, type: 2}
-  test: {r: 1, g: 0.80811393, b: 0, a: 1}
+  test: {r: 1, g: 1, b: 1, a: 1}
   mRenderer: {fileID: 0}
   sRenderer: {fileID: 5684733205463991}
 --- !u!82 &2390021426467358384
