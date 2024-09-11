@@ -1,15 +1,10 @@
 using Cinemachine;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using UnityEngine.Rendering.Universal;
 
 
 [DefaultExecutionOrder(0)]
@@ -65,12 +60,18 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public GameObject[] bandagesObj;
     public GameObject[] shiftObj;
 
+    [SerializeField] Volume pp;
+    [SerializeField] AnimationCurve abbCurve;
+    private float abbIntensityLastTime;
+    private ChromaticAberration abb;
+
     private void OnEnable()
     {
         CameraManager.RegisterPC(scrapCam);
         CameraManager.RegisterPC(regularCam);
         scrapShiftKeybind.action.performed += ScrapShiftKeybind;
         CameraManager.SwitchPlayerCam(regularCam);
+        pp.profile.TryGet(out abb);
     }
 
     private void OnDisable()
@@ -101,6 +102,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
             superInvincible = !superInvincible;
         }
 
+        float abbIntensity = abbCurve.Evaluate(Time.realtimeSinceStartup - abbIntensityLastTime);
+        abb.intensity.value = abbIntensity;
     }
 
     private void ShowIndicator()
@@ -161,6 +164,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
             currentArmour -= damage;
             armourBar.currentValue = currentArmour;
             armourBar.DrawSlots();
+            DamageEffect();
 
             if (currentArmour <= 0)
             {
@@ -184,6 +188,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
             {
                 currentHealth -= damage;
                 healthBar.currentValue = currentHealth;
+                DamageEffect();
                 healthBar.DrawSlots();
             }
 
@@ -192,6 +197,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
                 currentHealth -= damage;
                 healthBar.currentValue = currentHealth;
                 healthBar.DrawSlots();
+                DamageEffect();
                 StartCoroutine(Die());
             }
         }
@@ -315,5 +321,10 @@ public class PlayerResources : MonoBehaviour, IDamageable
         {
             obj.SetActive(isActive);
         }
+    }
+
+    void DamageEffect()
+    {
+        abbIntensityLastTime = Time.realtimeSinceStartup;
     }
 }
