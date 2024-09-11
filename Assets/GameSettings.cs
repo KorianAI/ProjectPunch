@@ -12,6 +12,7 @@ public class GameSettings : MonoBehaviour
     [Header("References")]
     public AudioMixer mixer;
     public TMP_Dropdown resDropdown;
+    public ScrollRect dropdownScrollRect;
 
     [Header("Settings")]
     public bool skipTutorials = false;
@@ -31,6 +32,8 @@ public class GameSettings : MonoBehaviour
 
     private void Start()
     {
+        resDropdown.onValueChanged.AddListener(OnDropdownValueChanged);
+
         resolutions = Screen.resolutions;
 
         resDropdown.ClearOptions();
@@ -40,10 +43,10 @@ public class GameSettings : MonoBehaviour
         int currentResolutionIndex = 0;
         for (int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
+            string option = resolutions[i].width + " x " + resolutions[i].height + " @ " + resolutions[i].refreshRateRatio + "hz";
             options.Add(option);
 
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height && resolutions[i].refreshRate == Screen.currentResolution.refreshRate)
             {
                 currentResolutionIndex = i;
             }
@@ -52,6 +55,7 @@ public class GameSettings : MonoBehaviour
         resDropdown.AddOptions(options);
         resDropdown.value = currentResolutionIndex;
         resDropdown.RefreshShownValue();
+        UpdateScrollPosition(currentResolutionIndex);
     }
 
     public void SetVolume(float volume)
@@ -82,5 +86,21 @@ public class GameSettings : MonoBehaviour
     {
         Resolution res = resolutions[resolutionIndex];
         Screen.SetResolution(res.width, res.height, Screen.fullScreenMode);
+    }
+
+    public void UpdateScrollPosition(int index)
+    {
+        float normalizedPosition = (float)index / resDropdown.options.Count; //Calculate the normalized position based on the index
+        dropdownScrollRect.verticalNormalizedPosition = 1 - normalizedPosition;
+    }
+
+    private void OnDropdownValueChanged(int index)
+    {
+        UpdateScrollPosition(index); //Call UpdateScrollPosition when the dropdown value changes
+    }
+
+    private void OnDestroy()
+    {
+        resDropdown.onValueChanged.RemoveListener(OnDropdownValueChanged);
     }
 }

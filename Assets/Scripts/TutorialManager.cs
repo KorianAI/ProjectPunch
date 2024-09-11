@@ -32,7 +32,7 @@ public class TutorialManager : MonoBehaviour
         currentTutorial = newTut;
         currentAnim = currentTutorial.GetComponentInChildren<Animation>();
 
-        if (!sm.tutIsActive && GameSettings.instance.skipTutorials)
+        if (!sm.tutIsActive && !GameSettings.instance.skipTutorials)
         {
             ShowTutorial();
         }

@@ -45,6 +45,9 @@ public class TargetCams : MonoBehaviour
     [Header("Switch Target")]
     public List<GameObject> enemiesInRange = null;
     public List<float> enemyDistances = null;
+    public bool warmup = false;
+    public float warmupTimer = 1;
+    public float warmupCancelTimer = .5f;
     public bool cooldown = false;
     public float cooldownTimer = 1f;
     public float mouseThreshhold = 3f;
@@ -214,8 +217,16 @@ public class TargetCams : MonoBehaviour
             {
                 if (currentTarget != null && SelectLeftTarget() != null && !cooldown)
                 {
-                    AssignTarget(SelectLeftTarget().transform, SelectLeftTarget().GetComponent<Targetable>().targetPoint, 1, true);
-                    StartCoroutine(TargetCooldown());
+                    if (!warmup && !cooldown)
+                    {
+                        StartCoroutine(TargetWarmup());
+                    }
+                    else if (warmup && !cooldown)
+                    {
+                        warmup = false;
+                        StartCoroutine(TargetCooldown());
+                        AssignTarget(SelectLeftTarget().transform, SelectLeftTarget().GetComponent<Targetable>().targetPoint, 1, true);
+                    }
                 }
                 else if (SelectLeftTarget() == null)
                 {
@@ -226,8 +237,16 @@ public class TargetCams : MonoBehaviour
             {
                 if (currentTarget != null && SelectRightTarget() != null && !cooldown)
                 {
-                    AssignTarget(SelectRightTarget().transform, SelectRightTarget().GetComponent<Targetable>().targetPoint, 1, true);
-                    StartCoroutine(TargetCooldown());
+                    if (!warmup && !cooldown)
+                    {
+                        StartCoroutine(TargetWarmup());
+                    }
+                    else if (warmup && !cooldown)
+                    {
+                        warmup = false;
+                        StartCoroutine(TargetCooldown());
+                        AssignTarget(SelectRightTarget().transform, SelectRightTarget().GetComponent<Targetable>().targetPoint, 1, true);
+                    }
                 }
                 else if (SelectRightTarget() == null)
                 {
@@ -402,8 +421,23 @@ public class TargetCams : MonoBehaviour
         }
     }
 
+    IEnumerator TargetWarmup()
+    {
+        yield return new WaitForSeconds(warmupTimer);
+
+        warmup = true; //allows lock on change with mouse
+
+        yield return new WaitForSeconds(warmupCancelTimer);
+
+        if (!cooldown) //if not still moving after cancel timer, reset
+        {
+            warmup = false;
+        }
+    }
+
     IEnumerator TargetCooldown()
     {
+        warmup = false;
         cooldown = true;
         yield return new WaitForSeconds(cooldownTimer);
         cooldown = false;
