@@ -20,9 +20,16 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
     public float explosionDamage;
     public LayerMask enemyLayer;
     public AttackStats explosionStats;
+    
+    Rigidbody rb;
+    BoxCollider objCollider;
+    public float fallTimer = 5;
+    public bool parryable = true;
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        objCollider = GetComponent<BoxCollider>();
         float distance = Vector3.Distance(spawnPoint.position, destination.position);
         float dur = distance / speed;
         transform.DOMove(destination.position, dur).OnComplete(PierceTarget);
@@ -51,8 +58,8 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
 
     public void DestroyNail()
     {
+        StopAllCoroutines();
         Destroy(gameObject);
-
     }
 
     public void Detonate()
@@ -75,6 +82,7 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
             }
         }
 
+        StopAllCoroutines();
         Destroy(gameObject);
     }
 
@@ -85,14 +93,32 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
         transform.SetParent(null);
         float distance = Vector3.Distance(transform.position, spawnPoint.position);
         float dur = distance / speed;
-        transform.DOMove(spawnPoint.position, dur);
+        transform.DOMove(spawnPoint.position, dur).OnComplete(StartFallTimer);
     }
 
     public void Parry()
     {
-        Debug.Log("uwaahhhh parried!");
-        float distance = Vector3.Distance(spawnPoint.position, destination.position);
-        float dur = distance / speed;
-        transform.DOMove(destination.position, dur).OnComplete(Detonate);
+        if (parryable)
+        {
+            Debug.Log("uwaahhhh parried!");
+            float distance = Vector3.Distance(spawnPoint.position, destination.position);
+            float dur = distance / speed;
+            transform.DOMove(destination.position, dur).OnComplete(Detonate);
+        }
+    }
+
+    void StartFallTimer()
+    {
+        StartCoroutine(FallTimer());
+    }
+
+    IEnumerator FallTimer()
+    {
+        yield return new WaitForSeconds(fallTimer);
+        parryable = false;
+        rb.useGravity = true;
+        objCollider.isTrigger = false;
+        yield return new WaitForSeconds(2);
+        DestroyNail();
     }
 }

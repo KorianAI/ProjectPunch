@@ -5305,6 +5305,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPoint: {fileID: 3790145257756484615}
+  environment: 1
+  pullMe: 0
+  pushMe: 0
 --- !u!82 &4590055940405049948
 AudioSource:
   m_ObjectHideFlags: 0
