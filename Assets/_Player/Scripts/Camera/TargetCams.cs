@@ -455,7 +455,7 @@ public class TargetCams : MonoBehaviour
         timerOn = true;
     }
 
-    private void CancelLock()
+    public void CancelLock()
     {
         ResetTarget();
 

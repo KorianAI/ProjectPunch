@@ -36,15 +36,7 @@ public class Respawn : MonoBehaviour
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
             // ^ nuclear option in case this script doesn't work
 
-            sm.SwitchState(sm.idleState);
-            sm.pm.yVelocity = 0;
-            sm.pm.velocity = Vector3.zero;
-            canReset = false;
-
-            if (cpManager != null)
-            {
-                reloadAnim.Play();
-            }
+            ResetPlayer();
         }
     }
 
@@ -54,6 +46,7 @@ public class Respawn : MonoBehaviour
         sm.pm.yVelocity = 0;
         sm.pm.velocity = Vector3.zero;
         canReset = false;
+        sm.tl.CancelLock();
 
         if (cpManager != null)
         {
