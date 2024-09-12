@@ -29,6 +29,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public Image scrapFillImage;
     public float scrapDecreaseAmnt;
     float scrapDecreaseTimer;
+    public float scrapDecreaseCooldown;
     public bool scrapDecrease;
 
     //shifts
@@ -107,6 +108,21 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
         float abbIntensity = abbCurve.Evaluate(Time.realtimeSinceStartup - abbIntensityLastTime);
         abb.intensity.value = abbIntensity;
+
+        if (scrapDecrease)
+        {
+            if (scrapDecreaseTimer >= 0)
+            {
+                scrapDecreaseTimer -= Time.deltaTime;
+
+                if (scrapDecreaseTimer <= 0)
+                {
+                    UpdateScrap(scrapDecreaseAmnt);
+                    scrapDecreaseTimer = scrapDecreaseCooldown;
+                }
+            }
+
+        }
     }
 
     private void ShowIndicator()
@@ -143,7 +159,9 @@ public class PlayerResources : MonoBehaviour, IDamageable
     {
         if (on) 
         { 
-            scrapShift = true; 
+            scrapShift = true;
+            scrapDecrease = true;
+            scrapDecreaseTimer = scrapDecreaseCooldown;
             ChangeGauntlets(2); 
         } 
         

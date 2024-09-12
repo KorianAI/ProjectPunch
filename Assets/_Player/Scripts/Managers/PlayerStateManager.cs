@@ -76,6 +76,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     [Header("VFX")]
     public VisualEffect speedboost;
     public VisualEffect electricityEffect;
+    public ParticleSystem parryParticles;
 
     [Header("Platforming")]
     public float moveToRailSpeed = 0.5f;
