@@ -21,6 +21,8 @@ public class RealSteel : WeaponInfo
     public GameObject muzzleVFX;
     public Transform projSpawn;
 
+    public ParticleSystem[] overdriveParticles;
+
     public override void WeaponInput(InputCommand command, bool grounded, int index)
     {
 
@@ -168,19 +170,19 @@ public class RealSteel : WeaponInfo
             currentOverdrive = maxOverdrive;
             overdriveDecreaseTimer = overdriveDecreaseCooldown;
             overdrive = true;
-            foreach (GameObject g in overdriveVFX)
-            {
-                g.SetActive(true); ;
-            }
+            //foreach (GameObject g in overdriveVFX)
+            //{
+            //    g.SetActive(true); ;
+            //}
         }
 
         else if (!on)
         {
             overdrive = false;
-            foreach (GameObject g in overdriveVFX)
-            {
-                g.SetActive(false); ;
-            }
+            //foreach (GameObject g in overdriveVFX)
+            //{
+            //    g.SetActive(false); ;
+            //}
         }
 
     }
@@ -215,6 +217,36 @@ public class RealSteel : WeaponInfo
     void UpdateOverdriveUI()
     {
         overdriveImage.fillAmount = currentOverdrive / maxOverdrive;
+        UpdateOverdriveParticles(); 
+    }
+
+    public void UpdateOverdriveParticles()
+    {
+
+        float minOverdriveThreshold = 0.30f;  // 30%
+        float maxAlpha = 200f / 255f;         
+
+        foreach (ParticleSystem p in overdriveParticles)
+        {
+            if (p == null) continue;
+
+            var mainModule = p.main;
+            ParticleSystem.MinMaxGradient startColor = mainModule.startColor;
+            Color color = startColor.color;
+
+            if (currentOverdrive / maxOverdrive >= minOverdriveThreshold)
+            {
+                float adjustedOverdrive = (currentOverdrive - (maxOverdrive * minOverdriveThreshold)) / (maxOverdrive * (1 - minOverdriveThreshold));
+                color.a = Mathf.Clamp(adjustedOverdrive, 0f, 1f) * maxAlpha;
+            }
+            else
+            {
+                color.a = 0f;
+            }
+
+            startColor.color = color;
+            mainModule.startColor = startColor;
+        }
     }
 
     private IEnumerator ResetOverdriveDecrease()
