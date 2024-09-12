@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2946705178	Play_FootstepsGround			\Default Work Unit\Play_FootstepsGround	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	293775787	FootstepsGround	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\FootstepsGround_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootstepsGround		105936
+
