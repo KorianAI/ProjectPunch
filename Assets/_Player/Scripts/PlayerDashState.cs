@@ -30,6 +30,9 @@ public class PlayerDashState : PlayerMovementBase
             player.transform.DOMove(player.transform.position + player.playerObj.transform.forward * dashDistance, .15f)
                      .SetEase(Ease.OutQuad)
                      .OnComplete(() => OnDashComplete());
+
+            _sm.resources.shift.UpdateOverdrive(1);
+
         }
 
         else

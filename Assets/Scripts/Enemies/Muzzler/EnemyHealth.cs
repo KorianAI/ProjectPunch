@@ -112,6 +112,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
             SpawnParticle();
             transform.DOShakeScale(.2f, .1f, 10, 90);
+            
+            if (sm.resources.scrapShift)
+            {
+                sm.resources.shift.UpdateOverdrive(damage / 4);
+            }
 
             if (currentHealth <= 0 )
             {

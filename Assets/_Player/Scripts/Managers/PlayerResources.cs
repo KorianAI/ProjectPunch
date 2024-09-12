@@ -34,7 +34,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     //shifts
     public bool scrapShift;
-    public WeaponInfo shift;
+    public RealSteel shift;
     public WeaponInfo mode;
     public WeaponInfo attachment;
 

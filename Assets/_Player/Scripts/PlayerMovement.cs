@@ -206,7 +206,7 @@ public class PlayerMovement : MonoBehaviour
         {
             VisualEffect dashEffect = null;
 
-            if (sm.resources.scrapShift)
+            if (sm.resources.shift.overdrive)
             {
                 playerVFX.SetActive(false);
                 dashEffect = Instantiate(rsxDashPrefab, dashEffectPosition.position, Quaternion.identity);

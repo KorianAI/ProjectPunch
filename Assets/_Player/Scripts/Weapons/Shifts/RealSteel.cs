@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RealSteel : WeaponInfo
 {
-    // Overdrive
-    bool overdrive;
-    float maxOverdrive;
-    float currentOverdrive;
+    [Header("Overdrive")]
+    public bool overdrive;
+    public float maxOverdrive;
+    public float currentOverdrive;
+    public bool overdriveDecrease;
+    public float overdriveDecreaseAmnt;
+    float overdriveDecreaseTimer;
+    public float overdriveDecreaseCooldown;
+    public Image overdriveImage;
+    public GameObject[] overdriveVFX;
 
-    // shockblast
+    [Header("Shockblast")]
     public GameObject projectile;
     public GameObject muzzleVFX;
     public Transform projSpawn;
@@ -127,4 +134,93 @@ public class RealSteel : WeaponInfo
         }
 
     }
+
+
+
+    private void Update()
+    {
+        if (overdriveDecrease)
+        {
+            if (overdriveDecreaseTimer >= 0)
+            {
+                overdriveDecreaseTimer -= Time.deltaTime;
+
+                if (overdriveDecreaseTimer <= 0)
+                {
+                    UpdateOverdrive(overdriveDecreaseAmnt);
+                    overdriveDecreaseTimer = overdriveDecreaseCooldown;
+                }
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            UpdateOverdrive(100);
+        }
+    }
+
+    #region Overdrive
+    private void ActivateOverdrive(bool on)
+    {
+        if (on)
+        {
+            currentOverdrive = maxOverdrive;
+            overdriveDecreaseTimer = overdriveDecreaseCooldown;
+            overdrive = true;
+            foreach (GameObject g in overdriveVFX)
+            {
+                g.SetActive(true); ;
+            }
+        }
+
+        else if (!on)
+        {
+            overdrive = false;
+            foreach (GameObject g in overdriveVFX)
+            {
+                g.SetActive(false); ;
+            }
+        }
+
+    }
+
+    public void UpdateOverdrive(float amount)
+    {
+        if (amount > 0)
+        {
+            overdriveDecrease = false;
+            StopAllCoroutines();
+            StartCoroutine("ResetOverdriveDecrease");
+
+        }
+        currentOverdrive += amount;
+        if (currentOverdrive + amount > maxOverdrive)
+        {
+            ActivateOverdrive(true); 
+        }
+        if (currentOverdrive + amount < 0)
+        {
+            currentOverdrive = 0;
+            if (overdrive)
+            {
+                ActivateOverdrive(false);
+            }
+
+        }
+
+        UpdateOverdriveUI();
+    }
+
+    void UpdateOverdriveUI()
+    {
+        overdriveImage.fillAmount = currentOverdrive / maxOverdrive;
+    }
+
+    private IEnumerator ResetOverdriveDecrease()
+    {
+        yield return new WaitForSeconds(1.5f);
+        overdriveDecrease = true;
+    }
+    #endregion
 }
