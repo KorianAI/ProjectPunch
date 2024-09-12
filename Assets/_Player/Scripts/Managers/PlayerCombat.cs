@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 
 public class PlayerCombat : MonoBehaviour
 {
-    PlayerStateManager _sm;
+    public PlayerStateManager _sm;
     PlayerResources resources;
     PlayerMovement movement;
 

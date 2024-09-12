@@ -5,8 +5,9 @@ using DG.Tweening;
 
 public class TurretProjectile : MonoBehaviour, IParriable
 {
+    public GameObject firedVFX;
     public GameObject explosionVFX;
-    public LayerMask playerLayer;
+    public LayerMask targetableLayer;
     public float damage;
     public float destroyTime = 1f;
     Rigidbody rb;
@@ -27,6 +28,11 @@ public class TurretProjectile : MonoBehaviour, IParriable
         rb = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        Instantiate(firedVFX, transform.position, Quaternion.identity);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         rb.velocity = Vector3.zero;
@@ -43,7 +49,7 @@ public class TurretProjectile : MonoBehaviour, IParriable
     }
 
     public void Parry()
-    {
+    {       
         float distance = Vector3.Distance(playerPos.transform.position, spawnPoint);
         float dur = distance / speed;
         transform.DOMove(spawnPoint, dur).OnComplete(Detonate);
@@ -54,7 +60,7 @@ public class TurretProjectile : MonoBehaviour, IParriable
     {
         Instantiate(explosionVFX, transform.position, Quaternion.identity);
 
-        Collider[] player = Physics.OverlapSphere(transform.position, 2, playerLayer);
+        Collider[] player = Physics.OverlapSphere(transform.position, 2, targetableLayer);
         foreach (Collider c in player)
         {
             c.GetComponent<IDamageable>().TakeDamage(damage);

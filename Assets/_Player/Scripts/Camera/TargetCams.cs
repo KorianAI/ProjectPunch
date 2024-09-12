@@ -161,6 +161,7 @@ public class TargetCams : MonoBehaviour
         if (currentTarget != null)
         {
             targetGroup.RemoveMember(targetPoint);
+            targetable.ResetColor();
 
             if (currentTarget.transform.CompareTag(enemyTag)) //show health bars for a short time after targeting
             {
@@ -171,7 +172,6 @@ public class TargetCams : MonoBehaviour
             }
         }
 
-        targetable.ResetColor();
         isTargeting = false;
         currentTarget = null;
         targetPoint = null;

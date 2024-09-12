@@ -43,10 +43,10 @@ public class GameSettings : MonoBehaviour
         int currentResolutionIndex = 0;
         for (int i = 0; i < resolutions.Length; i++)
         {
-            string option = resolutions[i].width + " x " + resolutions[i].height + " @ " + resolutions[i].refreshRateRatio + "hz";
+            string option = resolutions[i].width + " x " + resolutions[i].height/* + " @ " + resolutions[i].refreshRateRatio + "hz"*/;
             options.Add(option);
 
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height && resolutions[i].refreshRate == Screen.currentResolution.refreshRate)
+            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height/* && resolutions[i].refreshRateRatio == Screen.currentResolution.refreshRateRatio*/)
             {
                 currentResolutionIndex = i;
             }

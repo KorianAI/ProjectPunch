@@ -19,6 +19,7 @@ public class ParryCollider : MonoBehaviour
         {
             parryObj.Parry();
             pc.ParryEffect(other.gameObject);
+            pc._sm.parryParticles.Play();
         }
     }
 }
