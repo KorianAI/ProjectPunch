@@ -8,6 +8,7 @@ public class AnimationEventTrigger : MonoBehaviour
     [SerializeField] ParticleSystem dustParticle;
     [SerializeField] Nailgun nailgun;
     [SerializeField] RealSteel rs;
+    [SerializeField] PlayerResources r;
 
     public void DustPlay()
     {
@@ -28,4 +29,10 @@ public class AnimationEventTrigger : MonoBehaviour
     {
         rs.PunchBlast();
     }
+
+    public void Shift()
+    {
+        r.ActivateScrapShift(true);
+    }
+
 }

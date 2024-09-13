@@ -145,7 +145,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
         // style to shift
         if (currentScrap == maxScrap && !scrapShift)
         {
-            ActivateScrapShift(true);
+            stateManager.anim.Play("RSOn");
             scrapAnimObj.SetActive(false);
         }
 
@@ -155,24 +155,34 @@ public class PlayerResources : MonoBehaviour, IDamageable
         }
     }
 
-    private void ActivateScrapShift(bool on)
+    public void ActivateScrapShift(bool on)
     {
-        if (on) 
-        { 
+        if (on)
+        {
             scrapShift = true;
             scrapDecrease = true;
             scrapDecreaseTimer = scrapDecreaseCooldown;
-            ChangeGauntlets(2); 
-        } 
-        
+            PowerJuice();
+            ChangeGauntlets(2);
+        }
+
         else if (!on)        
-        { 
+        {
+            scrapDecrease = false;
             scrapShift = false;
             ChangeGauntlets(3);
         }
 
 
 
+    }
+
+    private void PowerJuice()
+    {
+        HitstopManager.Instance.TriggerHitstop(.1f, gameObject);
+        CinemachineShake.Instance.ShakeCamera(2, 1);
+        CinemachineShake.Instance.ChangeFov(-7, 1);
+        RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
     }
 
     public void TakeDamage(float damage)
