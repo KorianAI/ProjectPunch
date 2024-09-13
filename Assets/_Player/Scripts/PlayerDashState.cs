@@ -13,6 +13,7 @@ public class PlayerDashState : PlayerMovementBase
     {
         base.EnterState(player);
 
+        player.transform.DOKill();
 
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
@@ -43,10 +44,19 @@ public class PlayerDashState : PlayerMovementBase
                      .OnComplete(() => OnDashComplete());
         }
 
-        _sm.anim.SetTrigger("Dash");
+        _sm.anim.Play("PlayerDash");
         _sm.ih.SetCanConsumeInput(true);
 
-        _sm.pm.DashEffect();
+        if (_sm.resources.shift.overdrive)
+        {
+            _sm.pm.DashEffect(_sm.pm.rsxDashPrefab, new Vector3(0, 90, 0));
+        }
+
+        else
+        {
+            _sm.pm.DashEffect(_sm.pm.dashEffectPrefab, new Vector3(0, 90, 0));
+        }
+
 
         if (!_sm.pm.grounded)
         {
@@ -68,7 +78,7 @@ public class PlayerDashState : PlayerMovementBase
     public override void HandleBufferedInput(InputCommand command)
     {
 
-        if (fixedtime > dashDuration * .5f)
+        if (fixedtime > dashDuration)
         {
             base.HandleBufferedInput(command);
         }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class PlayerPushSlam : PlayerAttackBase
 
     public override void EnterState(PlayerStateManager player)
     {
+        player.transform.DOKill();
         duration = .2f;
         base.EnterState(player);
         if (!_sm.pm.grounded) { _sm.anim.SetBool("AirAttack", true); }
@@ -32,10 +34,10 @@ public class PlayerPushSlam : PlayerAttackBase
     public override void PhysicsUpdate(PlayerStateManager player)
     {
         base.PhysicsUpdate(player);
-        if (canFall)
-        {
-            player.pm.velocity.y = player.pm.yVelocity;
-            player.pm.controller.Move(player.pm.velocity * Time.deltaTime);
-        }
+        //if (canFall)
+        //{
+        //    player.pm.velocity.y = player.pm.yVelocity;
+        //    player.pm.controller.Move(player.pm.velocity * Time.deltaTime);
+        //}
     }
 }

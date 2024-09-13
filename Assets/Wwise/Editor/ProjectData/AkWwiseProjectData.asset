@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: fcf29761efdb4743be1c96bb0ba59ba7
     GuidInternal: 
-    m_lastTime: -8584754312394775808
+    m_lastTime: -8584754312250309254
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584754276374775808
+    m_lastTime: -8584753690029451551
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584754225594775808
+    m_lastTime: -8584753690016965863
     List:
     - name: Soundbank_Main
       guid: af2cf498d9d21f4e88407f3a8baafeea
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584754248554775808
+    m_lastTime: -8584753690029571585
     List:
     - name: MusicEnd_Combat
       guid: 28a95d3152c30c448727340df4709ada
@@ -145,8 +145,8 @@ MonoBehaviour:
         guid: 28a95d3152c30c448727340df4709ada
       Path: Events\Default Work Unit\MusicEnd_Combat
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: MusicEnd_Explore
       guid: f9f48e79fc50654da46d50cea17e9705
       id: 3473329445
@@ -162,8 +162,8 @@ MonoBehaviour:
         guid: f9f48e79fc50654da46d50cea17e9705
       Path: Events\Default Work Unit\MusicEnd_Explore
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: MusicPlay_Combat
       guid: f29b36fd13c0ee45a8881a68c6563810
       id: 3698845775
@@ -196,8 +196,8 @@ MonoBehaviour:
         guid: 0db787ea240c914aaf83aa9b66c6611a
       Path: Events\Default Work Unit\MusicPlay_Explore
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: SFXPlay_FootstepsGround
       guid: 45a0045e0f6d0b499e62e4b990d7cc90
       id: 3800919789
@@ -227,7 +227,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: e772f0b193823949853e05aac5794b6f
     GuidInternal: 
-    m_lastTime: -8584754312394775808
+    m_lastTime: -8584754312251489511
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -241,7 +241,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: f3e827c98473b545bdc7ed0c4739356b
     GuidInternal: 
-    m_lastTime: -8584754312394775808
+    m_lastTime: -8584754312250359265
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -255,7 +255,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: ef29a14c705ede40b7a80ac065cc6269
     GuidInternal: 
-    m_lastTime: -8584754312394775808
+    m_lastTime: -8584754312250329257
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -269,7 +269,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: ca7ae8b43920f140a5f4bf098b44b504
     GuidInternal: 
-    m_lastTime: -8584754312394775808
+    m_lastTime: -8584754312250319255
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 02000000030000000400000005000000060000000e0000000f00000017000000
