@@ -1,6 +1,33 @@
 Event	ID	Name			Wwise Object Path	Notes
-	3800919789	SFXPlay_FootstepsGround			\Default Work Unit\SFXPlay_FootstepsGround	
+	3273142224	MusicPlay_CombatMain			\Default Work Unit\Music\MusicPlay_CombatMain	
+	3473329445	MusicEnd_Explore			\Default Work Unit\Music\MusicEnd_Explore	
+	3800919789	SFXPlay_FootstepsGround			\Default Work Unit\Kaila SFX\SFXPlay_FootstepsGround	
+	3854394445	MusicEnd_CombatOutro			\Default Work Unit\Music\MusicEnd_CombatOutro	
+	4048598968	MusicPlay_Explore			\Default Work Unit\Music\MusicPlay_Explore	
+
+Trigger	ID	Name			Wwise Object Path	Notes
+	2627423420	EndCombat			\Default Work Unit\EndCombat	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	99683504	Guitar_4Bar_Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_4Bar_Riff2_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Guitar\Section A Guitar (4B)\Guitar_4Bar_Riff2		1900304
+	144080973	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Lead_4Bar_Melody_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Lead\Section A Lead (4B)\Lead_4Bar_FastHigh		1900304
+	172155782	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\DrumKit_8Bar_NormalLong_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Drums\Section A Drums (8B)\DrumKit_2Bar_Half-Time		3800512
+	181757905	Bass_4Bar_Synth (4B)	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Bass_4Bar_Synth_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Synth\Section A Synth (4B)\Bass_4Bar_Synth (4B)		1900304
+	232264055	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Lead_4Bar_FastMelodic_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Lead\Section A Lead (4B)\Lead_4Bar_FastHigh		1900304
+	430724085	Percussion_4Bar_Atabaque	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Percussion_4Bar_Atabaque_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Percussion\Section A Percussion (4B)\Percussion_4Bar_Atabaque		1900304
+	465556907	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Lead_8Bar_Fast_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Lead\Section A Lead (8B)\Lead_4Bar_FastHigh		3800512
+	485367470	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\DrumKit_4Bar_Normal_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Drums\Section A Drums (4B)\DrumKit_2Bar_Half-Time		1900304
+	544890327	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\DrumKit_2Bar_KickBuild_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Drums\Section A Drums (2B)\DrumKit_2Bar_Half-Time		950200
+	616299173	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Lead_4Bar_FastHigh_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Lead\Section A Lead (4B)\Lead_4Bar_FastHigh		1900304
 	658891643	FootstepsGround	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\FootstepsGround3_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\FootstepsGround		105936
+	702063897	Guitar_4Bar_Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_8Bar_Riff1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Guitar\Section A Guitar (8B)\Guitar_4Bar_Riff2		3800512
+	746262836	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\DrumKit_8Bar_Nandos to Normal_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Drums\Section A Drums (8B)\DrumKit_2Bar_Half-Time		3800512
+	755205215	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\DrumKit_2Bar_Nandos_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Drums\Section A Drums (2B)\DrumKit_2Bar_Half-Time		950200
+	783261638	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\DrumKit_2Bar_Half-Time_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Drums\Section A Drums (2B)\DrumKit_2Bar_Half-Time		950200
+	870486047	Bass_4Bar_BassGuitar (4B)	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Bass_4Bar_BassGuitar_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Bass Guitar\Section A Bass Guitar\Bass_4Bar_BassGuitar (4B)		1900304
+	872318873	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Lead_4Bar_SlowRiff_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Lead\Section A Lead (4B)\Lead_4Bar_FastHigh		1900304
+	896998356	Explore_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Explore_1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Explore\Explore\Explore_1		24852232
+	904185561	Guitar_4Bar_Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_8Bar_Riff3_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Guitar\Section A Guitar (8B)\Guitar_4Bar_Riff2		3800512
+	999864757	Guitar_4Bar_Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_4Bar_Riff4_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Guitar\Section A Guitar (4B)\Guitar_4Bar_Riff2		1900304
+	1024608900	Percussion_4Bar_Atabaque	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Percussion_4Bar_BigDrum_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Combat 1\Combat 1 Percussion\Section A Percussion (4B)\Percussion_4Bar_Atabaque		1900304
 
