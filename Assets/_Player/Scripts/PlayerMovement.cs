@@ -200,31 +200,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void DashEffect()
+    public void DashEffect(VisualEffect effectPrefab, Vector3 rotation)
     {
         if (dashEffectPrefab != null && dashEffectPosition != null)
         {
-            VisualEffect dashEffect = null;
+            VisualEffect dashEffect = Instantiate(effectPrefab, dashEffectPosition.position, Quaternion.identity);
 
             if (sm.resources.shift.overdrive)
             {
                 playerVFX.SetActive(false);
-                dashEffect = Instantiate(rsxDashPrefab, dashEffectPosition.position, Quaternion.identity);
                 Invoke(nameof(ResetPlayerVFX), .2f); 
             }
 
-            else
-            {
-                dashEffect = Instantiate(dashEffectPrefab, dashEffectPosition.position, Quaternion.identity);
-            }
 
             dashEffect.transform.parent = sm.playerObj.transform;
             dashEffect.transform.forward = sm.playerObj.transform.forward;
 
             // Rotate the dashEffect -90 degrees on the Y axis after setting forward
-            dashEffect.transform.Rotate(0, 90, 0, Space.Self);
-
-
+            dashEffect.transform.Rotate(rotation, Space.Self);
             dashEffect.Play();
             Destroy(dashEffect.gameObject, .2f);
 

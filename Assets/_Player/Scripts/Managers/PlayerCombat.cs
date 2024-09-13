@@ -159,24 +159,38 @@ public class PlayerCombat : MonoBehaviour
 
     public void SlamToGround()
     {
-        Debug.Log("Slam Called");
         _sm.anim.speed = 0;
+        _sm.anim.SetBool("AirAttack", true);    
         StartCoroutine(PauseDelay());
 
         IEnumerator PauseDelay()
         {
-            Debug.Log("Slam Delay");
             yield return new WaitForSeconds(slamDelay);
             _sm.anim.speed = 1;
             float groundYPosition = DetectGroundPosition();
             DetectAndSlamEnemies();
-            // Move the enemy down to the ground
-            transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad).OnComplete(() =>
+            transform.DOKill();
+
+            if (resources.shift.overdrive)
             {
-                Debug.Log("Slam Finished");
-                movement.grounded=true;
-                PlayerAudioManager.instance.SlamExplode(); Instantiate(slamVFX, transform.position, Quaternion.identity); _sm.SwitchState(new PlayerIdleState());
-            });
+                movement.DashEffect(movement.rsxDashPrefab, new Vector3(0, 0, 90));
+                transform.DOMoveY(groundYPosition, 0.05f).SetEase(Ease.InQuad).OnComplete(() =>
+                {
+                    movement.grounded = true;
+                    PlayerAudioManager.instance.SlamExplode(); _sm.SwitchState(new PlayerIdleState());  //Instantiate(slamVFX, transform.position, Quaternion.identity);
+                });
+            }
+
+            else
+            {
+                transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad).OnComplete(() =>
+                {
+                    movement.grounded = true;
+                    PlayerAudioManager.instance.SlamExplode(); Instantiate(slamVFX, transform.position, Quaternion.identity); _sm.SwitchState(new PlayerIdleState());
+                });
+            }
+            // Move the enemy down to the ground
+
         }
 
     }
