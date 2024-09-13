@@ -9,36 +9,47 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{9E9C7581-9511-280B-A250-BDCFB11A1841}">
+		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{A041C96D-C615-E956-0316-3614413EDBD2}">
 			<ShortName>Soundbank_Main</ShortName>
 			<Path>Soundbank_Main.bnk</Path>
 			<Media>
-				<File Id="293775787" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>FootstepsGround.wav</ShortName>
-					<CachePath>SFX/FootstepsGround_FBC78EF0.wem</CachePath>
+				<File Id="658891643" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepsGround3.wav</ShortName>
+					<CachePath>SFX/FootstepsGround3_FBC78EF0.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
-				<Event Id="2946705178" Name="Play_FootstepsGround" DurationType="Infinite">
+				<Event Id="3800919789" Name="SFXPlay_FootstepsGround" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="293775787"/>
+						<MediaRef Id="658891643"/>
 					</MediaRefs>
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{D326F752-7CA2-0A14-FDB1-63ECE89D0199}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{365D988A-3232-8265-C08F-A42E9072F09E}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
+				<ShareSets>
+					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
+				</ShareSets>
 				<AudioDevices>
 					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
 					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="1502772432" Name="SFX Bus"/>
+				<Bus Id="3127962312" Name="Music Bus">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{2ECFD742-12B4-FCB7-8A85-7D82198A9210}</FileHash>
+	<FileHash>{FE2BE459-45E2-6932-D296-B51726FE987F}</FileHash>
 </SoundBanksInfo>

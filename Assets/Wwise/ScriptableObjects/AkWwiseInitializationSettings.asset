@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78b74b0eeef2a44a9e1666d5f80034f, type: 3}
+  m_Script: {fileID: 11500000, guid: cd5dd05bda2257149822b90682a5d3c2, type: 3}
   m_Name: AkWwiseInitializationSettings
   m_EditorClassIdentifier: 
   PlatformSettingsNameList:

@@ -5,7 +5,11 @@
 			<ChildrenList>
 				<SoundBank Name="Soundbank_Main" ID="{98F42CAF-D2D9-4E1F-8840-7F3A8BAAFEEA}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Play_FootstepsGround" ID="{5E04A045-6D0F-490B-9E62-E4B990D7CC90}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="MusicEnd_Combat" ID="{315DA928-C352-440C-8727-340DF4709ADA}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="MusicPlay_Combat" ID="{FD369BF2-C013-45EE-A888-1A68C6563810}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFXPlay_FootstepsGround" ID="{5E04A045-6D0F-490B-9E62-E4B990D7CC90}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="MusicPlay_Explore" ID="{EA87B70D-0C24-4A91-AF83-AA9B66C6611A}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="MusicEnd_Explore" ID="{798EF4F9-50FC-4D65-A46D-50CEA17E9705}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

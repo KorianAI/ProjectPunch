@@ -9,6 +9,26 @@
 							<ObjectRef Name="System" ID="{3B623205-BEF9-490E-A0C3-EAB97A3911E0}" WorkUnitID="{3834E6E4-F209-4085-81B7-52A8BCE18520}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="Music Bus" ID="{266F6278-89E2-496F-A2E8-DA3033CAB3E3}">
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{F050E79B-0BEF-4D75-8FE8-9D29B766FFDC}" ShortID="26216163">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+														<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</Bus>
+						<Bus Name="SFX Bus" ID="{E167BE63-DE77-42E0-B043-ABB45C1BB91D}"/>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

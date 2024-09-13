@@ -3,12 +3,82 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Play_FootstepsGround" ID="{5E04A045-6D0F-490B-9E62-E4B990D7CC90}">
+				<Event Name="SFXPlay_FootstepsGround" ID="{5E04A045-6D0F-490B-9E62-E4B990D7CC90}">
 					<ChildrenList>
 						<Action Name="" ID="{D8DDCD68-5086-4522-8625-2F80A39902FA}" ShortID="390560560">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="FootstepsGround" ID="{0E2A5E83-0361-4DC0-9693-13C8C20E4DD9}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MusicPlay_Combat" ID="{FD369BF2-C013-45EE-A888-1A68C6563810}">
+					<ChildrenList>
+						<Action Name="" ID="{9B805F0F-9054-4305-AC99-92FD0711D10C}" ShortID="141819894">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat 1" ID="{FD15F3C3-011D-4EC6-83A1-A129DB670913}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{0B43451E-E70F-4B14-B9D9-596F71B25901}" ShortID="33045569">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Explore" ID="{449AE57F-7B04-456A-8F53-370C10B370A6}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MusicEnd_Combat" ID="{315DA928-C352-440C-8727-340DF4709ADA}">
+					<ChildrenList>
+						<Action Name="" ID="{108B8BA1-B03D-411A-AEEF-36608B988A38}" ShortID="127943695">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat 1" ID="{FD15F3C3-011D-4EC6-83A1-A129DB670913}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MusicPlay_Explore" ID="{EA87B70D-0C24-4A91-AF83-AA9B66C6611A}">
+					<ChildrenList>
+						<Action Name="" ID="{885FACD5-4830-4511-B011-37CB72DEAF80}" ShortID="349072210">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Explore" ID="{449AE57F-7B04-456A-8F53-370C10B370A6}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{C3A33772-6668-4A62-A849-58840CA85FE7}" ShortID="358294449">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Combat 1" ID="{FD15F3C3-011D-4EC6-83A1-A129DB670913}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MusicEnd_Explore" ID="{798EF4F9-50FC-4D65-A46D-50CEA17E9705}">
+					<ChildrenList>
+						<Action Name="" ID="{5DD49584-7F0F-441A-A441-40D58E95DCBF}" ShortID="346192163">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Explore" ID="{449AE57F-7B04-456A-8F53-370C10B370A6}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
