@@ -10,24 +10,50 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Bus Name="Music Bus" ID="{266F6278-89E2-496F-A2E8-DA3033CAB3E3}">
-							<ObjectLists>
-								<ObjectList Name="Effects">
-									<Reference>
-										<Local>
-											<EffectSlot Name="" ID="{F050E79B-0BEF-4D75-8FE8-9D29B766FFDC}" ShortID="26216163">
-												<ReferenceList>
-													<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
-														<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-													</Reference>
-												</ReferenceList>
-											</EffectSlot>
-										</Local>
-									</Reference>
-								</ObjectList>
-							</ObjectLists>
-						</Bus>
 						<Bus Name="SFX Bus" ID="{E167BE63-DE77-42E0-B043-ABB45C1BB91D}"/>
+						<Bus Name="Master Music Bus" ID="{EB2C9681-8977-4469-8800-2EDBB0563ADA}">
+							<ChildrenList>
+								<Bus Name="Combat 1 Section A Music Bus" ID="{266F6278-89E2-496F-A2E8-DA3033CAB3E3}">
+									<ObjectLists>
+										<ObjectList Name="Effects">
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{F050E79B-0BEF-4D75-8FE8-9D29B766FFDC}" ShortID="26216163">
+														<ReferenceList>
+															<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+																<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{43C6D2FB-40B6-41B7-B141-D4CF9ABB3AEA}" ShortID="109611445">
+														<ReferenceList>
+															<Reference Name="Effect">
+																<Custom CreatedFrom="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}">
+																	<Effect Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" ID="{8F730A66-89F7-4AE1-82B2-9913A8860F4B}" ShortID="178414885" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+																		<PropertyList>
+																			<Property Name="LookAhead" Type="Real32" Value="0.0015"/>
+																			<Property Name="Ratio" Type="Real32" Value="50"/>
+																			<Property Name="ReleaseTime" Type="Real32" Value="0.3"/>
+																			<Property Name="Threshold" Type="Real32" Value="-1.3"/>
+																		</PropertyList>
+																	</Effect>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</Bus>
+								<Bus Name="Explore Music Bus" ID="{72FA322B-6D29-4E5C-B97A-331A3697AD00}"/>
+								<Bus Name="Combat 1 Section B Music Bus" ID="{023D05E0-C2C6-440F-8FB8-B13BC646AA60}"/>
+							</ChildrenList>
+						</Bus>
 					</ChildrenList>
 				</Bus>
 			</ChildrenList>

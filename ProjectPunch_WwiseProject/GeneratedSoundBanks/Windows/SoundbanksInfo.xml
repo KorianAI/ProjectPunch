@@ -9,27 +9,143 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{A041C96D-C615-E956-0316-3614413EDBD2}">
+		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{AC83538C-523F-4EF4-FF25-EBC6662EE299}">
 			<ShortName>Soundbank_Main</ShortName>
 			<Path>Soundbank_Main.bnk</Path>
 			<Media>
+				<File Id="99683504" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_4Bar_Riff2.wav</ShortName>
+					<CachePath>SFX/Guitar_4Bar_Riff2_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="144080973" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lead_4Bar_Melody.wav</ShortName>
+					<CachePath>SFX/Lead_4Bar_Melody_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="172155782" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DrumKit_8Bar_NormalLong.wav</ShortName>
+					<CachePath>SFX/DrumKit_8Bar_NormalLong_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="181757905" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bass_4Bar_Synth.wav</ShortName>
+					<CachePath>SFX/Bass_4Bar_Synth_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="232264055" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lead_4Bar_FastMelodic.wav</ShortName>
+					<CachePath>SFX/Lead_4Bar_FastMelodic_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="430724085" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Percussion_4Bar_Atabaque.wav</ShortName>
+					<CachePath>SFX/Percussion_4Bar_Atabaque_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="465556907" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lead_8Bar_Fast.wav</ShortName>
+					<CachePath>SFX/Lead_8Bar_Fast_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="485367470" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DrumKit_4Bar_Normal.wav</ShortName>
+					<CachePath>SFX/DrumKit_4Bar_Normal_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="544890327" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DrumKit_2Bar_KickBuild.wav</ShortName>
+					<CachePath>SFX/DrumKit_2Bar_KickBuild_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="616299173" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lead_4Bar_FastHigh.wav</ShortName>
+					<CachePath>SFX/Lead_4Bar_FastHigh_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="658891643" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepsGround3.wav</ShortName>
 					<CachePath>SFX/FootstepsGround3_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="702063897" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_8Bar_Riff1.wav</ShortName>
+					<CachePath>SFX/Guitar_8Bar_Riff1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="746262836" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DrumKit_8Bar_Nandos to Normal.wav</ShortName>
+					<CachePath>SFX/DrumKit_8Bar_Nandos to Normal_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="755205215" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DrumKit_2Bar_Nandos.wav</ShortName>
+					<CachePath>SFX/DrumKit_2Bar_Nandos_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="783261638" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DrumKit_2Bar_Half-Time.wav</ShortName>
+					<CachePath>SFX/DrumKit_2Bar_Half-Time_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="870486047" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bass_4Bar_BassGuitar.wav</ShortName>
+					<CachePath>SFX/Bass_4Bar_BassGuitar_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="872318873" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lead_4Bar_SlowRiff.wav</ShortName>
+					<CachePath>SFX/Lead_4Bar_SlowRiff_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="896998356" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Explore_1.wav</ShortName>
+					<CachePath>SFX/Explore_1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="904185561" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_8Bar_Riff3.wav</ShortName>
+					<CachePath>SFX/Guitar_8Bar_Riff3_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="999864757" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_4Bar_Riff4.wav</ShortName>
+					<CachePath>SFX/Guitar_4Bar_Riff4_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="1024608900" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Percussion_4Bar_BigDrum.wav</ShortName>
+					<CachePath>SFX/Percussion_4Bar_BigDrum_FBC78EF0.wem</CachePath>
+				</File>
 			</Media>
 			<Events>
+				<Event Id="3854394445" Name="MusicEnd_CombatOutro" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="3473329445" Name="MusicEnd_Explore" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="3273142224" Name="MusicPlay_CombatMain" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="99683504"/>
+						<MediaRef Id="144080973"/>
+						<MediaRef Id="172155782"/>
+						<MediaRef Id="181757905"/>
+						<MediaRef Id="232264055"/>
+						<MediaRef Id="430724085"/>
+						<MediaRef Id="465556907"/>
+						<MediaRef Id="485367470"/>
+						<MediaRef Id="544890327"/>
+						<MediaRef Id="616299173"/>
+						<MediaRef Id="702063897"/>
+						<MediaRef Id="746262836"/>
+						<MediaRef Id="755205215"/>
+						<MediaRef Id="783261638"/>
+						<MediaRef Id="870486047"/>
+						<MediaRef Id="872318873"/>
+						<MediaRef Id="904185561"/>
+						<MediaRef Id="999864757"/>
+						<MediaRef Id="1024608900"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4048598968" Name="MusicPlay_Explore" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="896998356"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3800919789" Name="SFXPlay_FootstepsGround" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="658891643"/>
 					</MediaRefs>
 				</Event>
 			</Events>
+			<Triggers>
+				<Trigger Id="2627423420" Name="EndCombat"/>
+			</Triggers>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{4521617C-FDDB-EAFB-76F2-A2B15CEE0BD8}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{E9595FC0-F0F2-D675-EDFA-5F1FEA563158}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
+				<Custom>
+					<Plugin Id="178414885" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
+				</Custom>
 				<ShareSets>
 					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
 				</ShareSets>
@@ -39,17 +155,32 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="48433064" Name="Master Music Bus"/>
 				<Bus Id="1502772432" Name="SFX Bus"/>
-				<Bus Id="3127962312" Name="Music Bus">
+				<Bus Id="1570563853" Name="Explore Music Bus"/>
+				<Bus Id="2199471764" Name="Combat 1 Section B Music Bus"/>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+				<Bus Id="4083411863" Name="Combat 1 Section A Music Bus">
 					<PluginRefs>
+						<Custom>
+							<PluginRef Id="178414885"/>
+						</Custom>
 						<ShareSets>
 							<PluginRef Id="1459522457"/>
 						</ShareSets>
 					</PluginRefs>
 				</Bus>
-				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<StateGroups>
+				<StateGroup Id="1690668539" Name="Music_States">
+					<States>
+						<State Id="579523862" Name="Explore"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="2764240573" Name="Combat"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{80F0E501-1D69-5F75-D5F8-722DFB7E2D1D}</FileHash>
+	<FileHash>{8899CD36-83FE-2498-4AA3-1C896017575C}</FileHash>
 </SoundBanksInfo>
