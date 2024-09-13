@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584754225594775808
+    m_lastTime: -8584753571054775808
     List:
     - name: Soundbank_Main
       guid: af2cf498d9d21f4e88407f3a8baafeea
@@ -128,11 +128,11 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584754248554775808
+    m_lastTime: -8584753571054775808
     List:
-    - name: MusicEnd_Combat
-      guid: 28a95d3152c30c448727340df4709ada
-      id: 3593961952
+    - name: Kaila SFX
+      guid: a013c72d86ea10408449fa7e31be1ea1
+      id: 1455778194
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -140,13 +140,50 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 85b245742f2f87459fb3ffc160c3e541
-      - ElementName: MusicEnd_Combat
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      Path: Events\Default Work Unit\Kaila SFX
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Music
+      guid: 58beaf42adc5184ca7f12096d3b9f2a2
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Music
+        ObjectType: 4
+        guid: 58beaf42adc5184ca7f12096d3b9f2a2
+      Path: Events\Default Work Unit\Music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: MusicEnd_CombatOutro
+      guid: 28a95d3152c30c448727340df4709ada
+      id: 3854394445
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Music
+        ObjectType: 4
+        guid: 58beaf42adc5184ca7f12096d3b9f2a2
+      - ElementName: MusicEnd_CombatOutro
         ObjectType: 3
         guid: 28a95d3152c30c448727340df4709ada
-      Path: Events\Default Work Unit\MusicEnd_Combat
+      Path: Events\Default Work Unit\Music\MusicEnd_CombatOutro
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: MusicEnd_Explore
       guid: f9f48e79fc50654da46d50cea17e9705
       id: 3473329445
@@ -157,16 +194,19 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Music
+        ObjectType: 4
+        guid: 58beaf42adc5184ca7f12096d3b9f2a2
       - ElementName: MusicEnd_Explore
         ObjectType: 3
         guid: f9f48e79fc50654da46d50cea17e9705
-      Path: Events\Default Work Unit\MusicEnd_Explore
+      Path: Events\Default Work Unit\Music\MusicEnd_Explore
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: MusicPlay_Combat
-      guid: f29b36fd13c0ee45a8881a68c6563810
-      id: 3698845775
+      maxDuration: -1
+      minDuration: -1
+    - name: MusicPlay_CombatIntro
+      guid: ac09ddf162db4548b9d9d6b460b20aba
+      id: 2742719635
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -174,10 +214,33 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 85b245742f2f87459fb3ffc160c3e541
-      - ElementName: MusicPlay_Combat
+      - ElementName: Music
+        ObjectType: 4
+        guid: 58beaf42adc5184ca7f12096d3b9f2a2
+      - ElementName: MusicPlay_CombatIntro
+        ObjectType: 3
+        guid: ac09ddf162db4548b9d9d6b460b20aba
+      Path: Events\Default Work Unit\Music\MusicPlay_CombatIntro
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: MusicPlay_CombatMain
+      guid: f29b36fd13c0ee45a8881a68c6563810
+      id: 3273142224
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Music
+        ObjectType: 4
+        guid: 58beaf42adc5184ca7f12096d3b9f2a2
+      - ElementName: MusicPlay_CombatMain
         ObjectType: 3
         guid: f29b36fd13c0ee45a8881a68c6563810
-      Path: Events\Default Work Unit\MusicPlay_Combat
+      Path: Events\Default Work Unit\Music\MusicPlay_CombatMain
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -191,13 +254,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Music
+        ObjectType: 4
+        guid: 58beaf42adc5184ca7f12096d3b9f2a2
       - ElementName: MusicPlay_Explore
         ObjectType: 3
         guid: 0db787ea240c914aaf83aa9b66c6611a
-      Path: Events\Default Work Unit\MusicPlay_Explore
+      Path: Events\Default Work Unit\Music\MusicPlay_Explore
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: SFXPlay_FootstepsGround
       guid: 45a0045e0f6d0b499e62e4b990d7cc90
       id: 3800919789
@@ -208,10 +274,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
       - ElementName: SFXPlay_FootstepsGround
         ObjectType: 3
         guid: 45a0045e0f6d0b499e62e4b990d7cc90
-      Path: Events\Default Work Unit\SFXPlay_FootstepsGround
+      Path: Events\Default Work Unit\Kaila SFX\SFXPlay_FootstepsGround
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
