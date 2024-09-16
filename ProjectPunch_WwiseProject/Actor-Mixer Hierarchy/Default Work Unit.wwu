@@ -271,7 +271,7 @@
 										<ActiveSource Name="RealSteel_Impact" ID="{C5A4D4C5-FF09-4E2B-96A9-300C9A65A8A6}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="RealSteel_ImpactShockwave" ID="{68672CA1-FBF7-4A9E-891A-87886B4DFC5F}" ShortID="862116639">
+								<Sound Name="RealSteel_Slam" ID="{68672CA1-FBF7-4A9E-891A-87886B4DFC5F}" ShortID="862116639">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
@@ -281,7 +281,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="RealSteel_ImpactShockwave" ID="{53BA2837-E355-423C-B25D-A59F11A9EF68}">
+										<AudioFileSource Name="RealSteel_Slam" ID="{53BA2837-E355-423C-B25D-A59F11A9EF68}">
 											<Language>SFX</Language>
 											<AudioFile>RealSteel_ImpactShockwave.wav</AudioFile>
 											<MediaIDList>
@@ -290,7 +290,7 @@
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="RealSteel_ImpactShockwave" ID="{53BA2837-E355-423C-B25D-A59F11A9EF68}" Platform="Linked"/>
+										<ActiveSource Name="RealSteel_Slam" ID="{53BA2837-E355-423C-B25D-A59F11A9EF68}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Scrapshift_Switch" ID="{B55825F6-BAB9-4EA7-9E82-607B1240724D}" ShortID="96671869">
@@ -313,6 +313,187 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="Scrapshift_Switch" ID="{466AA3C6-C14C-492F-B46A-B9911A24210B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="RealSteel_OverdriveActive" ID="{9FD18966-9ED3-4534-9659-22F7348269B9}" ShortID="645689872">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-30</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-25</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="RealSteel_OverdriveActive" ID="{574C43FB-52D5-4E5F-8A21-9CF2C4A51243}">
+											<Language>SFX</Language>
+											<AudioFile>RealSteel_OverdriveActive.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="389497700"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Effects">
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{24E662C5-5642-4D33-A8C4-94E23F3B081F}" ShortID="112007153">
+														<ReferenceList>
+															<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+																<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{4AF3945A-F7CB-4281-B10E-507045B67E2A}" ShortID="85510123">
+														<ReferenceList>
+															<Reference Name="Effect" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
+																<ObjectRef Name="Repeat_after_me" ID="{7A0568D0-BE8B-4233-B3E8-200344DB7AE0}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+									<ActiveSourceList>
+										<ActiveSource Name="RealSteel_OverdriveActive" ID="{574C43FB-52D5-4E5F-8A21-9CF2C4A51243}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="RealSteel_OverdriveOutro" ID="{8213CCEA-AFD9-4C3A-878D-1DB007552D8E}" ShortID="508864827">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-30</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-25</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="RealSteel_OverdriveOutro" ID="{99FC9577-1286-40B4-B894-B6F4C0AEAB10}">
+											<Language>SFX</Language>
+											<AudioFile>RealSteel_OverdriveOutro.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="793974850"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Effects">
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{3A2A7092-ACB7-4F6A-98E5-A6E2D6381D45}" ShortID="1047481789">
+														<ReferenceList>
+															<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+																<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{D24DDA46-07C0-43D2-821C-C51FD6C2608E}" ShortID="403712386">
+														<ReferenceList>
+															<Reference Name="Effect" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
+																<ObjectRef Name="Repeat_after_me" ID="{7A0568D0-BE8B-4233-B3E8-200344DB7AE0}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+									<ActiveSourceList>
+										<ActiveSource Name="RealSteel_OverdriveOutro" ID="{99FC9577-1286-40B4-B894-B6F4C0AEAB10}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="RealSteel_OverdriveIntro" ID="{4FB96431-2B03-46C5-A611-3753440D0870}" ShortID="743489364">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-30</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-25</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="RealSteel_OverdriveIntro" ID="{502F110F-909E-41BB-9B9C-03E9F4A6E1AA}">
+											<Language>SFX</Language>
+											<AudioFile>RealSteel_OverdriveIntro.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="106985297"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Effects">
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{5A85C783-BC4E-42EC-917E-AB808B338FAF}" ShortID="813760333">
+														<ReferenceList>
+															<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+																<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{494E99EC-B594-4031-8A1C-C3957B928945}" ShortID="584202898">
+														<ReferenceList>
+															<Reference Name="Effect" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
+																<ObjectRef Name="Repeat_after_me" ID="{7A0568D0-BE8B-4233-B3E8-200344DB7AE0}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+									<ActiveSourceList>
+										<ActiveSource Name="RealSteel_OverdriveIntro" ID="{502F110F-909E-41BB-9B9C-03E9F4A6E1AA}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

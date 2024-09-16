@@ -1719,8 +1719,8 @@
 								<Property Name="Voice2Enable" Type="bool" Value="True"/>
 								<Property Name="Voice2FilterFrequency" Type="Real32" Value="361"/>
 								<Property Name="Voice2FilterType" Type="int32" Value="4"/>
-								<Property Name="Voice2Pitch" Type="Real32" Value="-1100"/>
-								<Property Name="WindowSize" Type="int32" Value="3840"/>
+								<Property Name="Voice2Pitch" Type="Real32" Value="-400"/>
+								<Property Name="WindowSize" Type="int32" Value="1280"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Three_Voices" ID="{71CA20BE-8C1D-4A0C-92AF-BFCE183D5651}" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
