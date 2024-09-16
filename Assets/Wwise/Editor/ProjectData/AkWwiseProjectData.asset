@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: fcf29761efdb4743be1c96bb0ba59ba7
     GuidInternal: 
-    m_lastTime: -8584754312250309254
+    m_lastTime: -8584751273463684851
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,8 +38,29 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584753361519749590
+    m_lastTime: -8584751273513786227
     List:
+    - name: Cashmere SFX Bus
+      guid: a4b658b42cc6b747a5d1009bd152b4cb
+      id: 151440774
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: Cashmere SFX Bus
+        ObjectType: 2
+        guid: a4b658b42cc6b747a5d1009bd152b4cb
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Cashmere
+        SFX Bus
     - name: Combat 1 Section A Music Bus
       guid: 78626f26e2896f49a2e8da3033cab3e3
       id: 4083411863
@@ -82,6 +103,27 @@ MonoBehaviour:
         guid: e0053d02c6c20f448fb8b13bc646aa60
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
         Bus\Combat 1 Section B Music Bus
+    - name: Environment SFX Bus
+      guid: e5f79f2d3775074b95a311c908c1f80d
+      id: 3220333747
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: Environment SFX Bus
+        ObjectType: 2
+        guid: e5f79f2d3775074b95a311c908c1f80d
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Environment
+        SFX Bus
     - name: Explore Music Bus
       guid: 2b32fa72296d5c4eb97a331a3697ad00
       id: 1570563853
@@ -103,6 +145,27 @@ MonoBehaviour:
         guid: 2b32fa72296d5c4eb97a331a3697ad00
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
         Bus\Explore Music Bus
+    - name: Kaila SFX Bus
+      guid: 107ca43fcc29134892f672cfd2c8a9db
+      id: 2729484924
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: Kaila SFX Bus
+        ObjectType: 2
+        guid: 107ca43fcc29134892f672cfd2c8a9db
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Kaila
+        SFX Bus
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -135,6 +198,27 @@ MonoBehaviour:
         guid: 81962ceb7789694488002edbb0563ada
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
         Bus
+    - name: Muzzler SFX Bus
+      guid: b46c96953e385242a49b96539a39f466
+      id: 2256747655
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: Muzzler SFX Bus
+        ObjectType: 2
+        guid: b46c96953e385242a49b96539a39f466
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Muzzler
+        SFX Bus
     - name: SFX Bus
       guid: 63be67e177dee042b043abb45c1bb91d
       id: 1502772432
@@ -152,6 +236,48 @@ MonoBehaviour:
         ObjectType: 2
         guid: 63be67e177dee042b043abb45c1bb91d
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus
+    - name: Turret SFX
+      guid: 4d3e4633db76ea4fb8cc8373216310e1
+      id: 49958546
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: Turret SFX
+        ObjectType: 2
+        guid: 4d3e4633db76ea4fb8cc8373216310e1
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Turret
+        SFX
+    - name: UI SFX Bus
+      guid: 3e484663c5aa29478ea22c57195a9bfd
+      id: 3217363488
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: UI SFX Bus
+        ObjectType: 2
+        guid: 3e484663c5aa29478ea22c57195a9bfd
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\UI
+        SFX Bus
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -164,7 +290,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584753361519689568
+    m_lastTime: -8584751273463704854
     List:
     - name: Soundbank_Main
       guid: af2cf498d9d21f4e88407f3a8baafeea
@@ -192,7 +318,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584753361531859277
+    m_lastTime: -8584751273536041199
     List:
     - name: Kaila SFX
       guid: a013c72d86ea10408449fa7e31be1ea1
@@ -380,7 +506,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: e772f0b193823949853e05aac5794b6f
     GuidInternal: 
-    m_lastTime: -8584754312251489511
+    m_lastTime: -8584751273536036202
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -394,7 +520,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: f3e827c98473b545bdc7ed0c4739356b
     GuidInternal: 
-    m_lastTime: -8584753361519629568
+    m_lastTime: -8584751273463694851
     List:
     - name: Music_States
       guid: c67059b9b3a34a448d69328c6fc91e5b
@@ -474,7 +600,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: ef29a14c705ede40b7a80ac065cc6269
     GuidInternal: 
-    m_lastTime: -8584754312250329257
+    m_lastTime: -8584751273463694851
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -488,7 +614,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: ca7ae8b43920f140a5f4bf098b44b504
     GuidInternal: 
-    m_lastTime: -8584753361519579554
+    m_lastTime: -8584751273463689845
     List:
     - name: EndCombat
       guid: 52eef0ed6d5ee34ea9f8a780dfae2057

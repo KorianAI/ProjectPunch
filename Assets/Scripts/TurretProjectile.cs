@@ -9,6 +9,7 @@ public class TurretProjectile : MonoBehaviour, IParriable
     public GameObject explosionVFX;
     public LayerMask targetableLayer;
     public float damage;
+    public float parriedDamage = 50f;
     public float destroyTime = 1f;
     Rigidbody rb;
 
@@ -49,7 +50,8 @@ public class TurretProjectile : MonoBehaviour, IParriable
     }
 
     public void Parry()
-    {       
+    {
+        damage = parriedDamage;
         float distance = Vector3.Distance(playerPos.transform.position, spawnPoint);
         float dur = distance / speed;
         transform.DOMove(spawnPoint, dur).OnComplete(Detonate);
