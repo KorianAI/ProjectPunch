@@ -10,7 +10,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Bus Name="SFX Bus" ID="{E167BE63-DE77-42E0-B043-ABB45C1BB91D}">
+						<Bus Name="Master SFX Bus" ID="{E167BE63-DE77-42E0-B043-ABB45C1BB91D}">
 							<ChildrenList>
 								<Bus Name="Environment SFX Bus" ID="{2D9FF7E5-7537-4B07-95A3-11C908C1F80D}"/>
 								<Bus Name="Cashmere SFX Bus" ID="{B458B6A4-C62C-47B7-A5D1-009BD152B4CB}"/>
@@ -23,13 +23,6 @@
 						<Bus Name="Master Music Bus" ID="{EB2C9681-8977-4469-8800-2EDBB0563ADA}">
 							<ChildrenList>
 								<Bus Name="Combat 1 Section A Music Bus" ID="{266F6278-89E2-496F-A2E8-DA3033CAB3E3}">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-17</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ObjectLists>
 										<ObjectList Name="Effects">
 											<Reference>
