@@ -69,6 +69,7 @@
 									</PropertyList>
 								</Bus>
 								<Bus Name="Combat 1 Section B Music Bus" ID="{023D05E0-C2C6-440F-8FB8-B13BC646AA60}"/>
+								<Bus Name="Scrap Shift Mode Music Bus" ID="{98D078AF-FFDB-4B4C-AF79-D1060708BB80}"/>
 							</ChildrenList>
 						</Bus>
 					</ChildrenList>

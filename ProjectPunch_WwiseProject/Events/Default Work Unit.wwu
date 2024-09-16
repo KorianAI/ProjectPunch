@@ -171,7 +171,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="MusicPlay_ScrapShiftMode" ID="{1073F438-2F2F-419A-AD03-1CC77C5A0BD7}"/>
+						<Event Name="MusicPlay_ScrapShiftMode" ID="{1073F438-2F2F-419A-AD03-1CC77C5A0BD7}">
+							<ChildrenList>
+								<Action Name="" ID="{24DA8222-C19B-4257-B156-2B03A5E94244}" ShortID="146877019">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scrap Shift Mode" ID="{80A09117-9982-4D90-BD76-930103B44E54}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Kaila SFX" ID="{2DC713A0-EA86-4010-8449-FA7E31BE1EA1}" ShortID="651481342">

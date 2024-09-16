@@ -110,6 +110,8 @@
 								<Sound Name="FootstepsGround" ID="{0E2A5E83-0361-4DC0-9693-13C8C20E4DD9}" ShortID="286163426">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+										<Property Name="LoopCount" Type="int32" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-36</Value>
