@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using DG.Tweening;
 using UnityEngine.VFX;
 using Unity.VisualScripting;
+using JetBrains.Annotations;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -48,6 +49,12 @@ public class PlayerCombat : MonoBehaviour
     public Transform slamDetectionPoint;
     public GameObject slamVFX;
     public float slamDelay;
+
+    public Transform aoePoint;
+    public GameObject explosionVFX;
+    public GameObject overdriveExVFX;
+    public float aoeRange;
+    public AttackStats aoeStats;
 
     private void Start()
     {
@@ -206,6 +213,28 @@ public class PlayerCombat : MonoBehaviour
         airAtkGravity = false;
         currentAirAttacks = 0;
         movement.airDashAmount = 0;
+    }
+
+    public void AOEKnockback()
+    {
+        float range = aoeRange;
+        GameObject eVFX = null;
+        if (resources.shift.overdrive) { range = aoeRange * 5;  eVFX = Instantiate(overdriveExVFX, aoePoint.transform.position, Quaternion.identity); }
+        else { eVFX = Instantiate(explosionVFX, aoePoint.transform.position, Quaternion.identity); }
+
+        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, aoeRange, enemyLayer);
+        foreach (Collider c in enemies)
+        {
+            c.GetComponent<IDamageable>().TakeDamage(aoeStats.damage);
+            _sm.attackHit = true;
+            HitstopManager.Instance.TriggerHitstop(aoeStats.hitstopAmnt, gameObject, c.gameObject);
+            CinemachineShake.Instance.ShakeCamera(aoeStats.shakeAmnt, aoeStats.shakeAmnt);
+            CinemachineShake.Instance.ChangeFov(aoeStats.zoomAmnt, aoeStats.shakeDur);
+            RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
+            transform.DOKill();
+        }
+
+       // Destroy(eVFX, 1);
     }
 
     public void SaveAtkIndex(int index)

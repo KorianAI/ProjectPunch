@@ -23,7 +23,7 @@ public class PlayerMachine : SuperStateMachine {
 
     // current velocity
     private Vector3 moveDirection;
-    // current enemy our character's art is facing
+    // current direction our character's art is facing
     public Vector3 lookDirection { get; private set; }
 
     private PlayerInputController input;
@@ -36,7 +36,7 @@ public class PlayerMachine : SuperStateMachine {
         // Grab the controller object from our object
         controller = gameObject.GetComponent<SuperCharacterController>();
 		
-		// Our character's current facing enemy, planar to the ground
+		// Our character's current facing direction, planar to the ground
         lookDirection = transform.forward;
 
         // Set our currentState to idle on startup
@@ -45,7 +45,7 @@ public class PlayerMachine : SuperStateMachine {
 
     protected override void EarlyGlobalSuperUpdate()
     {
-		// Rotate out facing enemy horizontally based on mouse input
+		// Rotate out facing direction horizontally based on mouse input
         // (Taking into account that this method may be called multiple times per frame)
         lookDirection = Quaternion.AngleAxis(input.Current.MouseInput.x * (controller.deltaTime / Time.deltaTime), controller.up) * lookDirection;
         // Put any code in here you want to run BEFORE the state's update function.
