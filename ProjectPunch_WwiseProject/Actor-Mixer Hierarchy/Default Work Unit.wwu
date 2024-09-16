@@ -5,10 +5,572 @@
 			<ChildrenList>
 				<Folder Name="Kaila_SFX" ID="{3484133D-3254-4B34-9062-D903C8DDCCCA}" ShortID="203515128">
 					<ChildrenList>
-						<Sound Name="FootstepsGround" ID="{0E2A5E83-0361-4DC0-9693-13C8C20E4DD9}" ShortID="286163426">
+						<Folder Name="Kaila_BFG" ID="{A32DD36D-751C-440D-BDB7-3AE0ABB4C0BE}" ShortID="1034339551">
 							<PropertyList>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
+							<ChildrenList>
+								<Sound Name="BFG_Impact2" ID="{957C4E40-7621-445F-A73A-1A933B04AA36}" ShortID="237146062">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BFG_Impact2" ID="{26CA5B31-7790-4611-8B5C-F277951171F4}">
+											<Language>SFX</Language>
+											<AudioFile>BFG_Impact2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="269452988"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="BFG_Impact2" ID="{26CA5B31-7790-4611-8B5C-F277951171F4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="BFG_Swing" ID="{C39602DA-40CB-401F-9E0C-FDA48122BF4D}" ShortID="689089683">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BFG_Swing" ID="{B8F55056-4844-4514-BE5D-0043B96F9A6F}">
+											<Language>SFX</Language>
+											<AudioFile>BFG_Swing.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="793266327"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="BFG_Swing" ID="{B8F55056-4844-4514-BE5D-0043B96F9A6F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="BFG_Slam (1)" ID="{A2E2F22E-6179-454B-8896-D3A71443D218}" ShortID="940102351">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BFG_Slam (1)" ID="{9B6E4DF3-3C29-4F72-8ACE-EF7E429D0775}">
+											<Language>SFX</Language>
+											<AudioFile>BFG_Slam (1).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="372644323"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="BFG_Slam (1)" ID="{9B6E4DF3-3C29-4F72-8ACE-EF7E429D0775}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Scrapmode_Switch" ID="{E5DBF119-3F51-4166-8BAC-EC2195415A0E}" ShortID="15085845">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Scrapmode_Switch" ID="{04A51B8E-2B28-4AA0-8D79-ADA5F9AD4F0A}">
+											<Language>SFX</Language>
+											<AudioFile>Scrapmode_Switch.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="661311277"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Scrapmode_Switch" ID="{04A51B8E-2B28-4AA0-8D79-ADA5F9AD4F0A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Kaila_General" ID="{9FD440E3-625C-4733-9BF1-CA8B7EA7937A}" ShortID="213862146">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="21"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Sound Name="FootstepsGround" ID="{0E2A5E83-0361-4DC0-9693-13C8C20E4DD9}" ShortID="286163426">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-36</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="FootstepsGround3" ID="{58EAA156-C870-4F35-A501-A05B5F423D9E}">
+											<Language>SFX</Language>
+											<AudioFile>FootstepsGround3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="658891643"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Effects">
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{F3FF458D-2840-48C8-955C-B20EB1BA1358}" ShortID="346493693">
+														<ReferenceList>
+															<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+																<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+									<ActiveSourceList>
+										<ActiveSource Name="FootstepsGround3" ID="{58EAA156-C870-4F35-A501-A05B5F423D9E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Dash" ID="{B2206A68-E172-4549-BCEF-E176A1D043EC}" ShortID="100765673">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Kaila_Dash" ID="{8E38023E-9661-41A9-BC1F-9EFCD1E928BC}">
+											<Language>SFX</Language>
+											<AudioFile>Kaila_Dash.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="594901127"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Kaila_Dash" ID="{8E38023E-9661-41A9-BC1F-9EFCD1E928BC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="LockOff" ID="{1B3F676A-8FD5-42C2-8BED-819500AB5E6C}" ShortID="794415669">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="LockOff" ID="{736E5268-9192-4973-96AE-F84B75E00F4D}">
+											<Language>SFX</Language>
+											<AudioFile>LockOff.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="365070918"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="LockOff" ID="{736E5268-9192-4973-96AE-F84B75E00F4D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="LockOn" ID="{3F3EDF68-6F60-4A2D-9921-5EEA3F758305}" ShortID="556430809">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="LockOn" ID="{9EF9F044-9F64-4C16-9CE4-56E81A984AA0}">
+											<Language>SFX</Language>
+											<AudioFile>LockOn.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="57429461"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="LockOn" ID="{9EF9F044-9F64-4C16-9CE4-56E81A984AA0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Kaila_RealSteel" ID="{FB59353B-2767-44BD-AED1-C33EC3711C93}" ShortID="632569593">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="12"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Sound Name="RealSteel_Impact" ID="{BF1348F9-56B2-49BD-B77B-939F6B89111B}" ShortID="271815672">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="RealSteel_Impact" ID="{C5A4D4C5-FF09-4E2B-96A9-300C9A65A8A6}">
+											<Language>SFX</Language>
+											<AudioFile>RealSteel_Impact.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="951271763"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="RealSteel_Impact" ID="{C5A4D4C5-FF09-4E2B-96A9-300C9A65A8A6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="RealSteel_ImpactShockwave" ID="{68672CA1-FBF7-4A9E-891A-87886B4DFC5F}" ShortID="862116639">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="RealSteel_ImpactShockwave" ID="{53BA2837-E355-423C-B25D-A59F11A9EF68}">
+											<Language>SFX</Language>
+											<AudioFile>RealSteel_ImpactShockwave.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="369318551"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="RealSteel_ImpactShockwave" ID="{53BA2837-E355-423C-B25D-A59F11A9EF68}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Scrapshift_Switch" ID="{B55825F6-BAB9-4EA7-9E82-607B1240724D}" ShortID="96671869">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Scrapshift_Switch" ID="{466AA3C6-C14C-492F-B46A-B9911A24210B}">
+											<Language>SFX</Language>
+											<AudioFile>Scrapshift_Switch.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="403216856"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Scrapshift_Switch" ID="{466AA3C6-C14C-492F-B46A-B9911A24210B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Kaila_PushPull" ID="{31EE71CC-03CB-4EFE-89CB-E823BC4ECD8B}" ShortID="428913581">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="23"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Folder>
+						<Folder Name="Kaila_Nailgun" ID="{D6911008-9FE6-4E93-B39E-B762C2A1B8A1}" ShortID="835773693">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="1"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Sound Name="NailGun_Burst" ID="{B24B386B-E5CA-4039-986E-2F972044E33C}" ShortID="1003421602">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="NailGun_Burst" ID="{F47AC2DE-3E6F-4D4E-AC3E-B30471CDEB72}">
+											<Language>SFX</Language>
+											<AudioFile>NailGun_Burst.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="632234424"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="NailGun_Burst" ID="{F47AC2DE-3E6F-4D4E-AC3E-B30471CDEB72}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="NailGun_ChargedShot" ID="{3F22142D-294A-47A0-A6D1-07CB12932507}" ShortID="506454067">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="NailGun_ChargedShot" ID="{AEAF8914-268F-4088-A306-08EE88631708}">
+											<Language>SFX</Language>
+											<AudioFile>NailGun_ChargedShot.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="49756214"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="NailGun_ChargedShot" ID="{AEAF8914-268F-4088-A306-08EE88631708}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="NailGun_ChargedShot_Pull" ID="{1C6F8F86-A780-44E0-A60D-670AE726A658}" ShortID="71953511">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="NailGun_ChargedShot_Pull" ID="{B63287A2-D822-4FC0-88A7-DA3D0BF94876}">
+											<Language>SFX</Language>
+											<AudioFile>NailGun_ChargedShot_Pull.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="161833634"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="NailGun_ChargedShot_Pull" ID="{B63287A2-D822-4FC0-88A7-DA3D0BF94876}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Turret_SFX" ID="{47250C2E-FDFB-4863-8DB7-DC67C348087E}" ShortID="427069491">
+					<ChildrenList>
+						<Sound Name="Turret_Fire" ID="{B29C72AB-36B3-4CC7-9261-7A29300AF93E}" ShortID="441113587">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Turret SFX" ID="{33463E4D-76DB-4FEA-B8CC-8373216310E1}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Turret_Fire" ID="{9653DF7B-6F3B-41BC-BA7B-ACC52DA21926}">
+									<Language>SFX</Language>
+									<AudioFile>Turret_Fire.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="74809711"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Turret_Fire" ID="{9653DF7B-6F3B-41BC-BA7B-ACC52DA21926}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Turret_Hit" ID="{0E03B8CC-64FE-48ED-AE51-CEDB02384E4D}" ShortID="307575665">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Turret SFX" ID="{33463E4D-76DB-4FEA-B8CC-8373216310E1}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Turret_Hit" ID="{7BEC28AF-080C-4C4A-B8F7-3F5C349453D7}">
+									<Language>SFX</Language>
+									<AudioFile>Turret_Hit.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="704625414"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Turret_Hit" ID="{7BEC28AF-080C-4C4A-B8F7-3F5C349453D7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Turret_Move" ID="{78CF1684-3EE3-4AE8-B2D4-DD63154ADD66}" ShortID="579922960">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Turret SFX" ID="{33463E4D-76DB-4FEA-B8CC-8373216310E1}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Turret_Move" ID="{7400D9FF-2B3D-4DCA-831C-ED67EA20D01E}">
+									<Language>SFX</Language>
+									<AudioFile>Turret_Move.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="749824847"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{47FC0613-57BA-41BF-80B1-93B638971C04}" ShortID="875597801">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+														<ObjectRef Name="Octave_Down" ID="{062EC4B1-5372-4D1E-917B-C757293F2B42}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{3788F157-0B13-4325-BBBE-6942C259CEF6}" ShortID="11332199">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+														<ObjectRef Name="Tunnel1" ID="{CC44B890-9865-4157-965F-86FED27BC4C6}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="Turret_Move" ID="{7400D9FF-2B3D-4DCA-831C-ED67EA20D01E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Environment_SFX" ID="{481D33CC-7314-4914-B12D-0DFC7CC0F67E}" ShortID="330393370">
+					<ChildrenList>
+						<Sound Name="Pipe_CreakExplosion" ID="{F6658CAD-1FB2-4952-A491-0DB4111FFA88}" ShortID="890717662">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment SFX Bus" ID="{2D9FF7E5-7537-4B07-95A3-11C908C1F80D}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Pipe_CreakExplosion" ID="{1760292E-46F0-4809-A7A8-07E5D3E4081A}">
+									<Language>SFX</Language>
+									<AudioFile>Pipe_CreakExplosion.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="451538811"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{12CB6D0E-DCC0-4EDD-AF44-AF8E4ADAFCA5}" ShortID="137852221">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+														<ObjectRef Name="Large_Church1" ID="{9B6E8B78-EF8C-494C-AADA-D01CF51B5FAC}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="Pipe_CreakExplosion" ID="{1760292E-46F0-4809-A7A8-07E5D3E4081A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Muzzler_SFX" ID="{2CA3A38F-3E13-4750-A7A2-89125D342241}" ShortID="718867969">
+					<ChildrenList>
+						<Sound Name="Muzzler_Kick" ID="{DAA31E3A-DA33-49D8-B436-96EB34CA713E}" ShortID="502128201">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Muzzler SFX Bus" ID="{95966CB4-383E-4252-A49B-96539A39F466}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Muzzler_Kick" ID="{6661D837-EEF1-4208-9FE6-337BF1395B80}">
+									<Language>SFX</Language>
+									<AudioFile>Muzzler_Kick.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="587209722"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Muzzler_Kick" ID="{6661D837-EEF1-4208-9FE6-337BF1395B80}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Cashmere_SFX" ID="{31493665-43DD-4DB2-A6DB-269BC4EE34C0}" ShortID="202388810"/>
+				<Folder Name="UI_SFX" ID="{57CC009C-3226-49A8-997F-B37E0D0ACDB6}" ShortID="835649926">
+					<ChildrenList>
+						<Sound Name="UI_Button" ID="{DF8E13BF-9ACB-4181-82CC-22D57001E5BE}" ShortID="983621417">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
@@ -18,16 +580,16 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="FootstepsGround3" ID="{58EAA156-C870-4F35-A501-A05B5F423D9E}">
+								<AudioFileSource Name="UI_Button" ID="{08A52268-2B7D-4621-A43B-DC5A773991F1}">
 									<Language>SFX</Language>
-									<AudioFile>FootstepsGround3.wav</AudioFile>
+									<AudioFile>UI_Button.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="658891643"/>
+										<MediaID ID="79592213"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="FootstepsGround3" ID="{58EAA156-C870-4F35-A501-A05B5F423D9E}" Platform="Linked"/>
+								<ActiveSource Name="UI_Button" ID="{08A52268-2B7D-4621-A43B-DC5A773991F1}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

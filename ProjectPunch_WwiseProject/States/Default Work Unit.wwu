@@ -5,8 +5,8 @@
 			<ChildrenList>
 				<StateGroup Name="Music_States" ID="{B95970C6-A3B3-444A-8D69-328C6FC91E5B}">
 					<ChildrenList>
-						<State Name="Combat" ID="{24593F05-9754-45EB-896A-E0CA1444C4D5}"/>
 						<State Name="None" ID="{5CDED03C-1F92-404E-B13E-C11A243605C9}"/>
+						<State Name="Combat" ID="{24593F05-9754-45EB-896A-E0CA1444C4D5}"/>
 						<State Name="Explore" ID="{342AC1B5-1FD8-4426-9429-B3E9AA64F41A}"/>
 					</ChildrenList>
 				</StateGroup>
