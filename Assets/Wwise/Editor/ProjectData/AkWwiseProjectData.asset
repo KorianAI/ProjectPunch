@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: fcf29761efdb4743be1c96bb0ba59ba7
     GuidInternal: 
-    m_lastTime: -8584754312394775808
+    m_lastTime: -8584754312250309254
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584753406394775808
+    m_lastTime: -8584753361519749590
     List:
     - name: Combat 1 Section A Music Bus
       guid: 78626f26e2896f49a2e8da3033cab3e3
@@ -164,7 +164,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584753571054775808
+    m_lastTime: -8584753361519689568
     List:
     - name: Soundbank_Main
       guid: af2cf498d9d21f4e88407f3a8baafeea
@@ -192,7 +192,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584753406394775808
+    m_lastTime: -8584753361531859277
     List:
     - name: Kaila SFX
       guid: a013c72d86ea10408449fa7e31be1ea1
@@ -326,8 +326,8 @@ MonoBehaviour:
         guid: 0db787ea240c914aaf83aa9b66c6611a
       Path: Events\Default Work Unit\Music\MusicPlay_Explore
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: MusicPlay_ScrapShiftMode
       guid: 38f473102f2f9a41ad031cc77c5a0bd7
       id: 235763623
@@ -380,7 +380,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: e772f0b193823949853e05aac5794b6f
     GuidInternal: 
-    m_lastTime: -8584754312394775808
+    m_lastTime: -8584754312251489511
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -394,7 +394,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: f3e827c98473b545bdc7ed0c4739356b
     GuidInternal: 
-    m_lastTime: -8584753406394775808
+    m_lastTime: -8584753361519629568
     List:
     - name: Music_States
       guid: c67059b9b3a34a448d69328c6fc91e5b
@@ -474,7 +474,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: ef29a14c705ede40b7a80ac065cc6269
     GuidInternal: 
-    m_lastTime: -8584754312394775808
+    m_lastTime: -8584754312250329257
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -488,7 +488,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: ca7ae8b43920f140a5f4bf098b44b504
     GuidInternal: 
-    m_lastTime: -8584753406394775808
+    m_lastTime: -8584753361519579554
     List:
     - name: EndCombat
       guid: 52eef0ed6d5ee34ea9f8a780dfae2057

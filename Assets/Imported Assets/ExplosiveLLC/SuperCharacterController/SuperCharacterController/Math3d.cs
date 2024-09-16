@@ -42,7 +42,7 @@ public class Math3d : MonoBehaviour
         return Vector3.Scale(vectorNormalized, new Vector3(magnitude, magnitude, magnitude));
     }
 
-    //create a vector of enemy "vector" with length "size"
+    //create a vector of direction "vector" with length "size"
     public static Vector3 SetVectorLength(Vector3 vector, float size)
     {
 
@@ -63,7 +63,7 @@ public class Math3d : MonoBehaviour
     }
 
     //Find the line of intersection between two planes.	The planes are defined by a normal and a point on that plane.
-    //The outputs are a point on the line and a vector which indicates it's enemy. If the planes are not parallel, 
+    //The outputs are a point on the line and a vector which indicates it's direction. If the planes are not parallel, 
     //the function outputs true, otherwise false.
     public static bool PlanePlaneIntersection(out Vector3 linePoint, out Vector3 lineVec, Vector3 plane1Normal, Vector3 plane1Position, Vector3 plane2Normal, Vector3 plane2Position)
     {
@@ -71,8 +71,8 @@ public class Math3d : MonoBehaviour
         linePoint = Vector3.zero;
         lineVec = Vector3.zero;
 
-        //We can get the enemy of the line of intersection of the two planes by calculating the 
-        //cross product of the normals of the two planes. Note that this is just a enemy and the line
+        //We can get the direction of the line of intersection of the two planes by calculating the 
+        //cross product of the normals of the two planes. Note that this is just a direction and the line
         //is not fixed in space yet. We need a point for that to go with the line vector.
         lineVec = Vector3.Cross(plane1Normal, plane2Normal);
 
@@ -444,7 +444,7 @@ public class Math3d : MonoBehaviour
     }
 
     //This is an alternative for Quaternion.LookRotation. Instead of aligning the forward and up vector of the game 
-    //object with the input vectors, a custom enemy can be used instead of the fixed forward and up vectors.
+    //object with the input vectors, a custom direction can be used instead of the fixed forward and up vectors.
     //alignWithVector and alignWithNormal are in world space.
     //customForward and customUp are in object space.
     //Usage: use alignWithVector and alignWithNormal as if you are using the default LookRotation function.
@@ -520,7 +520,7 @@ public class Math3d : MonoBehaviour
     }
 
 
-    //Convert a position, enemy, and normal vector to a transform
+    //Convert a position, direction, and normal vector to a transform
     void VectorsToTransform(ref GameObject gameObjectInOut, Vector3 positionVector, Vector3 directionVector, Vector3 normalVector)
     {
 

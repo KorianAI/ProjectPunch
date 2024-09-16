@@ -30,7 +30,16 @@ public class RealSteel : WeaponInfo
         {
             if (command.Type == InputType.Y)
             {
-                BaseCombo(index);
+                if (command.Direction.y < -0.5f)
+                {
+                    sm.SwitchState(new RS_Slam());
+                }
+
+                else
+                {
+                    BaseCombo(index);
+                }
+
             }
 
             else if (command.Type == InputType.X)
@@ -42,6 +51,7 @@ public class RealSteel : WeaponInfo
             {
                 // RS_XH; // change to better nail - Nailgun
             }
+
         }
 
         else
@@ -170,6 +180,7 @@ public class RealSteel : WeaponInfo
             currentOverdrive = maxOverdrive;
             overdriveDecreaseTimer = overdriveDecreaseCooldown;
             overdrive = true;
+            sm.anim.speed = 1.5f;
             //foreach (GameObject g in overdriveVFX)
             //{
             //    g.SetActive(true); ;
@@ -179,6 +190,7 @@ public class RealSteel : WeaponInfo
         else if (!on)
         {
             overdrive = false;
+            sm.anim.speed = 1f;
             //foreach (GameObject g in overdriveVFX)
             //{
             //    g.SetActive(false); ;
