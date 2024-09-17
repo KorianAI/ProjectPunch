@@ -9,7 +9,7 @@ public class RS_Slam : PlayerGroundAttack
         rangeAttack = false;
         atkMoveDistance = 2.25f;
         atkMoveDur = .4f;
-        duration = .5f;
+        duration = .7f;
         base.EnterState(player);
         player.anim.Play("RSSlam");
         canAttack = false;
