@@ -235,12 +235,12 @@ public class PlayerCombat : MonoBehaviour
 
     public void AOEKnockback()
     {
-        float range = aoeRange;
+        float range = 0;
         GameObject eVFX = null;
-        if (resources.shift.overdrive) { range = aoeRange * 5;  eVFX = Instantiate(overdriveExVFX, aoePoint.transform.position, Quaternion.identity); }
-        else { eVFX = Instantiate(explosionVFX, aoePoint.transform.position, Quaternion.identity); }
+        if (resources.shift.overdrive) { range = aoeRange * 2;  eVFX = Instantiate(overdriveExVFX, aoePoint.transform.position, Quaternion.identity); }
+        else { range = aoeRange;  eVFX = Instantiate(explosionVFX, aoePoint.transform.position, Quaternion.identity); }
 
-        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, aoeRange, enemyLayer);
+        Collider[] enemies = Physics.OverlapSphere(attackPoint.position, range, enemyLayer);
         foreach (Collider c in enemies)
         {
             c.GetComponent<IDamageable>().TakeDamage(aoeStats.damage);
@@ -323,6 +323,14 @@ public class PlayerCombat : MonoBehaviour
         transform.DOKill();
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(aoePoint.position, aoeRange);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(aoePoint.position, aoeRange * 2);
+    }
 
 
 }

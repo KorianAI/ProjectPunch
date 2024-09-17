@@ -35,4 +35,9 @@ public class AnimationEventTrigger : MonoBehaviour
         r.ActivateScrapShift(true);
     }
 
+    public void RSNail()
+    {
+        rs.RSNail();
+    }
+
 }

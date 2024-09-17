@@ -26,6 +26,10 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
     public float fallTimer = 5;
     public bool parryable = true;
 
+    public float damage;
+
+    public bool overdrive;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,6 +45,8 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
         {
             enemy.nail.DestroyNail();
         }
+
+        DealDamage();
         transform.SetParent(destination);
         enemy.nailImpaled = true;
         enemy.nail = this;
@@ -103,8 +109,13 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
             Debug.Log("uwaahhhh parried!");
             float distance = Vector3.Distance(spawnPoint.position, destination.position);
             float dur = distance / speed;
-            transform.DOMove(destination.position, dur).OnComplete(Detonate);
+            transform.DOMove(destination.position, dur).OnComplete(() => { if (overdrive) Detonate(); else { DealDamage(); DestroyNail(); } });
         }
+    }
+
+    void DealDamage()
+    {
+        enemy.TakeDamage(damage);
     }
 
     void StartFallTimer()

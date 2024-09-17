@@ -21,6 +21,11 @@ public class RealSteel : WeaponInfo
     public GameObject muzzleVFX;
     public Transform projSpawn;
 
+    [Header("RSNail")]
+    public Transform nailSpawn;
+    public GameObject nailProj;
+
+
     public ParticleSystem[] overdriveParticles;
 
     public override void WeaponInput(InputCommand command, bool grounded, int index)
@@ -49,7 +54,7 @@ public class RealSteel : WeaponInfo
 
             else if (command.Type == InputType.xH)
             {
-                // RS_XH; // change to better nail - Nailgun
+                sm.SwitchState(new RS_XH());
             }
 
         }
@@ -224,6 +229,25 @@ public class RealSteel : WeaponInfo
         }
 
         UpdateOverdriveUI();
+    }
+
+    public void RSNail()
+    {
+        if (sm.tl.currentTarget != null && !sm.tl.targetable.environment)
+        {
+            EnemyHealth enemy = sm.tl.currentTarget.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                Vector3 direction = sm.tl.currentTarget.position - transform.position;
+                ConcentratedNail p = Instantiate(nailProj, nailSpawn.position, Quaternion.identity).GetComponent<ConcentratedNail>();
+                p.transform.rotation = Quaternion.LookRotation(direction.normalized);
+                p.enemy = enemy;
+                p.destination = sm.tl.targetPoint;
+                p.spawnPoint = nailSpawn;
+                p.sm = sm;
+            }
+        }
+
     }
 
     void UpdateOverdriveUI()

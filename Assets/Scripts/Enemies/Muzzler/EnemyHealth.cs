@@ -185,6 +185,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
             }
         }
 
+        if (nail)
+        {
+            nail.DestroyNail();
+            nail = null;
+            nailImpaled = false;
+        }
 
         ai.SwitchState(new EnemyDead());
         healthBar.gameObject.SetActive(false);

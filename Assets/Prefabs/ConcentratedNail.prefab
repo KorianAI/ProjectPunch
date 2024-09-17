@@ -61,6 +61,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   explosionStats: {fileID: 11400000, guid: 7f919a0b0cbf56b4a823934e65d2c9c6, type: 2}
+  fallTimer: 5
+  parryable: 1
+  damage: 10
+  overdrive: 0
 --- !u!65 &3778574025933101828
 BoxCollider:
   m_ObjectHideFlags: 0
