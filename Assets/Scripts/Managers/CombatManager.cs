@@ -45,6 +45,8 @@ public class CombatManager : MonoBehaviour
         {
             playedOpen = true;
             StartCoroutine(DoorShut());
+
+            other.GetComponent<TargetCams>().AssignTarget(enemies[0].transform, enemies[0].GetComponent<Targetable>().targetPoint, 1, true);
         }
     }
 
@@ -90,6 +92,8 @@ public class CombatManager : MonoBehaviour
         }
 
         StartAI();
+
+        
     }
 
     public void StartAI()
