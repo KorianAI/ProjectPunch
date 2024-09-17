@@ -754,12 +754,24 @@
 				<Folder Name="UI_SFX" ID="{57CC009C-3226-49A8-997F-B37E0D0ACDB6}" ShortID="835649926">
 					<ChildrenList>
 						<Sound Name="UI_Button" ID="{DF8E13BF-9ACB-4181-82CC-22D57001E5BE}" ShortID="983621417">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+									<ObjectRef Name="UI SFX Bus" ID="{6346483E-AAC5-4729-8EA2-2C57195A9BFD}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>

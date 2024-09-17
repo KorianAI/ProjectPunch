@@ -23,6 +23,13 @@
 						<Bus Name="Master Music Bus" ID="{EB2C9681-8977-4469-8800-2EDBB0563ADA}">
 							<ChildrenList>
 								<Bus Name="Combat 1 Section A Music Bus" ID="{266F6278-89E2-496F-A2E8-DA3033CAB3E3}">
+									<PropertyList>
+										<Property Name="BusVolume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ObjectLists>
 										<ObjectList Name="Effects">
 											<Reference>
@@ -69,7 +76,15 @@
 									</PropertyList>
 								</Bus>
 								<Bus Name="Combat 1 Section B Music Bus" ID="{023D05E0-C2C6-440F-8FB8-B13BC646AA60}"/>
-								<Bus Name="Scrap Shift Mode Music Bus" ID="{98D078AF-FFDB-4B4C-AF79-D1060708BB80}"/>
+								<Bus Name="Scrap Shift Mode Music Bus" ID="{98D078AF-FFDB-4B4C-AF79-D1060708BB80}">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
 							</ChildrenList>
 						</Bus>
 					</ChildrenList>
