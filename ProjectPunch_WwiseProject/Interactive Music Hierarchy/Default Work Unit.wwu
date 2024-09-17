@@ -73,7 +73,7 @@
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="DestinationContextObject">
-															<ObjectRef Name="ScrapShift" ID="{6EF751F1-94D6-49CE-83CD-34C5267C1BCD}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+															<ObjectRef Name="ScrapShift_Theme" ID="{6EF751F1-94D6-49CE-83CD-34C5267C1BCD}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 														</Reference>
 														<Reference Name="SourceContextObject">
 															<ObjectRef Name="Combat 1" ID="{542BF261-F5E1-45E4-A1D6-9F89805EDFEF}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
@@ -129,7 +129,7 @@
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="DestinationContextObject">
-															<ObjectRef Name="ScrapShift" ID="{6EF751F1-94D6-49CE-83CD-34C5267C1BCD}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+															<ObjectRef Name="ScrapShift_Theme" ID="{6EF751F1-94D6-49CE-83CD-34C5267C1BCD}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 														</Reference>
 														<Reference Name="SourceContextObject">
 															<ObjectRef Name="Explore" ID="{449AE57F-7B04-456A-8F53-370C10B370A6}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
@@ -162,7 +162,7 @@
 															<ObjectRef Name="Explore" ID="{449AE57F-7B04-456A-8F53-370C10B370A6}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 														</Reference>
 														<Reference Name="SourceContextObject">
-															<ObjectRef Name="ScrapShift" ID="{6EF751F1-94D6-49CE-83CD-34C5267C1BCD}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+															<ObjectRef Name="ScrapShift_Theme" ID="{6EF751F1-94D6-49CE-83CD-34C5267C1BCD}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 														</Reference>
 													</ReferenceList>
 													<TransitionInfo>
@@ -201,7 +201,7 @@
 															<ObjectRef Name="Combat 1" ID="{542BF261-F5E1-45E4-A1D6-9F89805EDFEF}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 														</Reference>
 														<Reference Name="SourceContextObject">
-															<ObjectRef Name="ScrapShift" ID="{6EF751F1-94D6-49CE-83CD-34C5267C1BCD}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+															<ObjectRef Name="ScrapShift_Theme" ID="{6EF751F1-94D6-49CE-83CD-34C5267C1BCD}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 														</Reference>
 													</ReferenceList>
 													<TransitionInfo>
@@ -8123,7 +8123,7 @@
 										</MusicSegment>
 									</ChildrenList>
 								</MusicPlaylistContainer>
-								<MusicPlaylistContainer Name="ScrapShift" ID="{6EF751F1-94D6-49CE-83CD-34C5267C1BCD}" ShortID="868034514">
+								<MusicPlaylistContainer Name="ScrapShift_Theme" ID="{6EF751F1-94D6-49CE-83CD-34C5267C1BCD}" ShortID="868034514">
 									<PropertyList>
 										<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
 										<Property Name="OverrideOutput" Type="bool" Value="True"/>
@@ -8416,7 +8416,7 @@
 											<MultiSwitchEntry Name="" ID="{800090CC-8EBE-45A9-A46B-31EDAF9A2E67}">
 												<ReferenceList>
 													<Reference Name="AudioNode">
-														<ObjectRef Name="ScrapShift" ID="{6EF751F1-94D6-49CE-83CD-34C5267C1BCD}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+														<ObjectRef Name="ScrapShift_Theme" ID="{6EF751F1-94D6-49CE-83CD-34C5267C1BCD}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 													</Reference>
 												</ReferenceList>
 												<ObjectLists>

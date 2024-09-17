@@ -416,7 +416,7 @@
 				<Trigger Id="4104150384" Name="Scrapshift"/>
 			</Triggers>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{0F0BB1C8-743B-812A-11B3-C06D74C517D6}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C6C591E1-06E5-F46B-BF84-11428F94620B}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -501,5 +501,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{41B34C2C-CF62-DF45-C005-EB75FC4E2B44}</FileHash>
+	<FileHash>{A486D126-55FA-6A8B-7A4F-73FA8AC08834}</FileHash>
 </SoundBanksInfo>

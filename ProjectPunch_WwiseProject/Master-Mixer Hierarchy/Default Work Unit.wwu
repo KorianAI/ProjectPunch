@@ -59,6 +59,13 @@
 							</DuckingList>
 						</Bus>
 						<Bus Name="Master Music Bus" ID="{EB2C9681-8977-4469-8800-2EDBB0563ADA}">
+							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ChildrenList>
 								<Bus Name="Combat 1 Section A Music Bus" ID="{266F6278-89E2-496F-A2E8-DA3033CAB3E3}">
 									<ObjectLists>
