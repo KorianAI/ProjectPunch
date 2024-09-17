@@ -3,7 +3,8 @@
 	<Triggers>
 		<WorkUnit Name="Default Work Unit" ID="{B4E87ACA-2039-40F1-A5F4-BF098B44B504}" PersistMode="Standalone">
 			<ChildrenList>
-				<Trigger Name="EndCombat" ID="{EDF0EE52-5E6D-4EE3-A9F8-A780DFAE2057}"/>
+				<Trigger Name="Scrapshift" ID="{EDF0EE52-5E6D-4EE3-A9F8-A780DFAE2057}"/>
+				<Trigger Name="ScrapshiftEnd" ID="{1DF51896-F4AD-4021-87FC-7EA68CED4EE5}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Triggers>

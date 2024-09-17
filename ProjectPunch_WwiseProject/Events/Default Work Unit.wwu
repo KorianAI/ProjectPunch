@@ -5,178 +5,78 @@
 			<ChildrenList>
 				<Folder Name="Music" ID="{42AFBE58-C5AD-4C18-A7F1-2096D3B9F2A2}" ShortID="490416823">
 					<ChildrenList>
-						<Event Name="MusicPlay_Explore" ID="{EA87B70D-0C24-4A91-AF83-AA9B66C6611A}">
+						<Event Name="MusicStart" ID="{36876757-9BBE-4448-BEAA-536C4D81573E}">
 							<ChildrenList>
-								<Action Name="" ID="{885FACD5-4830-4511-B011-37CB72DEAF80}" ShortID="349072210">
+								<Action Name="" ID="{5548BB67-6F04-4DB0-BCC9-638E1E1E17DD}" ShortID="42232059">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Explore" ID="{449AE57F-7B04-456A-8F53-370C10B370A6}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{64FAD976-2C42-4E95-8245-A82E33233CBA}" ShortID="194501925">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Synth" ID="{BE20352D-3574-443C-B7F6-A2B2D30DD428}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{F68ED3FF-7410-4B47-9690-F41CC957F55D}" ShortID="316358589">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Guitar" ID="{BE340E2B-E191-48F4-A529-F987EFB9CEDF}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{DD989EA9-5682-4DA5-AD8B-49E04CED66AB}" ShortID="375963794">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Drums" ID="{74E55F2F-C0E8-4C36-B4CF-1FBE69216E6C}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{95C993BF-68EF-4959-A9C2-1A5F5AC9BB05}" ShortID="59782531">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Lead" ID="{1C31B279-D890-4269-988B-9790E8A4C21B}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{B29C97F8-81A8-4223-B476-B0EBC80FA1CF}" ShortID="55150366">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Bass Guitar" ID="{94089CF3-63CF-4961-961E-2961D3894C14}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{EA5CB7EA-97B0-40B2-8287-0678174F7B06}" ShortID="57633207">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Percussion" ID="{FB1345A9-931D-4C74-B54E-BDD02DEA1362}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+											<ObjectRef Name="Music Switch" ID="{60030024-4165-42FF-9DF9-059EAFA89CCB}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="MusicPlay_CombatMain" ID="{FD369BF2-C013-45EE-A888-1A68C6563810}">
+						<Event Name="Scrapshift" ID="{653D043E-6F33-473D-943F-A330D37E02E5}">
 							<ChildrenList>
-								<Action Name="" ID="{42EFB369-2143-415A-B1F8-9645167679DB}" ShortID="786021264">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Percussion" ID="{FB1345A9-931D-4C74-B54E-BDD02DEA1362}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{6C7793C9-26FD-4260-B2B7-D994EAD943AB}" ShortID="546537426">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Drums" ID="{74E55F2F-C0E8-4C36-B4CF-1FBE69216E6C}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{9754836C-0CAD-449E-9733-C642D88AD683}" ShortID="1040495391">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Lead" ID="{1C31B279-D890-4269-988B-9790E8A4C21B}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{2F9B3CBE-FC38-46B7-B728-C278B3156F2F}" ShortID="852965045">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Guitar" ID="{BE340E2B-E191-48F4-A529-F987EFB9CEDF}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{04F6D8A0-DB41-41FC-82B6-FE4DB77F2524}" ShortID="306450031">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Bass Guitar" ID="{94089CF3-63CF-4961-961E-2961D3894C14}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{9B805F0F-9054-4305-AC99-92FD0711D10C}" ShortID="141819894">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Synth" ID="{BE20352D-3574-443C-B7F6-A2B2D30DD428}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{0B43451E-E70F-4B14-B9D9-596F71B25901}" ShortID="33045569">
+								<Action Name="" ID="{CEEBD9FE-3876-4E7B-B1FE-735E5E832722}" ShortID="347249398">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="ActionType" Type="int16" Value="35"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Explore" ID="{449AE57F-7B04-456A-8F53-370C10B370A6}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+											<ObjectRef Name="Scrapshift" ID="{EDF0EE52-5E6D-4EE3-A9F8-A780DFAE2057}" WorkUnitID="{B4E87ACA-2039-40F1-A5F4-BF098B44B504}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="MusicEnd_CombatOutro" ID="{315DA928-C352-440C-8727-340DF4709ADA}">
-							<ChildrenList>
-								<Action Name="" ID="{108B8BA1-B03D-411A-AEEF-36608B988A38}" ShortID="127943695">
+								<Action Name="" ID="{812495B1-8894-4F4F-B081-2EF3FA89FF07}" ShortID="888313319">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="ActionType" Type="int16" Value="22"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Combat 1 Section B" ID="{FD15F3C3-011D-4EC6-83A1-A129DB670913}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+											<ObjectRef Name="Scrapshift" ID="{76F526FA-6434-4FF3-90E8-F513FC29025D}" WorkUnitID="{C927E8F3-7384-45B5-BDC7-ED0C4739356B}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="MusicEnd_Explore" ID="{798EF4F9-50FC-4D65-A46D-50CEA17E9705}">
+						<Event Name="Explore" ID="{D1958952-82A4-4972-9E70-E8EB410CAA42}">
 							<ChildrenList>
-								<Action Name="" ID="{5DD49584-7F0F-441A-A441-40D58E95DCBF}" ShortID="346192163">
+								<Action Name="" ID="{9A21D426-1518-4B5D-B56C-C69BDEB5A8BC}" ShortID="503683529">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="ActionType" Type="int16" Value="22"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Explore" ID="{449AE57F-7B04-456A-8F53-370C10B370A6}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+											<ObjectRef Name="Explore" ID="{342AC1B5-1FD8-4426-9429-B3E9AA64F41A}" WorkUnitID="{C927E8F3-7384-45B5-BDC7-ED0C4739356B}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="MusicPlay_CombatIntro" ID="{F1DD09AC-DB62-4845-B9D9-D6B460B20ABA}">
+						<Event Name="Combat" ID="{D904E502-7A7A-489C-A1A1-AD81C57C023D}">
 							<ChildrenList>
-								<Action Name="" ID="{A41AB175-8F6E-447A-8C33-8275BA0B5360}" ShortID="1012481009">
+								<Action Name="" ID="{3E4AD280-B8A7-49D9-8DDD-F52A0F04CDF1}" ShortID="459582592">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="New Music Switch Container" ID="{97A5122F-5680-4D0E-B938-C88A83BBECFA}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+											<ObjectRef Name="Combat" ID="{24593F05-9754-45EB-896A-E0CA1444C4D5}" WorkUnitID="{C927E8F3-7384-45B5-BDC7-ED0C4739356B}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="MusicPlay_ScrapShiftMode" ID="{1073F438-2F2F-419A-AD03-1CC77C5A0BD7}">
+						<Event Name="ScrapshiftEnd" ID="{5A2C5C63-02BA-4528-83B5-37DFCCDF73F5}">
 							<ChildrenList>
-								<Action Name="" ID="{24DA8222-C19B-4257-B156-2B03A5E94244}" ShortID="146877019">
+								<Action Name="" ID="{848B8757-0F21-4432-B51B-4D4DD49ED33C}" ShortID="226353174">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="35"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Scrap Shift Mode" ID="{80A09117-9982-4D90-BD76-930103B44E54}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+											<ObjectRef Name="ScrapshiftEnd" ID="{1DF51896-F4AD-4021-87FC-7EA68CED4EE5}" WorkUnitID="{B4E87ACA-2039-40F1-A5F4-BF098B44B504}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -186,29 +86,17 @@
 				</Folder>
 				<Folder Name="Kaila SFX" ID="{2DC713A0-EA86-4010-8449-FA7E31BE1EA1}" ShortID="651481342">
 					<ChildrenList>
-						<Folder Name="Kaila_BFG" ID="{06AA5A34-249A-4A13-B97C-91AAC9F13E40}" ShortID="382199767">
+						<Event Name="SFXPlay_FootstepsGround" ID="{5E04A045-6D0F-490B-9E62-E4B990D7CC90}">
 							<ChildrenList>
-								<Event Name="BFG_Slam" ID="{E24FAB6E-F64E-4EA1-AEB2-EA15B9B8AE30}"/>
-								<Event Name="BFG_Impact" ID="{0E5C3B44-D2AB-42B6-96E2-7215F16F058E}"/>
-								<Event Name="BFG_Swing" ID="{F0A3C8C4-5D18-4981-9B73-F36E6BB07515}"/>
+								<Action Name="" ID="{D8DDCD68-5086-4522-8625-2F80A39902FA}" ShortID="390560560">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="FootstepsGround" ID="{0E2A5E83-0361-4DC0-9693-13C8C20E4DD9}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
-						</Folder>
-						<Folder Name="Kaila_General" ID="{50A831CB-5F2F-449B-9D3E-EDC475892BEB}" ShortID="516884146">
-							<ChildrenList>
-								<Event Name="SFXPlay_FootstepsGround" ID="{5E04A045-6D0F-490B-9E62-E4B990D7CC90}">
-									<ChildrenList>
-										<Action Name="" ID="{D8DDCD68-5086-4522-8625-2F80A39902FA}" ShortID="390560560">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="FootstepsGround" ID="{0E2A5E83-0361-4DC0-9693-13C8C20E4DD9}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
-							</ChildrenList>
-						</Folder>
-						<Folder Name="Scrapmode_Switch" ID="{624B3F0F-EEF1-4D88-B137-F6285E4C0562}" ShortID="221079380"/>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

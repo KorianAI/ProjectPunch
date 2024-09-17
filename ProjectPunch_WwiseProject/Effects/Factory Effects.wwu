@@ -190,8 +190,8 @@
 							<PropertyList>
 								<Property Name="LookAhead" Type="Real32" Value="0.006"/>
 								<Property Name="Ratio" Type="Real32" Value="50"/>
-								<Property Name="ReleaseTime" Type="Real32" Value="0.3"/>
-								<Property Name="Threshold" Type="Real32" Value="-1.3"/>
+								<Property Name="ReleaseTime" Type="Real32" Value="0.001"/>
+								<Property Name="Threshold" Type="Real32" Value="-0.3"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Brick_Wall_Minus_1dB_Peak_Slow_Release" ID="{9FB8DC2B-7F1C-4E4E-8FA5-50872652D2DD}" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
@@ -208,6 +208,17 @@
 								<Property Name="Ratio" Type="Real32" Value="35"/>
 								<Property Name="ReleaseTime" Type="Real32" Value="0.071"/>
 								<Property Name="Threshold" Type="Real32" Value="-25"/>
+							</PropertyList>
+						</Effect>
+						<Effect Name="New_Peak_Limiter" ID="{B1A06D8F-B816-48C3-87E8-573E4767C444}" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+							<PropertyList>
+								<Property Name="Ratio" Type="Real32" Value="50"/>
+								<Property Name="Threshold" Type="Real32" Value="-1"/>
+							</PropertyList>
+						</Effect>
+						<Effect Name="New_Peak_Limiter_01" ID="{278F7569-EADA-4378-8B55-4831BCB69369}" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+							<PropertyList>
+								<Property Name="Ratio" Type="Real32" Value="50"/>
 							</PropertyList>
 						</Effect>
 					</ChildrenList>
@@ -705,12 +716,10 @@
 							</PropertyList>
 						</Effect>
 						<Effect Name="Large_Church1" ID="{9B6E8B78-EF8C-494C-AADA-D01CF51B5FAC}" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
-							<Comment>STILL NEEDS EXPLOSION SFX</Comment>
 							<PropertyList>
 								<Property Name="HFRatio" Type="Real32" Value="6"/>
 								<Property Name="NumberOfDelays" Type="int32" Value="12"/>
 								<Property Name="PreDelay" Type="Real32" Value="0.1"/>
-								<Property Name="ReverbTime" Type="Real32" Value="2"/>
 								<Property Name="WetLevel" Type="Real32" Value="-30"/>
 							</PropertyList>
 						</Effect>
@@ -1719,8 +1728,8 @@
 								<Property Name="Voice2Enable" Type="bool" Value="True"/>
 								<Property Name="Voice2FilterFrequency" Type="Real32" Value="361"/>
 								<Property Name="Voice2FilterType" Type="int32" Value="4"/>
-								<Property Name="Voice2Pitch" Type="Real32" Value="-400"/>
-								<Property Name="WindowSize" Type="int32" Value="1280"/>
+								<Property Name="Voice2Pitch" Type="Real32" Value="-1100"/>
+								<Property Name="WindowSize" Type="int32" Value="3840"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Three_Voices" ID="{71CA20BE-8C1D-4A0C-92AF-BFCE183D5651}" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">

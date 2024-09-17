@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{AC83538C-523F-4EF4-FF25-EBC6662EE299}">
+		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{FD252954-173E-678D-20B2-A9A4A4FFA1E1}">
 			<ShortName>Soundbank_Main</ShortName>
 			<Path>Soundbank_Main.bnk</Path>
 			<Media>
@@ -124,7 +124,7 @@
 						<MediaRef Id="1024608900"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4048598968" Name="MusicPlay_Explore" DurationType="Infinite">
+				<Event Id="4048598968" Name="MusicPlay_Explore" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<MediaRefs>
 						<MediaRef Id="896998356"/>
 					</MediaRefs>
@@ -135,17 +135,11 @@
 					</MediaRefs>
 				</Event>
 			</Events>
-			<Triggers>
-				<Trigger Id="2627423420" Name="EndCombat"/>
-			</Triggers>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{E9595FC0-F0F2-D675-EDFA-5F1FEA563158}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{4521617C-FDDB-EAFB-76F2-A2B15CEE0BD8}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
-				<Custom>
-					<Plugin Id="178414885" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
-				</Custom>
 				<ShareSets>
 					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
 				</ShareSets>
@@ -155,32 +149,17 @@
 				</AudioDevices>
 			</Plugins>
 			<Busses>
-				<Bus Id="48433064" Name="Master Music Bus"/>
 				<Bus Id="1502772432" Name="SFX Bus"/>
-				<Bus Id="1570563853" Name="Explore Music Bus"/>
-				<Bus Id="2199471764" Name="Combat 1 Section B Music Bus"/>
-				<Bus Id="3803692087" Name="Master Audio Bus"/>
-				<Bus Id="4083411863" Name="Combat 1 Section A Music Bus">
+				<Bus Id="3127962312" Name="Music Bus">
 					<PluginRefs>
-						<Custom>
-							<PluginRef Id="178414885"/>
-						</Custom>
 						<ShareSets>
 							<PluginRef Id="1459522457"/>
 						</ShareSets>
 					</PluginRefs>
 				</Bus>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
-			<StateGroups>
-				<StateGroup Id="1690668539" Name="Music_States">
-					<States>
-						<State Id="579523862" Name="Explore"/>
-						<State Id="748895195" Name="None"/>
-						<State Id="2764240573" Name="Combat"/>
-					</States>
-				</StateGroup>
-			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{8899CD36-83FE-2498-4AA3-1C896017575C}</FileHash>
+	<FileHash>{9E1EE6A0-3843-92DE-46E2-E184414BA076}</FileHash>
 </SoundBanksInfo>

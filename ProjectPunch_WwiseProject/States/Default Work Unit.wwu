@@ -4,10 +4,14 @@
 		<WorkUnit Name="Default Work Unit" ID="{C927E8F3-7384-45B5-BDC7-ED0C4739356B}" PersistMode="Standalone">
 			<ChildrenList>
 				<StateGroup Name="Music_States" ID="{B95970C6-A3B3-444A-8D69-328C6FC91E5B}">
+					<PropertyList>
+						<Property Name="DefaultTransitionTime" Type="Real64" Value="0"/>
+					</PropertyList>
 					<ChildrenList>
 						<State Name="None" ID="{5CDED03C-1F92-404E-B13E-C11A243605C9}"/>
 						<State Name="Combat" ID="{24593F05-9754-45EB-896A-E0CA1444C4D5}"/>
 						<State Name="Explore" ID="{342AC1B5-1FD8-4426-9429-B3E9AA64F41A}"/>
+						<State Name="Scrapshift" ID="{76F526FA-6434-4FF3-90E8-F513FC29025D}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>

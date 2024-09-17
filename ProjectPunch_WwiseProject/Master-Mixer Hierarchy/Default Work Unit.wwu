@@ -10,26 +10,48 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Bus Name="Master SFX Bus" ID="{E167BE63-DE77-42E0-B043-ABB45C1BB91D}">
-							<ChildrenList>
-								<Bus Name="Environment SFX Bus" ID="{2D9FF7E5-7537-4B07-95A3-11C908C1F80D}"/>
-								<Bus Name="Cashmere SFX Bus" ID="{B458B6A4-C62C-47B7-A5D1-009BD152B4CB}"/>
-								<Bus Name="Kaila SFX Bus" ID="{3FA47C10-29CC-4813-92F6-72CFD2C8A9DB}"/>
-								<Bus Name="Muzzler SFX Bus" ID="{95966CB4-383E-4252-A49B-96539A39F466}"/>
-								<Bus Name="Turret SFX" ID="{33463E4D-76DB-4FEA-B8CC-8373216310E1}"/>
-								<Bus Name="UI SFX Bus" ID="{6346483E-AAC5-4729-8EA2-2C57195A9BFD}"/>
-							</ChildrenList>
+						<Bus Name="SFX Bus" ID="{E167BE63-DE77-42E0-B043-ABB45C1BB91D}">
+							<PropertyList>
+								<Property Name="RecoveryTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{6A51A7ED-4FFE-483A-85F6-5488D0DB2FEC}" ShortID="530278125">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom CreatedFrom="{B1A06D8F-B816-48C3-87E8-573E4767C444}">
+															<Effect Name="New_Peak_Limiter (Custom)" ID="{55432FDB-7FE8-4581-B64F-1888FB99A3C1}" ShortID="73399820" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+																<PropertyList>
+																	<Property Name="Ratio" Type="Real32" Value="50"/>
+																	<Property Name="Threshold" Type="Real32" Value="-1"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<DuckingList>
+								<DuckItem>
+									<BusRef Name="Master Music Bus" ID="{EB2C9681-8977-4469-8800-2EDBB0563ADA}"/>
+									<DuckingParam>
+										<Volume>-6</Volume>
+										<FadeInTime>0</FadeInTime>
+										<FadeOutTime>0</FadeOutTime>
+										<FadeCurve>FadeLinear</FadeCurve>
+										<TargetProp>BusVolume</TargetProp>
+									</DuckingParam>
+								</DuckItem>
+							</DuckingList>
 						</Bus>
 						<Bus Name="Master Music Bus" ID="{EB2C9681-8977-4469-8800-2EDBB0563ADA}">
 							<ChildrenList>
 								<Bus Name="Combat 1 Section A Music Bus" ID="{266F6278-89E2-496F-A2E8-DA3033CAB3E3}">
-									<PropertyList>
-										<Property Name="BusVolume" Type="Real64">
-											<ValueList>
-												<Value>-10</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ObjectLists>
 										<ObjectList Name="Effects">
 											<Reference>
@@ -46,6 +68,13 @@
 											<Reference>
 												<Local>
 													<EffectSlot Name="" ID="{43C6D2FB-40B6-41B7-B141-D4CF9ABB3AEA}" ShortID="109611445">
+														<PropertyList>
+															<Property Name="Bypass" Type="bool">
+																<ValueList>
+																	<Value>True</Value>
+																</ValueList>
+															</Property>
+														</PropertyList>
 														<ReferenceList>
 															<Reference Name="Effect">
 																<Custom CreatedFrom="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}">
@@ -66,28 +95,67 @@
 										</ObjectList>
 									</ObjectLists>
 								</Bus>
-								<Bus Name="Explore Music Bus" ID="{72FA322B-6D29-4E5C-B97A-331A3697AD00}">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-20</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-								</Bus>
+								<Bus Name="Explore Music Bus" ID="{72FA322B-6D29-4E5C-B97A-331A3697AD00}"/>
 								<Bus Name="Combat 1 Section B Music Bus" ID="{023D05E0-C2C6-440F-8FB8-B13BC646AA60}"/>
-								<Bus Name="Scrap Shift Mode Music Bus" ID="{98D078AF-FFDB-4B4C-AF79-D1060708BB80}">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-10</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
+								<Bus Name="ScrapShift Music Bus" ID="{6609CA19-C600-4A7C-8C2D-DB2F4B7D0924}">
+									<ObjectLists>
+										<ObjectList Name="Effects">
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{B7A5B327-F2F5-4358-A0A6-EE62B574737B}" ShortID="1031385087">
+														<ReferenceList>
+															<Reference Name="Effect">
+																<Custom CreatedFrom="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}">
+																	<Effect Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" ID="{4DEABF1C-4629-441F-8739-108BDBC03912}" ShortID="14895759" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+																		<PropertyList>
+																			<Property Name="LookAhead" Type="Real32" Value="0.006"/>
+																			<Property Name="Ratio" Type="Real32" Value="50"/>
+																			<Property Name="ReleaseTime" Type="Real32" Value="0.001"/>
+																			<Property Name="Threshold" Type="Real32" Value="-1.3"/>
+																		</PropertyList>
+																	</Effect>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
 								</Bus>
 							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{8D00A689-A6D4-4B98-BA33-C5F095097417}" ShortID="695028535">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+														<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
 						</Bus>
 					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Effects">
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{5E6B9C32-9694-4F8C-ACDC-308C4BF8617C}" ShortID="494202163">
+										<ReferenceList>
+											<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+												<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>
