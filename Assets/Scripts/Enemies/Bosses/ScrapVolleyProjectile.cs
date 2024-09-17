@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScrapVolleyProjectile : MonoBehaviour, IMagnetisable
+public class ScrapVolleyProjectile : MonoBehaviour, IParriable
 {
     public float damage;
     public LayerMask collision;
@@ -57,9 +57,8 @@ public class ScrapVolleyProjectile : MonoBehaviour, IMagnetisable
         throw new System.NotImplementedException();
     }
 
-    public void Push(PlayerStateManager player)
+    public void Parry()
     {
-
         transform.DOKill();
         transform.DOMove(cm.transform.position, .4f).OnComplete(() => { cm.health.TakeDamage(68); GameObject rumbleEffect = Instantiate(rumbleVFX, transform.position, transform.rotation); gameObject.SetActive(false); });
     }
