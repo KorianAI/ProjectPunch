@@ -1,18 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AK.Wwise.Editor;
 
 public class SFXOverview : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void PlaySFX_BFG()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

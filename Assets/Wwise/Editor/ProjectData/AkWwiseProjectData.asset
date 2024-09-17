@@ -38,8 +38,28 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584750420669965277
+    m_lastTime: -8584750269054775808
     List:
+    - name: Cashmere_SFX_Bus
+      guid: 6f82ca6e51b40348b54b1616931914c2
+      id: 1908967618
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: Cashmere_SFX_Bus
+        ObjectType: 2
+        guid: 6f82ca6e51b40348b54b1616931914c2
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Cashmere_SFX_Bus
     - name: Combat 1 Section A Music Bus
       guid: 78626f26e2896f49a2e8da3033cab3e3
       id: 4083411863
@@ -82,6 +102,26 @@ MonoBehaviour:
         guid: e0053d02c6c20f448fb8b13bc646aa60
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
         Bus\Combat 1 Section B Music Bus
+    - name: Environment_SFX_Bus
+      guid: ffc121a1d4c494429146df12d4662c03
+      id: 2320406271
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: Environment_SFX_Bus
+        ObjectType: 2
+        guid: ffc121a1d4c494429146df12d4662c03
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Environment_SFX_Bus
     - name: Explore Music Bus
       guid: 2b32fa72296d5c4eb97a331a3697ad00
       id: 1570563853
@@ -103,6 +143,46 @@ MonoBehaviour:
         guid: 2b32fa72296d5c4eb97a331a3697ad00
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
         Bus\Explore Music Bus
+    - name: General_SFX_Bus
+      guid: 9fb152a9abc39a4d96ade4103503f176
+      id: 3967235860
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: General_SFX_Bus
+        ObjectType: 2
+        guid: 9fb152a9abc39a4d96ade4103503f176
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\General_SFX_Bus
+    - name: Kaila_SFX_Bus
+      guid: 368f5894643bf547a9598d4a266d8c99
+      id: 84101584
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: Kaila_SFX_Bus
+        ObjectType: 2
+        guid: 368f5894643bf547a9598d4a266d8c99
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Kaila_SFX_Bus
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -135,6 +215,26 @@ MonoBehaviour:
         guid: 81962ceb7789694488002edbb0563ada
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
         Bus
+    - name: Muzzler_SFX_Bus
+      guid: 8e896faec27dc64cbbd9e9c25a945477
+      id: 326245315
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: Muzzler_SFX_Bus
+        ObjectType: 2
+        guid: 8e896faec27dc64cbbd9e9c25a945477
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Muzzler_SFX_Bus
     - name: ScrapShift Music Bus
       guid: 19ca096600c67c4a8c2ddb2f4b7d0924
       id: 3736460895
@@ -173,6 +273,46 @@ MonoBehaviour:
         ObjectType: 2
         guid: 63be67e177dee042b043abb45c1bb91d
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus
+    - name: Turret_SFX_Bus
+      guid: a6ddbecb20a81d4bb562a8ea911ccb97
+      id: 3571547856
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: Turret_SFX_Bus
+        ObjectType: 2
+        guid: a6ddbecb20a81d4bb562a8ea911ccb97
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Turret_SFX_Bus
+    - name: UI_SFX_Bus
+      guid: 36eb44c6aa91ee498a2bb1ca746effe1
+      id: 2731925972
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: UI_SFX_Bus
+        ObjectType: 2
+        guid: 36eb44c6aa91ee498a2bb1ca746effe1
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\UI_SFX_Bus
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -185,7 +325,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584751273463704854
+    m_lastTime: -8584750251374775808
     List:
     - name: Soundbank_Main
       guid: af2cf498d9d21f4e88407f3a8baafeea
@@ -213,7 +353,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584750420682672492
+    m_lastTime: -8584750251374775808
     List:
     - name: Combat
       guid: 02e504d97a7a9c48a1a1ad81c57c023d
@@ -233,8 +373,8 @@ MonoBehaviour:
         guid: 02e504d97a7a9c48a1a1ad81c57c023d
       Path: Events\Default Work Unit\Music\Combat
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Explore
       guid: 528995d1a48272499e70e8eb410caa42
       id: 579523862
@@ -253,8 +393,8 @@ MonoBehaviour:
         guid: 528995d1a48272499e70e8eb410caa42
       Path: Events\Default Work Unit\Music\Explore
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Kaila SFX
       guid: a013c72d86ea10408449fa7e31be1ea1
       id: 1455778194
@@ -269,6 +409,86 @@ MonoBehaviour:
         ObjectType: 4
         guid: a013c72d86ea10408449fa7e31be1ea1
       Path: Events\Default Work Unit\Kaila SFX
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Kaila_BFG
+      guid: 003e796f2a6b6448a8f3330411ba30d2
+      id: 861741781
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_BFG
+        ObjectType: 4
+        guid: 003e796f2a6b6448a8f3330411ba30d2
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Kaila_Movement
+      guid: 9ccac1c0a71f684489bebdfa265d99f0
+      id: 3834631025
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_Movement
+        ObjectType: 4
+        guid: 9ccac1c0a71f684489bebdfa265d99f0
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_Movement
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Kaila_NailGun
+      guid: 9fa872b19f83af41a81df85fd63e6832
+      id: 1914636136
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_NailGun
+        ObjectType: 4
+        guid: 9fa872b19f83af41a81df85fd63e6832
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_NailGun
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Kaila_RealSteel
+      guid: 4b5a3bc94f674849bef4cac1384be52a
+      id: 2976898995
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_RealSteel
+        ObjectType: 4
+        guid: 4b5a3bc94f674849bef4cac1384be52a
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -327,8 +547,8 @@ MonoBehaviour:
         guid: 3e043d65336f3d47943fa330d37e02e5
       Path: Events\Default Work Unit\Music\Scrapshift
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: ScrapshiftEnd
       guid: 635c2c5aba02284583b537dfccdf73f5
       id: 1856838135
@@ -347,8 +567,123 @@ MonoBehaviour:
         guid: 635c2c5aba02284583b537dfccdf73f5
       Path: Events\Default Work Unit\Music\ScrapshiftEnd
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
+    - name: SFX_Play_Dash
+      guid: 835fd8d8cd3de94ba4025f1b294a38ef
+      id: 3190817658
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_Movement
+        ObjectType: 4
+        guid: 9ccac1c0a71f684489bebdfa265d99f0
+      - ElementName: SFX_Play_Dash
+        ObjectType: 3
+        guid: 835fd8d8cd3de94ba4025f1b294a38ef
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_Movement\SFX_Play_Dash
+      maxAttenuation: 0
+      maxDuration: 2.7321541
+      minDuration: 2.7321541
+    - name: SFXPlay_BFGImpact
+      guid: 34fa1b564f07cc418f180435e7599130
+      id: 809168204
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_BFG
+        ObjectType: 4
+        guid: 003e796f2a6b6448a8f3330411ba30d2
+      - ElementName: SFXPlay_BFGImpact
+        ObjectType: 3
+        guid: 34fa1b564f07cc418f180435e7599130
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGImpact
+      maxAttenuation: 0
+      maxDuration: 0.6250113
+      minDuration: 0.6250113
+    - name: SFXPlay_BFGLunge
+      guid: 80f3bb995526c944bd296a69efba68c1
+      id: 3729182067
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_BFG
+        ObjectType: 4
+        guid: 003e796f2a6b6448a8f3330411ba30d2
+      - ElementName: SFXPlay_BFGLunge
+        ObjectType: 3
+        guid: 80f3bb995526c944bd296a69efba68c1
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGLunge
+      maxAttenuation: 0
+      maxDuration: 2.75
+      minDuration: 2.75
+    - name: SFXPlay_BFGSlam
+      guid: 9be352f395d9d54e99a374436850a807
+      id: 2597907181
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_BFG
+        ObjectType: 4
+        guid: 003e796f2a6b6448a8f3330411ba30d2
+      - ElementName: SFXPlay_BFGSlam
+        ObjectType: 3
+        guid: 9be352f395d9d54e99a374436850a807
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGSlam
+      maxAttenuation: 0
+      maxDuration: 1.2
+      minDuration: 1.2
+    - name: SFXPlay_BFGSwing
+      guid: 785832bc4ac4d244b654e30a9c79e509
+      id: 926756856
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_BFG
+        ObjectType: 4
+        guid: 003e796f2a6b6448a8f3330411ba30d2
+      - ElementName: SFXPlay_BFGSwing
+        ObjectType: 3
+        guid: 785832bc4ac4d244b654e30a9c79e509
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGSwing
+      maxAttenuation: 0
+      maxDuration: 1.0863942
+      minDuration: 1.0863942
     - name: SFXPlay_FootstepsGround
       guid: 45a0045e0f6d0b499e62e4b990d7cc90
       id: 3800919789
@@ -362,13 +697,223 @@ MonoBehaviour:
       - ElementName: Kaila SFX
         ObjectType: 4
         guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_Movement
+        ObjectType: 4
+        guid: 9ccac1c0a71f684489bebdfa265d99f0
       - ElementName: SFXPlay_FootstepsGround
         ObjectType: 3
         guid: 45a0045e0f6d0b499e62e4b990d7cc90
-      Path: Events\Default Work Unit\Kaila SFX\SFXPlay_FootstepsGround
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_Movement\SFXPlay_FootstepsGround
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: SFXPlay_NailGunChargedPull
+      guid: 5d663e571affc941abba0dd638856e32
+      id: 2423564124
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_NailGun
+        ObjectType: 4
+        guid: 9fa872b19f83af41a81df85fd63e6832
+      - ElementName: SFXPlay_NailGunChargedPull
+        ObjectType: 3
+        guid: 5d663e571affc941abba0dd638856e32
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunChargedPull
+      maxAttenuation: 0
+      maxDuration: 4
+      minDuration: 4
+    - name: SFXPlay_NailGunChargedShot
+      guid: 391bfbc47f1f654789a7b3690782ba4e
+      id: 767256457
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_NailGun
+        ObjectType: 4
+        guid: 9fa872b19f83af41a81df85fd63e6832
+      - ElementName: SFXPlay_NailGunChargedShot
+        ObjectType: 3
+        guid: 391bfbc47f1f654789a7b3690782ba4e
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunChargedShot
+      maxAttenuation: 0
+      maxDuration: 4.0596824
+      minDuration: 4.0596824
+    - name: SFXPlay_NailGunFire
+      guid: cf4734c2e6d939499e478df9baaaaca4
+      id: 1294040743
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_NailGun
+        ObjectType: 4
+        guid: 9fa872b19f83af41a81df85fd63e6832
+      - ElementName: SFXPlay_NailGunFire
+        ObjectType: 3
+        guid: cf4734c2e6d939499e478df9baaaaca4
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunFire
+      maxAttenuation: 0
+      maxDuration: 1
+      minDuration: 1
+    - name: SFXPlay_RS_Impact
+      guid: 43b67fff182c0048adee945384ad5a0d
+      id: 2297272099
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_RealSteel
+        ObjectType: 4
+        guid: 4b5a3bc94f674849bef4cac1384be52a
+      - ElementName: SFXPlay_RS_Impact
+        ObjectType: 3
+        guid: 43b67fff182c0048adee945384ad5a0d
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Impact
+      maxAttenuation: 0
+      maxDuration: 1.8848526
+      minDuration: 1.8848526
+    - name: SFXPlay_RS_Impact_Overdrive
+      guid: 357ce999bcf0a7448655588e01494f8d
+      id: 1462647048
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_RealSteel
+        ObjectType: 4
+        guid: 4b5a3bc94f674849bef4cac1384be52a
+      - ElementName: SFXPlay_RS_Impact_Overdrive
+        ObjectType: 3
+        guid: 357ce999bcf0a7448655588e01494f8d
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Impact_Overdrive
+      maxAttenuation: 0
+      maxDuration: 1.8848526
+      minDuration: 1.8848526
+    - name: SFXPlay_RS_Overdrive_Intro
+      guid: b1000b82b31aca44a34cd073ab586678
+      id: 1188800018
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_RealSteel
+        ObjectType: 4
+        guid: 4b5a3bc94f674849bef4cac1384be52a
+      - ElementName: SFXPlay_RS_Overdrive_Intro
+        ObjectType: 3
+        guid: b1000b82b31aca44a34cd073ab586678
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Overdrive_Intro
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFXPlay_RS_Overdrive_Outro
+      guid: d0c41eeade89164fb43dd3ed488dc2f1
+      id: 2709871361
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_RealSteel
+        ObjectType: 4
+        guid: 4b5a3bc94f674849bef4cac1384be52a
+      - ElementName: SFXPlay_RS_Overdrive_Outro
+        ObjectType: 3
+        guid: d0c41eeade89164fb43dd3ed488dc2f1
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Overdrive_Outro
+      maxAttenuation: 0
+      maxDuration: 3.7743554
+      minDuration: 3.7743554
+    - name: SFXPlay_RS_SlamShockwave
+      guid: 68d12b96bd376a43a6eaf02a5cda675c
+      id: 4164504207
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_RealSteel
+        ObjectType: 4
+        guid: 4b5a3bc94f674849bef4cac1384be52a
+      - ElementName: SFXPlay_RS_SlamShockwave
+        ObjectType: 3
+        guid: 68d12b96bd376a43a6eaf02a5cda675c
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_SlamShockwave
+      maxAttenuation: 0
+      maxDuration: 2.5010657
+      minDuration: 2.5010657
+    - name: SFXPlay_RS_SlamShockwave_Overdrive
+      guid: 08b7f5d029887c4e893c0cc086136d70
+      id: 1103899084
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_RealSteel
+        ObjectType: 4
+        guid: 4b5a3bc94f674849bef4cac1384be52a
+      - ElementName: SFXPlay_RS_SlamShockwave_Overdrive
+        ObjectType: 3
+        guid: 08b7f5d029887c4e893c0cc086136d70
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_SlamShockwave_Overdrive
+      maxAttenuation: 0
+      maxDuration: 2.5010657
+      minDuration: 2.5010657
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -570,7 +1115,7 @@ MonoBehaviour:
         guid: 9618f51dadf4214087fc7ea68ced4ee5
       Path: Triggers\Default Work Unit\ScrapshiftEnd
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 050000000600000007000000080000000c0000000d0000000f00000026000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
