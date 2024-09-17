@@ -146,7 +146,7 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
     {
         ai.dead = true;
         
-        sm.tl.ResetTarget();
+        sm.tl.CancelLock();
         healthBars.HideBars();
         smokevfx.Play();
 

@@ -38,29 +38,8 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584751273513786227
+    m_lastTime: -8584750420669965277
     List:
-    - name: Cashmere SFX Bus
-      guid: a4b658b42cc6b747a5d1009bd152b4cb
-      id: 151440774
-      PathAndIcons:
-      - ElementName: Master-Mixer Hierarchy
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f4b11d01547f8a4b9b37253758b8a136
-      - ElementName: Master Audio Bus
-        ObjectType: 2
-        guid: d8a41415a61d2a41a17e75ca0c2149f3
-      - ElementName: SFX Bus
-        ObjectType: 2
-        guid: 63be67e177dee042b043abb45c1bb91d
-      - ElementName: Cashmere SFX Bus
-        ObjectType: 2
-        guid: a4b658b42cc6b747a5d1009bd152b4cb
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Cashmere
-        SFX Bus
     - name: Combat 1 Section A Music Bus
       guid: 78626f26e2896f49a2e8da3033cab3e3
       id: 4083411863
@@ -103,27 +82,6 @@ MonoBehaviour:
         guid: e0053d02c6c20f448fb8b13bc646aa60
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
         Bus\Combat 1 Section B Music Bus
-    - name: Environment SFX Bus
-      guid: e5f79f2d3775074b95a311c908c1f80d
-      id: 3220333747
-      PathAndIcons:
-      - ElementName: Master-Mixer Hierarchy
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f4b11d01547f8a4b9b37253758b8a136
-      - ElementName: Master Audio Bus
-        ObjectType: 2
-        guid: d8a41415a61d2a41a17e75ca0c2149f3
-      - ElementName: SFX Bus
-        ObjectType: 2
-        guid: 63be67e177dee042b043abb45c1bb91d
-      - ElementName: Environment SFX Bus
-        ObjectType: 2
-        guid: e5f79f2d3775074b95a311c908c1f80d
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Environment
-        SFX Bus
     - name: Explore Music Bus
       guid: 2b32fa72296d5c4eb97a331a3697ad00
       id: 1570563853
@@ -145,27 +103,6 @@ MonoBehaviour:
         guid: 2b32fa72296d5c4eb97a331a3697ad00
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
         Bus\Explore Music Bus
-    - name: Kaila SFX Bus
-      guid: 107ca43fcc29134892f672cfd2c8a9db
-      id: 2729484924
-      PathAndIcons:
-      - ElementName: Master-Mixer Hierarchy
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f4b11d01547f8a4b9b37253758b8a136
-      - ElementName: Master Audio Bus
-        ObjectType: 2
-        guid: d8a41415a61d2a41a17e75ca0c2149f3
-      - ElementName: SFX Bus
-        ObjectType: 2
-        guid: 63be67e177dee042b043abb45c1bb91d
-      - ElementName: Kaila SFX Bus
-        ObjectType: 2
-        guid: 107ca43fcc29134892f672cfd2c8a9db
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Kaila
-        SFX Bus
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -198,9 +135,9 @@ MonoBehaviour:
         guid: 81962ceb7789694488002edbb0563ada
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
         Bus
-    - name: Muzzler SFX Bus
-      guid: b46c96953e385242a49b96539a39f466
-      id: 2256747655
+    - name: ScrapShift Music Bus
+      guid: 19ca096600c67c4a8c2ddb2f4b7d0924
+      id: 3736460895
       PathAndIcons:
       - ElementName: Master-Mixer Hierarchy
         ObjectType: 5
@@ -211,14 +148,14 @@ MonoBehaviour:
       - ElementName: Master Audio Bus
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
-      - ElementName: SFX Bus
+      - ElementName: Master Music Bus
         ObjectType: 2
-        guid: 63be67e177dee042b043abb45c1bb91d
-      - ElementName: Muzzler SFX Bus
+        guid: 81962ceb7789694488002edbb0563ada
+      - ElementName: ScrapShift Music Bus
         ObjectType: 2
-        guid: b46c96953e385242a49b96539a39f466
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Muzzler
-        SFX Bus
+        guid: 19ca096600c67c4a8c2ddb2f4b7d0924
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
+        Bus\ScrapShift Music Bus
     - name: SFX Bus
       guid: 63be67e177dee042b043abb45c1bb91d
       id: 1502772432
@@ -236,48 +173,6 @@ MonoBehaviour:
         ObjectType: 2
         guid: 63be67e177dee042b043abb45c1bb91d
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus
-    - name: Turret SFX
-      guid: 4d3e4633db76ea4fb8cc8373216310e1
-      id: 49958546
-      PathAndIcons:
-      - ElementName: Master-Mixer Hierarchy
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f4b11d01547f8a4b9b37253758b8a136
-      - ElementName: Master Audio Bus
-        ObjectType: 2
-        guid: d8a41415a61d2a41a17e75ca0c2149f3
-      - ElementName: SFX Bus
-        ObjectType: 2
-        guid: 63be67e177dee042b043abb45c1bb91d
-      - ElementName: Turret SFX
-        ObjectType: 2
-        guid: 4d3e4633db76ea4fb8cc8373216310e1
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Turret
-        SFX
-    - name: UI SFX Bus
-      guid: 3e484663c5aa29478ea22c57195a9bfd
-      id: 3217363488
-      PathAndIcons:
-      - ElementName: Master-Mixer Hierarchy
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f4b11d01547f8a4b9b37253758b8a136
-      - ElementName: Master Audio Bus
-        ObjectType: 2
-        guid: d8a41415a61d2a41a17e75ca0c2149f3
-      - ElementName: SFX Bus
-        ObjectType: 2
-        guid: 63be67e177dee042b043abb45c1bb91d
-      - ElementName: UI SFX Bus
-        ObjectType: 2
-        guid: 3e484663c5aa29478ea22c57195a9bfd
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\UI
-        SFX Bus
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -318,8 +213,48 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584751273536041199
+    m_lastTime: -8584750420682672492
     List:
+    - name: Combat
+      guid: 02e504d97a7a9c48a1a1ad81c57c023d
+      id: 2764240573
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Music
+        ObjectType: 4
+        guid: 58beaf42adc5184ca7f12096d3b9f2a2
+      - ElementName: Combat
+        ObjectType: 3
+        guid: 02e504d97a7a9c48a1a1ad81c57c023d
+      Path: Events\Default Work Unit\Music\Combat
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Explore
+      guid: 528995d1a48272499e70e8eb410caa42
+      id: 579523862
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Music
+        ObjectType: 4
+        guid: 58beaf42adc5184ca7f12096d3b9f2a2
+      - ElementName: Explore
+        ObjectType: 3
+        guid: 528995d1a48272499e70e8eb410caa42
+      Path: Events\Default Work Unit\Music\Explore
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Kaila SFX
       guid: a013c72d86ea10408449fa7e31be1ea1
       id: 1455778194
@@ -354,9 +289,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: MusicEnd_CombatOutro
-      guid: 28a95d3152c30c448727340df4709ada
-      id: 3854394445
+    - name: MusicStart
+      guid: 57678736be9b4844beaa536c4d81573e
+      id: 1122283870
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -367,56 +302,16 @@ MonoBehaviour:
       - ElementName: Music
         ObjectType: 4
         guid: 58beaf42adc5184ca7f12096d3b9f2a2
-      - ElementName: MusicEnd_CombatOutro
+      - ElementName: MusicStart
         ObjectType: 3
-        guid: 28a95d3152c30c448727340df4709ada
-      Path: Events\Default Work Unit\Music\MusicEnd_CombatOutro
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: MusicEnd_Explore
-      guid: f9f48e79fc50654da46d50cea17e9705
-      id: 3473329445
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 85b245742f2f87459fb3ffc160c3e541
-      - ElementName: Music
-        ObjectType: 4
-        guid: 58beaf42adc5184ca7f12096d3b9f2a2
-      - ElementName: MusicEnd_Explore
-        ObjectType: 3
-        guid: f9f48e79fc50654da46d50cea17e9705
-      Path: Events\Default Work Unit\Music\MusicEnd_Explore
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: MusicPlay_CombatIntro
-      guid: ac09ddf162db4548b9d9d6b460b20aba
-      id: 2742719635
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 85b245742f2f87459fb3ffc160c3e541
-      - ElementName: Music
-        ObjectType: 4
-        guid: 58beaf42adc5184ca7f12096d3b9f2a2
-      - ElementName: MusicPlay_CombatIntro
-        ObjectType: 3
-        guid: ac09ddf162db4548b9d9d6b460b20aba
-      Path: Events\Default Work Unit\Music\MusicPlay_CombatIntro
+        guid: 57678736be9b4844beaa536c4d81573e
+      Path: Events\Default Work Unit\Music\MusicStart
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: MusicPlay_CombatMain
-      guid: f29b36fd13c0ee45a8881a68c6563810
-      id: 3273142224
+    - name: Scrapshift
+      guid: 3e043d65336f3d47943fa330d37e02e5
+      id: 4104150384
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -427,16 +322,16 @@ MonoBehaviour:
       - ElementName: Music
         ObjectType: 4
         guid: 58beaf42adc5184ca7f12096d3b9f2a2
-      - ElementName: MusicPlay_CombatMain
+      - ElementName: Scrapshift
         ObjectType: 3
-        guid: f29b36fd13c0ee45a8881a68c6563810
-      Path: Events\Default Work Unit\Music\MusicPlay_CombatMain
+        guid: 3e043d65336f3d47943fa330d37e02e5
+      Path: Events\Default Work Unit\Music\Scrapshift
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: MusicPlay_Explore
-      guid: 0db787ea240c914aaf83aa9b66c6611a
-      id: 4048598968
+    - name: ScrapshiftEnd
+      guid: 635c2c5aba02284583b537dfccdf73f5
+      id: 1856838135
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -447,30 +342,10 @@ MonoBehaviour:
       - ElementName: Music
         ObjectType: 4
         guid: 58beaf42adc5184ca7f12096d3b9f2a2
-      - ElementName: MusicPlay_Explore
+      - ElementName: ScrapshiftEnd
         ObjectType: 3
-        guid: 0db787ea240c914aaf83aa9b66c6611a
-      Path: Events\Default Work Unit\Music\MusicPlay_Explore
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: MusicPlay_ScrapShiftMode
-      guid: 38f473102f2f9a41ad031cc77c5a0bd7
-      id: 235763623
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 85b245742f2f87459fb3ffc160c3e541
-      - ElementName: Music
-        ObjectType: 4
-        guid: 58beaf42adc5184ca7f12096d3b9f2a2
-      - ElementName: MusicPlay_ScrapShiftMode
-        ObjectType: 3
-        guid: 38f473102f2f9a41ad031cc77c5a0bd7
-      Path: Events\Default Work Unit\Music\MusicPlay_ScrapShiftMode
+        guid: 635c2c5aba02284583b537dfccdf73f5
+      Path: Events\Default Work Unit\Music\ScrapshiftEnd
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -520,7 +395,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: f3e827c98473b545bdc7ed0c4739356b
     GuidInternal: 
-    m_lastTime: -8584751273463694851
+    m_lastTime: -8584750420666094601
     List:
     - name: Music_States
       guid: c67059b9b3a34a448d69328c6fc91e5b
@@ -585,6 +460,22 @@ MonoBehaviour:
         - ElementName: None
           ObjectType: 8
           guid: 3cd0de5c921f4e40b13ec11a243605c9
+      - name: Scrapshift
+        guid: fa26f5763464f34f90e8f513fc29025d
+        id: 4104150384
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: f3e827c98473b545bdc7ed0c4739356b
+        - ElementName: Music_States
+          ObjectType: 9
+          guid: c67059b9b3a34a448d69328c6fc91e5b
+        - ElementName: Scrapshift
+          ObjectType: 8
+          guid: fa26f5763464f34f90e8f513fc29025d
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
@@ -600,8 +491,42 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: ef29a14c705ede40b7a80ac065cc6269
     GuidInternal: 
-    m_lastTime: -8584751273463694851
-    List: []
+    m_lastTime: -8584750420666094601
+    List:
+    - name: New_Switch_Group
+      guid: de5b0459d2ce29408fec6f6544d84e51
+      id: 2250165792
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef29a14c705ede40b7a80ac065cc6269
+      - ElementName: New_Switch_Group
+        ObjectType: 11
+        guid: de5b0459d2ce29408fec6f6544d84e51
+      Path: Switches\Default Work Unit\New_Switch_Group
+      values:
+      - name: New_Switch
+        guid: cc43a42e7200da46bd18d17c2888a865
+        id: 1914034948
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: ef29a14c705ede40b7a80ac065cc6269
+        - ElementName: New_Switch_Group
+          ObjectType: 11
+          guid: de5b0459d2ce29408fec6f6544d84e51
+        - ElementName: New_Switch
+          ObjectType: 10
+          guid: cc43a42e7200da46bd18d17c2888a865
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:
@@ -614,11 +539,11 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: ca7ae8b43920f140a5f4bf098b44b504
     GuidInternal: 
-    m_lastTime: -8584751273463689845
+    m_lastTime: -8584750420666089600
     List:
-    - name: EndCombat
+    - name: Scrapshift
       guid: 52eef0ed6d5ee34ea9f8a780dfae2057
-      id: 2627423420
+      id: 4104150384
       PathAndIcons:
       - ElementName: Triggers
         ObjectType: 5
@@ -626,10 +551,24 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: ca7ae8b43920f140a5f4bf098b44b504
-      - ElementName: EndCombat
+      - ElementName: Scrapshift
         ObjectType: 14
         guid: 52eef0ed6d5ee34ea9f8a780dfae2057
-      Path: Triggers\Default Work Unit\EndCombat
+      Path: Triggers\Default Work Unit\Scrapshift
+    - name: ScrapshiftEnd
+      guid: 9618f51dadf4214087fc7ea68ced4ee5
+      id: 1856838135
+      PathAndIcons:
+      - ElementName: Triggers
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ca7ae8b43920f140a5f4bf098b44b504
+      - ElementName: ScrapshiftEnd
+        ObjectType: 14
+        guid: 9618f51dadf4214087fc7ea68ced4ee5
+      Path: Triggers\Default Work Unit\ScrapshiftEnd
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
