@@ -111,6 +111,43 @@
 										<ActiveSource Name="BFG_Lunge" ID="{4D70D3BF-5DC8-417B-BEF9-5FCE4E814AE2}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="BFG_Slam" ID="{0FFE9BA1-7714-4D96-B154-BBE06CBBEC20}" ShortID="50531728">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BFG_Slam" ID="{36A1800C-E620-414B-94E3-CC0C1933685B}">
+											<Language>SFX</Language>
+											<AudioFile>BFG_Slam.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1018692921"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Effects">
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{17177DB7-3F7E-459C-8489-1A832A7F6515}" ShortID="23215375">
+														<ReferenceList>
+															<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+																<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+									<ActiveSourceList>
+										<ActiveSource Name="BFG_Slam" ID="{36A1800C-E620-414B-94E3-CC0C1933685B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Real Steel" ID="{E7A9D06D-4AC8-4222-8FD1-41437336C93B}" ShortID="982827697">
@@ -534,43 +571,6 @@
 								</Sound>
 							</ChildrenList>
 						</Folder>
-						<Sound Name="BFG_Slam" ID="{0FFE9BA1-7714-4D96-B154-BBE06CBBEC20}" ShortID="50531728">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="BFG_Slam" ID="{36A1800C-E620-414B-94E3-CC0C1933685B}">
-									<Language>SFX</Language>
-									<AudioFile>BFG_Slam.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="1018692921"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists>
-								<ObjectList Name="Effects">
-									<Reference>
-										<Local>
-											<EffectSlot Name="" ID="{17177DB7-3F7E-459C-8489-1A832A7F6515}" ShortID="23215375">
-												<ReferenceList>
-													<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
-														<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-													</Reference>
-												</ReferenceList>
-											</EffectSlot>
-										</Local>
-									</Reference>
-								</ObjectList>
-							</ObjectLists>
-							<ActiveSourceList>
-								<ActiveSource Name="BFG_Slam" ID="{36A1800C-E620-414B-94E3-CC0C1933685B}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Cashmere SFX" ID="{6CA3E3A4-1CCD-4569-9786-FF78A616F642}" ShortID="362821586"/>
@@ -635,6 +635,9 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="LockOn" ID="{4DC3B494-096A-44FC-B6BB-A8C2A28520EA}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>LockOn.wav</AudioFile>
 									<MediaIDList>

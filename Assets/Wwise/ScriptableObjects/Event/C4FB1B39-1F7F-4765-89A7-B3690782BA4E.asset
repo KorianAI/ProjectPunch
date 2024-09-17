@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0acaff57464e1f488928dc127f8159f, type: 3}
+  m_Name: C4FB1B39-1F7F-4765-89A7-B3690782BA4E
+  m_EditorClassIdentifier: 
+  objectName: SFXPlay_NailGunChargedShot
+  id: 767256457
+  guid: C4FB1B39-1F7F-4765-89A7-B3690782BA4E
