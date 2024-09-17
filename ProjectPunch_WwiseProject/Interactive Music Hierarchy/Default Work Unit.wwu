@@ -8779,6 +8779,321 @@
 						</MusicSegment>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="OverdriveFiles" ID="{2A8DB607-6C91-446E-BBF0-5E7351F0C450}" ShortID="957542231">
+					<ChildrenList>
+						<MusicSwitchContainer Name="Overdrive Switch" ID="{D138E36B-6E04-49E1-9E1B-4F99DEA4D20B}" ShortID="460035101">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{2BFCA350-1F09-43BC-B3DE-3C6353FD2ABD}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{953645B7-2AFE-43EE-92D2-7525B8F154D1}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicPlaylistContainer Name="Overdrive" ID="{2DE6E15A-E3FA-475E-BA71-BA3EE94397B3}" ShortID="1023944976">
+									<PropertyList>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+										<Reference Name="PlaylistRoot">
+											<Custom>
+												<MusicPlaylistItem Name="" ID="{6BA12F76-216C-4837-905D-BC095C5C2924}" ShortID="659741200">
+													<ChildrenList>
+														<MusicPlaylistItem Name="" ID="{90065F68-DCDF-48EE-A97F-EDCD57A2077B}" ShortID="558752406">
+															<PropertyList>
+																<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Segment">
+																	<ObjectRef Name="Intro" ID="{F0D27AFA-9AEE-47E2-BCF3-56A67BA9424F}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+																</Reference>
+															</ReferenceList>
+														</MusicPlaylistItem>
+														<MusicPlaylistItem Name="" ID="{B95F838B-6236-4612-B7D9-FC014F0C2CEE}" ShortID="550382550">
+															<PropertyList>
+																<Property Name="LoopCount" Type="int16" Value="0"/>
+															</PropertyList>
+															<ChildrenList>
+																<MusicPlaylistItem Name="" ID="{DEE9B273-A1A2-4A9E-86E3-3AD4C48041B3}" ShortID="612547244">
+																	<PropertyList>
+																		<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+																	</PropertyList>
+																	<ReferenceList>
+																		<Reference Name="Segment">
+																			<ObjectRef Name="Active" ID="{119AC807-4628-4F33-BF40-23AA27970727}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+																		</Reference>
+																	</ReferenceList>
+																</MusicPlaylistItem>
+															</ChildrenList>
+														</MusicPlaylistItem>
+													</ChildrenList>
+												</MusicPlaylistItem>
+											</Custom>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{49696C9F-C22F-449C-A1E3-F94E3EE98E1A}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<ChildrenList>
+														<MusicTransition Name="Transition" ID="{EB17242C-01C1-4F33-BD97-971823C49E27}">
+															<TransitionInfo/>
+														</MusicTransition>
+													</ChildrenList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicSegment Name="Intro" ID="{F0D27AFA-9AEE-47E2-BCF3-56A67BA9424F}" ShortID="732504439">
+											<PropertyList>
+												<Property Name="EndPosition" Type="Real64" Value="12000"/>
+												<Property Name="OverrideEffect" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<MusicTrack Name="RealSteel_OverdriveIntro" ID="{E02610BD-1EBD-4E2C-AECF-B17F7DEF7E31}" ShortID="541250754">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-25</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+														</Reference>
+														<Reference Name="TransitionRoot">
+															<Custom>
+																<MusicTransition Name="Root" ID="{2D82D9D8-AB55-4ADE-A229-382C969E0CA3}">
+																	<PropertyList>
+																		<Property Name="IsFolder" Type="bool" Value="True"/>
+																	</PropertyList>
+																	<TransitionInfo/>
+																</MusicTransition>
+															</Custom>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="RealSteel_OverdriveIntro" ID="{B9DFDF61-1CCD-459E-BA18-C5DDAD5C6254}">
+															<Language>SFX</Language>
+															<AudioFile>RealSteel_OverdriveIntro.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="650394388"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists>
+														<ObjectList Name="Sequences">
+															<Reference>
+																<Local>
+																	<MusicTrackSequence Name="" ID="{98EE0B3E-8552-4BF3-93CD-1C44AC32DA16}">
+																		<ObjectLists>
+																			<ObjectList Name="Clips">
+																				<Reference>
+																					<Local>
+																						<MusicClip Name="RealSteel_OverdriveIntro" ID="{7897E00E-6791-4CB2-8FFD-C6B33465D10F}">
+																							<PropertyList>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="12000"/>
+																								<Property Name="FadeInMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																							</PropertyList>
+																							<AudioSourceRef Name="RealSteel_OverdriveIntro" ID="{B9DFDF61-1CCD-459E-BA18-C5DDAD5C6254}"/>
+																						</MusicClip>
+																					</Local>
+																				</Reference>
+																			</ObjectList>
+																		</ObjectLists>
+																	</MusicTrackSequence>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+												</MusicTrack>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Cues">
+													<Reference>
+														<Local>
+															<MusicCue Name="Entry Cue" ID="{2341BC01-C139-459E-8A6A-D5959E85DCB5}"/>
+														</Local>
+													</Reference>
+													<Reference>
+														<Local>
+															<MusicCue Name="Exit Cue" ID="{C3B3EF40-9D9E-40CF-8B32-62E8B895A813}">
+																<PropertyList>
+																	<Property Name="CueType" Type="int16" Value="1"/>
+																	<Property Name="TimeMs" Type="Real64" Value="12000"/>
+																</PropertyList>
+															</MusicCue>
+														</Local>
+													</Reference>
+												</ObjectList>
+												<ObjectList Name="Effects">
+													<Reference>
+														<Local>
+															<EffectSlot Name="" ID="{30C87C7A-23F1-4B4A-94AF-D94AA47DFDC9}" ShortID="101979052">
+																<ReferenceList>
+																	<Reference Name="Effect" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
+																		<ObjectRef Name="Three_Voices" ID="{71CA20BE-8C1D-4A0C-92AF-BFCE183D5651}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+																	</Reference>
+																</ReferenceList>
+															</EffectSlot>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicSegment>
+										<MusicSegment Name="Active" ID="{119AC807-4628-4F33-BF40-23AA27970727}" ShortID="659279127">
+											<PropertyList>
+												<Property Name="EndPosition" Type="Real64" Value="12000"/>
+												<Property Name="OverrideEffect" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<MusicTrack Name="RealSteel_OverdriveActive" ID="{83760B89-240C-4256-94EF-8AA2AFD07E4C}" ShortID="999718544">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-25</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+														</Reference>
+														<Reference Name="TransitionRoot">
+															<Custom>
+																<MusicTransition Name="Root" ID="{21E0E760-A90E-41BA-8B5C-62B20D4F47BC}">
+																	<PropertyList>
+																		<Property Name="IsFolder" Type="bool" Value="True"/>
+																	</PropertyList>
+																	<TransitionInfo/>
+																</MusicTransition>
+															</Custom>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="RealSteel_OverdriveActive" ID="{C7DD412D-E037-4D24-9692-F359D518F01E}">
+															<Language>SFX</Language>
+															<AudioFile>RealSteel_OverdriveActive.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1010178767"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ObjectLists>
+														<ObjectList Name="Sequences">
+															<Reference>
+																<Local>
+																	<MusicTrackSequence Name="" ID="{14F8AC00-3D74-4F80-A238-65156241C365}">
+																		<ObjectLists>
+																			<ObjectList Name="Clips">
+																				<Reference>
+																					<Local>
+																						<MusicClip Name="RealSteel_OverdriveActive" ID="{D078A0D1-9EC9-46E2-B81A-A19F90ED6ED3}">
+																							<PropertyList>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="12000"/>
+																								<Property Name="FadeInMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																							</PropertyList>
+																							<AudioSourceRef Name="RealSteel_OverdriveActive" ID="{C7DD412D-E037-4D24-9692-F359D518F01E}"/>
+																						</MusicClip>
+																					</Local>
+																				</Reference>
+																			</ObjectList>
+																		</ObjectLists>
+																	</MusicTrackSequence>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+												</MusicTrack>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Cues">
+													<Reference>
+														<Local>
+															<MusicCue Name="Entry Cue" ID="{8900A19D-D0A7-4943-856F-157662D181D4}"/>
+														</Local>
+													</Reference>
+													<Reference>
+														<Local>
+															<MusicCue Name="Exit Cue" ID="{41EA4239-32B2-4B6C-9EE2-FB484607FC09}">
+																<PropertyList>
+																	<Property Name="CueType" Type="int16" Value="1"/>
+																	<Property Name="TimeMs" Type="Real64" Value="12000"/>
+																</PropertyList>
+															</MusicCue>
+														</Local>
+													</Reference>
+												</ObjectList>
+												<ObjectList Name="Effects">
+													<Reference>
+														<Local>
+															<EffectSlot Name="" ID="{B6916ABA-62DF-459A-9839-46DA3988926D}" ShortID="723143285">
+																<ReferenceList>
+																	<Reference Name="Effect" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
+																		<ObjectRef Name="Three_Voices" ID="{71CA20BE-8C1D-4A0C-92AF-BFCE183D5651}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+																	</Reference>
+																</ReferenceList>
+															</EffectSlot>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicSegment>
+									</ChildrenList>
+								</MusicPlaylistContainer>
+							</ChildrenList>
+						</MusicSwitchContainer>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</InteractiveMusic>

@@ -86,17 +86,227 @@
 				</Folder>
 				<Folder Name="Kaila SFX" ID="{2DC713A0-EA86-4010-8449-FA7E31BE1EA1}" ShortID="651481342">
 					<ChildrenList>
-						<Event Name="SFXPlay_FootstepsGround" ID="{5E04A045-6D0F-490B-9E62-E4B990D7CC90}">
+						<Folder Name="Kaila_Movement" ID="{C0C1CA9C-1FA7-4468-89BE-BDFA265D99F0}" ShortID="584876472">
 							<ChildrenList>
-								<Action Name="" ID="{D8DDCD68-5086-4522-8625-2F80A39902FA}" ShortID="390560560">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="FootstepsGround" ID="{0E2A5E83-0361-4DC0-9693-13C8C20E4DD9}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
+								<Event Name="SFX_Play_Dash" ID="{D8D85F83-3DCD-4BE9-A402-5F1B294A38EF}">
+									<ChildrenList>
+										<Action Name="" ID="{57D68766-12E9-4B26-8A95-5B6D10C92663}" ShortID="239013084">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Kaila_Dash" ID="{2683EBAA-AA55-4B49-B808-348D3DA690D5}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_FootstepsGround" ID="{5E04A045-6D0F-490B-9E62-E4B990D7CC90}">
+									<ChildrenList>
+										<Action Name="" ID="{D8DDCD68-5086-4522-8625-2F80A39902FA}" ShortID="390560560">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="FootstepsGround" ID="{0E2A5E83-0361-4DC0-9693-13C8C20E4DD9}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{4461C72F-AC8D-4009-8570-E665509D6D35}" ShortID="553873414">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="FootstepsGround" ID="{0E2A5E83-0361-4DC0-9693-13C8C20E4DD9}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
-						</Event>
+						</Folder>
+						<Folder Name="Kaila_BFG" ID="{6F793E00-6B2A-4864-A8F3-330411BA30D2}" ShortID="400540620">
+							<ChildrenList>
+								<Event Name="SFXPlay_BFGImpact" ID="{561BFA34-074F-41CC-8F18-0435E7599130}">
+									<ChildrenList>
+										<Action Name="" ID="{DBCC6B22-1F16-4920-A461-5DAECBE9394A}" ShortID="813204926">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="BFG_Impact" ID="{AD0EBAA1-2CDF-46B6-9F64-50D6C08D997A}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_BFGSwing" ID="{BC325878-C44A-44D2-B654-E30A9C79E509}">
+									<ChildrenList>
+										<Action Name="" ID="{932E9519-549E-40EC-B06D-E7C40B0C3A76}" ShortID="893600157">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="BFG_Swing" ID="{141E3923-71F8-4305-BB20-0CB1BA628E21}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_BFGLunge" ID="{99BBF380-2655-44C9-BD29-6A69EFBA68C1}">
+									<ChildrenList>
+										<Action Name="" ID="{FF98414F-D726-400F-97A0-013B24E8C695}" ShortID="492296708">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="BFG_Lunge" ID="{47A7AC08-C13C-40EE-87AD-AD6FCA4FFEE9}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_BFGSlam" ID="{F352E39B-D995-4ED5-99A3-74436850A807}">
+									<ChildrenList>
+										<Action Name="" ID="{206EFB07-9CD9-4F09-A1E0-C969A13BB17A}" ShortID="762819148">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="BFG_Slam" ID="{0FFE9BA1-7714-4D96-B154-BBE06CBBEC20}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Kaila_NailGun" ID="{B172A89F-839F-41AF-A81D-F85FD63E6832}" ShortID="1039422169">
+							<ChildrenList>
+								<Event Name="SFXPlay_NailGunFire" ID="{C23447CF-D9E6-4939-9E47-8DF9BAAAACA4}">
+									<ChildrenList>
+										<Action Name="" ID="{E3401BAA-0878-4E7D-A42D-B49AB3FDBE69}" ShortID="983723049">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="NailGun_Burst" ID="{BC867D2A-D85F-49D1-BBAD-8DC9BAE4F31F}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_NailGunChargedShot" ID="{C4FB1B39-1F7F-4765-89A7-B3690782BA4E}">
+									<ChildrenList>
+										<Action Name="" ID="{1FAB47E6-3253-440D-9679-EA4D0BD19886}" ShortID="659689158">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="NailGun_ChargedShot" ID="{28ADC00A-F3DB-456C-8B89-4748C1CD44D4}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{87601295-1698-499B-ACDE-BCAB7A35F0D6}" ShortID="875139357">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="NailGun_Burst" ID="{BC867D2A-D85F-49D1-BBAD-8DC9BAE4F31F}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_NailGunChargedPull" ID="{573E665D-FF1A-41C9-ABBA-0DD638856E32}">
+									<ChildrenList>
+										<Action Name="" ID="{3B65B904-DD49-42AF-95A8-00F4060B7993}" ShortID="230892014">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="NailGun_ChargedShot_Pull" ID="{6189B747-CAE4-47F5-940F-50F18BC27CAE}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{2F779244-B4E7-419D-87AB-E3807EEF9BD1}" ShortID="440564832">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="NailGun_Burst" ID="{BC867D2A-D85F-49D1-BBAD-8DC9BAE4F31F}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Kaila_RealSteel" ID="{C93B5A4B-674F-4948-BEF4-CAC1384BE52A}" ShortID="320679032">
+							<ChildrenList>
+								<Event Name="SFXPlay_RS_Impact" ID="{FF7FB643-2C18-4800-ADEE-945384AD5A0D}">
+									<ChildrenList>
+										<Action Name="" ID="{677418E6-9FA5-48F4-AD4D-E1F61D8D47A5}" ShortID="1060668927">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RealSteel_Impact" ID="{402C949B-FDB6-4E64-B246-D82515BEFFE6}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_RS_Impact_Overdrive" ID="{99E97C35-F0BC-44A7-8655-588E01494F8D}">
+									<ChildrenList>
+										<Action Name="" ID="{FAC74DF5-9CF0-4C0A-94D9-4A8BCDACE965}" ShortID="572090166">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RealSteel_Impact_Overdrive" ID="{62308A94-5D8B-444A-BF94-E1AB6A481F67}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_RS_Overdrive_Intro" ID="{820B00B1-1AB3-44CA-A34C-D073AB586678}">
+									<ChildrenList>
+										<Action Name="" ID="{A0DF97B0-5745-45D5-9EC2-6DF247B73D9E}" ShortID="1026155395">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Overdrive" ID="{2DE6E15A-E3FA-475E-BA71-BA3EE94397B3}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_RS_Overdrive_Outro" ID="{EA1EC4D0-89DE-4F16-B43D-D3ED488DC2F1}">
+									<ChildrenList>
+										<Action Name="" ID="{CE2B4A84-5632-46FC-9F43-387A60468446}" ShortID="311005188">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RealSteel_OverdriveOutro" ID="{74318C42-4E20-45E6-971A-161509384293}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{69C38848-60D8-4DAE-9CD3-267521F401E9}" ShortID="310979047">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Overdrive" ID="{2DE6E15A-E3FA-475E-BA71-BA3EE94397B3}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_RS_SlamShockwave" ID="{962BD168-37BD-436A-A6EA-F02A5CDA675C}">
+									<ChildrenList>
+										<Action Name="" ID="{5FAD47A8-1183-4CF7-B108-F0AD11DFA84B}" ShortID="484178074">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RealSteel_SlamShockwave" ID="{1D7CCA18-5AC2-4FD1-8820-AE8A654E113C}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_RS_SlamShockwave_Overdrive" ID="{D0F5B708-8829-4E7C-893C-0CC086136D70}">
+									<ChildrenList>
+										<Action Name="" ID="{F6E246DF-810E-4755-B467-3675C2DC4D6F}" ShortID="321228384">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RealSteel_SlamShockwave_Overdrive" ID="{DC9E82D8-7F29-4B88-A149-DA4F620506CE}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

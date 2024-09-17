@@ -63,43 +63,6 @@
 										<ActiveSource Name="BFG_Swing" ID="{3D7683E4-901C-4E19-83B1-5D20EFFFBC3E}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="BFG_Slam" ID="{0FFE9BA1-7714-4D96-B154-BBE06CBBEC20}" ShortID="50531728">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="BFG_Slam" ID="{36A1800C-E620-414B-94E3-CC0C1933685B}">
-											<Language>SFX</Language>
-											<AudioFile>BFG_Slam.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="1018692921"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists>
-										<ObjectList Name="Effects">
-											<Reference>
-												<Local>
-													<EffectSlot Name="" ID="{17177DB7-3F7E-459C-8489-1A832A7F6515}" ShortID="23215375">
-														<ReferenceList>
-															<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
-																<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-															</Reference>
-														</ReferenceList>
-													</EffectSlot>
-												</Local>
-											</Reference>
-										</ObjectList>
-									</ObjectLists>
-									<ActiveSourceList>
-										<ActiveSource Name="BFG_Slam" ID="{36A1800C-E620-414B-94E3-CC0C1933685B}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 								<Sound Name="BFG_Lunge" ID="{47A7AC08-C13C-40EE-87AD-AD6FCA4FFEE9}" ShortID="851027577">
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -224,104 +187,6 @@
 									</ObjectLists>
 									<ActiveSourceList>
 										<ActiveSource Name="RealSteel_ImpactShockwave" ID="{8F844DE5-5B42-4079-9672-4800F427F748}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="RealSteel_OverdriveActive" ID="{3EC23B48-F4DB-4124-AF57-6FC6C9BB6B87}" ShortID="542568205">
-									<PropertyList>
-										<Property Name="Pitch" Type="int32">
-											<ValueList>
-												<Value>-100</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-25</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="RealSteel_OverdriveActive" ID="{65AD610F-78C1-4757-AD80-CB9AB5C44E0C}">
-											<Language>SFX</Language>
-											<AudioFile>RealSteel_OverdriveActive.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="93008075"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists>
-										<ObjectList Name="Effects">
-											<Reference>
-												<Local>
-													<EffectSlot Name="" ID="{943028AC-EE2F-4926-88B5-310AB73398ED}" ShortID="22484954">
-														<ReferenceList>
-															<Reference Name="Effect" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
-																<ObjectRef Name="Three_Voices" ID="{71CA20BE-8C1D-4A0C-92AF-BFCE183D5651}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-															</Reference>
-														</ReferenceList>
-													</EffectSlot>
-												</Local>
-											</Reference>
-										</ObjectList>
-									</ObjectLists>
-									<ActiveSourceList>
-										<ActiveSource Name="RealSteel_OverdriveActive" ID="{65AD610F-78C1-4757-AD80-CB9AB5C44E0C}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="RealSteel_OverdriveIntro" ID="{BC0B3E80-87F8-4A00-88FD-BE2E09E647C6}" ShortID="220253306">
-									<PropertyList>
-										<Property Name="Pitch" Type="int32">
-											<ValueList>
-												<Value>-100</Value>
-											</ValueList>
-										</Property>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-25</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="RealSteel_OverdriveIntro" ID="{64C773CE-C7B8-405C-B539-E2D84D66DB49}">
-											<Language>SFX</Language>
-											<AudioFile>RealSteel_OverdriveIntro.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="851805572"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists>
-										<ObjectList Name="Effects">
-											<Reference>
-												<Local>
-													<EffectSlot Name="" ID="{615658BA-25AA-4811-BF90-3B023C7CA41E}" ShortID="1026245724">
-														<ReferenceList>
-															<Reference Name="Effect" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
-																<ObjectRef Name="Three_Voices" ID="{71CA20BE-8C1D-4A0C-92AF-BFCE183D5651}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-															</Reference>
-														</ReferenceList>
-													</EffectSlot>
-												</Local>
-											</Reference>
-										</ObjectList>
-									</ObjectLists>
-									<ActiveSourceList>
-										<ActiveSource Name="RealSteel_OverdriveIntro" ID="{64C773CE-C7B8-405C-B539-E2D84D66DB49}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="RealSteel_OverdriveOutro" ID="{74318C42-4E20-45E6-971A-161509384293}" ShortID="149018653">
@@ -669,6 +534,43 @@
 								</Sound>
 							</ChildrenList>
 						</Folder>
+						<Sound Name="BFG_Slam" ID="{0FFE9BA1-7714-4D96-B154-BBE06CBBEC20}" ShortID="50531728">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BFG_Slam" ID="{36A1800C-E620-414B-94E3-CC0C1933685B}">
+									<Language>SFX</Language>
+									<AudioFile>BFG_Slam.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1018692921"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{17177DB7-3F7E-459C-8489-1A832A7F6515}" ShortID="23215375">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+														<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" ID="{2144284E-7ADD-4341-86A4-4E468BEC9A2D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="BFG_Slam" ID="{36A1800C-E620-414B-94E3-CC0C1933685B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Cashmere SFX" ID="{6CA3E3A4-1CCD-4569-9786-FF78A616F642}" ShortID="362821586"/>
