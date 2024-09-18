@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class AnimationEventTrigger : MonoBehaviour
 {
 
-    [SerializeField] ParticleSystem dustParticle;
+    [SerializeField] GameObject dustParticle;
+    [SerializeField] Transform dustStartPos;
     [SerializeField] Nailgun nailgun;
     [SerializeField] RealSteel rs;
     [SerializeField] PlayerResources r;
 
     public void DustPlay()
     {
-        dustParticle.Play();
+        GameObject dust = Instantiate(dustParticle, dustStartPos.transform.position, Quaternion.identity);
+        dust.GetComponent<VisualEffect>().Play();
+        Destroy(dust, 0.4f);
     }
 
     public void NailBurst()

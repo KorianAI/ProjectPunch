@@ -157,9 +157,9 @@ MonoBehaviour:
   environment: 0
   pullMe: 0
   pushMe: 0
-  mat: {fileID: 0}
-  test: {r: 0, g: 0, b: 0, a: 0}
-  mRenderer: {fileID: 0}
+  mat: {fileID: 2100000, guid: 33b788e7941d66d40a06e49125ba0612, type: 2}
+  test: {r: 1, g: 1, b: 1, a: 0}
+  mRenderer: {fileID: 5308071097980917027}
   sRenderer: {fileID: 0}
   outlineThicknessMultiplier: 2
 --- !u!114 &716999509220003455
@@ -187,7 +187,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3923143975485861787}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

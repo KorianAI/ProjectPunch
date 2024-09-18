@@ -6,6 +6,7 @@ public class CheckpointSingle : MonoBehaviour
 {
     CheckpointManager manager;
     public GameObject point;
+    public float areaFallThreshold = -5f;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class CheckpointSingle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            manager.UpdateCheckpoint(point.transform);
+            manager.UpdateCheckpoint(point.transform, areaFallThreshold);
         }
     }
 }

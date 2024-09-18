@@ -198,6 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4837053934650725319}
+  - component: {fileID: 2154330081518426361}
   m_Layer: 0
   m_Name: outpost_warning_03
   m_TagString: Untagged
@@ -226,6 +227,27 @@ Transform:
   - {fileID: 3041959589358427706}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2154330081518426361
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2219815900375817964}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 8.04, z: 7.04}
+  m_Center: {x: -0.15, y: 3.61, z: 0.27}
 --- !u!1 &3072204508010731778
 GameObject:
   m_ObjectHideFlags: 0

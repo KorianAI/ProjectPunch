@@ -17,7 +17,7 @@ public class TargetCams : MonoBehaviour
     [SerializeField] private InputActionReference input;
     [SerializeField] private Vector2 targetLockOffset;
     [SerializeField] private float minDistance; // minimum distance to stop rotation if collision gets close to target
-    [SerializeField] private float maxDistance;
+    public float maxDistance;
     [Space]
 
     public LayerMask targetableLayers;
@@ -95,16 +95,18 @@ public class TargetCams : MonoBehaviour
                 CancelLock();
             }
         }
+
+        if (isTargeting && DistanceToTarget() > maxDistance)
+        {
+            CancelLock();
+        }
     }
 
     public void TargetLockInput(InputAction.CallbackContext obj)
     {
         if (isTargeting) //deactivate targeting
         {
-            //swap to freelook cam
-            freeLook.Priority = 10;
-            targetCam.Priority = 1;
-            ResetTarget();
+            CancelLock();
             return;
         }
 
@@ -262,6 +264,7 @@ public class TargetCams : MonoBehaviour
             {
                 if (currentTarget != null && SelectRightTarget() != null)
                 {
+                    targetable.ResetColor();
                     AssignTarget(SelectRightTarget().transform, SelectRightTarget().GetComponent<Targetable>().targetPoint, 1, true);
                 }
                 else if (SelectRightTarget() == null)
@@ -274,6 +277,7 @@ public class TargetCams : MonoBehaviour
                 SelectLeftTarget();
                 if (currentTarget != null && SelectLeftTarget() != null)
                 {
+                    targetable.ResetColor();
                     AssignTarget(SelectLeftTarget().transform, SelectLeftTarget().GetComponent<Targetable>().targetPoint, 1, true);
                 }
                 else if (SelectLeftTarget() == null)
@@ -466,5 +470,11 @@ public class TargetCams : MonoBehaviour
         //swap to freelook cam
         freeLook.Priority = 10;
         targetCam.Priority = 1;
+    }
+
+    public float DistanceToTarget()
+    {
+        float dist = Vector3.Distance(transform.position, currentTarget.transform.position);
+        return dist;
     }
 }

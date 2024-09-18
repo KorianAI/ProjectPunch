@@ -20,11 +20,8 @@ public class PushCargo : MonoBehaviour, IMagnetisable
     {
         anim = GetComponent<Animation>();
         source = GetComponent<AudioSource>();
-        
-        targetable = GetComponent<Targetable>();
-        targetable.pullMe = canPull;
-        targetable.pushMe = canPush;
     }
+
     public void Pull(PlayerStateManager player)
     {
         transform.DOShakeRotation(.5f, 5f, 10, 90);
@@ -46,10 +43,5 @@ public class PushCargo : MonoBehaviour, IMagnetisable
             player.cam.canRotate = true;
             PlayerCameraManager.instance.SwitchPlayerCam();
         }
-    }
-
-    public void Glow()
-    {
-        //play particles/swap material
     }
 }

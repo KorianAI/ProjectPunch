@@ -196,9 +196,9 @@ MonoBehaviour:
   environment: 0
   pullMe: 0
   pushMe: 0
-  mat: {fileID: 0}
-  test: {r: 0, g: 0, b: 0, a: 0}
-  mRenderer: {fileID: 0}
+  mat: {fileID: 2100000, guid: 5b2a36fc68c8f0645b56753a959cf489, type: 2}
+  test: {r: 1, g: 1, b: 1, a: 0}
+  mRenderer: {fileID: 1931687566648555147}
   sRenderer: {fileID: 0}
   outlineThicknessMultiplier: 2
 --- !u!114 &2620659269181202375

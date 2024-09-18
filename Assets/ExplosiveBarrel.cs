@@ -34,8 +34,10 @@ public class ExplosiveBarrel : MonoBehaviour, IDamageable, IMagnetisable
         }
 
         ps.tl.CancelLock();
+        GetComponent<Targetable>().ResetColor();
 
-        Destroy(gameObject);
+        GetComponent<MeshRenderer>().enabled = false;
+        Destroy(gameObject, 1f);
     }
 
     public void Pull(PlayerStateManager player)

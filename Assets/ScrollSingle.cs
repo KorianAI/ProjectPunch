@@ -10,14 +10,13 @@ public class ScrollSingle : MonoBehaviour
     public int scrollNo;
 
     [Header("Scrap")]
-    public GameObject player;
-    public bool canSpawn;
+    private GameObject player;
     public ParticleSystem scrapParticle;
 
     [Header("Movement")]
     public float moveAmp = .5f;
     public float moveFreq = 1f;
-    public Vector3 initPos;
+    private Vector3 initPos;
     public float rotAmp = .2f;
     public float rotFreq = .5f;
     public float rotAmt = 1f;
