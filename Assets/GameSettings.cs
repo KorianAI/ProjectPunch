@@ -58,9 +58,19 @@ public class GameSettings : MonoBehaviour
         UpdateScrollPosition(currentResolutionIndex);
     }
 
-    public void SetVolume(float volume)
+    public void SetMasterVolume(float volume)
     {
         mixer.SetFloat("Volume", volume);
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        mixer.SetFloat("MusicVolume", volume);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        mixer.SetFloat("SFXVolume", volume);
     }
 
     public void SkipTutorials(bool value)

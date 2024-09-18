@@ -34,8 +34,6 @@ public class PauseTabGroup : MonoBehaviour
 
     private void Start()
     {
-        
-        
         InputMapManager.inputActions.Menus.TabLeft.started += ctx =>
         {
             TabLeft();
@@ -57,7 +55,7 @@ public class PauseTabGroup : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstSelected[0]);
 
-        if (pm.pauseUI.activeSelf == true)
+        if (pm != null && pm.pauseUI.activeSelf == true)
         {
             pm.pauseUI.SetActive(false);
         }        
