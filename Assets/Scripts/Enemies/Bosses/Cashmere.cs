@@ -303,6 +303,7 @@ public class Cashmere : BossInfo
         cutscene.enabled = false;
         bossTitle.SetActive(false);
         cutsceneCam.m_Priority = 0;
+        cutscene.gameObject.SetActive(false);
         playerVisuals.SetActive(true);
         
 
