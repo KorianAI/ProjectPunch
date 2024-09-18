@@ -837,6 +837,11 @@ MonoBehaviour:
   environment: 1
   pullMe: 0
   pushMe: 0
+  mat: {fileID: 2100000, guid: 9deea183e7d09dd4cbf1a92efce7ce4f, type: 2}
+  test: {r: 0.99607843, g: 0.3019608, b: 0, a: 1}
+  mRenderer: {fileID: 6740025586982527077}
+  sRenderer: {fileID: 0}
+  outlineThicknessMultiplier: 2
 --- !u!65 &1895917370620007847
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -922,5 +927,10 @@ PrefabInstance:
 --- !u!4 &5603125905367816970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edb8ab41076bc2044af44352f247215e, type: 3}
+  m_PrefabInstance: {fileID: 5352796637607607521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6740025586982527077 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: edb8ab41076bc2044af44352f247215e, type: 3}
   m_PrefabInstance: {fileID: 5352796637607607521}
   m_PrefabAsset: {fileID: 0}

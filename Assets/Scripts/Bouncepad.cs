@@ -11,6 +11,7 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     public SplineComputer flipSpline;
     CharacterController cc;
     PlayerStateManager ps;
+    Targetable t;
 
     public float duration = 1f;
     public float camLockDuration = 1.5f;
@@ -23,6 +24,7 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     {
         cc = PlayerStateManager.instance.GetComponent<CharacterController>();
         ps = PlayerStateManager.instance;
+        t = GetComponent<Targetable>();
     }
 
     public void Pull(PlayerStateManager player)
@@ -67,6 +69,7 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
         {
             ps.inBounceCollider = true;
             ps.currentPad = this;
+            t.SetColor();
         }
     }
 
@@ -76,6 +79,7 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
         {
             ps.inBounceCollider = false;
             ps.currentPad = null;
+            t.ResetColor();
         }
     }
 }

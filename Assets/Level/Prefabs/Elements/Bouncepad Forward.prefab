@@ -679,6 +679,11 @@ MonoBehaviour:
   environment: 1
   pullMe: 0
   pushMe: 0
+  mat: {fileID: 2100000, guid: 76024314e86c6984e9255bb30be90423, type: 2}
+  test: {r: 0.99607843, g: 0.3019608, b: 0, a: 1}
+  mRenderer: {fileID: 7817432074393038731}
+  sRenderer: {fileID: 0}
+  outlineThicknessMultiplier: 2
 --- !u!65 &4634511782147809532
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -765,6 +770,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edb8ab41076bc2044af44352f247215e, type: 3}
+--- !u!23 &7817432074393038731 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: edb8ab41076bc2044af44352f247215e, type: 3}
+  m_PrefabInstance: {fileID: 8916156033912779535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8950400482114720996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edb8ab41076bc2044af44352f247215e, type: 3}

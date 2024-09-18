@@ -29,6 +29,15 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
     public bool doSplineAnyway;
 
+    [Header("Material Change")]
+    public Material mat;
+    public Color colour;
+
+    public MeshRenderer mRenderer1;
+    public MeshRenderer mRenderer2;
+    public MeshRenderer mRenderer3;
+    public float outlineThicknessMultiplier = 2;
+
     private void Start()
     {
         t = GetComponent<Targetable>();
@@ -51,6 +60,8 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
         ps.GetComponent<TargetCams>().maxTime = 2f;
         ps.GetComponent<TargetCams>().StartTimer();
+
+        SetColor();
     }
 
     private void DetermineCamera()
@@ -113,6 +124,8 @@ public class RailPoint : MonoBehaviour, IMagnetisable
         ps.speedboost.Stop();
         ps.electricityEffect.Stop();
 
+        ResetColor();
+
         if (nextRail != null)
         {
             ps.tl.AssignTarget(nextRail.transform, nextRail.GetComponent<Targetable>().targetPoint, 2, true) ;
@@ -144,5 +157,32 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
 
         movePos.position = startPosition;
+    }
+
+    public void SetColor()
+    {
+        if (mat == null) return;
+
+        if (mRenderer1 != null && mRenderer2 != null && mRenderer3 != null)
+        {
+            Material newMat = Instantiate(mat);
+
+            mRenderer1.material = newMat;
+            mRenderer2.material = newMat;
+            mRenderer3.material = newMat;
+
+            newMat.SetColor("_OutlineColor", colour);
+            newMat.SetFloat("_OutlineWidth", mat.GetFloat("_OutlineWidth") * outlineThicknessMultiplier);
+        }
+    }
+
+    public void ResetColor()
+    {
+        if (mRenderer1 != null && mRenderer2 != null && mRenderer3 != null)
+        {
+            mRenderer1.material = mat;
+            mRenderer2.material = mat;
+            mRenderer3.material = mat;
+        }
     }
 }
