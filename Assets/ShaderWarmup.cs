@@ -9,10 +9,13 @@ public class ShaderWarmup : MonoBehaviour
     public GameObject vfxParent;
     public GameObject particleParent;
     public List<VisualEffect> vfx;
-    public List<ParticleSystem> particles;    
+    public List<ParticleSystem> particles;
+    public GameObject heatDistortion;
 
     void Start()
     {
+        heatDistortion.SetActive(true);
+
         foreach (VisualEffect ve in vfx)
         {
             ve.Play();

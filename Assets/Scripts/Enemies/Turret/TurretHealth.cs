@@ -16,7 +16,7 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
 
     [SerializeField] TurretAI ai;
     [SerializeField] EnemySO stats;
-    [SerializeField] float currentHealth;
+    [SerializeField] public float currentHealth;
     [SerializeField] float currentArmour;
     [SerializeField] GameObject shatterVFX;
 

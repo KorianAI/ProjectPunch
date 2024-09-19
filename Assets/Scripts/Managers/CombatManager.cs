@@ -36,6 +36,7 @@ public class CombatManager : MonoBehaviour
     public bool playEndTut;
     public TutorialTrigger requiredEndTut;
 
+    public bool playCombatStartAnim = true;
     public Animation combatStartAnim;
 
 
@@ -79,8 +80,9 @@ public class CombatManager : MonoBehaviour
     public void StartCombat()
     {
         combatActive = true;
+        MusicManager.instance.fighting = true;
 
-        if (combatStartAnim != null)
+        if (combatStartAnim != null && playCombatStartAnim)
         {
             combatStartAnim.Play();
         }
@@ -91,12 +93,10 @@ public class CombatManager : MonoBehaviour
             e.manager = this;
         }
 
-        StartAI();
-
-        
+        StartMuzzlerAI();
     }
 
-    public void StartAI()
+    public void StartMuzzlerAI()
     {
         if (AliveEnemyCount() > 0)
         {
@@ -109,6 +109,11 @@ public class CombatManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             StartCombat();
+        }
+
+        if (AliveEnemyCount() <= 0 && enemiesAlive <= 0 && combatActive)
+        {
+            EndCombat();
         }
     }
 
@@ -172,15 +177,33 @@ public class CombatManager : MonoBehaviour
 
     public int AliveEnemyCount()
     {
-        int count = 0;
+        int muzzlerCount = 0;
+        int turretCount = 0;
         for (int i = 0; i < enemies.Count; i++)
         {
             if (enemies[i].isActiveAndEnabled)
-                count++;
+                muzzlerCount++;
+        }
+        for (int i = 0; i < turrets.Count; i++)
+        {
+            TurretHealth th = turrets[i].GetComponent<TurretHealth>();
+            if (th.currentHealth <= 0 && !th.hasArmour)
+                turretCount++;
         }
 
-        enemiesAlive = count;
-        return count;
+        enemiesAlive = muzzlerCount + turretCount;
+        return muzzlerCount;
     }
 
+    public void EndCombat()
+    {
+        Debug.Log("combat ended");
+        combatActive = false;
+        MusicManager.instance.fighting = false;
+
+        if (playEndTut && requiredEndTut != null && !GameSettings.instance.skipTutorials)
+        {
+            requiredEndTut.ActivateTut(this);
+        }
+    }
 }

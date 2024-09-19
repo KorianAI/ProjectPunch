@@ -79,6 +79,10 @@ public class TargetCams : MonoBehaviour
             {
                 aimIcon.transform.position = mainCamera.WorldToScreenPoint(targetPoint.position);
             }
+            else if (currentTarget == null)
+            {
+                return;
+            }
         }
 
         if (timerOn)

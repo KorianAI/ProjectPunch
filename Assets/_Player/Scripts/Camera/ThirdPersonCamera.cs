@@ -15,18 +15,15 @@ public class ThirdPersonCamera : MonoBehaviour
     public float rotationSpeed;
     public bool canRotate;
 
-
     public CinemachineBrain brain;
 
     public CinemachineInputProvider[] inputProvider;
     public bool blending;
-
+    
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible= false;
-
-
     }
 
     private void Update()

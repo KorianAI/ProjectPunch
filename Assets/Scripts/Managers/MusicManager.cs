@@ -4,12 +4,28 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    public static MusicManager instance { get; private set; }
+
     public AudioSource source;
 
     [SerializeField] AudioClip startingTrack;
     
     public float timeToFade = 3;
     public float silenceTime = 5; //should be greater than time to fade
+
+    public bool fighting = false;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -36,5 +52,10 @@ public class MusicManager : MonoBehaviour
         source.loop = true;
         source.clip = newMusic;
         source.Play();
+    }
+
+    public void ToggleEnemiesActive(bool value)
+    {
+        fighting = value;
     }
 }
