@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
   AcousticTextureWwu:
-  - PhysicalPath: Virtual Acoustics/Default Work Unit.wwu
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
     PathAndIcons:
     - ElementName: Virtual Acoustics
       ObjectType: 5
@@ -21,13 +21,13 @@ MonoBehaviour:
     - ElementName: Default Work Unit
       ObjectType: 12
       guid: fcf29761efdb4743be1c96bb0ba59ba7
-    ParentPath: Virtual Acoustics/Default Work Unit
+    ParentPath: Virtual Acoustics\Default Work Unit
     guid: fcf29761efdb4743be1c96bb0ba59ba7
     GuidInternal: 
-    m_lastTime: -8584750413090523082
+    m_lastTime: -8584751273463684851
     List: []
   AuxBusWwu:
-  - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
     PathAndIcons:
     - ElementName: Master-Mixer Hierarchy
       ObjectType: 5
@@ -35,10 +35,10 @@ MonoBehaviour:
     - ElementName: Default Work Unit
       ObjectType: 12
       guid: f4b11d01547f8a4b9b37253758b8a136
-    ParentPath: Master-Mixer Hierarchy/Default Work Unit
+    ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584749139456137587
+    m_lastTime: -8584749544034365996
     List:
     - name: Cashmere_SFX_Bus
       guid: 6f82ca6e51b40348b54b1616931914c2
@@ -59,7 +59,7 @@ MonoBehaviour:
       - ElementName: Cashmere_SFX_Bus
         ObjectType: 2
         guid: 6f82ca6e51b40348b54b1616931914c2
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/SFX Bus/Cashmere_SFX_Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Cashmere_SFX_Bus
     - name: Combat 1 Section A Music Bus
       guid: 78626f26e2896f49a2e8da3033cab3e3
       id: 4083411863
@@ -79,8 +79,8 @@ MonoBehaviour:
       - ElementName: Combat 1 Section A Music Bus
         ObjectType: 2
         guid: 78626f26e2896f49a2e8da3033cab3e3
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/Master Music
-        Bus/Combat 1 Section A Music Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
+        Bus\Combat 1 Section A Music Bus
     - name: Combat 1 Section B Music Bus
       guid: e0053d02c6c20f448fb8b13bc646aa60
       id: 2199471764
@@ -100,8 +100,8 @@ MonoBehaviour:
       - ElementName: Combat 1 Section B Music Bus
         ObjectType: 2
         guid: e0053d02c6c20f448fb8b13bc646aa60
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/Master Music
-        Bus/Combat 1 Section B Music Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
+        Bus\Combat 1 Section B Music Bus
     - name: Environment_SFX_Bus
       guid: ffc121a1d4c494429146df12d4662c03
       id: 2320406271
@@ -121,7 +121,7 @@ MonoBehaviour:
       - ElementName: Environment_SFX_Bus
         ObjectType: 2
         guid: ffc121a1d4c494429146df12d4662c03
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/SFX Bus/Environment_SFX_Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Environment_SFX_Bus
     - name: Explore Music Bus
       guid: 2b32fa72296d5c4eb97a331a3697ad00
       id: 1570563853
@@ -141,8 +141,8 @@ MonoBehaviour:
       - ElementName: Explore Music Bus
         ObjectType: 2
         guid: 2b32fa72296d5c4eb97a331a3697ad00
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/Master Music
-        Bus/Explore Music Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
+        Bus\Explore Music Bus
     - name: General_SFX_Bus
       guid: 9fb152a9abc39a4d96ade4103503f176
       id: 3967235860
@@ -162,7 +162,7 @@ MonoBehaviour:
       - ElementName: General_SFX_Bus
         ObjectType: 2
         guid: 9fb152a9abc39a4d96ade4103503f176
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/SFX Bus/General_SFX_Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\General_SFX_Bus
     - name: Kaila_SFX_Bus
       guid: 368f5894643bf547a9598d4a266d8c99
       id: 84101584
@@ -182,7 +182,7 @@ MonoBehaviour:
       - ElementName: Kaila_SFX_Bus
         ObjectType: 2
         guid: 368f5894643bf547a9598d4a266d8c99
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/SFX Bus/Kaila_SFX_Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Kaila_SFX_Bus
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -196,7 +196,7 @@ MonoBehaviour:
       - ElementName: Master Audio Bus
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
     - name: Master Music Bus
       guid: 81962ceb7789694488002edbb0563ada
       id: 48433064
@@ -213,7 +213,7 @@ MonoBehaviour:
       - ElementName: Master Music Bus
         ObjectType: 2
         guid: 81962ceb7789694488002edbb0563ada
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/Master Music
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
         Bus
     - name: Muzzler_SFX_Bus
       guid: 8e896faec27dc64cbbd9e9c25a945477
@@ -234,7 +234,7 @@ MonoBehaviour:
       - ElementName: Muzzler_SFX_Bus
         ObjectType: 2
         guid: 8e896faec27dc64cbbd9e9c25a945477
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/SFX Bus/Muzzler_SFX_Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Muzzler_SFX_Bus
     - name: ScrapShift Music Bus
       guid: 19ca096600c67c4a8c2ddb2f4b7d0924
       id: 3736460895
@@ -254,8 +254,8 @@ MonoBehaviour:
       - ElementName: ScrapShift Music Bus
         ObjectType: 2
         guid: 19ca096600c67c4a8c2ddb2f4b7d0924
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/Master Music
-        Bus/ScrapShift Music Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Master Music
+        Bus\ScrapShift Music Bus
     - name: SFX Bus
       guid: 63be67e177dee042b043abb45c1bb91d
       id: 1502772432
@@ -272,7 +272,7 @@ MonoBehaviour:
       - ElementName: SFX Bus
         ObjectType: 2
         guid: 63be67e177dee042b043abb45c1bb91d
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/SFX Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus
     - name: Turret_SFX_Bus
       guid: a6ddbecb20a81d4bb562a8ea911ccb97
       id: 3571547856
@@ -292,7 +292,7 @@ MonoBehaviour:
       - ElementName: Turret_SFX_Bus
         ObjectType: 2
         guid: a6ddbecb20a81d4bb562a8ea911ccb97
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/SFX Bus/Turret_SFX_Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Turret_SFX_Bus
     - name: UI_SFX_Bus
       guid: 36eb44c6aa91ee498a2bb1ca746effe1
       id: 2731925972
@@ -312,9 +312,9 @@ MonoBehaviour:
       - ElementName: UI_SFX_Bus
         ObjectType: 2
         guid: 36eb44c6aa91ee498a2bb1ca746effe1
-      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/SFX Bus/UI_SFX_Bus
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\UI_SFX_Bus
   BankWwu:
-  - PhysicalPath: SoundBanks/Default Work Unit.wwu
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
     - ElementName: SoundBanks
       ObjectType: 5
@@ -322,10 +322,10 @@ MonoBehaviour:
     - ElementName: Default Work Unit
       ObjectType: 12
       guid: 8091b5fd9e38294cbfcd273f6ed45d57
-    ParentPath: SoundBanks/Default Work Unit
+    ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584749139455026233
+    m_lastTime: -8584749544020135284
     List:
     - name: Soundbank_Main
       guid: af2cf498d9d21f4e88407f3a8baafeea
@@ -340,9 +340,9 @@ MonoBehaviour:
       - ElementName: Soundbank_Main
         ObjectType: 7
         guid: af2cf498d9d21f4e88407f3a8baafeea
-      Path: SoundBanks/Default Work Unit/Soundbank_Main
+      Path: SoundBanks\Default Work Unit\Soundbank_Main
   EventWwu:
-  - PhysicalPath: Events/Default Work Unit.wwu
+  - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
     - ElementName: Events
       ObjectType: 5
@@ -350,10 +350,10 @@ MonoBehaviour:
     - ElementName: Default Work Unit
       ObjectType: 12
       guid: 85b245742f2f87459fb3ffc160c3e541
-    ParentPath: Events/Default Work Unit
+    ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584749139467855634
+    m_lastTime: -8584749544137782244
     List:
     - name: Combat
       guid: 02e504d97a7a9c48a1a1ad81c57c023d
@@ -371,7 +371,7 @@ MonoBehaviour:
       - ElementName: Combat
         ObjectType: 3
         guid: 02e504d97a7a9c48a1a1ad81c57c023d
-      Path: Events/Default Work Unit/Music/Combat
+      Path: Events\Default Work Unit\Music\Combat
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
       - ElementName: Explore
         ObjectType: 3
         guid: 528995d1a48272499e70e8eb410caa42
-      Path: Events/Default Work Unit/Music/Explore
+      Path: Events\Default Work Unit\Music\Explore
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
       - ElementName: Kaila SFX
         ObjectType: 4
         guid: a013c72d86ea10408449fa7e31be1ea1
-      Path: Events/Default Work Unit/Kaila SFX
+      Path: Events\Default Work Unit\Kaila SFX
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -428,7 +428,7 @@ MonoBehaviour:
       - ElementName: Kaila_BFG
         ObjectType: 4
         guid: 003e796f2a6b6448a8f3330411ba30d2
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_BFG
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -448,7 +448,7 @@ MonoBehaviour:
       - ElementName: Kaila_Movement
         ObjectType: 4
         guid: 9ccac1c0a71f684489bebdfa265d99f0
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_Movement
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_Movement
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -468,7 +468,7 @@ MonoBehaviour:
       - ElementName: Kaila_NailGun
         ObjectType: 4
         guid: 9fa872b19f83af41a81df85fd63e6832
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_NailGun
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_NailGun
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -488,7 +488,7 @@ MonoBehaviour:
       - ElementName: Kaila_RealSteel
         ObjectType: 4
         guid: 4b5a3bc94f674849bef4cac1384be52a
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_RealSteel
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -505,7 +505,7 @@ MonoBehaviour:
       - ElementName: Music
         ObjectType: 4
         guid: 58beaf42adc5184ca7f12096d3b9f2a2
-      Path: Events/Default Work Unit/Music
+      Path: Events\Default Work Unit\Music
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -525,7 +525,7 @@ MonoBehaviour:
       - ElementName: MusicStart
         ObjectType: 3
         guid: 57678736be9b4844beaa536c4d81573e
-      Path: Events/Default Work Unit/Music/MusicStart
+      Path: Events\Default Work Unit\Music\MusicStart
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -545,7 +545,7 @@ MonoBehaviour:
       - ElementName: Scrapshift
         ObjectType: 3
         guid: 3e043d65336f3d47943fa330d37e02e5
-      Path: Events/Default Work Unit/Music/Scrapshift
+      Path: Events\Default Work Unit\Music\Scrapshift
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -565,7 +565,7 @@ MonoBehaviour:
       - ElementName: ScrapshiftEnd
         ObjectType: 3
         guid: 635c2c5aba02284583b537dfccdf73f5
-      Path: Events/Default Work Unit/Music/ScrapshiftEnd
+      Path: Events\Default Work Unit\Music\ScrapshiftEnd
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -588,7 +588,7 @@ MonoBehaviour:
       - ElementName: SFX_Play_Dash
         ObjectType: 3
         guid: 835fd8d8cd3de94ba4025f1b294a38ef
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_Movement/SFX_Play_Dash
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_Movement\SFX_Play_Dash
       maxAttenuation: 0
       maxDuration: 2.7321541
       minDuration: 2.7321541
@@ -611,7 +611,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_BFGImpact
         ObjectType: 3
         guid: 34fa1b564f07cc418f180435e7599130
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_BFG/SFXPlay_BFGImpact
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGImpact
       maxAttenuation: 0
       maxDuration: 0.6250113
       minDuration: 0.6250113
@@ -634,7 +634,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_BFGLunge
         ObjectType: 3
         guid: 80f3bb995526c944bd296a69efba68c1
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_BFG/SFXPlay_BFGLunge
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGLunge
       maxAttenuation: 0
       maxDuration: 2.75
       minDuration: 2.75
@@ -657,7 +657,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_BFGSlam
         ObjectType: 3
         guid: 9be352f395d9d54e99a374436850a807
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_BFG/SFXPlay_BFGSlam
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGSlam
       maxAttenuation: 0
       maxDuration: 1.2
       minDuration: 1.2
@@ -680,7 +680,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_BFGSwing
         ObjectType: 3
         guid: 785832bc4ac4d244b654e30a9c79e509
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_BFG/SFXPlay_BFGSwing
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGSwing
       maxAttenuation: 0
       maxDuration: 1.0863942
       minDuration: 1.0863942
@@ -703,7 +703,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_FootstepsGround
         ObjectType: 3
         guid: 45a0045e0f6d0b499e62e4b990d7cc90
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_Movement/SFXPlay_FootstepsGround
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_Movement\SFXPlay_FootstepsGround
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -726,7 +726,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_NailGunChargedPull
         ObjectType: 3
         guid: 5d663e571affc941abba0dd638856e32
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_NailGun/SFXPlay_NailGunChargedPull
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunChargedPull
       maxAttenuation: 0
       maxDuration: 4
       minDuration: 4
@@ -749,7 +749,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_NailGunChargedShot
         ObjectType: 3
         guid: 391bfbc47f1f654789a7b3690782ba4e
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_NailGun/SFXPlay_NailGunChargedShot
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunChargedShot
       maxAttenuation: 0
       maxDuration: 4.0596824
       minDuration: 4.0596824
@@ -772,7 +772,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_NailGunFire
         ObjectType: 3
         guid: cf4734c2e6d939499e478df9baaaaca4
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_NailGun/SFXPlay_NailGunFire
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunFire
       maxAttenuation: 0
       maxDuration: 1
       minDuration: 1
@@ -795,7 +795,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_RS_Impact
         ObjectType: 3
         guid: 43b67fff182c0048adee945384ad5a0d
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_RealSteel/SFXPlay_RS_Impact
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Impact
       maxAttenuation: 0
       maxDuration: 1.8848526
       minDuration: 1.8848526
@@ -818,7 +818,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_RS_Impact_Overdrive
         ObjectType: 3
         guid: 357ce999bcf0a7448655588e01494f8d
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_RealSteel/SFXPlay_RS_Impact_Overdrive
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Impact_Overdrive
       maxAttenuation: 0
       maxDuration: 1.8848526
       minDuration: 1.8848526
@@ -841,7 +841,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_RS_Overdrive_Intro
         ObjectType: 3
         guid: b1000b82b31aca44a34cd073ab586678
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_RealSteel/SFXPlay_RS_Overdrive_Intro
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Overdrive_Intro
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -864,7 +864,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_RS_Overdrive_Outro
         ObjectType: 3
         guid: d0c41eeade89164fb43dd3ed488dc2f1
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_RealSteel/SFXPlay_RS_Overdrive_Outro
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Overdrive_Outro
       maxAttenuation: 0
       maxDuration: 3.7743554
       minDuration: 3.7743554
@@ -887,7 +887,7 @@ MonoBehaviour:
       - ElementName: SFXPlay_RS_SlamShockwave
         ObjectType: 3
         guid: 68d12b96bd376a43a6eaf02a5cda675c
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_RealSteel/SFXPlay_RS_SlamShockwave
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_SlamShockwave
       maxAttenuation: 0
       maxDuration: 2.5010657
       minDuration: 2.5010657
@@ -910,12 +910,12 @@ MonoBehaviour:
       - ElementName: SFXPlay_RS_SlamShockwave_Overdrive
         ObjectType: 3
         guid: 08b7f5d029887c4e893c0cc086136d70
-      Path: Events/Default Work Unit/Kaila SFX/Kaila_RealSteel/SFXPlay_RS_SlamShockwave_Overdrive
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_SlamShockwave_Overdrive
       maxAttenuation: 0
       maxDuration: 2.5010657
       minDuration: 2.5010657
   RtpcWwu:
-  - PhysicalPath: Game Parameters/Default Work Unit.wwu
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
     - ElementName: Game Parameters
       ObjectType: 5
@@ -923,13 +923,13 @@ MonoBehaviour:
     - ElementName: Default Work Unit
       ObjectType: 12
       guid: e772f0b193823949853e05aac5794b6f
-    ParentPath: Game Parameters/Default Work Unit
+    ParentPath: Game Parameters\Default Work Unit
     guid: e772f0b193823949853e05aac5794b6f
     GuidInternal: 
-    m_lastTime: -8584750413109463551
+    m_lastTime: -8584751273536036202
     List: []
   StateWwu:
-  - PhysicalPath: States/Default Work Unit.wwu
+  - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
     - ElementName: States
       ObjectType: 5
@@ -937,10 +937,10 @@ MonoBehaviour:
     - ElementName: Default Work Unit
       ObjectType: 12
       guid: f3e827c98473b545bdc7ed0c4739356b
-    ParentPath: States/Default Work Unit
+    ParentPath: States\Default Work Unit
     guid: f3e827c98473b545bdc7ed0c4739356b
     GuidInternal: 
-    m_lastTime: -8584750413090525663
+    m_lastTime: -8584750420666094601
     List:
     - name: Music_States
       guid: c67059b9b3a34a448d69328c6fc91e5b
@@ -955,7 +955,7 @@ MonoBehaviour:
       - ElementName: Music_States
         ObjectType: 9
         guid: c67059b9b3a34a448d69328c6fc91e5b
-      Path: States/Default Work Unit/Music_States
+      Path: States\Default Work Unit\Music_States
       values:
       - name: Combat
         guid: 053f59245497eb45896ae0ca1444c4d5
@@ -1025,7 +1025,7 @@ MonoBehaviour:
       ValueIcons: []
       valuesInternal: []
   SwitchWwu:
-  - PhysicalPath: Switches/Default Work Unit.wwu
+  - PhysicalPath: Switches\Default Work Unit.wwu
     PathAndIcons:
     - ElementName: Switches
       ObjectType: 5
@@ -1033,10 +1033,10 @@ MonoBehaviour:
     - ElementName: Default Work Unit
       ObjectType: 12
       guid: ef29a14c705ede40b7a80ac065cc6269
-    ParentPath: Switches/Default Work Unit
+    ParentPath: Switches\Default Work Unit
     guid: ef29a14c705ede40b7a80ac065cc6269
     GuidInternal: 
-    m_lastTime: -8584750413090524803
+    m_lastTime: -8584750420666094601
     List:
     - name: New_Switch_Group
       guid: de5b0459d2ce29408fec6f6544d84e51
@@ -1051,7 +1051,7 @@ MonoBehaviour:
       - ElementName: New_Switch_Group
         ObjectType: 11
         guid: de5b0459d2ce29408fec6f6544d84e51
-      Path: Switches/Default Work Unit/New_Switch_Group
+      Path: Switches\Default Work Unit\New_Switch_Group
       values:
       - name: New_Switch
         guid: cc43a42e7200da46bd18d17c2888a865
@@ -1073,7 +1073,7 @@ MonoBehaviour:
       ValueIcons: []
       valuesInternal: []
   TriggerWwu:
-  - PhysicalPath: Triggers/Default Work Unit.wwu
+  - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:
     - ElementName: Triggers
       ObjectType: 5
@@ -1081,10 +1081,10 @@ MonoBehaviour:
     - ElementName: Default Work Unit
       ObjectType: 12
       guid: ca7ae8b43920f140a5f4bf098b44b504
-    ParentPath: Triggers/Default Work Unit
+    ParentPath: Triggers\Default Work Unit
     guid: ca7ae8b43920f140a5f4bf098b44b504
     GuidInternal: 
-    m_lastTime: -8584750413090523965
+    m_lastTime: -8584750420666089600
     List:
     - name: Scrapshift
       guid: 52eef0ed6d5ee34ea9f8a780dfae2057
@@ -1099,7 +1099,7 @@ MonoBehaviour:
       - ElementName: Scrapshift
         ObjectType: 14
         guid: 52eef0ed6d5ee34ea9f8a780dfae2057
-      Path: Triggers/Default Work Unit/Scrapshift
+      Path: Triggers\Default Work Unit\Scrapshift
     - name: ScrapshiftEnd
       guid: 9618f51dadf4214087fc7ea68ced4ee5
       id: 1856838135
@@ -1113,7 +1113,7 @@ MonoBehaviour:
       - ElementName: ScrapshiftEnd
         ObjectType: 14
         guid: 9618f51dadf4214087fc7ea68ced4ee5
-      Path: Triggers/Default Work Unit/ScrapshiftEnd
+      Path: Triggers\Default Work Unit\ScrapshiftEnd
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 05000000060000000700000008000000090000000c0000000d0000000f0000001b00000020000000230000002600000027000000
   AutoSyncSelection: 0

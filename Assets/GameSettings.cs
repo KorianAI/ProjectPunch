@@ -11,6 +11,13 @@ public class GameSettings : MonoBehaviour
 
     [Header("References")]
     public AudioMixer mixer;
+
+    [Header("UI")]
+    public Slider masterVolSlider;
+    public Slider musicVolSlider;
+    public Slider SFXVolSlider;
+    public Toggle skipTutToggle;
+    public TMP_Dropdown fsDropdown;
     public TMP_Dropdown resDropdown;
     public ScrollRect dropdownScrollRect;
 
@@ -32,8 +39,6 @@ public class GameSettings : MonoBehaviour
 
     private void Start()
     {
-        resDropdown.onValueChanged.AddListener(OnDropdownValueChanged);
-
         resolutions = Screen.resolutions;
 
         resDropdown.ClearOptions();
@@ -55,40 +60,103 @@ public class GameSettings : MonoBehaviour
         resDropdown.AddOptions(options);
         resDropdown.value = currentResolutionIndex;
         resDropdown.RefreshShownValue();
-        UpdateScrollPosition(currentResolutionIndex);
+
+        #region LoadPlayerPrefs
+        if (PlayerPrefs.HasKey("MasterVol"))
+        {
+            SetMasterVolume(PlayerPrefs.GetFloat("MasterVol"));
+            masterVolSlider.value = PlayerPrefs.GetFloat("MasterVol");
+        }
+
+        if (PlayerPrefs.HasKey("MusicVol"))
+        {
+            SetMusicVolume(PlayerPrefs.GetFloat("MusicVol"));
+            musicVolSlider.value = PlayerPrefs.GetFloat("MusicVol");
+        }
+
+        if (PlayerPrefs.HasKey("SFXVol"))
+        {
+            SetSFXVolume(PlayerPrefs.GetFloat("SFXVol"));
+            SFXVolSlider.value = PlayerPrefs.GetFloat("SFXVol");
+        }
+
+        if (PlayerPrefs.HasKey("SkipTut"))
+        {
+            if (PlayerPrefs.GetInt("SkipTut") == 1)
+            {
+                SkipTutorials(true);
+                skipTutToggle.isOn = true;
+            }
+            else if (PlayerPrefs.GetInt("SkipTut") == 0)
+            {
+                SkipTutorials(false);
+                skipTutToggle.isOn = false;
+            }
+        }
+
+        if (PlayerPrefs.HasKey("FullScreenMode"))
+        {
+            SetFullscreen(PlayerPrefs.GetInt("FullScreenMode"));
+            fsDropdown.RefreshShownValue();
+        }
+
+        if (PlayerPrefs.HasKey("ResIndex"))
+        {
+            SetResolution(PlayerPrefs.GetInt("ResIndex"));
+            resDropdown.RefreshShownValue();
+        }
+
+        #endregion
     }
 
     public void SetMasterVolume(float volume)
     {
         mixer.SetFloat("Volume", volume);
+        PlayerPrefs.SetFloat("MasterVol", volume);
+        Debug.Log(PlayerPrefs.GetFloat("MasterVol"));
     }
 
     public void SetMusicVolume(float volume)
     {
         mixer.SetFloat("MusicVolume", volume);
+        PlayerPrefs.SetFloat("MusicVol", volume);
     }
 
     public void SetSFXVolume(float volume)
     {
         mixer.SetFloat("SFXVolume", volume);
+        PlayerPrefs.SetFloat("SFXVol", volume);
     }
 
     public void SkipTutorials(bool value)
     {
         skipTutorials = value;
+
+        if (value)
+        {
+            PlayerPrefs.SetInt("SkipTut", 1);
+            Debug.Log(PlayerPrefs.GetInt("SkipTut"));
+        }
+        else if (!value)
+        {
+            PlayerPrefs.SetInt("SkipTut", 0);
+        }
     }
 
-    public void SetFullscreen (int fullScreenMode)
+    public void SetFullscreen(int fullScreenMode)
     {
         //Screen.fullScreenMode = (FullScreenMode)fullScreenMode;
 
         if (fullScreenMode == 0)
         {
             Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+            PlayerPrefs.SetInt("FullScreenMode", 0);
+            Debug.Log(PlayerPrefs.GetInt("FullScreenMode"));
         }
         else if (fullScreenMode == 1)
         {
-            Screen.fullScreenMode = FullScreenMode.Windowed;
+            Screen.fullScreenMode = FullScreenMode.Windowed; 
+            PlayerPrefs.SetInt("FullScreenMode", 1);
         }
     }
 
@@ -96,21 +164,6 @@ public class GameSettings : MonoBehaviour
     {
         Resolution res = resolutions[resolutionIndex];
         Screen.SetResolution(res.width, res.height, Screen.fullScreenMode);
-    }
-
-    public void UpdateScrollPosition(int index)
-    {
-        float normalizedPosition = (float)index / resDropdown.options.Count; //Calculate the normalized position based on the index
-        dropdownScrollRect.verticalNormalizedPosition = 1 - normalizedPosition;
-    }
-
-    private void OnDropdownValueChanged(int index)
-    {
-        UpdateScrollPosition(index); //Call UpdateScrollPosition when the dropdown value changes
-    }
-
-    private void OnDestroy()
-    {
-        resDropdown.onValueChanged.RemoveListener(OnDropdownValueChanged);
+        PlayerPrefs.SetInt("ResIndex", resolutionIndex);
     }
 }

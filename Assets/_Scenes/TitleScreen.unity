@@ -65475,6 +65475,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 9975f4ec75d5f144dafec4e5a70a835b, type: 2}
+  masterVolSlider: {fileID: 535616351}
+  musicVolSlider: {fileID: 448339757}
+  SFXVolSlider: {fileID: 297513232}
+  skipTutToggle: {fileID: 1039275937}
+  fsDropdown: {fileID: 1290476896}
   resDropdown: {fileID: 1897996251}
   dropdownScrollRect: {fileID: 258484504}
   skipTutorials: 0
