@@ -189,6 +189,43 @@
 										<ActiveSource Name="BFG_Slam" ID="{36A1800C-E620-414B-94E3-CC0C1933685B}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="BFG_Uppercut" ID="{6217D3EF-6E1B-4507-8CD6-AE76096CCAE7}" ShortID="365010426">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{A6AC5DE6-2343-470D-8A22-9319EF68FA5C}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="200"/>
+															<Property Name="Min" Type="Real64" Value="-200"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Kaila_SFX_Bus" ID="{94588F36-3B64-47F5-A959-8D4A266D8C99}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BFG_Uppercut" ID="{9EEA719D-3058-45BB-B9E1-E8F0393A9D48}">
+											<Language>SFX</Language>
+											<AudioFile>BFG_Uppercut.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="484023593"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="BFG_Uppercut" ID="{9EEA719D-3058-45BB-B9E1-E8F0393A9D48}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Real Steel" ID="{E7A9D06D-4AC8-4222-8FD1-41437336C93B}" ShortID="982827697">
@@ -1003,6 +1040,28 @@
 								<ActiveSource Name="Rail" ID="{E6F4EEC3-EFB6-4D3C-8DA8-F8BDC42FCC13}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="BouncePad_Push_Launch" ID="{194B1465-99C4-47D6-8425-891A36FD265A}" ShortID="6354929">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BouncePad_Push_Launch" ID="{73527352-841A-468F-8A9E-360BFFF93507}">
+									<Language>SFX</Language>
+									<AudioFile>BouncePad_Push_Launch.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1002274944"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="BouncePad_Push_Launch" ID="{73527352-841A-468F-8A9E-360BFFF93507}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="General SFX" ID="{2D8BB709-2B4A-4758-A048-F23AA359EC50}" ShortID="992690566">
@@ -1052,6 +1111,47 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="LockOn" ID="{4DC3B494-096A-44FC-B6BB-A8C2A28520EA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Scrap_Collect" ID="{7ED58369-F8E1-4899-9D2E-72114D6934E0}" ShortID="418706090">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{1C8FAC99-E003-41BB-9F9E-EB9A9BA5F48D}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-400"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="General_SFX_Bus" ID="{A952B19F-C3AB-4D9A-96AD-E4103503F176}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Scrap_Collect" ID="{8BCB6A91-CAE5-40E5-98DB-E2014950B8DE}">
+									<Language>SFX</Language>
+									<AudioFile>Scrap_Collect.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="543809496"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Scrap_Collect" ID="{8BCB6A91-CAE5-40E5-98DB-E2014950B8DE}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
