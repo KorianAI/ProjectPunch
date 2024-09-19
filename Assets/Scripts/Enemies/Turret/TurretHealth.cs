@@ -71,14 +71,6 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
         audioManager = GetComponent<EnemyAudioManager>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            Die();
-        }
-    }
-
     public void TakeDamage(float damage)
     {
         if (!takenDamage)

@@ -13,6 +13,7 @@ public class RealSteel : WeaponInfo
     public float overdriveDecreaseAmnt;
     float overdriveDecreaseTimer;
     public float overdriveDecreaseCooldown;
+    public GameObject overdriveUI;
     public Image overdriveImage;
     public GameObject[] overdriveVFX;
 
@@ -185,7 +186,7 @@ public class RealSteel : WeaponInfo
             currentOverdrive = maxOverdrive;
             overdriveDecreaseTimer = overdriveDecreaseCooldown;
             overdrive = true;
-            sm.anim.speed = 1.5f;
+            sm.anim.speed = 1.5f;            
             //foreach (GameObject g in overdriveVFX)
             //{
             //    g.SetActive(true); ;
@@ -196,6 +197,10 @@ public class RealSteel : WeaponInfo
         {
             overdrive = false;
             sm.anim.speed = 1f;
+            if (overdriveUI != null)
+            {
+                overdriveUI.SetActive(false);
+            }
             //foreach (GameObject g in overdriveVFX)
             //{
             //    g.SetActive(false); ;
@@ -253,7 +258,8 @@ public class RealSteel : WeaponInfo
     void UpdateOverdriveUI()
     {
         overdriveImage.fillAmount = currentOverdrive / maxOverdrive;
-        UpdateOverdriveParticles(); 
+
+        UpdateOverdriveParticles();
     }
 
     public void UpdateOverdriveParticles()

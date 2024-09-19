@@ -69,6 +69,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
     private float abbIntensityLastTime;
     private ChromaticAberration abb;
 
+    public GameObject overdriveUI;
+
     private void OnEnable()
     {
         CameraManager.RegisterPC(scrapCam);
@@ -164,6 +166,10 @@ public class PlayerResources : MonoBehaviour, IDamageable
             scrapDecreaseTimer = scrapDecreaseCooldown;
             PowerJuice();
             ChangeGauntlets(2);
+            if (overdriveUI != null)
+            {
+                overdriveUI.SetActive(true);
+            }
         }
 
         else if (!on)        
@@ -171,10 +177,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
             scrapDecrease = false;
             scrapShift = false;
             ChangeGauntlets(3);
+            if (overdriveUI != null)
+            {
+                overdriveUI.SetActive(false);
+            }
         }
-
-
-
     }
 
     private void PowerJuice()
