@@ -18,7 +18,7 @@ public class MusicOverview : MonoBehaviour
     void Start()
     {
         pr = GetComponent<PlayerResources>();
-        MusicStates();
+        
     }
 
     public void Music_Explore()
@@ -55,6 +55,6 @@ public class MusicOverview : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        MusicStates();
     }
 }

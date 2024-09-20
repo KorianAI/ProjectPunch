@@ -1,0 +1,44 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	1690668539	Music_States			\Default Work Unit\Music_States	
+
+State	ID	Name	State Group			Notes
+	579523862	Explore	Music_States			
+	748895195	None	Music_States			
+	2764240573	Combat	Music_States			
+	4104150384	Scrapshift	Music_States			
+
+Trigger	ID	Name			Wwise Object Path	Notes
+	1856838135	ScrapshiftEnd			\Default Work Unit\ScrapshiftEnd	
+	4104150384	Scrapshift			\Default Work Unit\Scrapshift	
+
+Effect plug-ins	ID	Name	Type				Notes
+	1188943754	New_Peak_Limiter_01	Wwise Peak Limiter			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	23675886	Scrapshift_Switch	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Scrapshift_Switch_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Stingers\ScrapShift\Scrapshift_Switch		467556
+	99683504	Guitar_4Bar_Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Guitar_4Bar_Riff2_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\Guitar_4Bar_Riff2		169027
+	99890009	ScrapShift_Intro	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\ScrapShift_Intro_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\ScrapShift_Theme\Scrapshift - Intro\ScrapShift_Intro		384750
+	144080973	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Lead_4Bar_Melody_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 8 Bar\Lead_4Bar_FastHigh		195554
+	172155782	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\DrumKit_8Bar_NormalLong_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 8 Bar\DrumKit_2Bar_Half-Time		293859
+	181757905	Bass_4Bar_Synth (4B)	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Bass_4Bar_Synth_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - Intro\Bass_4Bar_Synth (4B)		150009
+	232264055	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Lead_4Bar_FastMelodic_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\Lead_4Bar_FastHigh		185910
+	430724085	Percussion_4Bar_Atabaque	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Percussion_4Bar_Atabaque_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\Percussion_4Bar_Atabaque		162338
+	465556907	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Lead_8Bar_Fast_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\Lead_4Bar_FastHigh		372804
+	485367470	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\DrumKit_4Bar_Normal_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - Intro\DrumKit_2Bar_Half-Time		144790
+	544890327	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\DrumKit_2Bar_KickBuild_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\DrumKit_2Bar_Half-Time		74153
+	616299173	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Lead_4Bar_FastHigh_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 8 Bar\Lead_4Bar_FastHigh		197722
+	702063897	Guitar_4Bar_Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Guitar_8Bar_Riff1_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 8 Bar\Guitar_4Bar_Riff2		319721
+	746262836	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\DrumKit_8Bar_Nandos to Normal_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\DrumKit_2Bar_Half-Time		305401
+	755205215	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\DrumKit_2Bar_Nandos_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\DrumKit_2Bar_Half-Time		82264
+	755690947	Scrapmode_Switch	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Scrapmode_Switch_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Stingers\ScrapShiftEnd\Scrapmode_Switch		471968
+	783261638	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\DrumKit_2Bar_Half-Time_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - Intro\DrumKit_2Bar_Half-Time		75869
+	870486047	Bass_4Bar_BassGuitar (4B)	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Bass_4Bar_BassGuitar_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\Bass_4Bar_BassGuitar (4B)		113996
+	872318873	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Lead_4Bar_SlowRiff_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\Lead_4Bar_FastHigh		180079
+	896998356	Explore_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Explore_1_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Explore\Explore_1		2966316
+	904185561	Guitar_4Bar_Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Guitar_8Bar_Riff3_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 8 Bar\Guitar_4Bar_Riff2		413853
+	936798745	Combat1_Intro	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Combat1_Intro_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Combat1_Intro\Combat1_Intro		21016
+	949668554	ScrapShift_Main	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\ScrapShift_Main_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\ScrapShift_Theme\Scrapshift - Main\ScrapShift_Main		1276740
+	999864757	Guitar_4Bar_Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Guitar_4Bar_Riff4_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 8 Bar\Guitar_4Bar_Riff2		175694
+	1024608900	Percussion_4Bar_Atabaque	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Percussion_4Bar_BigDrum_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - Intro\Percussion_4Bar_Atabaque		85765
+	1049289630	Combat1_SectionB	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Combat1_SectionB_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section B\Combat1_SectionB		317320
+
