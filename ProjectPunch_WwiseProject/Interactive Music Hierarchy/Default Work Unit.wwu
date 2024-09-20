@@ -8,7 +8,7 @@
 						<MusicSwitchContainer Name="Music Switch" ID="{60030024-4165-42FF-9DF9-059EAFA89CCB}" ShortID="682642835">
 							<ReferenceList>
 								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
+									<ObjectRef Name="Music" ID="{DA55CF06-6784-408D-A328-C836DBA590F4}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Music Bus" ID="{EB2C9681-8977-4469-8800-2EDBB0563ADA}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
