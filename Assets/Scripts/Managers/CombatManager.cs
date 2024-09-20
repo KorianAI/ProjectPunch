@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
+    [Header("Enemies")]
     public bool combatActive;
     public List<EnemyAI> enemies;
     public List<TurretAI> turrets;
@@ -21,6 +22,7 @@ public class CombatManager : MonoBehaviour
 
     public CinemachineVirtualCamera finisherCam;
 
+    [Header("Doors")]
     public Animation entranceDoorOpen;
     public CinemachineVirtualCamera entranceDoorCam;
     bool playedOpen = false;
@@ -30,12 +32,14 @@ public class CombatManager : MonoBehaviour
     public Animation exitDoorOpen;
     public CinemachineVirtualCamera exitDoorCam;
 
+    [Header("Tutorials")]
     public bool playStartTut;
     public TutorialTrigger requiredStartTut;
 
     public bool playEndTut;
     public TutorialTrigger requiredEndTut;
 
+    [Header("Combat Start")]
     public bool playCombatStartAnim = true;
     public Animation combatStartAnim;
 
@@ -85,6 +89,7 @@ public class CombatManager : MonoBehaviour
         if (combatStartAnim != null && playCombatStartAnim)
         {
             combatStartAnim.Play();
+            Debug.Log("fightstart anim");
         }
 
         foreach (EnemyAI e in enemies)

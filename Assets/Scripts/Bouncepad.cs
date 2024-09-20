@@ -65,7 +65,7 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == cc)
+        if (other == cc && t)
         {
             ps.inBounceCollider = true;
             ps.currentPad = this;
@@ -75,7 +75,7 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
 
     private void OnTriggerExit(Collider other)
     {
-        if (other == cc)
+        if (other == cc && t)
         {
             ps.inBounceCollider = false;
             ps.currentPad = null;

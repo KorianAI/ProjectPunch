@@ -47,9 +47,15 @@ public class Nailgun : Attachment
         Vector3 direction = GetDirection();
 
         TrailRenderer trail = Instantiate(projTrail, spawnPoint.position, Quaternion.identity);
-        IDamageable enemy = sm.tl.currentTarget.GetComponent<IDamageable>();
-        StartCoroutine(SpawnTrail(trail, direction, enemy));
-
+        if (sm.tl.currentTarget != null)
+        {
+            IDamageable enemy = sm.tl.currentTarget.GetComponent<IDamageable>();
+            StartCoroutine(SpawnTrail(trail, direction, enemy));
+        }
+        else
+        {
+            StartCoroutine(SpawnTrailNoEnemy(trail, direction));
+        }
     }
 
     public void ConcentratedNail()
@@ -92,7 +98,21 @@ public class Nailgun : Attachment
 
         else
         {
-            throw new System.Exception("No CurrentTarget for Nailgun Lock.");
+            //throw new System.Exception("No CurrentTarget for Nailgun Lock.");
+
+            Vector3 dir = new Vector3(sm.transform.position.x, sm.transform.position.y, (sm.transform.position.z +10));
+
+            if (bulletSpread)
+            {
+                dir += new Vector3(Random.Range(-spreadVariance, spreadVariance),
+                    Random.Range(0, spreadVariance),
+                    Random.Range(-spreadVariance, spreadVariance));
+
+                //dir.Normalize();
+
+            }
+
+            return dir;
         }
         
     }
@@ -111,6 +131,24 @@ public class Nailgun : Attachment
         trail.transform.position = enemy;
         health.TakeDamage(stats.damage);
         HitstopManager.Instance.TriggerHitstop(stats.hitstopAmnt, sm.tl.currentTarget.gameObject);
+        CinemachineShake.Instance.ShakeCamera(stats.shakeAmnt, stats.shakeDur);
+        CinemachineShake.Instance.ChangeFov(stats.zoomAmnt, stats.shakeDur);
+        RumbleManager.instance.RumblePulse(.05f, .15f, .1f);
+        Destroy(trail.gameObject, trail.time);
+    }
+
+    IEnumerator SpawnTrailNoEnemy(TrailRenderer trail, Vector3 direction)
+    {
+        float time = 0;
+        Vector3 startPos = trail.transform.position;
+        while (time < 1)
+        {
+            trail.transform.position = Vector3.Lerp(startPos, direction, time);
+            time += Time.deltaTime / trail.time;
+            yield return null;
+        }
+
+        trail.transform.position = direction;
         CinemachineShake.Instance.ShakeCamera(stats.shakeAmnt, stats.shakeDur);
         CinemachineShake.Instance.ChangeFov(stats.zoomAmnt, stats.shakeDur);
         RumbleManager.instance.RumblePulse(.05f, .15f, .1f);

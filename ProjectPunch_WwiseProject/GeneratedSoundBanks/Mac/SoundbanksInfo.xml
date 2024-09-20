@@ -9,9 +9,124 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{5B1316E0-1DEE-38F6-84B1-B8C15F46858D}">
+		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{E25CA32A-D373-CE7A-1417-74796A15ADC7}">
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
+			<Media>
+				<File Id="23675886" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Scrapshift_Switch.wav</ShortName>
+					<CachePath>SFX/Scrapshift_Switch_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="99683504" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_4Bar_Riff2.wav</ShortName>
+					<CachePath>SFX/Guitar_4Bar_Riff2_56CEF360.wem</CachePath>
+				</File>
+				<File Id="99890009" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ScrapShift_Intro.wav</ShortName>
+					<CachePath>SFX/ScrapShift_Intro_56CEF360.wem</CachePath>
+				</File>
+				<File Id="144080973" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lead_4Bar_Melody.wav</ShortName>
+					<CachePath>SFX/Lead_4Bar_Melody_56CEF360.wem</CachePath>
+				</File>
+				<File Id="172155782" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DrumKit_8Bar_NormalLong.wav</ShortName>
+					<CachePath>SFX/DrumKit_8Bar_NormalLong_56CEF360.wem</CachePath>
+				</File>
+				<File Id="181757905" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bass_4Bar_Synth.wav</ShortName>
+					<CachePath>SFX/Bass_4Bar_Synth_56CEF360.wem</CachePath>
+				</File>
+				<File Id="232264055" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lead_4Bar_FastMelodic.wav</ShortName>
+					<CachePath>SFX/Lead_4Bar_FastMelodic_56CEF360.wem</CachePath>
+				</File>
+				<File Id="430724085" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Percussion_4Bar_Atabaque.wav</ShortName>
+					<CachePath>SFX/Percussion_4Bar_Atabaque_56CEF360.wem</CachePath>
+				</File>
+				<File Id="465556907" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lead_8Bar_Fast.wav</ShortName>
+					<CachePath>SFX/Lead_8Bar_Fast_56CEF360.wem</CachePath>
+				</File>
+				<File Id="485367470" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DrumKit_4Bar_Normal.wav</ShortName>
+					<CachePath>SFX/DrumKit_4Bar_Normal_56CEF360.wem</CachePath>
+				</File>
+				<File Id="544890327" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DrumKit_2Bar_KickBuild.wav</ShortName>
+					<CachePath>SFX/DrumKit_2Bar_KickBuild_56CEF360.wem</CachePath>
+				</File>
+				<File Id="616299173" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lead_4Bar_FastHigh.wav</ShortName>
+					<CachePath>SFX/Lead_4Bar_FastHigh_56CEF360.wem</CachePath>
+				</File>
+				<File Id="702063897" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_8Bar_Riff1.wav</ShortName>
+					<CachePath>SFX/Guitar_8Bar_Riff1_56CEF360.wem</CachePath>
+				</File>
+				<File Id="746262836" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DrumKit_8Bar_Nandos to Normal.wav</ShortName>
+					<CachePath>SFX/DrumKit_8Bar_Nandos to Normal_56CEF360.wem</CachePath>
+				</File>
+				<File Id="755205215" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DrumKit_2Bar_Nandos.wav</ShortName>
+					<CachePath>SFX/DrumKit_2Bar_Nandos_56CEF360.wem</CachePath>
+				</File>
+				<File Id="755690947" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Scrapmode_Switch.wav</ShortName>
+					<CachePath>SFX/Scrapmode_Switch_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="783261638" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DrumKit_2Bar_Half-Time.wav</ShortName>
+					<CachePath>SFX/DrumKit_2Bar_Half-Time_56CEF360.wem</CachePath>
+				</File>
+				<File Id="870486047" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bass_4Bar_BassGuitar.wav</ShortName>
+					<CachePath>SFX/Bass_4Bar_BassGuitar_56CEF360.wem</CachePath>
+				</File>
+				<File Id="872318873" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lead_4Bar_SlowRiff.wav</ShortName>
+					<CachePath>SFX/Lead_4Bar_SlowRiff_56CEF360.wem</CachePath>
+				</File>
+				<File Id="896998356" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Explore_1.wav</ShortName>
+					<CachePath>SFX/Explore_1_56CEF360.wem</CachePath>
+				</File>
+				<File Id="904185561" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_8Bar_Riff3.wav</ShortName>
+					<CachePath>SFX/Guitar_8Bar_Riff3_56CEF360.wem</CachePath>
+				</File>
+				<File Id="936798745" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Combat1_Intro.wav</ShortName>
+					<CachePath>SFX/Combat1_Intro_56CEF360.wem</CachePath>
+				</File>
+				<File Id="949668554" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ScrapShift_Main.wav</ShortName>
+					<CachePath>SFX/ScrapShift_Main_56CEF360.wem</CachePath>
+				</File>
+				<File Id="999864757" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_4Bar_Riff4.wav</ShortName>
+					<CachePath>SFX/Guitar_4Bar_Riff4_56CEF360.wem</CachePath>
+				</File>
+				<File Id="1024608900" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Percussion_4Bar_BigDrum.wav</ShortName>
+					<CachePath>SFX/Percussion_4Bar_BigDrum_56CEF360.wem</CachePath>
+				</File>
+				<File Id="1049289630" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Combat1_SectionB.wav</ShortName>
+					<CachePath>SFX/Combat1_SectionB_56CEF360.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="1188943754" Name="New_Peak_Limiter_01" LibName="Wwise Peak Limiter" LibId="7208963"/>
+				</ShareSets>
+			</Plugins>
+			<Triggers>
+				<Trigger Id="1856838135" Name="ScrapshiftEnd"/>
+				<Trigger Id="4104150384" Name="Scrapshift"/>
+			</Triggers>
 		</SoundBank>
 		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C6C591E1-06E5-F46B-BF84-11428F94620B}">
 			<ShortName>Init</ShortName>
@@ -452,5 +567,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D04F30DC-1A87-EB5F-8EAF-0890EFF11730}</FileHash>
+	<FileHash>{BB0ED583-7586-7D18-9694-BCE3805DC353}</FileHash>
 </SoundBanksInfo>
