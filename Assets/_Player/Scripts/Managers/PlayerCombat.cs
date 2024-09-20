@@ -113,23 +113,15 @@ public class PlayerCombat : MonoBehaviour
             if (e != null)
             {
                 e.SwitchState(new EnemyAirborne());
+                transform.DOKill();
+
+                Vector3 launchPosition = new Vector3(c.transform.position.x, transform.position.y + launchHeight, c.transform.position.z);
+                c.transform.DOMove(launchPosition, launchDuration).SetEase(Ease.OutQuad);
             }
 
             HitstopManager.Instance.TriggerHitstop(modeStats.hitstopAmnt, gameObject, c.gameObject);
             CinemachineShake.Instance.ShakeCamera(modeStats.shakeAmnt, modeStats.shakeAmnt);
             RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
-            transform.DOKill();
-            Vector3 launchPosition = new Vector3(c.transform.position.x, transform.position.y + launchHeight, c.transform.position.z);
-            c.transform.DOMove(launchPosition, launchDuration).SetEase(Ease.OutQuad);
-
-            //if (c.GetComponent<EnemyHealth>() != null)
-            //{
-            //    c.GetComponent<EnemyHealth>().GetStunned(.2f);
-
-            //}
-
-
-
         }
 
         if (type == 2 || type == 3 && _sm.attackHit)
