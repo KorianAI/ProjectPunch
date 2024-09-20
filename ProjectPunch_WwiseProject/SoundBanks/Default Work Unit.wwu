@@ -18,7 +18,18 @@
 					<GameSyncExclusionList/>
 				</SoundBank>
 				<SoundBank Name="Soundbank_Music" ID="{28D27F5D-24CE-4867-9F34-DDB7C5D32AC3}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="ScrapShift" ID="{34BBD894-08DB-411F-BC21-FBBAB5AE11E1}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Section A - 8 Bar" ID="{E306BA44-7B63-42DC-961C-21A2D15EAB37}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Combat 1" ID="{542BF261-F5E1-45E4-A1D6-9F89805EDFEF}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Scrapshift - Intro" ID="{2CE8C319-9428-4624-8131-ACC910796D42}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Section A - Intro" ID="{2FEA6588-B7B4-465B-8D1C-E32228793EDA}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Scrapshift - Main" ID="{39D661C4-B106-475C-9B5A-24CC0483F115}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="ScrapShiftEnd" ID="{0F98CA91-113A-49BB-8EF8-C0D662A5F314}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Section A - 4 Bar" ID="{A1B05561-5337-4C69-A5B9-5416E6D1A66D}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Explore" ID="{E6ACD6E3-ACF5-4D20-B158-029CAB071CA3}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Section B" ID="{FBF5579E-DA95-4F9D-A775-CF945F80FC64}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
