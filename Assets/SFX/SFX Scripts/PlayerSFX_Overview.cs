@@ -16,12 +16,15 @@ public class PlayerSFX_Overview : MonoBehaviour
     public AK.Wwise.Event playSFX_jump;
     public AK.Wwise.Event playSFX_land;
     public AK.Wwise.Event playSFX_launch;
+    public AK.Wwise.Event playSFX_push;
+    public AK.Wwise.Event playSFX_pull;
 
     [Header("BFG")]
     public AK.Wwise.Event playSFX_BFG_impact;
     public AK.Wwise.Event playSFX_BFG_slam;
     public AK.Wwise.Event playSFX_BFG_swing;
     public AK.Wwise.Event playSFX_BFG_lunge;
+    public AK.Wwise.Event playSFX_BFGuppercut;
 
     [Header("Nail Gun")]
     public AK.Wwise.Event playSFX_NailG_burst;
@@ -109,6 +112,11 @@ public class PlayerSFX_Overview : MonoBehaviour
         }
     }
 
+    public void SFX_BFG_Uppercut()
+    {
+        playSFX_BFGuppercut.Post(gameObject);
+    }
+
     public void SFX_RS_Overdrive()
     {
         if (pr.shift.overdrive)
@@ -162,6 +170,16 @@ public class PlayerSFX_Overview : MonoBehaviour
         playSFX_footsteps_ground.Post(gameObject);
     }
 
+    public void SFX_Jump()
+    {
+        playSFX_jump.Post(gameObject);
+    }
+
+    public void SFX_Land()
+    {
+        playSFX_land.Post(gameObject);
+    }
+
     public void SFX_Dash()
     {
         if (pr.scrapShift)
@@ -179,5 +197,15 @@ public class PlayerSFX_Overview : MonoBehaviour
     public void SFX_BouncePad_Launch()
     {
         playSFX_launch.Post(gameObject);
+    }
+
+    public void SFX_Push()
+    {
+        playSFX_push.Post(gameObject);
+    }
+
+    public void SFX_Pull()
+    {
+        playSFX_pull.Post(gameObject);
     }
 }
