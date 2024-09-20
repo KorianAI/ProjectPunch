@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if (GameSettings.instance.walkDuringTutorials && !TutorialManager.instance.isTip)
+        if (GameSettings.instance.walkDuringTutorials && !TutorialManager.instance.isTip && TutorialManager.instance.currentTutorial != null)
         {
             TutorialManager.instance.HideTutorial();
             return;
