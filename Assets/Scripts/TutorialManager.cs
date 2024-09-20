@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
+    public static TutorialManager instance { get; private set; }
+
     public PlayerMovement pm;
     public PlayerStateManager sm;
     public CombatManager cm;
@@ -15,11 +17,27 @@ public class TutorialManager : MonoBehaviour
 
     public GameObject resourcesUI;
 
+    public bool isTip;
+    public float tipTimer = 5f;
+    public float tipDelayTimer = 3f;
+
     //when player walks through trigger box
     //find the correct tut to show
     //play appear animation
     //disable player movement and looking
     //when A/Space pressed, play disappear anim and restore player movement
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -29,14 +47,22 @@ public class TutorialManager : MonoBehaviour
         };
     }
 
-    public void SetCurrent(GameObject newTut)
+    public void SetCurrent(GameObject newTut, bool canWalk, bool tip, float tipDelay)
     {
         currentTutorial = newTut;
         currentAnim = currentTutorial.GetComponentInChildren<Animation>();
 
         if (!sm.tutIsActive && !GameSettings.instance.skipTutorials)
         {
-            ShowTutorial();
+            ShowTutorial(canWalk);
+        }
+
+        if (tip)
+        {
+            isTip = tip;
+            tipDelayTimer = tipDelay;
+
+            StartCoroutine(HideTip());
         }
     }
 
@@ -50,12 +76,18 @@ public class TutorialManager : MonoBehaviour
         cm = combatManager;
     }
 
-    public void ShowTutorial()
+    public void ShowTutorial(bool canWalk)
     {
         currentTutorial.SetActive(true);
         currentAnim.Play("TutorialWindowAppear");
         sm.tutIsActive = true;
-        InputMapManager.ToggleActionMap(InputMapManager.inputActions.Menus);
+
+        GameSettings.instance.walkDuringTutorials = canWalk;
+
+        if (!canWalk)
+        {
+            InputMapManager.ToggleActionMap(InputMapManager.inputActions.Menus);
+        }
     }
 
     public void HideTutorial()
@@ -71,6 +103,8 @@ public class TutorialManager : MonoBehaviour
 
             sm.tutIsActive = false;
             InputMapManager.ToggleActionMap(InputMapManager.inputActions.Player);
+            GameSettings.instance.walkDuringTutorials = false;
+            isTip = false;
 
             if (startCombatAfter == true && cm != null) //starts combat if necessary. Requires the correct combat manager.
             {
@@ -100,7 +134,14 @@ public class TutorialManager : MonoBehaviour
         currentTutorial.SetActive(false);
         //currentTutorial = currentTutorial.GetComponent<TutorialNextPage>().pageToFollow;
 
-        SetCurrent(currentTutorial.GetComponent<TutorialNextPage>().pageToFollow);
+        SetCurrent(currentTutorial.GetComponent<TutorialNextPage>().pageToFollow, GameSettings.instance.walkDuringTutorials, isTip, 0f);
         currentTutorial.SetActive(true);
+    }
+
+    IEnumerator HideTip()
+    {
+        yield return new WaitForSeconds(tipDelayTimer);
+        yield return new WaitForSeconds(tipTimer);
+        HideTutorial();
     }
 }

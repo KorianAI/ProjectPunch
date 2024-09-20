@@ -148,6 +148,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
+        if (GameSettings.instance.walkDuringTutorials && !TutorialManager.instance.isTip)
+        {
+            TutorialManager.instance.HideTutorial();
+            return;
+        }
+
         if (sm.currentState == sm.railState && sm.canAttack)
         {
             CameraManager.SwitchPlayerCam(sm.playerCam);
