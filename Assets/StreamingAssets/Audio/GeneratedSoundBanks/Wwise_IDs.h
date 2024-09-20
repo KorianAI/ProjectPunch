@@ -13,12 +13,6 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID BUTTON = 977454165U;
-        static const AkUniqueID COMBAT = 2764240573U;
-        static const AkUniqueID EXPLORE = 579523862U;
-        static const AkUniqueID MUSICSTART = 1122283870U;
-        static const AkUniqueID SCRAPSHIFT = 4104150384U;
-        static const AkUniqueID SCRAPSHIFTEND = 1856838135U;
         static const AkUniqueID SFX_PLAY_DASH = 3190817658U;
         static const AkUniqueID SFXPLAY_BFGIMPACT = 809168204U;
         static const AkUniqueID SFXPLAY_BFGLUNGE = 3729182067U;
@@ -76,7 +70,8 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID SOUNDBANK_MAIN = 29489552U;
+        static const AkUniqueID SOUNDBANK_MUSIC = 474740052U;
+        static const AkUniqueID SOUNDBANK_SFX = 2023573084U;
     } // namespace BANKS
 
     namespace BUSSES

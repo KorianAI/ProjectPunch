@@ -9,412 +9,9 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="29489552" Type="User" Language="SFX" Hash="{569A0349-83C4-9603-D1D4-517869CB9C69}">
-			<ShortName>Soundbank_Main</ShortName>
-			<Path>Soundbank_Main.bnk</Path>
-			<Media>
-				<File Id="23675886" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Scrapshift_Switch.wav</ShortName>
-					<CachePath>SFX/Scrapshift_Switch_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="99683504" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Guitar_4Bar_Riff2.wav</ShortName>
-					<CachePath>SFX/Guitar_4Bar_Riff2_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="99890009" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>ScrapShift_Intro.wav</ShortName>
-					<CachePath>SFX/ScrapShift_Intro_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="116980831" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RealSteel_OverdriveOutro.wav</ShortName>
-					<CachePath>SFX/RealSteel_OverdriveOutro_818F3B66.wem</CachePath>
-				</File>
-				<File Id="144080973" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Lead_4Bar_Melody.wav</ShortName>
-					<CachePath>SFX/Lead_4Bar_Melody_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="172155782" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>DrumKit_8Bar_NormalLong.wav</ShortName>
-					<CachePath>SFX/DrumKit_8Bar_NormalLong_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="181757905" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Bass_4Bar_Synth.wav</ShortName>
-					<CachePath>SFX/Bass_4Bar_Synth_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="232264055" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Lead_4Bar_FastMelodic.wav</ShortName>
-					<CachePath>SFX/Lead_4Bar_FastMelodic_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="325590457" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>BFG_Lunge.wav</ShortName>
-					<CachePath>SFX/BFG_Lunge_818F3B66.wem</CachePath>
-				</File>
-				<File Id="430724085" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Percussion_4Bar_Atabaque.wav</ShortName>
-					<CachePath>SFX/Percussion_4Bar_Atabaque_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="465556907" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Lead_8Bar_Fast.wav</ShortName>
-					<CachePath>SFX/Lead_8Bar_Fast_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="485367470" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>DrumKit_4Bar_Normal.wav</ShortName>
-					<CachePath>SFX/DrumKit_4Bar_Normal_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="543059488" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>NailGun_Burst.wav</ShortName>
-					<CachePath>SFX/NailGun_Burst_818F3B66.wem</CachePath>
-				</File>
-				<File Id="544890327" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>DrumKit_2Bar_KickBuild.wav</ShortName>
-					<CachePath>SFX/DrumKit_2Bar_KickBuild_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="616299173" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Lead_4Bar_FastHigh.wav</ShortName>
-					<CachePath>SFX/Lead_4Bar_FastHigh_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="650394388" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RealSteel_OverdriveIntro.wav</ShortName>
-					<CachePath>SFX/RealSteel_OverdriveIntro_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="658891643" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>FootstepsGround3.wav</ShortName>
-					<CachePath>SFX/FootstepsGround3_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="692525493" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>NailGun_ChargedShot_Pull.wav</ShortName>
-					<CachePath>SFX/NailGun_ChargedShot_Pull_818F3B66.wem</CachePath>
-				</File>
-				<File Id="702063897" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Guitar_8Bar_Riff1.wav</ShortName>
-					<CachePath>SFX/Guitar_8Bar_Riff1_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="746262836" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>DrumKit_8Bar_Nandos to Normal.wav</ShortName>
-					<CachePath>SFX/DrumKit_8Bar_Nandos to Normal_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="755205215" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>DrumKit_2Bar_Nandos.wav</ShortName>
-					<CachePath>SFX/DrumKit_2Bar_Nandos_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="755690947" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Scrapmode_Switch.wav</ShortName>
-					<CachePath>SFX/Scrapmode_Switch_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="783261638" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>DrumKit_2Bar_Half-Time.wav</ShortName>
-					<CachePath>SFX/DrumKit_2Bar_Half-Time_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="787712988" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>BFG_Impact2.wav</ShortName>
-					<CachePath>SFX/BFG_Impact2_818F3B66.wem</CachePath>
-				</File>
-				<File Id="870486047" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Bass_4Bar_BassGuitar.wav</ShortName>
-					<CachePath>SFX/Bass_4Bar_BassGuitar_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="872318873" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Lead_4Bar_SlowRiff.wav</ShortName>
-					<CachePath>SFX/Lead_4Bar_SlowRiff_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="893107048" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>BFG_Swing.wav</ShortName>
-					<CachePath>SFX/BFG_Swing_818F3B66.wem</CachePath>
-				</File>
-				<File Id="896998356" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Explore_1.wav</ShortName>
-					<CachePath>SFX/Explore_1_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="904185561" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Guitar_8Bar_Riff3.wav</ShortName>
-					<CachePath>SFX/Guitar_8Bar_Riff3_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="936798745" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Combat1_Intro.wav</ShortName>
-					<CachePath>SFX/Combat1_Intro_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="949668554" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>ScrapShift_Main.wav</ShortName>
-					<CachePath>SFX/ScrapShift_Main_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="999864757" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Guitar_4Bar_Riff4.wav</ShortName>
-					<CachePath>SFX/Guitar_4Bar_Riff4_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="1010178767" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RealSteel_OverdriveActive.wav</ShortName>
-					<CachePath>SFX/RealSteel_OverdriveActive_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="1018692921" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>BFG_Slam.wav</ShortName>
-					<CachePath>SFX/BFG_Slam_818F3B66.wem</CachePath>
-				</File>
-				<File Id="1024608900" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Percussion_4Bar_BigDrum.wav</ShortName>
-					<CachePath>SFX/Percussion_4Bar_BigDrum_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="1027718188" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RealSteel_ImpactShockwave.wav</ShortName>
-					<CachePath>SFX/RealSteel_ImpactShockwave_818F3B66.wem</CachePath>
-				</File>
-				<File Id="1044543368" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>NailGun_ChargedShot.wav</ShortName>
-					<CachePath>SFX/NailGun_ChargedShot_818F3B66.wem</CachePath>
-				</File>
-				<File Id="1049289630" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Combat1_SectionB.wav</ShortName>
-					<CachePath>SFX/Combat1_SectionB_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="1049397153" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Kaila_Dash.wav</ShortName>
-					<CachePath>SFX/Kaila_Dash_818F3B66.wem</CachePath>
-				</File>
-				<File Id="1059648798" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RealSteel_Impact.wav</ShortName>
-					<CachePath>SFX/RealSteel_Impact_818F3B66.wem</CachePath>
-				</File>
-			</Media>
-			<Plugins>
-				<ShareSets>
-					<Plugin Id="1188943754" Name="New_Peak_Limiter_01" LibName="Wwise Peak Limiter" LibId="7208963"/>
-					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
-					<Plugin Id="2653529179" Name="Three_Voices" LibName="Wwise Harmonizer" LibId="9043971"/>
-					<Plugin Id="3407225994" Name="Phone_Booth" LibName="Wwise RoomVerb" LibId="7733251"/>
-					<Plugin Id="3851006675" Name="Secret_message_Distant" LibName="Wwise Harmonizer" LibId="9043971"/>
-					<Plugin Id="3948262040" Name="Octave_Down" LibName="Wwise Pitch Shifter" LibId="8912899"/>
-					<Plugin Id="4202347640" Name="Repeat_after_me" LibName="Wwise Harmonizer" LibId="9043971"/>
-				</ShareSets>
-			</Plugins>
-			<Events>
-				<Event Id="2764240573" Name="Combat" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
-					<ActionSetState>
-						<ActionSetStateEntry GroupId="1690668539" Id="2764240573" Name="Combat"/>
-					</ActionSetState>
-				</Event>
-				<Event Id="579523862" Name="Explore" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
-					<ActionSetState>
-						<ActionSetStateEntry GroupId="1690668539" Id="579523862" Name="Explore"/>
-					</ActionSetState>
-				</Event>
-				<Event Id="1122283870" Name="MusicStart" DurationType="Infinite">
-					<MediaRefs>
-						<MediaRef Id="23675886"/>
-						<MediaRef Id="755690947"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="1188943754"/>
-						</ShareSets>
-					</PluginRefs>
-					<SwitchContainers>
-						<SwitchContainer>
-							<SwitchValue GroupType="State" GroupId="1690668539" Id="579523862"/>
-							<MediaRefs>
-								<MediaRef Id="896998356"/>
-							</MediaRefs>
-						</SwitchContainer>
-						<SwitchContainer>
-							<SwitchValue GroupType="State" GroupId="1690668539" Id="2764240573"/>
-							<MediaRefs>
-								<MediaRef Id="99683504"/>
-								<MediaRef Id="144080973"/>
-								<MediaRef Id="172155782"/>
-								<MediaRef Id="181757905"/>
-								<MediaRef Id="232264055"/>
-								<MediaRef Id="430724085"/>
-								<MediaRef Id="465556907"/>
-								<MediaRef Id="485367470"/>
-								<MediaRef Id="544890327"/>
-								<MediaRef Id="616299173"/>
-								<MediaRef Id="702063897"/>
-								<MediaRef Id="746262836"/>
-								<MediaRef Id="755205215"/>
-								<MediaRef Id="783261638"/>
-								<MediaRef Id="870486047"/>
-								<MediaRef Id="872318873"/>
-								<MediaRef Id="904185561"/>
-								<MediaRef Id="936798745"/>
-								<MediaRef Id="999864757"/>
-								<MediaRef Id="1024608900"/>
-								<MediaRef Id="1049289630"/>
-							</MediaRefs>
-						</SwitchContainer>
-						<SwitchContainer>
-							<SwitchValue GroupType="State" GroupId="1690668539" Id="4104150384"/>
-							<MediaRefs>
-								<MediaRef Id="99890009"/>
-								<MediaRef Id="949668554"/>
-							</MediaRefs>
-						</SwitchContainer>
-					</SwitchContainers>
-				</Event>
-				<Event Id="4104150384" Name="Scrapshift" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
-					<ActionSetState>
-						<ActionSetStateEntry GroupId="1690668539" Id="4104150384" Name="Scrapshift"/>
-					</ActionSetState>
-					<ActionTrigger>
-						<ActionTriggerEntry Id="4104150384" Name="Scrapshift"/>
-					</ActionTrigger>
-				</Event>
-				<Event Id="1856838135" Name="ScrapshiftEnd" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
-					<ActionTrigger>
-						<ActionTriggerEntry Id="1856838135" Name="ScrapshiftEnd"/>
-					</ActionTrigger>
-				</Event>
-				<Event Id="3190817658" Name="SFX_Play_Dash" DurationType="OneShot" DurationMin="2.7321541" DurationMax="2.7321541">
-					<MediaRefs>
-						<MediaRef Id="1049397153"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="809168204" Name="SFXPlay_BFGImpact" DurationType="OneShot" DurationMin="0.6250113" DurationMax="0.6250113">
-					<MediaRefs>
-						<MediaRef Id="787712988"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="3729182067" Name="SFXPlay_BFGLunge" DurationType="OneShot" DurationMin="2.75" DurationMax="2.75">
-					<MediaRefs>
-						<MediaRef Id="325590457"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="1459522457"/>
-							<PluginRef Id="3948262040"/>
-						</ShareSets>
-					</PluginRefs>
-				</Event>
-				<Event Id="2597907181" Name="SFXPlay_BFGSlam" DurationType="OneShot" DurationMin="1.2" DurationMax="1.2">
-					<MediaRefs>
-						<MediaRef Id="1018692921"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="1459522457"/>
-						</ShareSets>
-					</PluginRefs>
-				</Event>
-				<Event Id="926756856" Name="SFXPlay_BFGSwing" DurationType="OneShot" DurationMin="1.0863942" DurationMax="1.0863942">
-					<MediaRefs>
-						<MediaRef Id="893107048"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="3800919789" Name="SFXPlay_FootstepsGround" DurationType="Infinite">
-					<MediaRefs>
-						<MediaRef Id="658891643"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="1459522457"/>
-						</ShareSets>
-					</PluginRefs>
-				</Event>
-				<Event Id="2423564124" Name="SFXPlay_NailGunChargedPull" DurationType="OneShot" DurationMin="4" DurationMax="4">
-					<MediaRefs>
-						<MediaRef Id="692525493"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="3948262040"/>
-						</ShareSets>
-					</PluginRefs>
-				</Event>
-				<Event Id="767256457" Name="SFXPlay_NailGunChargedShot" DurationType="OneShot" DurationMin="4.0596824" DurationMax="4.0596824">
-					<MediaRefs>
-						<MediaRef Id="1044543368"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="3948262040"/>
-						</ShareSets>
-					</PluginRefs>
-				</Event>
-				<Event Id="1294040743" Name="SFXPlay_NailGunFire" DurationType="OneShot" DurationMin="1" DurationMax="1">
-					<MediaRefs>
-						<MediaRef Id="543059488"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="3948262040"/>
-						</ShareSets>
-					</PluginRefs>
-				</Event>
-				<Event Id="2297272099" Name="SFXPlay_RS_Impact" DurationType="OneShot" DurationMin="1.8848526" DurationMax="1.8848526">
-					<MediaRefs>
-						<MediaRef Id="1059648798"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="1459522457"/>
-						</ShareSets>
-					</PluginRefs>
-				</Event>
-				<Event Id="1462647048" Name="SFXPlay_RS_Impact_Overdrive" DurationType="OneShot" DurationMin="1.8848526" DurationMax="1.8848526">
-					<MediaRefs>
-						<MediaRef Id="1059648798"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="3948262040"/>
-						</ShareSets>
-					</PluginRefs>
-				</Event>
-				<Event Id="1188800018" Name="SFXPlay_RS_Overdrive_Intro" DurationType="Infinite">
-					<MediaRefs>
-						<MediaRef Id="650394388"/>
-						<MediaRef Id="1010178767"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="2653529179"/>
-						</ShareSets>
-					</PluginRefs>
-				</Event>
-				<Event Id="2709871361" Name="SFXPlay_RS_Overdrive_Outro" DurationType="OneShot" DurationMin="3.7743554" DurationMax="3.7743554">
-					<MediaRefs>
-						<MediaRef Id="116980831"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="2653529179"/>
-						</ShareSets>
-					</PluginRefs>
-				</Event>
-				<Event Id="4164504207" Name="SFXPlay_RS_SlamShockwave" DurationType="OneShot" DurationMin="2.5010657" DurationMax="2.5010657">
-					<MediaRefs>
-						<MediaRef Id="1027718188"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="1459522457"/>
-						</ShareSets>
-					</PluginRefs>
-				</Event>
-				<Event Id="1103899084" Name="SFXPlay_RS_SlamShockwave_Overdrive" DurationType="OneShot" DurationMin="2.5010657" DurationMax="2.5010657">
-					<MediaRefs>
-						<MediaRef Id="1027718188"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="3407225994"/>
-							<PluginRef Id="3851006675"/>
-							<PluginRef Id="4202347640"/>
-						</ShareSets>
-					</PluginRefs>
-				</Event>
-			</Events>
-			<StateGroups>
-				<StateGroup Id="1690668539" Name="Music_States">
-					<States>
-						<State Id="579523862" Name="Explore"/>
-						<State Id="748895195" Name="None"/>
-						<State Id="2764240573" Name="Combat"/>
-						<State Id="4104150384" Name="Scrapshift"/>
-					</States>
-				</StateGroup>
-			</StateGroups>
-			<Triggers>
-				<Trigger Id="1856838135" Name="ScrapshiftEnd"/>
-				<Trigger Id="4104150384" Name="Scrapshift"/>
-			</Triggers>
+		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{5B1316E0-1DEE-38F6-84B1-B8C15F46858D}">
+			<ShortName>Soundbank_Music</ShortName>
+			<Path>Soundbank_Music.bnk</Path>
 		</SoundBank>
 		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C6C591E1-06E5-F46B-BF84-11428F94620B}">
 			<ShortName>Init</ShortName>
@@ -500,6 +97,231 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{03F61909-03DC-EF7B-8320-FC4E5CCDB7DC}">
+			<ShortName>Soundbank_SFX</ShortName>
+			<Path>Soundbank_SFX.bnk</Path>
+			<Media>
+				<File Id="84823563" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pipe_CreakExplosion.wav</ShortName>
+					<CachePath>SFX/Pipe_CreakExplosion_818F3B66.wem</CachePath>
+				</File>
+				<File Id="116980831" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RealSteel_OverdriveOutro.wav</ShortName>
+					<CachePath>SFX/RealSteel_OverdriveOutro_818F3B66.wem</CachePath>
+				</File>
+				<File Id="122414336" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Rail.wav</ShortName>
+					<CachePath>SFX/Rail_818F3B66.wem</CachePath>
+				</File>
+				<File Id="325590457" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BFG_Lunge.wav</ShortName>
+					<CachePath>SFX/BFG_Lunge_818F3B66.wem</CachePath>
+				</File>
+				<File Id="543059488" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NailGun_Burst.wav</ShortName>
+					<CachePath>SFX/NailGun_Burst_818F3B66.wem</CachePath>
+				</File>
+				<File Id="650394388" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RealSteel_OverdriveIntro.wav</ShortName>
+					<CachePath>SFX/RealSteel_OverdriveIntro_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="658891643" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepsGround3.wav</ShortName>
+					<CachePath>SFX/FootstepsGround3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="692525493" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NailGun_ChargedShot_Pull.wav</ShortName>
+					<CachePath>SFX/NailGun_ChargedShot_Pull_818F3B66.wem</CachePath>
+				</File>
+				<File Id="787712988" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BFG_Impact2.wav</ShortName>
+					<CachePath>SFX/BFG_Impact2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="893107048" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BFG_Swing.wav</ShortName>
+					<CachePath>SFX/BFG_Swing_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1002274944" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BouncePad_Push_Launch.wav</ShortName>
+					<CachePath>SFX/BouncePad_Push_Launch_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1010178767" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RealSteel_OverdriveActive.wav</ShortName>
+					<CachePath>SFX/RealSteel_OverdriveActive_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="1018692921" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BFG_Slam.wav</ShortName>
+					<CachePath>SFX/BFG_Slam_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1027718188" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RealSteel_ImpactShockwave.wav</ShortName>
+					<CachePath>SFX/RealSteel_ImpactShockwave_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1044543368" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NailGun_ChargedShot.wav</ShortName>
+					<CachePath>SFX/NailGun_ChargedShot_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1049397153" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kaila_Dash.wav</ShortName>
+					<CachePath>SFX/Kaila_Dash_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1059648798" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RealSteel_Impact.wav</ShortName>
+					<CachePath>SFX/RealSteel_Impact_818F3B66.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
+					<Plugin Id="2653529179" Name="Three_Voices" LibName="Wwise Harmonizer" LibId="9043971"/>
+					<Plugin Id="3407225994" Name="Phone_Booth" LibName="Wwise RoomVerb" LibId="7733251"/>
+					<Plugin Id="3851006675" Name="Secret_message_Distant" LibName="Wwise Harmonizer" LibId="9043971"/>
+					<Plugin Id="3948262040" Name="Octave_Down" LibName="Wwise Pitch Shifter" LibId="8912899"/>
+					<Plugin Id="4202347640" Name="Repeat_after_me" LibName="Wwise Harmonizer" LibId="9043971"/>
+				</ShareSets>
+			</Plugins>
+			<Events>
+				<Event Id="3190817658" Name="SFX_Play_Dash" DurationType="OneShot" DurationMin="1.9319247" DurationMax="2.4340725">
+					<MediaRefs>
+						<MediaRef Id="1049397153"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="809168204" Name="SFXPlay_BFGImpact" DurationType="OneShot" DurationMin="0.49607182" DurationMax="0.7874649">
+					<MediaRefs>
+						<MediaRef Id="787712988"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3729182067" Name="SFXPlay_BFGLunge" DurationType="OneShot" DurationMin="2.75" DurationMax="2.75">
+					<MediaRefs>
+						<MediaRef Id="325590457"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+							<PluginRef Id="3948262040"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="2597907181" Name="SFXPlay_BFGSlam" DurationType="OneShot" DurationMin="0.9524407" DurationMax="1.5119053">
+					<MediaRefs>
+						<MediaRef Id="1018692921"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="926756856" Name="SFXPlay_BFGSwing" DurationType="OneShot" DurationMin="0.86227155" DurationMax="1.3687707">
+					<MediaRefs>
+						<MediaRef Id="893107048"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3800919789" Name="SFXPlay_FootstepsGround" DurationType="OneShot" DurationMin="0.49301422" DurationMax="0.7826113">
+					<MediaRefs>
+						<MediaRef Id="658891643"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="2423564124" Name="SFXPlay_NailGunChargedPull" DurationType="OneShot" DurationMin="3.5635948" DurationMax="4.489848">
+					<MediaRefs>
+						<MediaRef Id="692525493"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3948262040"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="767256457" Name="SFXPlay_NailGunChargedShot" DurationType="OneShot" DurationMin="3.6167657" DurationMax="4.5568395">
+					<MediaRefs>
+						<MediaRef Id="1044543368"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3948262040"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="1294040743" Name="SFXPlay_NailGunFire" DurationType="OneShot" DurationMin="1" DurationMax="1.122462">
+					<MediaRefs>
+						<MediaRef Id="543059488"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3948262040"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="2297272099" Name="SFXPlay_RS_Impact" DurationType="OneShot" DurationMin="1.4960085" DurationMax="2.3747656">
+					<MediaRefs>
+						<MediaRef Id="1059648798"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="1462647048" Name="SFXPlay_RS_Impact_Overdrive" DurationType="OneShot" DurationMin="1.4960085" DurationMax="2.3747656">
+					<MediaRefs>
+						<MediaRef Id="1059648798"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3948262040"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="1188800018" Name="SFXPlay_RS_Overdrive_Intro" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="650394388"/>
+						<MediaRef Id="1010178767"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2653529179"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="2709871361" Name="SFXPlay_RS_Overdrive_Outro" DurationType="OneShot" DurationMin="3.7743554" DurationMax="3.7743554">
+					<MediaRefs>
+						<MediaRef Id="116980831"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2653529179"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="4164504207" Name="SFXPlay_RS_SlamShockwave" DurationType="OneShot" DurationMin="2.2281961" DurationMax="2.8073514">
+					<MediaRefs>
+						<MediaRef Id="1027718188"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="1103899084" Name="SFXPlay_RS_SlamShockwave_Overdrive" DurationType="OneShot" DurationMin="2.2281961" DurationMax="2.8073514">
+					<MediaRefs>
+						<MediaRef Id="1027718188"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3407225994"/>
+							<PluginRef Id="3851006675"/>
+							<PluginRef Id="4202347640"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+			</Events>
+		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A486D126-55FA-6A8B-7A4F-73FA8AC08834}</FileHash>
+	<FileHash>{41E6952C-F859-CB19-A17F-53AFEA46D95D}</FileHash>
 </SoundBanksInfo>

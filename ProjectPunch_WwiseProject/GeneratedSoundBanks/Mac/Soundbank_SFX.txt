@@ -1,0 +1,44 @@
+Event	ID	Name			Wwise Object Path	Notes
+	767256457	SFXPlay_NailGunChargedShot			\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunChargedShot	
+	809168204	SFXPlay_BFGImpact			\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGImpact	
+	926756856	SFXPlay_BFGSwing			\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGSwing	
+	1103899084	SFXPlay_RS_SlamShockwave_Overdrive			\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_SlamShockwave_Overdrive	
+	1188800018	SFXPlay_RS_Overdrive_Intro			\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Overdrive_Intro	
+	1294040743	SFXPlay_NailGunFire			\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunFire	
+	1462647048	SFXPlay_RS_Impact_Overdrive			\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Impact_Overdrive	
+	2297272099	SFXPlay_RS_Impact			\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Impact	
+	2423564124	SFXPlay_NailGunChargedPull			\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunChargedPull	
+	2597907181	SFXPlay_BFGSlam			\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGSlam	
+	2709871361	SFXPlay_RS_Overdrive_Outro			\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Overdrive_Outro	
+	3190817658	SFX_Play_Dash			\Default Work Unit\Kaila SFX\Kaila_Movement\SFX_Play_Dash	
+	3729182067	SFXPlay_BFGLunge			\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGLunge	
+	3800919789	SFXPlay_FootstepsGround			\Default Work Unit\Kaila SFX\Kaila_Movement\SFXPlay_FootstepsGround	
+	4164504207	SFXPlay_RS_SlamShockwave			\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_SlamShockwave	
+
+Effect plug-ins	ID	Name	Type				Notes
+	1459522457	Brick_Wall_Minus_1dB_Peak_Fast_Release	Wwise Peak Limiter			
+	2653529179	Three_Voices	Wwise Harmonizer			
+	3407225994	Phone_Booth	Wwise RoomVerb			
+	3851006675	Secret_message_Distant	Wwise Harmonizer			
+	3948262040	Octave_Down	Wwise Pitch Shifter			
+	4202347640	Repeat_after_me	Wwise Harmonizer			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	84823563	Pipe_CreakExplosion	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Pipe_CreakExplosion_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment SFX\Pipe_CreakExplosion		2803260
+	116980831	RealSteel_OverdriveOutro	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_OverdriveOutro_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_OverdriveOutro		628524
+	122414336	Rail	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Rail_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment SFX\Rail		163820
+	325590457	BFG_Lunge	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BFG_Lunge_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Lunge		485196
+	543059488	NailGun_Burst	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\NailGun_Burst_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Nail Gun\NailGun_Burst		176496
+	650394388	RealSteel_OverdriveIntro	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_OverdriveIntro_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\OverdriveFiles\Overdrive Switch\Overdrive\Intro\RealSteel_OverdriveIntro		2116896
+	658891643	FootstepsGround	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\FootstepsGround3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Movement\FootstepsGround		105936
+	692525493	NailGun_ChargedShot_Pull	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\NailGun_ChargedShot_Pull_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Nail Gun\NailGun_ChargedShot_Pull		705696
+	787712988	BFG_Impact	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BFG_Impact2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Impact		110348
+	893107048	BFG_Swing	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BFG_Swing_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Swing		180980
+	1002274944	BouncePad_Push_Launch	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BouncePad_Push_Launch_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment SFX\BouncePad_Push_Launch		611984
+	1010178767	RealSteel_OverdriveActive	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_OverdriveActive_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\OverdriveFiles\Overdrive Switch\Overdrive\Active\RealSteel_OverdriveActive		2116896
+	1018692921	BFG_Slam	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BFG_Slam_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Slam		211776
+	1027718188	RealSteel_SlamShockwave	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_ImpactShockwave_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_SlamShockwave		441284
+	1044543368	NailGun_ChargedShot	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\NailGun_ChargedShot_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Nail Gun\NailGun_ChargedShot		716224
+	1049397153	Kaila_Dash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Kaila_Dash_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Movement\Kaila_Dash		482048
+	1059648798	RealSteel_Impact_Overdrive	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_Impact_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_Impact_Overdrive		332584
+
