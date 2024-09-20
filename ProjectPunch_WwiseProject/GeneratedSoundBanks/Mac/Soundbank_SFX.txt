@@ -45,12 +45,12 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	262919125	Turret_Fire	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Turret_Fire_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turret SFX\Turret_Fire		396996
 	325590457	BFG_Lunge	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BFG_Lunge_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Lunge		485196
 	369513787	Kaila_Jump	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Kaila_Jump_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Movement\Kaila_Jump		264696
-	382992550	Push	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Push_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Push Pull\Push		352896
+	382992550	Push	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Push_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Push Pull\Push		187524
 	468055188	UI_Button	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\UI_Button_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI SFX\UI_Button		70656
 	484023593	BFG_Uppercut	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BFG_Uppercut_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Uppercut		352896
 	543059488	NailGun_Burst	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\NailGun_Burst_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Nail Gun\NailGun_Burst		176496
 	543809496	Scrap_Collect	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Scrap_Collect_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\General SFX\Scrap_Collect		198752
-	597362849	Pull	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Pull_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Push Pull\Pull		264696
+	597362849	Pull	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Pull_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Push Pull\Pull		187524
 	650394388	RealSteel_OverdriveIntro	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_OverdriveIntro_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\OverdriveFiles\Overdrive Switch\Overdrive\Intro\RealSteel_OverdriveIntro		2116896
 	658891643	FootstepsGround	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\FootstepsGround3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Movement\FootstepsGround		105936
 	682299466	Kaila_Land	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Kaila_Land_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Movement\Kaila_Land		176496
@@ -64,5 +64,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1027718188	RealSteel_SlamShockwave	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_ImpactShockwave_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_SlamShockwave		441284
 	1044543368	NailGun_ChargedShot	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\NailGun_ChargedShot_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Nail Gun\NailGun_ChargedShot		716224
 	1049397153	Kaila_Dash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Kaila_Dash_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Movement\Kaila_Dash		482048
-	1059648798	RealSteel_Impact_Overdrive	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_Impact_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_Impact_Overdrive		332584
+	1059648798	RealSteel_Impact_Overdrive	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_Impact_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_Impact_Overdrive		166852
 

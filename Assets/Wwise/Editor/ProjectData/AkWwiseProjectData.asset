@@ -1065,8 +1065,8 @@ MonoBehaviour:
         guid: d85bb433a23f694ba6a6ba1a4505b629
       Path: Events\Default Work Unit\Push Pull SFX\SFXPlay_Pull
       maxAttenuation: 0
-      maxDuration: 1.683693
-      minDuration: 1.336348
+      maxDuration: 1.192635
+      minDuration: 0.9465951
     - name: SFXPlay_Push
       guid: 1e0bb97cf82921469797e5599a61adeb
       id: 2062786315
@@ -1085,8 +1085,8 @@ MonoBehaviour:
         guid: 1e0bb97cf82921469797e5599a61adeb
       Path: Events\Default Work Unit\Push Pull SFX\SFXPlay_Push
       maxAttenuation: 0
-      maxDuration: 2.244924
-      minDuration: 1.7817974
+      maxDuration: 1.192635
+      minDuration: 0.9465951
     - name: SFXPlay_Rail
       guid: 7bb8a221953fe5468385a3ada19af7a7
       id: 1777383567
@@ -1128,8 +1128,8 @@ MonoBehaviour:
         guid: 43b67fff182c0048adee945384ad5a0d
       Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Impact
       maxAttenuation: 0
-      maxDuration: 2.3747656
-      minDuration: 1.4960085
+      maxDuration: 1.1910397
+      minDuration: 0.7503079
     - name: SFXPlay_RS_Impact_Overdrive
       guid: 357ce999bcf0a7448655588e01494f8d
       id: 1462647048
@@ -1151,8 +1151,8 @@ MonoBehaviour:
         guid: 357ce999bcf0a7448655588e01494f8d
       Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Impact_Overdrive
       maxAttenuation: 0
-      maxDuration: 2.3747656
-      minDuration: 1.4960085
+      maxDuration: 1.1910397
+      minDuration: 0.7503079
     - name: SFXPlay_RS_Overdrive_Intro
       guid: b1000b82b31aca44a34cd073ab586678
       id: 1188800018
@@ -1540,7 +1540,7 @@ MonoBehaviour:
         guid: 9618f51dadf4214087fc7ea68ced4ee5
       Path: Triggers\Default Work Unit\ScrapshiftEnd
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 030000000400000005000000070000000b0000000e0000000f000000100000003e000000
+  ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

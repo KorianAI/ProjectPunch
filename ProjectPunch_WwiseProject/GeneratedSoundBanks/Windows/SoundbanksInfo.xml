@@ -97,7 +97,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{D3CDC543-B966-1D48-BA49-338264FD87B6}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{3392EF51-C0B8-0A75-84A4-BB78A0791F06}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -331,7 +331,7 @@
 						<MediaRef Id="84823563"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2012453574" Name="SFXPlay_Pull" DurationType="OneShot" DurationMin="1.336348" DurationMax="1.683693">
+				<Event Id="2012453574" Name="SFXPlay_Pull" DurationType="OneShot" DurationMin="0.9465951" DurationMax="1.192635">
 					<MediaRefs>
 						<MediaRef Id="597362849"/>
 					</MediaRefs>
@@ -341,7 +341,7 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="2062786315" Name="SFXPlay_Push" DurationType="OneShot" DurationMin="1.7817974" DurationMax="2.244924">
+				<Event Id="2062786315" Name="SFXPlay_Push" DurationType="OneShot" DurationMin="0.9465951" DurationMax="1.192635">
 					<MediaRefs>
 						<MediaRef Id="382992550"/>
 					</MediaRefs>
@@ -361,7 +361,7 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="2297272099" Name="SFXPlay_RS_Impact" DurationType="OneShot" DurationMin="1.4960085" DurationMax="2.3747656">
+				<Event Id="2297272099" Name="SFXPlay_RS_Impact" DurationType="OneShot" DurationMin="0.7503079" DurationMax="1.1910397">
 					<MediaRefs>
 						<MediaRef Id="1059648798"/>
 					</MediaRefs>
@@ -371,7 +371,7 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="1462647048" Name="SFXPlay_RS_Impact_Overdrive" DurationType="OneShot" DurationMin="1.4960085" DurationMax="2.3747656">
+				<Event Id="1462647048" Name="SFXPlay_RS_Impact_Overdrive" DurationType="OneShot" DurationMin="0.7503079" DurationMax="1.1910397">
 					<MediaRefs>
 						<MediaRef Id="1059648798"/>
 					</MediaRefs>
@@ -452,5 +452,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{25C62DB3-1BB9-44C8-0D97-7925FF60E62D}</FileHash>
+	<FileHash>{A5A5D008-A729-FE79-A3E4-E1391A7A2ADA}</FileHash>
 </SoundBanksInfo>
