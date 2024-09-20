@@ -14,6 +14,7 @@ public class MusicManager : MonoBehaviour
     public float silenceTime = 5; //should be greater than time to fade
 
     public bool fighting = false;
+    public bool fightingBoss = false;
 
     private void Awake()
     {
@@ -57,5 +58,10 @@ public class MusicManager : MonoBehaviour
     public void ToggleEnemiesActive(bool value)
     {
         fighting = value;
+    }
+
+    public void ToggleFightingBoss(bool value)
+    {
+        fightingBoss = value;
     }
 }

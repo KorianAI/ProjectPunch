@@ -112,6 +112,7 @@ public class GameSettings : MonoBehaviour
     public void SetMasterVolume(float volume)
     {
         mixer.SetFloat("Volume", volume);
+        AkSoundEngine.SetRTPCValue("Master Audio Bus", volume);
         PlayerPrefs.SetFloat("MasterVol", volume);
         Debug.Log(PlayerPrefs.GetFloat("MasterVol"));
     }
@@ -119,12 +120,14 @@ public class GameSettings : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         mixer.SetFloat("MusicVolume", volume);
+        AkSoundEngine.SetRTPCValue("Master Music Bus", volume);
         PlayerPrefs.SetFloat("MusicVol", volume);
     }
 
     public void SetSFXVolume(float volume)
     {
         mixer.SetFloat("SFXVolume", volume);
+        AkSoundEngine.SetRTPCValue("SFX Bus", volume);
         PlayerPrefs.SetFloat("SFXVol", volume);
     }
 

@@ -11,6 +11,7 @@ public class BossTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             boss.StartFight();
+            MusicManager.instance.ToggleFightingBoss(true);
         }
     }
 }
