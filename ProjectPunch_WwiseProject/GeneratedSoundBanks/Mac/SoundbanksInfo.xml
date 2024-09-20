@@ -97,7 +97,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{4EDDC828-53A2-7FE4-2457-7BA0F2837C4D}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{3392EF51-C0B8-0A75-84A4-BB78A0791F06}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -361,7 +361,7 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="2297272099" Name="SFXPlay_RS_Impact" DurationType="OneShot" DurationMin="1.4960085" DurationMax="2.3747656">
+				<Event Id="2297272099" Name="SFXPlay_RS_Impact" DurationType="OneShot" DurationMin="0.7503079" DurationMax="1.1910397">
 					<MediaRefs>
 						<MediaRef Id="1059648798"/>
 					</MediaRefs>
@@ -371,7 +371,7 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="1462647048" Name="SFXPlay_RS_Impact_Overdrive" DurationType="OneShot" DurationMin="1.4960085" DurationMax="2.3747656">
+				<Event Id="1462647048" Name="SFXPlay_RS_Impact_Overdrive" DurationType="OneShot" DurationMin="0.7503079" DurationMax="1.1910397">
 					<MediaRefs>
 						<MediaRef Id="1059648798"/>
 					</MediaRefs>
@@ -452,5 +452,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{48AC187F-1B85-E028-19DC-1FEAF5A09769}</FileHash>
+	<FileHash>{5E2436F1-17BD-2C3F-C540-0F2597986D3E}</FileHash>
 </SoundBanksInfo>

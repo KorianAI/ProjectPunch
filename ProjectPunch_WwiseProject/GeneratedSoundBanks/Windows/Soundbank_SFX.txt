@@ -64,5 +64,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1027718188	RealSteel_SlamShockwave	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\RealSteel_ImpactShockwave_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_SlamShockwave		441284
 	1044543368	NailGun_ChargedShot	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\NailGun_ChargedShot_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Nail Gun\NailGun_ChargedShot		716224
 	1049397153	Kaila_Dash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Kaila_Dash_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Movement\Kaila_Dash		482048
-	1059648798	RealSteel_Impact_Overdrive	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\RealSteel_Impact_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_Impact_Overdrive		332584
+	1059648798	RealSteel_Impact_Overdrive	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\RealSteel_Impact_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_Impact_Overdrive		166852
 
