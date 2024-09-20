@@ -325,7 +325,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584747581614775808
+    m_lastTime: -8584747569354775808
     List:
     - name: Soundbank_Music
       guid: 5d7fd228ce2467489f34ddb7c5d32ac3
@@ -407,8 +407,8 @@ MonoBehaviour:
         guid: 02e504d97a7a9c48a1a1ad81c57c023d
       Path: Events\Default Work Unit\Music\Combat
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Environment SFX
       guid: bd4dae74febd4149b2defdaab422d08e
       id: 2813969293
@@ -444,8 +444,8 @@ MonoBehaviour:
         guid: 528995d1a48272499e70e8eb410caa42
       Path: Events\Default Work Unit\Music\Explore
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: General SFX
       guid: 15186afaa6983f48ae4b2de2e88a29a9
       id: 2515155150
@@ -649,8 +649,8 @@ MonoBehaviour:
         guid: 3e043d65336f3d47943fa330d37e02e5
       Path: Events\Default Work Unit\Music\Scrapshift
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: ScrapshiftEnd
       guid: 635c2c5aba02284583b537dfccdf73f5
       id: 1856838135
@@ -669,8 +669,8 @@ MonoBehaviour:
         guid: 635c2c5aba02284583b537dfccdf73f5
       Path: Events\Default Work Unit\Music\ScrapshiftEnd
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: SFX_Play_Dash
       guid: 835fd8d8cd3de94ba4025f1b294a38ef
       id: 3190817658
@@ -1539,9 +1539,9 @@ MonoBehaviour:
         ObjectType: 14
         guid: 9618f51dadf4214087fc7ea68ced4ee5
       Path: Triggers\Default Work Unit\ScrapshiftEnd
-  ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 03000000040000000500000006000000070000000a0000000d0000000e0000000f000000100000001200000013000000140000001d0000003000000031000000330000003e000000
-  AutoSyncSelection: 0
+  ExpandedFileSystemItemIds: 020000000300000004000000050000000600000007000000090000000a0000000b0000000d0000000e0000000f000000100000001200000013000000140000001d0000003000000031000000330000003e0000003f000000
+  ExpandedWaapiItemIds: 010000000300000004000000050000000600000007000000090000000a0000000b0000000d0000000e0000000f000000100000001200000013000000140000001d0000003000000031000000330000003e0000003f000000
+  AutoSyncSelection: 1
   autoPopulateEnabled: 1
   currentDataSource: 0
   CurrentPluginConfig: 

@@ -40,20 +40,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Explore" ID="{D1958952-82A4-4972-9E70-E8EB410CAA42}">
-							<ChildrenList>
-								<Action Name="" ID="{9A21D426-1518-4B5D-B56C-C69BDEB5A8BC}" ShortID="503683529">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="22"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Explore" ID="{342AC1B5-1FD8-4426-9429-B3E9AA64F41A}" WorkUnitID="{C927E8F3-7384-45B5-BDC7-ED0C4739356B}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Combat" ID="{D904E502-7A7A-489C-A1A1-AD81C57C023D}">
 							<ChildrenList>
 								<Action Name="" ID="{3E4AD280-B8A7-49D9-8DDD-F52A0F04CDF1}" ShortID="459582592">
@@ -77,6 +63,20 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="ScrapshiftEnd" ID="{1DF51896-F4AD-4021-87FC-7EA68CED4EE5}" WorkUnitID="{B4E87ACA-2039-40F1-A5F4-BF098B44B504}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Explore" ID="{D1958952-82A4-4972-9E70-E8EB410CAA42}">
+							<ChildrenList>
+								<Action Name="" ID="{9A21D426-1518-4B5D-B56C-C69BDEB5A8BC}" ShortID="503683529">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Explore" ID="{342AC1B5-1FD8-4426-9429-B3E9AA64F41A}" WorkUnitID="{C927E8F3-7384-45B5-BDC7-ED0C4739356B}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{E25CA32A-D373-CE7A-1417-74796A15ADC7}">
+		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{6F196BF0-0224-564A-5519-BEA6FDB0AA32}">
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
 			<Media>
@@ -123,6 +123,93 @@
 					<Plugin Id="1188943754" Name="New_Peak_Limiter_01" LibName="Wwise Peak Limiter" LibId="7208963"/>
 				</ShareSets>
 			</Plugins>
+			<Events>
+				<Event Id="2764240573" Name="Combat" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="1690668539" Id="2764240573" Name="Combat"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="579523862" Name="Explore" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="1690668539" Id="579523862" Name="Explore"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1122283870" Name="MusicStart" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="23675886"/>
+						<MediaRef Id="755690947"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1188943754"/>
+						</ShareSets>
+					</PluginRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1690668539" Id="579523862"/>
+							<MediaRefs>
+								<MediaRef Id="896998356"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1690668539" Id="2764240573"/>
+							<MediaRefs>
+								<MediaRef Id="99683504"/>
+								<MediaRef Id="144080973"/>
+								<MediaRef Id="172155782"/>
+								<MediaRef Id="181757905"/>
+								<MediaRef Id="232264055"/>
+								<MediaRef Id="430724085"/>
+								<MediaRef Id="465556907"/>
+								<MediaRef Id="485367470"/>
+								<MediaRef Id="544890327"/>
+								<MediaRef Id="616299173"/>
+								<MediaRef Id="702063897"/>
+								<MediaRef Id="746262836"/>
+								<MediaRef Id="755205215"/>
+								<MediaRef Id="783261638"/>
+								<MediaRef Id="870486047"/>
+								<MediaRef Id="872318873"/>
+								<MediaRef Id="904185561"/>
+								<MediaRef Id="936798745"/>
+								<MediaRef Id="999864757"/>
+								<MediaRef Id="1024608900"/>
+								<MediaRef Id="1049289630"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1690668539" Id="4104150384"/>
+							<MediaRefs>
+								<MediaRef Id="99890009"/>
+								<MediaRef Id="949668554"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="4104150384" Name="Scrapshift" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="1690668539" Id="4104150384" Name="Scrapshift"/>
+					</ActionSetState>
+					<ActionTrigger>
+						<ActionTriggerEntry Id="4104150384" Name="Scrapshift"/>
+					</ActionTrigger>
+				</Event>
+				<Event Id="1856838135" Name="ScrapshiftEnd" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionTrigger>
+						<ActionTriggerEntry Id="1856838135" Name="ScrapshiftEnd"/>
+					</ActionTrigger>
+				</Event>
+			</Events>
+			<StateGroups>
+				<StateGroup Id="1690668539" Name="Music_States">
+					<States>
+						<State Id="579523862" Name="Explore"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="2764240573" Name="Combat"/>
+						<State Id="4104150384" Name="Scrapshift"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 			<Triggers>
 				<Trigger Id="1856838135" Name="ScrapshiftEnd"/>
 				<Trigger Id="4104150384" Name="Scrapshift"/>
@@ -567,5 +654,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{186F6FF8-CF5C-F9FA-B59B-1638BE03DB43}</FileHash>
+	<FileHash>{28BACE78-4978-3103-A5FD-366F7E9B5A4E}</FileHash>
 </SoundBanksInfo>
