@@ -13,21 +13,36 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID BUTTON = 977454165U;
         static const AkUniqueID SFX_PLAY_DASH = 3190817658U;
         static const AkUniqueID SFXPLAY_BFGIMPACT = 809168204U;
         static const AkUniqueID SFXPLAY_BFGLUNGE = 3729182067U;
         static const AkUniqueID SFXPLAY_BFGSLAM = 2597907181U;
         static const AkUniqueID SFXPLAY_BFGSWING = 926756856U;
+        static const AkUniqueID SFXPLAY_BFGUPPERCUT = 4007672374U;
+        static const AkUniqueID SFXPLAY_BOUNCEPAD = 1214613434U;
         static const AkUniqueID SFXPLAY_FOOTSTEPSGROUND = 3800919789U;
+        static const AkUniqueID SFXPLAY_JUMP = 3879440547U;
+        static const AkUniqueID SFXPLAY_LAND = 3246930752U;
+        static const AkUniqueID SFXPLAY_LOCKOFF = 3871747721U;
+        static const AkUniqueID SFXPLAY_LOCKON = 1931077309U;
+        static const AkUniqueID SFXPLAY_MUZZLERKICK = 2735510120U;
         static const AkUniqueID SFXPLAY_NAILGUNCHARGEDPULL = 2423564124U;
         static const AkUniqueID SFXPLAY_NAILGUNCHARGEDSHOT = 767256457U;
         static const AkUniqueID SFXPLAY_NAILGUNFIRE = 1294040743U;
+        static const AkUniqueID SFXPLAY_PIPECRASH = 543234128U;
+        static const AkUniqueID SFXPLAY_PULL = 2012453574U;
+        static const AkUniqueID SFXPLAY_PUSH = 2062786315U;
+        static const AkUniqueID SFXPLAY_RAIL = 1777383567U;
         static const AkUniqueID SFXPLAY_RS_IMPACT = 2297272099U;
         static const AkUniqueID SFXPLAY_RS_IMPACT_OVERDRIVE = 1462647048U;
         static const AkUniqueID SFXPLAY_RS_OVERDRIVE_INTRO = 1188800018U;
         static const AkUniqueID SFXPLAY_RS_OVERDRIVE_OUTRO = 2709871361U;
         static const AkUniqueID SFXPLAY_RS_SLAMSHOCKWAVE = 4164504207U;
         static const AkUniqueID SFXPLAY_RS_SLAMSHOCKWAVE_OVERDRIVE = 1103899084U;
+        static const AkUniqueID SFXPLAY_SCRAPCOLLECT = 2268775144U;
+        static const AkUniqueID SFXPLAY_TURRETFIRE = 1220918693U;
+        static const AkUniqueID SFXPLAY_TURRETHIT = 3945781932U;
     } // namespace EVENTS
 
     namespace STATES
