@@ -146,6 +146,11 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
         healthBar.gameObject.SetActive(false);
         armourBar.gameObject.SetActive(false);
 
+        if (ai.manager)
+        {
+            ai.manager.turrets.Remove(ai);
+        }
+
         StartCoroutine(DeathEffect());
 
         IEnumerator DeathEffect()
