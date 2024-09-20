@@ -23,6 +23,7 @@ public class GameSettings : MonoBehaviour
 
     [Header("Settings")]
     public bool skipTutorials = false;
+    public bool walkDuringTutorials;
     Resolution[] resolutions;
 
     private void Awake()

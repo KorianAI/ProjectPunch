@@ -620,6 +620,7 @@ GameObject:
   - component: {fileID: 9024328863717664646}
   - component: {fileID: 6747635459955391241}
   - component: {fileID: 4634511782147809532}
+  - component: {fileID: 4076891223397461005}
   m_Layer: 8
   m_Name: Bouncepad Forward
   m_TagString: Untagged
@@ -705,6 +706,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6, y: 1, z: 6}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!111 &4076891223397461005
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7713222394421698753}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 786bbd82783d3544194926ef83c7bdc1, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 786bbd82783d3544194926ef83c7bdc1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &8916156033912779535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -719,7 +736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: edb8ab41076bc2044af44352f247215e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: edb8ab41076bc2044af44352f247215e, type: 3}
       propertyPath: m_LocalPosition.z
