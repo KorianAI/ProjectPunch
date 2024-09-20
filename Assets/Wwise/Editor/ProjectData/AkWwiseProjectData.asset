@@ -325,10 +325,10 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584747569354775808
+    m_lastTime: -8584747500614775808
     List:
     - name: Soundbank_Music
-      guid: 5d7fd228ce2467489f34ddb7c5d32ac3
+      guid: 13213216d854484eaee16f27b594c3a2
       id: 474740052
       PathAndIcons:
       - ElementName: SoundBanks
@@ -339,7 +339,7 @@ MonoBehaviour:
         guid: 8091b5fd9e38294cbfcd273f6ed45d57
       - ElementName: Soundbank_Music
         ObjectType: 7
-        guid: 5d7fd228ce2467489f34ddb7c5d32ac3
+        guid: 13213216d854484eaee16f27b594c3a2
       Path: SoundBanks\Default Work Unit\Soundbank_Music
     - name: Soundbank_SFX
       guid: af2cf498d9d21f4e88407f3a8baafeea
@@ -367,7 +367,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584747581614775808
+    m_lastTime: -8584747500614775808
     List:
     - name: Button
       guid: 185d8f2814151a42aafea8c406b33566
@@ -1540,7 +1540,7 @@ MonoBehaviour:
         guid: 9618f51dadf4214087fc7ea68ced4ee5
       Path: Triggers\Default Work Unit\ScrapshiftEnd
   ExpandedFileSystemItemIds: 020000000300000004000000050000000600000007000000090000000a0000000b0000000d0000000e0000000f000000100000001200000013000000140000001d0000003000000031000000330000003e0000003f000000
-  ExpandedWaapiItemIds: 010000000300000004000000050000000600000007000000090000000a0000000b0000000d0000000e0000000f000000100000001200000013000000140000001d0000003000000031000000330000003e0000003f000000
+  ExpandedWaapiItemIds: 010000000300000004000000050000000600000007000000090000000a0000000b0000000d0000000e0000000f000000100000001200000013000000140000001d0000002b0000003000000031000000330000003e0000003f000000
   AutoSyncSelection: 1
   autoPopulateEnabled: 1
   currentDataSource: 0
