@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class ScrapPile : MonoBehaviour, IDamageable
+public class ScrapPile : MonoBehaviour, IDamageable, ITargeted
 {
     public GameObject player;
 
@@ -18,6 +18,23 @@ public class ScrapPile : MonoBehaviour, IDamageable
     [SerializeField] float maxHealth;
 
     public ParticleSystem scrapParticle;
+
+    [Header("Material Change")]
+    public Material mat;
+    public Material mat1;
+    public Material mat2;
+    public Material mat3;
+
+    public Color colour;
+
+    public MeshRenderer mRenderer1;
+    public MeshRenderer mRenderer2;
+    public MeshRenderer mRenderer3;
+    public MeshRenderer mRenderer4;
+    public MeshRenderer mRenderer5;
+    public MeshRenderer mRenderer6;
+
+    public float outlineThicknessMultiplier = 2;
 
     private void Start()
     {
@@ -100,4 +117,39 @@ public class ScrapPile : MonoBehaviour, IDamageable
     }
 
     #endregion
+
+    public void SetColor()
+    {
+        Material newMat = Instantiate(mat);
+
+        mRenderer1.material = newMat;
+        mRenderer2.material = newMat;
+        mRenderer3.material = newMat;
+        mRenderer4.material = newMat;
+        mRenderer5.material = newMat;
+        mRenderer6.material = newMat;
+
+        newMat.SetColor("_OutlineColor", colour);
+        newMat.SetFloat("_OutlineWidth", mat.GetFloat("_OutlineWidth") * outlineThicknessMultiplier);
+    }
+
+    public void ResetColor()
+    {
+        mRenderer1.material = mat1;
+        mRenderer2.material = mat1;
+        mRenderer3.material = mat2;
+        mRenderer4.material = mat2;
+        mRenderer5.material = mat3;
+        mRenderer6.material = mat3;
+    }
+
+    public void OnTarget()
+    {
+        SetColor();
+    }
+
+    public void OnTargetLost()
+    {
+        ResetColor();
+    }
 }

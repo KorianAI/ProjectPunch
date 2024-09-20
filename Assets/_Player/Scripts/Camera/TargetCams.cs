@@ -148,6 +148,11 @@ public class TargetCams : MonoBehaviour
         isTargeting = true;
         targetGroup.AddMember(point, weight, 0);
 
+        if (currentTarget.GetComponent<ITargeted>() != null)
+        {
+            currentTarget.GetComponent<ITargeted>().OnTarget();
+        }
+
         if (currentTarget.transform.CompareTag(enemyTag)) //show health bars when targeting
         {
             if (currentTarget.transform.gameObject.GetComponentInChildren<HealthBars>() != null)
@@ -168,6 +173,11 @@ public class TargetCams : MonoBehaviour
         {
             targetGroup.RemoveMember(targetPoint);
             targetable.ResetColor();
+
+            if (currentTarget.GetComponent<ITargeted>() != null)
+            {
+                currentTarget.GetComponent<ITargeted>().OnTargetLost();
+            }
 
             if (currentTarget.transform.CompareTag(enemyTag)) //show health bars for a short time after targeting
             {
@@ -221,7 +231,7 @@ public class TargetCams : MonoBehaviour
 
             
 
-            if (input.x < -mouseThreshhold) // Move target to the left
+            if (input.x < -0) // Move target to the left
             {
                 if (currentTarget != null && SelectLeftTarget() != null && !cooldown)
                 {
@@ -234,6 +244,10 @@ public class TargetCams : MonoBehaviour
                         warmup = false;
                         StartCoroutine(TargetCooldown());
                         targetable.ResetColor();
+                        if (currentTarget.GetComponent<ITargeted>() != null)
+                        {
+                            currentTarget.GetComponent<ITargeted>().OnTargetLost();
+                        }
                         AssignTarget(SelectLeftTarget().transform, SelectLeftTarget().GetComponent<Targetable>().targetPoint, 1, true);
                     }
                 }
@@ -242,7 +256,7 @@ public class TargetCams : MonoBehaviour
                     return;
                 }
             }
-            else if (input.x > mouseThreshhold) // Move target to the right
+            else if (input.x > 0) // Move target to the right
             {
                 if (currentTarget != null && SelectRightTarget() != null && !cooldown)
                 {
@@ -255,6 +269,10 @@ public class TargetCams : MonoBehaviour
                         warmup = false;
                         StartCoroutine(TargetCooldown());
                         targetable.ResetColor();
+                        if (currentTarget.GetComponent<ITargeted>() != null)
+                        {
+                            currentTarget.GetComponent<ITargeted>().OnTargetLost();
+                        }
                         AssignTarget(SelectRightTarget().transform, SelectRightTarget().GetComponent<Targetable>().targetPoint, 1, true);
                     }
                 }
@@ -269,6 +287,10 @@ public class TargetCams : MonoBehaviour
                 if (currentTarget != null && SelectRightTarget() != null)
                 {
                     targetable.ResetColor();
+                    if (currentTarget.GetComponent<ITargeted>() != null)
+                    {
+                        currentTarget.GetComponent<ITargeted>().OnTargetLost();
+                    }
                     AssignTarget(SelectRightTarget().transform, SelectRightTarget().GetComponent<Targetable>().targetPoint, 1, true);
                 }
                 else if (SelectRightTarget() == null)
@@ -282,6 +304,10 @@ public class TargetCams : MonoBehaviour
                 if (currentTarget != null && SelectLeftTarget() != null)
                 {
                     targetable.ResetColor();
+                    if (currentTarget.GetComponent<ITargeted>() != null)
+                    {
+                        currentTarget.GetComponent<ITargeted>().OnTargetLost();
+                    }
                     AssignTarget(SelectLeftTarget().transform, SelectLeftTarget().GetComponent<Targetable>().targetPoint, 1, true);
                 }
                 else if (SelectLeftTarget() == null)

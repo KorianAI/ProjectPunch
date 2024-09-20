@@ -55,10 +55,6 @@ public class TutorialManager : MonoBehaviour
         currentTutorial.SetActive(true);
         currentAnim.Play("TutorialWindowAppear");
         sm.tutIsActive = true;
-        //if (resourcesUI != null)
-        //{
-        //    resourcesUI.SetActive(false);
-        //}
         InputMapManager.ToggleActionMap(InputMapManager.inputActions.Menus);
     }
 
@@ -96,10 +92,6 @@ public class TutorialManager : MonoBehaviour
         if (currentTutorial != null)
         {
             currentTutorial.SetActive(false);
-            //if (resourcesUI != null)
-            //{
-            //    resourcesUI.SetActive(true);
-            //}
         }
     }
 
