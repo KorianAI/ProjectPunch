@@ -28,6 +28,10 @@ public class PauseTabGroup : MonoBehaviour
     public Color lighter;
     public Color darker;
 
+    [Header("Audio")]
+    public AK.Wwise.Event playSFX_button;
+
+
     //script used in conjunction with PauseTabButton script
     //assigns tabs from list to the buttons in the UI, and allows for swapping beterrn them
     //changes the images used on each button to show whether they've been selected, hovered over or deselected
@@ -126,6 +130,8 @@ public class PauseTabGroup : MonoBehaviour
         selectedTab = button; //assigns new selected tab
 
         selectedTab.Select(); //selects new tab
+
+        playSFX_button.Post(gameObject);
 
         ResetTabs();
 
