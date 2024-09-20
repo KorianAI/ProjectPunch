@@ -853,7 +853,7 @@
 								</Sound>
 							</ChildrenList>
 						</Folder>
-						<Folder Name="Push &amp; Pull" ID="{DC9FA877-6161-45F0-82BB-3DBF0E8E7323}" ShortID="602914210">
+						<Folder Name="Push Pull" ID="{DC9FA877-6161-45F0-82BB-3DBF0E8E7323}" ShortID="602914210">
 							<ChildrenList>
 								<Sound Name="Pull" ID="{6BA360AC-07E2-4E37-9C2E-6F0AA68C13A6}" ShortID="673260983">
 									<PropertyList>

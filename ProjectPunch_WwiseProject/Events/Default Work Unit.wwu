@@ -108,13 +108,25 @@
 												</Reference>
 											</ReferenceList>
 										</Action>
-										<Action Name="" ID="{4461C72F-AC8D-4009-8570-E665509D6D35}" ShortID="553873414">
-											<PropertyList>
-												<Property Name="ActionType" Type="int16" Value="2"/>
-											</PropertyList>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_Jump" ID="{0E5546C7-F43C-4C31-B937-D618D333C99F}">
+									<ChildrenList>
+										<Action Name="" ID="{D5E646E4-7392-45B0-A935-F68743E5A711}" ShortID="1022116374">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="FootstepsGround" ID="{0E2A5E83-0361-4DC0-9693-13C8C20E4DD9}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+													<ObjectRef Name="Kaila_Jump" ID="{EE634654-4FC9-41CC-B61E-BAEA49073FF6}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_Land" ID="{1E893066-D7F3-47D5-8F25-6EE610F6FDBF}">
+									<ChildrenList>
+										<Action Name="" ID="{1062A5F4-8F48-421D-BED0-7EC1EBAAD005}" ShortID="1040042954">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Kaila_Land" ID="{AE1FFAD1-33A0-44F0-B7B0-5A1552F6CD69}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -163,6 +175,17 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="BFG_Slam" ID="{0FFE9BA1-7714-4D96-B154-BBE06CBBEC20}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_BFGUppercut" ID="{172C80B9-6E29-4EF3-879D-9A20B607DF7C}">
+									<ChildrenList>
+										<Action Name="" ID="{436BFDB9-E9A4-43CD-8F33-AD63D99C048E}" ShortID="658168524">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="BFG_Uppercut" ID="{6217D3EF-6E1B-4507-8CD6-AE76096CCAE7}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -307,6 +330,132 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="General SFX" ID="{FA6A1815-98A6-483F-AE4B-2DE2E88A29A9}" ShortID="340767460">
+					<ChildrenList>
+						<Event Name="SFXPlay_ScrapCollect" ID="{BB0762A5-01F4-422E-BB17-784E58362A55}">
+							<ChildrenList>
+								<Action Name="" ID="{216039A7-DD8B-4C5D-B1F5-A1D293B0D7C7}" ShortID="182219013">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scrap_Collect" ID="{7ED58369-F8E1-4899-9D2E-72114D6934E0}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFXPlay_LockON" ID="{13EA3F3F-A610-4D54-9A28-A255589E035F}"/>
+						<Event Name="SFXPlay_LockOFF" ID="{1B630011-B76F-4B95-BAD0-218717F54DF9}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI SFX" ID="{17E65E8C-A766-4B9B-A493-1329A31676BC}" ShortID="31012271">
+					<ChildrenList>
+						<Event Name="Button" ID="{288F5D18-1514-421A-AAFE-A8C406B33566}">
+							<ChildrenList>
+								<Action Name="" ID="{D82EE966-C80B-4721-8260-C280FBBFEAA9}" ShortID="859919151">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="UI_Button" ID="{1A5876C9-396D-467E-960E-161CDE22E18A}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Push Pull SFX" ID="{D8643215-83CB-429B-86C5-BB395E3D40BA}" ShortID="806384630">
+					<ChildrenList>
+						<Event Name="SFXPlay_Push" ID="{7CB90B1E-29F8-4621-9797-E5599A61ADEB}">
+							<ChildrenList>
+								<Action Name="" ID="{D048DE93-8F5E-4D5C-89D9-997532EC7019}" ShortID="610888196">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Push" ID="{569BAE73-4E03-4236-B2FD-12A02A1901BB}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFXPlay_Pull" ID="{33B45BD8-3FA2-4B69-A6A6-BA1A4505B629}">
+							<ChildrenList>
+								<Action Name="" ID="{A742122D-8EDD-48E8-9713-150CBDE46496}" ShortID="977846775">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Pull" ID="{6BA360AC-07E2-4E37-9C2E-6F0AA68C13A6}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Environment SFX" ID="{74AE4DBD-BDFE-4941-B2DE-FDAAB422D08E}" ShortID="1012862816">
+					<ChildrenList>
+						<Event Name="SFXPlay_PipeCrash" ID="{47136EC6-2E6D-4C62-B48B-36DC2FD466D5}">
+							<ChildrenList>
+								<Action Name="" ID="{01500228-7FE8-4316-92D9-8DE07116C2CF}" ShortID="851430759">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Pipe_CreakExplosion" ID="{9065E0AF-3670-4A69-8909-D5E0F9A5E2A9}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFXPlay_BouncePad" ID="{94AF2C11-6BDE-4BC0-A654-25F195205BB9}">
+							<ChildrenList>
+								<Action Name="" ID="{37CA2F81-E615-407C-813B-D9E08C88966E}" ShortID="354122508">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BouncePad_Push_Launch" ID="{194B1465-99C4-47D6-8425-891A36FD265A}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFXPlay_Rail" ID="{21A2B87B-3F95-46E5-8385-A3ADA19AF7A7}">
+							<ChildrenList>
+								<Action Name="" ID="{2D978326-5771-45D9-986B-99AB553F4516}" ShortID="332418079">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Rail" ID="{F56FEFBA-7D85-4696-9B15-397E92B98FB5}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Muzzler SFX" ID="{8B7118D2-7FB1-4718-9BFD-91E87CB948BC}" ShortID="1031829945">
+					<ChildrenList>
+						<Event Name="SFXPlay_MuzzlerKick" ID="{506F9BB2-2012-473B-B4E2-D16D157946B2}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Turret SFX" ID="{75E6CDB9-47AE-4F6C-AC1C-ABE63E89BE16}" ShortID="266750409">
+					<ChildrenList>
+						<Event Name="SFXPlay_TurretFire" ID="{3A2436A8-9473-4AFA-8997-5A256C575502}">
+							<ChildrenList>
+								<Action Name="" ID="{25A1B666-8F6C-4DDB-BE08-3FF6467C1F7C}" ShortID="594917360">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Turret_Fire" ID="{9981AAB4-8912-4848-AFDD-B489A3E00927}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFXPlay_TurretHit" ID="{DE461089-02C5-407B-A38C-86EDB5995E7E}">
+							<ChildrenList>
+								<Action Name="" ID="{13BB5A4C-A252-4854-87A0-AFABB72F4EA6}" ShortID="401182827">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Turret_Hit" ID="{2120111C-5A45-4449-9C51-DA06439B8B1F}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
