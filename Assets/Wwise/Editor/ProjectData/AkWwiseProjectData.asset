@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: fcf29761efdb4743be1c96bb0ba59ba7
     GuidInternal: 
-    m_lastTime: -8584754312250309254
+    m_lastTime: -8584754312394775808
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584749958100373493
+    m_lastTime: -8584750023114775808
     List:
     - name: Cashmere_SFX_Bus
       guid: 6f82ca6e51b40348b54b1616931914c2
@@ -325,10 +325,10 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584747646060243719
+    m_lastTime: -8584747500614775808
     List:
     - name: Soundbank_Music
-      guid: 5d7fd228ce2467489f34ddb7c5d32ac3
+      guid: 13213216d854484eaee16f27b594c3a2
       id: 474740052
       PathAndIcons:
       - ElementName: SoundBanks
@@ -339,7 +339,7 @@ MonoBehaviour:
         guid: 8091b5fd9e38294cbfcd273f6ed45d57
       - ElementName: Soundbank_Music
         ObjectType: 7
-        guid: 5d7fd228ce2467489f34ddb7c5d32ac3
+        guid: 13213216d854484eaee16f27b594c3a2
       Path: SoundBanks\Default Work Unit\Soundbank_Music
     - name: Soundbank_SFX
       guid: af2cf498d9d21f4e88407f3a8baafeea
@@ -367,7 +367,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584747646067833701
+    m_lastTime: -8584747500614775808
     List:
     - name: Button
       guid: 185d8f2814151a42aafea8c406b33566
@@ -407,8 +407,8 @@ MonoBehaviour:
         guid: 02e504d97a7a9c48a1a1ad81c57c023d
       Path: Events\Default Work Unit\Music\Combat
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Environment SFX
       guid: bd4dae74febd4149b2defdaab422d08e
       id: 2813969293
@@ -444,8 +444,8 @@ MonoBehaviour:
         guid: 528995d1a48272499e70e8eb410caa42
       Path: Events\Default Work Unit\Music\Explore
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: General SFX
       guid: 15186afaa6983f48ae4b2de2e88a29a9
       id: 2515155150
@@ -649,8 +649,8 @@ MonoBehaviour:
         guid: 3e043d65336f3d47943fa330d37e02e5
       Path: Events\Default Work Unit\Music\Scrapshift
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: ScrapshiftEnd
       guid: 635c2c5aba02284583b537dfccdf73f5
       id: 1856838135
@@ -669,8 +669,8 @@ MonoBehaviour:
         guid: 635c2c5aba02284583b537dfccdf73f5
       Path: Events\Default Work Unit\Music\ScrapshiftEnd
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: SFX_Play_Dash
       guid: 835fd8d8cd3de94ba4025f1b294a38ef
       id: 3190817658
@@ -1351,7 +1351,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: e772f0b193823949853e05aac5794b6f
     GuidInternal: 
-    m_lastTime: -8584754312251489511
+    m_lastTime: -8584754312394775808
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -1365,7 +1365,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: f3e827c98473b545bdc7ed0c4739356b
     GuidInternal: 
-    m_lastTime: -8584750682691527089
+    m_lastTime: -8584750697274775808
     List:
     - name: Music_States
       guid: c67059b9b3a34a448d69328c6fc91e5b
@@ -1461,7 +1461,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: ef29a14c705ede40b7a80ac065cc6269
     GuidInternal: 
-    m_lastTime: -8584750682691456280
+    m_lastTime: -8584750697274775808
     List:
     - name: New_Switch_Group
       guid: de5b0459d2ce29408fec6f6544d84e51
@@ -1509,7 +1509,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: ca7ae8b43920f140a5f4bf098b44b504
     GuidInternal: 
-    m_lastTime: -8584750682691376688
+    m_lastTime: -8584750697274775808
     List:
     - name: Scrapshift
       guid: 52eef0ed6d5ee34ea9f8a780dfae2057
@@ -1539,9 +1539,9 @@ MonoBehaviour:
         ObjectType: 14
         guid: 9618f51dadf4214087fc7ea68ced4ee5
       Path: Triggers\Default Work Unit\ScrapshiftEnd
-  ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
-  AutoSyncSelection: 0
+  ExpandedFileSystemItemIds: 020000000300000004000000050000000600000007000000090000000a0000000b0000000d0000000e0000000f000000100000001200000013000000140000001d0000003000000031000000330000003e0000003f000000
+  ExpandedWaapiItemIds: 010000000300000004000000050000000600000007000000090000000a0000000b0000000d0000000e0000000f000000100000001200000013000000140000001d0000002b0000003000000031000000330000003e0000003f000000
+  AutoSyncSelection: 1
   autoPopulateEnabled: 1
   currentDataSource: 0
   CurrentPluginConfig: 
