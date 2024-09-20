@@ -325,11 +325,11 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584750235594775808
+    m_lastTime: -8584747680714775808
     List:
-    - name: Soundbank_Main
-      guid: af2cf498d9d21f4e88407f3a8baafeea
-      id: 29489552
+    - name: Soundbank_Music
+      guid: 5d7fd228ce2467489f34ddb7c5d32ac3
+      id: 474740052
       PathAndIcons:
       - ElementName: SoundBanks
         ObjectType: 5
@@ -337,10 +337,24 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 8091b5fd9e38294cbfcd273f6ed45d57
-      - ElementName: Soundbank_Main
+      - ElementName: Soundbank_Music
+        ObjectType: 7
+        guid: 5d7fd228ce2467489f34ddb7c5d32ac3
+      Path: SoundBanks\Default Work Unit\Soundbank_Music
+    - name: Soundbank_SFX
+      guid: af2cf498d9d21f4e88407f3a8baafeea
+      id: 2023573084
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 8091b5fd9e38294cbfcd273f6ed45d57
+      - ElementName: Soundbank_SFX
         ObjectType: 7
         guid: af2cf498d9d21f4e88407f3a8baafeea
-      Path: SoundBanks\Default Work Unit\Soundbank_Main
+      Path: SoundBanks\Default Work Unit\Soundbank_SFX
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -353,7 +367,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584750111514775808
+    m_lastTime: -8584747686474775808
     List:
     - name: Combat
       guid: 02e504d97a7a9c48a1a1ad81c57c023d
@@ -1115,7 +1129,7 @@ MonoBehaviour:
         guid: 9618f51dadf4214087fc7ea68ced4ee5
       Path: Triggers\Default Work Unit\ScrapshiftEnd
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000003e000000
+  ExpandedWaapiItemIds: 030000000400000005000000070000000b0000000e0000000f000000100000003e000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
