@@ -97,7 +97,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{03F61909-03DC-EF7B-8320-FC4E5CCDB7DC}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{D3CDC543-B966-1D48-BA49-338264FD87B6}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -113,13 +113,41 @@
 					<ShortName>Rail.wav</ShortName>
 					<CachePath>SFX/Rail_818F3B66.wem</CachePath>
 				</File>
+				<File Id="262919125" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Turret_Fire.wav</ShortName>
+					<CachePath>SFX/Turret_Fire_818F3B66.wem</CachePath>
+				</File>
 				<File Id="325590457" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BFG_Lunge.wav</ShortName>
 					<CachePath>SFX/BFG_Lunge_818F3B66.wem</CachePath>
 				</File>
+				<File Id="369513787" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kaila_Jump.wav</ShortName>
+					<CachePath>SFX/Kaila_Jump_818F3B66.wem</CachePath>
+				</File>
+				<File Id="382992550" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Push.wav</ShortName>
+					<CachePath>SFX/Push_818F3B66.wem</CachePath>
+				</File>
+				<File Id="468055188" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Button.wav</ShortName>
+					<CachePath>SFX/UI_Button_818F3B66.wem</CachePath>
+				</File>
+				<File Id="484023593" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BFG_Uppercut.wav</ShortName>
+					<CachePath>SFX/BFG_Uppercut_818F3B66.wem</CachePath>
+				</File>
 				<File Id="543059488" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NailGun_Burst.wav</ShortName>
 					<CachePath>SFX/NailGun_Burst_818F3B66.wem</CachePath>
+				</File>
+				<File Id="543809496" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Scrap_Collect.wav</ShortName>
+					<CachePath>SFX/Scrap_Collect_818F3B66.wem</CachePath>
+				</File>
+				<File Id="597362849" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pull.wav</ShortName>
+					<CachePath>SFX/Pull_818F3B66.wem</CachePath>
 				</File>
 				<File Id="650394388" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RealSteel_OverdriveIntro.wav</ShortName>
@@ -129,9 +157,17 @@
 					<ShortName>FootstepsGround3.wav</ShortName>
 					<CachePath>SFX/FootstepsGround3_818F3B66.wem</CachePath>
 				</File>
+				<File Id="682299466" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kaila_Land.wav</ShortName>
+					<CachePath>SFX/Kaila_Land_818F3B66.wem</CachePath>
+				</File>
 				<File Id="692525493" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NailGun_ChargedShot_Pull.wav</ShortName>
 					<CachePath>SFX/NailGun_ChargedShot_Pull_818F3B66.wem</CachePath>
+				</File>
+				<File Id="770468900" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Turret_Hit.wav</ShortName>
+					<CachePath>SFX/Turret_Hit_818F3B66.wem</CachePath>
 				</File>
 				<File Id="787712988" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BFG_Impact2.wav</ShortName>
@@ -181,6 +217,16 @@
 				</ShareSets>
 			</Plugins>
 			<Events>
+				<Event Id="977454165" Name="Button" DurationType="OneShot" DurationMin="0.4" DurationMax="0.4">
+					<MediaRefs>
+						<MediaRef Id="468055188"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
 				<Event Id="3190817658" Name="SFX_Play_Dash" DurationType="OneShot" DurationMin="1.9319247" DurationMax="2.4340725">
 					<MediaRefs>
 						<MediaRef Id="1049397153"/>
@@ -217,6 +263,16 @@
 						<MediaRef Id="893107048"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="4007672374" Name="SFXPlay_BFGUppercut" DurationType="OneShot" DurationMin="1.7817974" DurationMax="2.244924">
+					<MediaRefs>
+						<MediaRef Id="484023593"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1214613434" Name="SFXPlay_BouncePad" DurationType="OneShot" DurationMin="3.4687529" DurationMax="3.4687529">
+					<MediaRefs>
+						<MediaRef Id="1002274944"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3800919789" Name="SFXPlay_FootstepsGround" DurationType="OneShot" DurationMin="0.49301422" DurationMax="0.7826113">
 					<MediaRefs>
 						<MediaRef Id="658891643"/>
@@ -227,6 +283,19 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
+				<Event Id="3879440547" Name="SFXPlay_Jump" DurationType="OneShot" DurationMin="1.1905508" DurationMax="1.8898816">
+					<MediaRefs>
+						<MediaRef Id="369513787"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3246930752" Name="SFXPlay_Land" DurationType="OneShot" DurationMin="0.8908987" DurationMax="1.122462">
+					<MediaRefs>
+						<MediaRef Id="682299466"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3871747721" Name="SFXPlay_LockOFF" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1931077309" Name="SFXPlay_LockON" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="2735510120" Name="SFXPlay_MuzzlerKick" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2423564124" Name="SFXPlay_NailGunChargedPull" DurationType="OneShot" DurationMin="3.5635948" DurationMax="4.489848">
 					<MediaRefs>
 						<MediaRef Id="692525493"/>
@@ -254,6 +323,41 @@
 					<PluginRefs>
 						<ShareSets>
 							<PluginRef Id="3948262040"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="543234128" Name="SFXPlay_PipeCrash" DurationType="OneShot" DurationMin="15.890952" DurationMax="15.890952">
+					<MediaRefs>
+						<MediaRef Id="84823563"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2012453574" Name="SFXPlay_Pull" DurationType="OneShot" DurationMin="1.336348" DurationMax="1.683693">
+					<MediaRefs>
+						<MediaRef Id="597362849"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="2062786315" Name="SFXPlay_Push" DurationType="OneShot" DurationMin="1.7817974" DurationMax="2.244924">
+					<MediaRefs>
+						<MediaRef Id="382992550"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="1777383567" Name="SFXPlay_Rail" DurationType="OneShot" DurationMin="0.82687926" DurationMax="1.0418025">
+					<MediaRefs>
+						<MediaRef Id="122414336"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
 						</ShareSets>
 					</PluginRefs>
 				</Event>
@@ -320,8 +424,33 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
+				<Event Id="2268775144" Name="SFXPlay_ScrapCollect" DurationType="OneShot" DurationMin="1.1261678" DurationMax="1.4188825">
+					<MediaRefs>
+						<MediaRef Id="543809496"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1220918693" Name="SFXPlay_TurretFire" DurationType="OneShot" DurationMin="2.004522" DurationMax="2.5255396">
+					<MediaRefs>
+						<MediaRef Id="262919125"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="3945781932" Name="SFXPlay_TurretHit" DurationType="OneShot" DurationMin="0.9217064" DurationMax="1.1612773">
+					<MediaRefs>
+						<MediaRef Id="770468900"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{41E6952C-F859-CB19-A17F-53AFEA46D95D}</FileHash>
+	<FileHash>{13CB2824-95CF-366A-C68C-7D4B992A5B6C}</FileHash>
 </SoundBanksInfo>
