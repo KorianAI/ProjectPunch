@@ -51,8 +51,11 @@ public class PlayerMagnets : MonoBehaviour
 
             else
             {
-                sm.SwitchState(new PushState());
-                //Debug.Log("breh");
+                if (t.targetable.pushMe)
+                {
+                    sm.SwitchState(new PushState());
+                    //Debug.Log("breh");
+                }
             }
         }
     }
@@ -80,7 +83,11 @@ public class PlayerMagnets : MonoBehaviour
 
             else
             {
-                sm.SwitchState(new PullState());  // pull to environment
+                if (t.targetable.pullMe)
+                {
+                    sm.SwitchState(new PullState());
+                    //Debug.Log("breh");
+                }
             }
         }
     }

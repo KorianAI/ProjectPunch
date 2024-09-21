@@ -42,6 +42,7 @@ public class RailPoint : MonoBehaviour, IMagnetisable
     {
         t = GetComponent<Targetable>();
         t.environment = true;
+        t.pullMe= true;
         startPosition = movePos.position;
     }
 
@@ -148,14 +149,13 @@ public class RailPoint : MonoBehaviour, IMagnetisable
 
         else
         {
-            ps.cam.canRotate = true;
-            PlayerCameraManager.instance.SwitchPlayerCam();
             ps.SwitchState(new PlayerAirState());
             ps.anim.SetBool("onRail", false);
             ps.anim.Play("PlayerInAir");
         }
 
-
+        ps.cam.canRotate = true;
+        PlayerCameraManager.instance.SwitchPlayerCam();
         movePos.position = startPosition;
     }
 

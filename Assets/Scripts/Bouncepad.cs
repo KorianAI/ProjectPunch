@@ -25,6 +25,8 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
         cc = PlayerStateManager.instance.GetComponent<CharacterController>();
         ps = PlayerStateManager.instance;
         t = GetComponent<Targetable>();
+
+        t.pushMe = true;
     }
 
     public void Pull(PlayerStateManager player)

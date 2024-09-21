@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RS_G6
   m_EditorClassIdentifier: 
   attackName: 
-  damage: 15
+  damage: 30
   rumbleAmnt: 0
   shakeAmnt: 0
   zoomAmnt: 0

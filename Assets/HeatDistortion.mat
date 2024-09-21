@@ -41,11 +41,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _HeatDistortion: 0.012
+    - _HeatDistortion: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _DistortionSpeed: {r: 0, g: -0.05, b: 0, a: 0}
+    - _DistortionSpeed: {r: 0, g: -0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8361521895673105875
 MonoBehaviour:
