@@ -25,6 +25,7 @@ public class RSProjectile : MonoBehaviour
 
     public void Detonate()
     {
+        transform.DOKill();
         GameObject vfx = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Collider[] enemies = Physics.OverlapSphere(transform.position, 4f, enemyLayer);
         foreach (Collider c in enemies)

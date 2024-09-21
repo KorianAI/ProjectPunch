@@ -30,6 +30,8 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
 
     public bool overdrive;
 
+    public bool existingTarget;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,15 +43,26 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
 
     private void PierceTarget()
     {
-        if (enemy.nail != null)
+        if (enemy != null)
         {
-            enemy.nail.DestroyNail();
+            if (enemy.nail != null)
+            {
+                enemy.nail.DestroyNail();
+            }
+
+            DealDamage();
+            transform.SetParent(destination);
+            enemy.nailImpaled = true;
+            enemy.nail = this;
+
+
         }
 
-        DealDamage();
-        transform.SetParent(destination);
-        enemy.nailImpaled = true;
-        enemy.nail = this;
+        else
+        {
+            StartFallTimer();
+        }
+
     }
 
     public void Pull(PlayerStateManager player)
@@ -131,5 +144,18 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
         objCollider.isTrigger = false;
         yield return new WaitForSeconds(2);
         DestroyNail();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            if (!existingTarget)
+            {
+                StopAllCoroutines();
+                transform.DOKill();
+                Detonate();
+            }
+        }
     }
 }

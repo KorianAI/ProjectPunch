@@ -249,20 +249,38 @@ public class RealSteel : WeaponInfo
 
     public void RSNail()
     {
+        Vector3 direction = Vector3.zero;
+        EnemyHealth e = null;
+        Transform d = null;
+        bool existTarget = true;
+
         if (sm.tl.currentTarget != null && !sm.tl.targetable.environment)
         {
             EnemyHealth enemy = sm.tl.currentTarget.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                Vector3 direction = sm.tl.currentTarget.position - transform.position;
-                ConcentratedNail p = Instantiate(nailProj, nailSpawn.position, Quaternion.identity).GetComponent<ConcentratedNail>();
-                p.transform.rotation = Quaternion.LookRotation(direction.normalized);
-                p.enemy = enemy;
-                p.destination = sm.tl.targetPoint;
-                p.spawnPoint = nailSpawn;
-                p.sm = sm;
+                direction = sm.tl.currentTarget.position - transform.position;
+                e = enemy;
             }
+
+            d = sm.tl.targetPoint;
+            existTarget = true;
         }
+
+        else
+        {
+            direction = sm.playerObj.forward;
+            d = noTargetDestination;
+            existTarget = false;
+        }
+
+        ConcentratedNail p = Instantiate(nailProj, nailSpawn.position, Quaternion.identity).GetComponent<ConcentratedNail>();
+        p.transform.rotation = Quaternion.LookRotation(direction.normalized);
+        p.enemy = e;
+        p.destination = d;
+        p.spawnPoint = nailSpawn;
+        p.existingTarget = existTarget;
+        p.sm = sm;
 
     }
 
