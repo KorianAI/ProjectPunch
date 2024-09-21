@@ -13,6 +13,7 @@ public class RSProjectile : MonoBehaviour
 
     public AttackStats explosionStats;
     public GameObject explosionPrefab;
+    public bool existingTarget;
 
     private void Start()
     {
@@ -44,5 +45,16 @@ public class RSProjectile : MonoBehaviour
 
         Destroy(vfx, 1f); 
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            if (!existingTarget)
+            {
+                Detonate();
+            }
+        }
     }
 }

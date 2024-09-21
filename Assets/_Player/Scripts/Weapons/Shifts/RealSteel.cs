@@ -21,6 +21,7 @@ public class RealSteel : WeaponInfo
     public GameObject projectile;
     public GameObject muzzleVFX;
     public Transform projSpawn;
+    public Transform noTargetDestination;
 
     [Header("RSNail")]
     public Transform nailSpawn;
@@ -135,22 +136,32 @@ public class RealSteel : WeaponInfo
 
     public void PunchBlast()
     {
+        Vector3 direction = Vector3.zero;
+        Transform d = null;
+        bool existTarget = true;
+
         if (sm.tl.currentTarget != null && !sm.tl.targetable.environment)
         {
             EnemyHealth enemy = sm.tl.currentTarget.GetComponent<EnemyHealth>();
-            if (enemy != null)
-            {
-                Vector3 direction = sm.tl.currentTarget.position - transform.position;
-                RSProjectile p = Instantiate(projectile, projSpawn.position, Quaternion.identity).GetComponent<RSProjectile>();
-                GameObject muzzle = Instantiate(muzzleVFX, projSpawn.position, Quaternion.identity); 
-                p.transform.rotation = Quaternion.LookRotation(direction.normalized);
-                p.destination = sm.tl.targetPoint;
-                p.spawnPoint = projSpawn;
-
-                Destroy(muzzle, .2f);
-            }
+            direction = sm.tl.currentTarget.position - transform.position;
+            d = sm.tl.targetPoint;
+            existTarget = true;
         }
 
+        else
+        {
+            direction = sm.playerObj.forward;
+            d = noTargetDestination;
+            existTarget = false;
+        }
+
+        RSProjectile p = Instantiate(projectile, projSpawn.position, Quaternion.identity).GetComponent<RSProjectile>();
+        GameObject muzzle = Instantiate(muzzleVFX, projSpawn.position, Quaternion.identity);
+        p.transform.rotation = Quaternion.LookRotation(direction.normalized);
+        p.spawnPoint = projSpawn;
+        p.destination = d;
+        p.existingTarget = existTarget;
+        Destroy(muzzle, .2f);
     }
 
 
