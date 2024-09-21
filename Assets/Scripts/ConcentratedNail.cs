@@ -154,7 +154,19 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
             {
                 StopAllCoroutines();
                 transform.DOKill();
-                Detonate();
+
+                if (overdrive)
+                {
+                    Detonate();
+                }
+
+                else
+                {
+                    enemy = sm.pc.ClosestEnemy().transform.GetComponent<EnemyHealth>();
+                    DealDamage();
+                    DestroyNail();
+                }
+
             }
         }
     }

@@ -65,6 +65,7 @@ MonoBehaviour:
   parryable: 1
   damage: 10
   overdrive: 0
+  existingTarget: 0
 --- !u!65 &3778574025933101828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -84,8 +85,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.2, z: 0.2}
-  m_Center: {x: -0.0011758804, y: 0.04016304, z: 0}
+  m_Size: {x: 0.36257744, y: 0.4029286, z: 1.5601864}
+  m_Center: {x: -0.012076378, y: 0.02730167, z: 0.031946182}
 --- !u!54 &36855771387219310
 Rigidbody:
   m_ObjectHideFlags: 0
