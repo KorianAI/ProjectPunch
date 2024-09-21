@@ -14,16 +14,19 @@ public class DamageObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var target = other.gameObject.GetComponent<IDamageable>();
+       
 
-        if (target != null && !other.gameObject.CompareTag("Player"))
+
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            target.TakeDamage(damage);
+            var target = other.gameObject.GetComponent<IDamageable>();
+            if (target!= null)
+            {
+                target.TakeDamage(damage);
+            }
             Instantiate(hitVFX, transform.position, Quaternion.identity);
 
-            if (other.gameObject.tag == "Enemy") // check in place to avoid errors when hitting scrap piles -J
-                other.gameObject.GetComponent<EnemyHealth>().GetStunned(.1f);
-          
+            GetComponent<SphereCollider>().enabled = false;
         }
     }
 

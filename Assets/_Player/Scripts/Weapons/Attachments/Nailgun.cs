@@ -44,9 +44,10 @@ public class Nailgun : Attachment
 
     public void Shoot()
     {
-        Vector3 direction = GetDirection();
+        Vector3 direction = GetDirection();  // Get the right direction
 
         TrailRenderer trail = Instantiate(projTrail, spawnPoint.position, Quaternion.identity);
+
         if (sm.tl.currentTarget != null)
         {
             IDamageable enemy = sm.tl.currentTarget.GetComponent<IDamageable>();
@@ -54,6 +55,7 @@ public class Nailgun : Attachment
         }
         else
         {
+            // If there are no targets, just fire in the player's forward direction
             StartCoroutine(SpawnTrailNoEnemy(trail, direction));
         }
     }
@@ -79,42 +81,38 @@ public class Nailgun : Attachment
 
     public Vector3 GetDirection()
     {
+        Vector3 dir = Vector3.zero;
+
         if (sm.tl.currentTarget != null && !sm.tl.targetable.environment)
         {
-            Vector3 dir = sm.tl.currentTarget.position;
-
-            if (bulletSpread)
-            {
-                dir += new Vector3(Random.Range(-spreadVariance, spreadVariance),
-                    Random.Range(0, spreadVariance),
-                    Random.Range(-spreadVariance, spreadVariance));
-
-                //dir.Normalize();
-
-            }
-
-            return dir;
+            dir = sm.tl.currentTarget.position;
+            Debug.Log("1");
         }
+
+        //else if (sm.pc.ClosestEnemy().transform != null)
+        //{
+        //    //throw new System.Exception("No CurrentTarget for Nailgun Lock.");
+        //    Debug.Log("2");
+        //    dir = sm.pc.ClosestEnemy().transform.position; 
+        //}
 
         else
         {
-            //throw new System.Exception("No CurrentTarget for Nailgun Lock.");
-
-            Vector3 dir = new Vector3(sm.transform.position.x, sm.transform.position.y, (sm.transform.position.z +10));
-
-            if (bulletSpread)
-            {
-                dir += new Vector3(Random.Range(-spreadVariance, spreadVariance),
-                    Random.Range(0, spreadVariance),
-                    Random.Range(-spreadVariance, spreadVariance));
-
-                //dir.Normalize();
-
-            }
-
-            return dir;
+            Debug.Log("3");
+            dir = sm.playerObj.forward;
         }
-        
+
+        if (bulletSpread)
+        {
+            dir += new Vector3(Random.Range(-spreadVariance, spreadVariance),
+                Random.Range(0, spreadVariance),
+                Random.Range(-spreadVariance, spreadVariance));
+
+            //dir.Normalize();
+
+        }
+
+        return dir;
     }
 
     IEnumerator SpawnTrail(TrailRenderer trail, Vector3 enemy, IDamageable health)
@@ -141,14 +139,17 @@ public class Nailgun : Attachment
     {
         float time = 0;
         Vector3 startPos = trail.transform.position;
+        trail.GetComponent<SphereCollider>().enabled = true;
+
+        // Move in the forward direction continuously, not to a fixed point
         while (time < 1)
         {
-            trail.transform.position = Vector3.Lerp(startPos, direction, time);
-            time += Time.deltaTime / trail.time;
+            if (trail == null || !trail.GetComponent<SphereCollider>().enabled) { break; }
+            trail.transform.position += direction * speed * Time.deltaTime;  // Move forward based on direction and speed
+            time += Time.deltaTime;
             yield return null;
         }
 
-        trail.transform.position = direction;
         CinemachineShake.Instance.ShakeCamera(stats.shakeAmnt, stats.shakeDur);
         CinemachineShake.Instance.ChangeFov(stats.zoomAmnt, stats.shakeDur);
         RumbleManager.instance.RumblePulse(.05f, .15f, .1f);

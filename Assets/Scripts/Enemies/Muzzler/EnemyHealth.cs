@@ -143,9 +143,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
 
         healthBars.HideBars();
 
-        if (sm.tl.currentTarget = gameObject.transform)
+        if (sm.tl.currentTarget == gameObject.transform)
         {
-          
+            Debug.Log("dude why");
             sm.tl.ResetTarget();
             var nextTarget = NearestEnemy();
             if (nextTarget != null) { sm.tl.AssignTarget(nextTarget.transform, nextTarget.transform.gameObject.GetComponent<Targetable>().targetPoint, 1, true); }

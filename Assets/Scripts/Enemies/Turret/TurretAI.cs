@@ -127,7 +127,7 @@ public class TurretAI : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(info.transform.position, sightRange);
