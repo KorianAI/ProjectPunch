@@ -1516,8 +1516,6 @@
 					<ChildrenList>
 						<Sound Name="Turret_Fire" ID="{9981AAB4-8912-4848-AFDD-B489A3E00927}" ShortID="653804055">
 							<PropertyList>
-								<Property Name="3DPosition" Type="int16" Value="1"/>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
