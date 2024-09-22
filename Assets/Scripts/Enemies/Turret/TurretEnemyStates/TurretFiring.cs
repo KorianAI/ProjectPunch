@@ -8,9 +8,18 @@ public class TurretFiring : TurretState
     {
         base.EnterState(turretAI);
 
-        turretAI.InstantiateProjectile();
+        if (turretAI.forceField != null)
+        {
+            turretAI.forceField.gameObject.GetComponent<Collider>().enabled = false;
+        }
 
-        Debug.Log(turretAI.gameObject.name + "Fired!");
+        if (!turretAI.fired)
+        {
+            turretAI.InstantiateProjectile();
+            turretAI.fired = true;
+        }
+
+        //Debug.Log(turretAI.gameObject.name + "Fired!");
         turretAI.SwitchState(new TurretLocked());
     }
 

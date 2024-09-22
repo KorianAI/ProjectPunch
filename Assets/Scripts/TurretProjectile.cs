@@ -10,6 +10,7 @@ public class TurretProjectile : MonoBehaviour, IParriable
     public LayerMask targetableLayer;
     public float damage;
     public float parriedDamage = 50f;
+    public bool parried = false;
     public float destroyTime = 1f;
     Rigidbody rb;
 
@@ -41,16 +42,17 @@ public class TurretProjectile : MonoBehaviour, IParriable
         RumbleManager.instance.RumblePulse(.10f, .5f, .10f);
         //sfx - fire
 
-        if (collision.gameObject.layer == whatisGround)
-        {
-            Instantiate(rumbleVFX, transform.position, Quaternion.identity);
-        }
+        //if (collision.gameObject.layer == whatisGround)
+        //{
+        //    Instantiate(rumbleVFX, transform.position, Quaternion.identity);
+        //}
 
         Detonate();
     }
 
     public void Parry()
     {
+        parried = true;
         damage = parriedDamage;
         float distance = Vector3.Distance(playerPos.transform.position, spawnPoint);
         float dur = distance / speed;
@@ -62,12 +64,18 @@ public class TurretProjectile : MonoBehaviour, IParriable
     {
         Instantiate(explosionVFX, transform.position, Quaternion.identity);
 
-        Collider[] player = Physics.OverlapSphere(transform.position, 2, targetableLayer);
-        foreach (Collider c in player)
+        Collider[] targets = Physics.OverlapSphere(transform.position, 2, targetableLayer);
+        if (targets != null)
         {
-            c.GetComponent<IDamageable>().TakeDamage(damage);
-            //sfx - explode
-            RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
+            foreach (Collider c in targets)
+            {
+                if (c.GetComponent<PlayerResources>() || c.GetComponent<EnemyHealth>() || c.GetComponent<TurretHealth>())
+                {
+                    c.GetComponent<IDamageable>().TakeDamage(damage);
+                    //sfx - explode
+                    RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
+                }
+            }
         }
 
         Destroy(gameObject);

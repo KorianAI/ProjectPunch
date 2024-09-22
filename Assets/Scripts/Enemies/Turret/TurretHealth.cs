@@ -145,6 +145,13 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
         ai.SwitchState(new TurretDead());
         healthBar.gameObject.SetActive(false);
         armourBar.gameObject.SetActive(false);
+        ai.chargeVFX.SetActive(false);
+        ai.fireVFX.enabled = false;
+        ai.targetLine.enabled = false;
+        if (ai.dotInstance != null)
+        {
+            Destroy(ai.dotInstance);
+        }
 
         if (ai.manager)
         {

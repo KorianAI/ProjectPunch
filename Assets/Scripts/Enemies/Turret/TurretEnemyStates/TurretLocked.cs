@@ -10,6 +10,7 @@ public class TurretLocked : TurretState
         base.EnterState(turretAI);
         ai = turretAI;
         turretAI.locked = false;
+        turretAI.fired = false;
 
         if (!turretAI.InAttackRange()) //checks that turret is still able to lock on
         {

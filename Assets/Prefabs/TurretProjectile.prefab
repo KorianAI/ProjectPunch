@@ -14640,7 +14640,7 @@ GameObject:
   - component: {fileID: 5196445602710839825}
   m_Layer: 0
   m_Name: TurretProjectile
-  m_TagString: Untagged
+  m_TagString: ParryProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14777,6 +14777,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 136
   damage: 20
+  parriedDamage: 50
+  parried: 0
   destroyTime: 1
   whatisGround:
     serializedVersion: 2

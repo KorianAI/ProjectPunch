@@ -59,15 +59,13 @@ public class ScrapPile : MonoBehaviour, IDamageable, ITargeted
             if (currentHealth <= 0)
             {
                 //turn off target lock
-                player.GetComponent<TargetLock>().currentTarget = null;
-                player.GetComponent<TargetLock>().isTargeting = false;
-                player.GetComponent<TargetLock>().lastTargetTag = null;
+                player.GetComponent<TargetCams>().CancelLock();
 
                 //destroy with a plume of extra particles & more scrap to collision
                 SpawnParticle();
                 SpawnParticle();
 
-                Invoke("Destroy", .25f);
+                Destroy();
             }
 
             else
@@ -113,7 +111,7 @@ public class ScrapPile : MonoBehaviour, IDamageable, ITargeted
 
     private void Destroy()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject, .25f);
     }
 
     #endregion

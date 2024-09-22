@@ -15,6 +15,7 @@ public class TurretAI : MonoBehaviour
     public GameObject playerPos;
     public CombatManager manager;
     public EnemyAudioManager audioManager;
+    public ForceField forceField;
 
     [Header("Conditions")]
     public bool inAttackRange;
@@ -29,7 +30,7 @@ public class TurretAI : MonoBehaviour
     public bool reachedPos1 = false, reachedPos2 = false;
     public float lookSpeed = 5f;
     public float lookPauseDuration = 2f;
-    public float lockToPlayerDuration = 0.8f;
+    public float lockToPlayerDuration = 1f;
 
     [Space]
     public bool locked;
@@ -60,6 +61,7 @@ public class TurretAI : MonoBehaviour
     public Vector3 smoothedLinePosition; // Position of the line's endpoint after smoothing
 
     [Header("Firing")]
+    public bool fired;
     public GameObject projSpawnPoint;
     public float fireTimer = 5f;
     public GameObject projectile;
@@ -82,6 +84,8 @@ public class TurretAI : MonoBehaviour
         targetLine.positionCount = 2;
         dotInstance = Instantiate(dotPrefab);
         dotInstance.transform.SetParent(dotParent.transform);
+
+        forceField = GetComponentInChildren<ForceField>();
     }
 
     public void SwitchState(TurretState _state)
@@ -196,9 +200,11 @@ public class TurretAI : MonoBehaviour
             currentState = new TurretFiring();
             currentState.EnterState(this);
         }
-        else
+
+        if (forceField != null)
         {
-            yield break;
+            yield return new WaitForSeconds(.5f);
+            forceField.gameObject.GetComponent<Collider>().enabled = true;
         }
     }
 
@@ -238,6 +244,7 @@ public class TurretAI : MonoBehaviour
 
     public void InstantiateProjectile()
     {
+        fired = true;
         GameObject projectileGo = Instantiate(projectile, projSpawnPoint.transform.position, Quaternion.identity);
         Vector3 direction = (playerPos.transform.position - projSpawnPoint.transform.position).normalized;
         projectileGo.GetComponent<Rigidbody>().velocity = direction * projectileForce;
