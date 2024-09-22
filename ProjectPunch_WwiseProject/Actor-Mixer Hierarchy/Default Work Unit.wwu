@@ -1432,9 +1432,16 @@
 										<MediaID ID="258915722"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="Scroll_Pickup (2)" ID="{CD6182E6-57E6-41A3-89ED-AF9FC6AC6B0B}">
+									<Language>SFX</Language>
+									<AudioFile>Scroll_Pickup (2).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1045500657"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Scroll_Pickup" ID="{264BBB53-5BB0-4EB3-9CE8-F0B2226C8A2C}" Platform="Linked"/>
+								<ActiveSource Name="Scroll_Pickup (2)" ID="{CD6182E6-57E6-41A3-89ED-AF9FC6AC6B0B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
