@@ -269,7 +269,6 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
         }
         currentScrap += amount;
-        PlaySFX_ScrapCollect();
         if (currentScrap + amount > maxScrap)
         {
             currentScrap = maxScrap;
