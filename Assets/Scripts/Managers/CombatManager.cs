@@ -12,7 +12,7 @@ public class CombatManager : MonoBehaviour
     public List<EnemyAI> enemies;
     public List<TurretAI> turrets;
     public List<EnemyAI> circlingEnemies;
-    public float enemiesAlive;
+    public int enemiesAlive;
 
     public Transform player;
     public float radiusAroundTarget;
@@ -51,16 +51,15 @@ public class CombatManager : MonoBehaviour
             activatedArea = true;
             StartCoroutine(DoorShut());
 
-            if (enemies != null)
+            if (/*enemies != null || */AliveMuzzlerCount() > 0)
             {
                 other.GetComponent<TargetCams>().AssignTarget(enemies[0].transform, enemies[0].GetComponent<Targetable>().targetPoint, 1, true);
             }
             else if (turrets != null)
             {
                 Debug.Log("no enemies, looking for turret");
-                other.GetComponent<TargetCams>().AssignTarget(turrets[0].transform.GetComponentInChildren<ForceField>().transform, 
-                    turrets[0].transform.GetComponentInChildren<ForceField>().GetComponent<Targetable>().targetPoint, 1, true);
-                Debug.Log(turrets[0].transform.GetComponentInChildren<ForceField>().transform);
+                ForceField ff = turrets[0].GetComponentInChildren<ForceField>(); //find the forcefield of the turret to lock on to
+                other.GetComponent<TargetCams>().AssignTarget(ff.transform, ff.GetComponent<Targetable>().targetPoint, 1, true);
             }
         }
     }
@@ -113,7 +112,7 @@ public class CombatManager : MonoBehaviour
 
     public void StartMuzzlerAI()
     {
-        if (AliveEnemyCount() > 0)
+        if (AliveMuzzlerCount() > 0)
         {
             SelectCircleEnemies();
         }
@@ -126,9 +125,12 @@ public class CombatManager : MonoBehaviour
             StartCombat();
         }
 
-        if (AliveEnemyCount() <= 0 && enemiesAlive <= 0 && combatActive)
+        if (combatActive)
         {
-            EndCombat();
+            if (AliveEnemyCount() <= 0)
+            {
+                EndCombat();
+            }
         }
     }
 
@@ -190,6 +192,17 @@ public class CombatManager : MonoBehaviour
 
     }
 
+    public int AliveMuzzlerCount()
+    {
+        int muzzlerCount = 0;
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (enemies[i].isActiveAndEnabled)
+                muzzlerCount++;
+        }
+        return muzzlerCount;
+    }
+
     public int AliveEnemyCount()
     {
         int muzzlerCount = 0;
@@ -202,12 +215,14 @@ public class CombatManager : MonoBehaviour
         for (int i = 0; i < turrets.Count; i++)
         {
             TurretHealth th = turrets[i].GetComponent<TurretHealth>();
-            if (th.currentHealth <= 0 && !th.hasArmour)
+            if (th.currentHealth > 0 || th.hasArmour)
                 turretCount++;
         }
+        //Debug.Log("muzzlerCount: " + muzzlerCount);
+        //Debug.Log("turretCount: " + turretCount);
 
         enemiesAlive = muzzlerCount + turretCount;
-        return muzzlerCount;
+        return enemiesAlive;
     }
 
     public void EndCombat()

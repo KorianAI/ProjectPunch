@@ -44,17 +44,15 @@ public class ActivateRailMovement : MonoBehaviour
 
     public void Defeated()
     {
-        if (rail != null && railEndPos != null) { rail.transform.DOMove(railEndPos.transform.position, 2f); rail.GetComponentInChildren<Collider>().enabled = true; }
-        if (pad != null && padEndPos != null) { pad.transform.DOMove(padEndPos.transform.position, 2f); pad.GetComponent<Collider>().enabled = true; }
+        if (rail != null && railEndPos != null) { rail.transform.DOMove(railEndPos.transform.position, 1f); rail.GetComponentInChildren<Collider>().enabled = true; }
+        if (pad != null && padEndPos != null) { pad.transform.DOMove(padEndPos.transform.position, 1f); pad.GetComponent<Collider>().enabled = true; }
 
     }
 
     public void ResetCams()
     {
         railCam.gameObject.SetActive(false);
-        ps.tl.freeLook.Priority = 10;
-        ps.tl.targetCam.Priority = 1;
-        ps.tl.ResetTarget();
+        ps.tl.CancelLock();
         ps.cam.canRotate = true;
     }
 }

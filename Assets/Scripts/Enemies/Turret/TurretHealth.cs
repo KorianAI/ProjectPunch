@@ -165,14 +165,14 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
             if (ai.deathFirePoint != null) //set targeting and fire a projectile
             {
                 arm.railCam.gameObject.SetActive(true); //change to cam perspective
-                ai.turretHead.transform.DOLookAt(ai.deathFirePoint.position, 1f); //look at fire point
+                ai.turretHead.transform.DOLookAt(ai.deathFirePoint.position, .5f); //look at fire point
 
-                yield return new WaitForSeconds(1.2f);
+                yield return new WaitForSeconds(.5f);
 
                 ai.targetLine.SetPosition(0, ai.lineStartPos.transform.position);
                 ai.targetLine.SetPosition(1, ai.deathFirePoint.position);
 
-                yield return new WaitForSeconds(1.2f);
+                yield return new WaitForSeconds(.5f);
 
                 GameObject projectileGo = Instantiate(ai.projectile, ai.lineStartPos.transform.position, Quaternion.identity);
                 Vector3 direction = (ai.deathFirePoint.position - ai.lineStartPos.transform.position).normalized;
@@ -180,20 +180,20 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
 
                 ai.enabled = false;
 
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(.6f);
 
                 for (int i = 0; i < 3; i ++)
                 {
                     Instantiate(slamVFX, ai.deathFirePoint.position, Quaternion.identity);
                     RumbleManager.instance.RumblePulse(.10f, .5f, .10f);
-                    yield return new WaitForSeconds(.5f);
+                    yield return new WaitForSeconds(.2f);
                 }
 
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(.2f);
 
                 arm.Defeated();
 
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(1.2f);
 
                 arm.ResetCams();
             }

@@ -174,7 +174,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
             ai.manager.SelectCircleEnemies();
             ai.manager.enemies.Remove(ai);
 
-            if (ai.manager.AliveEnemyCount() <= 0)
+            if (ai.manager.AliveMuzzlerCount() <= 0)
             {
                 PlayerCameraManager.instance.SwitchPlayerCam();
             }

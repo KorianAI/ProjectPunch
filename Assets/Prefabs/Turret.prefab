@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &960049800749393326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6798424841746078170}
+  m_Layer: 7
+  m_Name: AimSightPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6798424841746078170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960049800749393326}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7832604341851742400}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1113146683023801603
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +188,7 @@ Transform:
   - {fileID: 2245324064515377682}
   - {fileID: 8661915496134691313}
   - {fileID: 3562208933005437717}
+  - {fileID: 6798424841746078170}
   - {fileID: 2219192966082162254}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -239,7 +271,7 @@ MonoBehaviour:
   audioManager: {fileID: 0}
   forceField: {fileID: 490364067685017920}
   inAttackRange: 0
-  sightRangePos: {fileID: 0}
+  sightRangePos: {fileID: 6798424841746078170}
   sightRange: 31
   debugState: 
   turretHead: {fileID: 8666098425340439825}
