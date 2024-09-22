@@ -263,7 +263,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
     {
         if (amount > 0 )
         {
-            SFXPlay_ScrapCollect();
+            PlaySFX_ScrapCollect();
             scrapDecrease = false;
             StopAllCoroutines();
             StartCoroutine("ResetScrapDecrease");
