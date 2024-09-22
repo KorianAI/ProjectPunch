@@ -14,7 +14,10 @@ public class ShaderWarmup : MonoBehaviour
 
     void Start()
     {
-        heatDistortion.SetActive(true);
+        if (heatDistortion != null)
+        {
+            heatDistortion.SetActive(true);
+        }
 
         foreach (VisualEffect ve in vfx)
         {

@@ -139,6 +139,7 @@ public class Nailgun : Attachment
         Vector3 startPos = trail.transform.position;
         while (time < 1)
         {
+            if (trail == null) { break; }
             trail.transform.position = Vector3.Lerp(startPos, enemy, time);
             time += Time.deltaTime / trail.time;
             yield return null;
