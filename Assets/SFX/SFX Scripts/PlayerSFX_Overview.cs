@@ -44,6 +44,13 @@ public class PlayerSFX_Overview : MonoBehaviour
     bool overdriveActive = false;
     bool overdriveOutroPlayed = true;
 
+    public AK.Wwise.Event playSFX_ScrapCollect;
+    public AK.Wwise.Event playSFX_ScrollCollect;
+
+    public AK.Wwise.Event playSFX_Kaila_LockOn;
+    public AK.Wwise.Event playSFX_Kaila_LockOff;
+
+    public AK.Wwise.Event playSFX_Rail;
 
     private void Start()
     {
@@ -76,7 +83,6 @@ public class PlayerSFX_Overview : MonoBehaviour
         else
         {
             playSFX_BFG_swing.Post(gameObject);
-            Debug.Log("Playing sound");
         }
     }
 
@@ -108,7 +114,6 @@ public class PlayerSFX_Overview : MonoBehaviour
         else
         {
             playSFX_BFG_impact.Post(gameObject);
-            Debug.Log("Playing sound");
         }
     }
 
@@ -131,7 +136,7 @@ public class PlayerSFX_Overview : MonoBehaviour
                 playSFX_RS_overdriveoutro.Post(gameObject);
                 overdriveOutroPlayed = true;
             }
-           
+
         }
 
     }
@@ -146,7 +151,7 @@ public class PlayerSFX_Overview : MonoBehaviour
         else
         {
             playSFX_RS_on.Post(gameObject);
-            Debug.Log("Playing sound");
+ 
         }
     }
 
@@ -190,7 +195,7 @@ public class PlayerSFX_Overview : MonoBehaviour
         else
         {
             playSFX_dash.Post(gameObject);
-            Debug.Log("Playing sound");
+
         }
     }
 
@@ -207,5 +212,30 @@ public class PlayerSFX_Overview : MonoBehaviour
     public void SFX_Pull()
     {
         playSFX_pull.Post(gameObject);
+    }
+
+    public void SFX_ScrapCollect()
+    {
+        playSFX_ScrapCollect.Post(gameObject);
+    }
+
+    public void SFX_ScrollCollect()
+    {
+        playSFX_ScrollCollect.Post(gameObject);
+    }
+
+    public void SFX_Kaila_LockOn()
+    {
+        playSFX_Kaila_LockOn.Post(gameObject);
+    }
+
+    public void SFX_Kaila_LockOff()
+    {
+        playSFX_Kaila_LockOff.Post(gameObject);
+    }
+
+    public void SFX_Rail()
+    {
+        playSFX_Rail.Post(gameObject);
     }
 }
