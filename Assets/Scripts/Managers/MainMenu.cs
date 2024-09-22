@@ -10,14 +10,28 @@ public class MainMenu : MonoBehaviour
     
     private void Start()
     {
-        loading.SetActive(false);
+        if (loading != null)
+        {
+            loading.SetActive(false);
+        }
         Time.timeScale = 1;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Alpha1) && Input.GetKey(KeyCode.Alpha0))
+        {
+            ChangeScene(3);
+        }
     }
 
     public void ChangeScene(int sceneId)
     {
         //make the screen fade to black first
-        loading.SetActive(true);
+        if (loading != null)
+        {
+            loading.SetActive(true);
+        }
 
         StartCoroutine(Load(sceneId));
     }    

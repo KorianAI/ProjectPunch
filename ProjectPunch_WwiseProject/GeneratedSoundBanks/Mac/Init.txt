@@ -22,6 +22,7 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 	3967235860	General_SFX_Bus			\Default Work Unit\Master Audio Bus\SFX Bus\General_SFX_Bus	
 	4083411863	Combat 1 Section A Music Bus			\Default Work Unit\Master Audio Bus\Master Music Bus\Combat 1 Section A Music Bus	
+	4202237879	Ambience Bus			\Default Work Unit\Master Audio Bus\SFX Bus\Ambience Bus	
 
 Effect plug-ins	ID	Name	Type				Notes
 	14895759	Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)	Wwise Peak Limiter			

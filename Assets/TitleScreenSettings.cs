@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TitleScreenSettings : MonoBehaviour
 {
-    [Header("Settings UI")]
-    public GameObject UI;
-    public bool uiActive = false;
-
     [Header("Intro")]
     public GameObject introVidObj;
 
@@ -21,17 +18,21 @@ public class TitleScreenSettings : MonoBehaviour
         }
     }
 
-    public void ToggleUI()
+    public void ToggleUI(GameObject ui)
     {
-        if (uiActive)
+        if (ui.activeInHierarchy)
         {
-            uiActive = false;
-            UI.SetActive(false);
+            ui.SetActive(false);
         }
         else
         {
-            uiActive = true;
-            UI.SetActive(true);
+            ui.SetActive(true);
         }
+    }
+
+    public void SelectButton(GameObject selected)
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(selected);
     }
 }

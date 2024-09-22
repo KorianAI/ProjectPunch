@@ -345,8 +345,39 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="SFXPlay_LockON" ID="{13EA3F3F-A610-4D54-9A28-A255589E035F}"/>
-						<Event Name="SFXPlay_LockOFF" ID="{1B630011-B76F-4B95-BAD0-218717F54DF9}"/>
+						<Event Name="SFXPlay_LockON" ID="{13EA3F3F-A610-4D54-9A28-A255589E035F}">
+							<ChildrenList>
+								<Action Name="" ID="{E25A9157-E778-49E8-BD4A-7653EAEBAC1B}" ShortID="563112343">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="LockOn" ID="{863160C2-D085-4529-8BF8-AB861C531D1B}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFXPlay_LockOFF" ID="{1B630011-B76F-4B95-BAD0-218717F54DF9}">
+							<ChildrenList>
+								<Action Name="" ID="{3B100052-8031-4F8C-9362-B137F71F9250}" ShortID="606801671">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="LockOff" ID="{D23FD878-5288-42CE-AF57-8BBA6FF73537}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFXPlay_ScrollCollect" ID="{D9D1B86B-6ADA-4842-A747-5D68C1878E15}">
+							<ChildrenList>
+								<Action Name="" ID="{D8C13AAF-E9E6-42C3-B917-5C54ADDAAC90}" ShortID="645147434">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scroll_Pickup" ID="{DA308378-2759-4B26-9462-C089305324D7}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI SFX" ID="{17E65E8C-A766-4B9B-A493-1329A31676BC}" ShortID="31012271">
@@ -425,6 +456,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="AmbiencePlay_DesertWind" ID="{9D11791A-F692-4CB4-B54C-73AD0E555DF4}">
+							<ChildrenList>
+								<Action Name="" ID="{BB603222-7037-4F0C-842B-66F196354090}" ShortID="416603234">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Desert_Wind" ID="{03399055-7130-48DB-8585-85CA68A87407}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFXPlay_GateClose" ID="{6AC2BE7A-4FD1-484E-AEB5-B929A7246708}">
+							<ChildrenList>
+								<Action Name="" ID="{EDC66569-0DC5-491B-B3DA-2ACEB83C8DC9}" ShortID="822069606">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Door_Close" ID="{18150D13-98A4-4863-A589-11987C54ADDB}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Muzzler SFX" ID="{8B7118D2-7FB1-4718-9BFD-91E87CB948BC}" ShortID="1031829945">
@@ -456,6 +509,44 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Turret_LockOn" ID="{8ABD0243-E9F0-43BF-8BC2-7FD7312E3262}">
+							<ChildrenList>
+								<Action Name="" ID="{825F734C-0E38-4C92-92D9-87E829B337C8}" ShortID="766921168">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Turret_LockOn" ID="{0F0CA8B0-B2E6-43E2-AABF-E4EF160BEB32}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Cashmere SFX" ID="{08984348-C919-47A1-BB3D-C1FF9467A432}" ShortID="202750400">
+					<ChildrenList>
+						<Event Name="SFXPlay_CashmereScrapVolley" ID="{B6643C38-7C0A-4F80-BCC4-5306BBE7C0C0}">
+							<ChildrenList>
+								<Action Name="" ID="{F65198D3-ABA1-45EE-A2D9-61D5A748BCA0}" ShortID="884501207">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Cashmere_VolleyShoot" ID="{0FD528EF-B365-41D1-8BD4-BCDFBAE3ED9D}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFXPlay_CashmereScrapGather" ID="{0AA284DC-181A-4343-ACA2-1E3C98A7807B}">
+							<ChildrenList>
+								<Action Name="" ID="{898C286B-D990-4A81-8771-CFF6C32E037B}" ShortID="145207788">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Cashmere_VolleyBuild" ID="{21FDC808-A95C-4628-B38D-FDF10C8272DE}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFXPlay_CashmereShockwave" ID="{F321BC92-2915-4278-9BD9-E4C1565162F7}"/>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID AMBIENCEPLAY_DESERTWIND = 2897981775U;
         static const AkUniqueID BUTTON = 977454165U;
         static const AkUniqueID COMBAT = 2764240573U;
         static const AkUniqueID EXPLORE = 579523862U;
@@ -26,7 +27,11 @@ namespace AK
         static const AkUniqueID SFXPLAY_BFGSWING = 926756856U;
         static const AkUniqueID SFXPLAY_BFGUPPERCUT = 4007672374U;
         static const AkUniqueID SFXPLAY_BOUNCEPAD = 1214613434U;
+        static const AkUniqueID SFXPLAY_CASHMERESCRAPGATHER = 1983788571U;
+        static const AkUniqueID SFXPLAY_CASHMERESCRAPVOLLEY = 778505933U;
+        static const AkUniqueID SFXPLAY_CASHMERESHOCKWAVE = 1699861256U;
         static const AkUniqueID SFXPLAY_FOOTSTEPSGROUND = 3800919789U;
+        static const AkUniqueID SFXPLAY_GATECLOSE = 183217430U;
         static const AkUniqueID SFXPLAY_JUMP = 3879440547U;
         static const AkUniqueID SFXPLAY_LAND = 3246930752U;
         static const AkUniqueID SFXPLAY_LOCKOFF = 3871747721U;
@@ -46,6 +51,9 @@ namespace AK
         static const AkUniqueID SFXPLAY_RS_SLAMSHOCKWAVE = 4164504207U;
         static const AkUniqueID SFXPLAY_RS_SLAMSHOCKWAVE_OVERDRIVE = 1103899084U;
         static const AkUniqueID SFXPLAY_SCRAPCOLLECT = 2268775144U;
+        static const AkUniqueID SFXPLAY_SCROLLCOLLECT = 2537608006U;
+        static const AkUniqueID SFXPLAY_TURRET_LOCKON = 2095233026U;
+        static const AkUniqueID SFXPLAY_TURRETDEFEATEDAMBIENCE = 1647204779U;
         static const AkUniqueID SFXPLAY_TURRETFIRE = 1220918693U;
         static const AkUniqueID SFXPLAY_TURRETHIT = 3945781932U;
     } // namespace EVENTS
@@ -96,6 +104,7 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID AMBIENCE_BUS = 4202237879U;
         static const AkUniqueID CASHMERE_SFX_BUS = 1908967618U;
         static const AkUniqueID COMBAT_1_SECTION_A_MUSIC_BUS = 4083411863U;
         static const AkUniqueID COMBAT_1_SECTION_B_MUSIC_BUS = 2199471764U;
