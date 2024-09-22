@@ -85,6 +85,7 @@ public class CombatManager : MonoBehaviour
     {
         combatActive = true;
         MusicManager.instance.fighting = true;
+        PlayerStateManager.instance.resources.ChangeGauntlets(1);
 
         if (combatStartAnim != null && playCombatStartAnim)
         {
@@ -205,6 +206,7 @@ public class CombatManager : MonoBehaviour
         Debug.Log("combat ended");
         combatActive = false;
         MusicManager.instance.fighting = false;
+        PlayerStateManager.instance.resources.ChangeGauntlets(4);
         exitDoorOpen.Play();
 
         if (playEndTut && requiredEndTut != null && !GameSettings.instance.skipTutorials)
