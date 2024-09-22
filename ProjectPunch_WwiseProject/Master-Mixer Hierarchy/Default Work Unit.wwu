@@ -18,10 +18,35 @@
 								<Bus Name="Kaila_SFX_Bus" ID="{94588F36-3B64-47F5-A959-8D4A266D8C99}"/>
 								<Bus Name="Cashmere_SFX_Bus" ID="{6ECA826F-B451-4803-B54B-1616931914C2}"/>
 								<Bus Name="Muzzler_SFX_Bus" ID="{AE6F898E-7DC2-4CC6-BBD9-E9C25A945477}"/>
-								<Bus Name="Turret_SFX_Bus" ID="{CBBEDDA6-A820-4B1D-B562-A8EA911CCB97}"/>
+								<Bus Name="Turret_SFX_Bus" ID="{CBBEDDA6-A820-4B1D-B562-A8EA911CCB97}">
+									<ObjectLists>
+										<ObjectList Name="Effects">
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{04FD47FB-AFB5-417D-94BD-A044CA9CF878}" ShortID="963234285">
+														<ReferenceList>
+															<Reference Name="Effect" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+																<ObjectRef Name="Bathroom1" ID="{1969D30F-C165-45C0-B290-DE3ED07A7AA3}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</Bus>
 								<Bus Name="UI_SFX_Bus" ID="{C644EB36-91AA-49EE-8A2B-B1CA746EFFE1}"/>
 								<Bus Name="Environment_SFX_Bus" ID="{A121C1FF-C4D4-4294-9146-DF12D4662C03}"/>
 								<Bus Name="General_SFX_Bus" ID="{A952B19F-C3AB-4D9A-96AD-E4103503F176}"/>
+								<Bus Name="Ambience Bus" ID="{85E0F6F3-5CA8-4EB9-B4BB-01CC86500AD6}">
+									<PropertyList>
+										<Property Name="BusVolume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
 							</ChildrenList>
 							<ObjectLists>
 								<ObjectList Name="Effects">
