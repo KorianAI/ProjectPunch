@@ -161,6 +161,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
     {
         if (on)
         {
+            MusicOverview.instance.Music_ScrapShift();
             scrapShift = true;
             scrapDecrease = true;
             scrapDecreaseTimer = scrapDecreaseCooldown;

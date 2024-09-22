@@ -7,18 +7,41 @@ public class MusicOverview : MonoBehaviour
 
 
     PlayerResources pr;
+    CombatManager ca;
+    MusicManager bt;
+
+    public static MusicOverview instance;
+
+
     [Header("Explore")]
     public AK.Wwise.Event playMusic_Explore;
     [Header("Combat 1")]
     public AK.Wwise.Event playMusic_Combat1;
     [Header("Scrap Shift")]
     public AK.Wwise.Event playMusic_ScrapShift;
+    [Header("Boss")]
+    public AK.Wwise.Event playMusic_Boss;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         pr = GetComponent<PlayerResources>();
-        MusicStates();
+        MusicStart();
+
+        ca = GetComponent<CombatManager>();
+        bt = GetComponent<MusicManager>();
     }
 
     public void Music_Explore()
@@ -36,18 +59,15 @@ public class MusicOverview : MonoBehaviour
         playMusic_ScrapShift.Post(gameObject);
     }
 
-    public void MusicStates()
+    public void Music_Boss()
     {
-        if (pr.scrapShift)
-        {
-            Music_ScrapShift();
-        }
+        playMusic_Boss.Post(gameObject);
+    }
 
-        else
-        {
-            Music_Explore();
-        }
+    public void MusicStart()
+    {
 
+        Music_Explore();
     }
 
 
