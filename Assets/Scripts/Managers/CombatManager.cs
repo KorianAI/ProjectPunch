@@ -25,7 +25,7 @@ public class CombatManager : MonoBehaviour
     [Header("Doors")]
     public Animation entranceDoorOpen;
     public CinemachineVirtualCamera entranceDoorCam;
-    bool playedOpen = false;
+    bool activatedArea = false;
 
     public CinemachineVirtualCamera enemyCam;
 
@@ -46,19 +46,29 @@ public class CombatManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {       
-        if (other.gameObject.CompareTag("Player") == true && !playedOpen)
+        if (other.gameObject.CompareTag("Player") == true && !activatedArea)
         {
-            playedOpen = true;
+            activatedArea = true;
             StartCoroutine(DoorShut());
 
-            other.GetComponent<TargetCams>().AssignTarget(enemies[0].transform, enemies[0].GetComponent<Targetable>().targetPoint, 1, true);
+            if (enemies != null)
+            {
+                other.GetComponent<TargetCams>().AssignTarget(enemies[0].transform, enemies[0].GetComponent<Targetable>().targetPoint, 1, true);
+            }
+            else if (turrets != null)
+            {
+                Debug.Log("no enemies, looking for turret");
+                other.GetComponent<TargetCams>().AssignTarget(turrets[0].transform.GetComponentInChildren<ForceField>().transform, 
+                    turrets[0].transform.GetComponentInChildren<ForceField>().GetComponent<Targetable>().targetPoint, 1, true);
+                Debug.Log(turrets[0].transform.GetComponentInChildren<ForceField>().transform);
+            }
         }
     }
 
     public IEnumerator DoorShut()
     {
         //CameraManager.SwitchNonPlayerCam(entranceDoorCam); //door cam
-        entranceDoorOpen.Play();
+        //entranceDoorOpen.Play();
 
         //yield return new WaitForSecondsRealtime(4);
 
@@ -90,7 +100,6 @@ public class CombatManager : MonoBehaviour
         if (combatStartAnim != null && playCombatStartAnim)
         {
             combatStartAnim.Play();
-            Debug.Log("fightstart anim");
         }
 
         foreach (EnemyAI e in enemies)

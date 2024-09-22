@@ -104,18 +104,26 @@ public class TurretAI : MonoBehaviour
     private void FixedUpdate()
     {
         currentState.PhysicsUpdate(this);
-
-        if (locked)
+        if (!dead)
         {
-            UpdateLinePoints();
-            targetLine.enabled = true;
-            dotInstance.SetActive(true);
-        }
-        else
-        {
-            targetLine.enabled = false;
-            dotInstance.SetActive(false);
-            chargeVFX.SetActive(false);
+            if (locked)
+            {
+                UpdateLinePoints();
+                targetLine.enabled = true;
+                if (dotInstance != null)
+                {
+                    dotInstance.SetActive(true);
+                }
+            }
+            else
+            {
+                targetLine.enabled = false;
+                if (dotInstance != null)
+                {
+                    dotInstance.SetActive(false);
+                }
+                chargeVFX.SetActive(false);
+            }
         }
     }
 
