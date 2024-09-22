@@ -52,6 +52,9 @@ public class TargetCams : MonoBehaviour
     public float cooldownTimer = 1f;
     public float mouseThreshhold = 3f;
 
+    public AK.Wwise.Event playSFX_LockOn;
+    public AK.Wwise.Event playSFX_LockOff;
+
     private void OnEnable()
     {
         input.action.performed += TargetLockInput;
@@ -146,6 +149,7 @@ public class TargetCams : MonoBehaviour
         targetable.SetColor();
         targetPoint = point;
         isTargeting = true;
+        PlaySFX_LockOn();
         targetGroup.AddMember(point, weight, 0);
 
         if (currentTarget.GetComponent<ITargeted>() != null)
@@ -497,6 +501,7 @@ public class TargetCams : MonoBehaviour
     {
         ResetTarget();
 
+        PlaySFX_LockOff();
         //swap to freelook cam
         freeLook.Priority = 10;
         targetCam.Priority = 1;
@@ -507,4 +512,14 @@ public class TargetCams : MonoBehaviour
         float dist = Vector3.Distance(transform.position, currentTarget.transform.position);
         return dist;
     }
+
+    public void PlaySFX_LockOn()
+    {
+        playSFX_LockOn.Post(gameObject);
+    }
+    public void PlaySFX_LockOff()
+    {
+        playSFX_LockOff.Post(gameObject);
+    }
+
 }

@@ -71,6 +71,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public GameObject overdriveUI;
 
+    public AK.Wwise.Event playSFX_ScrapCollect;
+
     private void OnEnable()
     {
         CameraManager.RegisterPC(scrapCam);
@@ -267,6 +269,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
         }
         currentScrap += amount;
+        PlaySFX_ScrapCollect();
         if (currentScrap + amount > maxScrap)
         {
             currentScrap = maxScrap;
@@ -417,5 +420,10 @@ public class PlayerResources : MonoBehaviour, IDamageable
     void DamageEffect()
     {
         abbIntensityLastTime = Time.realtimeSinceStartup;
+    }
+
+    public void PlaySFX_ScrapCollect()
+    {
+        playSFX_ScrapCollect.Post(gameObject);
     }
 }

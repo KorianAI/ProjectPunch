@@ -21,6 +21,9 @@ public class ScrollSingle : MonoBehaviour
     public float rotFreq = .5f;
     public float rotAmt = 1f;
 
+    [Header("Scroll SFX")]
+    public AK.Wwise.Event playSFX_ScrollCollect;
+
     void Start()
     {
         manager = GameObject.Find("UnlocksManager").GetComponent<UnlocksManager>();
@@ -32,6 +35,7 @@ public class ScrollSingle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            SFXPlay_ScrollCollect();
             manager.UnlockScroll(scrollNo);
             //vfx, sfx
 
@@ -45,5 +49,10 @@ public class ScrollSingle : MonoBehaviour
     {
         transform.position = new Vector3(initPos.x, Mathf.Sin(Time.time * moveFreq) * moveAmp + initPos.y, initPos.z);
         transform.rotation = new Quaternion(0, Mathf.Sin(Time.time * rotFreq) * rotAmp, 0, rotAmt);
+    }
+
+    public void SFXPlay_ScrollCollect()
+    {
+        playSFX_ScrollCollect.Post(gameObject);
     }
 }
