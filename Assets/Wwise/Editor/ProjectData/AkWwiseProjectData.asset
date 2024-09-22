@@ -38,8 +38,29 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584749544034365996
+    m_lastTime: -8584745783154775808
     List:
+    - name: Ambience Bus
+      guid: f3f6e085a85cb94eb4bb01cc86500ad6
+      id: 4202237879
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f4b11d01547f8a4b9b37253758b8a136
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX Bus
+        ObjectType: 2
+        guid: 63be67e177dee042b043abb45c1bb91d
+      - ElementName: Ambience Bus
+        ObjectType: 2
+        guid: f3f6e085a85cb94eb4bb01cc86500ad6
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX Bus\Ambience
+        Bus
     - name: Cashmere_SFX_Bus
       guid: 6f82ca6e51b40348b54b1616931914c2
       id: 1908967618
@@ -367,8 +388,28 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584746095015302714
+    m_lastTime: -8584745783154775808
     List:
+    - name: AmbiencePlay_DesertWind
+      guid: 1a79119d92f6b44cb54c73ad0e555df4
+      id: 2897981775
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Environment SFX
+        ObjectType: 4
+        guid: bd4dae74febd4149b2defdaab422d08e
+      - ElementName: AmbiencePlay_DesertWind
+        ObjectType: 3
+        guid: 1a79119d92f6b44cb54c73ad0e555df4
+      Path: Events\Default Work Unit\Environment SFX\AmbiencePlay_DesertWind
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Button
       guid: 185d8f2814151a42aafea8c406b33566
       id: 977454165
@@ -389,6 +430,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.4
       minDuration: 0.4
+    - name: Cashmere SFX
+      guid: 4843980819c9a147bb3dc1ff9467a432
+      id: 790982772
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Cashmere SFX
+        ObjectType: 4
+        guid: 4843980819c9a147bb3dc1ff9467a432
+      Path: Events\Default Work Unit\Cashmere SFX
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Combat
       guid: 02e504d97a7a9c48a1a1ad81c57c023d
       id: 2764240573
@@ -829,6 +887,66 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 3.4687529
       minDuration: 3.4687529
+    - name: SFXPlay_CashmereScrapGather
+      guid: dc84a20a1a184343aca21e3c98a7807b
+      id: 1983788571
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Cashmere SFX
+        ObjectType: 4
+        guid: 4843980819c9a147bb3dc1ff9467a432
+      - ElementName: SFXPlay_CashmereScrapGather
+        ObjectType: 3
+        guid: dc84a20a1a184343aca21e3c98a7807b
+      Path: Events\Default Work Unit\Cashmere SFX\SFXPlay_CashmereScrapGather
+      maxAttenuation: 0
+      maxDuration: 3.254911
+      minDuration: 2.5834246
+    - name: SFXPlay_CashmereScrapVolley
+      guid: 383c64b60a7c804fbcc45306bbe7c0c0
+      id: 778505933
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Cashmere SFX
+        ObjectType: 4
+        guid: 4843980819c9a147bb3dc1ff9467a432
+      - ElementName: SFXPlay_CashmereScrapVolley
+        ObjectType: 3
+        guid: 383c64b60a7c804fbcc45306bbe7c0c0
+      Path: Events\Default Work Unit\Cashmere SFX\SFXPlay_CashmereScrapVolley
+      maxAttenuation: 0
+      maxDuration: 2.4411895
+      minDuration: 1.9375733
+    - name: SFXPlay_CashmereShockwave
+      guid: 92bc21f3152978429bd9e4c1565162f7
+      id: 1699861256
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Cashmere SFX
+        ObjectType: 4
+        guid: 4843980819c9a147bb3dc1ff9467a432
+      - ElementName: SFXPlay_CashmereShockwave
+        ObjectType: 3
+        guid: 92bc21f3152978429bd9e4c1565162f7
+      Path: Events\Default Work Unit\Cashmere SFX\SFXPlay_CashmereShockwave
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: SFXPlay_FootstepsGround
       guid: 45a0045e0f6d0b499e62e4b990d7cc90
       id: 3800919789
@@ -852,6 +970,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.7826113
       minDuration: 0.49301422
+    - name: SFXPlay_GateClose
+      guid: 7abec26ad14f4e48aeb5b929a7246708
+      id: 183217430
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Environment SFX
+        ObjectType: 4
+        guid: bd4dae74febd4149b2defdaab422d08e
+      - ElementName: SFXPlay_GateClose
+        ObjectType: 3
+        guid: 7abec26ad14f4e48aeb5b929a7246708
+      Path: Events\Default Work Unit\Environment SFX\SFXPlay_GateClose
+      maxAttenuation: 0
+      maxDuration: 2.1875057
+      minDuration: 2.1875057
     - name: SFXPlay_Jump
       guid: c746550e3cf4314cb937d618d333c99f
       id: 3879440547
@@ -916,8 +1054,8 @@ MonoBehaviour:
         guid: 1100631b6fb7954bbad0218717f54df9
       Path: Events\Default Work Unit\General SFX\SFXPlay_LockOFF
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 2
+      minDuration: 2
     - name: SFXPlay_LockON
       guid: 3f3fea1310a6544d9a28a255589e035f
       id: 1931077309
@@ -936,8 +1074,8 @@ MonoBehaviour:
         guid: 3f3fea1310a6544d9a28a255589e035f
       Path: Events\Default Work Unit\General SFX\SFXPlay_LockON
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 0.7158704
+      minDuration: 0.6954909
     - name: SFXPlay_MuzzlerKick
       guid: b29b6f5012203b47b4e2d16d157946b2
       id: 2735510120
@@ -1065,8 +1203,8 @@ MonoBehaviour:
         guid: d85bb433a23f694ba6a6ba1a4505b629
       Path: Events\Default Work Unit\Push Pull SFX\SFXPlay_Pull
       maxAttenuation: 0
-      maxDuration: 1.192635
-      minDuration: 0.9465951
+      maxDuration: 1.227582
+      minDuration: 0.97433245
     - name: SFXPlay_Push
       guid: 1e0bb97cf82921469797e5599a61adeb
       id: 2062786315
@@ -1085,8 +1223,8 @@ MonoBehaviour:
         guid: 1e0bb97cf82921469797e5599a61adeb
       Path: Events\Default Work Unit\Push Pull SFX\SFXPlay_Push
       maxAttenuation: 0
-      maxDuration: 1.192635
-      minDuration: 0.9465951
+      maxDuration: 1.227582
+      minDuration: 0.97433245
     - name: SFXPlay_Rail
       guid: 7bb8a221953fe5468385a3ada19af7a7
       id: 1777383567
@@ -1265,6 +1403,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.4188825
       minDuration: 1.1261678
+    - name: SFXPlay_ScrollCollect
+      guid: 6bb8d1d9da6a4248a7475d68c1878e15
+      id: 2537608006
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: General SFX
+        ObjectType: 4
+        guid: 15186afaa6983f48ae4b2de2e88a29a9
+      - ElementName: SFXPlay_ScrollCollect
+        ObjectType: 3
+        guid: 6bb8d1d9da6a4248a7475d68c1878e15
+      Path: Events\Default Work Unit\General SFX\SFXPlay_ScrollCollect
+      maxAttenuation: 0
+      maxDuration: 2.2523582
+      minDuration: 2.2523582
     - name: SFXPlay_TurretFire
       guid: a836243a7394fa4a89975a256c575502
       id: 1220918693
@@ -1319,6 +1477,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: b9cde675ae476c4fac1cabe63e89be16
       Path: Events\Default Work Unit\Turret SFX
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Turret_LockOn
+      guid: 4302bd8af0e9bf438bc27fd7312e3262
+      id: 2643404200
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Turret SFX
+        ObjectType: 4
+        guid: b9cde675ae476c4fac1cabe63e89be16
+      - ElementName: Turret_LockOn
+        ObjectType: 3
+        guid: 4302bd8af0e9bf438bc27fd7312e3262
+      Path: Events\Default Work Unit\Turret SFX\Turret_LockOn
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
