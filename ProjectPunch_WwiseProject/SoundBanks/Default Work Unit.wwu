@@ -8,6 +8,7 @@
 						<ObjectRef Name="Kaila SFX" ID="{2DC713A0-EA86-4010-8449-FA7E31BE1EA1}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Push Pull SFX" ID="{D8643215-83CB-429B-86C5-BB395E3D40BA}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Muzzler SFX" ID="{8B7118D2-7FB1-4718-9BFD-91E87CB948BC}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Cashmere SFX" ID="{08984348-C919-47A1-BB3D-C1FF9467A432}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="General SFX" ID="{FA6A1815-98A6-483F-AE4B-2DE2E88A29A9}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Environment SFX" ID="{74AE4DBD-BDFE-4941-B2DE-FDAAB422D08E}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Environment SFX" ID="{3819063C-3619-49CC-A370-25C0B935D2B5}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}" Origin="Manual" Filter="7"/>

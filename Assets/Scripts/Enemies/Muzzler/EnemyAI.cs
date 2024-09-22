@@ -132,6 +132,7 @@ public class EnemyAI : MonoBehaviour
         foreach (Collider c in enemies)
         {
             c.GetComponent<IDamageable>().TakeDamage(enemy.stats.damage);
+            EnemySFX.instance.SFX_MuzzlerKick();
             GameObject hitVFX = Instantiate(enemy.hitVFX, enemy.attackPoint);
             //c.GetComponent<IKnockback>().Knockback(1.5f, orientation);
             //RumbleManager.instance.RumblePulse(.25f, 1f, .25f);

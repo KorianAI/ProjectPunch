@@ -104,6 +104,7 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
             else
             {
                 currentHealth -= damage;
+                EnemySFX.instance.SFX_TurretHit();
                 healthBar.currentValue = currentHealth;
                 healthBar.DrawSlots();
             }
@@ -141,6 +142,7 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
         sm.tl.CancelLock();
         healthBars.HideBars();
         smokevfx.Play();
+        EnemySFX.instance.SFX_TurretDestroyed();
 
         ai.SwitchState(new TurretDead());
         healthBar.gameObject.SetActive(false);

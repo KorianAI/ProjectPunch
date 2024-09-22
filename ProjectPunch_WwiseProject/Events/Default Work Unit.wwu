@@ -509,12 +509,30 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Turret_LockOn" ID="{8ABD0243-E9F0-43BF-8BC2-7FD7312E3262}">
+						<Event Name="SFXPlay_Turret_LockOn" ID="{8ABD0243-E9F0-43BF-8BC2-7FD7312E3262}">
 							<ChildrenList>
 								<Action Name="" ID="{825F734C-0E38-4C92-92D9-87E829B337C8}" ShortID="766921168">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Turret_LockOn" ID="{0F0CA8B0-B2E6-43E2-AABF-E4EF160BEB32}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFXPlay_TurretDefeatedAmbience" ID="{ADF79D2A-06F9-4BBC-A4FA-FF612B9C1DEB}">
+							<ChildrenList>
+								<Action Name="" ID="{84543E8C-8628-4FAE-9230-6853E3085D5D}" ShortID="104796389">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Turret_Explosion" ID="{C1CEA44C-42F1-424C-92E3-0A69B82B5CC4}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{5D061AD7-8A4F-431E-B011-D87EB8CCE310}" ShortID="1050765768">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Turret_DefeatedAmbience" ID="{05760605-C646-4852-A21D-1C56D302F500}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

@@ -73,6 +73,7 @@ public class TurretAI : MonoBehaviour
     public Transform deathFirePoint;
     public bool dead = false;
 
+
     private void Start()
     {
         playerPos = PlayerStateManager.instance.gameObject;
@@ -192,6 +193,7 @@ public class TurretAI : MonoBehaviour
     public IEnumerator FireCountdown()
     {
         chargeVFX.SetActive(true);
+        EnemySFX.instance.SFX_TurretLockOn();
         flashInterval = flashIntervalLength;
 
         yield return new WaitForSeconds(fireTimer /2); //changes some vfx after half the countdown
@@ -253,6 +255,7 @@ public class TurretAI : MonoBehaviour
     public void InstantiateProjectile()
     {
         fired = true;
+        EnemySFX.instance.SFX_TurretFire();
         GameObject projectileGo = Instantiate(projectile, projSpawnPoint.transform.position, Quaternion.identity);
         Vector3 direction = (playerPos.transform.position - projSpawnPoint.transform.position).normalized;
         projectileGo.GetComponent<Rigidbody>().velocity = direction * projectileForce;
