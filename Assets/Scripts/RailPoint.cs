@@ -139,19 +139,25 @@ public class RailPoint : MonoBehaviour, IMagnetisable
             ps.SwitchState(new PlayerRailExit());
         }
 
-        if (doSplineAnyway)
-        {
-            ps.splineFollower.enabled = true;
-            ps.splineFollower.spline = flipSpline;
-            ps.splineFollower.Restart();
-            ps.SwitchState(new PlayerRailExit());
-        }
+
 
         else
         {
-            ps.SwitchState(new PlayerAirState());
-            ps.anim.SetBool("onRail", false);
-            ps.anim.Play("PlayerInAir");
+            if (doSplineAnyway)
+            {
+                ps.splineFollower.enabled = true;
+                ps.splineFollower.spline = flipSpline;
+                ps.splineFollower.Restart();
+                ps.SwitchState(new PlayerRailExit());
+            }
+
+            else
+            {
+                ps.SwitchState(new PlayerAirState());
+                ps.anim.SetBool("onRail", false);
+                ps.anim.Play("PlayerInAir");
+            }
+
         }
 
         ps.cam.canRotate = true;
