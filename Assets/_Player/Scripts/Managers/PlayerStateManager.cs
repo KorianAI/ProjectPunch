@@ -135,6 +135,11 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     {      
         currentState.FrameUpdate(this);
         currentStateDebug = currentState.ToSafeString();
+
+        if (Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            SwitchState(new PlayerIdleState());
+        }
     }
 
     private void FixedUpdate()

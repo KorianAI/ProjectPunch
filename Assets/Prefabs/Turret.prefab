@@ -237,7 +237,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   audioManager: {fileID: 0}
   inAttackRange: 0
-  sightRange: 43
+  sightRangePos: {fileID: 0}
+  sightRange: 31
   debugState: 
   turretHead: {fileID: 8666098425340439825}
   lookPos1: {fileID: 8661915496134691313}
@@ -263,7 +264,7 @@ MonoBehaviour:
   projSpawnPoint: {fileID: 2595890750297649167}
   fireTimer: 5
   projectile: {fileID: 5312538058843018837, guid: 940f7d04b209c84408c3b5b7d7b7fb5c, type: 3}
-  projectileForce: 80
+  projectileForce: 50
   chargeVFX: {fileID: 7820714452534652020}
   fireVFX: {fileID: 1763267414217867146}
   deathFirePoint: {fileID: 0}

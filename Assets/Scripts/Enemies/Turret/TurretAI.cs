@@ -18,6 +18,7 @@ public class TurretAI : MonoBehaviour
 
     [Header("Conditions")]
     public bool inAttackRange;
+    public Transform sightRangePos;
     public float sightRange = 35f;
 
     public string debugState;
@@ -118,7 +119,9 @@ public class TurretAI : MonoBehaviour
     {
         if (!dead)
         {
-            inAttackRange = Physics.CheckSphere(transform.position, sightRange, info.whatIsPlayer);
+            Transform t = null;
+            if (sightRangePos) { t = sightRangePos; } else { t = transform; }
+            inAttackRange = Physics.CheckSphere(t.position, sightRange, info.whatIsPlayer);
             return inAttackRange;
         }
         else
@@ -130,7 +133,9 @@ public class TurretAI : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(info.transform.position, sightRange);
+        Transform t = null;
+        if (sightRangePos) { t = sightRangePos; } else { t = transform; }
+        Gizmos.DrawWireSphere(t.position, sightRange);
     }
 
     public void UpdateIdleLookPosition() //move back and forth when idle
