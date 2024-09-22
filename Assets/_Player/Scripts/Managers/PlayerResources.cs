@@ -177,6 +177,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
             scrapDecrease = false;
             scrapShift = false;
             ChangeGauntlets(3);
+            shift.ActivateOverdrive(false);
             if (overdriveUI != null)
             {
                 overdriveUI.SetActive(false);

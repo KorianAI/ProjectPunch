@@ -190,7 +190,7 @@ public class RealSteel : WeaponInfo
     }
 
     #region Overdrive
-    private void ActivateOverdrive(bool on)
+    public void ActivateOverdrive(bool on)
     {
         if (on)
         {
@@ -207,6 +207,8 @@ public class RealSteel : WeaponInfo
         else if (!on)
         {
             overdrive = false;
+            currentOverdrive = 0;
+            UpdateOverdriveParticles();
             sm.anim.speed = 1f;
             if (overdriveUI != null)
             {

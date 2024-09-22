@@ -230,7 +230,7 @@ public class CombatManager : MonoBehaviour
         Debug.Log("combat ended");
         combatActive = false;
         MusicManager.instance.fighting = false;
-        PlayerStateManager.instance.resources.ChangeGauntlets(4);
+        PlayerStateManager.instance.CombatEnd();
         exitDoorOpen.Play();
 
         if (playEndTut && requiredEndTut != null && !GameSettings.instance.skipTutorials)

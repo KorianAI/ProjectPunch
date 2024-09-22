@@ -9712,6 +9712,37 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &3879316760054834699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3497881210374393899}
+  m_Layer: 7
+  m_Name: TargetPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3497881210374393899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3879316760054834699}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8556169422882575796}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4664262171594000225
 GameObject:
   m_ObjectHideFlags: 0
@@ -12539,6 +12570,7 @@ GameObject:
   - component: {fileID: 7076321323284445691}
   - component: {fileID: 4518001170004361856}
   - component: {fileID: 5992023813685671380}
+  - component: {fileID: 8695551658354218816}
   m_Layer: 7
   m_Name: Cashmere
   m_TagString: Enemy
@@ -12564,6 +12596,7 @@ Transform:
   - {fileID: 8068894906768621105}
   - {fileID: 3771488361039230391}
   - {fileID: 5683459509534375061}
+  - {fileID: 3497881210374393899}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4318692088811949378
@@ -12788,6 +12821,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPoint: {fileID: 5683459509534375061}
+  environment: 0
+  pullMe: 0
+  pushMe: 0
+  mat: {fileID: 2100000, guid: f3f7c791af0be2b45b69d9fb1d457e6e, type: 2}
+  test: {r: 1, g: 1, b: 1, a: 1}
+  mRenderer: {fileID: 0}
+  sRenderer: {fileID: 4928431600007493743}
+  outlineThicknessMultiplier: 2
+--- !u!114 &8695551658354218816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429749656764890266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 582f178c002934e42a605106fe8b4312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPoint: {fileID: 3497881210374393899}
   environment: 0
   pullMe: 0
   pushMe: 0

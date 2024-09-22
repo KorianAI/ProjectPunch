@@ -139,6 +139,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         if (Input.GetKeyDown(KeyCode.Keypad0))
         {
             SwitchState(new PlayerIdleState());
+            anim.Play("PlayerIdle");
         }
     }
 
@@ -152,6 +153,13 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
         currentState.ExitState(this);
         currentState = state;
         state.EnterState(this);
+    }
+
+    public void CombatEnd()
+    {
+        resources.ActivateScrapShift(false);
+        resources.shift.ActivateOverdrive(false);
+        resources.ChangeGauntlets(4);
     }
 
 
