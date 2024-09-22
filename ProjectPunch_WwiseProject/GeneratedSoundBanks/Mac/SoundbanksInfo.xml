@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{E25CA32A-D373-CE7A-1417-74796A15ADC7}">
+		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{6F196BF0-0224-564A-5519-BEA6FDB0AA32}">
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
 			<Media>
@@ -123,12 +123,99 @@
 					<Plugin Id="1188943754" Name="New_Peak_Limiter_01" LibName="Wwise Peak Limiter" LibId="7208963"/>
 				</ShareSets>
 			</Plugins>
+			<Events>
+				<Event Id="2764240573" Name="Combat" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="1690668539" Id="2764240573" Name="Combat"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="579523862" Name="Explore" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="1690668539" Id="579523862" Name="Explore"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1122283870" Name="MusicStart" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="23675886"/>
+						<MediaRef Id="755690947"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1188943754"/>
+						</ShareSets>
+					</PluginRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1690668539" Id="579523862"/>
+							<MediaRefs>
+								<MediaRef Id="896998356"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1690668539" Id="2764240573"/>
+							<MediaRefs>
+								<MediaRef Id="99683504"/>
+								<MediaRef Id="144080973"/>
+								<MediaRef Id="172155782"/>
+								<MediaRef Id="181757905"/>
+								<MediaRef Id="232264055"/>
+								<MediaRef Id="430724085"/>
+								<MediaRef Id="465556907"/>
+								<MediaRef Id="485367470"/>
+								<MediaRef Id="544890327"/>
+								<MediaRef Id="616299173"/>
+								<MediaRef Id="702063897"/>
+								<MediaRef Id="746262836"/>
+								<MediaRef Id="755205215"/>
+								<MediaRef Id="783261638"/>
+								<MediaRef Id="870486047"/>
+								<MediaRef Id="872318873"/>
+								<MediaRef Id="904185561"/>
+								<MediaRef Id="936798745"/>
+								<MediaRef Id="999864757"/>
+								<MediaRef Id="1024608900"/>
+								<MediaRef Id="1049289630"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1690668539" Id="4104150384"/>
+							<MediaRefs>
+								<MediaRef Id="99890009"/>
+								<MediaRef Id="949668554"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="4104150384" Name="Scrapshift" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="1690668539" Id="4104150384" Name="Scrapshift"/>
+					</ActionSetState>
+					<ActionTrigger>
+						<ActionTriggerEntry Id="4104150384" Name="Scrapshift"/>
+					</ActionTrigger>
+				</Event>
+				<Event Id="1856838135" Name="ScrapshiftEnd" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionTrigger>
+						<ActionTriggerEntry Id="1856838135" Name="ScrapshiftEnd"/>
+					</ActionTrigger>
+				</Event>
+			</Events>
+			<StateGroups>
+				<StateGroup Id="1690668539" Name="Music_States">
+					<States>
+						<State Id="579523862" Name="Explore"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="2764240573" Name="Combat"/>
+						<State Id="4104150384" Name="Scrapshift"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 			<Triggers>
 				<Trigger Id="1856838135" Name="ScrapshiftEnd"/>
 				<Trigger Id="4104150384" Name="Scrapshift"/>
 			</Triggers>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C6C591E1-06E5-F46B-BF84-11428F94620B}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{E5AE89E2-3E79-8CB2-36AF-F65CDF0B37C1}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -193,6 +280,7 @@
 						</ShareSets>
 					</PluginRefs>
 				</Bus>
+				<Bus Id="4202237879" Name="Ambience Bus"/>
 			</Busses>
 			<StateGroups>
 				<StateGroup Id="1690668539" Name="Music_States">
@@ -212,7 +300,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{24B37ED0-8B24-34BA-DC73-786937675E43}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{614797B8-9665-32E9-D70D-0919371EFC36}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -228,9 +316,21 @@
 					<ShortName>Rail.wav</ShortName>
 					<CachePath>SFX/Rail_818F3B66.wem</CachePath>
 				</File>
+				<File Id="258915722" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Scroll_Pickup.wav</ShortName>
+					<CachePath>SFX/Scroll_Pickup_818F3B66.wem</CachePath>
+				</File>
 				<File Id="262919125" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Turret_Fire.wav</ShortName>
 					<CachePath>SFX/Turret_Fire_818F3B66.wem</CachePath>
+				</File>
+				<File Id="291620049" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cashmere_VolleyBuild.wav</ShortName>
+					<CachePath>SFX/Cashmere_VolleyBuild_818F3B66.wem</CachePath>
+				</File>
+				<File Id="312064319" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kaila_LockOn.wav</ShortName>
+					<CachePath>SFX/Kaila_LockOn_818F3B66.wem</CachePath>
 				</File>
 				<File Id="325590457" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BFG_Lunge.wav</ShortName>
@@ -240,9 +340,17 @@
 					<ShortName>Kaila_Jump.wav</ShortName>
 					<CachePath>SFX/Kaila_Jump_818F3B66.wem</CachePath>
 				</File>
+				<File Id="377994243" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Turret_Explosion-1.wav</ShortName>
+					<CachePath>SFX/Turret_Explosion-1_818F3B66.wem</CachePath>
+				</File>
 				<File Id="382992550" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Push.wav</ShortName>
 					<CachePath>SFX/Push_818F3B66.wem</CachePath>
+				</File>
+				<File Id="402115762" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Turret_LockOn.wav</ShortName>
+					<CachePath>SFX/Turret_LockOn_818F3B66.wem</CachePath>
 				</File>
 				<File Id="468055188" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_Button.wav</ShortName>
@@ -264,6 +372,10 @@
 					<ShortName>Pull.wav</ShortName>
 					<CachePath>SFX/Pull_818F3B66.wem</CachePath>
 				</File>
+				<File Id="638141839" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Turret_DefeatedAmbience.wav</ShortName>
+					<CachePath>SFX/Turret_DefeatedAmbience_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="650394388" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RealSteel_OverdriveIntro.wav</ShortName>
 					<CachePath>SFX/RealSteel_OverdriveIntro_FBC78EF0.wem</CachePath>
@@ -276,9 +388,17 @@
 					<ShortName>Kaila_Land.wav</ShortName>
 					<CachePath>SFX/Kaila_Land_818F3B66.wem</CachePath>
 				</File>
+				<File Id="682985250" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Desert_Wind.wav</ShortName>
+					<CachePath>SFX/Desert_Wind_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="692525493" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NailGun_ChargedShot_Pull.wav</ShortName>
 					<CachePath>SFX/NailGun_ChargedShot_Pull_818F3B66.wem</CachePath>
+				</File>
+				<File Id="769871540" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Door_Close.wav</ShortName>
+					<CachePath>SFX/Door_Close_818F3B66.wem</CachePath>
 				</File>
 				<File Id="770468900" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Turret_Hit.wav</ShortName>
@@ -287,6 +407,10 @@
 				<File Id="787712988" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BFG_Impact2.wav</ShortName>
 					<CachePath>SFX/BFG_Impact2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="884533489" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cashmere_VolleyShoot.wav</ShortName>
+					<CachePath>SFX/Cashmere_VolleyShoot_818F3B66.wem</CachePath>
 				</File>
 				<File Id="893107048" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BFG_Swing.wav</ShortName>
@@ -316,6 +440,10 @@
 					<ShortName>Kaila_Dash.wav</ShortName>
 					<CachePath>SFX/Kaila_Dash_818F3B66.wem</CachePath>
 				</File>
+				<File Id="1051878747" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>LockOff.wav</ShortName>
+					<CachePath>SFX/LockOff_818F3B66.wem</CachePath>
+				</File>
 				<File Id="1059648798" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RealSteel_Impact.wav</ShortName>
 					<CachePath>SFX/RealSteel_Impact_818F3B66.wem</CachePath>
@@ -323,6 +451,7 @@
 			</Media>
 			<Plugins>
 				<ShareSets>
+					<Plugin Id="535667444" Name="Bathroom1" LibName="Wwise Matrix Reverb" LibId="7536643"/>
 					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
 					<Plugin Id="2653529179" Name="Three_Voices" LibName="Wwise Harmonizer" LibId="9043971"/>
 					<Plugin Id="3407225994" Name="Phone_Booth" LibName="Wwise RoomVerb" LibId="7733251"/>
@@ -332,6 +461,11 @@
 				</ShareSets>
 			</Plugins>
 			<Events>
+				<Event Id="2897981775" Name="AmbiencePlay_DesertWind" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="682985250"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="977454165" Name="Button" DurationType="OneShot" DurationMin="0.4" DurationMax="0.4">
 					<MediaRefs>
 						<MediaRef Id="468055188"/>
@@ -388,6 +522,17 @@
 						<MediaRef Id="1002274944"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1983788571" Name="SFXPlay_CashmereScrapGather" DurationType="OneShot" DurationMin="2.5834246" DurationMax="3.254911">
+					<MediaRefs>
+						<MediaRef Id="291620049"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="778505933" Name="SFXPlay_CashmereScrapVolley" DurationType="OneShot" DurationMin="1.9375733" DurationMax="2.4411895">
+					<MediaRefs>
+						<MediaRef Id="884533489"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1699861256" Name="SFXPlay_CashmereShockwave" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="3800919789" Name="SFXPlay_FootstepsGround" DurationType="OneShot" DurationMin="0.49301422" DurationMax="0.7826113">
 					<MediaRefs>
 						<MediaRef Id="658891643"/>
@@ -397,6 +542,11 @@
 							<PluginRef Id="1459522457"/>
 						</ShareSets>
 					</PluginRefs>
+				</Event>
+				<Event Id="183217430" Name="SFXPlay_GateClose" DurationType="OneShot" DurationMin="2.1875057" DurationMax="2.1875057">
+					<MediaRefs>
+						<MediaRef Id="769871540"/>
+					</MediaRefs>
 				</Event>
 				<Event Id="3879440547" Name="SFXPlay_Jump" DurationType="OneShot" DurationMin="1.1905508" DurationMax="1.8898816">
 					<MediaRefs>
@@ -408,8 +558,16 @@
 						<MediaRef Id="682299466"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3871747721" Name="SFXPlay_LockOFF" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="1931077309" Name="SFXPlay_LockON" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="3871747721" Name="SFXPlay_LockOFF" DurationType="OneShot" DurationMin="2" DurationMax="2">
+					<MediaRefs>
+						<MediaRef Id="1051878747"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1931077309" Name="SFXPlay_LockON" DurationType="OneShot" DurationMin="0.6954909" DurationMax="0.7158704">
+					<MediaRefs>
+						<MediaRef Id="312064319"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2735510120" Name="SFXPlay_MuzzlerKick" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2423564124" Name="SFXPlay_NailGunChargedPull" DurationType="OneShot" DurationMin="3.5635948" DurationMax="4.489848">
 					<MediaRefs>
@@ -445,8 +603,13 @@
 					<MediaRefs>
 						<MediaRef Id="84823563"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
-				<Event Id="2012453574" Name="SFXPlay_Pull" DurationType="OneShot" DurationMin="0.9465951" DurationMax="1.192635">
+				<Event Id="2012453574" Name="SFXPlay_Pull" DurationType="OneShot" DurationMin="0.97433245" DurationMax="1.227582">
 					<MediaRefs>
 						<MediaRef Id="597362849"/>
 					</MediaRefs>
@@ -456,7 +619,7 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="2062786315" Name="SFXPlay_Push" DurationType="OneShot" DurationMin="0.9465951" DurationMax="1.192635">
+				<Event Id="2062786315" Name="SFXPlay_Push" DurationType="OneShot" DurationMin="0.97433245" DurationMax="1.227582">
 					<MediaRefs>
 						<MediaRef Id="382992550"/>
 					</MediaRefs>
@@ -544,12 +707,39 @@
 						<MediaRef Id="543809496"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2537608006" Name="SFXPlay_ScrollCollect" DurationType="OneShot" DurationMin="2.2523582" DurationMax="2.2523582">
+					<MediaRefs>
+						<MediaRef Id="258915722"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2095233026" Name="SFXPlay_Turret_LockOn" DurationType="OneShot" DurationMin="4.05635" DurationMax="4.05635">
+					<MediaRefs>
+						<MediaRef Id="402115762"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="535667444"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="1647204779" Name="SFXPlay_TurretDefeatedAmbience" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="377994243"/>
+						<MediaRef Id="638141839"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="535667444"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
 				<Event Id="1220918693" Name="SFXPlay_TurretFire" DurationType="OneShot" DurationMin="2.004522" DurationMax="2.5255396">
 					<MediaRefs>
 						<MediaRef Id="262919125"/>
 					</MediaRefs>
 					<PluginRefs>
 						<ShareSets>
+							<PluginRef Id="535667444"/>
 							<PluginRef Id="1459522457"/>
 						</ShareSets>
 					</PluginRefs>
@@ -560,6 +750,7 @@
 					</MediaRefs>
 					<PluginRefs>
 						<ShareSets>
+							<PluginRef Id="535667444"/>
 							<PluginRef Id="1459522457"/>
 						</ShareSets>
 					</PluginRefs>
@@ -567,5 +758,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{BB0ED583-7586-7D18-9694-BCE3805DC353}</FileHash>
+	<FileHash>{F90BC2F1-F814-EE93-445D-DEFEEC54C198}</FileHash>
 </SoundBanksInfo>
