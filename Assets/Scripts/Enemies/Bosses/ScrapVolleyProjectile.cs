@@ -35,7 +35,6 @@ public class ScrapVolleyProjectile : MonoBehaviour, IParriable
             {
                 
                 Instantiate(scrapPile, transform.position, transform.rotation);
-                Debug.Log(collider.gameObject);
                 break;
             }
         }

@@ -13,10 +13,12 @@ public class ParryCollider : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+       
         IParriable parryObj = other.GetComponent<IParriable>();
 
         if (parryObj != null)
         {
+            Debug.Log(other);
             parryObj.Parry();
             pc.ParryEffect(other.gameObject);
             pc._sm.parryParticles.Play();
