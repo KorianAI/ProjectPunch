@@ -13,24 +13,36 @@ public class MenuTutorialButton : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        tutViewer.OnTabEnter(this);
+        if (tutViewer != null)
+        {
+            tutViewer.OnTabEnter(this);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        tutViewer.OnTabExit(this);
+        if (tutViewer != null)
+        {
+            tutViewer.OnTabExit(this);
+        }
     }
 
     public void OnSelect(BaseEventData eventData)
     {
-        tutViewer.OnTabEnter(this);
+        if (tutViewer != null)
+        {
+            tutViewer.OnTabEnter(this);
+        }
 
         UpdateScrollbar();
     }
 
     public void OnDeselect(BaseEventData eventData)
     {
-        tutViewer.OnTabExit(this);
+        if (tutViewer != null)
+        {
+            tutViewer.OnTabExit(this);
+        }
     }
 
     public void Select()
@@ -51,13 +63,17 @@ public class MenuTutorialButton : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     private void UpdateScrollbar()
     {
-        //int index = System.Array.IndexOf(tutViewer.tutButtons.ToArray(), gameObject);
-        int index = gameObject.transform.GetSiblingIndex();
+        //works for whichever is applied, settings or tutorials
 
-        if (index >= 0)
+        if (tutViewer != null)
         {
-            float normalizedPosition = (float)index / (tutViewer.tutButtons.ToArray().Length - 1);
-            tutViewer.scrollRect.verticalNormalizedPosition = 1 - normalizedPosition; // Reverse it for the scrollbar
+            int index = gameObject.transform.GetSiblingIndex();
+
+            if (index >= 0)
+            {
+                float normalizedPosition = (float)index / (tutViewer.tutButtons.ToArray().Length - 1);
+                tutViewer.scrollRect.verticalNormalizedPosition = 1 - normalizedPosition; // Reverse it for the scrollbar
+            }
         }
     }
 }

@@ -110,6 +110,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
             superInvincible = !superInvincible;
         }
 
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            currentScrap = maxScrap;
+        }
+
         float abbIntensity = abbCurve.Evaluate(Time.realtimeSinceStartup - abbIntensityLastTime);
         abb.intensity.value = abbIntensity;
 

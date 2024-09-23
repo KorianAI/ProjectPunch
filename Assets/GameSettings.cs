@@ -25,6 +25,7 @@ public class GameSettings : MonoBehaviour
     public bool skipTutorials = false;
     public bool walkDuringTutorials;
     Resolution[] resolutions;
+    public float defaultAudioValue = 75f;
 
     private void Awake()
     {
@@ -63,6 +64,23 @@ public class GameSettings : MonoBehaviour
         resDropdown.RefreshShownValue();
 
         #region LoadPlayerPrefs
+        
+        #region Video
+        if (PlayerPrefs.HasKey("FullScreenMode"))
+        {
+            SetFullscreen(PlayerPrefs.GetInt("FullScreenMode"));
+            fsDropdown.RefreshShownValue();
+        }
+
+        if (PlayerPrefs.HasKey("ResIndex"))
+        {
+            SetResolution(PlayerPrefs.GetInt("ResIndex"));
+            resDropdown.RefreshShownValue();
+        }
+
+        #endregion
+
+        #region Audio
         if (PlayerPrefs.HasKey("MasterVol"))
         {
             SetMasterVolume(PlayerPrefs.GetFloat("MasterVol"));
@@ -81,6 +99,27 @@ public class GameSettings : MonoBehaviour
             SFXVolSlider.value = PlayerPrefs.GetFloat("SFXVol");
         }
 
+        if (!PlayerPrefs.HasKey("MasterVol"))
+        {
+            SetMasterVolume(defaultAudioValue);
+            masterVolSlider.value = defaultAudioValue;
+        }
+
+        if (!PlayerPrefs.HasKey("MusicVol"))
+        {
+            SetMusicVolume(defaultAudioValue);
+            musicVolSlider.value = defaultAudioValue;
+        }
+
+        if (!PlayerPrefs.HasKey("SFXVol"))
+        {
+            SetSFXVolume(defaultAudioValue);
+            SFXVolSlider.value = defaultAudioValue;
+        }
+
+        #endregion
+
+        #region Gameplay
         if (PlayerPrefs.HasKey("SkipTut"))
         {
             if (PlayerPrefs.GetInt("SkipTut") == 1)
@@ -95,39 +134,26 @@ public class GameSettings : MonoBehaviour
             }
         }
 
-        if (PlayerPrefs.HasKey("FullScreenMode"))
-        {
-            SetFullscreen(PlayerPrefs.GetInt("FullScreenMode"));
-            fsDropdown.RefreshShownValue();
-        }
-
-        if (PlayerPrefs.HasKey("ResIndex"))
-        {
-            SetResolution(PlayerPrefs.GetInt("ResIndex"));
-            resDropdown.RefreshShownValue();
-        }
+        #endregion
 
         #endregion
     }
 
+    #region SetValues
     public void SetMasterVolume(float volume)
     {
-        mixer.SetFloat("Volume", volume);
         AkSoundEngine.SetRTPCValue("Master Audio Bus", volume);
         PlayerPrefs.SetFloat("MasterVol", volume);
-        Debug.Log(PlayerPrefs.GetFloat("MasterVol"));
     }
 
     public void SetMusicVolume(float volume)
     {
-        mixer.SetFloat("MusicVolume", volume);
         AkSoundEngine.SetRTPCValue("Master Music Bus", volume);
         PlayerPrefs.SetFloat("MusicVol", volume);
     }
 
     public void SetSFXVolume(float volume)
     {
-        mixer.SetFloat("SFXVolume", volume);
         AkSoundEngine.SetRTPCValue("SFX Bus", volume);
         PlayerPrefs.SetFloat("SFXVol", volume);
     }
@@ -139,7 +165,6 @@ public class GameSettings : MonoBehaviour
         if (value)
         {
             PlayerPrefs.SetInt("SkipTut", 1);
-            Debug.Log(PlayerPrefs.GetInt("SkipTut"));
         }
         else if (!value)
         {
@@ -155,7 +180,6 @@ public class GameSettings : MonoBehaviour
         {
             Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
             PlayerPrefs.SetInt("FullScreenMode", 0);
-            Debug.Log(PlayerPrefs.GetInt("FullScreenMode"));
         }
         else if (fullScreenMode == 1)
         {
@@ -170,4 +194,6 @@ public class GameSettings : MonoBehaviour
         Screen.SetResolution(res.width, res.height, Screen.fullScreenMode);
         PlayerPrefs.SetInt("ResIndex", resolutionIndex);
     }
+
+    #endregion
 }

@@ -183,7 +183,7 @@ public class RealSteel : WeaponInfo
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad6))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             UpdateOverdrive(100);
         }

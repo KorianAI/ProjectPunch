@@ -2578,6 +2578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutViewer: {fileID: 1231473534}
+  settingsViewer: {fileID: 0}
   onTabSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -6087,6 +6088,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introVidObj: {fileID: 847650401}
+  settingsUI: {fileID: 0}
+  mainUI: {fileID: 0}
+  paused: 0
+  tabGroup: {fileID: 0}
 --- !u!224 &317716192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6796,6 +6801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutViewer: {fileID: 1231473534}
+  settingsViewer: {fileID: 0}
   onTabSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -6843,6 +6849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutViewer: {fileID: 1231473534}
+  settingsViewer: {fileID: 0}
   onTabSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -7625,8 +7632,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1520307027}
-    m_SelectOnDown: {fileID: 419565656}
+    m_SelectOnUp: {fileID: 1796621954}
+    m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 480748822}
   m_Transition: 1
@@ -9922,6 +9929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutViewer: {fileID: 1231473534}
+  settingsViewer: {fileID: 0}
   onTabSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -17504,6 +17512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutViewer: {fileID: 1231473534}
+  settingsViewer: {fileID: 0}
   onTabSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -18612,6 +18621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutViewer: {fileID: 1231473534}
+  settingsViewer: {fileID: 0}
   onTabSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -20842,6 +20852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutViewer: {fileID: 1231473534}
+  settingsViewer: {fileID: 0}
   onTabSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -30526,6 +30537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutViewer: {fileID: 1231473534}
+  settingsViewer: {fileID: 0}
   onTabSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -32499,6 +32511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutViewer: {fileID: 1231473534}
+  settingsViewer: {fileID: 0}
   onTabSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -35596,6 +35609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutViewer: {fileID: 1231473534}
+  settingsViewer: {fileID: 0}
   onTabSelected:
     m_PersistentCalls:
       m_Calls: []
