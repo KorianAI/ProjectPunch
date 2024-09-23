@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{49FA4853-2163-C013-95B1-BDC1A174A827}">
+		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{F1EE1B2B-689D-2FBC-A591-52F8152BA26B}">
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
 			<Media>
@@ -244,15 +244,39 @@
 				</ShareSets>
 			</Plugins>
 			<Events>
-				<Event Id="283095519" Name="Boss_Section1" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
-					<ActionSetState>
-						<ActionSetStateEntry GroupId="1690668539" Id="1272574122" Name="Boss_1"/>
-					</ActionSetState>
+				<Event Id="283095519" Name="Boss_Section1" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="23675886"/>
+						<MediaRef Id="82908139"/>
+						<MediaRef Id="123808930"/>
+						<MediaRef Id="144343419"/>
+						<MediaRef Id="441743405"/>
+						<MediaRef Id="465598859"/>
+						<MediaRef Id="499675649"/>
+						<MediaRef Id="520613786"/>
+						<MediaRef Id="617483849"/>
+						<MediaRef Id="755690947"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1188943754"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
-				<Event Id="283095516" Name="Boss_Section2" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
-					<ActionSetState>
-						<ActionSetStateEntry GroupId="1690668539" Id="1272574121" Name="Boss_2"/>
-					</ActionSetState>
+				<Event Id="283095516" Name="Boss_Section2" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="23675886"/>
+						<MediaRef Id="227679020"/>
+						<MediaRef Id="282085477"/>
+						<MediaRef Id="397199079"/>
+						<MediaRef Id="586254239"/>
+						<MediaRef Id="755690947"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1188943754"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="2764240573" Name="Combat" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<ActionSetState>
@@ -954,5 +978,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{7435262E-1CE1-360B-75E3-0C884B7D82D2}</FileHash>
+	<FileHash>{08478B08-ACCA-C98F-AD5D-21E24323005F}</FileHash>
 </SoundBanksInfo>

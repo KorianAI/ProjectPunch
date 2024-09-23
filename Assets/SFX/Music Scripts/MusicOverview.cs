@@ -23,9 +23,6 @@ public class MusicOverview : MonoBehaviour
     public AK.Wwise.Event playMusic_Boss1;
     [Header("Boss2")]
     public AK.Wwise.Event playMusic_Boss2;
-    [Header("ScrapShift Switch")]
-    public AK.Wwise.Event playStinger_RSON;
-    public AK.Wwise.Event playStinger_RSOFF;
 
     private void Awake()
     {
@@ -74,21 +71,12 @@ public class MusicOverview : MonoBehaviour
         playMusic_Boss2.Post(gameObject);
     }
 
-    public void RSON()
-    {
-        playStinger_RSON.Post(gameObject);
-    }
-    public void RSOFF()
-    {
-        playStinger_RSOFF.Post(gameObject);
-    }
-
-
     public void MusicStart()
     {
 
         Music_Explore();
     }
+
 
 
     // Update is called once per frame
