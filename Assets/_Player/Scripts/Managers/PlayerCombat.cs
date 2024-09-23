@@ -300,7 +300,7 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider enemy in enemies)
         {
             EnemyAI ai = enemy.GetComponent<EnemyAI>();
-            if (!ai.available) { continue; }
+            if (ai != null && !ai.available) { continue; }
 
 
             Vector3 directionToEnemy = enemy.transform.position - transform.position;

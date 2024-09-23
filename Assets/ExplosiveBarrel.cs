@@ -8,6 +8,7 @@ public class ExplosiveBarrel : MonoBehaviour, IDamageable, IMagnetisable
     public GameObject explosionVFX;
     public LayerMask targetableLayer;
     public float damage;
+    bool exploded = false;
 
     private PlayerStateManager ps;
 
@@ -18,12 +19,16 @@ public class ExplosiveBarrel : MonoBehaviour, IDamageable, IMagnetisable
 
     public void TakeDamage(float damage)
     {
+        if (exploded) return;
+        exploded = true;
         Detonate();
     }
 
     void Detonate()
     {
         Instantiate(explosionVFX, transform.position, Quaternion.identity);
+
+        Debug.Log("how man ytimes ");
 
         Collider[] player = Physics.OverlapSphere(transform.position, 2, targetableLayer);
         foreach (Collider c in player)
@@ -37,7 +42,7 @@ public class ExplosiveBarrel : MonoBehaviour, IDamageable, IMagnetisable
         GetComponent<Targetable>().ResetColor();
 
         GetComponent<MeshRenderer>().enabled = false;
-        Destroy(gameObject, 1f);
+        Destroy(gameObject);
     }
 
     public void Pull(PlayerStateManager player)
