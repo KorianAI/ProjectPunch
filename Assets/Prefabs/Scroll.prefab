@@ -132,15 +132,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollNo: 0
-  player: {fileID: 0}
-  canSpawn: 0
   scrapParticle: {fileID: 2714575133392927526}
   moveAmp: 0.5
   moveFreq: 1
-  initPos: {x: 0, y: 0, z: 0}
   rotAmp: 0.2
   rotFreq: 0.5
   rotAmt: 1
+  playSFX_ScrollCollect:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 3fb7b411b25129947b9096594770778b, type: 2}
 --- !u!65 &7212250338012985762
 BoxCollider:
   m_ObjectHideFlags: 0
