@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{A94D8E4C-76DF-223B-7524-3D8E6EBB60C5}">
+		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{FC5C7CE9-72D9-58C4-9A6B-7C5A5680D50D}">
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
 			<Media>
@@ -377,7 +377,7 @@
 				<Trigger Id="4104150384" Name="Scrapshift"/>
 			</Triggers>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{D0CE5BDB-F0E7-C5FC-A7B5-5F080D039E4A}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{1323C4AD-A262-6C0D-D295-837CBBC3DD9F}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -483,7 +483,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{CE980171-C790-86EA-11A9-3C3B50E44233}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{C1FEF695-EC8B-77D3-48DB-A2FC626E50CE}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -931,5 +931,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{58A72FF5-1BAB-0FC2-64E5-1C0FBA594294}</FileHash>
+	<FileHash>{B1D4FC44-C8BA-F0F1-EE9A-299A94A4EA2C}</FileHash>
 </SoundBanksInfo>
