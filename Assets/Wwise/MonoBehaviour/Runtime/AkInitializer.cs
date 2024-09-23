@@ -203,6 +203,10 @@ if (IsInstance())
 #endif
 			ms_Instance = null;
 		}
+
+#if UNITY_EDITOR
+		AkWwiseTypes.DragAndDropObjectReference = null;
+#endif
 	}
 
 	private void OnApplicationPause(bool pauseStatus)

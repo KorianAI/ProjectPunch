@@ -51,10 +51,12 @@ public class PlayerSFX_Overview : MonoBehaviour
     public AK.Wwise.Event playSFX_Kaila_LockOff;
 
     public AK.Wwise.Event playSFX_Rail;
+    public AK.Wwise.Bank Soundbank_SFX;
 
     private void Start()
     {
         pr = GetComponent<PlayerResources>();
+        Soundbank_SFX.Load();
     }
 
     //private void Update()
@@ -238,4 +240,5 @@ public class PlayerSFX_Overview : MonoBehaviour
     {
         playSFX_Rail.Post(gameObject);
     }
+
 }

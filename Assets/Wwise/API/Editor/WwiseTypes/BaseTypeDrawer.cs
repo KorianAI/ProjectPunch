@@ -93,10 +93,11 @@ namespace AK.Wwise.Editor
 		{
 			return serializedProperty.objectReferenceValue as WwiseObjectReference;
 		}
-
+		
 		protected virtual void SetSerializedObject(UnityEditor.SerializedProperty serializedProperty, WwiseObjectReference wwiseObjectReference)
 		{
 			serializedProperty.objectReferenceValue = wwiseObjectReference;
+			AkWwiseTypes.DragAndDropObjectReference = null;
 		}
 
 		private void HandleDragAndDrop(UnityEditor.SerializedProperty wwiseObjectReference, UnityEngine.Rect dropArea)
@@ -123,7 +124,6 @@ namespace AK.Wwise.Editor
 					SetSerializedObject(wwiseObjectReference, reference);
 				}
 
-				UnityEditor.DragAndDrop.PrepareStartDrag();
 				UnityEngine.GUIUtility.hotControl = 0;
 			}
 

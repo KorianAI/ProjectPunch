@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: fcf29761efdb4743be1c96bb0ba59ba7
     GuidInternal: 
-    m_lastTime: -8584751273463684851
+    m_lastTime: -8584754312394775808
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584744969118388264
+    m_lastTime: -8584745030474775808
     List:
     - name: Ambience Bus
       guid: f3f6e085a85cb94eb4bb01cc86500ad6
@@ -394,22 +394,8 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584745267247495463
+    m_lastTime: -8584744746974775808
     List:
-    - name: Soundbank_Music
-      guid: 13213216d854484eaee16f27b594c3a2
-      id: 474740052
-      PathAndIcons:
-      - ElementName: SoundBanks
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 8091b5fd9e38294cbfcd273f6ed45d57
-      - ElementName: Soundbank_Music
-        ObjectType: 7
-        guid: 13213216d854484eaee16f27b594c3a2
-      Path: SoundBanks\Default Work Unit\Soundbank_Music
     - name: Soundbank_SFX
       guid: af2cf498d9d21f4e88407f3a8baafeea
       id: 2023573084
@@ -436,7 +422,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584745267440002317
+    m_lastTime: -8584744740054775808
     List:
     - name: AmbiencePlay_DesertWind
       guid: 1a79119d92f6b44cb54c73ad0e555df4
@@ -476,8 +462,8 @@ MonoBehaviour:
         guid: 2aa66688527d7e47a9a162f999927dba
       Path: Events\Default Work Unit\Music\Boss_Section1
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Boss_Section2
       guid: 9cd9eab7e5b3754f848abe158518a4e1
       id: 283095516
@@ -496,8 +482,8 @@ MonoBehaviour:
         guid: 9cd9eab7e5b3754f848abe158518a4e1
       Path: Events\Default Work Unit\Music\Boss_Section2
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Button
       guid: 185d8f2814151a42aafea8c406b33566
       id: 977454165
@@ -1637,7 +1623,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: e772f0b193823949853e05aac5794b6f
     GuidInternal: 
-    m_lastTime: -8584744969126697417
+    m_lastTime: -8584745030474775808
     List:
     - name: MasterVolume
       guid: b736ebf7169ec14c9512603bffc65def
@@ -1693,7 +1679,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: f3e827c98473b545bdc7ed0c4739356b
     GuidInternal: 
-    m_lastTime: -8584745267247350346
+    m_lastTime: -8584745415574775808
     List:
     - name: Music_States
       guid: c67059b9b3a34a448d69328c6fc91e5b
@@ -1821,7 +1807,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: ef29a14c705ede40b7a80ac065cc6269
     GuidInternal: 
-    m_lastTime: -8584750420666094601
+    m_lastTime: -8584750697274775808
     List:
     - name: New_Switch_Group
       guid: de5b0459d2ce29408fec6f6544d84e51
@@ -1869,7 +1855,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: ca7ae8b43920f140a5f4bf098b44b504
     GuidInternal: 
-    m_lastTime: -8584750420666089600
+    m_lastTime: -8584750697274775808
     List:
     - name: Scrapshift
       guid: 52eef0ed6d5ee34ea9f8a780dfae2057
@@ -1900,7 +1886,7 @@ MonoBehaviour:
         guid: 9618f51dadf4214087fc7ea68ced4ee5
       Path: Triggers\Default Work Unit\ScrapshiftEnd
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 020000000300000004000000050000000600000007000000080000000b0000000c000000
+  ExpandedWaapiItemIds: 05000000060000000700000008000000090000000b000000130000001400000015000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

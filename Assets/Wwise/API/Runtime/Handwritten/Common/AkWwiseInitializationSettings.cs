@@ -447,7 +447,7 @@ public class AkWwiseInitializationSettings : AkCommonPlatformSettings
 				if (!instance.InvalidReferencePlatforms.Contains(referencePlatform))
 				{
 					instance.InvalidReferencePlatforms.Add(referencePlatform);
-					UnityEngine.Debug.LogError("WwiseUnity: A class has not been registered for the reference platform: " + referencePlatform);
+					UnityEngine.Debug.LogError("WwiseUnity: A class has not been registered for the reference platform: " + referencePlatform + ". Has the platform been added to your Wwise Integration?");
 				}
 				continue;
 			}

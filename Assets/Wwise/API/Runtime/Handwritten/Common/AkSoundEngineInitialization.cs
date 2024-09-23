@@ -150,12 +150,12 @@ public class AkSoundEngineInitialization
 
 	public bool ShouldKeepSoundEngineEnabled()
 	{
-		bool result = true;
 #if UNITY_EDITOR
+		bool result = true;
 		if(UnityEditor.EditorApplication.isUpdating || UnityEditor.EditorApplication.isCompiling)
-        {
+		{
 			return false;
-        }
+		}
 
 		if (UnityEngine.Application.isPlaying)
 		{
@@ -174,9 +174,11 @@ public class AkSoundEngineInitialization
 		{
 			result = false;
 		}
-#endif
-#endif
+#endif // UNITY_2019_3_OR_NEWER
 		return result;
+#else
+		return false;
+#endif // UNITY_EDITOR 
 	}
 
 	public void ResetSoundEngine()

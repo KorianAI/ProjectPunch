@@ -143,8 +143,10 @@ public class AkEvent : AkDragDropTriggerHandler
 			uint flags = 0;
 			for (var i = 0; i < Callbacks.Count; ++i)
 			{
-				if (Callbacks[i].GameObject && !string.IsNullOrEmpty(Callbacks[i].FunctionName))
+				if (Callbacks[i].GameObject)
+				{
 					flags |= Callbacks[i].Flags.value;
+				}
 			}
 
 			if (flags != 0)

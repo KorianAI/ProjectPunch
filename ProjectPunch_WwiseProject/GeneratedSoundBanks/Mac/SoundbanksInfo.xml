@@ -9,9 +9,120 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{F1EE1B2B-689D-2FBC-A591-52F8152BA26B}">
-			<ShortName>Soundbank_Music</ShortName>
-			<Path>Soundbank_Music.bnk</Path>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{6183F76A-FADC-4377-24C1-78F508FA2E21}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<Custom>
+					<Plugin Id="14895759" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
+					<Plugin Id="73399820" Name="New_Peak_Limiter (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
+					<Plugin Id="178414885" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
+					<Plugin Id="589171496" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
+					<Plugin Id="853257643" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
+				</Custom>
+				<ShareSets>
+					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
+				</ShareSets>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="48433064" Name="Master Music Bus">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="84101584" Name="Kaila_SFX_Bus"/>
+				<Bus Id="326245315" Name="Muzzler_SFX_Bus"/>
+				<Bus Id="1502772432" Name="SFX Bus">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="73399820"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="1570563853" Name="Explore Music Bus">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="589171496"/>
+						</Custom>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="1908967618" Name="Cashmere_SFX_Bus"/>
+				<Bus Id="2199471764" Name="Combat 1 Section B Music Bus"/>
+				<Bus Id="2320406271" Name="Environment_SFX_Bus"/>
+				<Bus Id="2731925972" Name="UI_SFX_Bus"/>
+				<Bus Id="2764240573" Name="Combat">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="853257643"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="2930211473" Name="Boss Music Bus"/>
+				<Bus Id="3571547856" Name="Turret_SFX_Bus"/>
+				<Bus Id="3736460895" Name="ScrapShift Music Bus">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="14895759"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="3803692087" Name="Master Audio Bus">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="3967235860" Name="General_SFX_Bus"/>
+				<Bus Id="4083411863" Name="Combat 1 Section A Music Bus">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="178414885"/>
+						</Custom>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="4202237879" Name="Ambience Bus"/>
+			</Busses>
+			<GameParameters>
+				<GameParameter Id="988953028" Name="SFXVolume"/>
+				<GameParameter Id="2346531308" Name="MusicVolume"/>
+				<GameParameter Id="2918011349" Name="MasterVolume"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="1690668539" Name="Music_States">
+					<States>
+						<State Id="579523862" Name="Explore"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1272574121" Name="Boss_2"/>
+						<State Id="1272574122" Name="Boss_1"/>
+						<State Id="2764240573" Name="Combat"/>
+						<State Id="4104150384" Name="Scrapshift"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="2250165792" Name="New_Switch_Group">
+					<Switches>
+						<Switch Id="1914034948" Name="New_Switch"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{7EAAAB46-57BF-00AC-B038-9CBF160FDBFD}">
+			<ShortName>Soundbank_SFX</ShortName>
+			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
 				<File Id="23675886" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Scrapshift_Switch.wav</ShortName>
@@ -29,6 +140,10 @@
 					<ShortName>Solo2_NoCrash.wav</ShortName>
 					<CachePath>SFX/Solo2_NoCrash_56CEF360.wem</CachePath>
 				</File>
+				<File Id="84823563" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pipe_CreakExplosion.wav</ShortName>
+					<CachePath>SFX/Pipe_CreakExplosion_818F3B66.wem</CachePath>
+				</File>
 				<File Id="99683504" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guitar_4Bar_Riff2.wav</ShortName>
 					<CachePath>SFX/Guitar_4Bar_Riff2_56CEF360.wem</CachePath>
@@ -36,6 +151,14 @@
 				<File Id="99890009" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ScrapShift_Intro.wav</ShortName>
 					<CachePath>SFX/ScrapShift_Intro_56CEF360.wem</CachePath>
+				</File>
+				<File Id="116980831" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RealSteel_OverdriveOutro.wav</ShortName>
+					<CachePath>SFX/RealSteel_OverdriveOutro_818F3B66.wem</CachePath>
+				</File>
+				<File Id="122414336" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Rail.wav</ShortName>
+					<CachePath>SFX/Rail_818F3B66.wem</CachePath>
 				</File>
 				<File Id="123808930" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Ending_NoCrash.wav</ShortName>
@@ -77,6 +200,10 @@
 					<ShortName>Section_B.wav</ShortName>
 					<CachePath>SFX/Section_B_56CEF360.wem</CachePath>
 				</File>
+				<File Id="262919125" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Turret_Fire.wav</ShortName>
+					<CachePath>SFX/Turret_Fire_818F3B66.wem</CachePath>
+				</File>
 				<File Id="282085477" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Riff3_Crash.wav</ShortName>
 					<CachePath>SFX/Riff3_Crash_56CEF360.wem</CachePath>
@@ -85,9 +212,33 @@
 					<ShortName>Guitar_5_Distorted.wav</ShortName>
 					<CachePath>SFX/Guitar_5_Distorted_56CEF360.wem</CachePath>
 				</File>
+				<File Id="291620049" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cashmere_VolleyBuild.wav</ShortName>
+					<CachePath>SFX/Cashmere_VolleyBuild_818F3B66.wem</CachePath>
+				</File>
+				<File Id="312064319" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kaila_LockOn.wav</ShortName>
+					<CachePath>SFX/Kaila_LockOn_818F3B66.wem</CachePath>
+				</File>
+				<File Id="325590457" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BFG_Lunge.wav</ShortName>
+					<CachePath>SFX/BFG_Lunge_818F3B66.wem</CachePath>
+				</File>
 				<File Id="369121922" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Silence_Scrap.wav</ShortName>
 					<CachePath>SFX/Silence_Scrap_56CEF360.wem</CachePath>
+				</File>
+				<File Id="369513787" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kaila_Jump.wav</ShortName>
+					<CachePath>SFX/Kaila_Jump_818F3B66.wem</CachePath>
+				</File>
+				<File Id="377994243" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Turret_Explosion-1.wav</ShortName>
+					<CachePath>SFX/Turret_Explosion-1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="382992550" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Push.wav</ShortName>
+					<CachePath>SFX/Push_818F3B66.wem</CachePath>
 				</File>
 				<File Id="386208712" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guitar_1.wav</ShortName>
@@ -96,6 +247,10 @@
 				<File Id="397199079" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Riff1_Progression_Crash.wav</ShortName>
 					<CachePath>SFX/Riff1_Progression_Crash_56CEF360.wem</CachePath>
+				</File>
+				<File Id="402115762" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Turret_LockOn.wav</ShortName>
+					<CachePath>SFX/Turret_LockOn_818F3B66.wem</CachePath>
 				</File>
 				<File Id="403347213" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Section_C.wav</ShortName>
@@ -117,9 +272,17 @@
 					<ShortName>Solo1_NoCrash.wav</ShortName>
 					<CachePath>SFX/Solo1_NoCrash_56CEF360.wem</CachePath>
 				</File>
+				<File Id="468055188" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Button.wav</ShortName>
+					<CachePath>SFX/UI_Button_818F3B66.wem</CachePath>
+				</File>
 				<File Id="476812800" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guitar_2.wav</ShortName>
 					<CachePath>SFX/Guitar_2_56CEF360.wem</CachePath>
+				</File>
+				<File Id="484023593" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BFG_Uppercut.wav</ShortName>
+					<CachePath>SFX/BFG_Uppercut_818F3B66.wem</CachePath>
 				</File>
 				<File Id="485367470" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DrumKit_4Bar_Normal.wav</ShortName>
@@ -137,6 +300,14 @@
 					<ShortName>Guitar_4.wav</ShortName>
 					<CachePath>SFX/Guitar_4_56CEF360.wem</CachePath>
 				</File>
+				<File Id="543059488" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NailGun_Burst.wav</ShortName>
+					<CachePath>SFX/NailGun_Burst_818F3B66.wem</CachePath>
+				</File>
+				<File Id="543809496" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Scrap_Collect.wav</ShortName>
+					<CachePath>SFX/Scrap_Collect_818F3B66.wem</CachePath>
+				</File>
 				<File Id="544890327" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DrumKit_2Bar_KickBuild.wav</ShortName>
 					<CachePath>SFX/DrumKit_2Bar_KickBuild_56CEF360.wem</CachePath>
@@ -149,6 +320,10 @@
 					<ShortName>BigFinale_Crash.wav</ShortName>
 					<CachePath>SFX/BigFinale_Crash_56CEF360.wem</CachePath>
 				</File>
+				<File Id="597362849" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Pull.wav</ShortName>
+					<CachePath>SFX/Pull_818F3B66.wem</CachePath>
+				</File>
 				<File Id="616299173" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Lead_4Bar_FastHigh.wav</ShortName>
 					<CachePath>SFX/Lead_4Bar_FastHigh_56CEF360.wem</CachePath>
@@ -160,6 +335,26 @@
 				<File Id="626147619" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TremSynth_Silence.wav</ShortName>
 					<CachePath>SFX/TremSynth_Silence_56CEF360.wem</CachePath>
+				</File>
+				<File Id="650394388" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RealSteel_OverdriveIntro.wav</ShortName>
+					<CachePath>SFX/RealSteel_OverdriveIntro_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="658891643" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepsGround3.wav</ShortName>
+					<CachePath>SFX/FootstepsGround3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="682299466" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kaila_Land.wav</ShortName>
+					<CachePath>SFX/Kaila_Land_818F3B66.wem</CachePath>
+				</File>
+				<File Id="682985250" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Desert_Wind.wav</ShortName>
+					<CachePath>SFX/Desert_Wind_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="692525493" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NailGun_ChargedShot_Pull.wav</ShortName>
+					<CachePath>SFX/NailGun_ChargedShot_Pull_818F3B66.wem</CachePath>
 				</File>
 				<File Id="702063897" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guitar_8Bar_Riff1.wav</ShortName>
@@ -189,6 +384,14 @@
 					<ShortName>Flute_1.wav</ShortName>
 					<CachePath>SFX/Flute_1_56CEF360.wem</CachePath>
 				</File>
+				<File Id="769871540" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Door_Close.wav</ShortName>
+					<CachePath>SFX/Door_Close_818F3B66.wem</CachePath>
+				</File>
+				<File Id="770468900" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Turret_Hit.wav</ShortName>
+					<CachePath>SFX/Turret_Hit_818F3B66.wem</CachePath>
+				</File>
 				<File Id="783261638" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DrumKit_2Bar_Half-Time.wav</ShortName>
 					<CachePath>SFX/DrumKit_2Bar_Half-Time_56CEF360.wem</CachePath>
@@ -196,6 +399,10 @@
 				<File Id="787037557" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guitar_6_Distorted.wav</ShortName>
 					<CachePath>SFX/Guitar_6_Distorted_56CEF360.wem</CachePath>
+				</File>
+				<File Id="787712988" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BFG_Impact2.wav</ShortName>
+					<CachePath>SFX/BFG_Impact2_818F3B66.wem</CachePath>
 				</File>
 				<File Id="829192963" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Bass_A.wav</ShortName>
@@ -208,6 +415,18 @@
 				<File Id="872318873" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Lead_4Bar_SlowRiff.wav</ShortName>
 					<CachePath>SFX/Lead_4Bar_SlowRiff_56CEF360.wem</CachePath>
+				</File>
+				<File Id="884533489" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cashmere_VolleyShoot.wav</ShortName>
+					<CachePath>SFX/Cashmere_VolleyShoot_818F3B66.wem</CachePath>
+				</File>
+				<File Id="893107048" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BFG_Swing.wav</ShortName>
+					<CachePath>SFX/BFG_Swing_818F3B66.wem</CachePath>
+				</File>
+				<File Id="896019782" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cashmere_Shockwave.wav</ShortName>
+					<CachePath>SFX/Cashmere_Shockwave_818F3B66.wem</CachePath>
 				</File>
 				<File Id="904185561" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guitar_8Bar_Riff3.wav</ShortName>
@@ -229,52 +448,86 @@
 					<ShortName>Guitar_4Bar_Riff4.wav</ShortName>
 					<CachePath>SFX/Guitar_4Bar_Riff4_56CEF360.wem</CachePath>
 				</File>
+				<File Id="1002274944" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BouncePad_Push_Launch.wav</ShortName>
+					<CachePath>SFX/BouncePad_Push_Launch_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1010178767" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RealSteel_OverdriveActive.wav</ShortName>
+					<CachePath>SFX/RealSteel_OverdriveActive_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="1018692921" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BFG_Slam.wav</ShortName>
+					<CachePath>SFX/BFG_Slam_818F3B66.wem</CachePath>
+				</File>
 				<File Id="1024608900" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Percussion_4Bar_BigDrum.wav</ShortName>
 					<CachePath>SFX/Percussion_4Bar_BigDrum_56CEF360.wem</CachePath>
+				</File>
+				<File Id="1027718188" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RealSteel_ImpactShockwave.wav</ShortName>
+					<CachePath>SFX/RealSteel_ImpactShockwave_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1044543368" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NailGun_ChargedShot.wav</ShortName>
+					<CachePath>SFX/NailGun_ChargedShot_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1045500657" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Scroll_Pickup (2).wav</ShortName>
+					<CachePath>SFX/Scroll_Pickup (2)_818F3B66.wem</CachePath>
 				</File>
 				<File Id="1049289630" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Combat1_SectionB.wav</ShortName>
 					<CachePath>SFX/Combat1_SectionB_56CEF360.wem</CachePath>
 				</File>
+				<File Id="1049397153" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kaila_Dash.wav</ShortName>
+					<CachePath>SFX/Kaila_Dash_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1051878747" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>LockOff.wav</ShortName>
+					<CachePath>SFX/LockOff_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1059648798" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RealSteel_Impact.wav</ShortName>
+					<CachePath>SFX/RealSteel_Impact_818F3B66.wem</CachePath>
+				</File>
 			</Media>
 			<Plugins>
 				<ShareSets>
+					<Plugin Id="535667444" Name="Bathroom1" LibName="Wwise Matrix Reverb" LibId="7536643"/>
 					<Plugin Id="1188943754" Name="New_Peak_Limiter_01" LibName="Wwise Peak Limiter" LibId="7208963"/>
+					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
+					<Plugin Id="2653529179" Name="Three_Voices" LibName="Wwise Harmonizer" LibId="9043971"/>
+					<Plugin Id="3407225994" Name="Phone_Booth" LibName="Wwise RoomVerb" LibId="7733251"/>
+					<Plugin Id="3851006675" Name="Secret_message_Distant" LibName="Wwise Harmonizer" LibId="9043971"/>
+					<Plugin Id="3948262040" Name="Octave_Down" LibName="Wwise Pitch Shifter" LibId="8912899"/>
+					<Plugin Id="4202347640" Name="Repeat_after_me" LibName="Wwise Harmonizer" LibId="9043971"/>
 				</ShareSets>
 			</Plugins>
 			<Events>
-				<Event Id="283095519" Name="Boss_Section1" DurationType="Infinite">
+				<Event Id="2897981775" Name="AmbiencePlay_DesertWind" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="23675886"/>
-						<MediaRef Id="82908139"/>
-						<MediaRef Id="123808930"/>
-						<MediaRef Id="144343419"/>
-						<MediaRef Id="441743405"/>
-						<MediaRef Id="465598859"/>
-						<MediaRef Id="499675649"/>
-						<MediaRef Id="520613786"/>
-						<MediaRef Id="617483849"/>
-						<MediaRef Id="755690947"/>
+						<MediaRef Id="682985250"/>
 					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="1188943754"/>
-						</ShareSets>
-					</PluginRefs>
 				</Event>
-				<Event Id="283095516" Name="Boss_Section2" DurationType="Infinite">
+				<Event Id="283095519" Name="Boss_Section1" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="1690668539" Id="1272574122" Name="Boss_1"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="283095516" Name="Boss_Section2" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="1690668539" Id="1272574121" Name="Boss_2"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="977454165" Name="Button" DurationType="OneShot" DurationMin="0.4" DurationMax="0.4">
 					<MediaRefs>
-						<MediaRef Id="23675886"/>
-						<MediaRef Id="227679020"/>
-						<MediaRef Id="282085477"/>
-						<MediaRef Id="397199079"/>
-						<MediaRef Id="586254239"/>
-						<MediaRef Id="755690947"/>
+						<MediaRef Id="468055188"/>
 					</MediaRefs>
 					<PluginRefs>
 						<ShareSets>
-							<PluginRef Id="1188943754"/>
+							<PluginRef Id="1459522457"/>
 						</ShareSets>
 					</PluginRefs>
 				</Event>
@@ -392,311 +645,6 @@
 					<ActionTrigger>
 						<ActionTriggerEntry Id="1856838135" Name="ScrapshiftEnd"/>
 					</ActionTrigger>
-				</Event>
-			</Events>
-			<StateGroups>
-				<StateGroup Id="1690668539" Name="Music_States">
-					<States>
-						<State Id="579523862" Name="Explore"/>
-						<State Id="748895195" Name="None"/>
-						<State Id="1272574121" Name="Boss_2"/>
-						<State Id="1272574122" Name="Boss_1"/>
-						<State Id="2764240573" Name="Combat"/>
-						<State Id="4104150384" Name="Scrapshift"/>
-					</States>
-				</StateGroup>
-			</StateGroups>
-			<Triggers>
-				<Trigger Id="1856838135" Name="ScrapshiftEnd"/>
-				<Trigger Id="4104150384" Name="Scrapshift"/>
-			</Triggers>
-		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{FDF43560-3C72-E8D8-89C3-1740995F4925}">
-			<ShortName>Init</ShortName>
-			<Path>Init.bnk</Path>
-			<Plugins>
-				<Custom>
-					<Plugin Id="14895759" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
-					<Plugin Id="73399820" Name="New_Peak_Limiter (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
-					<Plugin Id="178414885" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
-					<Plugin Id="589171496" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
-					<Plugin Id="853257643" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
-				</Custom>
-				<ShareSets>
-					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
-				</ShareSets>
-				<AudioDevices>
-					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
-					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
-				</AudioDevices>
-			</Plugins>
-			<Busses>
-				<Bus Id="48433064" Name="Master Music Bus">
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="1459522457"/>
-						</ShareSets>
-					</PluginRefs>
-				</Bus>
-				<Bus Id="84101584" Name="Kaila_SFX_Bus"/>
-				<Bus Id="326245315" Name="Muzzler_SFX_Bus"/>
-				<Bus Id="1502772432" Name="SFX Bus">
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="73399820"/>
-						</Custom>
-					</PluginRefs>
-				</Bus>
-				<Bus Id="1570563853" Name="Explore Music Bus">
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="589171496"/>
-						</Custom>
-						<ShareSets>
-							<PluginRef Id="1459522457"/>
-						</ShareSets>
-					</PluginRefs>
-				</Bus>
-				<Bus Id="1908967618" Name="Cashmere_SFX_Bus"/>
-				<Bus Id="2199471764" Name="Combat 1 Section B Music Bus"/>
-				<Bus Id="2320406271" Name="Environment_SFX_Bus"/>
-				<Bus Id="2731925972" Name="UI_SFX_Bus"/>
-				<Bus Id="2764240573" Name="Combat">
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="853257643"/>
-						</Custom>
-					</PluginRefs>
-				</Bus>
-				<Bus Id="2930211473" Name="Boss Music Bus"/>
-				<Bus Id="3571547856" Name="Turret_SFX_Bus"/>
-				<Bus Id="3736460895" Name="ScrapShift Music Bus">
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="14895759"/>
-						</Custom>
-					</PluginRefs>
-				</Bus>
-				<Bus Id="3803692087" Name="Master Audio Bus">
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="1459522457"/>
-						</ShareSets>
-					</PluginRefs>
-				</Bus>
-				<Bus Id="3967235860" Name="General_SFX_Bus"/>
-				<Bus Id="4083411863" Name="Combat 1 Section A Music Bus">
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="178414885"/>
-						</Custom>
-						<ShareSets>
-							<PluginRef Id="1459522457"/>
-						</ShareSets>
-					</PluginRefs>
-				</Bus>
-				<Bus Id="4202237879" Name="Ambience Bus"/>
-			</Busses>
-			<GameParameters>
-				<GameParameter Id="988953028" Name="SFXVolume"/>
-				<GameParameter Id="2346531308" Name="MusicVolume"/>
-				<GameParameter Id="2918011349" Name="MasterVolume"/>
-			</GameParameters>
-			<StateGroups>
-				<StateGroup Id="1690668539" Name="Music_States">
-					<States>
-						<State Id="579523862" Name="Explore"/>
-						<State Id="748895195" Name="None"/>
-						<State Id="1272574121" Name="Boss_2"/>
-						<State Id="1272574122" Name="Boss_1"/>
-						<State Id="2764240573" Name="Combat"/>
-						<State Id="4104150384" Name="Scrapshift"/>
-					</States>
-				</StateGroup>
-			</StateGroups>
-			<SwitchGroups>
-				<SwitchGroup Id="2250165792" Name="New_Switch_Group">
-					<Switches>
-						<Switch Id="1914034948" Name="New_Switch"/>
-					</Switches>
-				</SwitchGroup>
-			</SwitchGroups>
-		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{6CC4899F-CDC2-C858-30B3-B423E6E1078D}">
-			<ShortName>Soundbank_SFX</ShortName>
-			<Path>Soundbank_SFX.bnk</Path>
-			<Media>
-				<File Id="84823563" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Pipe_CreakExplosion.wav</ShortName>
-					<CachePath>SFX/Pipe_CreakExplosion_818F3B66.wem</CachePath>
-				</File>
-				<File Id="116980831" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RealSteel_OverdriveOutro.wav</ShortName>
-					<CachePath>SFX/RealSteel_OverdriveOutro_818F3B66.wem</CachePath>
-				</File>
-				<File Id="122414336" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Rail.wav</ShortName>
-					<CachePath>SFX/Rail_818F3B66.wem</CachePath>
-				</File>
-				<File Id="262919125" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Turret_Fire.wav</ShortName>
-					<CachePath>SFX/Turret_Fire_818F3B66.wem</CachePath>
-				</File>
-				<File Id="291620049" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Cashmere_VolleyBuild.wav</ShortName>
-					<CachePath>SFX/Cashmere_VolleyBuild_818F3B66.wem</CachePath>
-				</File>
-				<File Id="312064319" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Kaila_LockOn.wav</ShortName>
-					<CachePath>SFX/Kaila_LockOn_818F3B66.wem</CachePath>
-				</File>
-				<File Id="325590457" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>BFG_Lunge.wav</ShortName>
-					<CachePath>SFX/BFG_Lunge_818F3B66.wem</CachePath>
-				</File>
-				<File Id="369513787" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Kaila_Jump.wav</ShortName>
-					<CachePath>SFX/Kaila_Jump_818F3B66.wem</CachePath>
-				</File>
-				<File Id="377994243" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Turret_Explosion-1.wav</ShortName>
-					<CachePath>SFX/Turret_Explosion-1_818F3B66.wem</CachePath>
-				</File>
-				<File Id="382992550" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Push.wav</ShortName>
-					<CachePath>SFX/Push_818F3B66.wem</CachePath>
-				</File>
-				<File Id="402115762" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Turret_LockOn.wav</ShortName>
-					<CachePath>SFX/Turret_LockOn_818F3B66.wem</CachePath>
-				</File>
-				<File Id="468055188" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>UI_Button.wav</ShortName>
-					<CachePath>SFX/UI_Button_818F3B66.wem</CachePath>
-				</File>
-				<File Id="484023593" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>BFG_Uppercut.wav</ShortName>
-					<CachePath>SFX/BFG_Uppercut_818F3B66.wem</CachePath>
-				</File>
-				<File Id="543059488" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>NailGun_Burst.wav</ShortName>
-					<CachePath>SFX/NailGun_Burst_818F3B66.wem</CachePath>
-				</File>
-				<File Id="543809496" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Scrap_Collect.wav</ShortName>
-					<CachePath>SFX/Scrap_Collect_818F3B66.wem</CachePath>
-				</File>
-				<File Id="597362849" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Pull.wav</ShortName>
-					<CachePath>SFX/Pull_818F3B66.wem</CachePath>
-				</File>
-				<File Id="650394388" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RealSteel_OverdriveIntro.wav</ShortName>
-					<CachePath>SFX/RealSteel_OverdriveIntro_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="658891643" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>FootstepsGround3.wav</ShortName>
-					<CachePath>SFX/FootstepsGround3_818F3B66.wem</CachePath>
-				</File>
-				<File Id="682299466" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Kaila_Land.wav</ShortName>
-					<CachePath>SFX/Kaila_Land_818F3B66.wem</CachePath>
-				</File>
-				<File Id="682985250" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Desert_Wind.wav</ShortName>
-					<CachePath>SFX/Desert_Wind_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="692525493" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>NailGun_ChargedShot_Pull.wav</ShortName>
-					<CachePath>SFX/NailGun_ChargedShot_Pull_818F3B66.wem</CachePath>
-				</File>
-				<File Id="769871540" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Door_Close.wav</ShortName>
-					<CachePath>SFX/Door_Close_818F3B66.wem</CachePath>
-				</File>
-				<File Id="770468900" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Turret_Hit.wav</ShortName>
-					<CachePath>SFX/Turret_Hit_818F3B66.wem</CachePath>
-				</File>
-				<File Id="787712988" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>BFG_Impact2.wav</ShortName>
-					<CachePath>SFX/BFG_Impact2_818F3B66.wem</CachePath>
-				</File>
-				<File Id="884533489" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Cashmere_VolleyShoot.wav</ShortName>
-					<CachePath>SFX/Cashmere_VolleyShoot_818F3B66.wem</CachePath>
-				</File>
-				<File Id="893107048" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>BFG_Swing.wav</ShortName>
-					<CachePath>SFX/BFG_Swing_818F3B66.wem</CachePath>
-				</File>
-				<File Id="896019782" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Cashmere_Shockwave.wav</ShortName>
-					<CachePath>SFX/Cashmere_Shockwave_818F3B66.wem</CachePath>
-				</File>
-				<File Id="1002274944" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>BouncePad_Push_Launch.wav</ShortName>
-					<CachePath>SFX/BouncePad_Push_Launch_818F3B66.wem</CachePath>
-				</File>
-				<File Id="1010178767" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RealSteel_OverdriveActive.wav</ShortName>
-					<CachePath>SFX/RealSteel_OverdriveActive_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="1018692921" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>BFG_Slam.wav</ShortName>
-					<CachePath>SFX/BFG_Slam_818F3B66.wem</CachePath>
-				</File>
-				<File Id="1027718188" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RealSteel_ImpactShockwave.wav</ShortName>
-					<CachePath>SFX/RealSteel_ImpactShockwave_818F3B66.wem</CachePath>
-				</File>
-				<File Id="1044543368" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>NailGun_ChargedShot.wav</ShortName>
-					<CachePath>SFX/NailGun_ChargedShot_818F3B66.wem</CachePath>
-				</File>
-				<File Id="1045500657" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Scroll_Pickup (2).wav</ShortName>
-					<CachePath>SFX/Scroll_Pickup (2)_818F3B66.wem</CachePath>
-				</File>
-				<File Id="1049397153" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Kaila_Dash.wav</ShortName>
-					<CachePath>SFX/Kaila_Dash_818F3B66.wem</CachePath>
-				</File>
-				<File Id="1051878747" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>LockOff.wav</ShortName>
-					<CachePath>SFX/LockOff_818F3B66.wem</CachePath>
-				</File>
-				<File Id="1059648798" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RealSteel_Impact.wav</ShortName>
-					<CachePath>SFX/RealSteel_Impact_818F3B66.wem</CachePath>
-				</File>
-			</Media>
-			<Plugins>
-				<ShareSets>
-					<Plugin Id="535667444" Name="Bathroom1" LibName="Wwise Matrix Reverb" LibId="7536643"/>
-					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
-					<Plugin Id="2653529179" Name="Three_Voices" LibName="Wwise Harmonizer" LibId="9043971"/>
-					<Plugin Id="3407225994" Name="Phone_Booth" LibName="Wwise RoomVerb" LibId="7733251"/>
-					<Plugin Id="3851006675" Name="Secret_message_Distant" LibName="Wwise Harmonizer" LibId="9043971"/>
-					<Plugin Id="3948262040" Name="Octave_Down" LibName="Wwise Pitch Shifter" LibId="8912899"/>
-					<Plugin Id="4202347640" Name="Repeat_after_me" LibName="Wwise Harmonizer" LibId="9043971"/>
-				</ShareSets>
-			</Plugins>
-			<Events>
-				<Event Id="2897981775" Name="AmbiencePlay_DesertWind" DurationType="Infinite">
-					<MediaRefs>
-						<MediaRef Id="682985250"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="977454165" Name="Button" DurationType="OneShot" DurationMin="0.4" DurationMax="0.4">
-					<MediaRefs>
-						<MediaRef Id="468055188"/>
-					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="1459522457"/>
-						</ShareSets>
-					</PluginRefs>
 				</Event>
 				<Event Id="3190817658" Name="SFX_Play_Dash" DurationType="OneShot" DurationMin="1.9319247" DurationMax="2.4340725">
 					<MediaRefs>
@@ -976,7 +924,23 @@
 					</PluginRefs>
 				</Event>
 			</Events>
+			<StateGroups>
+				<StateGroup Id="1690668539" Name="Music_States">
+					<States>
+						<State Id="579523862" Name="Explore"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1272574121" Name="Boss_2"/>
+						<State Id="1272574122" Name="Boss_1"/>
+						<State Id="2764240573" Name="Combat"/>
+						<State Id="4104150384" Name="Scrapshift"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<Triggers>
+				<Trigger Id="1856838135" Name="ScrapshiftEnd"/>
+				<Trigger Id="4104150384" Name="Scrapshift"/>
+			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{39A75BE5-47E2-D673-AB9F-8B1E65E96032}</FileHash>
+	<FileHash>{50718EB3-726E-607B-A82F-0A4A3C449D3D}</FileHash>
 </SoundBanksInfo>

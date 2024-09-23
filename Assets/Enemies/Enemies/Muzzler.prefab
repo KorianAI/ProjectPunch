@@ -1440,7 +1440,6 @@ GameObject:
   - component: {fileID: 2390021426467358384}
   - component: {fileID: 8916209884553460030}
   - component: {fileID: 3522073094188789333}
-  - component: {fileID: 584478423805734670}
   m_Layer: 7
   m_Name: Muzzler
   m_TagString: Enemy
@@ -1760,38 +1759,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &584478423805734670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4105524914971712823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3f14686cbcc454cb56390939621be3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playSFX_MuzzlerKick:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 3e31a5a2cfb474d409906b528c30435a, type: 2}
-  playSFX_TurretFire:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  playSFX_TurretHit:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  playSFX_TurretDestroyed:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  playSFX_TurretLockOn:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
 --- !u!1 &4270234911416187242
 GameObject:
   m_ObjectHideFlags: 0
