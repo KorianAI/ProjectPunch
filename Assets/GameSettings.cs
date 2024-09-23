@@ -10,7 +10,7 @@ public class GameSettings : MonoBehaviour
     public static GameSettings instance { get; private set; }
 
     [Header("References")]
-    public AudioMixer mixer;
+    //public AudioMixer mixer;
 
     [Header("UI")]
     public Slider masterVolSlider;
@@ -107,8 +107,8 @@ public class GameSettings : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("MusicVol"))
         {
-            SetMusicVolume(defaultAudioValue);
-            musicVolSlider.value = defaultAudioValue;
+           SetMusicVolume(defaultAudioValue);
+           musicVolSlider.value = defaultAudioValue;
         }
 
         if (!PlayerPrefs.HasKey("SFXVol"))
@@ -140,22 +140,26 @@ public class GameSettings : MonoBehaviour
     }
 
     #region SetValues
-    public void SetMasterVolume(float volume)
+    public void SetMasterVolume(float mastervolume) //changed to individual xvolume variables
     {
-        AkSoundEngine.SetRTPCValue("Master Audio Bus", volume);
-        PlayerPrefs.SetFloat("MasterVol", volume);
+        //mastervolume = masterVolSlider.value; //added this in to recieve that volume from the slider
+        AkSoundEngine.SetRTPCValue("MasterVolume", mastervolume);
+        PlayerPrefs.SetFloat("MasterVol", mastervolume);
     }
 
-    public void SetMusicVolume(float volume)
+    public void SetMusicVolume(float musicvolume)
     {
-        AkSoundEngine.SetRTPCValue("Master Music Bus", volume);
-        PlayerPrefs.SetFloat("MusicVol", volume);
+        //musicvolume = musicVolSlider.value;
+        Debug.Log("Setting the music volume to " + musicvolume);
+        AkSoundEngine.SetRTPCValue("MusicVolume", musicvolume);
+        PlayerPrefs.SetFloat("MusicVol", musicvolume);
     }
 
-    public void SetSFXVolume(float volume)
+    public void SetSFXVolume(float sfxvolume)
     {
-        AkSoundEngine.SetRTPCValue("SFX Bus", volume);
-        PlayerPrefs.SetFloat("SFXVol", volume);
+        //sfxvolume = SFXVolSlider.value;
+        AkSoundEngine.SetRTPCValue("SFXVolume", sfxvolume);
+        PlayerPrefs.SetFloat("SFXVol", sfxvolume);
     }
 
     public void SkipTutorials(bool value)
