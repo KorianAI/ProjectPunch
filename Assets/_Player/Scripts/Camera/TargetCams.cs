@@ -383,7 +383,7 @@ public class TargetCams : MonoBehaviour
 
             int index = 0;
 
-            if (enemyDistances != null)
+            if (enemyDistances.Count > 0)
             {
                 for (int i = 0; i < distances.Length; i++) //Find the index number relative to the target with the smallest distance
                 {
@@ -415,6 +415,7 @@ public class TargetCams : MonoBehaviour
         {
             Vector3 ctViewPos = mainCamera.WorldToViewportPoint(currentTarget.transform.position);
             Vector2 ctActualPos = new Vector3(ctViewPos.x - 0.5f, ctViewPos.y - 0.5f);
+
 
 
             foreach (GameObject enemy in TargetManager.instance.targets)
@@ -450,7 +451,7 @@ public class TargetCams : MonoBehaviour
 
             
 
-            if (enemiesInRange != null || enemyDistances != null)
+            if (enemyDistances.Count > 0)
             {
                 float[] distances = enemyDistances.ToArray();
                 float minDistance = Mathf.Max(distances);
