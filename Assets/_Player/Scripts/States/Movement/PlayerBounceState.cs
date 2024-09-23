@@ -10,6 +10,7 @@ public class PlayerBounceState : PlayerMovementBase
     {
         base.EnterState(player);
         _sm.bouncing = true;
+        _sm.cam.canRotate = false;
         _sm.anim.SetBool("Bouncing", true);
         _sm.anim.Play("Backflip");
         _sm.pm.moveDirection = Vector3.zero;

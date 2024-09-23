@@ -13,6 +13,8 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     PlayerStateManager ps;
     Targetable t;
 
+    public Transform forwardDirection;
+
     public float duration = 1f;
     public float camLockDuration = 1.5f;
 
@@ -38,15 +40,31 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     {
         if (ps.inBounceCollider)
         {
+            PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.padCam);
+
+            if (nextTarget != null)
+            {
+                PlayerCameraManager.instance.padCam.m_Lens.FieldOfView = 60;
+                Vector3 lookAtPos = new Vector3(nextTarget.transform.position.x, ps.playerObj.position.y, nextTarget.transform.position.z);
+                ps.playerObj.DOLookAt(lookAtPos, 0f);
+                StartCoroutine(NextTarget(player));
+            }
+
+            else
+            {
+                Vector3 lookAtPos = new Vector3(forwardDirection.transform.position.x, ps.playerObj.position.y, forwardDirection.transform.position.z);
+                ps.playerObj.DOLookAt(lookAtPos, 0f);
+                PlayerCameraManager.instance.padCam.m_Lens.FieldOfView = 90;
+            }
+
             bounceVFX.Play();
 
             player.SwitchState(new PlayerBounceState());
             player.tl.ResetTarget();
 
-            if (nextTarget != null)
-            {
-                StartCoroutine (NextTarget(player));
-            }
+
+
+
 
             player.splineFollower.enabled = true;
             player.splineFollower.spline = flipSpline;
@@ -58,6 +76,7 @@ public class Bouncepad : MonoBehaviour, IMagnetisable
     private IEnumerator NextTarget(PlayerStateManager player)
     {
         yield return new WaitForSeconds(player.nextRailLockDelay);
+        PlayerCameraManager.instance.SwitchNonPlayerCam(PlayerCameraManager.instance.targetCam);
         player.tl.AssignTarget(nextTarget.transform, nextTarget.GetComponent<Targetable>().targetPoint, 2, true);
         player.ltPressAnim.Play();
 
