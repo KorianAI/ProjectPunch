@@ -11266,7 +11266,7 @@
 									<ChildrenList>
 										<MusicSegment Name="Boss 1 - Intro" ID="{5FBBE5E8-C2D2-4A96-B3CA-C447211A1FDE}" ShortID="232328973">
 											<PropertyList>
-												<Property Name="EndPosition" Type="Real64" Value="31176.4828431373"/>
+												<Property Name="EndPosition" Type="Real64" Value="10000"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -11315,7 +11315,7 @@
 																							<PropertyList>
 																								<Property Name="BeginTrimOffset" Type="Real64" Value="-1.92068583260152E-12"/>
 																								<Property Name="EndTrimOffset" Type="Real64" Value="10000"/>
-																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutDuration" Type="Real64" Value="30.8868649104661"/>
 																								<Property Name="PlayAt" Type="Real64" Value="1.92068583260152E-12"/>
 																							</PropertyList>
 																							<AudioSourceRef Name="Intro" ID="{6516550C-1FD2-469F-A0C7-FCC6FFFF6FE4}"/>
