@@ -377,7 +377,7 @@
 				<Trigger Id="4104150384" Name="Scrapshift"/>
 			</Triggers>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{9277591A-C2BF-1072-90E4-C27489C37031}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{D0CE5BDB-F0E7-C5FC-A7B5-5F080D039E4A}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -386,6 +386,7 @@
 					<Plugin Id="73399820" Name="New_Peak_Limiter (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
 					<Plugin Id="178414885" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
 					<Plugin Id="589171496" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
+					<Plugin Id="853257643" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
 				</Custom>
 				<ShareSets>
 					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
@@ -426,6 +427,13 @@
 				<Bus Id="2199471764" Name="Combat 1 Section B Music Bus"/>
 				<Bus Id="2320406271" Name="Environment_SFX_Bus"/>
 				<Bus Id="2731925972" Name="UI_SFX_Bus"/>
+				<Bus Id="2764240573" Name="Combat">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="853257643"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
 				<Bus Id="2930211473" Name="Boss Music Bus"/>
 				<Bus Id="3571547856" Name="Turret_SFX_Bus"/>
 				<Bus Id="3736460895" Name="ScrapShift Music Bus">
@@ -475,7 +483,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{CF91818F-30C8-EB48-D98B-D464231EF00B}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{CE980171-C790-86EA-11A9-3C3B50E44233}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -923,5 +931,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{85FF0206-6E73-4C6F-E25E-36DC44C6C962}</FileHash>
+	<FileHash>{58A72FF5-1BAB-0FC2-64E5-1C0FBA594294}</FileHash>
 </SoundBanksInfo>

@@ -109,6 +109,7 @@ namespace AK
         static const AkUniqueID AMBIENCE_BUS = 4202237879U;
         static const AkUniqueID BOSS_MUSIC_BUS = 2930211473U;
         static const AkUniqueID CASHMERE_SFX_BUS = 1908967618U;
+        static const AkUniqueID COMBAT = 2764240573U;
         static const AkUniqueID COMBAT_1_SECTION_A_MUSIC_BUS = 4083411863U;
         static const AkUniqueID COMBAT_1_SECTION_B_MUSIC_BUS = 2199471764U;
         static const AkUniqueID ENVIRONMENT_SFX_BUS = 2320406271U;
