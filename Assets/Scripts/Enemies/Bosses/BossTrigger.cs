@@ -12,14 +12,11 @@ public class BossTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             boss.StartFight();
-            PlayMusic_Boss1();
-            MusicManager.instance.ToggleFightingBoss(true);
-
+            //PlayMusic_Boss1();
+            //MusicManager.instance.ToggleFightingBoss(true);
+            PlayerStateManager.instance.inBossFight = true;
+            PlayerStateManager.instance.resources.PlayMusic_Boss1();
         }
     }
 
-    public void PlayMusic_Boss1()
-    {
-        playMusic_Boss1.Post(gameObject);
-    }
 }

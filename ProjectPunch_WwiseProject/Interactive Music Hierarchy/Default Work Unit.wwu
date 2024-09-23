@@ -79,7 +79,9 @@
 															<ObjectRef Name="Combat 1" ID="{542BF261-F5E1-45E4-A1D6-9F89805EDFEF}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 														</Reference>
 													</ReferenceList>
-													<TransitionInfo/>
+													<TransitionInfo>
+														<TransitionObjectRef Name="ScrapShift" ID="{34BBD894-08DB-411F-BC21-FBBAB5AE11E1}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+													</TransitionInfo>
 												</MusicTransition>
 												<MusicTransition Name="Transition" ID="{6B5B6EAF-7AE0-4172-9AB9-F0E211B80200}">
 													<PropertyList>
@@ -136,6 +138,7 @@
 														</Reference>
 													</ReferenceList>
 													<TransitionInfo>
+														<TransitionObjectRef Name="ScrapShift" ID="{34BBD894-08DB-411F-BC21-FBBAB5AE11E1}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 														<SourceFadeOut>
 															<MusicFade Name="Source Fade-out" ID="{D854EACF-6664-41A8-85C3-0680BB2270F8}">
 																<PropertyList>
@@ -166,6 +169,7 @@
 														</Reference>
 													</ReferenceList>
 													<TransitionInfo>
+														<TransitionObjectRef Name="ScrapShiftEnd" ID="{0F98CA91-113A-49BB-8EF8-C0D662A5F314}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 														<SourceFadeOut>
 															<MusicFade Name="Source Fade-out" ID="{80B6A260-5C03-4460-A7FE-0BE99CEEB712}">
 																<PropertyList>
@@ -206,7 +210,7 @@
 													</ReferenceList>
 													<TransitionInfo>
 														<JumpToPlaylistItemRef Name="" ID="{219E3CE5-C678-451B-A6C0-F5DA8ED06E0A}"/>
-														<TransitionObjectRef Name="ScrapShift" ID="{34BBD894-08DB-411F-BC21-FBBAB5AE11E1}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+														<TransitionObjectRef Name="ScrapShiftEnd" ID="{0F98CA91-113A-49BB-8EF8-C0D662A5F314}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 														<SourceFadeOut>
 															<MusicFade Name="Source Fade-out" ID="{4F9B634E-8EDE-4710-9E52-75D181AAC9E2}">
 																<PropertyList>
@@ -228,6 +232,7 @@
 												<MusicTransition Name="Transition" ID="{ACEE8F43-2CFF-4AF7-87C0-10FBF1DA089F}">
 													<PropertyList>
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
+														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
 													</PropertyList>
 													<ReferenceList>
@@ -243,7 +248,9 @@
 												<MusicTransition Name="Transition" ID="{70EDBC29-B965-45C8-A2E7-0250E310029A}">
 													<PropertyList>
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
+														<Property Name="DestinationPlaylistJumpTo" Type="int16" Value="1"/>
 														<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
 													</PropertyList>
 													<ReferenceList>
@@ -254,12 +261,15 @@
 															<ObjectRef Name="Explore" ID="{449AE57F-7B04-456A-8F53-370C10B370A6}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
 														</Reference>
 													</ReferenceList>
-													<TransitionInfo/>
+													<TransitionInfo>
+														<JumpToPlaylistItemRef Name="" ID="{53EF1FE9-07B0-42C4-B349-8BF1CD980EFC}"/>
+													</TransitionInfo>
 												</MusicTransition>
 												<MusicTransition Name="Transition" ID="{9A4933C7-4C45-4D9A-ADE2-47BC21B747F6}">
 													<PropertyList>
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
 														<Property Name="DestinationPlaylistJumpTo" Type="int16" Value="1"/>
+														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
 													</PropertyList>
 													<ReferenceList>
@@ -278,6 +288,7 @@
 													<PropertyList>
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
 														<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
 													</PropertyList>
 													<ReferenceList>
@@ -294,6 +305,7 @@
 													<PropertyList>
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
 														<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
 													</PropertyList>
 													<ReferenceList>
@@ -310,6 +322,7 @@
 													<PropertyList>
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
 														<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
 													</PropertyList>
 													<ReferenceList>
@@ -326,6 +339,7 @@
 													<PropertyList>
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
 														<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
 													</PropertyList>
 													<ReferenceList>
@@ -12544,7 +12558,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>9</Value>
+										<Value>4</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -12706,7 +12720,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>9</Value>
+										<Value>4</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

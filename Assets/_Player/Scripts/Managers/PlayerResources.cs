@@ -32,11 +32,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public float scrapDecreaseCooldown;
     public bool scrapDecrease;
 
-    [Header("Music Change States")]
-    public AK.Wwise.Event playMusic_Combat1;
-    public AK.Wwise.Event playMusic_Explore;
-    public AK.Wwise.Event playMusic_Boss1;
-    public AK.Wwise.Event playMusic_Boss2;
+    //[Header("Music Change States")]
+    //public AK.Wwise.Event playMusic_Combat1;
+    //public AK.Wwise.Event playMusic_Explore;
+    //public AK.Wwise.Event playMusic_Boss1;
+    //public AK.Wwise.Event playMusic_Boss2;
 
     //shifts
     public bool scrapShift;
@@ -80,8 +80,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public AK.Wwise.Event playSFX_ScrapCollect;
 
     //public CombatManager cm;
-    //public BossHealth bh;
-    
+    public BossHealth bh;
+    public MusicOverview musicOverview;
 
     private void OnEnable()
     {
@@ -111,8 +111,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
         armourBar.currentValue = currentArmour;
 
         audioManager = GetComponent<PlayerAudioManager>();
-        //cm = GetComponent<CombatManager>();
-        //bh = GetComponent<BossHealth>();
+        musicOverview = GetComponent<MusicOverview>();
     }
 
     private void Update()
@@ -202,7 +201,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
             scrapDecrease = false;
             scrapShift = false;
             ChangeGauntlets(3);
-            //MusicSwitchState();
+            MusicSwitchState();
             shift.ActivateOverdrive(false);
             if (overdriveUI != null)
             {
@@ -455,43 +454,48 @@ public class PlayerResources : MonoBehaviour, IDamageable
         playSFX_ScrapCollect.Post(gameObject);
     }
 
-    //public void MusicSwitchState()
-    //{
-    //    if (cm.combatActive)
-    //    {
-    //        PlayMusic_Combat1();
-    //    }
+    public void MusicSwitchState()
+    {
+        if (stateManager.inCombat && !stateManager.inBossFight)
+        {
+            PlayMusic_Combat1();
+        }
 
-    //    else if (cm.combatActive == false && MusicManager.instance.fightingBoss == false)
-    //    {
-    //        PlayMusic_Explore();
-    //    }
+        else if (stateManager.inCombat == false && stateManager.inBossFight == false)
+        {
+            PlayMusic_Explore();
+        }
 
-    //    else
-    //    {
-    //        if (bh.currentHealth < bh.boss.stats.health * 0.5f)
-    //        {
+        else
+        {
+            if (bh.currentHealth < bh.boss.stats.health * 0.5f)
+            {
+                PlayMusic_Boss2();
+            }
 
-    //        }
-    //    }
-    //}
+            else
+            {
+                PlayMusic_Boss1();
+            }
+        }
+    }
 
     public void PlayMusic_Combat1()
     {
-        playMusic_Combat1.Post(gameObject);
+        musicOverview.Music_Combat1();
     }
     public void PlayMusic_Explore()
     {
-        playMusic_Explore.Post(gameObject);
+        musicOverview.Music_Explore();
     }
 
     public void PlayMusic_Boss1()
     {
-        playMusic_Boss1.Post(gameObject);
+        musicOverview.Music_Boss1();
     }
 
     public void PlayMusic_Boss2()
     {
-        playMusic_Boss2.Post(gameObject);
+        musicOverview.Music_Boss2();
     }
 }

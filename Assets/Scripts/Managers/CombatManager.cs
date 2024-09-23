@@ -95,6 +95,7 @@ public class CombatManager : MonoBehaviour
         combatActive = true;
         MusicOverview.instance.Music_Combat1();
         PlayerStateManager.instance.resources.ChangeGauntlets(1);
+        PlayerStateManager.instance.inCombat = true;
 
         if (combatStartAnim != null && playCombatStartAnim)
         {
@@ -227,10 +228,11 @@ public class CombatManager : MonoBehaviour
 
     public void EndCombat()
     {
+        PlayerStateManager.instance.inCombat = false;
         Debug.Log("combat ended");
         combatActive = false;
-        MusicOverview.instance.Music_Explore();
         PlayerStateManager.instance.CombatEnd();
+        MusicOverview.instance.Music_Explore();
         exitDoorOpen.Play();
 
         if (playEndTut && requiredEndTut != null && !GameSettings.instance.skipTutorials)
