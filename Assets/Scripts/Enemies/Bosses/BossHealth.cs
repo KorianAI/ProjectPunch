@@ -26,6 +26,8 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
 
     public Animator vignette;
 
+    public AK.Wwise.Event playMusic_Boss2;
+
     private void Start()
     {
         currentHealth = stats.health;
@@ -91,6 +93,11 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
             {
                 Die();
             }
+
+            if (currentHealth < boss.stats.health * 0.5f)
+            {
+                PlayMusic_Boss2();
+            }
         }
     }
 
@@ -135,5 +142,10 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
     public void Push(PlayerStateManager player)
     {
         //
+    }
+
+    public void PlayMusic_Boss2()
+    {
+        playMusic_Boss2.Post(gameObject);
     }
 }
