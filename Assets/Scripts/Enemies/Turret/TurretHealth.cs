@@ -150,6 +150,13 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
         ai.chargeVFX.SetActive(false);
         ai.fireVFX.enabled = false;
         ai.targetLine.enabled = false;
+
+        Targetable t = GetComponent<Targetable>();
+        if (t != null)
+        {
+            t.untargetable = true;
+        }
+
         if (ai.dotInstance != null)
         {
             Destroy(ai.dotInstance);

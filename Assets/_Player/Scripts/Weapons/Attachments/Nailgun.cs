@@ -49,10 +49,12 @@ public class Nailgun : Attachment
 
         TrailRenderer trail = Instantiate(projTrail, spawnPoint.position, Quaternion.identity);
 
+
         if (sm.tl.currentTarget != null)
         {
             IDamageable enemy = sm.tl.currentTarget.GetComponent<IDamageable>();
             StartCoroutine(SpawnTrail(trail, direction, enemy));
+            Destroy(trail, 0.11f);
         }
         else
         {
@@ -104,7 +106,6 @@ public class Nailgun : Attachment
         if (sm.tl.currentTarget != null && !sm.tl.targetable.environment)
         {
             dir = sm.tl.currentTarget.position;
-            Debug.Log("1");
         }
 
         //else if (sm.pc.ClosestEnemy().transform != null)
@@ -116,7 +117,6 @@ public class Nailgun : Attachment
 
         else
         {
-            Debug.Log("3");
             dir = sm.playerObj.forward;
         }
 
@@ -147,7 +147,10 @@ public class Nailgun : Attachment
 
         trail.transform.position = enemy;
         health.TakeDamage(stats.damage);
-        HitstopManager.Instance.TriggerHitstop(stats.hitstopAmnt, sm.tl.currentTarget.gameObject);
+        if (sm.tl.currentTarget.gameObject)
+        {
+            HitstopManager.Instance.TriggerHitstop(stats.hitstopAmnt, sm.tl.currentTarget.gameObject);
+        }
         CinemachineShake.Instance.ShakeCamera(stats.shakeAmnt, stats.shakeDur);
         CinemachineShake.Instance.ChangeFov(stats.zoomAmnt, stats.shakeDur);
         RumbleManager.instance.RumblePulse(.05f, .15f, .1f);

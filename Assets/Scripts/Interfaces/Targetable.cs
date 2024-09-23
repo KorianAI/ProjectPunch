@@ -15,6 +15,7 @@ public class Targetable : MonoBehaviour
     public MeshRenderer mRenderer;
     public SkinnedMeshRenderer sRenderer;
     public float outlineThicknessMultiplier = 2;
+    public bool untargetable;
 
     private void Start()
     {

@@ -20,6 +20,7 @@ public class PushCargo : MonoBehaviour, IMagnetisable
     {
         anim = GetComponent<Animation>();
         source = GetComponent<AudioSource>();
+        targetable = GetComponent<Targetable>();
     }
 
     public void Pull(PlayerStateManager player)
@@ -38,9 +39,9 @@ public class PushCargo : MonoBehaviour, IMagnetisable
             anim.Play();
 
             source.PlayOneShot(pushed);
-
             player.tl.ResetTarget();
             player.cam.canRotate = true;
+            targetable.untargetable = true;
             PlayerCameraManager.instance.SwitchPlayerCam();
         }
     }

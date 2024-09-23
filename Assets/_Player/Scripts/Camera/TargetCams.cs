@@ -124,14 +124,22 @@ public class TargetCams : MonoBehaviour
 
             if (UnityEngine.Physics.SphereCast(mainCamera.transform.position, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, targetableLayers))
             {
-                AssignTarget(hit.transform, hit.collider.GetComponent<Targetable>().targetPoint, 1, true);
+                Targetable t = hit.collider.GetComponent<Targetable>();
+                if (!t.untargetable)
+                {
+                    AssignTarget(hit.transform, t.targetPoint, 1, true);
+                }
             }
 
             else
             {
                 if (ClosestTarget())
                 {
-                    AssignTarget(ClosestTarget().transform, currentTarget.GetComponent<Targetable>().targetPoint, 1, true);
+                    Targetable t = ClosestTarget().GetComponent<Targetable>();
+                    if (!t.untargetable)
+                    {
+                        AssignTarget(ClosestTarget().transform, t.targetPoint, 1, true);
+                    }
                 }
             }
         }
@@ -356,8 +364,12 @@ public class TargetCams : MonoBehaviour
 
                     if (enemyActualPos.x > ctActualPos.x) //if enemy is on the right of the middle of the screen, add to new list  //was MiddleOfScreen().x- MiddleOfScreen().x
                     {
-                        enemiesInRange.Add(enemy);
-                        enemyDistances.Add(enemyActualPos.x);
+                        Targetable t = enemy.GetComponent<Targetable>();
+                        if (!t.untargetable)
+                        {
+                            enemiesInRange.Add(enemy);
+                            enemyDistances.Add(enemyActualPos.x);
+                        }
                     }
                     else
                     {
@@ -422,8 +434,12 @@ public class TargetCams : MonoBehaviour
 
                     if (enemyActualPos.x < ctActualPos.x) //if enemy is on the left of the middle of the screen, add to new list  //was MiddleOfScreen().x- MiddleOfScreen().x
                     {
-                        enemiesInRange.Add(enemy);
-                        enemyDistances.Add(enemyActualPos.x);
+                        Targetable t = enemy.GetComponent<Targetable>();
+                        if (!t.untargetable)
+                        {
+                            enemiesInRange.Add(enemy);
+                            enemyDistances.Add(enemyActualPos.x);
+                        }
                     }
                     else
                     {

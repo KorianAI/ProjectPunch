@@ -149,8 +149,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
             sm.tl.ResetTarget();
             var nextTarget = NearestEnemy();
             if (nextTarget != null) { sm.tl.AssignTarget(nextTarget.transform, nextTarget.transform.gameObject.GetComponent<Targetable>().targetPoint, 1, true); }
-            
+        }
 
+        Targetable t = GetComponent<Targetable>();
+        if (t != null)
+        {
+            t.untargetable = true;
         }
 
         if (ai.manager)
