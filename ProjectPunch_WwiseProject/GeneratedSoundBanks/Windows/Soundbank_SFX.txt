@@ -74,6 +74,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	787712988	BFG_Impact	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\BFG_Impact2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Impact		110348
 	884533489	Cashmere_VolleyShoot	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Cashmere_VolleyShoot_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cashmere SFX\Cashmere_VolleyShoot		383740
 	893107048	BFG_Swing	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\BFG_Swing_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Swing		180980
+	896019782	Cashmere_Shockwave	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Cashmere_Shockwave_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cashmere SFX\Cashmere_Shockwave		287828
 	1002274944	BouncePad_Push_Launch	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\BouncePad_Push_Launch_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment SFX\BouncePad_Push_Launch		611984
 	1010178767	RealSteel_OverdriveActive	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\RealSteel_OverdriveActive_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\OverdriveFiles\Overdrive Switch\Overdrive\Active\RealSteel_OverdriveActive		2116896
 	1018692921	BFG_Slam	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\BFG_Slam_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Slam		211776

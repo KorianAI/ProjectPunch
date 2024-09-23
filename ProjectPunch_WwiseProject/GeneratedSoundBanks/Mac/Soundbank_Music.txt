@@ -1,4 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
+	283095516	Boss_Section2			\Default Work Unit\Music\Boss_Section2	
+	283095519	Boss_Section1			\Default Work Unit\Music\Boss_Section1	
 	579523862	Explore			\Default Work Unit\Music\Explore	
 	1122283870	MusicStart			\Default Work Unit\Music\MusicStart	
 	1856838135	ScrapshiftEnd			\Default Work Unit\Music\ScrapshiftEnd	

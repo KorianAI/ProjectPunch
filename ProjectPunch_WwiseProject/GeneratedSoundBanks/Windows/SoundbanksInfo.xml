@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{6451B005-14F9-1806-F11E-82C264307F7F}">
+		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{7DA20732-7A5D-1DAD-3539-714866D3D1F7}">
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
 			<Media>
@@ -244,6 +244,40 @@
 				</ShareSets>
 			</Plugins>
 			<Events>
+				<Event Id="283095519" Name="Boss_Section1" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="23675886"/>
+						<MediaRef Id="82908139"/>
+						<MediaRef Id="123808930"/>
+						<MediaRef Id="144343419"/>
+						<MediaRef Id="441743405"/>
+						<MediaRef Id="465598859"/>
+						<MediaRef Id="499675649"/>
+						<MediaRef Id="520613786"/>
+						<MediaRef Id="617483849"/>
+						<MediaRef Id="755690947"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1188943754"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="283095516" Name="Boss_Section2" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="23675886"/>
+						<MediaRef Id="227679020"/>
+						<MediaRef Id="282085477"/>
+						<MediaRef Id="397199079"/>
+						<MediaRef Id="586254239"/>
+						<MediaRef Id="755690947"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1188943754"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
 				<Event Id="2764240573" Name="Combat" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<ActionSetState>
 						<ActionSetStateEntry GroupId="1690668539" Id="2764240573" Name="Combat"/>
@@ -483,7 +517,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{C1FEF695-EC8B-77D3-48DB-A2FC626E50CE}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{8454F600-1EFD-8A2B-6330-C71B5C44E2B2}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -590,6 +624,10 @@
 				<File Id="893107048" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BFG_Swing.wav</ShortName>
 					<CachePath>SFX/BFG_Swing_818F3B66.wem</CachePath>
+				</File>
+				<File Id="896019782" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cashmere_Shockwave.wav</ShortName>
+					<CachePath>SFX/Cashmere_Shockwave_818F3B66.wem</CachePath>
 				</File>
 				<File Id="1002274944" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BouncePad_Push_Launch.wav</ShortName>
@@ -711,7 +749,11 @@
 						<MediaRef Id="884533489"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1699861256" Name="SFXPlay_CashmereShockwave" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1699861256" Name="SFXPlay_CashmereShockwave" DurationType="OneShot" DurationMin="1.453175" DurationMax="1.8308858">
+					<MediaRefs>
+						<MediaRef Id="896019782"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3800919789" Name="SFXPlay_FootstepsGround" DurationType="OneShot" DurationMin="0.49301422" DurationMax="0.7826113">
 					<MediaRefs>
 						<MediaRef Id="658891643"/>
@@ -931,5 +973,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{67921A5E-35FE-F2FE-44CE-941DEF5B7390}</FileHash>
+	<FileHash>{87B788E4-F3A8-B391-373E-2E734E4A768E}</FileHash>
 </SoundBanksInfo>

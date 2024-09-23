@@ -14,6 +14,8 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID AMBIENCEPLAY_DESERTWIND = 2897981775U;
+        static const AkUniqueID BOSS_SECTION1 = 283095519U;
+        static const AkUniqueID BOSS_SECTION2 = 283095516U;
         static const AkUniqueID BUTTON = 977454165U;
         static const AkUniqueID COMBAT = 2764240573U;
         static const AkUniqueID EXPLORE = 579523862U;
