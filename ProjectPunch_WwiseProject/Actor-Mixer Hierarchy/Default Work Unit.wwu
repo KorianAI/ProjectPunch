@@ -1335,6 +1335,11 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1392,7 +1397,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="General_SFX_Bus" ID="{A952B19F-C3AB-4D9A-96AD-E4103503F176}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+									<ObjectRef Name="UI_SFX_Bus" ID="{C644EB36-91AA-49EE-8A2B-B1CA746EFFE1}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1421,7 +1426,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="General_SFX_Bus" ID="{A952B19F-C3AB-4D9A-96AD-E4103503F176}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+									<ObjectRef Name="UI_SFX_Bus" ID="{C644EB36-91AA-49EE-8A2B-B1CA746EFFE1}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1744,11 +1749,6 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>5</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1800,7 +1800,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-20</Value>
+										<Value>-5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1812,15 +1812,6 @@
 									<ObjectRef Name="Turret_SFX_Bus" ID="{CBBEDDA6-A820-4B1D-B562-A8EA911CCB97}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Turret_DefeatedAmbience" ID="{28F990DB-E6A3-4D19-B13E-527B877E9533}">
-									<Language>SFX</Language>
-									<AudioFile>Turret_DefeatedAmbience.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="638141839"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
 							<PositioningInfo>
 								<Position Name="" ID="{88835238-3E16-4C75-A2C7-4A99796DCD60}"/>
 							</PositioningInfo>
@@ -1839,9 +1830,6 @@
 									</Reference>
 								</ObjectList>
 							</ObjectLists>
-							<ActiveSourceList>
-								<ActiveSource Name="Turret_DefeatedAmbience" ID="{28F990DB-E6A3-4D19-B13E-527B877E9533}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Turret_Explosion" ID="{C1CEA44C-42F1-424C-92E3-0A69B82B5CC4}" ShortID="731849262">
 							<PropertyList>

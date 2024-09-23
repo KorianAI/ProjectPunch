@@ -215,7 +215,7 @@
 				<Trigger Id="4104150384" Name="Scrapshift"/>
 			</Triggers>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{9DA8A4E2-0BD2-A7B3-78E9-7224DDF8CBF9}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{54A70446-6E69-BEDB-E811-97C959D05215}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -300,7 +300,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{F8398335-398F-E59E-D238-3CE59FD2DDD6}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{814D4455-307E-D3AE-7CD7-ACED84C0C9CA}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -315,10 +315,6 @@
 				<File Id="122414336" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Rail.wav</ShortName>
 					<CachePath>SFX/Rail_818F3B66.wem</CachePath>
-				</File>
-				<File Id="258915722" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Scroll_Pickup.wav</ShortName>
-					<CachePath>SFX/Scroll_Pickup_818F3B66.wem</CachePath>
 				</File>
 				<File Id="262919125" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Turret_Fire.wav</ShortName>
@@ -371,10 +367,6 @@
 				<File Id="597362849" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Pull.wav</ShortName>
 					<CachePath>SFX/Pull_818F3B66.wem</CachePath>
-				</File>
-				<File Id="638141839" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Turret_DefeatedAmbience.wav</ShortName>
-					<CachePath>SFX/Turret_DefeatedAmbience_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="650394388" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RealSteel_OverdriveIntro.wav</ShortName>
@@ -435,6 +427,10 @@
 				<File Id="1044543368" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NailGun_ChargedShot.wav</ShortName>
 					<CachePath>SFX/NailGun_ChargedShot_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1045500657" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Scroll_Pickup (2).wav</ShortName>
+					<CachePath>SFX/Scroll_Pickup (2)_818F3B66.wem</CachePath>
 				</File>
 				<File Id="1049397153" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Kaila_Dash.wav</ShortName>
@@ -707,9 +703,9 @@
 						<MediaRef Id="543809496"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2537608006" Name="SFXPlay_ScrollCollect" DurationType="OneShot" DurationMin="2.2523582" DurationMax="2.2523582">
+				<Event Id="2537608006" Name="SFXPlay_ScrollCollect" DurationType="OneShot" DurationMin="4" DurationMax="4">
 					<MediaRefs>
-						<MediaRef Id="258915722"/>
+						<MediaRef Id="1045500657"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2095233026" Name="SFXPlay_Turret_LockOn" DurationType="OneShot" DurationMin="4.05635" DurationMax="4.05635">
@@ -722,16 +718,10 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="1647204779" Name="SFXPlay_TurretDefeatedAmbience" DurationType="Infinite">
+				<Event Id="1647204779" Name="SFXPlay_TurretDefeatedAmbience" DurationType="OneShot" DurationMin="3.9271128" DurationMax="4.0189047">
 					<MediaRefs>
 						<MediaRef Id="377994243"/>
-						<MediaRef Id="638141839"/>
 					</MediaRefs>
-					<PluginRefs>
-						<ShareSets>
-							<PluginRef Id="535667444"/>
-						</ShareSets>
-					</PluginRefs>
 				</Event>
 				<Event Id="1220918693" Name="SFXPlay_TurretFire" DurationType="OneShot" DurationMin="2.004522" DurationMax="2.5255396">
 					<MediaRefs>
@@ -758,5 +748,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{5B3ADE63-394D-849E-C15D-7A86AFA9B8DF}</FileHash>
+	<FileHash>{D52DC2A2-4272-6B06-11F5-530773448E31}</FileHash>
 </SoundBanksInfo>

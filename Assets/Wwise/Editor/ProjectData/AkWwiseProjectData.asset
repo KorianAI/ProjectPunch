@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584745653295277161
+    m_lastTime: -8584745502994775808
     List:
     - name: Ambience Bus
       guid: f3f6e085a85cb94eb4bb01cc86500ad6
@@ -388,7 +388,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584745653299450224
+    m_lastTime: -8584745503454775808
     List:
     - name: AmbiencePlay_DesertWind
       guid: 1a79119d92f6b44cb54c73ad0e555df4
@@ -1421,8 +1421,8 @@ MonoBehaviour:
         guid: 6bb8d1d9da6a4248a7475d68c1878e15
       Path: Events\Default Work Unit\General SFX\SFXPlay_ScrollCollect
       maxAttenuation: 0
-      maxDuration: 2.2523582
-      minDuration: 2.2523582
+      maxDuration: 4
+      minDuration: 4
     - name: SFXPlay_Turret_LockOn
       guid: 4302bd8af0e9bf438bc27fd7312e3262
       id: 2095233026
@@ -1461,8 +1461,8 @@ MonoBehaviour:
         guid: 2a9df7adf906bc4ba4faff612b9c1deb
       Path: Events\Default Work Unit\Turret SFX\SFXPlay_TurretDefeatedAmbience
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 4.0189047
+      minDuration: 3.9271128
     - name: SFXPlay_TurretFire
       guid: a836243a7394fa4a89975a256c575502
       id: 1220918693
