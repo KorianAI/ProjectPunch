@@ -436,7 +436,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584745267440002317
+    m_lastTime: -8584744835654775808
     List:
     - name: AmbiencePlay_DesertWind
       guid: 1a79119d92f6b44cb54c73ad0e555df4
@@ -476,8 +476,8 @@ MonoBehaviour:
         guid: 2aa66688527d7e47a9a162f999927dba
       Path: Events\Default Work Unit\Music\Boss_Section1
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Boss_Section2
       guid: 9cd9eab7e5b3754f848abe158518a4e1
       id: 283095516
@@ -496,8 +496,8 @@ MonoBehaviour:
         guid: 9cd9eab7e5b3754f848abe158518a4e1
       Path: Events\Default Work Unit\Music\Boss_Section2
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Button
       guid: 185d8f2814151a42aafea8c406b33566
       id: 977454165
