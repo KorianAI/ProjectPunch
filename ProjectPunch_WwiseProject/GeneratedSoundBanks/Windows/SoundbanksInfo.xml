@@ -411,7 +411,7 @@
 				<Trigger Id="4104150384" Name="Scrapshift"/>
 			</Triggers>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{1323C4AD-A262-6C0D-D295-837CBBC3DD9F}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{CF548004-E624-7535-6473-E2D641A2CCCC}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -497,6 +497,11 @@
 				</Bus>
 				<Bus Id="4202237879" Name="Ambience Bus"/>
 			</Busses>
+			<GameParameters>
+				<GameParameter Id="988953028" Name="SFXVolume"/>
+				<GameParameter Id="2346531308" Name="MusicVolume"/>
+				<GameParameter Id="2918011349" Name="MasterVolume"/>
+			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="1690668539" Name="Music_States">
 					<States>
@@ -973,5 +978,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{87B788E4-F3A8-B391-373E-2E734E4A768E}</FileHash>
+	<FileHash>{7909AD4A-A4B7-F9C0-139B-80D93F6A285C}</FileHash>
 </SoundBanksInfo>

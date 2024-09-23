@@ -9,6 +9,11 @@ State	ID	Name	State Group			Notes
 	2764240573	Combat	Music_States			
 	4104150384	Scrapshift	Music_States			
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	988953028	SFXVolume			\Default Work Unit\SFXVolume	
+	2346531308	MusicVolume			\Default Work Unit\MusicVolume	
+	2918011349	MasterVolume			\Default Work Unit\MasterVolume	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	48433064	Master Music Bus			\Default Work Unit\Master Audio Bus\Master Music Bus	
 	84101584	Kaila_SFX_Bus			\Default Work Unit\Master Audio Bus\SFX Bus\Kaila_SFX_Bus	
