@@ -197,11 +197,8 @@ public class RealSteel : WeaponInfo
             currentOverdrive = maxOverdrive;
             overdriveDecreaseTimer = overdriveDecreaseCooldown;
             overdrive = true;
-            sm.anim.speed = 1.5f;            
-            //foreach (GameObject g in overdriveVFX)
-            //{
-            //    g.SetActive(true); ;
-            //}
+            sm.anim.speed = 1.5f;
+
         }
 
         else if (!on)
@@ -214,10 +211,6 @@ public class RealSteel : WeaponInfo
             {
                 overdriveUI.SetActive(false);
             }
-            //foreach (GameObject g in overdriveVFX)
-            //{
-            //    g.SetActive(false); ;
-            //}
         }
 
     }
