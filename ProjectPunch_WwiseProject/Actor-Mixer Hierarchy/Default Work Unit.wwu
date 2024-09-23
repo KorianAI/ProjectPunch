@@ -1625,8 +1625,6 @@
 						</Sound>
 						<Sound Name="Turret_Hit" ID="{2120111C-5A45-4449-9C51-DA06439B8B1F}" ShortID="756579322">
 							<PropertyList>
-								<Property Name="3DPosition" Type="int16" Value="1"/>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -1859,8 +1857,6 @@
 						</Sound>
 						<Sound Name="Turret_Explosion" ID="{C1CEA44C-42F1-424C-92E3-0A69B82B5CC4}" ShortID="731849262">
 							<PropertyList>
-								<Property Name="3DPosition" Type="int16" Value="1"/>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>

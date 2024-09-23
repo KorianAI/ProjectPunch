@@ -32,6 +32,12 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public float scrapDecreaseCooldown;
     public bool scrapDecrease;
 
+    [Header("Music Change States")]
+    public AK.Wwise.Event playMusic_Combat1;
+    public AK.Wwise.Event playMusic_Explore;
+    public AK.Wwise.Event playMusic_Boss1;
+    public AK.Wwise.Event playMusic_Boss2;
+
     //shifts
     public bool scrapShift;
     public RealSteel shift;
@@ -73,6 +79,10 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
     public AK.Wwise.Event playSFX_ScrapCollect;
 
+    //public CombatManager cm;
+    //public BossHealth bh;
+    
+
     private void OnEnable()
     {
         CameraManager.RegisterPC(scrapCam);
@@ -101,6 +111,8 @@ public class PlayerResources : MonoBehaviour, IDamageable
         armourBar.currentValue = currentArmour;
 
         audioManager = GetComponent<PlayerAudioManager>();
+        //cm = GetComponent<CombatManager>();
+        //bh = GetComponent<BossHealth>();
     }
 
     private void Update()
@@ -190,6 +202,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
             scrapDecrease = false;
             scrapShift = false;
             ChangeGauntlets(3);
+            //MusicSwitchState();
             shift.ActivateOverdrive(false);
             if (overdriveUI != null)
             {
@@ -440,5 +453,45 @@ public class PlayerResources : MonoBehaviour, IDamageable
     public void PlaySFX_ScrapCollect()
     {
         playSFX_ScrapCollect.Post(gameObject);
+    }
+
+    //public void MusicSwitchState()
+    //{
+    //    if (cm.combatActive)
+    //    {
+    //        PlayMusic_Combat1();
+    //    }
+
+    //    else if (cm.combatActive == false && MusicManager.instance.fightingBoss == false)
+    //    {
+    //        PlayMusic_Explore();
+    //    }
+
+    //    else
+    //    {
+    //        if (bh.currentHealth < bh.boss.stats.health * 0.5f)
+    //        {
+
+    //        }
+    //    }
+    //}
+
+    public void PlayMusic_Combat1()
+    {
+        playMusic_Combat1.Post(gameObject);
+    }
+    public void PlayMusic_Explore()
+    {
+        playMusic_Explore.Post(gameObject);
+    }
+
+    public void PlayMusic_Boss1()
+    {
+        playMusic_Boss1.Post(gameObject);
+    }
+
+    public void PlayMusic_Boss2()
+    {
+        playMusic_Boss2.Post(gameObject);
     }
 }

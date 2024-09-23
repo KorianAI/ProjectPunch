@@ -84,6 +84,10 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
     public bool inBounceCollider;
     public Bouncepad currentPad;
 
+    [Header("Music")]
+    public bool inCombat;
+    public bool inBossFight;
+
     private void Awake()
     {
         if (instance == null)
