@@ -56,6 +56,9 @@ public class PlayerCombat : MonoBehaviour
     public float aoeRange;
     public AttackStats aoeStats;
 
+    public AK.Wwise.Event playSFX_BFGImpact;
+    public AK.Wwise.Event playSFX_RSImpact;
+
     private void Start()
     {
         _sm = GetComponent<PlayerStateManager>();
@@ -85,7 +88,15 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider c in enemies)
         {
             c.GetComponent<IDamageable>().TakeDamage(modeStats.damage);
+            if (resources.scrapShift)
+            {
+                PlaySFX_RSImpact();
+            }
 
+            else
+            {
+                PlaySFX_BFGImpact();
+            }
             _sm.attackHit = true;
             HitstopManager.Instance.TriggerHitstop(modeStats.hitstopAmnt, gameObject, c.gameObject);
             CinemachineShake.Instance.ShakeCamera(modeStats.shakeAmnt, modeStats.shakeAmnt);
@@ -328,5 +339,13 @@ public class PlayerCombat : MonoBehaviour
         Gizmos.DrawWireSphere(aoePoint.position, aoeRange * 2);
     }
 
+    public void PlaySFX_BFGImpact()
+    {
+        playSFX_BFGImpact.Post(gameObject);
+    }
 
+    public void PlaySFX_RSImpact()
+    {
+        playSFX_RSImpact.Post(gameObject);
+    }
 }
