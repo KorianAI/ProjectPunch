@@ -9,13 +9,25 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{6F196BF0-0224-564A-5519-BEA6FDB0AA32}">
+		<SoundBank Id="474740052" Type="User" Language="SFX" Hash="{A94D8E4C-76DF-223B-7524-3D8E6EBB60C5}">
 			<ShortName>Soundbank_Music</ShortName>
 			<Path>Soundbank_Music.bnk</Path>
 			<Media>
 				<File Id="23675886" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Scrapshift_Switch.wav</ShortName>
 					<CachePath>SFX/Scrapshift_Switch_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="30146936" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ScrapBeat_1.wav</ShortName>
+					<CachePath>SFX/ScrapBeat_1_56CEF360.wem</CachePath>
+				</File>
+				<File Id="69644400" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ScrapBeat_3.wav</ShortName>
+					<CachePath>SFX/ScrapBeat_3_56CEF360.wem</CachePath>
+				</File>
+				<File Id="82908139" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Solo2_NoCrash.wav</ShortName>
+					<CachePath>SFX/Solo2_NoCrash_56CEF360.wem</CachePath>
 				</File>
 				<File Id="99683504" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guitar_4Bar_Riff2.wav</ShortName>
@@ -25,9 +37,17 @@
 					<ShortName>ScrapShift_Intro.wav</ShortName>
 					<CachePath>SFX/ScrapShift_Intro_56CEF360.wem</CachePath>
 				</File>
+				<File Id="123808930" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ending_NoCrash.wav</ShortName>
+					<CachePath>SFX/Ending_NoCrash_56CEF360.wem</CachePath>
+				</File>
 				<File Id="144080973" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Lead_4Bar_Melody.wav</ShortName>
 					<CachePath>SFX/Lead_4Bar_Melody_56CEF360.wem</CachePath>
+				</File>
+				<File Id="144343419" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Intro.wav</ShortName>
+					<CachePath>SFX/Intro_56CEF360.wem</CachePath>
 				</File>
 				<File Id="172155782" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DrumKit_8Bar_NormalLong.wav</ShortName>
@@ -37,33 +57,121 @@
 					<ShortName>Bass_4Bar_Synth.wav</ShortName>
 					<CachePath>SFX/Bass_4Bar_Synth_56CEF360.wem</CachePath>
 				</File>
+				<File Id="182820173" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ScrapBeat_2.wav</ShortName>
+					<CachePath>SFX/ScrapBeat_2_56CEF360.wem</CachePath>
+				</File>
+				<File Id="189716297" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TremSynth.wav</ShortName>
+					<CachePath>SFX/TremSynth_56CEF360.wem</CachePath>
+				</File>
+				<File Id="227679020" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BossFightEnd.wav</ShortName>
+					<CachePath>SFX/BossFightEnd_56CEF360.wem</CachePath>
+				</File>
 				<File Id="232264055" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Lead_4Bar_FastMelodic.wav</ShortName>
 					<CachePath>SFX/Lead_4Bar_FastMelodic_56CEF360.wem</CachePath>
+				</File>
+				<File Id="252180209" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section_B.wav</ShortName>
+					<CachePath>SFX/Section_B_56CEF360.wem</CachePath>
+				</File>
+				<File Id="282085477" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Riff3_Crash.wav</ShortName>
+					<CachePath>SFX/Riff3_Crash_56CEF360.wem</CachePath>
+				</File>
+				<File Id="289349623" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_5_Distorted.wav</ShortName>
+					<CachePath>SFX/Guitar_5_Distorted_56CEF360.wem</CachePath>
+				</File>
+				<File Id="369121922" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Silence_Scrap.wav</ShortName>
+					<CachePath>SFX/Silence_Scrap_56CEF360.wem</CachePath>
+				</File>
+				<File Id="386208712" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_1.wav</ShortName>
+					<CachePath>SFX/Guitar_1_56CEF360.wem</CachePath>
+				</File>
+				<File Id="397199079" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Riff1_Progression_Crash.wav</ShortName>
+					<CachePath>SFX/Riff1_Progression_Crash_56CEF360.wem</CachePath>
+				</File>
+				<File Id="403347213" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Section_C.wav</ShortName>
+					<CachePath>SFX/Section_C_56CEF360.wem</CachePath>
 				</File>
 				<File Id="430724085" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Percussion_4Bar_Atabaque.wav</ShortName>
 					<CachePath>SFX/Percussion_4Bar_Atabaque_56CEF360.wem</CachePath>
 				</File>
+				<File Id="441743405" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Riff1.wav</ShortName>
+					<CachePath>SFX/Riff1_56CEF360.wem</CachePath>
+				</File>
 				<File Id="465556907" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Lead_8Bar_Fast.wav</ShortName>
 					<CachePath>SFX/Lead_8Bar_Fast_56CEF360.wem</CachePath>
+				</File>
+				<File Id="465598859" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Solo1_NoCrash.wav</ShortName>
+					<CachePath>SFX/Solo1_NoCrash_56CEF360.wem</CachePath>
+				</File>
+				<File Id="476812800" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_2.wav</ShortName>
+					<CachePath>SFX/Guitar_2_56CEF360.wem</CachePath>
 				</File>
 				<File Id="485367470" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DrumKit_4Bar_Normal.wav</ShortName>
 					<CachePath>SFX/DrumKit_4Bar_Normal_56CEF360.wem</CachePath>
 				</File>
+				<File Id="499675649" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Riff3_NoCrash.wav</ShortName>
+					<CachePath>SFX/Riff3_NoCrash_56CEF360.wem</CachePath>
+				</File>
+				<File Id="520613786" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Riff2.wav</ShortName>
+					<CachePath>SFX/Riff2_56CEF360.wem</CachePath>
+				</File>
+				<File Id="539144162" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_4.wav</ShortName>
+					<CachePath>SFX/Guitar_4_56CEF360.wem</CachePath>
+				</File>
 				<File Id="544890327" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DrumKit_2Bar_KickBuild.wav</ShortName>
 					<CachePath>SFX/DrumKit_2Bar_KickBuild_56CEF360.wem</CachePath>
+				</File>
+				<File Id="560499034" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bass_Silence.wav</ShortName>
+					<CachePath>SFX/Bass_Silence_56CEF360.wem</CachePath>
+				</File>
+				<File Id="586254239" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BigFinale_Crash.wav</ShortName>
+					<CachePath>SFX/BigFinale_Crash_56CEF360.wem</CachePath>
 				</File>
 				<File Id="616299173" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Lead_4Bar_FastHigh.wav</ShortName>
 					<CachePath>SFX/Lead_4Bar_FastHigh_56CEF360.wem</CachePath>
 				</File>
+				<File Id="617483849" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Solo3_NoCrash.wav</ShortName>
+					<CachePath>SFX/Solo3_NoCrash_56CEF360.wem</CachePath>
+				</File>
+				<File Id="626147619" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TremSynth_Silence.wav</ShortName>
+					<CachePath>SFX/TremSynth_Silence_56CEF360.wem</CachePath>
+				</File>
 				<File Id="702063897" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guitar_8Bar_Riff1.wav</ShortName>
 					<CachePath>SFX/Guitar_8Bar_Riff1_56CEF360.wem</CachePath>
+				</File>
+				<File Id="706409255" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_3.wav</ShortName>
+					<CachePath>SFX/Guitar_3_56CEF360.wem</CachePath>
+				</File>
+				<File Id="717155638" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Tube_1.wav</ShortName>
+					<CachePath>SFX/Tube_1_56CEF360.wem</CachePath>
 				</File>
 				<File Id="746262836" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DrumKit_8Bar_Nandos to Normal.wav</ShortName>
@@ -77,9 +185,21 @@
 					<ShortName>Scrapmode_Switch.wav</ShortName>
 					<CachePath>SFX/Scrapmode_Switch_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="764441858" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Flute_1.wav</ShortName>
+					<CachePath>SFX/Flute_1_56CEF360.wem</CachePath>
+				</File>
 				<File Id="783261638" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DrumKit_2Bar_Half-Time.wav</ShortName>
 					<CachePath>SFX/DrumKit_2Bar_Half-Time_56CEF360.wem</CachePath>
+				</File>
+				<File Id="787037557" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Guitar_6_Distorted.wav</ShortName>
+					<CachePath>SFX/Guitar_6_Distorted_56CEF360.wem</CachePath>
+				</File>
+				<File Id="829192963" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bass_A.wav</ShortName>
+					<CachePath>SFX/Bass_A_56CEF360.wem</CachePath>
 				</File>
 				<File Id="870486047" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Bass_4Bar_BassGuitar.wav</ShortName>
@@ -89,13 +209,13 @@
 					<ShortName>Lead_4Bar_SlowRiff.wav</ShortName>
 					<CachePath>SFX/Lead_4Bar_SlowRiff_56CEF360.wem</CachePath>
 				</File>
-				<File Id="896998356" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Explore_1.wav</ShortName>
-					<CachePath>SFX/Explore_1_56CEF360.wem</CachePath>
-				</File>
 				<File Id="904185561" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guitar_8Bar_Riff3.wav</ShortName>
 					<CachePath>SFX/Guitar_8Bar_Riff3_56CEF360.wem</CachePath>
+				</File>
+				<File Id="910636733" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Beat_1.wav</ShortName>
+					<CachePath>SFX/Beat_1_56CEF360.wem</CachePath>
 				</File>
 				<File Id="936798745" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Combat1_Intro.wav</ShortName>
@@ -148,7 +268,25 @@
 						<SwitchContainer>
 							<SwitchValue GroupType="State" GroupId="1690668539" Id="579523862"/>
 							<MediaRefs>
-								<MediaRef Id="896998356"/>
+								<MediaRef Id="30146936"/>
+								<MediaRef Id="69644400"/>
+								<MediaRef Id="182820173"/>
+								<MediaRef Id="189716297"/>
+								<MediaRef Id="252180209"/>
+								<MediaRef Id="289349623"/>
+								<MediaRef Id="369121922"/>
+								<MediaRef Id="386208712"/>
+								<MediaRef Id="403347213"/>
+								<MediaRef Id="476812800"/>
+								<MediaRef Id="539144162"/>
+								<MediaRef Id="560499034"/>
+								<MediaRef Id="626147619"/>
+								<MediaRef Id="706409255"/>
+								<MediaRef Id="717155638"/>
+								<MediaRef Id="764441858"/>
+								<MediaRef Id="787037557"/>
+								<MediaRef Id="829192963"/>
+								<MediaRef Id="910636733"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
@@ -184,6 +322,28 @@
 								<MediaRef Id="949668554"/>
 							</MediaRefs>
 						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1690668539" Id="1272574122"/>
+							<MediaRefs>
+								<MediaRef Id="82908139"/>
+								<MediaRef Id="123808930"/>
+								<MediaRef Id="144343419"/>
+								<MediaRef Id="441743405"/>
+								<MediaRef Id="465598859"/>
+								<MediaRef Id="499675649"/>
+								<MediaRef Id="520613786"/>
+								<MediaRef Id="617483849"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1690668539" Id="1272574121"/>
+							<MediaRefs>
+								<MediaRef Id="227679020"/>
+								<MediaRef Id="282085477"/>
+								<MediaRef Id="397199079"/>
+								<MediaRef Id="586254239"/>
+							</MediaRefs>
+						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
 				<Event Id="4104150384" Name="Scrapshift" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
@@ -205,6 +365,8 @@
 					<States>
 						<State Id="579523862" Name="Explore"/>
 						<State Id="748895195" Name="None"/>
+						<State Id="1272574121" Name="Boss_2"/>
+						<State Id="1272574122" Name="Boss_1"/>
 						<State Id="2764240573" Name="Combat"/>
 						<State Id="4104150384" Name="Scrapshift"/>
 					</States>
@@ -215,7 +377,7 @@
 				<Trigger Id="4104150384" Name="Scrapshift"/>
 			</Triggers>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{54A70446-6E69-BEDB-E811-97C959D05215}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{9277591A-C2BF-1072-90E4-C27489C37031}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -223,6 +385,7 @@
 					<Plugin Id="14895759" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
 					<Plugin Id="73399820" Name="New_Peak_Limiter (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
 					<Plugin Id="178414885" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
+					<Plugin Id="589171496" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)" LibName="Wwise Peak Limiter" LibId="7208963"/>
 				</Custom>
 				<ShareSets>
 					<Plugin Id="1459522457" Name="Brick_Wall_Minus_1dB_Peak_Fast_Release" LibName="Wwise Peak Limiter" LibId="7208963"/>
@@ -249,11 +412,21 @@
 						</Custom>
 					</PluginRefs>
 				</Bus>
-				<Bus Id="1570563853" Name="Explore Music Bus"/>
+				<Bus Id="1570563853" Name="Explore Music Bus">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="589171496"/>
+						</Custom>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
 				<Bus Id="1908967618" Name="Cashmere_SFX_Bus"/>
 				<Bus Id="2199471764" Name="Combat 1 Section B Music Bus"/>
 				<Bus Id="2320406271" Name="Environment_SFX_Bus"/>
 				<Bus Id="2731925972" Name="UI_SFX_Bus"/>
+				<Bus Id="2930211473" Name="Boss Music Bus"/>
 				<Bus Id="3571547856" Name="Turret_SFX_Bus"/>
 				<Bus Id="3736460895" Name="ScrapShift Music Bus">
 					<PluginRefs>
@@ -287,6 +460,8 @@
 					<States>
 						<State Id="579523862" Name="Explore"/>
 						<State Id="748895195" Name="None"/>
+						<State Id="1272574121" Name="Boss_2"/>
+						<State Id="1272574122" Name="Boss_1"/>
 						<State Id="2764240573" Name="Combat"/>
 						<State Id="4104150384" Name="Scrapshift"/>
 					</States>
@@ -300,7 +475,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{814D4455-307E-D3AE-7CD7-ACED84C0C9CA}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{CF91818F-30C8-EB48-D98B-D464231EF00B}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -565,7 +740,7 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="2735510120" Name="SFXPlay_MuzzlerKick" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="2423564124" Name="SFXPlay_NailGunChargedPull" DurationType="OneShot" DurationMin="3.5635948" DurationMax="4.489848">
+				<Event Id="2423564124" Name="SFXPlay_NailGunChargedPull" DurationType="OneShot" DurationMin="3.775497" DurationMax="4.2378526">
 					<MediaRefs>
 						<MediaRef Id="692525493"/>
 					</MediaRefs>
@@ -585,7 +760,7 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="1294040743" Name="SFXPlay_NailGunFire" DurationType="OneShot" DurationMin="1" DurationMax="1.122462">
+				<Event Id="1294040743" Name="SFXPlay_NailGunFire" DurationType="OneShot" DurationMin="0.94387424" DurationMax="1.122462">
 					<MediaRefs>
 						<MediaRef Id="543059488"/>
 					</MediaRefs>
@@ -748,5 +923,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D52DC2A2-4272-6B06-11F5-530773448E31}</FileHash>
+	<FileHash>{85FF0206-6E73-4C6F-E25E-36DC44C6C962}</FileHash>
 </SoundBanksInfo>

@@ -4,6 +4,8 @@ State Group	ID	Name			Wwise Object Path	Notes
 State	ID	Name	State Group			Notes
 	579523862	Explore	Music_States			
 	748895195	None	Music_States			
+	1272574121	Boss_2	Music_States			
+	1272574122	Boss_1	Music_States			
 	2764240573	Combat	Music_States			
 	4104150384	Scrapshift	Music_States			
 
@@ -17,6 +19,7 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	2199471764	Combat 1 Section B Music Bus			\Default Work Unit\Master Audio Bus\Master Music Bus\Combat 1 Section B Music Bus	
 	2320406271	Environment_SFX_Bus			\Default Work Unit\Master Audio Bus\SFX Bus\Environment_SFX_Bus	
 	2731925972	UI_SFX_Bus			\Default Work Unit\Master Audio Bus\SFX Bus\UI_SFX_Bus	
+	2930211473	Boss Music Bus			\Default Work Unit\Master Audio Bus\Master Music Bus\Boss Music Bus	
 	3571547856	Turret_SFX_Bus			\Default Work Unit\Master Audio Bus\SFX Bus\Turret_SFX_Bus	
 	3736460895	ScrapShift Music Bus			\Default Work Unit\Master Audio Bus\Master Music Bus\ScrapShift Music Bus	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
@@ -28,6 +31,7 @@ Effect plug-ins	ID	Name	Type				Notes
 	14895759	Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)	Wwise Peak Limiter			
 	73399820	New_Peak_Limiter (Custom)	Wwise Peak Limiter			
 	178414885	Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)	Wwise Peak Limiter			
+	589171496	Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)	Wwise Peak Limiter			
 	1459522457	Brick_Wall_Minus_1dB_Peak_Fast_Release	Wwise Peak Limiter			
 
 Audio Devices	ID	Name	Type				Notes

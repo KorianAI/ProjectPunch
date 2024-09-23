@@ -12,6 +12,8 @@
 						<State Name="Combat" ID="{24593F05-9754-45EB-896A-E0CA1444C4D5}"/>
 						<State Name="Explore" ID="{342AC1B5-1FD8-4426-9429-B3E9AA64F41A}"/>
 						<State Name="Scrapshift" ID="{76F526FA-6434-4FF3-90E8-F513FC29025D}"/>
+						<State Name="Boss_1" ID="{EE751F6F-E5CB-45F5-A31E-8FB8092A89F4}"/>
+						<State Name="Boss_2" ID="{A86CF230-978B-4D2E-A272-B09806C54CB2}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>

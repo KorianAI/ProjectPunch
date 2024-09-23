@@ -66,6 +66,8 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID BOSS_1 = 1272574122U;
+                static const AkUniqueID BOSS_2 = 1272574121U;
                 static const AkUniqueID COMBAT = 2764240573U;
                 static const AkUniqueID EXPLORE = 579523862U;
                 static const AkUniqueID NONE = 748895195U;
@@ -105,6 +107,7 @@ namespace AK
     namespace BUSSES
     {
         static const AkUniqueID AMBIENCE_BUS = 4202237879U;
+        static const AkUniqueID BOSS_MUSIC_BUS = 2930211473U;
         static const AkUniqueID CASHMERE_SFX_BUS = 1908967618U;
         static const AkUniqueID COMBAT_1_SECTION_A_MUSIC_BUS = 4083411863U;
         static const AkUniqueID COMBAT_1_SECTION_B_MUSIC_BUS = 2199471764U;
