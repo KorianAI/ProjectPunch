@@ -173,6 +173,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
             {
                 overdriveUI.SetActive(true);
             }
+
+            foreach (GameObject g in shift.overdriveVFX)
+            {
+                g.SetActive(true);
+            }
         }
 
         else if (!on)        
@@ -184,6 +189,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
             if (overdriveUI != null)
             {
                 overdriveUI.SetActive(false);
+            }
+
+            foreach (GameObject g in shift.overdriveVFX)
+            {
+                g.SetActive(false);
             }
         }
     }
