@@ -19,8 +19,10 @@ public class MusicOverview : MonoBehaviour
     public AK.Wwise.Event playMusic_Combat1;
     [Header("Scrap Shift")]
     public AK.Wwise.Event playMusic_ScrapShift;
-    [Header("Boss")]
-    public AK.Wwise.Event playMusic_Boss;
+    [Header("Boss1")]
+    public AK.Wwise.Event playMusic_Boss1;
+    [Header("Boss2")]
+    public AK.Wwise.Event playMusic_Boss2;
 
     private void Awake()
     {
@@ -59,9 +61,14 @@ public class MusicOverview : MonoBehaviour
         playMusic_ScrapShift.Post(gameObject);
     }
 
-    public void Music_Boss()
+    public void Music_Boss1()
     {
-        playMusic_Boss.Post(gameObject);
+        playMusic_Boss1.Post(gameObject);
+    }
+
+    public void Music_Boss2()
+    {
+        playMusic_Boss2.Post(gameObject);
     }
 
     public void MusicStart()
