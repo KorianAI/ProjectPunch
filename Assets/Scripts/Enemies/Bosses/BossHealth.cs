@@ -51,7 +51,7 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
 
     public void TakeDamage(float damage, bool ranged)
     {
-        if (!canBeHit) { return; }
+        if (!canBeHit || (hasArmour && ranged)) { return; }
        
 
         boss.anim.SetTrigger("Hit");
@@ -71,7 +71,7 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
 
         if (hasArmour)
         {
-            if (ranged) return;
+            
             currentArmour -= damage;
             armourBar.currentValue = currentArmour;
             armourBar.DrawSlots();
