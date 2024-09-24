@@ -63,6 +63,11 @@ public class Cashmere : BossInfo
     public GameObject bossTitle;
     public GameObject[] ui;
 
+    public AK.Wwise.Event playSFX_volleyBuild;
+    public AK.Wwise.Event playSFX_volleyFire;
+    public AK.Wwise.Event playSFX_slamShockwave;
+    public AK.Wwise.Event playSFX_volleyImpact;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,8 +109,9 @@ public class Cashmere : BossInfo
         foreach (GameObject proj in scrapVolleyProjectiles)
         {
             proj.SetActive(true);
-            source.volume = .5f;
-            source.PlayOneShot(volleyBuild);
+            //source.volume = .5f;
+            //source.PlayOneShot(volleyBuild);
+            playSFX_volleyBuild.Post(gameObject);
             yield return new WaitForSeconds(.3f);
         }
 
@@ -132,8 +138,9 @@ public class Cashmere : BossInfo
             vp.cm = this;
             anim.SetTrigger("ScrapVolley");
             proj.transform.DOMove(PlayerStateManager.instance.gameObject.transform.position, 1f).OnComplete(() => vp.SpawnScrapPile());
-            source.volume = 1f;
-            vp.source.PlayOneShot(volleyShoot);
+            //source.volume = 1f;
+            //vp.source.PlayOneShot(volleyShoot);
+            playSFX_volleyFire.Post(gameObject);
             yield return new WaitForSeconds(1f);
         }
 
@@ -159,8 +166,9 @@ public class Cashmere : BossInfo
 
         transform.DOMove(arenaCenter.position, 1f).OnComplete(() => {
             bomb.gameObject.SetActive(true);
-            source.volume = 1f;
-            source.PlayOneShot(volleyBuild);
+            //source.volume = 1f;
+            //source.PlayOneShot(volleyBuild);
+            playSFX_volleyBuild.Post(gameObject);
             bomb.transform.DOScale(bomb.maxScale, 1f).OnComplete(() => {         
                 bomb.SortJumpOrder(currentSpotlight);
                 bomb.JumpToNextPoint(); ;
@@ -174,8 +182,9 @@ public class Cashmere : BossInfo
         CancelMovement();
         transform.DOMove(arenaCenter.position, 1f).OnComplete(() => {
             bomb.gameObject.SetActive(true);
-            source.volume = 1f;
-            source.PlayOneShot(volleyBuild);
+            //source.volume = 1f;
+            //source.PlayOneShot(volleyBuild);
+            playSFX_volleyBuild.Post(gameObject);
             bomb.transform.DOScale(bomb.maxScale, 1f).OnComplete(() => {                  
             StartCoroutine(bomb.RepeatedSlam());
             });
