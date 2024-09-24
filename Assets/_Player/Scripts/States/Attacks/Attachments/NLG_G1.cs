@@ -8,7 +8,7 @@ public class NLG_G1 : PlayerAttackBase
     {         
         base.EnterState(player);
         duration = 0.5f;
-        _sm.anim.Play("NailGun");
+        _sm.anim.Play("NG1");
         canAttack = false;
     }
 

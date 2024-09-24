@@ -35,7 +35,7 @@ public class Respawn : MonoBehaviour
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
             // ^ nuclear option in case this script doesn't work
-
+            Debug.Log("bruhbruhbruh");
             ResetPlayer();
         }
     }
