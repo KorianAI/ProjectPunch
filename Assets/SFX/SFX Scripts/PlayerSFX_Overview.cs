@@ -38,6 +38,8 @@ public class PlayerSFX_Overview : MonoBehaviour
     public AK.Wwise.Event playSFX_RS_slam_overdrive;
     public AK.Wwise.Event playSFX_RS_overdriveactive;
     public AK.Wwise.Event playSFX_RS_overdriveoutro;
+    public AK.Wwise.Event playSFX_RS_ranged;
+    public AK.Wwise.Event playSFX_RS_nail;
 
     bool overdriveActive = false;
     bool overdriveOutroPlayed = true;
@@ -239,7 +241,15 @@ public class PlayerSFX_Overview : MonoBehaviour
         playSFX_Rail.Post(gameObject);
     }
 
-    
+    public void SFX_RS_Ranged()
+    {
+        playSFX_RS_ranged.Post(gameObject);
+    }
+    public void SFX_RS_Nail()
+    {
+        playSFX_RS_nail.Post(gameObject);
+    }
+
 
 
 
