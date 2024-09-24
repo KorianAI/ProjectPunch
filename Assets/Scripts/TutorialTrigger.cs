@@ -21,7 +21,7 @@ public class TutorialTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !PlayerStateManager.instance.tutIsActive)
         {
             manager.SetCurrent(tutorialAnim, ableToMove, tip, tipDelay); //set the chosen tutorial object
             boxCollider.enabled = false;
@@ -30,7 +30,7 @@ public class TutorialTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !PlayerStateManager.instance.tutIsActive)
         {
             manager.SetCurrent(tutorialAnim, ableToMove, tip, tipDelay); //set the chosen tutorial object
             boxCollider.enabled = false;

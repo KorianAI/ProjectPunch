@@ -49,18 +49,19 @@ public class TutorialManager : MonoBehaviour
 
     public void SetCurrent(GameObject newTut, bool canWalk, bool tip, float tipDelay)
     {
-        if (currentAnim)
-        {
-            HideTutorial();
-            StopAllCoroutines();
-            TurnOff();
-        }
+        //if (currentAnim)
+        //{
+        //    HideTutorial();
+        //    StopAllCoroutines();
+        //    TurnOff();
+        //}
 
-        currentTutorial = newTut;
-        currentAnim = currentTutorial.GetComponentInChildren<Animation>();
 
-        if (!sm.tutIsActive && !GameSettings.instance.skipTutorials)
+
+        if ((!sm.tutIsActive || sm.tutIsActive && currentTutorial.GetComponent<TutorialNextPage>().anotherPage) && !GameSettings.instance.skipTutorials)
         {
+            currentTutorial = newTut;
+            currentAnim = currentTutorial.GetComponentInChildren<Animation>();
             ShowTutorial(canWalk);
         }
 
@@ -109,7 +110,7 @@ public class TutorialManager : MonoBehaviour
         {
             currentAnim.Play("TutorialWindowDisappear");
 
-            sm.tutIsActive = false;
+            
             InputMapManager.ToggleActionMap(InputMapManager.inputActions.Player);
             GameSettings.instance.walkDuringTutorials = false;
             isTip = false;
@@ -134,6 +135,7 @@ public class TutorialManager : MonoBehaviour
         if (currentTutorial != null)
         {
             currentTutorial.SetActive(false);
+            sm.tutIsActive = false;
         }
     }
 
