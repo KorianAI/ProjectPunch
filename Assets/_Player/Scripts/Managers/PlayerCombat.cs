@@ -59,6 +59,8 @@ public class PlayerCombat : MonoBehaviour
     public AK.Wwise.Event playSFX_BFGImpact;
     public AK.Wwise.Event playSFX_RSImpact;
 
+    public LayerMask groundDetection;
+
     private void Start()
     {
         _sm = GetComponent<PlayerStateManager>();
@@ -184,19 +186,41 @@ public class PlayerCombat : MonoBehaviour
             if (resources.shift.overdrive)
             {
                 movement.DashEffect(movement.rsxDashPrefab, new Vector3(0, 0, 90));
-                transform.DOMoveY(groundYPosition, 0.05f).SetEase(Ease.InQuad).OnComplete(() =>
+                transform.DOMoveY(groundYPosition, 0.05f).OnComplete(() =>
                 {
                     movement.grounded = true;
                     PlayerAudioManager.instance.SlamExplode(); _sm.SwitchState(new PlayerIdleState());  //Instantiate(slamVFX, transform.position, Quaternion.identity);
+                    Collider[] enemies = Physics.OverlapSphere(attackPoint.position, 3, enemyLayer);
+                    foreach (Collider c in enemies)
+                    {
+                        c.GetComponent<IDamageable>().TakeDamage(aoeStats.damage, false);
+                        _sm.attackHit = true;
+                        //HitstopManager.Instance.TriggerHitstop(aoeStats.hitstopAmnt, gameObject, c.gameObject);
+                        CinemachineShake.Instance.ShakeCamera(aoeStats.shakeAmnt, aoeStats.shakeAmnt);
+                        CinemachineShake.Instance.ChangeFov(aoeStats.zoomAmnt, aoeStats.shakeDur);
+                        RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
+                        //transform.DOKill();
+                    }
                 });
             }
 
             else
             {
-                transform.DOMoveY(groundYPosition, slamDuration).SetEase(Ease.InQuad).OnComplete(() =>
+                transform.DOMoveY(groundYPosition, slamDuration).OnComplete(() =>
                 {
                     movement.grounded = true;
                     PlayerAudioManager.instance.SlamExplode(); Instantiate(slamVFX, transform.position, Quaternion.identity); _sm.SwitchState(new PlayerIdleState());
+                    Collider[] enemies = Physics.OverlapSphere(attackPoint.position, 3, enemyLayer);
+                    foreach (Collider c in enemies)
+                    {
+                        c.GetComponent<IDamageable>().TakeDamage(aoeStats.damage, false);
+                        _sm.attackHit = true;
+                        //HitstopManager.Instance.TriggerHitstop(aoeStats.hitstopAmnt, gameObject, c.gameObject);
+                        CinemachineShake.Instance.ShakeCamera(aoeStats.shakeAmnt, aoeStats.shakeAmnt);
+                        CinemachineShake.Instance.ChangeFov(aoeStats.zoomAmnt, aoeStats.shakeDur);
+                        RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
+                        //transform.DOKill();
+                    }
                 });
             }
             // Move the enemy down to the ground
@@ -209,7 +233,7 @@ public class PlayerCombat : MonoBehaviour
     private float DetectGroundPosition()
     {
         RaycastHit hit;
-        if (Physics.Raycast(slamDetectionPoint.position, Vector3.down, out hit, Mathf.Infinity))
+        if (Physics.Raycast(slamDetectionPoint.position, Vector3.down, out hit, Mathf.Infinity, groundDetection))
         {
             return hit.point.y + 1;
         }
