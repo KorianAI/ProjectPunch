@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584744694189229751
+    m_lastTime: -8584744105414775808
     List:
     - name: Ambience Bus
       guid: f3f6e085a85cb94eb4bb01cc86500ad6
@@ -898,8 +898,8 @@ MonoBehaviour:
         guid: a8711a5f1858af4d8888cd45b57612a3
       Path: Events\Default Work Unit\Environment SFX\SFXPlay_BarrelExplosion
       maxAttenuation: 0
-      maxDuration: 2.280104
-      minDuration: 2.2280264
+      maxDuration: 2.3879397
+      minDuration: 2.102977
     - name: SFXPlay_BFGImpact
       guid: 34fa1b564f07cc418f180435e7599130
       id: 809168204
@@ -1635,8 +1635,8 @@ MonoBehaviour:
         guid: 4302bd8af0e9bf438bc27fd7312e3262
       Path: Events\Default Work Unit\Turret SFX\SFXPlay_Turret_LockOn
       maxAttenuation: 0
-      maxDuration: 4.05635
-      minDuration: 4.05635
+      maxDuration: 4.1752105
+      minDuration: 3.9408739
     - name: SFXPlay_TurretDefeatedAmbience
       guid: 2a9df7adf906bc4ba4faff612b9c1deb
       id: 1647204779

@@ -158,7 +158,7 @@
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
 														<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 														<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
-														<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+														<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
 														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
@@ -196,7 +196,7 @@
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
 														<Property Name="DestinationJumpPositionPreset" Type="int16" Value="4"/>
 														<Property Name="DestinationPlaylistJumpTo" Type="int16" Value="1"/>
-														<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+														<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
 														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="PlayTransitionPostExit" Type="bool" Value="False"/>
@@ -11552,7 +11552,7 @@
 																										</PropertyList>
 																										<PointList>
 																											<Point>
-																												<XPos>-0</XPos>
+																												<XPos>0</XPos>
 																												<YPos>0</YPos>
 																												<Flags>5</Flags>
 																											</Point>
@@ -11571,7 +11571,7 @@
 																										</PropertyList>
 																										<PointList>
 																											<Point>
-																												<XPos>-0</XPos>
+																												<XPos>0</XPos>
 																												<YPos>0</YPos>
 																												<Flags>5</Flags>
 																											</Point>
@@ -11590,7 +11590,7 @@
 																										</PropertyList>
 																										<PointList>
 																											<Point>
-																												<XPos>-0</XPos>
+																												<XPos>0</XPos>
 																												<YPos>0</YPos>
 																												<Flags>5</Flags>
 																											</Point>

@@ -243,8 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_listeners:
-    initialListenerList:
-    - {fileID: 0}
+    initialListenerList: []
     useDefaultListeners: 1
   isEnvironmentAware: 0
   isStaticObject: 0

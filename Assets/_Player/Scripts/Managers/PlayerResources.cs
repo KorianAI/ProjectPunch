@@ -184,6 +184,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
                 MusicOverview.instance.Music_ScrapShift();
                 MusicOverview.instance.RSON();
             }
+
+            else
+            {
+                MusicSwitchState();
+            }
             scrapShift = true;
             scrapDecrease = true;
             scrapDecreaseTimer = scrapDecreaseCooldown;

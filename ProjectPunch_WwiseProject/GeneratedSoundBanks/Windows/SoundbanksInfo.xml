@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{93EACF83-86AC-3350-F81C-DC9544B7010B}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{6D956CC7-02EE-B4AF-01D9-1DF20D82C4C0}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -121,7 +121,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{9D01ABA5-22C7-5AF7-B26B-D8FD76C390CB}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{F7DF322D-3E5C-2819-E493-20962DA0CB2B}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -702,7 +702,7 @@
 						<MediaRef Id="1049397153"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="722136440" Name="SFXPlay_BarrelExplosion" DurationType="OneShot" DurationMin="2.2280264" DurationMax="2.280104">
+				<Event Id="722136440" Name="SFXPlay_BarrelExplosion" DurationType="OneShot" DurationMin="2.102977" DurationMax="2.3879397">
 					<MediaRefs>
 						<MediaRef Id="377994243"/>
 					</MediaRefs>
@@ -968,7 +968,7 @@
 						<MediaRef Id="1045500657"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2095233026" Name="SFXPlay_Turret_LockOn" DurationType="OneShot" DurationMin="4.05635" DurationMax="4.05635">
+				<Event Id="2095233026" Name="SFXPlay_Turret_LockOn" DurationType="OneShot" DurationMin="3.9408739" DurationMax="4.1752105">
 					<MediaRefs>
 						<MediaRef Id="402115762"/>
 					</MediaRefs>
@@ -1040,5 +1040,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{BC0752BB-737E-65F8-5976-865852678C19}</FileHash>
+	<FileHash>{93E4E49D-239F-4E4E-7678-D7B8C4CD3E2A}</FileHash>
 </SoundBanksInfo>
