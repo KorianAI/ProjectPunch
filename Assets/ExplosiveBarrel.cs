@@ -13,12 +13,13 @@ public class ExplosiveBarrel : MonoBehaviour, IDamageable, IMagnetisable
 
     private PlayerStateManager ps;
     //public AK.Wwise.Event playSFX_BarrelExplosion;
-    public string eventName = "PlaySFX_BarrelExplosion";
+    public AK.Wwise.Event playSFX_Barrel;
+    public AK.Wwise.Bank Soundbank_SFX;
 
     private void Start()
     {
         ps = GameObject.Find("Player").GetComponent<PlayerStateManager>();
-        
+        Soundbank_SFX.Load();
     }
 
     public void TakeDamage(float damage, bool ranged)
@@ -65,6 +66,6 @@ public class ExplosiveBarrel : MonoBehaviour, IDamageable, IMagnetisable
 
     public void SFXplosion()
     {
-        AkSoundEngine.PostEvent(eventName, gameObject);
+        playSFX_Barrel.Post(gameObject);
     }
 }
