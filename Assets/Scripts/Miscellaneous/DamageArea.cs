@@ -17,7 +17,7 @@ public class DamageArea : MonoBehaviour
         {
             Debug.Log("calling player");
             
-            other.gameObject.GetComponent<PlayerResources>().TakeDamage(playerDamage);
+            other.gameObject.GetComponent<PlayerResources>().TakeDamage(playerDamage, false);
 
             other.gameObject.GetComponent<PlayerStateManager>().Knockback(knockbackDist, transform, knockbackLength);
         }
@@ -26,7 +26,7 @@ public class DamageArea : MonoBehaviour
         {
             Debug.Log("calling enemy");
             
-            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(enemyDamage);
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(enemyDamage, false);
         }
     }
 }

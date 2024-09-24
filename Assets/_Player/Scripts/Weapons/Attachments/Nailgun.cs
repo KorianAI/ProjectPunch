@@ -146,7 +146,7 @@ public class Nailgun : Attachment
         }
 
         trail.transform.position = enemy;
-        health.TakeDamage(stats.damage);
+        health.TakeDamage(stats.damage, true);
         if (sm.tl.currentTarget.gameObject)
         {
             HitstopManager.Instance.TriggerHitstop(stats.hitstopAmnt, sm.tl.currentTarget.gameObject);

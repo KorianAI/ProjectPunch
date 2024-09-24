@@ -22,7 +22,7 @@ public class DamageObject : MonoBehaviour
             var target = other.gameObject.GetComponent<IDamageable>();
             if (target!= null)
             {
-                target.TakeDamage(damage);
+                target.TakeDamage(damage, true);
             }
             Instantiate(hitVFX, transform.position, Quaternion.identity);
 

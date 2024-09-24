@@ -17,7 +17,7 @@ public class ExplosiveBarrel : MonoBehaviour, IDamageable, IMagnetisable
         ps = GameObject.Find("Player").GetComponent<PlayerStateManager>();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool ranged)
     {
         if (exploded) return;
         exploded = true;
@@ -33,7 +33,7 @@ public class ExplosiveBarrel : MonoBehaviour, IDamageable, IMagnetisable
         Collider[] player = Physics.OverlapSphere(transform.position, 2, targetableLayer);
         foreach (Collider c in player)
         {
-            c.GetComponent<IDamageable>().TakeDamage(damage);
+            c.GetComponent<IDamageable>().TakeDamage(damage, false);
             //sfx - explode
             RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
         }

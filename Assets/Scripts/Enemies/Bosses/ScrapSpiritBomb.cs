@@ -68,7 +68,7 @@ public class ScrapSpiritBomb : MonoBehaviour
         {
             if (collider.CompareTag("Player"))
             {
-                collider.GetComponent<IDamageable>().TakeDamage(35);
+                collider.GetComponent<IDamageable>().TakeDamage(35, false);
             }
         }
     }

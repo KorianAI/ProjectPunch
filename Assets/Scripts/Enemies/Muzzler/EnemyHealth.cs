@@ -68,7 +68,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockback
         audioManager = GetComponent<EnemyAudioManager>();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool ranged)
     {
         //if (!takenDamage)
         {

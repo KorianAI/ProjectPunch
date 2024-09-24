@@ -23,7 +23,7 @@ public class DamageableObject : MonoBehaviour, IDamageable
 
     #region health
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool ranged)
     {
         if (!takenDamage)
         {

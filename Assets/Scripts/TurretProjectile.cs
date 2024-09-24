@@ -71,7 +71,7 @@ public class TurretProjectile : MonoBehaviour, IParriable
             {
                 if (c.GetComponent<PlayerResources>() || c.GetComponent<EnemyHealth>() || c.GetComponent<TurretHealth>())
                 {
-                    c.GetComponent<IDamageable>().TakeDamage(damage);
+                    c.GetComponent<IDamageable>().TakeDamage(damage, true);
                     //sfx - explode
                     RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
                 }

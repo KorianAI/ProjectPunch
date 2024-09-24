@@ -87,7 +87,7 @@ public class PlayerCombat : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider c in enemies)
         {
-            c.GetComponent<IDamageable>().TakeDamage(modeStats.damage);
+            c.GetComponent<IDamageable>().TakeDamage(modeStats.damage, false);
             if (resources.scrapShift)
             {
                 PlaySFX_RSImpact();
@@ -246,7 +246,7 @@ public class PlayerCombat : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, range, enemyLayer);
         foreach (Collider c in enemies)
         {
-            c.GetComponent<IDamageable>().TakeDamage(aoeStats.damage);
+            c.GetComponent<IDamageable>().TakeDamage(aoeStats.damage, false);
             _sm.attackHit = true;
             HitstopManager.Instance.TriggerHitstop(aoeStats.hitstopAmnt, gameObject, c.gameObject);
             CinemachineShake.Instance.ShakeCamera(aoeStats.shakeAmnt, aoeStats.shakeAmnt);

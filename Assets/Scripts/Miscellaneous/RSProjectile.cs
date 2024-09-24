@@ -30,7 +30,7 @@ public class RSProjectile : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, 4f, enemyLayer);
         foreach (Collider c in enemies)
         {
-            c.GetComponent<IDamageable>().TakeDamage(explosionStats.damage);
+            c.GetComponent<IDamageable>().TakeDamage(explosionStats.damage, true);
 
             HitstopManager.Instance.TriggerHitstop(explosionStats.hitstopAmnt, gameObject, c.gameObject);
             CinemachineShake.Instance.ShakeCamera(explosionStats.shakeAmnt, explosionStats.shakeAmnt);

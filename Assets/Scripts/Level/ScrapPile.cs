@@ -45,7 +45,7 @@ public class ScrapPile : MonoBehaviour, IDamageable, ITargeted
 
     #region health
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool ranged)
     {
         if (!takenDamage)
         {

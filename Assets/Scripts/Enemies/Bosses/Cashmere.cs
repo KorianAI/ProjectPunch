@@ -278,7 +278,7 @@ public class Cashmere : BossInfo
             if (collider.CompareTag("Player"))
             {
                 collider.GetComponent<IKnockback>().Knockback(kbForce, transform, kbDur);
-                collider.GetComponent<IDamageable>().TakeDamage(5);
+                collider.GetComponent<IDamageable>().TakeDamage(5, false);
             }
         }       
     }

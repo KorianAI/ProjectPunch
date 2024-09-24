@@ -17,7 +17,7 @@ public class ScrapShockwave : MonoBehaviour
         {
             if (canDealDamage)
             {
-                target.TakeDamage(10);
+                target.TakeDamage(10, false);
                 canDealDamage = false;
                 collision.gameObject.GetComponentInParent<IKnockback>().Knockback(knockupPower, transform, length);
             }

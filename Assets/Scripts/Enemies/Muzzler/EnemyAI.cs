@@ -131,7 +131,7 @@ public class EnemyAI : MonoBehaviour
         if (enemies.Length <= 0) { return; }
         foreach (Collider c in enemies)
         {
-            c.GetComponent<IDamageable>().TakeDamage(enemy.stats.damage);
+            c.GetComponent<IDamageable>().TakeDamage(enemy.stats.damage, false);
             EnemySFX.instance.SFX_MuzzlerKick();
             GameObject hitVFX = Instantiate(enemy.hitVFX, enemy.attackPoint);
             //c.GetComponent<IKnockback>().Knockback(1.5f, orientation);

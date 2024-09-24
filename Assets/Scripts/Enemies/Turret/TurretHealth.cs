@@ -71,7 +71,7 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
         audioManager = GetComponent<EnemyAudioManager>();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool ranged)
     {
         if (!takenDamage)
         {

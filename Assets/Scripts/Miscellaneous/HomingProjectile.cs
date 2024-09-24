@@ -14,7 +14,7 @@ public class HomingProjectile : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, 2, enemyLayer);
         foreach (Collider c in enemies)
         {
-            c.GetComponent<IDamageable>().TakeDamage(10);         
+            c.GetComponent<IDamageable>().TakeDamage(10, true);         
             //RumbleManager.instance.RumblePulse(.25f, 1f, .25f);
         }
         Destroy(gameObject);

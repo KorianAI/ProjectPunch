@@ -29,7 +29,7 @@ public class Dummy : MonoBehaviour, IDamageable, IMagnetisable
         player = GameObject.Find("Player");
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool ranged)
     {
         if (!takenDamage)
         {

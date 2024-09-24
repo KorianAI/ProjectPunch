@@ -235,7 +235,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
         RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool ranged)
     {
         if (invincible || superInvincible) return;
 

@@ -24,7 +24,7 @@ public class ScrapVolleyProjectile : MonoBehaviour, IParriable
         {
             if (collider.CompareTag("Player"))
             {
-                collider.GetComponent<IDamageable>().TakeDamage(damage);
+                collider.GetComponent<IDamageable>().TakeDamage(damage, false);
                 playerHit = true;
             }
         }
@@ -59,6 +59,6 @@ public class ScrapVolleyProjectile : MonoBehaviour, IParriable
     public void Parry()
     {
         transform.DOKill();
-        transform.DOMove(cm.transform.position, .4f).OnComplete(() => { cm.health.TakeDamage(68); GameObject rumbleEffect = Instantiate(rumbleVFX, transform.position, transform.rotation); gameObject.SetActive(false); });
+        transform.DOMove(cm.transform.position, .4f).OnComplete(() => { cm.health.TakeDamage(68, false); GameObject rumbleEffect = Instantiate(rumbleVFX, transform.position, transform.rotation); gameObject.SetActive(false); });
     }
 }

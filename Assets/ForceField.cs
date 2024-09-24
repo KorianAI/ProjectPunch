@@ -28,7 +28,7 @@ public class ForceField : MonoBehaviour, IDamageable, ITargeted
 
     #region health
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool ranged)
     {
         SetColour(colourNoDamage); //show that it cannot take damage from normal attacks
         StartCoroutine(ResetColourDelay());

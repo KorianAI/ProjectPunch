@@ -87,7 +87,7 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
         Collider[] enemies = Physics.OverlapSphere(transform.position, 4f, enemyLayer);
         foreach (Collider c in enemies)
         {
-            c.GetComponent<IDamageable>().TakeDamage(explosionDamage);
+            c.GetComponent<IDamageable>().TakeDamage(explosionDamage, true);
 
             HitstopManager.Instance.TriggerHitstop(explosionStats.hitstopAmnt, gameObject, c.gameObject);
             CinemachineShake.Instance.ShakeCamera(explosionStats.shakeAmnt, explosionStats.shakeAmnt);
@@ -128,7 +128,7 @@ public class ConcentratedNail : MonoBehaviour, IMagnetisable, IParriable
 
     void DealDamage()
     {
-        enemy.TakeDamage(damage);
+        enemy.TakeDamage(damage, true);
     }
 
     void StartFallTimer()

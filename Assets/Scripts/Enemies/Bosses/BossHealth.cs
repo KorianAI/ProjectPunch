@@ -45,11 +45,11 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
     {
         if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            TakeDamage(10000);
+            TakeDamage(10000, false);
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool ranged)
     {
         if (!canBeHit) { return; }
        
@@ -71,6 +71,7 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
 
         if (hasArmour)
         {
+            if (ranged) return;
             currentArmour -= damage;
             armourBar.currentValue = currentArmour;
             armourBar.DrawSlots();
