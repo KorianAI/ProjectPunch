@@ -23,6 +23,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1931077309	SFXPlay_LockON			\Default Work Unit\General SFX\SFXPlay_LockON	
 	1983788571	SFXPlay_CashmereScrapGather			\Default Work Unit\Cashmere SFX\SFXPlay_CashmereScrapGather	
 	2012453574	SFXPlay_Pull			\Default Work Unit\Push Pull SFX\SFXPlay_Pull	
+	2062616347	Scrap_Shift_Off			\Default Work Unit\Scrap_Shift_Off	
 	2062786315	SFXPlay_Push			\Default Work Unit\Push Pull SFX\SFXPlay_Push	
 	2095233026	SFXPlay_Turret_LockOn			\Default Work Unit\Turret SFX\SFXPlay_Turret_LockOn	
 	2268775144	SFXPlay_ScrapCollect			\Default Work Unit\General SFX\SFXPlay_ScrapCollect	
@@ -39,6 +40,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3729182067	SFXPlay_BFGLunge			\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGLunge	
 	3800919789	SFXPlay_FootstepsGround			\Default Work Unit\Kaila SFX\Kaila_Movement\SFXPlay_FootstepsGround	
 	3871747721	SFXPlay_LockOFF			\Default Work Unit\General SFX\SFXPlay_LockOFF	
+	3877158055	Scrap_Shift_On			\Default Work Unit\Scrap_Shift_On	
 	3879440547	SFXPlay_Jump			\Default Work Unit\Kaila SFX\Kaila_Movement\SFXPlay_Jump	
 	3945781932	SFXPlay_TurretHit			\Default Work Unit\Turret SFX\SFXPlay_TurretHit	
 	4007672374	SFXPlay_BFGUppercut			\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGUppercut	
@@ -98,7 +100,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	325590457	BFG_Lunge	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\BFG_Lunge_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Lunge		485196
 	369121922	ScrapBeat_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Silence_Scrap_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Intro\ScrapBeat_1		1983
 	369513787	Kaila_Jump	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Kaila_Jump_E0D9A883.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Movement\Kaila_Jump		124324
-	377994243	Turret_Explosion	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Turret_Explosion-1_1D27187D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turret SFX\Turret_Explosion		354308
+	377994243	Turret_Explosion	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Turret_Explosion-1_1E6098DF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turret SFX\Turret_Explosion		354308
 	382992550	Push	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Push_302E0EA9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Push Pull\Push		160368
 	386208712	Guitar_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Guitar_1_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Intro\Guitar_1		88008
 	397199079	Riff1_Progression_Crash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Windows\SFX\Riff1_Progression_Crash_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 2\Boss 2 - Riff 1\Riff1_Progression_Crash		374742

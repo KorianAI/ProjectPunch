@@ -33,8 +33,10 @@
 						<ObjectRef Name="Combat" ID="{D904E502-7A7A-489C-A1A1-AD81C57C023D}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_FootstepsGround" ID="{5E04A045-6D0F-490B-9E62-E4B990D7CC90}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_NailGunFire" ID="{C23447CF-D9E6-4939-9E47-8DF9BAAAACA4}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Scrap_Shift_On" ID="{76322012-EAED-4947-A6AE-97A60BD6C9C9}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Explore" ID="{D1958952-82A4-4972-9E70-E8EB410CAA42}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_TurretFire" ID="{3A2436A8-9473-4AFA-8997-5A256C575502}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Scrap_Shift_Off" ID="{7BC4DF84-60E4-4B05-A062-D7EF8F907803}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_Pull" ID="{33B45BD8-3FA2-4B69-A6A6-BA1A4505B629}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_LockOFF" ID="{1B630011-B76F-4B95-BAD0-218717F54DF9}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_TurretDefeatedAmbience" ID="{ADF79D2A-06F9-4BBC-A4FA-FF612B9C1DEB}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>

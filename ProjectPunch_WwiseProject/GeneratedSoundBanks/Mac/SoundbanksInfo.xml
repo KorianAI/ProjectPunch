@@ -120,7 +120,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{0FD62A4D-5D41-9511-99C8-60513C445F28}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{67786DFC-B61F-D9D7-0043-3DB9A74EEAD4}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -234,7 +234,7 @@
 				</File>
 				<File Id="377994243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Turret_Explosion-1.wav</ShortName>
-					<CachePath>SFX/Turret_Explosion-1_1D27187D.wem</CachePath>
+					<CachePath>SFX/Turret_Explosion-1_1E6098DF.wem</CachePath>
 				</File>
 				<File Id="382992550" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Push.wav</ShortName>
@@ -641,6 +641,21 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="2062616347" Name="Scrap_Shift_Off" DurationType="OneShot" DurationMin="1.5" DurationMax="1.5">
+					<MediaRefs>
+						<MediaRef Id="755690947"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3877158055" Name="Scrap_Shift_On" DurationType="OneShot" DurationMin="1.875" DurationMax="1.875">
+					<MediaRefs>
+						<MediaRef Id="23675886"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1188943754"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
 				<Event Id="4104150384" Name="Scrapshift" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<ActionSetState>
 						<ActionSetStateEntry GroupId="1690668539" Id="4104150384" Name="Scrapshift"/>
@@ -781,7 +796,7 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="543234128" Name="SFXPlay_PipeCrash" DurationType="OneShot" DurationMin="15.890952" DurationMax="15.890952">
+				<Event Id="543234128" Name="SFXPlay_PipeCrash" DurationType="OneShot" DurationMin="17.83699" DurationMax="17.83699">
 					<MediaRefs>
 						<MediaRef Id="84823563"/>
 					</MediaRefs>
@@ -904,10 +919,15 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
-				<Event Id="1647204779" Name="SFXPlay_TurretDefeatedAmbience" DurationType="OneShot" DurationMin="1.9849459" DurationMax="2.0313418">
+				<Event Id="1647204779" Name="SFXPlay_TurretDefeatedAmbience" DurationType="OneShot" DurationMin="2.2280264" DurationMax="2.280104">
 					<MediaRefs>
 						<MediaRef Id="377994243"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3948262040"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="1220918693" Name="SFXPlay_TurretFire" DurationType="OneShot" DurationMin="2.004522" DurationMax="2.5255396">
 					<MediaRefs>
@@ -950,5 +970,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{688D4C6E-9DA5-16F9-37A7-ED2ED029D096}</FileHash>
+	<FileHash>{2683372E-D168-AD67-FF64-A8A6CE148AAC}</FileHash>
 </SoundBanksInfo>
