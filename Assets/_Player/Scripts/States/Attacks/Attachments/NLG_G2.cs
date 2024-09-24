@@ -9,7 +9,7 @@ public class NLG_G2 : PlayerAttackBase
     {         
         base.EnterState(player);
         duration = 0.5f;
-        _sm.anim.Play("ConcentratedNail");
+        _sm.anim.Play("NGH1");
         canAttack = false;
     }
 
