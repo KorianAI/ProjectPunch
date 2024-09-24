@@ -394,7 +394,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584744724608150672
+    m_lastTime: -8584744645982994007
     List:
     - name: Soundbank_SFX
       guid: af2cf498d9d21f4e88407f3a8baafeea
@@ -778,8 +778,8 @@ MonoBehaviour:
         guid: 84dfc47be460054ba062d7ef8f907803
       Path: Events\Default Work Unit\Scrap_Shift_Off
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.5
+      minDuration: 1.5
     - name: Scrap_Shift_On
       guid: 12203276edea4749a6ae97a60bd6c9c9
       id: 3877158055
@@ -795,8 +795,8 @@ MonoBehaviour:
         guid: 12203276edea4749a6ae97a60bd6c9c9
       Path: Events\Default Work Unit\Scrap_Shift_On
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.875
+      minDuration: 1.875
     - name: Scrapshift
       guid: 3e043d65336f3d47943fa330d37e02e5
       id: 4104150384
@@ -1291,8 +1291,8 @@ MonoBehaviour:
         guid: c66e13476d2e624cb48b36dc2fd466d5
       Path: Events\Default Work Unit\Environment SFX\SFXPlay_PipeCrash
       maxAttenuation: 0
-      maxDuration: 15.890952
-      minDuration: 15.890952
+      maxDuration: 17.83699
+      minDuration: 17.83699
     - name: SFXPlay_Pull
       guid: d85bb433a23f694ba6a6ba1a4505b629
       id: 2012453574
@@ -1569,8 +1569,8 @@ MonoBehaviour:
         guid: 2a9df7adf906bc4ba4faff612b9c1deb
       Path: Events\Default Work Unit\Turret SFX\SFXPlay_TurretDefeatedAmbience
       maxAttenuation: 0
-      maxDuration: 2.0313418
-      minDuration: 1.9849459
+      maxDuration: 2.280104
+      minDuration: 2.2280264
     - name: SFXPlay_TurretFire
       guid: a836243a7394fa4a89975a256c575502
       id: 1220918693

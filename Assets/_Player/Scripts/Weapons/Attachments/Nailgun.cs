@@ -18,6 +18,8 @@ public class Nailgun : Attachment
     public float cnDur;
     public float speed;
 
+    public GameObject muzzleFlash;
+
     public override void Start()
     {
         base.Start();
@@ -48,7 +50,8 @@ public class Nailgun : Attachment
         Vector3 direction = GetDirection();  // Get the right direction
 
         TrailRenderer trail = Instantiate(projTrail, spawnPoint.position, Quaternion.identity);
-
+        GameObject muzzle = Instantiate(muzzleFlash, spawnPoint.position, Quaternion.identity);
+        Destroy(muzzle, .2f);
 
         if (sm.tl.currentTarget != null)
         {
@@ -91,6 +94,8 @@ public class Nailgun : Attachment
         }
 
         ConcentratedNail p = Instantiate(concentratedNail, spawnPoint.position, Quaternion.identity).GetComponent<ConcentratedNail>();
+        GameObject muzzle = Instantiate(muzzleFlash, spawnPoint.position, Quaternion.identity);
+        Destroy(muzzle, .2f);
         p.transform.rotation = Quaternion.LookRotation(direction.normalized);
         p.enemy = e;
         p.destination = d;

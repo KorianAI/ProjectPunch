@@ -15,6 +15,7 @@ public class BossTrigger : MonoBehaviour
             //PlayMusic_Boss1();
             //MusicManager.instance.ToggleFightingBoss(true);
             PlayerStateManager.instance.inBossFight = true;
+            PlayerStateManager.instance.resources.ChangeGauntlets(1);
             PlayerStateManager.instance.resources.PlayMusic_Boss1();
         }
     }

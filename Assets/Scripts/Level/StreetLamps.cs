@@ -17,19 +17,14 @@ public class StreetLamps : MonoBehaviour, IMagnetisable
 
     public void Pull(PlayerStateManager player)
     {
-        player.speedlines.SetActive(true);
         player.resources.invincible = true;
         ps = player;
-        ps.transform.DOMove(pullPos.transform.position, 1.5f).OnComplete(ResetVariables);
+        ps.transform.DOMove(pullPos.transform.position, 1.5f);
         ps.GetComponent<TargetLock>().currentTarget = null;
         ps.GetComponent<TargetLock>().isTargeting = false;
         //DOTween.To(() => player.playerCam.m_Lens.FieldOfView, x => player.playerCam.m_Lens.FieldOfView = x, 50, .25f);
     }
 
-    private void ResetVariables()
-    {
-        ps.speedlines.SetActive(false); ps.resources.invincible = false; ps.canAttack = true;
-    }
 
     public void Push(PlayerStateManager player)
     {
