@@ -28,6 +28,15 @@ public class TutorialTrigger : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            manager.SetCurrent(tutorialAnim, ableToMove, tip, tipDelay); //set the chosen tutorial object
+            boxCollider.enabled = false;
+        }
+    }
+
     public void ActivateTut(CombatManager combatManager)
     {
         manager.SetCurrent(tutorialAnim, ableToMove, tip, tipDelay); //set the chosen tutorial object
