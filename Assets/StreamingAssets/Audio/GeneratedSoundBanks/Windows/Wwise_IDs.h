@@ -20,6 +20,8 @@ namespace AK
         static const AkUniqueID COMBAT = 2764240573U;
         static const AkUniqueID EXPLORE = 579523862U;
         static const AkUniqueID MUSICSTART = 1122283870U;
+        static const AkUniqueID SCRAP_SHIFT_OFF = 2062616347U;
+        static const AkUniqueID SCRAP_SHIFT_ON = 3877158055U;
         static const AkUniqueID SCRAPSHIFT = 4104150384U;
         static const AkUniqueID SCRAPSHIFTEND = 1856838135U;
         static const AkUniqueID SFX_PLAY_DASH = 3190817658U;
