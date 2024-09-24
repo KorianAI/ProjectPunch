@@ -86,6 +86,7 @@ public class PlayerCombat : MonoBehaviour
             modeStats = resources.mode.stats;
         }
 
+
         Collider[] enemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider c in enemies)
         {

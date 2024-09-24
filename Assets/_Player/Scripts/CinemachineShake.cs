@@ -20,9 +20,11 @@ public class CinemachineShake : MonoBehaviour
 
     // Shake and FOV properties
     public float shakeIntensity;
+    public float shakeIntensityPlayer;
     public float shakeTimerTotal;
     public float maxShakeIntensity;
     public float fovChangeIntensity;
+    public float playerFovChangeIntensity;
     public float fovChangeTimerTotal;
     public float minFOVChange;
     public float maxFOVChange;
@@ -76,40 +78,38 @@ public class CinemachineShake : MonoBehaviour
             playerCamPerlin.m_AmplitudeGain = intensity;
             shakeTimerPlayer = time;
             shakeTimerTotal = time;
-            shakeIntensity = intensity;
+            shakeIntensityPlayer = intensity;
             if (shakeIntensity > maxShakeIntensity)
             {
-                shakeIntensity = maxShakeIntensity;
+                shakeIntensityPlayer = maxShakeIntensity;
             }
         }
     }
 
     public void ChangeFov(float newFov, float time)
     {
+        Debug.Log(newFov + " " + time);
+
         // FOV change for tCam
         if (tCam != null)
         {
-            tCam.m_Lens.FieldOfView += newFov;
-            if (tCam.m_Lens.FieldOfView < minFOVChange || tCam.m_Lens.FieldOfView > maxFOVChange)
-            {
-                tCam.m_Lens.FieldOfView = Mathf.Clamp(tCam.m_Lens.FieldOfView, minFOVChange, maxFOVChange);
-            }
+            // Instead of adding newFov, directly set the desired value
+            tCam.m_Lens.FieldOfView = Mathf.Clamp(originalFov + newFov, minFOVChange, maxFOVChange);
             fovChangeTimer = time;
             fovChangeTimerTotal = time;
-            fovChangeIntensity = tCam.m_Lens.FieldOfView += newFov;
+            fovChangeIntensity = tCam.m_Lens.FieldOfView; // Set this to the target FOV
+            Debug.Log("fovchangeintensity" + " " + fovChangeIntensity);
         }
 
         // FOV change for playerCam
         if (playerCam != null)
         {
-            playerCam.m_Lens.FieldOfView += newFov;
-            if (playerCam.m_Lens.FieldOfView < minFOVChange || playerCam.m_Lens.FieldOfView > maxFOVChange)
-            {
-                playerCam.m_Lens.FieldOfView = Mathf.Clamp(playerCam.m_Lens.FieldOfView, minFOVChange, maxFOVChange);
-            }
+            // Similarly, directly set the desired value for playerCam
+            playerCam.m_Lens.FieldOfView = Mathf.Clamp(originalFovPlayer + newFov, minFOVChange, maxFOVChange);
             fovChangeTimerPlayer = time;
             fovChangeTimerTotal = time;
-            fovChangeIntensity = playerCam.m_Lens.FieldOfView += newFov;
+            playerFovChangeIntensity = playerCam.m_Lens.FieldOfView; // Set this to the target FOV
+            Debug.Log("player" + " " + playerFovChangeIntensity);
         }
     }
 
@@ -136,7 +136,7 @@ public class CinemachineShake : MonoBehaviour
                 playerCam.GetRig(1).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
             playerCamPerlin.m_AmplitudeGain =
-                Mathf.Lerp(shakeIntensity, 0f, 1 - (shakeTimerPlayer / shakeTimerTotal));
+                Mathf.Lerp(shakeIntensityPlayer, 0f, 1 - (shakeTimerPlayer / shakeTimerTotal));
         }
 
         // FOV change decay for tCam
@@ -154,7 +154,7 @@ public class CinemachineShake : MonoBehaviour
             fovChangeTimerPlayer -= Time.deltaTime;
 
             playerCam.m_Lens.FieldOfView =
-                Mathf.Lerp(fovChangeIntensity, originalFovPlayer, 1 - (fovChangeTimerPlayer / fovChangeTimerTotal));
+                Mathf.Lerp(playerFovChangeIntensity, originalFovPlayer, 1 - (fovChangeTimerPlayer / fovChangeTimerTotal));
         }
     }
 }
