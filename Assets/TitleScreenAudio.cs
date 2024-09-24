@@ -10,7 +10,7 @@ public class TitleScreenAudio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MusicStart();
+        Music_MainTheme();
     }
 
     // Update is called once per frame
