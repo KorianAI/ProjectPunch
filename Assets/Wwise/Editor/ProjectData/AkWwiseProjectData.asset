@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: fcf29761efdb4743be1c96bb0ba59ba7
     GuidInternal: 
-    m_lastTime: -8584754312394775808
+    m_lastTime: -8584754312250309254
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584744717734775808
+    m_lastTime: -8584744694189229751
     List:
     - name: Ambience Bus
       guid: f3f6e085a85cb94eb4bb01cc86500ad6
@@ -394,7 +394,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584744544814775808
+    m_lastTime: -8584744301506871156
     List:
     - name: Soundbank_SFX
       guid: af2cf498d9d21f4e88407f3a8baafeea
@@ -422,7 +422,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584744562214775808
+    m_lastTime: -8584744301518945316
     List:
     - name: AmbiencePlay_DesertWind
       guid: 1a79119d92f6b44cb54c73ad0e555df4
@@ -1763,7 +1763,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: e772f0b193823949853e05aac5794b6f
     GuidInternal: 
-    m_lastTime: -8584745030474775808
+    m_lastTime: -8584744978752665499
     List:
     - name: MasterVolume
       guid: b736ebf7169ec14c9512603bffc65def
@@ -1819,7 +1819,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: f3e827c98473b545bdc7ed0c4739356b
     GuidInternal: 
-    m_lastTime: -8584744562214775808
+    m_lastTime: -8584744301506861147
     List:
     - name: Music_States
       guid: c67059b9b3a34a448d69328c6fc91e5b
@@ -1963,7 +1963,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: ef29a14c705ede40b7a80ac065cc6269
     GuidInternal: 
-    m_lastTime: -8584750697274775808
+    m_lastTime: -8584750682691456280
     List:
     - name: New_Switch_Group
       guid: de5b0459d2ce29408fec6f6544d84e51
@@ -2011,7 +2011,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: ca7ae8b43920f140a5f4bf098b44b504
     GuidInternal: 
-    m_lastTime: -8584750697274775808
+    m_lastTime: -8584750682691376688
     List:
     - name: Scrapshift
       guid: 52eef0ed6d5ee34ea9f8a780dfae2057

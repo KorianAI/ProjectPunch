@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8b458e8d8b19234b8a48541c9d932c2, type: 3}
-  m_Name: RS_G1
+  m_Name: RS_G6
   m_EditorClassIdentifier: 
   attackName: 
-  damage: 15
-  rumbleAmnt: 0
-  shakeAmnt: 0
-  zoomAmnt: 0
-  shakeDur: 0
-  hitstopAmnt: 0
+  damage: 30
+  rumbleAmnt: 0.5
+  shakeAmnt: 2
+  zoomAmnt: -3
+  shakeDur: 1.5
+  hitstopAmnt: 0.3
