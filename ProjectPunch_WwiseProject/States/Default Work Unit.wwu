@@ -14,6 +14,7 @@
 						<State Name="Scrapshift" ID="{76F526FA-6434-4FF3-90E8-F513FC29025D}"/>
 						<State Name="Boss_1" ID="{EE751F6F-E5CB-45F5-A31E-8FB8092A89F4}"/>
 						<State Name="Boss_2" ID="{A86CF230-978B-4D2E-A272-B09806C54CB2}"/>
+						<State Name="MenuMusic" ID="{CF2A5B15-56DF-455E-B0C4-DEF7B54C9AA9}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>

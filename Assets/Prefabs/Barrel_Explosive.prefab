@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 716999509220003455}
   - component: {fileID: 7456324768768161944}
   - component: {fileID: 2901129196217918969}
+  - component: {fileID: 1028488723634107840}
   m_Layer: 7
   m_Name: Barrel_Explosive
   m_TagString: Untagged
@@ -64,7 +65,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 332.74234, y: 38.30333, z: 255.79178}
-  m_LocalScale: {x: 2.4999998, y: 2.5, z: 2.4999998}
+  m_LocalScale: {x: 2.4999998, y: 2.4999998, z: 2.5000002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7648122174662498411}
@@ -181,6 +182,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 136
   damage: 20
+  eventName: PlaySFX_BarrelExplosion
 --- !u!54 &7456324768768161944
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -220,3 +222,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7321bb98ef4089542970c582410f69bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1028488723634107840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3923143975485861787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b6717e9f9f34749bd9ff462be71b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList:
+    - {fileID: 0}
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1

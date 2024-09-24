@@ -110,6 +110,20 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="MenuMusic" ID="{4317B6B3-C283-4820-816A-75E00F708482}">
+							<ChildrenList>
+								<Action Name="" ID="{0B45AECA-1B2B-4F13-BEC9-6F70182D8849}" ShortID="488458280">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MenuMusic" ID="{CF2A5B15-56DF-455E-B0C4-DEF7B54C9AA9}" WorkUnitID="{C927E8F3-7384-45B5-BDC7-ED0C4739356B}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Kaila SFX" ID="{2DC713A0-EA86-4010-8449-FA7E31BE1EA1}" ShortID="651481342">
@@ -356,6 +370,28 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="SFXPlay_RS_Ranged" ID="{513F3A50-D803-4538-BCB4-61A8441CDA29}">
+									<ChildrenList>
+										<Action Name="" ID="{1FFDFAAD-D8E0-49CF-88B7-810B5B7D3725}" ShortID="68378960">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RealSteal_Ranged" ID="{36B5EAB2-2B35-49D9-95B3-0B2DDA0D4F15}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="SFXPlay_RS_Nail" ID="{A26865DC-7444-475A-AF02-83C10E0C42CB}">
+									<ChildrenList>
+										<Action Name="" ID="{73BB637D-D585-4535-BDE8-D155EE39315F}" ShortID="356909994">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="RealSteal_NG_ChargedShot" ID="{B34075BE-95F9-4054-9166-65D936284B4A}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
@@ -506,6 +542,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="SFXPlay_BarrelExplosion" ID="{5F1A71A8-5818-4DAF-8888-CD45B57612A3}">
+							<ChildrenList>
+								<Action Name="" ID="{132381B9-DA15-46D0-A099-268EFF41B2B2}" ShortID="964654673">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Barrel_Explosion" ID="{F78097E7-8465-4987-970B-A4D2BD16DB8C}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Muzzler SFX" ID="{8B7118D2-7FB1-4718-9BFD-91E87CB948BC}" ShortID="1031829945">
@@ -591,6 +638,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Cashmere_Shockwave" ID="{EC3A7BD2-1EE4-46CF-879B-B9E15A5C31B0}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SFXPlay_VolleyImpact" ID="{F3946B53-22A6-486F-9215-99CF9673A30D}">
+							<ChildrenList>
+								<Action Name="" ID="{EC8513DB-03BE-466E-BD3D-DBBA13A099A9}" ShortID="391605424">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Cashmere_VolleyCrashImpact" ID="{9C6D5210-6568-408F-8F73-A74F583FB1D0}" WorkUnitID="{9D6B8327-25A3-430A-9322-510F7C8F1554}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

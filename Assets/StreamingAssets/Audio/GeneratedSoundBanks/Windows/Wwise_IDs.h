@@ -25,6 +25,7 @@ namespace AK
         static const AkUniqueID SCRAPSHIFT = 4104150384U;
         static const AkUniqueID SCRAPSHIFTEND = 1856838135U;
         static const AkUniqueID SFX_PLAY_DASH = 3190817658U;
+        static const AkUniqueID SFXPLAY_BARRELEXPLOSION = 722136440U;
         static const AkUniqueID SFXPLAY_BFGIMPACT = 809168204U;
         static const AkUniqueID SFXPLAY_BFGLUNGE = 3729182067U;
         static const AkUniqueID SFXPLAY_BFGSLAM = 2597907181U;
@@ -50,8 +51,10 @@ namespace AK
         static const AkUniqueID SFXPLAY_RAIL = 1777383567U;
         static const AkUniqueID SFXPLAY_RS_IMPACT = 2297272099U;
         static const AkUniqueID SFXPLAY_RS_IMPACT_OVERDRIVE = 1462647048U;
+        static const AkUniqueID SFXPLAY_RS_NAIL = 62566205U;
         static const AkUniqueID SFXPLAY_RS_OVERDRIVE_INTRO = 1188800018U;
         static const AkUniqueID SFXPLAY_RS_OVERDRIVE_OUTRO = 2709871361U;
+        static const AkUniqueID SFXPLAY_RS_RANGED = 2934867996U;
         static const AkUniqueID SFXPLAY_RS_SLAMSHOCKWAVE = 4164504207U;
         static const AkUniqueID SFXPLAY_RS_SLAMSHOCKWAVE_OVERDRIVE = 1103899084U;
         static const AkUniqueID SFXPLAY_SCRAPCOLLECT = 2268775144U;
@@ -60,6 +63,7 @@ namespace AK
         static const AkUniqueID SFXPLAY_TURRETDEFEATEDAMBIENCE = 1647204779U;
         static const AkUniqueID SFXPLAY_TURRETFIRE = 1220918693U;
         static const AkUniqueID SFXPLAY_TURRETHIT = 3945781932U;
+        static const AkUniqueID SFXPLAY_VOLLEYIMPACT = 2080666174U;
     } // namespace EVENTS
 
     namespace STATES
@@ -74,6 +78,7 @@ namespace AK
                 static const AkUniqueID BOSS_2 = 1272574121U;
                 static const AkUniqueID COMBAT = 2764240573U;
                 static const AkUniqueID EXPLORE = 579523862U;
+                static const AkUniqueID MENUMUSIC = 679636833U;
                 static const AkUniqueID NONE = 748895195U;
                 static const AkUniqueID SCRAPSHIFT = 4104150384U;
             } // namespace STATE

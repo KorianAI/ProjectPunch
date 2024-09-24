@@ -104,6 +104,7 @@
 				<StateGroup Id="1690668539" Name="Music_States">
 					<States>
 						<State Id="579523862" Name="Explore"/>
+						<State Id="679636833" Name="MenuMusic"/>
 						<State Id="748895195" Name="None"/>
 						<State Id="1272574121" Name="Boss_2"/>
 						<State Id="1272574122" Name="Boss_1"/>
@@ -120,7 +121,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{67786DFC-B61F-D9D7-0043-3DB9A74EEAD4}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{428FA1A3-7231-B432-19DC-97BA7E33B801}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -131,6 +132,10 @@
 				<File Id="30146936" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ScrapBeat_1.wav</ShortName>
 					<CachePath>SFX/ScrapBeat_1_56CEF360.wem</CachePath>
+				</File>
+				<File Id="65965650" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BFG_Lunge.wav</ShortName>
+					<CachePath>SFX/BFG_Lunge_E541B330.wem</CachePath>
 				</File>
 				<File Id="69644400" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ScrapBeat_3.wav</ShortName>
@@ -184,6 +189,10 @@
 					<ShortName>ScrapBeat_2.wav</ShortName>
 					<CachePath>SFX/ScrapBeat_2_56CEF360.wem</CachePath>
 				</File>
+				<File Id="189471731" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NailGun_ChargedShot.wav</ShortName>
+					<CachePath>SFX/NailGun_ChargedShot_91A5BE22.wem</CachePath>
+				</File>
 				<File Id="189716297" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TremSynth.wav</ShortName>
 					<CachePath>SFX/TremSynth_56CEF360.wem</CachePath>
@@ -195,6 +204,10 @@
 				<File Id="232264055" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Lead_4Bar_FastMelodic.wav</ShortName>
 					<CachePath>SFX/Lead_4Bar_FastMelodic_56CEF360.wem</CachePath>
+				</File>
+				<File Id="249295641" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BFG_Lunge.wav</ShortName>
+					<CachePath>SFX/BFG_Lunge_1AB27766.wem</CachePath>
 				</File>
 				<File Id="252180209" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Section_B.wav</ShortName>
@@ -263,6 +276,10 @@
 				<File Id="438689799" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RealSteel_Impact.wav</ShortName>
 					<CachePath>SFX/RealSteel_Impact_7C4820A4.wem</CachePath>
+				</File>
+				<File Id="439315843" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MenuMusicMasteringV2.wav</ShortName>
+					<CachePath>SFX/MenuMusicMasteringV2_56CEF360.wem</CachePath>
 				</File>
 				<File Id="441743405" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Riff1.wav</ShortName>
@@ -639,6 +656,12 @@
 								<MediaRef Id="586254239"/>
 							</MediaRefs>
 						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1690668539" Id="679636833"/>
+							<MediaRefs>
+								<MediaRef Id="439315843"/>
+							</MediaRefs>
+						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
 				<Event Id="2062616347" Name="Scrap_Shift_Off" DurationType="OneShot" DurationMin="1.5" DurationMax="1.5">
@@ -673,6 +696,16 @@
 					<MediaRefs>
 						<MediaRef Id="1049397153"/>
 					</MediaRefs>
+				</Event>
+				<Event Id="722136440" Name="SFXPlay_BarrelExplosion" DurationType="OneShot" DurationMin="2.2280264" DurationMax="2.280104">
+					<MediaRefs>
+						<MediaRef Id="377994243"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3948262040"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="809168204" Name="SFXPlay_BFGImpact" DurationType="OneShot" DurationMin="0.15995345" DurationMax="0.25391027">
 					<MediaRefs>
@@ -856,6 +889,16 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
+				<Event Id="62566205" Name="SFXPlay_RS_Nail" DurationType="OneShot" DurationMin="2.9098814" DurationMax="3.666221">
+					<MediaRefs>
+						<MediaRef Id="189471731"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3948262040"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
 				<Event Id="1188800018" Name="SFXPlay_RS_Overdrive_Intro" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="650394388"/>
@@ -874,6 +917,17 @@
 					<PluginRefs>
 						<ShareSets>
 							<PluginRef Id="2653529179"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="2934867996" Name="SFXPlay_RS_Ranged" DurationType="OneShot" DurationMin="2.2437363" DurationMax="2.5185087">
+					<MediaRefs>
+						<MediaRef Id="65965650"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+							<PluginRef Id="3948262040"/>
 						</ShareSets>
 					</PluginRefs>
 				</Event>
@@ -951,11 +1005,22 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
+				<Event Id="2080666174" Name="SFXPlay_VolleyImpact" DurationType="OneShot" DurationMin="1.8720396" DurationMax="2.1012933">
+					<MediaRefs>
+						<MediaRef Id="249295641"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1459522457"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
 			</Events>
 			<StateGroups>
 				<StateGroup Id="1690668539" Name="Music_States">
 					<States>
 						<State Id="579523862" Name="Explore"/>
+						<State Id="679636833" Name="MenuMusic"/>
 						<State Id="748895195" Name="None"/>
 						<State Id="1272574121" Name="Boss_2"/>
 						<State Id="1272574122" Name="Boss_1"/>
@@ -970,5 +1035,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{2683372E-D168-AD67-FF64-A8A6CE148AAC}</FileHash>
+	<FileHash>{8CF06BC5-91BB-AD3A-2539-D1A6690C8E76}</FileHash>
 </SoundBanksInfo>

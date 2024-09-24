@@ -20,16 +20,19 @@
 						<ObjectRef Name="SFXPlay_RS_Overdrive_Intro" ID="{820B00B1-1AB3-44CA-A34C-D073AB586678}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_BFGSwing" ID="{BC325878-C44A-44D2-B654-E30A9C79E509}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="ScrapshiftEnd" ID="{5A2C5C63-02BA-4528-83B5-37DFCCDF73F5}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFXPlay_RS_Ranged" ID="{513F3A50-D803-4538-BCB4-61A8441CDA29}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_Push" ID="{7CB90B1E-29F8-4621-9797-E5599A61ADEB}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_Rail" ID="{21A2B87B-3F95-46E5-8385-A3ADA19AF7A7}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_MuzzlerKick" ID="{506F9BB2-2012-473B-B4E2-D16D157946B2}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Scrapshift" ID="{653D043E-6F33-473D-943F-A330D37E02E5}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFXPlay_RS_Nail" ID="{A26865DC-7444-475A-AF02-83C10E0C42CB}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_NailGunChargedShot" ID="{C4FB1B39-1F7F-4765-89A7-B3690782BA4E}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Boss_Section1" ID="{8866A62A-7D52-477E-A9A1-62F999927DBA}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_Land" ID="{1E893066-D7F3-47D5-8F25-6EE610F6FDBF}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_RS_Impact" ID="{FF7FB643-2C18-4800-ADEE-945384AD5A0D}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_ScrollCollect" ID="{D9D1B86B-6ADA-4842-A747-5D68C1878E15}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_GateClose" ID="{6AC2BE7A-4FD1-484E-AEB5-B929A7246708}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFXPlay_VolleyImpact" ID="{F3946B53-22A6-486F-9215-99CF9673A30D}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Combat" ID="{D904E502-7A7A-489C-A1A1-AD81C57C023D}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_FootstepsGround" ID="{5E04A045-6D0F-490B-9E62-E4B990D7CC90}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_NailGunFire" ID="{C23447CF-D9E6-4939-9E47-8DF9BAAAACA4}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
@@ -46,6 +49,7 @@
 						<ObjectRef Name="SFXPlay_PipeCrash" ID="{47136EC6-2E6D-4C62-B48B-36DC2FD466D5}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="AmbiencePlay_DesertWind" ID="{9D11791A-F692-4CB4-B54C-73AD0E555DF4}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_LockON" ID="{13EA3F3F-A610-4D54-9A28-A255589E035F}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SFXPlay_BarrelExplosion" ID="{5F1A71A8-5818-4DAF-8888-CD45B57612A3}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_RS_SlamShockwave_Overdrive" ID="{D0F5B708-8829-4E7C-893C-0CC086136D70}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_BFGSlam" ID="{F352E39B-D995-4ED5-99A3-74436850A807}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_BFGUppercut" ID="{172C80B9-6E29-4EF3-879D-9A20B607DF7C}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>

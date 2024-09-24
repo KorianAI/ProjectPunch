@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: fcf29761efdb4743be1c96bb0ba59ba7
     GuidInternal: 
-    m_lastTime: -8584754312250309254
+    m_lastTime: -8584754312394775808
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584744694189229751
+    m_lastTime: -8584744717734775808
     List:
     - name: Ambience Bus
       guid: f3f6e085a85cb94eb4bb01cc86500ad6
@@ -394,7 +394,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584744724608150672
+    m_lastTime: -8584744590194775808
     List:
     - name: Soundbank_SFX
       guid: af2cf498d9d21f4e88407f3a8baafeea
@@ -422,7 +422,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584744694194770991
+    m_lastTime: -8584744562214775808
     List:
     - name: AmbiencePlay_DesertWind
       guid: 1a79119d92f6b44cb54c73ad0e555df4
@@ -692,6 +692,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: MenuMusic
+      guid: b3b6174383c22048816a75e00f708482
+      id: 679636833
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Music
+        ObjectType: 4
+        guid: 58beaf42adc5184ca7f12096d3b9f2a2
+      - ElementName: MenuMusic
+        ObjectType: 3
+        guid: b3b6174383c22048816a75e00f708482
+      Path: Events\Default Work Unit\Music\MenuMusic
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Music
       guid: 58beaf42adc5184ca7f12096d3b9f2a2
       id: 3991942870
@@ -778,8 +798,8 @@ MonoBehaviour:
         guid: 84dfc47be460054ba062d7ef8f907803
       Path: Events\Default Work Unit\Scrap_Shift_Off
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.5
+      minDuration: 1.5
     - name: Scrap_Shift_On
       guid: 12203276edea4749a6ae97a60bd6c9c9
       id: 3877158055
@@ -795,8 +815,8 @@ MonoBehaviour:
         guid: 12203276edea4749a6ae97a60bd6c9c9
       Path: Events\Default Work Unit\Scrap_Shift_On
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.875
+      minDuration: 1.875
     - name: Scrapshift
       guid: 3e043d65336f3d47943fa330d37e02e5
       id: 4104150384
@@ -860,6 +880,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.9677958
       minDuration: 0.76814
+    - name: SFXPlay_BarrelExplosion
+      guid: a8711a5f1858af4d8888cd45b57612a3
+      id: 722136440
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Environment SFX
+        ObjectType: 4
+        guid: bd4dae74febd4149b2defdaab422d08e
+      - ElementName: SFXPlay_BarrelExplosion
+        ObjectType: 3
+        guid: a8711a5f1858af4d8888cd45b57612a3
+      Path: Events\Default Work Unit\Environment SFX\SFXPlay_BarrelExplosion
+      maxAttenuation: 0
+      maxDuration: 2.280104
+      minDuration: 2.2280264
     - name: SFXPlay_BFGImpact
       guid: 34fa1b564f07cc418f180435e7599130
       id: 809168204
@@ -1291,8 +1331,8 @@ MonoBehaviour:
         guid: c66e13476d2e624cb48b36dc2fd466d5
       Path: Events\Default Work Unit\Environment SFX\SFXPlay_PipeCrash
       maxAttenuation: 0
-      maxDuration: 15.890952
-      minDuration: 15.890952
+      maxDuration: 17.83699
+      minDuration: 17.83699
     - name: SFXPlay_Pull
       guid: d85bb433a23f694ba6a6ba1a4505b629
       id: 2012453574
@@ -1399,6 +1439,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.7512113
       minDuration: 0.47323343
+    - name: SFXPlay_RS_Nail
+      guid: dc6568a244745a47af0283c10e0c42cb
+      id: 62566205
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_RealSteel
+        ObjectType: 4
+        guid: 4b5a3bc94f674849bef4cac1384be52a
+      - ElementName: SFXPlay_RS_Nail
+        ObjectType: 3
+        guid: dc6568a244745a47af0283c10e0c42cb
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Nail
+      maxAttenuation: 0
+      maxDuration: 3.666221
+      minDuration: 2.9098814
     - name: SFXPlay_RS_Overdrive_Intro
       guid: b1000b82b31aca44a34cd073ab586678
       id: 1188800018
@@ -1445,6 +1508,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 3.7743554
       minDuration: 3.7743554
+    - name: SFXPlay_RS_Ranged
+      guid: 503a3f5103d83845bcb461a8441cda29
+      id: 2934867996
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Kaila SFX
+        ObjectType: 4
+        guid: a013c72d86ea10408449fa7e31be1ea1
+      - ElementName: Kaila_RealSteel
+        ObjectType: 4
+        guid: 4b5a3bc94f674849bef4cac1384be52a
+      - ElementName: SFXPlay_RS_Ranged
+        ObjectType: 3
+        guid: 503a3f5103d83845bcb461a8441cda29
+      Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Ranged
+      maxAttenuation: 0
+      maxDuration: 2.5185087
+      minDuration: 2.2437363
     - name: SFXPlay_RS_SlamShockwave
       guid: 68d12b96bd376a43a6eaf02a5cda675c
       id: 4164504207
@@ -1569,8 +1655,8 @@ MonoBehaviour:
         guid: 2a9df7adf906bc4ba4faff612b9c1deb
       Path: Events\Default Work Unit\Turret SFX\SFXPlay_TurretDefeatedAmbience
       maxAttenuation: 0
-      maxDuration: 2.0313418
-      minDuration: 1.9849459
+      maxDuration: 2.280104
+      minDuration: 2.2280264
     - name: SFXPlay_TurretFire
       guid: a836243a7394fa4a89975a256c575502
       id: 1220918693
@@ -1611,6 +1697,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.1612773
       minDuration: 0.9217064
+    - name: SFXPlay_VolleyImpact
+      guid: 536b94f3a6226f48921599cf9673a30d
+      id: 2080666174
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Cashmere SFX
+        ObjectType: 4
+        guid: 4843980819c9a147bb3dc1ff9467a432
+      - ElementName: SFXPlay_VolleyImpact
+        ObjectType: 3
+        guid: 536b94f3a6226f48921599cf9673a30d
+      Path: Events\Default Work Unit\Cashmere SFX\SFXPlay_VolleyImpact
+      maxAttenuation: 0
+      maxDuration: 2.1012933
+      minDuration: 1.8720396
     - name: Turret SFX
       guid: b9cde675ae476c4fac1cabe63e89be16
       id: 49958546
@@ -1657,7 +1763,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: e772f0b193823949853e05aac5794b6f
     GuidInternal: 
-    m_lastTime: -8584744978752665499
+    m_lastTime: -8584745030474775808
     List:
     - name: MasterVolume
       guid: b736ebf7169ec14c9512603bffc65def
@@ -1713,7 +1819,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: f3e827c98473b545bdc7ed0c4739356b
     GuidInternal: 
-    m_lastTime: -8584745386264060082
+    m_lastTime: -8584744562214775808
     List:
     - name: Music_States
       guid: c67059b9b3a34a448d69328c6fc91e5b
@@ -1794,6 +1900,22 @@ MonoBehaviour:
         - ElementName: Explore
           ObjectType: 8
           guid: b5c12a34d81f26449429b3e9aa64f41a
+      - name: MenuMusic
+        guid: 155b2acfdf565e45b0c4def7b54c9aa9
+        id: 679636833
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: f3e827c98473b545bdc7ed0c4739356b
+        - ElementName: Music_States
+          ObjectType: 9
+          guid: c67059b9b3a34a448d69328c6fc91e5b
+        - ElementName: MenuMusic
+          ObjectType: 8
+          guid: 155b2acfdf565e45b0c4def7b54c9aa9
       - name: None
         guid: 3cd0de5c921f4e40b13ec11a243605c9
         id: 748895195
@@ -1841,7 +1963,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: ef29a14c705ede40b7a80ac065cc6269
     GuidInternal: 
-    m_lastTime: -8584750682691456280
+    m_lastTime: -8584750697274775808
     List:
     - name: New_Switch_Group
       guid: de5b0459d2ce29408fec6f6544d84e51
@@ -1889,7 +2011,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: ca7ae8b43920f140a5f4bf098b44b504
     GuidInternal: 
-    m_lastTime: -8584750682691376688
+    m_lastTime: -8584750697274775808
     List:
     - name: Scrapshift
       guid: 52eef0ed6d5ee34ea9f8a780dfae2057
@@ -1920,7 +2042,7 @@ MonoBehaviour:
         guid: 9618f51dadf4214087fc7ea68ced4ee5
       Path: Triggers\Default Work Unit\ScrapshiftEnd
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000700000008000000090000000a0000000b00000013000000140000001500000039000000
+  ExpandedWaapiItemIds: 050000000600000007000000080000000900000015000000160000001d0000001e000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
