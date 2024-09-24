@@ -86,6 +86,7 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
                 float remainingDamage = damage - currentArmour;
                 //Debug.Log(remainingDamage);
                 currentArmour -= damage;
+                EnemySFX.instance.SFX_TurretHit();
                 armourBar.currentValue = currentArmour;
                 armourBar.DrawSlots();
                 if (currentArmour <= 0)
