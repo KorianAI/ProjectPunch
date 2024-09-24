@@ -38,6 +38,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="BFG_Impact2" ID="{4F1DB236-512C-4959-A4B2-C5DE5DD46320}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0279144497305095"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.201528710249531"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>BFG_Impact2.wav</AudioFile>
 											<MediaIDList>
@@ -83,6 +88,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="BFG_Swing" ID="{3D7683E4-901C-4E19-83B1-5D20EFFFBC3E}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0826590883266887"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.595368838893582"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>BFG_Swing.wav</AudioFile>
 											<MediaIDList>
@@ -168,6 +178,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="BFG_Slam" ID="{36A1800C-E620-414B-94E3-CC0C1933685B}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0718954248366013"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.768627450980393"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>BFG_Slam.wav</AudioFile>
 											<MediaIDList>
@@ -220,6 +235,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="BFG_Uppercut" ID="{9EEA719D-3058-45BB-B9E1-E8F0393A9D48}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.115468409586057"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.923747276688453"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>BFG_Uppercut.wav</AudioFile>
 											<MediaIDList>
@@ -266,10 +286,15 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="RealSteel_Impact" ID="{49705D0B-2EC5-4D58-ACA3-4752E42ADC04}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0628159658925299"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.545778064312144"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>RealSteel_Impact.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="1059648798"/>
+												<MediaID ID="438689799"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
@@ -318,10 +343,15 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="RealSteel_ImpactShockwave" ID="{8F844DE5-5B42-4079-9672-4800F427F748}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.419568765777916"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.97796703866732"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>RealSteel_ImpactShockwave.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="1027718188"/>
+												<MediaID ID="833627891"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
@@ -395,6 +425,11 @@
 								</Sound>
 								<Sound Name="RealSteel_SlamShockwave_Overdrive" ID="{DC9E82D8-7F29-4B88-A149-DA4F620506CE}" ShortID="1050442648">
 									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>15</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -419,6 +454,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="RealSteel_ImpactShockwave" ID="{9A2E56C5-D649-4C33-87C1-BA6A7112096D}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.351456953151631"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.85809024844506"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>RealSteel_ImpactShockwave.wav</AudioFile>
 											<MediaIDList>
@@ -493,6 +533,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="RealSteel_Impact" ID="{31FB3B96-FE49-4557-8D6A-26F71CDB4AE6}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.100917453401114"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.596236791012702"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>RealSteel_Impact.wav</AudioFile>
 											<MediaIDList>
@@ -557,6 +602,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Kaila_Dash" ID="{327035D8-3802-4FCB-B65D-B894A03F50E4}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.413692192926553"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.08631403178555"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Kaila_Dash.wav</AudioFile>
 											<MediaIDList>
@@ -654,6 +704,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Kaila_Jump" ID="{698FD367-9477-4C12-9728-EDFB3B598E15}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.101307189542484"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.704248366013072"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Kaila_Jump.wav</AudioFile>
 											<MediaIDList>
@@ -691,6 +746,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Kaila_Land" ID="{9EB49F44-39E1-4046-B242-DB308B11881A}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.209150326797386"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.502178649237473"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Kaila_Land.wav</AudioFile>
 											<MediaIDList>
@@ -737,6 +797,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="NailGun_Burst" ID="{2ABFB6A9-2C5B-480C-883D-7A182C0640AA}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0490196078431373"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.764705882352941"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>NailGun_Burst.wav</AudioFile>
 											<MediaIDList>
@@ -794,6 +859,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="NailGun_ChargedShot" ID="{21B7275F-744E-43D7-B61A-8C956FC5FA3D}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.132669364041913"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="2.6445426565688"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>NailGun_ChargedShot.wav</AudioFile>
 											<MediaIDList>
@@ -851,6 +921,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="NailGun_ChargedShot_Pull" ID="{F153C98E-6071-48D1-9521-1DD105D6C013}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.213507625272331"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.79520697167756"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>NailGun_ChargedShot_Pull.wav</AudioFile>
 											<MediaIDList>
@@ -915,6 +990,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Pull" ID="{D2540EAB-06BC-4DA2-A18E-4AF0DDE313E6}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.211808945800542"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.961820950602463"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Pull.wav</AudioFile>
 											<MediaIDList>
@@ -970,6 +1050,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Push" ID="{623AF547-3B88-49F8-9C4D-0CB514CA3EAA}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.212966371733879"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.908579357668993"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Push.wav</AudioFile>
 											<MediaIDList>
@@ -1519,6 +1604,11 @@
 									</MediaIDList>
 								</AudioFileSource>
 								<AudioFileSource Name="Muzzler_Kick" ID="{92F21B86-660B-4209-9206-CF29067E9776}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.025599128540305"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.178104575163399"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Muzzler_Kick.wav</AudioFile>
 									<MediaIDList>
@@ -1893,6 +1983,11 @@
 									</MediaIDList>
 								</AudioFileSource>
 								<AudioFileSource Name="Turret_Explosion-1" ID="{9EEF0209-2FE2-470C-86A5-59569A761477}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.302932531037106"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.00800992001739"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Turret_Explosion-1.wav</AudioFile>
 									<MediaIDList>

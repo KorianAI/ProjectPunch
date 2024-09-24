@@ -32,8 +32,6 @@ public class PlayerSFX_Overview : MonoBehaviour
     public AK.Wwise.Event playSFX_NailG_chargedpull;
 
     [Header("Real Steel")]
-    public AK.Wwise.Event playSFX_RS_on;
-    public AK.Wwise.Event playSFX_RS_off;
     public AK.Wwise.Event playSFX_RS_impact;
     public AK.Wwise.Event playSFX_RS_slam;
     public AK.Wwise.Event playSFX_RS_swing;
@@ -143,19 +141,19 @@ public class PlayerSFX_Overview : MonoBehaviour
 
     }
 
-    public void SFX_RS_States()
-    {
-        if (pr.scrapShift)
-        {
-            playSFX_RS_off.Post(gameObject);
-        }
+    //public void SFX_RS_States()
+    //{
+    //    if (pr.scrapShift)
+    //    {
+    //        playSFX_RS_off.Post(gameObject);
+    //    }
 
-        else
-        {
-            playSFX_RS_on.Post(gameObject);
+    //    else
+    //    {
+    //        playSFX_RS_on.Post(gameObject);
  
-        }
-    }
+    //    }
+    //}
 
     public void SFX_NailG_Burst()
     {
@@ -240,5 +238,9 @@ public class PlayerSFX_Overview : MonoBehaviour
     {
         playSFX_Rail.Post(gameObject);
     }
+
+    
+
+
 
 }

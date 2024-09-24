@@ -12,7 +12,7 @@
 					<ChildrenList>
 						<Bus Name="SFX Bus" ID="{E167BE63-DE77-42E0-B043-ABB45C1BB91D}">
 							<PropertyList>
-								<Property Name="MaxDuckVolume" Type="Real64" Value="-6"/>
+								<Property Name="MaxDuckVolume" Type="Real64" Value="-3"/>
 								<Property Name="RecoveryTime" Type="Real64" Value="0.5"/>
 							</PropertyList>
 							<ChildrenList>

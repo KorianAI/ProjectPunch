@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: f4b11d01547f8a4b9b37253758b8a136
     GuidInternal: 
-    m_lastTime: -8584744737814775808
+    m_lastTime: -8584744717734775808
     List:
     - name: Ambience Bus
       guid: f3f6e085a85cb94eb4bb01cc86500ad6
@@ -422,7 +422,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 85b245742f2f87459fb3ffc160c3e541
     GuidInternal: 
-    m_lastTime: -8584744740054775808
+    m_lastTime: -8584744717734775808
     List:
     - name: AmbiencePlay_DesertWind
       guid: 1a79119d92f6b44cb54c73ad0e555df4
@@ -763,6 +763,40 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Scrap_Shift_Off
+      guid: 84dfc47be460054ba062d7ef8f907803
+      id: 2062616347
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Scrap_Shift_Off
+        ObjectType: 3
+        guid: 84dfc47be460054ba062d7ef8f907803
+      Path: Events\Default Work Unit\Scrap_Shift_Off
+      maxAttenuation: 0
+      maxDuration: 1.5
+      minDuration: 1.5
+    - name: Scrap_Shift_On
+      guid: 12203276edea4749a6ae97a60bd6c9c9
+      id: 3877158055
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 85b245742f2f87459fb3ffc160c3e541
+      - ElementName: Scrap_Shift_On
+        ObjectType: 3
+        guid: 12203276edea4749a6ae97a60bd6c9c9
+      Path: Events\Default Work Unit\Scrap_Shift_On
+      maxAttenuation: 0
+      maxDuration: 1.875
+      minDuration: 1.875
     - name: Scrapshift
       guid: 3e043d65336f3d47943fa330d37e02e5
       id: 4104150384
@@ -824,8 +858,8 @@ MonoBehaviour:
         guid: 835fd8d8cd3de94ba4025f1b294a38ef
       Path: Events\Default Work Unit\Kaila SFX\Kaila_Movement\SFX_Play_Dash
       maxAttenuation: 0
-      maxDuration: 2.4340725
-      minDuration: 1.9319247
+      maxDuration: 0.9677958
+      minDuration: 0.76814
     - name: SFXPlay_BFGImpact
       guid: 34fa1b564f07cc418f180435e7599130
       id: 809168204
@@ -847,8 +881,8 @@ MonoBehaviour:
         guid: 34fa1b564f07cc418f180435e7599130
       Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGImpact
       maxAttenuation: 0
-      maxDuration: 0.7874649
-      minDuration: 0.49607182
+      maxDuration: 0.25391027
+      minDuration: 0.15995345
     - name: SFXPlay_BFGLunge
       guid: 80f3bb995526c944bd296a69efba68c1
       id: 3729182067
@@ -893,8 +927,8 @@ MonoBehaviour:
         guid: 9be352f395d9d54e99a374436850a807
       Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGSlam
       maxAttenuation: 0
-      maxDuration: 1.5119053
-      minDuration: 0.9524407
+      maxDuration: 0.96840996
+      minDuration: 0.61006004
     - name: SFXPlay_BFGSwing
       guid: 785832bc4ac4d244b654e30a9c79e509
       id: 926756856
@@ -916,8 +950,8 @@ MonoBehaviour:
         guid: 785832bc4ac4d244b654e30a9c79e509
       Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGSwing
       maxAttenuation: 0
-      maxDuration: 1.3687707
-      minDuration: 0.86227155
+      maxDuration: 0.7947221
+      minDuration: 0.50064355
     - name: SFXPlay_BFGUppercut
       guid: b9802c17296ef34e879d9a20b607df7c
       id: 4007672374
@@ -939,8 +973,8 @@ MonoBehaviour:
         guid: b9802c17296ef34e879d9a20b607df7c
       Path: Events\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGUppercut
       maxAttenuation: 0
-      maxDuration: 2.244924
-      minDuration: 1.7817974
+      maxDuration: 1.0368713
+      minDuration: 0.82296526
     - name: SFXPlay_BouncePad
       guid: 112caf94de6bc04ba65425f195205bb9
       id: 1214613434
@@ -1085,8 +1119,8 @@ MonoBehaviour:
         guid: c746550e3cf4314cb937d618d333c99f
       Path: Events\Default Work Unit\Kaila SFX\Kaila_Movement\SFXPlay_Jump
       maxAttenuation: 0
-      maxDuration: 1.8898816
-      minDuration: 1.1905508
+      maxDuration: 0.88729733
+      minDuration: 0.5589623
     - name: SFXPlay_Land
       guid: 6630891ef3d7d5478f256ee610f6fdbf
       id: 3246930752
@@ -1108,8 +1142,8 @@ MonoBehaviour:
         guid: 6630891ef3d7d5478f256ee610f6fdbf
       Path: Events\Default Work Unit\Kaila SFX\Kaila_Movement\SFXPlay_Land
       maxAttenuation: 0
-      maxDuration: 1.122462
-      minDuration: 0.8908987
+      maxDuration: 0.5636765
+      minDuration: 0.44739032
     - name: SFXPlay_LockOFF
       guid: 1100631b6fb7954bbad0218717f54df9
       id: 3871747721
@@ -1191,8 +1225,8 @@ MonoBehaviour:
         guid: 5d663e571affc941abba0dd638856e32
       Path: Events\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunChargedPull
       maxAttenuation: 0
-      maxDuration: 4.2378526
-      minDuration: 3.775497
+      maxDuration: 1.9019557
+      minDuration: 1.6944497
     - name: SFXPlay_NailGunChargedShot
       guid: 391bfbc47f1f654789a7b3690782ba4e
       id: 767256457
@@ -1214,8 +1248,8 @@ MonoBehaviour:
         guid: 391bfbc47f1f654789a7b3690782ba4e
       Path: Events\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunChargedShot
       maxAttenuation: 0
-      maxDuration: 4.5568395
-      minDuration: 3.6167657
+      maxDuration: 2.9683988
+      minDuration: 2.3560197
     - name: SFXPlay_NailGunFire
       guid: cf4734c2e6d939499e478df9baaaaca4
       id: 1294040743
@@ -1237,8 +1271,8 @@ MonoBehaviour:
         guid: cf4734c2e6d939499e478df9baaaaca4
       Path: Events\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunFire
       maxAttenuation: 0
-      maxDuration: 1.122462
-      minDuration: 0.94387424
+      maxDuration: 0.8583533
+      minDuration: 0.7217862
     - name: SFXPlay_PipeCrash
       guid: c66e13476d2e624cb48b36dc2fd466d5
       id: 543234128
@@ -1277,8 +1311,8 @@ MonoBehaviour:
         guid: d85bb433a23f694ba6a6ba1a4505b629
       Path: Events\Default Work Unit\Push Pull SFX\SFXPlay_Pull
       maxAttenuation: 0
-      maxDuration: 1.227582
-      minDuration: 0.97433245
+      maxDuration: 1.1112424
+      minDuration: 0.8819937
     - name: SFXPlay_Push
       guid: 1e0bb97cf82921469797e5599a61adeb
       id: 2062786315
@@ -1297,8 +1331,8 @@ MonoBehaviour:
         guid: 1e0bb97cf82921469797e5599a61adeb
       Path: Events\Default Work Unit\Push Pull SFX\SFXPlay_Push
       maxAttenuation: 0
-      maxDuration: 1.227582
-      minDuration: 0.97433245
+      maxDuration: 1.0497296
+      minDuration: 0.83317095
     - name: SFXPlay_Rail
       guid: 7bb8a221953fe5468385a3ada19af7a7
       id: 1777383567
@@ -1340,8 +1374,8 @@ MonoBehaviour:
         guid: 43b67fff182c0048adee945384ad5a0d
       Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Impact
       maxAttenuation: 0
-      maxDuration: 1.1910397
-      minDuration: 0.7503079
+      maxDuration: 0.68763727
+      minDuration: 0.4331843
     - name: SFXPlay_RS_Impact_Overdrive
       guid: 357ce999bcf0a7448655588e01494f8d
       id: 1462647048
@@ -1363,8 +1397,8 @@ MonoBehaviour:
         guid: 357ce999bcf0a7448655588e01494f8d
       Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Impact_Overdrive
       maxAttenuation: 0
-      maxDuration: 1.1910397
-      minDuration: 0.7503079
+      maxDuration: 0.7512113
+      minDuration: 0.47323343
     - name: SFXPlay_RS_Overdrive_Intro
       guid: b1000b82b31aca44a34cd073ab586678
       id: 1188800018
@@ -1432,8 +1466,8 @@ MonoBehaviour:
         guid: 68d12b96bd376a43a6eaf02a5cda675c
       Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_SlamShockwave
       maxAttenuation: 0
-      maxDuration: 2.8073514
-      minDuration: 2.2281961
+      maxDuration: 2.220193
+      minDuration: 1.7621683
     - name: SFXPlay_RS_SlamShockwave_Overdrive
       guid: 08b7f5d029887c4e893c0cc086136d70
       id: 1103899084
@@ -1455,8 +1489,8 @@ MonoBehaviour:
         guid: 08b7f5d029887c4e893c0cc086136d70
       Path: Events\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_SlamShockwave_Overdrive
       maxAttenuation: 0
-      maxDuration: 2.8073514
-      minDuration: 2.2281961
+      maxDuration: 2.085636
+      minDuration: 1.6553702
     - name: SFXPlay_ScrapCollect
       guid: a56207bbf4012e42bb17784e58362a55
       id: 2268775144
@@ -1535,8 +1569,8 @@ MonoBehaviour:
         guid: 2a9df7adf906bc4ba4faff612b9c1deb
       Path: Events\Default Work Unit\Turret SFX\SFXPlay_TurretDefeatedAmbience
       maxAttenuation: 0
-      maxDuration: 4.0189047
-      minDuration: 3.9271128
+      maxDuration: 2.0313418
+      minDuration: 1.9849459
     - name: SFXPlay_TurretFire
       guid: a836243a7394fa4a89975a256c575502
       id: 1220918693

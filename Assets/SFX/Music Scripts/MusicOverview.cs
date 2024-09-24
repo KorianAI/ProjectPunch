@@ -23,6 +23,9 @@ public class MusicOverview : MonoBehaviour
     public AK.Wwise.Event playMusic_Boss1;
     [Header("Boss2")]
     public AK.Wwise.Event playMusic_Boss2;
+    public AK.Wwise.Event playSFX_RS_on;
+    public AK.Wwise.Event playSFX_RS_off;
+
 
     private void Awake()
     {
@@ -76,6 +79,15 @@ public class MusicOverview : MonoBehaviour
 
         Music_Explore();
     }
+    public void RSON()
+    {
+        playSFX_RS_on.Post(gameObject);
+    }
+    public void RSOFF()
+    {
+        playSFX_RS_off.Post(gameObject);
+    }
+
 
 
 

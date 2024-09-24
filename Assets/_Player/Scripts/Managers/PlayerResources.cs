@@ -179,7 +179,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
     {
         if (on)
         {
-            MusicOverview.instance.Music_ScrapShift();
+            if (!stateManager.inBossFight)
+            {
+                MusicOverview.instance.Music_ScrapShift();
+                MusicOverview.instance.RSON();
+            }
             scrapShift = true;
             scrapDecrease = true;
             scrapDecreaseTimer = scrapDecreaseCooldown;
@@ -198,10 +202,18 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
         else if (!on)        
         {
+            if (!stateManager.inBossFight)
+            {
+                MusicOverview.instance.RSOFF();
+            }
+
+            else
+            {
+                MusicSwitchState();
+            }
             scrapDecrease = false;
             scrapShift = false;
             ChangeGauntlets(3);
-            MusicSwitchState();
             shift.ActivateOverdrive(false);
             if (overdriveUI != null)
             {

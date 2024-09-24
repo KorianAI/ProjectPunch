@@ -598,6 +598,28 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Scrap_Shift_On" ID="{76322012-EAED-4947-A6AE-97A60BD6C9C9}">
+					<ChildrenList>
+						<Action Name="" ID="{3AC95956-685B-4E72-A75A-C75981A805F2}" ShortID="508850224">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ScrapShift" ID="{34BBD894-08DB-411F-BC21-FBBAB5AE11E1}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Scrap_Shift_Off" ID="{7BC4DF84-60E4-4B05-A062-D7EF8F907803}">
+					<ChildrenList>
+						<Action Name="" ID="{CCE19EC4-2E73-4D3F-ACEF-A9C588240290}" ShortID="742922005">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ScrapShiftEnd" ID="{0F98CA91-113A-49BB-8EF8-C0D662A5F314}" WorkUnitID="{7E05CF7C-168F-4A6E-A87D-4DF770E4A31D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
