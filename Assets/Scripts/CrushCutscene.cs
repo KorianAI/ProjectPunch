@@ -28,6 +28,10 @@ public class CrushCutscene : MonoBehaviour
     public GameObject skipUI;
     public GameObject resourcesUI;
 
+    public AK.Wwise.Event playSFX_Explosion;
+    public AK.Wwise.Event playSFX_push;
+    public AK.Wwise.Event playSFX_metalhit;
+
     //[Space]
     //public Vector3 cam1MashPos = new(8.976509f, -88.59833f, 11.64571f);
     //public Vector3 cam1MashRot = new(9.337f, -41.371f, 0.23f);
@@ -82,7 +86,8 @@ public class CrushCutscene : MonoBehaviour
     public void Push()
     {
         kailaAnim.Play("Push");
-
+        playSFX_push.Post(gameObject);
+        playSFX_metalhit.Post(gameObject);
         if (currentAmt >= pressAmt && p1Ended && !playedP2)
         {
             StartP2();
@@ -99,6 +104,8 @@ public class CrushCutscene : MonoBehaviour
         playedP2 = true;
         RTPress.gameObject.SetActive(false);
         dir.Play(CutsceneP2);
+        StartCoroutine(WaitForFunction());
+        
     }
 
     public void End()
@@ -173,5 +180,12 @@ public class CrushCutscene : MonoBehaviour
                 Debug.Log("skipped 2");
             }
         }
+    }
+
+    IEnumerator WaitForFunction()
+    {
+        yield return new WaitForSeconds(1);
+        playSFX_Explosion.Post(gameObject);
+        Debug.Log("Hello!");
     }
 }

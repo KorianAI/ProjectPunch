@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 960049800749393326}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7.38, y: -3.88, z: 9.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 6851701408831456515}
   - component: {fileID: 2529618658492464395}
   - component: {fileID: 845651645892094776}
+  - component: {fileID: 8580721213917644638}
   m_Layer: 7
   m_Name: Turret
   m_TagString: Enemy
@@ -234,6 +235,7 @@ MonoBehaviour:
   mRenderer: {fileID: 1931687566648555147}
   sRenderer: {fileID: 0}
   outlineThicknessMultiplier: 2
+  untargetable: 0
 --- !u!114 &2620659269181202375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +362,38 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   anim: {fileID: 0}
+--- !u!114 &8580721213917644638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542786052147334984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3f14686cbcc454cb56390939621be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSFX_MuzzlerKick:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  playSFX_TurretFire:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c3be9c46131a4194cbd0534a16ad6f8a, type: 2}
+  playSFX_TurretHit:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 455beb0335ed76443933755c01b4a7ed, type: 2}
+  playSFX_TurretDestroyed:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 45d0608475116064ca7a18f1922f84e3, type: 2}
+  playSFX_TurretLockOn:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 47ccdb8a833899a458a0c8774c6ed37b, type: 2}
 --- !u!1 &1613954697730555624
 GameObject:
   m_ObjectHideFlags: 0

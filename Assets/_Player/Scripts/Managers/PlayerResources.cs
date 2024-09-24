@@ -473,23 +473,11 @@ public class PlayerResources : MonoBehaviour, IDamageable
             PlayMusic_Combat1();
         }
 
-        else if (stateManager.inCombat == false && stateManager.inBossFight == false)
+        else
         {
             PlayMusic_Explore();
         }
 
-        else
-        {
-            if (bh.currentHealth < bh.boss.stats.health * 0.5f)
-            {
-                PlayMusic_Boss2();
-            }
-
-            else
-            {
-                PlayMusic_Boss1();
-            }
-        }
     }
 
     public void PlayMusic_Combat1()
