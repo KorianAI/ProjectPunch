@@ -1,0 +1,168 @@
+Event	ID	Name			Wwise Object Path	Notes
+	183217430	SFXPlay_GateClose			\Default Work Unit\Environment SFX\SFXPlay_GateClose	
+	283095516	Boss_Section2			\Default Work Unit\Music\Boss_Section2	
+	283095519	Boss_Section1			\Default Work Unit\Music\Boss_Section1	
+	543234128	SFXPlay_PipeCrash			\Default Work Unit\Environment SFX\SFXPlay_PipeCrash	
+	579523862	Explore			\Default Work Unit\Music\Explore	
+	767256457	SFXPlay_NailGunChargedShot			\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunChargedShot	
+	778505933	SFXPlay_CashmereScrapVolley			\Default Work Unit\Cashmere SFX\SFXPlay_CashmereScrapVolley	
+	809168204	SFXPlay_BFGImpact			\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGImpact	
+	926756856	SFXPlay_BFGSwing			\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGSwing	
+	977454165	Button			\Default Work Unit\UI SFX\Button	
+	1103899084	SFXPlay_RS_SlamShockwave_Overdrive			\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_SlamShockwave_Overdrive	
+	1122283870	MusicStart			\Default Work Unit\Music\MusicStart	
+	1188800018	SFXPlay_RS_Overdrive_Intro			\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Overdrive_Intro	
+	1214613434	SFXPlay_BouncePad			\Default Work Unit\Environment SFX\SFXPlay_BouncePad	
+	1220918693	SFXPlay_TurretFire			\Default Work Unit\Turret SFX\SFXPlay_TurretFire	
+	1294040743	SFXPlay_NailGunFire			\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunFire	
+	1462647048	SFXPlay_RS_Impact_Overdrive			\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Impact_Overdrive	
+	1647204779	SFXPlay_TurretDefeatedAmbience			\Default Work Unit\Turret SFX\SFXPlay_TurretDefeatedAmbience	
+	1699861256	SFXPlay_CashmereShockwave			\Default Work Unit\Cashmere SFX\SFXPlay_CashmereShockwave	
+	1777383567	SFXPlay_Rail			\Default Work Unit\Environment SFX\SFXPlay_Rail	
+	1856838135	ScrapshiftEnd			\Default Work Unit\Music\ScrapshiftEnd	
+	1931077309	SFXPlay_LockON			\Default Work Unit\General SFX\SFXPlay_LockON	
+	1983788571	SFXPlay_CashmereScrapGather			\Default Work Unit\Cashmere SFX\SFXPlay_CashmereScrapGather	
+	2012453574	SFXPlay_Pull			\Default Work Unit\Push Pull SFX\SFXPlay_Pull	
+	2062786315	SFXPlay_Push			\Default Work Unit\Push Pull SFX\SFXPlay_Push	
+	2095233026	SFXPlay_Turret_LockOn			\Default Work Unit\Turret SFX\SFXPlay_Turret_LockOn	
+	2268775144	SFXPlay_ScrapCollect			\Default Work Unit\General SFX\SFXPlay_ScrapCollect	
+	2297272099	SFXPlay_RS_Impact			\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Impact	
+	2423564124	SFXPlay_NailGunChargedPull			\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunChargedPull	
+	2537608006	SFXPlay_ScrollCollect			\Default Work Unit\General SFX\SFXPlay_ScrollCollect	
+	2597907181	SFXPlay_BFGSlam			\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGSlam	
+	2709871361	SFXPlay_RS_Overdrive_Outro			\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_Overdrive_Outro	
+	2735510120	SFXPlay_MuzzlerKick			\Default Work Unit\Muzzler SFX\SFXPlay_MuzzlerKick	
+	2764240573	Combat			\Default Work Unit\Music\Combat	
+	2897981775	AmbiencePlay_DesertWind			\Default Work Unit\Environment SFX\AmbiencePlay_DesertWind	
+	3190817658	SFX_Play_Dash			\Default Work Unit\Kaila SFX\Kaila_Movement\SFX_Play_Dash	
+	3246930752	SFXPlay_Land			\Default Work Unit\Kaila SFX\Kaila_Movement\SFXPlay_Land	
+	3729182067	SFXPlay_BFGLunge			\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGLunge	
+	3800919789	SFXPlay_FootstepsGround			\Default Work Unit\Kaila SFX\Kaila_Movement\SFXPlay_FootstepsGround	
+	3871747721	SFXPlay_LockOFF			\Default Work Unit\General SFX\SFXPlay_LockOFF	
+	3879440547	SFXPlay_Jump			\Default Work Unit\Kaila SFX\Kaila_Movement\SFXPlay_Jump	
+	3945781932	SFXPlay_TurretHit			\Default Work Unit\Turret SFX\SFXPlay_TurretHit	
+	4007672374	SFXPlay_BFGUppercut			\Default Work Unit\Kaila SFX\Kaila_BFG\SFXPlay_BFGUppercut	
+	4104150384	Scrapshift			\Default Work Unit\Music\Scrapshift	
+	4164504207	SFXPlay_RS_SlamShockwave			\Default Work Unit\Kaila SFX\Kaila_RealSteel\SFXPlay_RS_SlamShockwave	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	1690668539	Music_States			\Default Work Unit\Music_States	
+
+State	ID	Name	State Group			Notes
+	579523862	Explore	Music_States			
+	748895195	None	Music_States			
+	1272574121	Boss_2	Music_States			
+	1272574122	Boss_1	Music_States			
+	2764240573	Combat	Music_States			
+	4104150384	Scrapshift	Music_States			
+
+Trigger	ID	Name			Wwise Object Path	Notes
+	1856838135	ScrapshiftEnd			\Default Work Unit\ScrapshiftEnd	
+	4104150384	Scrapshift			\Default Work Unit\Scrapshift	
+
+Effect plug-ins	ID	Name	Type				Notes
+	535667444	Bathroom1	Wwise Matrix Reverb			
+	1188943754	New_Peak_Limiter_01	Wwise Peak Limiter			
+	1459522457	Brick_Wall_Minus_1dB_Peak_Fast_Release	Wwise Peak Limiter			
+	2653529179	Three_Voices	Wwise Harmonizer			
+	3407225994	Phone_Booth	Wwise RoomVerb			
+	3851006675	Secret_message_Distant	Wwise Harmonizer			
+	3948262040	Octave_Down	Wwise Pitch Shifter			
+	4202347640	Repeat_after_me	Wwise Harmonizer			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	23675886	Scrapshift_Switch	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Scrapshift_Switch_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Stingers\ScrapShift\Scrapshift_Switch		467556
+	30146936	ScrapBeat_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\ScrapBeat_1_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Intro\ScrapBeat_1		332437
+	69644400	ScrapBeat_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\ScrapBeat_3_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Intro\ScrapBeat_1		152446
+	82908139	Solo2_NoCrash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Solo2_NoCrash_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 1\Boss 1 - Solo 2\Solo2_NoCrash		388675
+	84823563	Pipe_CreakExplosion	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Pipe_CreakExplosion_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment SFX\Pipe_CreakExplosion		2803260
+	99683504	Guitar_4Bar_Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_4Bar_Riff2_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\Guitar_4Bar_Riff2		169027
+	99890009	ScrapShift_Intro	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\ScrapShift_Intro_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\ScrapShift_Theme\Scrapshift - Intro\ScrapShift_Intro		384750
+	116980831	RealSteel_OverdriveOutro	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_OverdriveOutro_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_OverdriveOutro		628524
+	122414336	Rail	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Rail_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment SFX\Rail		163820
+	123808930	Ending_NoCrash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Ending_NoCrash_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 1\Boss 1 - Ending\Ending_NoCrash		381161
+	144080973	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Lead_4Bar_Melody_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 8 Bar\Lead_4Bar_FastHigh		195554
+	144343419	Intro	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Intro_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 1\Boss 1 - Intro\Intro		585123
+	172155782	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\DrumKit_8Bar_NormalLong_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 8 Bar\DrumKit_2Bar_Half-Time		293859
+	181757905	Bass_4Bar_Synth (4B)	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Bass_4Bar_Synth_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - Intro\Bass_4Bar_Synth (4B)		150009
+	182820173	ScrapBeat_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\ScrapBeat_2_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Section A\ScrapBeat_1		170454
+	189716297	Flute_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\TremSynth_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Section A\Flute_1		330450
+	227679020	BossFightEnd	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BossFightEnd_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 2\Boss 2 - Ending\BossFightEnd		101831
+	232264055	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Lead_4Bar_FastMelodic_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\Lead_4Bar_FastHigh		185910
+	252180209	Section_B	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Section_B_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Section B\Section_B		360064
+	262919125	Turret_Fire	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Turret_Fire_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turret SFX\Turret_Fire		396996
+	282085477	Riff3_Crash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Riff3_Crash_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 2\Boss 2 - Riff 3\Riff3_Crash		338166
+	289349623	Guitar_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_5_Distorted_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Section A\Guitar_1		614327
+	291620049	Cashmere_VolleyBuild	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Cashmere_VolleyBuild_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cashmere SFX\Cashmere_VolleyBuild		511620
+	312064319	LockOn	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Kaila_LockOn_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\General SFX\LockOn		119288
+	325590457	BFG_Lunge	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BFG_Lunge_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Lunge		485196
+	369121922	ScrapBeat_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Silence_Scrap_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Intro\ScrapBeat_1		1983
+	369513787	Kaila_Jump	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Kaila_Jump_E0D9A883.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Movement\Kaila_Jump		124324
+	377994243	Turret_Explosion	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Turret_Explosion-1_1D27187D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turret SFX\Turret_Explosion		354308
+	382992550	Push	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Push_302E0EA9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Push Pull\Push		160368
+	386208712	Guitar_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_1_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Intro\Guitar_1		88008
+	397199079	Riff1_Progression_Crash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Riff1_Progression_Crash_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 2\Boss 2 - Riff 1\Riff1_Progression_Crash		374742
+	402115762	Turret_LockOn	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Turret_LockOn_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turret SFX\Turret_LockOn		675476
+	403347213	Section_C	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Section_C_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Section C\Section_C		513179
+	430724085	Percussion_4Bar_Atabaque	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Percussion_4Bar_Atabaque_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\Percussion_4Bar_Atabaque		162338
+	438689799	RealSteel_Impact	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_Impact_7C4820A4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_Impact		96372
+	441743405	Riff1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Riff1_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 1\Boss 1 - Riff 1\Riff1		376664
+	465556907	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Lead_8Bar_Fast_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\Lead_4Bar_FastHigh		372804
+	465598859	Solo1_NoCrash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Solo1_NoCrash_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 1\Boss 1 - Solo1\Solo1_NoCrash		375739
+	468055188	UI_Button	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\UI_Button_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI SFX\UI_Button		70656
+	476812800	Guitar_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_2_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Section A\Guitar_1		92778
+	484023593	BFG_Uppercut	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BFG_Uppercut_C398593B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Uppercut		163044
+	485367470	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\DrumKit_4Bar_Normal_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - Intro\DrumKit_2Bar_Half-Time		144790
+	499675649	Riff3_NoCrash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Riff3_NoCrash_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 1\Boss 1 - Riff 3\Riff3_NoCrash		380876
+	520613786	Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Riff2_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 1\Boss 1 - Riff 2\Riff2		356342
+	539144162	Guitar_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_4_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Section A\Guitar_1		385939
+	543059488	NailGun_Burst	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\NailGun_Burst_54C0BAC3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Nail Gun\NailGun_Burst		134992
+	543809496	Scrap_Collect	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Scrap_Collect_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\General SFX\Scrap_Collect		198752
+	544890327	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\DrumKit_2Bar_KickBuild_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\DrumKit_2Bar_Half-Time		74153
+	560499034	Bass_A	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Bass_Silence_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Section A\Bass_A		127290
+	586254239	BigFinale_Crash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BigFinale_Crash_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 2\Boss 2 - Big Finale\BigFinale_Crash		1569230
+	597362849	Pull	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Pull_8C7271F2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Push Pull\Pull		169760
+	616299173	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Lead_4Bar_FastHigh_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 8 Bar\Lead_4Bar_FastHigh		197722
+	617483849	Solo3_NoCrash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Solo3_NoCrash_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Boss 1\Boss 1 - Solo 3\Solo3_NoCrash		185713
+	626147619	Flute_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\TremSynth_Silence_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Section A\Flute_1		3626
+	650394388	RealSteel_OverdriveIntro	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_OverdriveIntro_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\OverdriveFiles\Overdrive Switch\Overdrive\Intro\RealSteel_OverdriveIntro		2116896
+	658891643	FootstepsGround	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\FootstepsGround3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Movement\FootstepsGround		105936
+	682299466	Kaila_Land	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Kaila_Land_C29E26C2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Movement\Kaila_Land		88680
+	682985250	Desert_Wind	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Desert_Wind_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment SFX\Desert_Wind		5646420
+	692525493	NailGun_ChargedShot_Pull	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\NailGun_ChargedShot_Pull_63C27693.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Nail Gun\NailGun_ChargedShot_Pull		316772
+	702063897	Guitar_4Bar_Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_8Bar_Riff1_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 8 Bar\Guitar_4Bar_Riff2		319721
+	706409255	Guitar_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_3_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Section A\Guitar_1		103553
+	717155638	Tube_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Tube_1_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Intro\Tube_1		197212
+	746262836	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\DrumKit_8Bar_Nandos to Normal_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\DrumKit_2Bar_Half-Time		305401
+	755205215	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\DrumKit_2Bar_Nandos_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\DrumKit_2Bar_Half-Time		82264
+	755690947	Scrapmode_Switch	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Scrapmode_Switch_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Stingers\ScrapShiftEnd\Scrapmode_Switch		471968
+	764441858	Flute_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Flute_1_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Intro\Flute_1		331688
+	769871540	Door_Close	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Door_Close_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment SFX\Door_Close		385972
+	770468900	Turret_Hit	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Turret_Hit_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Turret SFX\Turret_Hit		182596
+	783261638	DrumKit_2Bar_Half-Time	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\DrumKit_2Bar_Half-Time_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - Intro\DrumKit_2Bar_Half-Time		75869
+	787037557	Guitar_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_6_Distorted_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Section A\Guitar_1		421249
+	787712988	BFG_Impact	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BFG_Impact2_9E3FBB27.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Impact		35644
+	829192963	Bass_A	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Bass_A_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Intro\Bass_A		262424
+	833627891	RealSteel_SlamShockwave	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_ImpactShockwave_5919C38A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_SlamShockwave		349008
+	870486047	Bass_4Bar_BassGuitar (4B)	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Bass_4Bar_BassGuitar_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\Bass_4Bar_BassGuitar (4B)		113996
+	872318873	Lead_4Bar_FastHigh	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Lead_4Bar_SlowRiff_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 4 Bar\Lead_4Bar_FastHigh		180079
+	884533489	Cashmere_VolleyShoot	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Cashmere_VolleyShoot_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cashmere SFX\Cashmere_VolleyShoot		383740
+	893107048	BFG_Swing	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BFG_Swing_F8D0E40D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Swing		105120
+	896019782	Cashmere_Shockwave	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Cashmere_Shockwave_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cashmere SFX\Cashmere_Shockwave		287828
+	904185561	Guitar_4Bar_Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_8Bar_Riff3_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 8 Bar\Guitar_4Bar_Riff2		413853
+	910636733	Beat_1	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Beat_1_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Explore\Intro\Beat_1		143162
+	936798745	Combat1_Intro	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Combat1_Intro_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Combat1_Intro\Combat1_Intro		21016
+	949668554	ScrapShift_Main	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\ScrapShift_Main_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\ScrapShift_Theme\Scrapshift - Main\ScrapShift_Main		1276740
+	999864757	Guitar_4Bar_Riff2	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Guitar_4Bar_Riff4_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - 8 Bar\Guitar_4Bar_Riff2		175694
+	1002274944	BouncePad_Push_Launch	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BouncePad_Push_Launch_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment SFX\BouncePad_Push_Launch		611984
+	1010178767	RealSteel_OverdriveActive	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_OverdriveActive_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\OverdriveFiles\Overdrive Switch\Overdrive\Active\RealSteel_OverdriveActive		2116896
+	1018692921	BFG_Slam	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\BFG_Slam_F657D6AA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\BFG\BFG_Slam		135680
+	1024608900	Percussion_4Bar_Atabaque	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Percussion_4Bar_BigDrum_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section A - Intro\Percussion_4Bar_Atabaque		85765
+	1027718188	RealSteel_SlamShockwave_Overdrive	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_ImpactShockwave_CDF3A372.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_SlamShockwave_Overdrive		327864
+	1044543368	NailGun_ChargedShot	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\NailGun_ChargedShot_F94DEB3D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Nail Gun\NailGun_ChargedShot		466592
+	1045500657	Scroll_Pickup	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Scroll_Pickup (2)_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\General SFX\Scroll_Pickup		705696
+	1049289630	Combat1_SectionB	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Combat1_SectionB_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Combat Files\Music Switch\Combat 1\Section B\Combat1_SectionB		317320
+	1049397153	Kaila_Dash	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\Kaila_Dash_C558E741.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Movement\Kaila_Dash		191720
+	1051878747	LockOff	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\LockOff_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\General SFX\LockOff		352896
+	1059648798	RealSteel_Impact_Overdrive	D:\Unity\ProjectPunch\ProjectPunch_WwiseProject\.cache\Mac\SFX\RealSteel_Impact_A8635A60.wem		\Actor-Mixer Hierarchy\Default Work Unit\Kaila_SFX\Real Steel\RealSteel_Impact_Overdrive		105272
+

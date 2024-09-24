@@ -1,0 +1,47 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	1690668539	Music_States			\Default Work Unit\Music_States	
+
+State	ID	Name	State Group			Notes
+	579523862	Explore	Music_States			
+	748895195	None	Music_States			
+	1272574121	Boss_2	Music_States			
+	1272574122	Boss_1	Music_States			
+	2764240573	Combat	Music_States			
+	4104150384	Scrapshift	Music_States			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	988953028	SFXVolume			\Default Work Unit\SFXVolume	
+	2346531308	MusicVolume			\Default Work Unit\MusicVolume	
+	2918011349	MasterVolume			\Default Work Unit\MasterVolume	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	48433064	Master Music Bus			\Default Work Unit\Master Audio Bus\Master Music Bus	
+	84101584	Kaila_SFX_Bus			\Default Work Unit\Master Audio Bus\SFX Bus\Kaila_SFX_Bus	
+	326245315	Muzzler_SFX_Bus			\Default Work Unit\Master Audio Bus\SFX Bus\Muzzler_SFX_Bus	
+	1502772432	SFX Bus			\Default Work Unit\Master Audio Bus\SFX Bus	
+	1570563853	Explore Music Bus			\Default Work Unit\Master Audio Bus\Master Music Bus\Explore Music Bus	
+	1908967618	Cashmere_SFX_Bus			\Default Work Unit\Master Audio Bus\SFX Bus\Cashmere_SFX_Bus	
+	2199471764	Combat 1 Section B Music Bus			\Default Work Unit\Master Audio Bus\Master Music Bus\Combat\Combat 1 Section B Music Bus	
+	2320406271	Environment_SFX_Bus			\Default Work Unit\Master Audio Bus\SFX Bus\Environment_SFX_Bus	
+	2731925972	UI_SFX_Bus			\Default Work Unit\Master Audio Bus\SFX Bus\UI_SFX_Bus	
+	2764240573	Combat			\Default Work Unit\Master Audio Bus\Master Music Bus\Combat	
+	2930211473	Boss Music Bus			\Default Work Unit\Master Audio Bus\Master Music Bus\Boss Music Bus	
+	3571547856	Turret_SFX_Bus			\Default Work Unit\Master Audio Bus\SFX Bus\Turret_SFX_Bus	
+	3736460895	ScrapShift Music Bus			\Default Work Unit\Master Audio Bus\Master Music Bus\ScrapShift Music Bus	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3967235860	General_SFX_Bus			\Default Work Unit\Master Audio Bus\SFX Bus\General_SFX_Bus	
+	4083411863	Combat 1 Section A Music Bus			\Default Work Unit\Master Audio Bus\Master Music Bus\Combat\Combat 1 Section A Music Bus	
+	4202237879	Ambience Bus			\Default Work Unit\Master Audio Bus\SFX Bus\Ambience Bus	
+
+Effect plug-ins	ID	Name	Type				Notes
+	14895759	Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)	Wwise Peak Limiter			
+	73399820	New_Peak_Limiter (Custom)	Wwise Peak Limiter			
+	178414885	Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)	Wwise Peak Limiter			
+	589171496	Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)	Wwise Peak Limiter			
+	853257643	Brick_Wall_Minus_1dB_Peak_Fast_Release (Custom)	Wwise Peak Limiter			
+	1459522457	Brick_Wall_Minus_1dB_Peak_Fast_Release	Wwise Peak Limiter			
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+
