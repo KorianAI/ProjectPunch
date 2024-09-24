@@ -5,6 +5,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	283095519	Boss_Section1			\Default Work Unit\Music\Boss_Section1	
 	543234128	SFXPlay_PipeCrash			\Default Work Unit\Environment SFX\SFXPlay_PipeCrash	
 	579523862	Explore			\Default Work Unit\Music\Explore	
+	679636833	MenuMusic			\Default Work Unit\Music\MenuMusic	
 	722136440	SFXPlay_BarrelExplosion			\Default Work Unit\Environment SFX\SFXPlay_BarrelExplosion	
 	767256457	SFXPlay_NailGunChargedShot			\Default Work Unit\Kaila SFX\Kaila_NailGun\SFXPlay_NailGunChargedShot	
 	778505933	SFXPlay_CashmereScrapVolley			\Default Work Unit\Cashmere SFX\SFXPlay_CashmereScrapVolley	

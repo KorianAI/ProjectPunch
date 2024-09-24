@@ -394,7 +394,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8091b5fd9e38294cbfcd273f6ed45d57
     GuidInternal: 
-    m_lastTime: -8584744590194775808
+    m_lastTime: -8584744544814775808
     List:
     - name: Soundbank_SFX
       guid: af2cf498d9d21f4e88407f3a8baafeea
@@ -710,8 +710,8 @@ MonoBehaviour:
         guid: b3b6174383c22048816a75e00f708482
       Path: Events\Default Work Unit\Music\MenuMusic
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Music
       guid: 58beaf42adc5184ca7f12096d3b9f2a2
       id: 3991942870

@@ -30,6 +30,7 @@
 						<ObjectRef Name="Boss_Section1" ID="{8866A62A-7D52-477E-A9A1-62F999927DBA}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_Land" ID="{1E893066-D7F3-47D5-8F25-6EE610F6FDBF}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_RS_Impact" ID="{FF7FB643-2C18-4800-ADEE-945384AD5A0D}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="MenuMusic" ID="{4317B6B3-C283-4820-816A-75E00F708482}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_ScrollCollect" ID="{D9D1B86B-6ADA-4842-A747-5D68C1878E15}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_GateClose" ID="{6AC2BE7A-4FD1-484E-AEB5-B929A7246708}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SFXPlay_VolleyImpact" ID="{F3946B53-22A6-486F-9215-99CF9673A30D}" WorkUnitID="{7445B285-2F2F-4587-9FB3-FFC160C3E541}" Origin="Manual" Filter="7"/>

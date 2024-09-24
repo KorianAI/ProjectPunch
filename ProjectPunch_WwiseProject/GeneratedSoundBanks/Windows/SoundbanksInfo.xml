@@ -121,7 +121,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{428FA1A3-7231-B432-19DC-97BA7E33B801}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{694EA93E-4B3A-583F-ADED-4B22C7A0994B}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -564,6 +564,11 @@
 				<Event Id="579523862" Name="Explore" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<ActionSetState>
 						<ActionSetStateEntry GroupId="1690668539" Id="579523862" Name="Explore"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="679636833" Name="MenuMusic" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="1690668539" Id="679636833" Name="MenuMusic"/>
 					</ActionSetState>
 				</Event>
 				<Event Id="1122283870" Name="MusicStart" DurationType="Infinite">
@@ -1035,5 +1040,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6816DCE7-3F3F-13FF-365B-0C5C0B1DC24C}</FileHash>
+	<FileHash>{DD7256EF-5708-5F06-F343-E985E6473B1E}</FileHash>
 </SoundBanksInfo>
