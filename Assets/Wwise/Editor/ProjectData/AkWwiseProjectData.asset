@@ -710,8 +710,8 @@ MonoBehaviour:
         guid: b3b6174383c22048816a75e00f708482
       Path: Events\Default Work Unit\Music\MenuMusic
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Music
       guid: 58beaf42adc5184ca7f12096d3b9f2a2
       id: 3991942870
@@ -2042,7 +2042,7 @@ MonoBehaviour:
         guid: 9618f51dadf4214087fc7ea68ced4ee5
       Path: Triggers\Default Work Unit\ScrapshiftEnd
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 050000000600000007000000080000000900000015000000160000001d0000001e000000
+  ExpandedWaapiItemIds: 06000000070000000c0000001500000016000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
