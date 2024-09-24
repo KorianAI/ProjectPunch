@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [DefaultExecutionOrder(0)]
 public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
@@ -110,7 +111,9 @@ public class BossHealth : MonoBehaviour, IDamageable, IMagnetisable
         }
 
         boss.enabled = false;
-        vignette.Play("EndScreen");
+
+        vignette.Play("DemoEnd");
+
 
     }
 
