@@ -121,7 +121,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{694EA93E-4B3A-583F-ADED-4B22C7A0994B}">
+		<SoundBank Id="2023573084" Type="User" Language="SFX" Hash="{46E64AC5-6159-7D7E-C328-3123EC9815BF}">
 			<ShortName>Soundbank_SFX</ShortName>
 			<Path>Soundbank_SFX.bnk</Path>
 			<Media>
@@ -152,10 +152,6 @@
 				<File Id="99683504" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guitar_4Bar_Riff2.wav</ShortName>
 					<CachePath>SFX/Guitar_4Bar_Riff2_56CEF360.wem</CachePath>
-				</File>
-				<File Id="99890009" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>ScrapShift_Intro.wav</ShortName>
-					<CachePath>SFX/ScrapShift_Intro_56CEF360.wem</CachePath>
 				</File>
 				<File Id="116980831" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RealSteel_OverdriveOutro.wav</ShortName>
@@ -385,6 +381,10 @@
 					<ShortName>Guitar_3.wav</ShortName>
 					<CachePath>SFX/Guitar_3_56CEF360.wem</CachePath>
 				</File>
+				<File Id="713282265" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ScrapshiftMode_Intro.wav</ShortName>
+					<CachePath>SFX/ScrapshiftMode_Intro_56CEF360.wem</CachePath>
+				</File>
 				<File Id="717155638" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Tube_1.wav</ShortName>
 					<CachePath>SFX/Tube_1_56CEF360.wem</CachePath>
@@ -465,10 +465,6 @@
 					<ShortName>Combat1_Intro.wav</ShortName>
 					<CachePath>SFX/Combat1_Intro_56CEF360.wem</CachePath>
 				</File>
-				<File Id="949668554" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>ScrapShift_Main.wav</ShortName>
-					<CachePath>SFX/ScrapShift_Main_56CEF360.wem</CachePath>
-				</File>
 				<File Id="999864757" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guitar_4Bar_Riff4.wav</ShortName>
 					<CachePath>SFX/Guitar_4Bar_Riff4_56CEF360.wem</CachePath>
@@ -484,6 +480,10 @@
 				<File Id="1018692921" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>BFG_Slam.wav</ShortName>
 					<CachePath>SFX/BFG_Slam_F657D6AA.wem</CachePath>
+				</File>
+				<File Id="1021508799" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ScrapshiftMode_loop.wav</ShortName>
+					<CachePath>SFX/ScrapshiftMode_loop_56CEF360.wem</CachePath>
 				</File>
 				<File Id="1024608900" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Percussion_4Bar_BigDrum.wav</ShortName>
@@ -635,8 +635,8 @@
 						<SwitchContainer>
 							<SwitchValue GroupType="State" GroupId="1690668539" Id="4104150384"/>
 							<MediaRefs>
-								<MediaRef Id="99890009"/>
-								<MediaRef Id="949668554"/>
+								<MediaRef Id="713282265"/>
+								<MediaRef Id="1021508799"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
@@ -1040,5 +1040,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{DD7256EF-5708-5F06-F343-E985E6473B1E}</FileHash>
+	<FileHash>{C2422103-F623-C12A-C0CF-E05EE14AF6DB}</FileHash>
 </SoundBanksInfo>
