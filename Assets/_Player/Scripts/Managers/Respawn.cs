@@ -29,13 +29,19 @@ public class Respawn : MonoBehaviour
         cpManager = GameObject.Find("CheckpointManager").GetComponent<CheckpointManager>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            ResetPlayer();
+        }
+    }
     void LateUpdate()
     {
         if (transform.position.y < fallThreshold && canReset)
         {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
             // ^ nuclear option in case this script doesn't work
-            Debug.Log("bruhbruhbruh");
             ResetPlayer();
         }
     }

@@ -49,6 +49,13 @@ public class TutorialManager : MonoBehaviour
 
     public void SetCurrent(GameObject newTut, bool canWalk, bool tip, float tipDelay)
     {
+        if (currentAnim)
+        {
+            HideTutorial();
+            StopAllCoroutines();
+            TurnOff();
+        }
+
         currentTutorial = newTut;
         currentAnim = currentTutorial.GetComponentInChildren<Animation>();
 
@@ -78,6 +85,7 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowTutorial(bool canWalk)
     {
+        Debug.Log("bro");
         currentTutorial.SetActive(true);
         currentAnim.Play("TutorialWindowAppear");
         sm.tutIsActive = true;
