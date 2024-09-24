@@ -214,6 +214,7 @@ public class PlayerResources : MonoBehaviour, IDamageable
 
             else
             {
+                MusicOverview.instance.RSOFF();
                 MusicSwitchState();
             }
             scrapDecrease = false;
