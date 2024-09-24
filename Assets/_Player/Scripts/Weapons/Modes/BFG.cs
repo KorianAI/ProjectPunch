@@ -30,11 +30,12 @@ public class BFG : Mode
 
     public void BaseCombo(int index)
     {
-        stats = baseComboStats[index];
+       
 
         if (index == 0)
         {           
             sm.SwitchState(new BFG_G1());
+            stats = baseComboStats[0];
         }
 
         else if (index == 1)
@@ -42,11 +43,13 @@ public class BFG : Mode
             if (sm.pc.pauseAttack)
             {
                 sm.SwitchState(new BFG_G4());
+                stats = baseComboStats[3];
             }
 
             else
             {
                 sm.SwitchState(new BFG_G2());
+                stats = baseComboStats[1];
             }
 
         }
@@ -54,11 +57,13 @@ public class BFG : Mode
         else if (index == 2)
         {
             sm.SwitchState(new BFG_G3());
+            stats = baseComboStats[2];
         }
 
         else if (index == 3)
         {
             sm.SwitchState(new BFG_G5());
+            stats = baseComboStats[4];
         }
     }
 

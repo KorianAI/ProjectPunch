@@ -72,7 +72,7 @@ public class CashmereSpotlight : MonoBehaviour
             if (collider.CompareTag("Player"))
             {
                 collider.GetComponent<IDamageable>().TakeDamage(10, false);
-                //collider.GetComponent<IKnockback>().Knockback(knockback, transform, kbSpeed);
+                collider.GetComponent<IKnockback>().Knockback(knockback, transform, kbSpeed);
             }
         }
     }

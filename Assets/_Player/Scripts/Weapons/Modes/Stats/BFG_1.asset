@@ -15,7 +15,7 @@ MonoBehaviour:
   attackName: BFG_1
   damage: 10
   rumbleAmnt: 0.15
-  shakeAmnt: 0.5
-  zoomAmnt: -1
-  shakeDur: 0.2
+  shakeAmnt: 1
+  zoomAmnt: -5
+  shakeDur: 1
   hitstopAmnt: 0.1
