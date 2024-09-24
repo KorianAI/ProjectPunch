@@ -16,6 +16,7 @@ public class ScrapVolleyProjectile : MonoBehaviour, IParriable
     bool playerHit;
 
     public AudioSource source;
+    public AK.Wwise.Event playSFX_ScrapVolley;
 
     public void SpawnScrapPile()
     {   
@@ -25,6 +26,7 @@ public class ScrapVolleyProjectile : MonoBehaviour, IParriable
             if (collider.CompareTag("Player"))
             {
                 collider.GetComponent<IDamageable>().TakeDamage(damage, false);
+                playSFX_ScrapVolley.Post(gameObject);
                 playerHit = true;
             }
         }
@@ -35,6 +37,7 @@ public class ScrapVolleyProjectile : MonoBehaviour, IParriable
             {
                 
                 Instantiate(scrapPile, transform.position, transform.rotation);
+                playSFX_ScrapVolley.Post(gameObject);
                 break;
             }
         }
