@@ -19,7 +19,7 @@ public class ScrapShockwave : MonoBehaviour
             {
                 target.TakeDamage(10, false);
                 canDealDamage = false;
-                //collision.gameObject.GetComponentInParent<IKnockback>().Knockback(knockupPower, transform, length);
+                collision.gameObject.GetComponentInParent<IKnockback>().Knockback(knockupPower, transform, length);
             }
 
         }

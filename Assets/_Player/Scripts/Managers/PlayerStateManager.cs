@@ -193,7 +193,7 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
         StopAllCoroutines();
         resources.invincible = true;
-        SwitchState(stunnedState);
+        SwitchState(new PlayerStunnedState());
         anim.SetBool("Stunned", true);
         anim.SetTrigger("StunnedTrigger");
 
@@ -212,7 +212,8 @@ public class PlayerStateManager : MonoBehaviour, IKnockback
 
     public void RecoverFromStun()
     {
-        SwitchState(idleState);
+        SwitchState(new PlayerIdleState());
+        cam.canRotate = true;
         anim.SetBool("Stunned", false);
         resources.invincible = false;
     }
