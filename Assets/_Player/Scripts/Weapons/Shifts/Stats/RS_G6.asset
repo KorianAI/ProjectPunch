@@ -16,6 +16,6 @@ MonoBehaviour:
   damage: 30
   rumbleAmnt: 0.5
   shakeAmnt: 2
-  zoomAmnt: -3
-  shakeDur: 1.5
+  zoomAmnt: -9
+  shakeDur: 2
   hitstopAmnt: 0.3

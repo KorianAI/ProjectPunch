@@ -18,7 +18,8 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange;
     public float enemyCheckRange;
     public LayerMask enemyLayer;
-    public GameObject hitVFX;
+    public GameObject bfgImpactVFX;
+    public GameObject rsImpactVFX;
 
     // launch
     [SerializeField] public float launchHeight;
@@ -107,7 +108,16 @@ public class PlayerCombat : MonoBehaviour
             RumbleManager.instance.RumblePulse(.15f, .25f, .3f);
             transform.DOKill();         
 
-            GameObject hitParticle = Instantiate(hitVFX, c.transform);
+            if (resources.scrapShift)
+            {
+                GameObject hitParticle = Instantiate(rsImpactVFX, c.transform);
+            }
+
+            else
+            {
+                GameObject hitParticle = Instantiate(bfgImpactVFX, c.transform);
+            }
+
         }
 
         if (enemies.Length > 0)
