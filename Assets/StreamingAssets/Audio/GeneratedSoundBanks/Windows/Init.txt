@@ -3,6 +3,7 @@ State Group	ID	Name			Wwise Object Path	Notes
 
 State	ID	Name	State Group			Notes
 	579523862	Explore	Music_States			
+	679636833	MenuMusic	Music_States			
 	748895195	None	Music_States			
 	1272574121	Boss_2	Music_States			
 	1272574122	Boss_1	Music_States			
