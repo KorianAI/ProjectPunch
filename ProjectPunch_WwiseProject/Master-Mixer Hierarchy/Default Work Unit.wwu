@@ -16,15 +16,7 @@
 								<Property Name="RecoveryTime" Type="Real64" Value="0.5"/>
 							</PropertyList>
 							<ChildrenList>
-								<Bus Name="Kaila_SFX_Bus" ID="{94588F36-3B64-47F5-A959-8D4A266D8C99}">
-									<PropertyList>
-										<Property Name="BusVolume" Type="Real64">
-											<ValueList>
-												<Value>-4</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-								</Bus>
+								<Bus Name="Kaila_SFX_Bus" ID="{94588F36-3B64-47F5-A959-8D4A266D8C99}"/>
 								<Bus Name="Cashmere_SFX_Bus" ID="{6ECA826F-B451-4803-B54B-1616931914C2}"/>
 								<Bus Name="Muzzler_SFX_Bus" ID="{AE6F898E-7DC2-4CC6-BBD9-E9C25A945477}"/>
 								<Bus Name="Turret_SFX_Bus" ID="{CBBEDDA6-A820-4B1D-B562-A8EA911CCB97}"/>

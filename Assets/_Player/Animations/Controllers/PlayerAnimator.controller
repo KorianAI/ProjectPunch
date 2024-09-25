@@ -585,7 +585,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RS5
-  m_Speed: 2
+  m_Speed: 2.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1331148786066261388}
@@ -1666,7 +1666,7 @@ AnimatorStateMachine:
     m_Position: {x: -60, y: 1020, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 335813390986644968}
-    m_Position: {x: 660, y: 660, z: 0}
+    m_Position: {x: 660, y: 610, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4439557173819695639}
     m_Position: {x: 580, y: 690, z: 0}
@@ -2065,7 +2065,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RS4
-  m_Speed: 2
+  m_Speed: 2.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3384474492860808770}
@@ -2202,12 +2202,12 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
-  m_Mirror: 1
+  m_Mirror: 0
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9e560580b5570cd49b2f199f6e039fa1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 064e3a087ed14b144b93d621d5365e5f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

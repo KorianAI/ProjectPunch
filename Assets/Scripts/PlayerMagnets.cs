@@ -58,6 +58,12 @@ public class PlayerMagnets : MonoBehaviour
                 }
             }
         }
+
+
+        else  // parry
+        {
+            sm.SwitchState(new ParryState());
+        }
     }
 
     public void PullInput(InputCommand command)

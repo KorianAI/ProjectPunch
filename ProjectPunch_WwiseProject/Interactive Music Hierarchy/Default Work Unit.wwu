@@ -13001,19 +13001,12 @@
 				<Folder Name="Stingers" ID="{A6C1B27F-6E13-4E74-9EC1-87E03CB32DED}" ShortID="169362051">
 					<ChildrenList>
 						<MusicSegment Name="ScrapShift" ID="{34BBD894-08DB-411F-BC21-FBBAB5AE11E1}" ShortID="573464408">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>4</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX Bus" ID="{E167BE63-DE77-42E0-B043-ABB45C1BB91D}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+									<ObjectRef Name="Kaila_SFX_Bus" ID="{94588F36-3B64-47F5-A959-8D4A266D8C99}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -13163,19 +13156,12 @@
 							</ObjectLists>
 						</MusicSegment>
 						<MusicSegment Name="ScrapShiftEnd" ID="{0F98CA91-113A-49BB-8EF8-C0D662A5F314}" ShortID="46209106">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>4</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX Bus" ID="{E167BE63-DE77-42E0-B043-ABB45C1BB91D}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
+									<ObjectRef Name="Kaila_SFX_Bus" ID="{94588F36-3B64-47F5-A959-8D4A266D8C99}" WorkUnitID="{011DB1F4-7F54-4B8A-9B37-253758B8A136}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>

@@ -67,12 +67,16 @@ public class PlayerCombat : MonoBehaviour
         _sm = GetComponent<PlayerStateManager>();
         resources = GetComponent<PlayerResources>();
         movement = GetComponent<PlayerMovement>();
-        Vector3 launchPosition = new Vector3(transform.position.x, transform.position.y + launchHeight, transform.position.z);
-        yPosition = launchPosition.y;
+       
     }
 
     private void Update()
     {
+        if (movement.grounded)
+        {
+            Vector3 launchPosition = new Vector3(transform.position.x, transform.position.y + launchHeight, transform.position.z);
+            yPosition = launchPosition.y;
+        }
 
     }
     public void CheckForEnemies()

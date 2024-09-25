@@ -73,6 +73,8 @@ public class TurretHealth : MonoBehaviour, IDamageable, IMagnetisable, IKnockbac
 
     public void TakeDamage(float damage, bool ranged)
     {
+        damage *= 2.5f;
+
         if (!takenDamage)
         {
             takenDamage = true;

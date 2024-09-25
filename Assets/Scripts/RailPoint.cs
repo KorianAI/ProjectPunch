@@ -158,6 +158,12 @@ public class RailPoint : MonoBehaviour, IMagnetisable
                 ps.anim.Play("PlayerInAir");
             }
 
+
+            if (ps.tl.timerOn)
+            {
+                ps.tl.timerOn = false;
+            }
+
         }
 
         ps.cam.canRotate = true;

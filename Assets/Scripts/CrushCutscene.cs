@@ -66,7 +66,7 @@ public class CrushCutscene : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !PlayerStateManager.instance.inCombat)
         {
             dir.Play(CutsceneP1);
             player = other.gameObject;

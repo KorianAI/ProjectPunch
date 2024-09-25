@@ -6,6 +6,12 @@ public class BossTrigger : MonoBehaviour
 {
     public AK.Wwise.Event playMusic_Boss1;
     public BossInfo boss;
+    BoxCollider boxCollider;
+
+    private void Start()
+    {
+        boxCollider = GetComponent<BoxCollider>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +23,7 @@ public class BossTrigger : MonoBehaviour
             PlayerStateManager.instance.inBossFight = true;
             PlayerStateManager.instance.resources.ChangeGauntlets(1);
             PlayerStateManager.instance.resources.PlayMusic_Boss1();
+            boxCollider.enabled = false;
         }
     }
 

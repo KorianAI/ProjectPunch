@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nailgun
   m_EditorClassIdentifier: 
   attackName: NailgunBurst
-  damage: 5
+  damage: 6
   rumbleAmnt: 0.1
   shakeAmnt: 0.05
   zoomAmnt: -0.5
