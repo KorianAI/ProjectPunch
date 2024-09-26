@@ -7,6 +7,7 @@ public class TitleScreenAudio : MonoBehaviour
 
     [Header("Main Theme")]
     public AK.Wwise.Event playMusic_MainTheme;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,12 @@ public class TitleScreenAudio : MonoBehaviour
 
     private void Awake()
     {
-        Music_MainTheme();
+        //if (!HasPlayedMusic.instance.hasPlayedMusic)
+        //{
+            
+        //    HasPlayedMusic.instance.hasPlayedMusic = true;
+        //}
+        
     }
 
     // Update is called once per frame

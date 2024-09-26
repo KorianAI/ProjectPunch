@@ -210,12 +210,13 @@ public class PlayerResources : MonoBehaviour, IDamageable
             if (!stateManager.inBossFight)
             {
                 MusicOverview.instance.RSOFF();
+                MusicSwitchState();
             }
 
             else
             {
                 MusicOverview.instance.RSOFF();
-                MusicSwitchState();
+                
             }
             scrapDecrease = false;
             scrapShift = false;

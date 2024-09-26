@@ -105,6 +105,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="BFG_Lunge" ID="{47A7AC08-C13C-40EE-87AD-AD6FCA4FFEE9}" ShortID="851027577">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D61EFE06-D755-4545-8919-60D9E4745B97}"/>
@@ -337,6 +344,11 @@
 												</ModifierInfo>
 											</ModifierList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -447,6 +459,11 @@
 													</Modifier>
 												</ModifierInfo>
 											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-8</Value>
+											</ValueList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -930,7 +947,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-10</Value>
+												<Value>-7</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1248,6 +1265,11 @@
 											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -1845,7 +1867,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>4</Value>
+										<Value>2</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1974,11 +1996,6 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>5</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2047,7 +2064,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-15</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2181,11 +2198,6 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-5</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2288,7 +2300,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-15</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

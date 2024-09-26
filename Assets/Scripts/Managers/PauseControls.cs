@@ -25,6 +25,7 @@ public class PauseControls : MonoBehaviour
     public void ChangeScene(int sceneId)
     {
         Time.timeScale = 1;
+        HasPlayedMusic.instance.Music_MainTheme();
         SceneManager.LoadScene(sceneId);
     }
 

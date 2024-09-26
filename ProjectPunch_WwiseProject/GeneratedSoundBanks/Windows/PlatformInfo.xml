@@ -10,7 +10,7 @@
 	</RootPaths>
 	<DefaultAlign>16</DefaultAlign>
 	<Settings>
-		<AutoSoundBankDefinition>false</AutoSoundBankDefinition>
+		<AutoSoundBankDefinition>true</AutoSoundBankDefinition>
 		<CopyLooseStreamedMediaFiles>true</CopyLooseStreamedMediaFiles>
 		<SubFoldersForGeneratedFiles>false</SubFoldersForGeneratedFiles>
 		<RemoveUnusedGeneratedFiles>true</RemoveUnusedGeneratedFiles>
@@ -28,5 +28,5 @@
 		<PrintObjectGuid>false</PrintObjectGuid>
 		<PrintObjectPath>false</PrintObjectPath>
 	</Settings>
-	<FileHash>{502FCF00-D4D0-7653-F96B-6AB03664DF6D}</FileHash>
+	<FileHash>{04651845-3261-748C-5307-114F017C799F}</FileHash>
 </PlatformInfo>

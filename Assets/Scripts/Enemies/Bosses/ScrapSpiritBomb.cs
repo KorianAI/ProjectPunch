@@ -38,7 +38,7 @@ public class ScrapSpiritBomb : MonoBehaviour
     public AudioClip slamExplosion;
 
     public Vector3 maxScale;
-
+    public AK.Wwise.Event playSFX_CashmereBomb;
     private void Start()
     {
         originalPos = transform.position;
@@ -58,8 +58,7 @@ public class ScrapSpiritBomb : MonoBehaviour
 
     public void Slam()
     {
-        source.PlayOneShot(slamExplosion);
-
+        playSFX_CashmereBomb.Post(gameObject);
         GameObject shockwaveEffect = Instantiate(shockwaveVFX, impactPoint.position, Quaternion.Euler(-90, 0, 0));
         GameObject rumbleEffect = Instantiate(rumbleVFX, impactPoint.position, Quaternion.identity);
 

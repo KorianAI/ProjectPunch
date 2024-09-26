@@ -378,7 +378,7 @@
 															<MusicFade Name="Source Fade-out" ID="{DF0D66EF-FBBB-48F8-9382-11383447F7D3}">
 																<PropertyList>
 																	<Property Name="FadeCurve" Type="int16" Value="6"/>
-																	<Property Name="FadeTime" Type="Real64" Value="4"/>
+																	<Property Name="FadeTime" Type="Real64" Value="2"/>
 																	<Property Name="FadeType" Type="int16" Value="1"/>
 																</PropertyList>
 															</MusicFade>
@@ -397,7 +397,7 @@
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
 														<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 														<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
-														<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+														<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
 														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
@@ -434,7 +434,7 @@
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
 														<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 														<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
-														<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+														<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
 														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
@@ -471,7 +471,7 @@
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
 														<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 														<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
-														<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+														<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
 														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
@@ -508,7 +508,7 @@
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
 														<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 														<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
-														<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+														<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
 														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
@@ -545,7 +545,7 @@
 														<Property Name="DestinationContextType" Type="int16" Value="2"/>
 														<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 														<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
-														<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+														<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
 														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 														<Property Name="SourceContextType" Type="int16" Value="2"/>
